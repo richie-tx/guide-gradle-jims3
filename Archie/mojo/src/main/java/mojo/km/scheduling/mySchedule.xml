@@ -1,0 +1,47 @@
+<!-- 
+    A sample  XML file that demonstrates
+    Here are the busines rules for this sample:
+    - This app needs to run every other day from the first date of notification   
+    - This app can terminate the notification process.
+    - This app do not run on new year, and on my birthdy, heheheh :)
+        the new notificatin date is next day. except for 01/01/2004, the 
+        next notification is 2 days after.
+    - This app cannot run on the weekends. next notification should be on Monday
+    
+    This sample shows that we can re configure the scheduler using XML files
+    without changing the code.
+-->
+
+<schedule>        
+  
+    <!-- set this value to true if you want to stop the notification-->
+    <fullTermination value="false"/>
+
+    <!-- Add the blackout dates here. -->                   
+    <!-- New Year for 2003 format is MM/DD/YYYY
+        date = the blackout date, i.e when the scheduler should NOT notify the app
+               the fomat is MM/DD/YYYY
+        newDate = when the new date of the notification should be
+        desc = description, it is not used.  Just for information only.
+    -->
+    <blackoutDate date="01/01/2003" newDate="01/02/2003" desc="New Year"/>
+    <blackoutDate date="01/01/2004" newDate="01/03/2004" desc="New Year"/>
+    <blackoutDate date="06/04/2003" newDate="06/05/2003" desc="it's my B-day!"/>    
+    
+    <!-- Add Blackout day here-->       
+    <!-- 
+        BlackoutDay represents the Days that the shceduler should not 
+        notify this application
+        day: the day when the app should NOT be notified
+        newDay: how many days AFTER this date should the scheduler use.                
+        desc = description, it is not used.  Just for information only.
+    -->
+    <blackoutDay day="Saturday" newDay="2" desc="Its the weekend"/>
+    <blackoutDay day="Sunday" newDay="1" desc="Its the weekend"/>
+        
+    <!-- What is the normal notification for this app.
+        day: number of days.
+    -->       
+    <normalNotification day="2"/>
+    
+</schedule>

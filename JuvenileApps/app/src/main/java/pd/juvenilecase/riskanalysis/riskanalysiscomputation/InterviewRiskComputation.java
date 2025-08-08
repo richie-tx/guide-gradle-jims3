@@ -1,0 +1,399 @@
+package pd.juvenilecase.riskanalysis.riskanalysiscomputation;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import pd.exception.ComputationValidationException;
+import pd.juvenilecase.riskanalysis.RiskFinalScore;
+import pd.juvenilecase.riskanalysis.RiskResultGroup;
+import messaging.riskanalysis.SaveInterviewAssessmentEvent;
+import messaging.riskanalysis.reply.RiskComputationReponseEvent;
+import messaging.riskanalysis.reply.InterviewRiskComputationReponseEvent;
+import mojo.km.messaging.IEvent;
+import mojo.km.persistence.Home;
+import mojo.km.persistence.IHome;
+/** 
+ * @deprecated
+ * @author PAlcocer
+ * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+ */
+public class InterviewRiskComputation extends RiskComputation {
+	
+	private InterviewRiskComputationReponseEvent riskInterviewCompRespEvent; 
+	private SaveInterviewAssessmentEvent saveInterviewAssessEvent;
+	private HashMap questionWeightsMap;
+	
+	//Questions which will be used in formula(s)
+	/* private int question1Weight; //Interview Information 
+	private int question2Weight; //Onset Age
+	private int question3Weight; //Sex
+	private int question4Weight; //Reason Type
+	private int question5Weight; // Narcotics/Alcohol
+	private int question6Weight; // Gang Activity
+	private int question7Weight; // Attitude During Interview
+	private int question8Weight; // School Information
+	private int question9Weight; // School Attendence
+	private int question10Weight; // Numbers of times suspended from current school?
+	private int question11Weight; // Numbers of times expelled from current school?
+	private int question12Weight; // Is the juvenile currently passing all his/her classes?
+	private int question13Weight; // Number of classes currently failing
+	private int question14Weight; // How many grades did the juvenile repeat?	
+	private int question15Weight; // Family Dynamics
+	private int question16Weight; // Family Attitude During Interview (TotalFamily)
+	private int question17Weight; // Is the juvenile disrespectful to his/her parents or guardians?
+	private int question18Weight; // Is juvenile verbally assaultive to his/her parents or guardians?
+	private int question19Weight; // Is juvenile physically assaultive to his/her parents or guardians?
+	private int question20Weight; // Are there weapons (firearms) in the home?
+	private int question21Weight; // Number of siblings without criminal history (juvenile or adult)
+	private int question22Weight; // Number of siblings with criminal history (juvenile or adult)
+	private int question23Weight; // Parents/Guardians have a substance abuse problem?
+	private int question24Weight; // Parents/Guardians have a criminal history?
+	private int question25Weight; // Are any of the juvenile's biological or adoptive parents deceased?
+	private int question26Weight; // Are any of the juvenile's biological or adoptive parents incarcerated?
+	private int question27Weight; // Has the family moved two or more times in the last year? */
+		
+	public InterviewRiskComputation (SaveInterviewAssessmentEvent saveInterviewAssessEvent) {
+		this.saveInterviewAssessEvent = saveInterviewAssessEvent; 	
+		this.setWeightOfQuestions();
+	}
+	
+	/** 
+	 * (non-Javadoc)
+	 * @see RiskComputation#compute()
+	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	 */
+	public RiskComputationReponseEvent compute() throws ComputationValidationException {
+		
+		validate(saveInterviewAssessEvent);
+		riskInterviewCompRespEvent = new InterviewRiskComputationReponseEvent();
+		
+		
+		//If age is 16 then points=1
+		//if age is 14-15 then points=2if age is 13 or younger then points=3
+		/* riskInterviewCompRespEvent.setOnSetAge(question2Weight); 
+		riskInterviewCompRespEvent.setGender(saveInterviewAssessEvent.getSex());
+		//Valid Values=Male (2 points);Female(0 points)
+		riskInterviewCompRespEvent.setGenderInt(question3Weight);
+		riskInterviewCompRespEvent.setTotalChild(calculateTotalChildScore());
+		riskInterviewCompRespEvent.setTotalChildHomeAttitude(calculateTotalChildHomeAttitudeScore());
+		riskInterviewCompRespEvent.setTotalDeceasedParents(question25Weight);
+		riskInterviewCompRespEvent.setTotalExpulsions(calculateTotalExpulsionsScore());
+		riskInterviewCompRespEvent.setTotalFailingClasses(question13Weight);
+		riskInterviewCompRespEvent.setTotalFamily(question16Weight); // Family Attitude During Interview (TotalFamily)
+		riskInterviewCompRespEvent.setTotalFamilyDynamics(calculateTotalFamilyDynamicsScore());
+		riskInterviewCompRespEvent.setTotalGradesRepeated(calculateTotalGradesRepeatedScore());
+		riskInterviewCompRespEvent.setTotalSchool(calculateTotalSchoolScore());
+		riskInterviewCompRespEvent.setTotalInterviewSchoolBehavior(calculateInterviewTotalSchoolBehaviorScore());
+		riskInterviewCompRespEvent.setTotalSibling(calculateTotalSiblingsScore());
+		riskInterviewCompRespEvent.setTotalSuspensions(calculateTotalSuspensionsScore());*/
+		
+		riskInterviewCompRespEvent.setTotalScores(finalScores());
+		
+		return riskInterviewCompRespEvent;
+	}
+
+	/** 
+	 * (non-Javadoc)
+	 * @see RiskComputation#validate(IEvent event)
+	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	 */
+	protected void validate(IEvent event) throws ComputationValidationException {
+		
+		boolean failed = false;
+		
+		if (failed) {
+			throw new ComputationValidationException("InterviewRiskComputation failed validation.");
+		}
+		
+	}
+	private RiskFinalScore riskAssessmentScore() {
+		RiskFinalScore riskFinalScore = new RiskFinalScore();
+		RiskResultGroup riskResultGroup = null;
+		
+		Iterator<RiskResultGroup> riskResultGroups = RiskResultGroup.findAllByAttributeName("description", "InterviewRisk");
+		
+		while ( riskResultGroups.hasNext() ){
+			riskResultGroup = riskResultGroups.next();
+		}
+		
+		if (riskResultGroup != null) {
+			riskFinalScore.setRiskResultGroup(riskResultGroup);
+		}
+		
+		riskFinalScore.setRiskAnalysisId(Integer.parseInt(saveInterviewAssessEvent.getRiskAnalysisId()));
+		/* riskFinalScore.setFinalScore(question1Weight + question2Weight + question3Weight + question4Weight +
+				question5Weight + question6Weight + question7Weight + question8Weight + question9Weight +
+				question10Weight + question11Weight);
+		*/
+		int total = 0;
+		// TotalChild+TotalSchoolBehavior+TotalSchool+TotalChildHomeAttitude+TotalFamily+TotalFamilyDynmics + 
+		//( for JUVENILE_RISK_ANALYSIS.PartNumber=1, then add PartScore)
+		//total = finalScore() + saveInterviewAssessEvent.getLatestReferralFinalScore();
+		riskFinalScore.setFinalScore(finalScore());
+		//Explicitly bind to database so that a Risk Final Score OID is generated
+		IHome home=new Home();
+		home.bind(riskFinalScore);
+
+		return riskFinalScore;
+	}	
+	/* (non-Javadoc)
+	 * @see pd.juvenilecase.riskanalysis.riskanalysiscomputation.RiskComputation#finalScore()
+	 */
+	protected int finalScore() {
+		// TotalChild+TotalSchoolBehavior+TotalSchool+TotalChildHomeAttitude+TotalFamily+TotalFamilyDynmics + 
+		//( for JUVENILE_RISK_ANALYSIS.PartNumber=1, then add PartScore)
+/*		total = calculateTotalChildScore() + calculateInterviewTotalSchoolBehaviorScore() + calculateTotalSchoolScore() 
+				+ calculateTotalChildHomeAttitudeScore() + question16Weight 
+				+ calculateTotalFamilyDynamicsScore() + calculateTotalSiblingsScore();
+		total = total + saveInterviewAssessEvent.getLatestReferralFinalScore();*/
+		int total = RiskComputationUtil.calculateScore(getQuestionWeightsMap());
+		return total;
+	}
+	
+	protected List finalScores() {
+		List finalScores = new ArrayList();
+		finalScores.add(riskAssessmentScore());
+		
+		return finalScores;	}
+	
+	/* (non-Javadoc)
+	 * @see pd.juvenilecase.riskanalysis.riskanalysiscomputation.RiskComputation#setWeightOfQuestions()
+	 */
+	protected void setWeightOfQuestions() {
+	
+			HashMap hmQuestionWeights = RiskComputationUtil.getQuestionWeights(saveInterviewAssessEvent);
+			setQuestionWeightsMap(hmQuestionWeights);
+
+				
+		/* Set entries = hmQuestionWeights.entrySet();
+		Iterator it = entries.iterator();
+		
+		 while (it.hasNext()) {
+	        Map.Entry entry = (Map.Entry) it.next();
+	        //System.out.println( "Key: " +  entry.getKey() +  " Value: " + entry.getValue());
+	        int questionNumber = (Integer)entry.getKey();
+	        int weight = (Integer)entry.getValue();
+	        switch(questionNumber) {
+				case 1: {
+					question1Weight = weight;
+					break;
+				} case 2: {
+					question2Weight = weight;
+					break;
+				} case 3: {
+					question3Weight = weight;
+					break;
+				} case 4: {
+					question4Weight = weight;
+					break;
+				} case 5: {
+					question5Weight = weight;
+					break;
+		   		} case 6: {
+					question6Weight = weight;
+					break;
+				} case 7: {
+					question7Weight = weight;
+					break;
+				} case 8: {
+					question8Weight = weight;
+					break;
+				} case 9: {
+					question9Weight = weight;
+					break;
+				} case 10: {
+					question10Weight = weight;
+					break;
+				} case 11: {
+					question11Weight = weight;
+					break;
+				} case 12: {
+					question12Weight = weight;
+					break;
+				} case 13: {
+					question13Weight = weight;
+					break;
+				} case 14: {
+					question14Weight = weight;
+					break;
+				} case 15: {
+					question15Weight = weight;
+					break;
+				} case 16: {
+					question16Weight = weight;
+					break;
+				} case 17: {
+					question17Weight = weight;
+					break;
+				} case 18: {
+					question18Weight = weight;
+					break;
+				} case 19: {
+					question19Weight = weight;
+					break;
+				} case 20: {
+					question20Weight = weight;
+					break;
+				} case 21: {
+					question21Weight = weight;
+					break;
+				} case 22: {
+					question22Weight = weight;
+					break;
+				} case 23: {
+					question23Weight = weight;
+					break;
+				} case 24: {
+					question24Weight = weight;
+					break;
+				} case 25: {
+					question25Weight = weight;
+					break;
+				} case 26: {
+					question26Weight = weight;
+					break;
+				} case 27: {
+					question27Weight = weight;
+					break;
+				} 				
+		   	}
+		} */
+	}
+	
+	/**
+	 * @return
+	 */
+/*	private int calculateTotalChildScore() {
+		int total = 0;
+		// JUVENILE_RISK_ANALYSIS_2.TotalChild=OnsetAge + Gender + NarcoticsAlcohol + GangActivities + AttitudeAtInterview
+		total = question2Weight + question3Weight + question5Weight + question6Weight + question7Weight;
+		return total;
+	}*/
+	
+	/**
+	 * @param int i
+	 */
+	//public int getOnSetAgeScore(int age) {
+	//int total = 0;
+		/*
+		 *If age is 16 then points=1
+		 *if age is 14-15 then points=2if age is 13 or younger then points=3
+		*/
+	//	switch(age) {
+	//		case 16:
+	//			total = 1;
+	//			break;
+	//		case 15:
+	//		case 14:
+	//			total = 2;
+	//	}
+		
+	//	if(age <= 13) {
+	//		total = 3;
+	//	}
+	//	return total;
+	//}
+	
+	/**
+	 * @return int total
+	 */
+/*	private int calculateTotalChildHomeAttitudeScore() {
+		int total = 0;
+		//JUVENILE_RISK_ANALYSIS_2.TotalChildHomeAttitude=DisrespectParents+VerbalAssaultiveofParents+PhysicallAssaultiveofParents
+		total = question17Weight + question18Weight + question19Weight;
+		return total;
+	}*/
+	
+	/**
+	 * @return int total
+	 */
+/*	private int calculateTotalExpulsionsScore() {
+		int total = 0;
+		// The number of points associated with the response selected. 
+		//(Points= JUVENILE_RISK_ANALYSIS_2.NumberExpulsions * 2 or if NumberExpulsions>14 then 30)
+		if( question11Weight > 14) {
+			total = 30;
+		} else {
+			total = question11Weight * 2;
+		}
+		return total;
+	}*/
+	
+	/**
+	 * @return int total
+	 */
+/*	private int calculateTotalFamilyDynamicsScore() {
+		int total = 0;
+		//JUVENILE_RISK_ANALYSIS_2.TotalFamilyDynamics=ParentAlcoholUse+ParentCriminalHistory +
+		//ParentDeceasednumber+ParentIncarcerated+WeaponInHome+ResidentialMoves
+		total = question23Weight + question24Weight + question25Weight + question26Weight + question20Weight + question27Weight;
+		return total;
+	}*/
+	
+	/**
+	 * @return int total
+	 */
+/*	private int calculateTotalGradesRepeatedScore() {
+		int total = 0;
+		// JUVENILE_RISK_ANALYSIS_2.TotalGradesRepeated=JUVENILE_RISK_ANALYSIS_2.GradesRepeated *3
+		total = question14Weight * 3;
+		return total;
+	}
+*/	
+	/**
+	 * @return int total
+	 */
+/*	private int calculateTotalSchoolScore() {
+		int total = 0;
+		// JUVENILE_RISK_ANALYSIS_2.TotalSchool=TotalGradesRepeated + TotalFailingClasses + SchoolAttendance
+		total = calculateTotalGradesRepeatedScore() + question13Weight + question9Weight;
+		return total;
+	}*/
+	
+	/**
+	 * @return int total
+	 */
+/*	private int calculateInterviewTotalSchoolBehaviorScore() {
+		int total = 0;
+		// JUVENILE_RISK_ANALYSIS_2.TotalSchoolBehavior=TotalSupervisions + TotalExpulsions
+		total = calculateTotalSuspensionsScore() + calculateTotalExpulsionsScore();
+		return total;
+	}*/
+	
+	/**
+	 * @return int total
+	 */
+/*	private int calculateTotalSiblingsScore() {
+		int total = 0;
+		//JUVENILE_RISK_ANALYSIS_2.TotalSiblings = (SiblingswithCriminalHistory * 2) - <minus> SiblingsWihtoutCriminalHistory
+		total = (question22Weight * 2 - question21Weight);
+		return total;
+	}
+*/	
+	/**
+	 * @return
+	 */
+/*	private int calculateTotalSuspensionsScore() {
+		int total = 0;
+		// The number of points associated with the response selected. 
+		//JUVENILE_RISK_ANALYSIS_2.TotalSuspensions= (Points= NumberSuspension * 2 or if NumberSuspension>14 then 30)
+		if (question10Weight > 14) {
+			total = 30;
+		} else {
+			total = question10Weight * 2;
+		}
+		return total;
+	}*/
+	public void setQuestionWeightsMap(HashMap questionWeights) {
+		this.questionWeightsMap = questionWeights;
+	}
+	public HashMap getQuestionWeightsMap() {
+		return questionWeightsMap;
+	}
+}

@@ -1,0 +1,75 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Mojo import="JIMS2.xml">
+	<EntityMappingFiles>
+		<EntityMappingFile packageName="mojo.km.addressValidation" fileName="mojo.km.addressValidationMapping.xml"/>
+		<EntityMappingFile packageName="mojo.km.calendaringMapping" fileName="mojo.km.calendaringMapping.xml"/>
+		<EntityMappingFile packageName="mojo.km.exceptionhandling" fileName="mojo.km.exceptionhandlingMapping.xml"/>
+		<EntityMappingFile packageName="mojo.km.identityaddress" fileName="mojo.km.identityaddressMapping.xml"/>
+		<EntityMappingFile packageName="mojo.km.notification" fileName="mojo.km.notificationMapping.xml"/>
+		<EntityMappingFile packageName="mojo.km.reportingCS" fileName="mojo.km.reportingMappingCS.xml"/>
+		<EntityMappingFile packageName="mojo.km.reportingMJCW" fileName="mojo.km.reportingMappingMJCW.xml"/>
+		<EntityMappingFile packageName="mojo.km.reportingMJW" fileName="mojo.km.reportingMappingMJW.xml"/>
+		<EntityMappingFile packageName="mojo.km.reportingText" fileName="mojo.km.reportingTextMapping.xml"/>
+		<EntityMappingFile packageName="mojo.km.scheduling" fileName="mojo.km.schedulingMapping.xml"/>
+		<!-- <EntityMappingFile packageName="mojo.km.security" fileName="mojo.km.securityMapping.xml"/> task 87191 -->
+		<EntityMappingFile packageName="pd.codetable.person" fileName="pd.codetable.personMapping.xml"/>  
+		<EntityMappingFile packageName="pd.codetable.riskanalysis" fileName="pd.codetable.riskanalysisMapping.xml"/>
+		<EntityMappingFile packageName="pd.codetable" fileName="pd.codetableMapping.xml"/>
+		<EntityMappingFile packageName="pd.contact" fileName="pd.contactMapping.xml"/>
+		<!-- <EntityMappingFile packageName="pd.contact.user" fileName="pd.contact.userMapping.xml"/> #87191-->
+		<EntityMappingFile packageName="pd.codetable.criminal" fileName="pd.codetable.criminalMapping.xml"/>
+		<EntityMappingFile packageName="pd.address" fileName="pd.addressMapping.xml"/>		
+		<EntityMappingFile packageName="pd.commonfunctionality.spnconsolidation" fileName="pd.commonfunctionality.spnconsolidationMapping.xml"/>
+		<!-- <EntityMappingFile packageName="pd.contact.agency" fileName="pd.contact.agencyMapping.xml"/> --> <!-- 87191 -->
+		<EntityMappingFile packageName="pd.contact.officer" fileName="pd.contact.officerMapping.xml"/>
+		<EntityMappingFile packageName="pd.contact.party" fileName="pd.contact.partyMapping.xml"/>
+		<EntityMappingFile packageName="pd.criminalcase" fileName="pd.criminalcaseMapping.xml"/>
+		<EntityMappingFile packageName="pd.juvenile" fileName="pd.juvenileMapping.xml"/>
+		<EntityMappingFile packageName="pd.juvenilecase" fileName="pd.juvenilecaseMapping.xml"/>
+		<EntityMappingFile packageName="pd.juvenilecase.casefile" fileName="pd.juvenilecase.casefileMapping.xml"/>
+		<EntityMappingFile packageName="pd.juvenilecase.caseplan" fileName="pd.juvenilecase.caseplanMapping.xml"/>
+		<EntityMappingFile packageName="pd.juvenilecase.interviewinfo" fileName="pd.juvenilecase.interviewinfoMapping.xml"/>
+		<EntityMappingFile packageName="pd.juvenilecase.referral" fileName="pd.juvenilecase.referralMapping.xml"/>
+		<EntityMappingFile packageName="pd.juvenilecase.riskanalysis" fileName="pd.juvenilecase.riskanalysisMapping.xml"/>
+		<EntityMappingFile packageName="pd.juvenilecase.mentalhealth" fileName="pd.juvenilecase.mentalhealthMapping.xml"/>
+		<EntityMappingFile packageName="pd.juvenileFamilyMapping" fileName="pd.juvenileFamilyMapping.xml"/>
+		<EntityMappingFile packageName="pd.juvenilewarrant" fileName="pd.juvenilewarrantMapping.xml"/>
+		<EntityMappingFile packageName="pd.managecase" fileName="pd.managecaseMapping.xml"/>
+		<EntityMappingFile packageName="pd.notification" fileName="pd.notificationMapping.xml"/>
+		<EntityMappingFile packageName="pd.supervision" fileName="pd.supervisionMapping.xml"/>
+		<EntityMappingFile packageName="pd.supervision.administercasenotes" fileName="pd.supervision.administercasenotesMapping.xml"/>
+		<EntityMappingFile packageName="pd.supervision.administerserviceprovider" fileName="pd.supervision.administerserviceproviderMapping.xml"/>
+		<EntityMappingFile packageName="pd.supervision.administerserviceprovider.administercontract" fileName="pd.supervision.administerserviceprovider.administercontractMapping.xml"/>
+		<EntityMappingFile packageName="pd.supervision.administerserviceprovider.administerlocation" fileName="pd.supervision.administerserviceprovider.administerlocationMapping.xml"/>
+		<EntityMappingFile packageName="pd.supervision.administerserviceprovider.csserviceprovider" fileName="pd.supervision.administerserviceprovider.csserviceproviderMapping.xml"/>				
+		<EntityMappingFile packageName="pd.supervision.calendar" fileName="pd.supervision.calendarMapping.xml"/>
+		<EntityMappingFile packageName="pd.supervision.codetable" fileName="pd.codetable.supervisionMapping.xml"/>
+		<EntityMappingFile packageName="pd.supervision.managesupervisioncase" fileName="pd.supervision.managesupervisioncaseMapping.xml"/>
+		<EntityMappingFile packageName="pd.supervision.suggestedorderMapping" fileName="pd.supervision.suggestedorderMapping.xml"/>
+		<EntityMappingFile packageName="pd.supervision.supervisionorderMapping" fileName="pd.supervision.supervisionorderMapping.xml"/>
+		<EntityMappingFile packageName="pd.supervision.options" fileName="pd.supervision.supervisionOptionsMapping.xml"/>
+		<EntityMappingFile packageName="pd.security" fileName="pd.securityMapping.xml"/>
+		<EntityMappingFile packageName="pd.task" fileName="pd.task.taskMapping.xml"/>
+		<EntityMappingFile packageName="pd.supervision.supervisionstaff.cscdstaffposition" fileName="pd.supervision.supervisionstaff.cscdstaffpositionMapping.xml"/>
+		<EntityMappingFile packageName="pd.supervision.supervisionstaff" fileName="pd.supervision.supervisionstaffMapping.xml"/>
+		<EntityMappingFile packageName="pd.supervision.manageworkgroupMapping" fileName="pd.supervision.manageworkgroupMapping.xml"/>
+		<EntityMappingFile packageName="pd.supervision.manageassociateMapping" fileName="pd.supervision.manageassociateMapping.xml"/>
+		<EntityMappingFile packageName="pd.supervision.administercaseloadMapping" fileName="pd.supervision.administercaseloadMapping.xml"/>
+		<EntityMappingFile packageName="pd.supervision.managetask.CSTask" fileName="pd.supervision.managetaskMapping.xml"/>
+   		<EntityMappingFile packageName="pd.supervision.programreferral" fileName="pd.supervision.programreferralMapping.xml"/>		
+		<EntityMappingFile packageName="pd.supervision.administerassessments" fileName="pd.supervision.administerassessmentsMapping.xml"/> 
+		<EntityMappingFile packageName="pd.webfocus" fileName="pd.webfocusMapping.xml"/>
+		<EntityMappingFile packageName="pd.supervision.supplementaldocuments.SupplementalDocuments" fileName="pd.supervision.supplementaldocumentsMapping.xml"/>
+		<EntityMappingFile packageName="pd.supervision.cscdcalendar" fileName="pd.supervision.cscdcalendarMapping.xml"/>
+		<EntityMappingFile packageName="pd.supervision.viewassignment" fileName="pd.supervision.viewassignment.caseAssignmentReportItem.xml"/> 
+		<EntityMappingFile packageName="pd.supervision.legacycscstaffposition" fileName="pd.supervision.supervisionstaff.legacycscdstaffpositionMapping.xml"/> 
+		<EntityMappingFile packageName="pd.supervision.administercompliance" fileName="pd.supervision.administercomplianceMapping.xml"/>
+		<EntityMappingFile packageName="pd.supervision.legacyupdates" fileName="pd.supervision.legacyupdatesMapping.xml"/>
+		<EntityMappingFile packageName="pd.supervision.administersupervisionplan" fileName="pd.supervision.administersupervisionplanMapping.xml"/>
+		<EntityMappingFile packageName="pd.supervision.administerprogramreferrals" fileName="pd.supervision.administerprogramreferrals.csprogramreferralMapping.xml"/>
+		<EntityMappingFile packageName="pd.supervision.administersupervisee" fileName="pd.supervision.administersuperviseeMapping.xml"/>		
+		<EntityMappingFile packageName="pd.supervision.transfers" fileName="pd.supervision.transfersMapping.xml"/>		
+		<EntityMappingFile packageName="pd.supervision.csts" fileName="pd.supervision.cstsMapping.xml"/>
+		<EntityMappingFile packageName="pd.juvenilecase.referral.JJSTransferredOffenseReferral" fileName="pd.juvenilecase.referralMapping.xml"/>		
+	</EntityMappingFiles>
+</Mojo>

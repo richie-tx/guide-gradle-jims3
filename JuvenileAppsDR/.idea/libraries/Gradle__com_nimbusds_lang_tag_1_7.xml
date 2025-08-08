@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="Gradle: com.nimbusds:lang-tag:1.7" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="com.nimbusds" artifactId="lang-tag" version="1.7" baseVersion="1.7" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/com/nimbusds/lang-tag/1.7/lang-tag-1.7.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

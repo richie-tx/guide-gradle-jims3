@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Mapping>
+  <EntityMappings>    
+    <EntityMapping name="MJW/Directive_To_Apprehend.xml" contextKey="REPORTING::pd.juvenile.reporting.wordxml.MSWordReporting::DTA_Warrant">
+      <QueryCallbacks>
+        <QueryCallback name="ui.juvenilewarrant.ReportingBean" mappingClassName="None" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="directive to apprehend.xml" connectionName="None" eventName="ui.juvenilewarrant.ReportingBean" source="None" whereClause="none">
+          <FieldMappings>
+            <FieldMapping dataItemName="warrantNum" associationType="none" name="[JUVENILE_WARRANT.warrant number]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="warrantNum" propertyType="String" formatString="none" />
+            <FieldMapping dataItemName="officerName" associationType="none" name="[ (OFFICER.Firstname) (OFFICER.LastName)]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="officerName" propertyType="String" formatString="none" />
+            <FieldMapping dataItemName="officerAgencyName" associationType="none" name="[(DEPARTMENT.DepartmentName)]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="officerAgencyName" propertyType="String" formatString="none" />
+            <FieldMapping dataItemName="firstName" associationType="none" name="[(JUVENILE_WARRANT.JuvenileFirstName)]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="firstName" propertyType="String" formatString="none" />
+            <FieldMapping dataItemName="middleName" associationType="none" name="[(JUVENILE_WARRANT.JuvenileMiddleName)] " parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="middleName" propertyType="String" formatString="none" />
+            <FieldMapping dataItemName="lastName" associationType="none" name="[(JUVENILE_WARRANT.JuvenileLastName)]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="lastName" propertyType="String" formatString="none" />
+            <FieldMapping dataItemName="level" associationType="none" name="[OFFENSE.level]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="level" propertyType="String" formatString="none" />
+            <FieldMapping dataItemName="gender" associationType="none" name="[JUVENILE_WARRANT.Gender]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="gender" propertyType="String" formatString="none" />
+            <FieldMapping dataItemName="chargeDescription" associationType="none" name="(OFFENSE.OffenseLiteral)" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="chargeDescription" propertyType="String" formatString="none" />
+            </FieldMappings>
+        </QueryCallback>
+      </QueryCallbacks>
+    </EntityMapping>    
+    <EntityMapping name="MJW/Directive_To_Apprehend_Affidavit.xml" contextKey="REPORTING::pd.juvenile.reporting.wordxml.MSWordReporting::DTAWarrant_Affidavit">
+      <QueryCallbacks>
+        <QueryCallback name="ui.juvenilewarrant.ReportingBean" mappingClassName="None" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="directive to apprehend_AFFIDAVIT.xml" connectionName="None" eventName="ui.juvenilewarrant.ReportingBean" source="None" whereClause="none">
+          <FieldMappings>
+            <FieldMapping dataItemName="warrantNum" associationType="none" name="[JUVENILE_WARRANT.warrant number]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="warrantNum" propertyType="String" formatString="none" />
+            <FieldMapping dataItemName="officerAgencyName" associationType="none" name="[(DepartmentName)]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="officerAgencyName" propertyType="String" formatString="none" />
+			<FieldMapping dataItemName="nameFirstMiddleLastSuffix" associationType="none" name="[(JUVENILE_WARRANT.Juvenile FirstMiddleLastSuffix name)]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="nameFirstMiddleLastSuffix" propertyType="String" formatString="none" />
+            <FieldMapping dataItemName="firstName" associationType="none" name="[(JUVENILE_WARRANT.JuvenileFirstName)]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="firstName" propertyType="String" formatString="none" />
+            <FieldMapping dataItemName="middleName" associationType="none" name="[(JUVENILE_WARRANT.JuvenileMiddleName)]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="middleName" propertyType="String" formatString="none" />
+            <FieldMapping dataItemName="lastName" associationType="none" name="[(JUVENILE_WARRANT.JuvenileLastName)]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="lastName" propertyType="String" formatString="none" />
+            <FieldMapping dataItemName="level" associationType="none" name="[OFFENSE.level]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="level" propertyType="String" formatString="none" />
+            <FieldMapping dataItemName="degree" associationType="none" name="(OFFENSE.degree)" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="degree" propertyType="String" formatString="none" />
+            <FieldMapping dataItemName="chargeDescription" associationType="none" name="(OFFENSE.OffenseLiteral)" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="chargeDescription" propertyType="String" formatString="none" />
+            <FieldMapping dataItemName="affidavitStatement" associationType="none" name="[JUVENILE_AFFIDAVIT_WARRANT.statement]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="affidavitStatement" propertyType="String" formatString="none" />
+            <FieldMapping dataItemName="juvenileAge" associationType="none" name="[juvenile age =today-JUVENILE_WARRANT.date of birth]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="juvenileAge" propertyType="String" formatString="none" />
+			<FieldMapping dataItemName="ageVerification" associationType="none" name="[JUVENILE_WARRANT.ageVerification]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="ageVerification" propertyType="String" formatString="none" />
+			<FieldMapping dataItemName="offenseDateAsString" associationType="none" name="[OffenseDateAsString]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="offenseDateAsString" propertyType="String" formatString="mmddyyyy" /> 
+            </FieldMappings>
+        </QueryCallback>
+      </QueryCallbacks>
+    </EntityMapping>     
+    <EntityMapping name="MJW/Directive_To_Apprehend_Return.xml" contextKey="REPORTING::pd.juvenile.reporting.wordxml.MSWordReporting::DTAReturn_Warrant">
+      <QueryCallbacks>
+        <QueryCallback name="ui.juvenilewarrant.ReportingBean" mappingClassName="None" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="directive to apprehend_RETURN.xml" connectionName="None" eventName="ui.juvenilewarrant.ReportingBean" source="None" whereClause="none">
+          <FieldMappings>
+           <FieldMapping dataItemName="warrantNum" associationType="none" name="[JUVENILE_WARRANT.warrant number]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="warrantNum" propertyType="String" formatString="none" />
+           <FieldMapping dataItemName="executorId" associationType="none" name="[JUVENILE_WARRANT_SERVICE.executorName]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="executorId" propertyType="String" formatString="none" />
+		   <FieldMapping dataItemName="executorName" associationType="none" name="[JUVENILE_WARRANT_SERVICE.executorid]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="executorName" propertyType="String" formatString="none" />
+           <FieldMapping dataItemName="officerAgencyName" associationType="none" name="[(DEPARTMENT.name)]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="executorDepartmentName" propertyType="String" formatString="none" />
+           <FieldMapping dataItemName="warrantActivationDate" associationType="none" name="[JUVENILE_WARRANT.WarrantActivationDate]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="warrantActivationDate" propertyType="String" formatString="none" />
+           <FieldMapping dataItemName="currentServiceDate" associationType="none" name="[the day the warrant was executed ]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="currentServiceDate" propertyType="String" formatString="none" />
+           <FieldMapping dataItemName="firstName" associationType="none" name="[JUVENILE_WARRANT.juvenile First name]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="firstName" propertyType="String" formatString="none" />
+           <FieldMapping dataItemName="middleName" associationType="none" name="[JUVENILE_WARRANT.Juvenile Middle Name]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="middleName" propertyType="String" formatString="none" />
+           <FieldMapping dataItemName="lastName" associationType="none" name="[JUVENILE_WARRANT.Juvenile Last Name]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="lastName" propertyType="String" formatString="none" />
+           </FieldMappings>
+        </QueryCallback>
+      </QueryCallbacks>
+    </EntityMapping>
+   
+    <EntityMapping name="MJW/Arrest_Warrant_Affidavit.xml" contextKey="REPORTING::pd.juvenile.reporting.wordxml.MSWordReporting::Arrest_Warrant_Affidavit">
+      <QueryCallbacks>
+        <QueryCallback name="ui.juvenilewarrant.ReportingBean" mappingClassName="None" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="Arrest_Warrant_Affidavit.xml" connectionName="None" eventName="ui.juvenilewarrant.ReportingBean" source="None" whereClause="none">
+          <FieldMappings>
+            <FieldMapping dataItemName="warrantNum" associationType="none" name="[JUVENILE_WARRANT.warrant number]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="warrantNum" propertyType="String" formatString="none" />
+            <FieldMapping dataItemName="officerName" associationType="none" name="[(OFFICER.First Name) (OFFICER.Last Name)]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="officerName" propertyType="String" formatString="none" />
+            <FieldMapping dataItemName="officerAgencyName" associationType="none" name="[(DepartmentName)]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="officerAgencyName" propertyType="String" formatString="none" />
+            <FieldMapping dataItemName="firstName" associationType="none" name="[(JUVENILE_WARRANT.Juvenile first name)]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="firstName" propertyType="String" formatString="none" />
+            <FieldMapping dataItemName="nameFirstMiddleLastSuffix" associationType="none" name="[(JUVENILE_WARRANT.Juvenile FirstMiddleLastSuffix name)]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="nameFirstMiddleLastSuffix" propertyType="String" formatString="none" />
+            <FieldMapping dataItemName="middleName" associationType="none" name="[(JUVENILE_WARRANT.Juvenile Middle Name)]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="middleName" propertyType="String" formatString="none" />
+            <FieldMapping dataItemName="lastName" associationType="none" name="[(JUVENILE_WARRANT.Juvenile Last Name)]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="lastName" propertyType="String" formatString="none" />
+            <FieldMapping dataItemName="level" associationType="none" name="[OFFENSE.level]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="level" propertyType="String" formatString="none" />
+            <FieldMapping dataItemName="degree" associationType="none" name="(OFFENSE.degree)" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="degree" propertyType="String" formatString="none" />
+            <FieldMapping dataItemName="dateOfBirth" associationType="none" name="(JUVENILE_WARRANT.dateOfBirth)" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="dateOfBirth" propertyType="String" formatString="mmddyyyy" />
+            <FieldMapping dataItemName="chargeDescription" associationType="none" name="(OFFENSE.OffenseLiteral)" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="chargeDescription" propertyType="String" formatString="none" />
+            <FieldMapping dataItemName="affidavitStatement" associationType="none" name="[JUVENILE_AFFIDAVIT_WARRANT.statement]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="affidavitStatement" propertyType="String" formatString="none" />
+            <FieldMapping dataItemName="offenseDateAsString" associationType="none" name="[OffenseDateAsString]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="offenseDateAsString" propertyType="String" formatString="mmddyyyy" />
+			</FieldMappings>
+        </QueryCallback>
+      </QueryCallbacks>
+    </EntityMapping> 
+    <EntityMapping name="MJW/Arrest_Warrant_Return.xml" contextKey="REPORTING::pd.juvenile.reporting.wordxml.MSWordReporting::ArrestReturn_Warrant">
+      <QueryCallbacks>
+        <QueryCallback name="ui.juvenilewarrant.ReportingBean" mappingClassName="None" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="Arrest_Warrant_Return.xml" connectionName="None" eventName="ui.juvenilewarrant.ReportingBean" source="None" whereClause="none">
+          <FieldMappings>
+            <FieldMapping dataItemName="warrantNum" associationType="none" name="[JUVENILE_WARRANT.warrant number]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="warrantNum" propertyType="String" formatString="none" />
+            <FieldMapping dataItemName="executorId" associationType="none" name="[JUVENILE_WARRANT_SERVICE.executorName]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="executorId" propertyType="String" formatString="none" />
+			<FieldMapping dataItemName="executorName" associationType="none" name="[JUVENILE_WARRANT_SERVICE.executorid]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="executorName" propertyType="String" formatString="none" />
+            <FieldMapping dataItemName="officerAgencyName" associationType="none" name="[(DEPARTMENT.name)]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="executorDepartmentName" propertyType="String" formatString="none" />
+            <FieldMapping dataItemName="warrantActivationDate" associationType="none" name="[JUVENILE_WARRANT.WarrantActivationDate]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="warrantActivationDate" propertyType="String" formatString="none" />
+            <FieldMapping dataItemName="currentServiceDate" associationType="none" name="[the day the warrant was executed ]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="currentServiceDate" propertyType="String" formatString="none" />
+            <FieldMapping dataItemName="firstName" associationType="none" name="[JUVENILE_WARRANT.juvenile First name]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="firstName" propertyType="String" formatString="none" />
+            <FieldMapping dataItemName="middleName" associationType="none" name="[JUVENILE_WARRANT .Juvenile Middle Name]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="middleName" propertyType="String" formatString="none" />
+            <FieldMapping dataItemName="lastName" associationType="none" name="[JUVENILE_WARRANT .Juvenile Last Name]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="lastName" propertyType="String" formatString="none" />
+            </FieldMappings>
+        </QueryCallback>
+      </QueryCallbacks>
+    </EntityMapping>     
+    <EntityMapping name="MJW/Order_Of_Immediate_Custody.xml" contextKey="REPORTING::pd.juvenile.reporting.wordxml.MSWordReporting::OIC_Warrant">
+      <QueryCallbacks>
+        <QueryCallback name="ui.juvenilewarrant.ReportingBean" mappingClassName="None" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="ORDER OF IMMEDIATE CUSTODY.xml" connectionName="None" eventName="ui.juvenilewarrant.ReportingBean" source="None" whereClause="none">
+          <FieldMappings>
+            <FieldMapping dataItemName="petitionNum" associationType="none" name="[JUVENILE_WARRANT.petition number]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="petitionNum" propertyType="String" formatString="none" />
+            <FieldMapping dataItemName="courtDescription" associationType="none" name="[JUVENILE_WARRANT.courtDescription]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="courtDescription" propertyType="String" formatString="none" />
+            <FieldMapping dataItemName="warrantNum" associationType="none" name="([JUVENILE_WARRANT.warrant number])" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="warrantNum" propertyType="String" formatString="none" />
+            <FieldMapping dataItemName="firstName" associationType="none" name="[JUVENILE_WARRANT.juvenile first name]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="firstName" propertyType="String" formatString="none" />
+            <FieldMapping dataItemName="middleName" associationType="none" name="[JUVENILE_WARRANT.juvenile middle name]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="middleName" propertyType="String" formatString="none" />
+            <FieldMapping dataItemName="lastName" associationType="none" name="[JUVENILE_WARRANT.juvenile last name]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="lastName" propertyType="String" formatString="none" />
+            <FieldMapping dataItemName="fileStampDateforReport" associationType="none" name="[day of JUVENILE_WARRANT.filestamp date]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="fileStampDateforReport" propertyType="String" formatString="none" />
+            <FieldMapping dataItemName="warrantOriginatorJudge" associationType="none" name="[JUVENILE_WARRANT.WarrantOriginatorJudge]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="warrantOriginatorJudge" propertyType="String" formatString="none" />
+            <FieldMapping dataItemName="cautionsSelected" associationType="none" name="[JUVENILE_WARRANT.caution]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="N/A" propertyName="cautionsSelected" propertyType="String" formatString="none" />
+			<FieldMapping dataItemName="cautionComments" associationType="none" name="[cautionComments]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="" propertyName="cautionComments" propertyType="String" formatString="none" /> 			
+            </FieldMappings>
+        </QueryCallback>
+      </QueryCallbacks>
+    </EntityMapping>     
+    <EntityMapping name="MJW/Order_Of_Immediate_Custody_Return.xml" contextKey="REPORTING::pd.juvenile.reporting.wordxml.MSWordReporting::OICReturn_Warrant">
+      <QueryCallbacks>
+        <QueryCallback name="ui.juvenilewarrant.ReportingBean" mappingClassName="None" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="ORDER OF IMMEDIATE CUSTODY_Return.xml" connectionName="None" eventName="ui.juvenilewarrant.ReportingBean" source="None" whereClause="none">
+          <FieldMappings>
+            <FieldMapping dataItemName="petitionNum" associationType="none" name="[JUVENILE_WARRANT.Petition Number]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="petitionNum" propertyType="String" formatString="none" />
+            <FieldMapping dataItemName="courtDescription" associationType="none" name="[JUVENILE_WARRANT.courtDescription]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="courtDescription" propertyType="String" formatString="none" />
+            <FieldMapping dataItemName="warrantNum" associationType="none" name="[JUVENILE_WARRANT_SERVICE.warrant number]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="warrantNum" propertyType="String" formatString="none" />
+            <FieldMapping dataItemName="warrantActivationDateforReport" associationType="none" name="[day of JUVENILE_WARRANT.warrantactiviationdate]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="warrantActivationDateforReport" propertyType="String" formatString="none" />
+            <FieldMapping dataItemName="warrantServiceDateforReport" associationType="none" name="[JUVENILE_WARRANT_SERVICE.dateOfService]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="warrantServiceDateforReport" propertyType="String" formatString="none" />
+            <FieldMapping dataItemName="firstName" associationType="none" name="[(JUVENILE_WARRANT.JuvenileFirstName)]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="firstName" propertyType="String" formatString="none" />
+            <FieldMapping dataItemName="middleName" associationType="none" name="[(JUVENILE_WARRANT.JuvenileMiddleName)]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="middleName" propertyType="String" formatString="none" />
+            <FieldMapping dataItemName="lastName" associationType="none" name="[(JUVENILE_WARRANT.JuvenileLastName)]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="lastName" propertyType="String" formatString="none" />
+          </FieldMappings>
+        </QueryCallback>
+      </QueryCallbacks>
+    </EntityMapping>     
+    <EntityMapping name="MJW/GenericWarrantNotice.xml" contextKey="REPORTING::pd.juvenile.reporting.wordxml.MSWordReporting::Generic_Warrant">
+      <QueryCallbacks>
+        <QueryCallback name="ui.juvenilewarrant.ReportingBean" mappingClassName="None" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="GenericWarrantNotice.xml" connectionName="None" eventName="ui.juvenilewarrant.ReportingBean" source="None" whereClause="none">
+          <FieldMappings>
+            <FieldMapping dataItemName="warrantNum" associationType="none" name="[WarrantNumber]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="warrantNum" propertyType="String" formatString="none" />
+            <FieldMapping dataItemName="warrantType" associationType="none" name="[WarrantType]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="warrantType" propertyType="String" formatString="none" />
+            <FieldMapping dataItemName="warrantActivationDateforReport" associationType="none" name="[WarrantActivationDate]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="warrantActivationDateforReport" propertyType="String" formatString="none" />
+            <FieldMapping dataItemName="firstName" associationType="none" name="[Juvenile First name]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="firstName" propertyType="String" formatString="none" />
+            <FieldMapping dataItemName="middleName" associationType="none" name="[JuvenileMiddleName]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="middleName" propertyType="String" formatString="none" />
+            <FieldMapping dataItemName="lastName" associationType="none" name="[JuvenileLastName]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="lastName" propertyType="String" formatString="none" />
+            <FieldMapping dataItemName="suffix" associationType="none" name="[JuvenileSuffix]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="suffix" propertyType="String" formatString="none" />
+            <FieldMapping dataItemName="race" associationType="none" name="[race]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="race" propertyType="String" formatString="none" />
+            <FieldMapping dataItemName="sexId" associationType="none" name="[sex]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="sexId" propertyType="String" formatString="none" />
+            <FieldMapping dataItemName="complexionId" associationType="none" name="[complexion]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="complexionId" propertyType="String" formatString="none" />
+            <FieldMapping dataItemName="juvenileAge" associationType="none" name="([current date]-[dob])" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="juvenileAge" propertyType="String" formatString="none" />
+			<FieldMapping dataItemName="height" associationType="none" name="[height]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="height" propertyType="String" formatString="none" />
+            <FieldMapping dataItemName="weight" associationType="none" name="[weight]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="weight" propertyType="String" formatString="none" />
+            <FieldMapping dataItemName="associateAddresses" associationType="none" name="[AssociateAddress]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="associateAddresses" propertyType="String" formatString="none" />
+            <FieldMapping dataItemName="cautionsSelected" associationType="none" name="[cautions]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="cautionsSelected" propertyType="String" formatString="none" />
+            <FieldMapping dataItemName="cautionComments" associationType="none" name="[cautionComments]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="" propertyName="cautionComments" propertyType="String" formatString="none" /> 
+            </FieldMappings>
+        </QueryCallback>
+      </QueryCallbacks>
+    </EntityMapping>
+    
+    <EntityMapping name="MJW/UJAC_GenericWarrantNotice.xml" contextKey="REPORTING::GENERICWARRANTNOTICE" >
+    	<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping> 
+	
+	<EntityMapping name="MJW/UJAC_Arrest_Warrant.xml" contextKey="REPORTING::ARRESTWARRANT" >
+    	<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>
+	
+	<EntityMapping name="MJW/UJAC_Directive_To_Apprehend.xml" contextKey="REPORTING::DTAWARRANT" >
+    	<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>
+	
+	<EntityMapping name="MJW/UJAC_Directive_To_Apprehend_Affidavit.xml" contextKey="REPORTING::DTAWARRANT_AFFIDAVIT" >
+    	<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>
+	
+	<EntityMapping name="MJW/UJAC_Order_Of_Immediate_Custody.xml" contextKey="REPORTING::OIC_WARRANT" >
+    	<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>
+	
+	<EntityMapping name="MJW/UJAC_Arrest_Warrant_Return.xml" contextKey="REPORTING::ARRESTRETURN_WARRANT" >
+    	<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>
+	
+	<EntityMapping name="MJW/UJAC_Order_Of_Immediate_Custody_Return.xml" contextKey="REPORTING::OICRETURN_WARRANT" >
+    	<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>
+	
+	<EntityMapping name="MJW/UJAC_Directive_To_Apprehend_Return.xml" contextKey="REPORTING::DTARETURN_WARRANT" >
+    	<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>
+	
+  </EntityMappings>
+</Mapping>

@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Mapping>
+  <EntityMappings>
+    <EntityMapping name="mojo.km.context.oracletoplink.PersistentObject_CONTRACT" contextKey="mojo.km.context.oracletoplink.PersistentObject_CONTRACT">
+      <QueryCallbacks>
+        <QueryCallback name="OIDQuery" mappingClassName="mojo.km.utilities.FileIOMapping" mappingMethodName="retrieve" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="none" connectionName="none" eventName="mojo.km.persistence.OIDEvent" source="none" whereClause="none">
+          <ParmMappings>
+            <ParmMapping name="OID" associationType="none" dataItemName="none" parmIndex="0" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="OID" propertyType="none" formatString="none" convertWilcard="n" />
+          </ParmMappings>
+          <FieldMappings>
+            <FieldMapping name="OID" associationType="none" dataItemName="none" parmIndex="0" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="OID" propertyType="java.lang.String" formatString="none" convertWilcard="n" />
+          </FieldMappings>
+        </QueryCallback>
+        <QueryCallback name="AttributeQuery" mappingClassName="mojo.km.utilities.FileIOMapping" mappingMethodName="retrieve" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="none" connectionName="none" eventName="mojo.km.persistence.AttributeEvent" source="none" whereClause="none">
+          <ParmMappings>
+            <ParmMapping name="attributeValue" associationType="none" dataItemName="none" parmIndex="0" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="attributeValue" propertyType="none" formatString="none" convertWilcard="n" />
+          </ParmMappings>
+          <FieldMappings>
+            <FieldMapping name="OID" associationType="none" dataItemName="none" parmIndex="0" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="OID" propertyType="java.lang.String" formatString="none" convertWilcard="n" />
+          </FieldMappings>
+        </QueryCallback>
+        <QueryCallback name="AllQuery" mappingClassName="mojo.km.utilities.FileIOMapping" mappingMethodName="retrieve" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="none" connectionName="none" eventName="mojo.km.persistence.AllQueryEvent" source="none" whereClause="none">
+          <FieldMappings>
+            <FieldMapping name="OID" associationType="none" dataItemName="none" parmIndex="0" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="OID" propertyType="java.lang.String" formatString="none" convertWilcard="n" />
+          </FieldMappings>
+        </QueryCallback>
+      </QueryCallbacks>
+      <SaveCallbacks>
+        <SaveCallback name="Save" mappingClassName="mojo.km.utilities.FileIOMapping" mappingMethodName="save" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="none" connectionName="none" whereClause="none" source="none">
+          <FieldMappings>
+            <FieldMapping name="OID" associationType="none" dataItemName="none" parmIndex="0" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="OID" propertyType="java.lang.String" formatString="none" convertWilcard="n" />
+          </FieldMappings>
+        </SaveCallback>
+      </SaveCallbacks>
+    </EntityMapping>
+  </EntityMappings>
+</Mapping>
+

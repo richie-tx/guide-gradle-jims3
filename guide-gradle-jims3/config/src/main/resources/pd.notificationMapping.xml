@@ -1,0 +1,131 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Mapping>
+  <EntityMappings>
+    <EntityMapping name="pd.notification.Task" contextKey="pd.notification.Task">
+      <QueryCallbacks>
+        <QueryCallback name="OIDQuery" mappingClassName="mojo.km.context.multidatasource.JDBCSQLMapping" mappingMethodName="retrieve" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="JCTASK" connectionName="JDBCMSSQL" eventName="mojo.km.persistence.OIDEvent" source="JCTASK" whereClause="TASK_ID=cast(? as INTEGER)">
+        	<ParmMappings>
+				<ParmMapping name="OID" dataItemName="TASK_ID" parmIndex="1" format="none" position="1" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="30" text="" propertyName="OID" propertyType="Numeric" formatString="none" convertWilcard="none" />
+			</ParmMappings>
+          <FieldMappings>
+            <FieldMapping name="typeId" associationType="none" dataItemName="TYPECD" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="typeId" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="details" associationType="none" dataItemName="DETAILS" parmIndex="2" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="details" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="taskStatusId" associationType="none" dataItemName="STATUSCD" parmIndex="3" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="taskStatusId" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="creationDate" associationType="none" dataItemName="CREATEDATE" parmIndex="4" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="creationDate" propertyType="Date" formatString="none" convertWilcard="n" />
+            <FieldMapping name="taskUserId" associationType="none" dataItemName="USER_ID" parmIndex="5" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="taskUserId" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="title" associationType="none" dataItemName="TITLE" parmIndex="6" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="title" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="OID" associationType="none" dataItemName="TASK_ID" parmIndex="7" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="OID" propertyType="java.lang.String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="completionDate" associationType="none" dataItemName="COMPLETIONDATE" parmIndex="8" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="completionDate" propertyType="Date" formatString="none" convertWilcard="n" />
+            <FieldMapping name="juvenileName" associationType="none" dataItemName="JUVENILENAME" parmIndex="9" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="juvenileName" propertyType="String" formatString="none" convertWilcard="n" />
+          </FieldMappings>
+        </QueryCallback>
+        <QueryCallback name="AttributeQuery" mappingClassName="mojo.km.context.multidatasource.JDBCSQLMapping" mappingMethodName="retrieve" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="JCTASK" connectionName="JDBCMSSQL" eventName="mojo.km.persistence.AttributeEvent" source="JCTASK" whereClause="none">
+          <FieldMappings>
+            <FieldMapping name="typeId" associationType="none" dataItemName="TYPECD" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="typeId" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="details" associationType="none" dataItemName="DETAILS" parmIndex="2" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="details" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="taskStatusId" associationType="none" dataItemName="STATUSCD" parmIndex="3" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="taskStatusId" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="creationDate" associationType="none" dataItemName="CREATEDATE" parmIndex="4" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="creationDate" propertyType="Date" formatString="none" convertWilcard="n" />
+            <FieldMapping name="taskUserId" associationType="none" dataItemName="USER_ID" parmIndex="5" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="taskUserId" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="title" associationType="none" dataItemName="TITLE" parmIndex="6" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="title" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="OID" associationType="none" dataItemName="TASK_ID" parmIndex="7" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="OID" propertyType="java.lang.String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="completionDate" associationType="none" dataItemName="COMPLETIONDATE" parmIndex="8" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="completionDate" propertyType="Date" formatString="none" convertWilcard="n" />
+            <FieldMapping name="juvenileName" associationType="none" dataItemName="JUVENILENAME" parmIndex="9" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="juvenileName" propertyType="String" formatString="none" convertWilcard="n" />
+          </FieldMappings>
+        </QueryCallback>
+        <QueryCallback name="AllQuery" mappingClassName="mojo.km.context.multidatasource.JDBCSQLMapping" mappingMethodName="retrieve" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="JCTASK" connectionName="JDBCMSSQL" eventName="mojo.km.persistence.AllQueryEvent" source="JCTASK" whereClause="none">
+          <FieldMappings>
+            <FieldMapping name="typeId" associationType="none" dataItemName="TYPECD" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="typeId" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="details" associationType="none" dataItemName="DETAILS" parmIndex="2" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="details" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="taskStatusId" associationType="none" dataItemName="STATUSCD" parmIndex="3" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="taskStatusId" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="creationDate" associationType="none" dataItemName="CREATEDATE" parmIndex="4" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="creationDate" propertyType="Date" formatString="none" convertWilcard="n" />
+            <FieldMapping name="taskUserId" associationType="none" dataItemName="USER_ID" parmIndex="5" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="taskUserId" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="title" associationType="none" dataItemName="TITLE" parmIndex="6" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="title" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="OID" associationType="none" dataItemName="TASK_ID" parmIndex="7" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="OID" propertyType="java.lang.String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="completionDate" associationType="none" dataItemName="COMPLETIONDATE" parmIndex="8" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="completionDate" propertyType="Date" formatString="none" convertWilcard="n" />
+            <FieldMapping name="juvenileName" associationType="none" dataItemName="JUVENILENAME" parmIndex="9" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="juvenileName" propertyType="String" formatString="none" convertWilcard="n" />
+          </FieldMappings>
+        </QueryCallback>
+        <QueryCallback name="GetAllActiveTasksEventQuery" mappingClassName="mojo.km.context.multidatasource.JDBCSQLMapping" mappingMethodName="retrieve" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="JCTASK" connectionName="JDBCMSSQL" eventName="messaging.taskbrowser.GetAllActiveTasksEvent" source="JCTASK" whereClause="USER_ID=? and STATUSCD='P'">
+			<ParmMappings>
+				<ParmMapping name="taskUserId" dataItemName="USER_ID" parmIndex="1" format="none" position="1" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="30" text="" propertyName="taskUserId" propertyType="String" formatString="none" convertWilcard="none" />
+			</ParmMappings>
+			<FieldMappings>
+	            <FieldMapping name="typeId" associationType="none" dataItemName="TYPECD" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="typeId" propertyType="String" formatString="none" convertWilcard="n" />
+	            <FieldMapping name="details" associationType="none" dataItemName="DETAILS" parmIndex="2" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="details" propertyType="String" formatString="none" convertWilcard="n" />
+	            <FieldMapping name="taskStatusId" associationType="none" dataItemName="STATUSCD" parmIndex="3" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="taskStatusId" propertyType="String" formatString="none" convertWilcard="n" />
+	            <FieldMapping name="creationDate" associationType="none" dataItemName="CREATEDATE" parmIndex="4" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="creationDate" propertyType="Date" formatString="none" convertWilcard="n" />
+	            <FieldMapping name="taskUserId" associationType="none" dataItemName="USER_ID" parmIndex="5" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="taskUserId" propertyType="String" formatString="none" convertWilcard="n" />
+	            <FieldMapping name="title" associationType="none" dataItemName="TITLE" parmIndex="6" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="title" propertyType="String" formatString="none" convertWilcard="n" />
+	            <FieldMapping name="OID" associationType="none" dataItemName="TASK_ID" parmIndex="7" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="OID" propertyType="java.lang.String" formatString="none" convertWilcard="n" />
+	            <FieldMapping name="completionDate" associationType="none" dataItemName="COMPLETIONDATE" parmIndex="8" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="completionDate" propertyType="Date" formatString="none" convertWilcard="n" />
+	            <FieldMapping name="juvenileName" associationType="none" dataItemName="JUVENILENAME" parmIndex="9" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="juvenileName" propertyType="String" formatString="none" convertWilcard="n" />
+			</FieldMappings>
+		</QueryCallback>
+      </QueryCallbacks>
+      <SaveCallbacks>
+        <SaveCallback name="Save" mappingClassName="mojo.km.context.multidatasource.JDBCSQLMapping" mappingMethodName="save" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="JCTASK" connectionName="JDBCMSSQL" whereClause="TASK_ID=cast(? as INTEGER)" source="JCTASK">
+        	<ParmMappings>
+				<ParmMapping name="OID" dataItemName="TASK_ID" parmIndex="10" format="none" position="1" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="30" text="" propertyName="OID" propertyType="Numeric" formatString="none" convertWilcard="none" />
+			</ParmMappings>
+          <FieldMappings>
+            <FieldMapping name="typeId" associationType="none" dataItemName="TYPECD" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="typeId" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="details" associationType="none" dataItemName="DETAILS" parmIndex="2" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="details" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="taskStatusId" associationType="none" dataItemName="STATUSCD" parmIndex="3" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="taskStatusId" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="taskUserId" associationType="none" dataItemName="USER_ID" parmIndex="4" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="taskUserId" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="title" associationType="none" dataItemName="TITLE" parmIndex="5" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="title" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="completionDate" associationType="none" dataItemName="COMPLETIONDATE" parmIndex="6" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="completionDate" propertyType="Date" formatString="none" convertWilcard="n" />
+            <FieldMapping name="juvenileName" associationType="none" dataItemName="JUVENILENAME" parmIndex="7" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="juvenileName" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="createUserID" associationType="none" dataItemName="CREATEUSER" parmIndex="8" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="createUserID" propertyType="user" formatString="none" />
+			<FieldMapping name="createJIMS2UserID" associationType="none" dataItemName="CREATEJIMS2USER" parmIndex="9" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="createJIMS2UserID" propertyType="JIMS2User" formatString="none" />
+          </FieldMappings>
+        </SaveCallback>
+      </SaveCallbacks>
+    </EntityMapping>
+    <EntityMapping name="pd.notification.TaskParam" contextKey="pd.notification.TaskParam">
+      <QueryCallbacks>
+        <QueryCallback name="OIDQuery" mappingClassName="mojo.km.context.multidatasource.JDBCSQLMapping" mappingMethodName="retrieve" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="JCTASKPARAMS" connectionName="JDBCMSSQL" eventName="mojo.km.persistence.OIDEvent" source="JCTASKPARAMS" whereClause="TASKPARAMS_ID=cast(? as INTEGER)">
+        	<ParmMappings>
+				<ParmMapping name="OID" dataItemName="TASKPARAMS_ID" parmIndex="1" format="none" position="1" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="30" text="" propertyName="OID" propertyType="Numeric" formatString="none" convertWilcard="none" />
+			</ParmMappings>
+          <FieldMappings>
+            <FieldMapping name="OID" associationType="none" dataItemName="TASKPARAMS_ID" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="OID" propertyType="java.lang.String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="taskId" associationType="none" dataItemName="TASK_ID" parmIndex="2" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="taskId" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="paramName" associationType="none" dataItemName="PARAMNAME" parmIndex="3" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="paramName" propertyType="String" formatString="Preserve Case" convertWilcard="n" />
+            <FieldMapping name="paramValue" associationType="none" dataItemName="PARAMVALUE" parmIndex="4" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="paramValue" propertyType="String" formatString="Preserve Case" convertWilcard="n" />
+          </FieldMappings>
+        </QueryCallback>
+        <QueryCallback name="AttributeQuery" mappingClassName="mojo.km.context.multidatasource.JDBCSQLMapping" mappingMethodName="retrieve" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="JCTASKPARAMS" connectionName="JDBCMSSQL" eventName="mojo.km.persistence.AttributeEvent" source="JCTASKPARAMS" whereClause="none">
+          <FieldMappings>
+            <FieldMapping name="OID" associationType="none" dataItemName="TASKPARAMS_ID" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="OID" propertyType="java.lang.String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="taskId" associationType="none" dataItemName="TASK_ID" parmIndex="2" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="taskId" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="paramName" associationType="none" dataItemName="PARAMNAME" parmIndex="3" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="paramName" propertyType="String" formatString="Preserve Case" convertWilcard="n" />
+            <FieldMapping name="paramValue" associationType="none" dataItemName="PARAMVALUE" parmIndex="4" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="paramValue" propertyType="String" formatString="Preserve Case" convertWilcard="n" />
+          </FieldMappings>
+        </QueryCallback>
+        <QueryCallback name="AllQuery" mappingClassName="mojo.km.context.multidatasource.JDBCSQLMapping" mappingMethodName="retrieve" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="JCTASKPARAMS" connectionName="JDBCMSSQL" eventName="mojo.km.persistence.AllQueryEvent" source="JCTASKPARAMS" whereClause="none">
+          <FieldMappings>
+            <FieldMapping name="OID" associationType="none" dataItemName="TASKPARAMS_ID" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="OID" propertyType="java.lang.String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="taskId" associationType="none" dataItemName="TASK_ID" parmIndex="2" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="taskId" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="paramName" associationType="none" dataItemName="PARAMNAME" parmIndex="3" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="paramName" propertyType="String" formatString="Preserve Case" convertWilcard="n" />
+            <FieldMapping name="paramValue" associationType="none" dataItemName="PARAMVALUE" parmIndex="4" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="paramValue" propertyType="String" formatString="Preserve Case" convertWilcard="n" />
+          </FieldMappings>
+        </QueryCallback>
+      </QueryCallbacks>
+      <SaveCallbacks>
+        <SaveCallback name="Save" mappingClassName="mojo.km.context.multidatasource.JDBCSQLMapping" mappingMethodName="save" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="JCTASKPARAMS" connectionName="JDBCMSSQL" whereClause="TASKPARAMS_ID=cast(? as INTEGER)" source="JCTASKPARAMS">
+        	<ParmMappings>
+				<ParmMapping name="OID" dataItemName="TASKPARAMS_ID" parmIndex="6" format="none" position="1" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="30" text="" propertyName="OID" propertyType="Numeric" formatString="none" convertWilcard="none" />
+			</ParmMappings>
+          <FieldMappings>
+            <FieldMapping name="taskId" associationType="none" dataItemName="TASK_ID" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="taskId" propertyType="Numeric" formatString="none" convertWilcard="n" />
+            <FieldMapping name="paramName" associationType="none" dataItemName="PARAMNAME" parmIndex="2" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="paramName" propertyType="String" formatString="Preserve Case" convertWilcard="n" />
+            <FieldMapping name="paramValue" associationType="none" dataItemName="PARAMVALUE" parmIndex="3" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="paramValue" propertyType="String" formatString="Preserve Case" convertWilcard="n" />
+            <FieldMapping name="createUserID" associationType="none" dataItemName="CREATEUSER" parmIndex="4" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="createUserID" propertyType="user" formatString="none" />
+			<FieldMapping name="createJIMS2UserID" associationType="none" dataItemName="CREATEJIMS2USER" parmIndex="5" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="createJIMS2UserID" propertyType="JIMS2User" formatString="none" />
+          </FieldMappings>
+        </SaveCallback>
+      </SaveCallbacks>
+    </EntityMapping>
+  </EntityMappings>
+</Mapping>
+

@@ -1,0 +1,716 @@
+package pd.juvenile;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Date;
+import java.util.Iterator;
+
+import messaging.juvenile.SaveJuvenilePhysicalAttributesEvent;
+import messaging.juvenile.reply.JuvenilePhysicalAttributesResponseEvent;
+import messaging.juvenilewarrant.TattooRequestEvent;
+import mojo.km.messaging.IEvent;
+import mojo.km.messaging.Composite.CompositeRequest;
+import mojo.km.persistence.Home;
+import mojo.km.persistence.IHome;
+import mojo.km.persistence.PersistentObject;
+import mojo.km.utilities.MessageUtil;
+import naming.PDCodeTableConstants;
+import naming.PDJuvenileCaseConstants;
+import pd.codetable.Code;
+import pd.codetable.person.ScarsMarksTattoosCode;
+
+/**
+ * @roseuid 42B19F160000
+ */
+public class JuvenilePhysicalAttributes extends PersistentObject
+{
+    private String buildId;
+    
+    private String complexionId;
+
+    /**
+     * Properties for eyeColor
+     * 
+     * @referencedType pd.codetable.Code
+     * @detailerDoNotGenerate false
+     * @contextKey EYE_COLOR
+     */
+    private Code eyeColor = null;
+
+    private String eyeColorId;
+
+    private String juvenileId;
+
+    private String height;
+
+    /**
+     * Properties for build
+     * 
+     * @referencedType pd.codetable.Code
+     * @detailerDoNotGenerate false
+     * @contextKey BUILD
+     */
+    private Code build = null;
+
+    /**
+     * Properties for complexion
+     * 
+     * @referencedType pd.codetable.Code
+     * @detailerDoNotGenerate false
+     * @contextKey COMPLEXION
+     */
+    private Code complexion = null;
+    
+    private String hairColorId;
+
+    private Date entryDate;
+
+    /**
+     * Properties for hairColor
+     * 
+     * @referencedType pd.codetable.Code
+     * @detailerDoNotGenerate false
+     * @contextKey HAIR_COLOR
+     */
+    private Code hairColor = null;
+
+    private int weight;
+
+    private String supervisionNum;
+    /**
+     * Properties for tattoos
+     * 
+     * @detailerDoNotGenerate false
+     * @referencedType pd.codetable.person.ScarsMarksTattoosCode
+     * @associationType simple
+     */
+    private Collection tattoos = null;
+//
+//    private String otherTattooComments = "";
+
+    /**
+     * @roseuid 42B19F160000
+     */
+    public JuvenilePhysicalAttributes()
+    {
+    }
+
+    /**
+     * @return JuvenilePhysicalAttributes
+     * @param physicalAttribute
+     */
+    static public JuvenilePhysicalAttributes find(String physicalAttributeId)
+    {
+        IHome home = new Home();
+        JuvenilePhysicalAttributes physicalAttribute = (JuvenilePhysicalAttributes) home.find(physicalAttributeId,
+                JuvenilePhysicalAttributes.class);
+        return physicalAttribute;
+    }
+
+    /**
+     * Finds juvenile physicalAttribute list by an event
+     * 
+     * @return Iterator of physicalAttributes list
+     * @param event
+     */
+    static public Iterator findAll(IEvent event)
+    {
+        IHome home = new Home();
+        Iterator physicalAttributes = home.findAll(event, JuvenilePhysicalAttributes.class);
+        return physicalAttributes;
+    }
+
+    /**
+     * @return Iterator physical attributes
+     * @param attrName
+     *            name fo the attribute for where clause
+     * @param attrValue
+     *            value to be checked in the where clause
+     */
+    static public Iterator findAll(String attrName, String attrValue)
+    {
+        IHome home = new Home();
+        Iterator physicalAttributes = home.findAll(attrName, attrValue, JuvenilePhysicalAttributes.class);
+        return physicalAttributes;
+    }
+
+    static public void create(SaveJuvenilePhysicalAttributesEvent saveEvent)
+    {
+        JuvenilePhysicalAttributes physicalAttribute = new JuvenilePhysicalAttributes();
+        physicalAttribute.setBuildId(saveEvent.getBuild());
+        physicalAttribute.setComplexionId(saveEvent.getComplexion());
+        physicalAttribute.setEntryDate(saveEvent.getEntryDate());
+        physicalAttribute.setEyeColorId(saveEvent.getEyeColor());
+        physicalAttribute.setHairColorId(saveEvent.getHairColor());
+        physicalAttribute.setHeight(saveEvent.getHeightFeet() + saveEvent.getHeightInch());
+        physicalAttribute.setJuvenileId(saveEvent.getJuvenileNum());
+        physicalAttribute.setWeight(Integer.parseInt(saveEvent.getWeight()));
+        //physicalAttribute.setOtherTattooComments(saveEvent.getOtherTattooComments());
+        //physicalAttribute.insertTattoos(saveEvent);
+    }
+
+    /**
+     * Access method for the entryDate property.
+     * 
+     * @return the current value of the entryDate property
+     */
+    public Date getEntryDate()
+    {
+        fetch();
+        return entryDate;
+    }
+
+    /**
+     * Sets the value of the entryDate property.
+     * 
+     * @param aEntryDate
+     *            the new value of the entryDate property
+     */
+    public void setEntryDate(Date aEntryDate)
+    {
+        if (this.entryDate == null || !this.entryDate.equals(aEntryDate))
+        {
+            markModified();
+        }
+        entryDate = aEntryDate;
+    }
+
+    /**
+     * Access method for the height property.
+     * 
+     * @return the current value of the height property
+     */
+    public String getHeight()
+    {
+        fetch();
+        return height;
+    }
+
+    /**
+     * Sets the value of the height property.
+     * 
+     * @param aheight
+     *            the new value of the height property
+     */
+    public void setHeight(String aHeight)
+    {
+        if (this.height == null || !this.height.equals(aHeight))
+        {
+            markModified();
+        }
+        height = aHeight;
+    }
+
+    /**
+     * Access method for the weight property.
+     * 
+     * @return the current value of the weight property
+     */
+    public int getWeight()
+    {
+        fetch();
+        return weight;
+    }
+
+    /**
+     * Sets the value of the weight property.
+     * 
+     * @param aWeight
+     *            the new value of the weight property
+     */
+    public void setWeight(int aWeight)
+    {
+        if (this.weight != aWeight)
+        {
+            markModified();
+        }
+        weight = aWeight;
+    }
+
+    /**
+     * @roseuid 42B183070090
+     */
+    public void bind()
+    {
+        markModified();
+    }
+
+    /**
+     * Set the reference value to class :: pd.codetable.Code
+     */
+    public void setEyeColorId(String eyeColorId)
+    {
+        if (this.eyeColorId == null || !this.eyeColorId.equals(eyeColorId))
+        {
+            markModified();
+        }
+        eyeColor = null;
+        this.eyeColorId = eyeColorId;
+    }
+
+    /**
+     * Get the reference value to class :: pd.codetable.Code
+     */
+    public String getEyeColorId()
+    {
+        fetch();
+        return eyeColorId;
+    }
+
+    /**
+     * Initialize class relationship to class pd.codetable.Code
+     */
+    private void initEyeColor()
+    {
+        if (eyeColor == null)
+        {
+            try
+            {
+                eyeColor = (Code) new mojo.km.persistence.Reference(eyeColorId, Code.class, PDCodeTableConstants.EYE_COLOR)
+                        .getObject();
+            }
+            catch (Throwable t)
+            {
+            }
+        }
+    }
+
+    /**
+     * Gets referenced type pd.codetable.Code
+     */
+    public Code getEyeColor()
+    {
+        fetch();
+        initEyeColor();
+        return eyeColor;
+    }
+
+    /**
+     * set the type reference for class member eyeColor
+     */
+    public void setEyeColor(Code eyeColor)
+    {
+        if (this.eyeColor == null || !this.eyeColor.equals(eyeColor))
+        {
+            markModified();
+        }
+        if (eyeColor.getOID() == null)
+        {
+            new mojo.km.persistence.Home().bind(eyeColor);
+        }
+        setEyeColorId("" + eyeColor.getOID());
+        this.eyeColor = (Code) new mojo.km.persistence.Reference(eyeColor).getObject();
+    }
+
+    /**
+     * Set the reference value to class :: pd.codetable.Code
+     */
+    public void setHairColorId(String hairColorId)
+    {
+        if (this.hairColorId == null || !this.hairColorId.equals(hairColorId))
+        {
+            markModified();
+        }
+        hairColor = null;
+        this.hairColorId = hairColorId;
+    }
+
+    /**
+     * Get the reference value to class :: pd.codetable.Code
+     */
+    public String getHairColorId()
+    {
+        fetch();
+        return hairColorId;
+    }
+
+    /**
+     * Initialize class relationship to class pd.codetable.Code
+     */
+    private void initHairColor()
+    {
+        if (hairColor == null)
+        {
+            try
+            {
+                hairColor = (Code) new mojo.km.persistence.Reference(hairColorId, Code.class,
+                	PDCodeTableConstants.HAIR_COLOR).getObject();
+            }
+            catch (Throwable t)
+            {
+            }
+        }
+    }
+
+    /**
+     * Gets referenced type pd.codetable.Code
+     */
+    public Code getHairColor()
+    {
+        fetch();
+        initHairColor();
+        return hairColor;
+    }
+
+    /**
+     * set the type reference for class member hairColor
+     */
+    public void setHairColor(Code hairColor)
+    {
+        if (this.hairColor == null || !this.hairColor.equals(hairColor))
+        {
+            markModified();
+        }
+        if (hairColor.getOID() == null)
+        {
+            new mojo.km.persistence.Home().bind(hairColor);
+        }
+        setHairColorId("" + hairColor.getOID());
+        this.hairColor = (Code) new mojo.km.persistence.Reference(hairColor).getObject();
+    }
+
+    /**
+     * Set the reference value to class :: pd.codetable.Code
+     */
+    public void setBuildId(String buildId)
+    {
+        if (this.buildId == null || !this.buildId.equals(buildId))
+        {
+            markModified();
+        }
+        build = null;
+        this.buildId = buildId;
+    }
+    
+    /**
+     * Set the reference value to class :: pd.codetable.Code
+     */
+    public void setComplexionId(String complexionId)
+    {
+        if (this.complexionId == null || !this.complexionId.equals(complexionId))
+        {
+            markModified();
+        }
+        build = null;
+        this.complexionId = complexionId;
+    }
+
+    /**
+     * Get the reference value to class :: pd.codetable.Code
+     */
+    public String getBuildId()
+    {
+        fetch();
+        return buildId;
+    }
+
+    /**
+     * Get the reference value to class :: pd.codetable.Code
+     */
+    public String getComplexionId()
+    {
+        fetch();
+        return complexionId;
+    }
+    /**
+     * Initialize class relationship to class pd.codetable.Code
+     */
+    private void initBuild()
+    {
+        if (build == null)
+        {
+            try
+            {
+                build = (Code) new mojo.km.persistence.Reference(buildId, Code.class, PDCodeTableConstants.BUILD)
+                        .getObject();
+            }
+            catch (Throwable t)
+            {
+            }
+        }
+    }
+
+    /**
+     * Gets referenced type pd.codetable.Code
+     */
+    public Code getBuild()
+    {
+        fetch();
+        initBuild();
+        return build;
+    }
+
+    /**
+     * set the type reference for class member build
+     */
+    public void setBuild(Code build)
+    {
+        if (this.build == null || !this.build.equals(build))
+        {
+            markModified();
+        }
+        if (build.getOID() == null)
+        {
+            new mojo.km.persistence.Home().bind(build);
+        }
+        setBuildId("" + build.getOID());
+        this.build = (Code) new mojo.km.persistence.Reference(build).getObject();
+    }
+
+    /**
+     * Initialize class relationship to class pd.codetable.Code
+     */
+    private void initComplexion()
+    {
+        if (complexion == null)
+        {
+            try
+            {
+                complexion = (Code) new mojo.km.persistence.Reference(complexionId, Code.class, "COMPLEXION")
+                        .getObject();
+            }
+            catch (Throwable t)
+            {
+            }
+        }
+    }
+
+    /**
+     * Gets referenced type pd.codetable.Code
+     */
+    public Code getComplexion()
+    {
+        fetch();
+        initComplexion();
+        return complexion;
+    }
+
+    /**
+     * set the type reference for class member build
+     */
+    public void setComplexion(Code complexion)
+    {
+        if (this.complexion == null || !this.complexion.equals(complexion))
+        {
+            markModified();
+        }
+        if (complexion.getOID() == null)
+        {
+            new mojo.km.persistence.Home().bind(complexion);
+        }
+        setComplexionId("" + complexion.getOID());
+        this.complexion = (Code) new mojo.km.persistence.Reference(complexion).getObject();
+    }
+    
+    /**
+     * Set the reference value to class :: pd.juvenile.Juvenile
+     */
+    public void setJuvenileId(String juvenileId)
+    {
+        if (this.juvenileId == null || !this.juvenileId.equals(juvenileId))
+        {
+            markModified();
+        }
+        this.juvenileId = juvenileId;
+    }
+
+    /**
+     * Get the reference value to class :: pd.juvenile.Juvenile
+     */
+    public String getJuvenileId()
+    {
+        fetch();
+        return juvenileId;
+    }
+
+    /**
+     * Initialize class relationship implementation for
+     * pd.codetable.person.ScarsMarksTattoosCode
+     */
+    private void initTattoos()
+    {
+        if (tattoos == null)
+        {
+            if (this.getOID() == null)
+            {
+                new mojo.km.persistence.Home().bind(this);
+            }
+            try
+            {
+                tattoos = new mojo.km.persistence.ArrayList(
+                        JuvenilePhysicalAttributesTattoosScarsMarksTattoosCode.class, "parentId", "" + getOID());
+            }
+            catch (Throwable t)
+            {
+                tattoos = new ArrayList();
+            }
+        }
+    }
+
+    /**
+     * returns a collection of pd.codetable.person.ScarsMarksTattoosCode
+     */
+    public Collection getTattoos()
+    {
+        initTattoos();
+        ArrayList retVal = new ArrayList();
+        Iterator i = tattoos.iterator();
+        while (i.hasNext())
+        {
+            JuvenilePhysicalAttributesTattoosScarsMarksTattoosCode actual = (JuvenilePhysicalAttributesTattoosScarsMarksTattoosCode) i
+                    .next();
+            retVal.add(actual.getChild());
+        }
+        return retVal;
+    }
+
+    public Collection getTattoosResponse()
+    {
+        Collection tattoos = new ArrayList();
+        Iterator t = this.getTattoos().iterator();
+        while (t.hasNext())
+        {
+            ScarsMarksTattoosCode code = (ScarsMarksTattoosCode) t.next();
+            tattoos.add(code.valueObject());
+        }
+        return tattoos;
+    }
+
+    /**
+     * insert a pd.codetable.person.ScarsMarksTattoosCode into class relationship
+     * collection.
+     */
+    public void insertTattoos(ScarsMarksTattoosCode anObject)
+    {
+        initTattoos();
+        JuvenilePhysicalAttributesTattoosScarsMarksTattoosCode actual = new JuvenilePhysicalAttributesTattoosScarsMarksTattoosCode();
+        if (this.getOID() == null)
+        {
+            new Home().bind(this);
+        }
+        if (anObject.getOID() == null)
+        {
+            new Home().bind(anObject);
+        }
+        actual.setChild(anObject);
+        actual.setParent(this);
+        tattoos.add(actual);
+    }
+
+    /**
+     * Removes a pd.codetable.person.ScarsMarksTattoosCode from class relationship
+     * collection.
+     */
+//    public void removeTattoos(pd.codetable.person.ScarsMarksTattoosCode anObject)
+//    {
+//        initTattoos();
+//        try
+//        {
+//            mojo.km.persistence.GetAssociationEvent assocEvent = new mojo.km.persistence.GetAssociationEvent();
+//            assocEvent.setChildId((String) anObject.getOID());
+//            assocEvent.setParentId((String) this.getOID());
+//            pd.juvenile.JuvenilePhysicalAttributesTattoosScarsMarksTattoosCode actual = (pd.juvenile.JuvenilePhysicalAttributesTattoosScarsMarksTattoosCode) new mojo.km.persistence.Reference(
+//                    assocEvent, pd.juvenile.JuvenilePhysicalAttributesTattoosScarsMarksTattoosCode.class).getObject();
+//            tattoos.remove(actual);
+//        }
+//        catch (Throwable t)
+//        {
+//        }
+//    }
+
+    /**
+     * Clears all pd.codetable.person.ScarsMarksTattoosCode from class relationship
+     * collection.
+     */
+//    public void clearTattoos()
+//    {
+//        initTattoos();
+//        tattoos.clear();
+//    }
+
+//    private void insertTattoos(CompositeRequest saveEvent)
+//    {
+//        Collection tattoos = MessageUtil.compositeToCollection(saveEvent, TattooRequestEvent.class);
+//        if (tattoos != null)
+//        {
+//            Iterator i = tattoos.iterator();
+//            while (i.hasNext())
+//            {
+//                TattooRequestEvent tattoosEvent = (TattooRequestEvent) i.next();
+//                ScarsMarksTattoosCode code = ScarsMarksTattoosCode.find(tattoosEvent.getCode());
+//                //ScarsMarksTattoosCode.find(PDCodeTableConstants.TATTOO_CATEGORY +
+//                // tattoosEvent.getCode());
+//                if (code != null)
+//                {
+//                    insertTattoos(code);
+//                }
+//            }
+//        }
+//    }
+
+    public JuvenilePhysicalAttributesResponseEvent getJuvenilePhysicalAttributesResponse()
+    {
+        JuvenilePhysicalAttributesResponseEvent respEvent = new JuvenilePhysicalAttributesResponseEvent();
+
+        respEvent.setJuvenileNum(this.getJuvenileId());
+        respEvent.setEntryDate(this.getEntryDate());
+        respEvent.setWeight(this.getWeight()+"");
+        respEvent.setBuild(this.getBuildId());
+        respEvent.setEyeColor(this.getEyeColorId());
+        respEvent.setHairColor(this.getHairColorId());
+        respEvent.setComplexion(this.getComplexionId());
+//        respEvent.setOtherTattooComments(this.getOtherTattooComments());
+
+        respEvent.setPhysicalAttributesId(this.getOID().toString());
+
+        String height = this.getHeight();
+        if (height != null && height.length() > 1)
+        {
+            respEvent.setHeightFeet(height.substring(0, 1));
+            respEvent.setHeightInch(height.substring(1, height.length()));
+        }
+
+        respEvent.setTopic(PDJuvenileCaseConstants.JUVENILE_PHYSICAL_CHARACTERISTICS_TOPIC);
+        return respEvent;
+    }
+
+    /**
+     * @return
+     */
+//    public String getOtherTattooComments()
+//    {
+//        fetch();
+//        return otherTattooComments;
+//    }
+//
+//    /**
+//     * @param string
+//     */
+//    public void setOtherTattooComments(String string)
+//    {
+//        if (string == null)
+//        {
+//            string = "";
+//        }
+//        markModified();
+//        otherTattooComments = string;
+//    }
+
+	/**
+	 * @return Returns the supervisionNum.
+	 */
+	public String getSupervisionNum() {
+		fetch();
+		return supervisionNum;
+	}
+	/**
+	 * @param supervisionNum The supervisionNum to set.
+	 */
+	public void setSupervisionNum(String supervisionNum) {
+        if (this.supervisionNum == null || !this.supervisionNum.equals(supervisionNum))
+        {
+            markModified();
+        }
+		this.supervisionNum = supervisionNum;
+	}
+}

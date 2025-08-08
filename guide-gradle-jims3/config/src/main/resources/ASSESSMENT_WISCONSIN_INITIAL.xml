@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Survey type="" name="WISCONSIN_INITIAL" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="C:\Views\CommonSupervision\Arch\build\configuration\dev\SurveyV2.xsd">
+	<questionGroup id="WISCONSIN_INITIAL_G1" name="WISCONSIN_INITIAL_RISK" sequence="1">
+		<question responseUIControlType="SELECT" id="WISCINITRISK_Q1" text="Number of address changes in the Last 12 months" rowSequence="1" isResponseNewLine="true" isRequired="true" >
+			<response id="WISCINITRISK_Q1_R1" displayText="Please Select" responseValue="" isDefault="true" />
+			<response id="WISCINITRISK_Q1_R2" displayText="None" responseValue="0" />
+			<response id="WISCINITRISK_Q1_R3" displayText="One" responseValue="2" />
+			<response id="WISCINITRISK_Q1_R4" displayText="Two or More" responseValue="3" /> 
+		</question>
+		<question responseUIControlType="SELECT" id="WISCINITRISK_Q2" text="Percentage of Time Employed in the Last 12 months" rowSequence="2" isResponseNewLine="true"  isRequired="true">
+			<response id="WISCINITRISK_Q2_R1" displayText="Please Select" responseValue="" isDefault="true"></response>
+			<response id="WISCINITRISK_Q2_R2" displayText="60% or More" responseValue="0" ></response>
+			<response id="WISCINITRISK_Q2_R3" displayText="40%-59%" responseValue="1" ></response>
+			<response id="WISCINITRISK_Q2_R4" displayText="Under 40%" responseValue="2" ></response>
+			<response id="WISCINITRISK_Q2_R5" displayText="Not Applicable" responseValue="0" ></response>
+		</question>
+		<question responseUIControlType="RADIO" id="WISCINITRISK_Q3" text="Alcohol Usage" rowSequence="3" isResponseNewLine="true" isRequired="true" isEachResponseNewLine="true" >
+			<response id="WISCINITRISK_Q3_R1" displayText="Alcohol use unrelated to criminal activity; ex., no alcohol-related arrests, no evidence of use during the offense" responseValue="0"></response>
+			<response id="WISCINITRISK_Q3_R2" displayText="Probable relationship between alcohol use and criminal activity" responseValue="1"></response>
+			<response id="WISCINITRISK_Q3_R3" displayText="Definite relationship between alcohol use and criminal activity;ex.,pattern of committing offenses while using alcohol" responseValue="2"></response>
+		</question>
+		<question responseUIControlType="RADIO" id="WISCINITRISK_Q4" text="Other Drug Usage" rowSequence="4" isResponseNewLine="true" isRequired="true" isEachResponseNewLine="true">
+			<response id="WISCINITRISK_Q4_R1" displayText="No abuse of legal drug; no indicators of illegal drug involvement, ie., use, possession or abuse" responseValue="0"></response>
+			<response id="WISCINITRISK_Q4_R2" displayText="Probable relationship between drug involvement and criminal activity" responseValue="1"></response>
+			<response id="WISCINITRISK_Q4_R3" displayText="Definite relationship between drug involvement and criminal activity; ex., pattern of committing offenses while using drugs, sale or manufacture of illegal drugs" responseValue="2"></response>
+		</question>
+		<question responseUIControlType="RADIO" id="WISCINITRISK_Q5" text="Attitude" rowSequence="5" isResponseNewLine="true" isRequired="true" isEachResponseNewLine="true">
+			<response id="WISCINITRISK_Q5_R1" displayText="Motivated to change; receptive to assistance" responseValue="0"></response>
+			<response id="WISCINITRISK_Q5_R2" displayText="Somewhat motivated but dependent or unwilling to accept responsibility" responseValue="3"></response>
+			<response id="WISCINITRISK_Q5_R3" displayText="Rationalizes behavior; negative; not motivated to change" responseValue="5"></response>
+		</question>
+		<question responseUIControlType="SELECT" id="WISCINITRISK_Q6" text="Age at First Adjudication of Guilt&#60;br&#62;(Adult or Juvenile - include deferred)" rowSequence="6" isRequired="true" isResponseNewLine="true">
+			<response id="WISCINITRISK_Q6_R1" displayText="Please Select" responseValue="" isDefault="true"></response>
+			<response id="WISCINITRISK_Q6_R2" displayText="24 or older" responseValue="0"></response>
+			<response id="WISCINITRISK_Q6_R3" displayText="20-23" responseValue="2"></response>
+			<response id="WISCINITRISK_Q6_R4" displayText="19 or younger" responseValue="4"></response>
+		</question>
+		<question responseUIControlType="SELECT" id="WISCINITRISK_Q7" text="Number of Prior Periods of Community Supervision/ Parole Supervision&#60;br&#62;(Adult or Juvenile)" rowSequence="7" isRequired="true" isResponseNewLine="true">
+			<response id="WISCINITRISK_Q7_R1" displayText="Please Select" responseValue="" isDefault="true"></response>
+			<response id="WISCINITRISK_Q7_R2" displayText="None" responseValue="0"></response>
+			<response id="WISCINITRISK_Q7_R3" displayText="One or More" responseValue="4"></response>
+		</question>
+		<question responseUIControlType="SELECT" id="WISCINITRISK_Q8" text="Number of Prior Community Supervision/Parole Revocations&#60;br&#62;(Adult or Juvenile)" rowSequence="8" isRequired="true" isResponseNewLine="true">
+			<response id="WISCINITRISK_Q8_R1" displayText="Please Select" responseValue="" isDefault="true"></response>
+			<response id="WISCINITRISK_Q8_R2" displayText="None" responseValue="0"></response>
+			<response id="WISCINITRISK_Q8_R3" displayText="One or More" responseValue="4"></response>
+		</question>
+		<question responseUIControlType="SELECT" id="WISCINITRISK_Q9" text="Number of Prior Felony Adjudications of Guilt&#60;br&#62;(or Juvenile Commitments - include deferred)" rowSequence="9" isRequired="true" isResponseNewLine="true">
+			<response id="WISCINITRISK_Q9_R1" displayText="Please Select" responseValue="" isDefault="true"></response>
+			<response id="WISCINITRISK_Q9_R2" displayText="None" responseValue="0"></response>
+			<response id="WISCINITRISK_Q9_R3" displayText="One" responseValue="2"></response>
+			<response id="WISCINITRISK_Q9_R4" displayText="Two or More" responseValue="4"></response>
+		</question>
+		<question responseUIControlType="RADIO" id="WISCINITRISK_Q10A" text="Adult or Juvenile Adjudication for burglary, theft, auto theft, or robbery" rowSequence="10" isRequired="true" isResponseNewLine="true">
+			<response id="WISCINITRISK_Q10A_R1" displayText="Yes" responseValue="2" isDefault="false"></response>
+			<response id="WISCINITRISK_Q10A_R2" displayText="No" responseValue="0" isDefault="false"></response>
+		</question>
+		<question responseUIControlType="RADIO" id="WISCINITRISK_Q10B" text="Adult or Juvenile Adjudication for worthless checks or forgery" rowSequence="11" isRequired="true" isResponseNewLine="true">
+			<response id="WISCINITRISK_Q10B_R1" displayText="Yes" responseValue="3" isDefault="false"></response>
+			<response id="WISCINITRISK_Q10B_R2" displayText="No" responseValue="0" isDefault="false"></response>
+		</question>
+		<question responseUIControlType="RADIO" id="WISCINITRISK_Q11" text="Adult or Juvenile Adjudications for Assaultive Offense within the Last FIVE Years&lt;br&gt;(An offense which is defined as Assaultive, or one which involves the use of a weapon,&lt;br&gt;physical force, or the threat of force)" rowSequence="12" isRequired="true" isResponseNewLine="true">
+			<response id="WISCINITRISK_Q11_R1" displayText="Yes" responseValue="8" isDefault="false"></response>
+			<response id="WISCINITRISK_Q11_R2" displayText="No" responseValue="0" isDefault="false"></response>
+		</question>
+	</questionGroup>
+	<questionGroup id="WISCONSIN_INITIAL_G2" name="WISCONSIN_INITIAL_NEEDS" sequence="2">
+		<question responseUIControlType="RADIO" id="WISCINITNEEDS_Q1" text="ACADEMIC/VOCATIONAL SKILLS" rowSequence="1" isResponseNewLine="true" isRequired="true" isEachResponseNewLine="true">
+			<response id="WISCINITNEEDS_Q1_R1" displayText="High School or above skill level" responseValue="-1" isDefault="false"></response>		
+			<response id="WISCINITNEEDS_Q1_R2" displayText="Adequate skills, able to handle everyday requirements" responseValue="0" isDefault="false"></response>		
+			<response id="WISCINITNEEDS_Q1_R3" displayText="Low skill level causing minor adjustment problems" responseValue="2" isDefault="false"></response>	
+			<response id="WISCINITNEEDS_Q1_R4" displayText="Minimal skill level causing serious adjustment problems" responseValue="4" isDefault="false"></response>		
+		</question>
+		<question responseUIControlType="RADIO" id="WISCINITNEEDS_Q2" text="EMPLOYMENT" rowSequence="2" isRequired="true" isResponseNewLine="true" isEachResponseNewLine="true">
+			<response id="WISCINITNEEDS_Q2_R1" displayText="Satisfactory employment for one year or longer" responseValue="-1" isDefault="false"></response>		
+			<response id="WISCINITNEEDS_Q2_R2" displayText="Secure employment; no difficulties reported; or homemaker, student, or retired" responseValue="0" isDefault="false"></response>		
+			<response id="WISCINITNEEDS_Q2_R3" displayText="Unsatisfactory employment or  unemployed but has adequate job skills" responseValue="3" isDefault="false"></response>	
+			<response id="WISCINITNEEDS_Q2_R4" displayText="Unemployed and virtually unemployable; needs training" responseValue="6" isDefault="false"></response>		
+		</question>
+		<question responseUIControlType="RADIO" id="WISCINITNEEDS_Q3" text="FINANCIAL MANAGEMENT" rowSequence="3" isRequired="true" isResponseNewLine="true" isEachResponseNewLine="true">
+			<response id="WISCINITNEEDS_Q3_R1" displayText="Long-standing pattern of selfsufficiency;e.g., good credit" responseValue="-1" isDefault="false"></response>		
+			<response id="WISCINITNEEDS_Q3_R2" displayText="No current difficulties" responseValue="0" isDefault="false"></response>		
+			<response id="WISCINITNEEDS_Q3_R3" displayText="Situational or minor difficulties" responseValue="3" isDefault="false"></response>	
+			<response id="WISCINITNEEDS_Q3_R4" displayText="Severe difficulties; may include overdrafts, bad checks or bankruptcy" responseValue="5" isDefault="false"></response>		
+		</question>
+		<question responseUIControlType="RADIO" id="WISCINITNEEDS_Q4" text="MARITAL/FAMILY RELATIONSHIPS" rowSequence="4" isRequired="true" isResponseNewLine="true" isEachResponseNewLine="true">
+			<response id="WISCINITNEEDS_Q4_R1" displayText="Relationships and support exceptionally strong" responseValue="-1" isDefault="false"></response>		
+			<response id="WISCINITNEEDS_Q4_R2" displayText="Relatively stable relationships" responseValue="0" isDefault="false"></response>		
+			<response id="WISCINITNEEDS_Q4_R3" displayText="Some disorganization or stress but potential for improvement" responseValue="3" isDefault="false"></response>	
+			<response id="WISCINITNEEDS_Q4_R4" displayText="Major disorganization or stress" responseValue="5" isDefault="false"></response>		
+		</question>
+		<question responseUIControlType="SELECT" id="WISCINITNEEDS_Q5" text="COMPANIONS" rowSequence="5" isRequired="true" isResponseNewLine="true">
+			<response id="WISCINITNEEDS_Q5_R1" displayText="Please Select" responseValue="" isDefault="true"></response>		
+			<response id="WISCINITNEEDS_Q5_R2" displayText="Good support and influence" responseValue="-1" isDefault="false"></response>		
+			<response id="WISCINITNEEDS_Q5_R3" displayText="No adverse relationships" responseValue="0" isDefault="false"></response>	
+			<response id="WISCINITNEEDS_Q5_R4" displayText="Associations with occasional negative results" responseValue="2" isDefault="false"></response>	
+			<response id="WISCINITNEEDS_Q5_R5" displayText="Associations almost completely negative" responseValue="4" isDefault="false"></response>		
+		</question>	
+		<question responseUIControlType="RADIO" id="WISCINITNEEDS_Q6" text="EMOTIONAL STABILITY" rowSequence="6" isRequired="true" isResponseNewLine="true" isEachResponseNewLine="true">
+			<response id="WISCINITNEEDS_Q6_R1" displayText="Exceptionally well adjusted; accepts responsibility for actions" responseValue="-2" isDefault="false"></response>		
+			<response id="WISCINITNEEDS_Q6_R2" displayText="No symptoms of emotional instability; appropriate emotional responses" responseValue="0" isDefault="false"></response>		
+			<response id="WISCINITNEEDS_Q6_R3" displayText="Symptoms limit but do not prohibit adequate functioning;e.g., excessive anxiety" responseValue="4" isDefault="false"></response>	
+			<response id="WISCINITNEEDS_Q6_R4" displayText="Symptoms prohibit adequate functioning; e.g., lashes out or retreats into self" responseValue="7" isDefault="false"></response>		
+		</question>
+		<question responseUIControlType="RADIO" id="WISCINITNEEDS_Q7" text="ALCOHOL USAGE PROBLEMS" rowSequence="7" isRequired="true" isResponseNewLine="true" isEachResponseNewLine="true">
+			<response id="WISCINITNEEDS_Q7_R1" displayText="No use; use with no abuse; no disruption of functioning" responseValue="0" isDefault="false"></response>		
+			<response id="WISCINITNEEDS_Q7_R2" displayText="Occasional abuse; some disruption of functioning" responseValue="3" isDefault="false"></response>		
+			<response id="WISCINITNEEDS_Q7_R3" displayText="Frequent abuse; serious disruption of functioning" responseValue="6" isDefault="false"></response>	
+		</question>
+		<question responseUIControlType="SELECT" id="WISCINITNEEDS_Q8" text="OTHER DRUG USAGE PROBLEMS" rowSequence="8" isRequired="true" isResponseNewLine="true">
+			<response id="WISCINITNEEDS_Q8_R1" displayText="Please Select" responseValue="" isDefault="true"></response>		
+			<response id="WISCINITNEEDS_Q8_R2" displayText="No disruption of functioning" responseValue="0" isDefault="false"></response>		
+			<response id="WISCINITNEEDS_Q8_R3" displayText="Occasional abuse; some disruption of functioning" responseValue="3" isDefault="false"></response>	
+			<response id="WISCINITNEEDS_Q8_R4" displayText="Frequent abuse;  Serious disruption of functioning" responseValue="5" isDefault="false"></response>		
+		</question>
+		<question responseUIControlType="RADIO" id="WISCINITNEEDS_Q9" text="MENTAL ABILITY" rowSequence="9" isRequired="true" isResponseNewLine="true" isEachResponseNewLine="true">
+			<response id="WISCINITNEEDS_Q9_R1" displayText="Able to function independently" responseValue="0" isDefault="false"></response>		
+			<response id="WISCINITNEEDS_Q9_R2" displayText="Some need for assistance; potential for adequate adjustment; possible retardation" responseValue="3" isDefault="false"></response>		
+			<response id="WISCINITNEEDS_Q9_R3" displayText="Deficiencies severely limit independent functioning; possible retardation" responseValue="6" isDefault="false"></response>	
+		</question>
+		<question responseUIControlType="RADIO" id="WISCINITNEEDS_Q10" text="HEALTH" rowSequence="10" isRequired="true" isResponseNewLine="true" isEachResponseNewLine="true">
+			<response id="WISCINITNEEDS_Q10_R1" displayText="Sound physical health; seldom ill" responseValue="0" isDefault="false"></response>		
+			<response id="WISCINITNEEDS_Q10_R2" displayText="Handicap or illness interferes with functioning on a recurring basis" responseValue="1" isDefault="false"></response>		
+			<response id="WISCINITNEEDS_Q10_R3" displayText="Serious handicap or chronic illness; needs frequent medical care" responseValue="2" isDefault="false"></response>	
+		</question>	
+		<question responseUIControlType="SELECT" id="WISCINITNEEDS_Q11" text="SEXUAL BEHAVIOR" rowSequence="11" isRequired="true" isResponseNewLine="true">
+			<response id="WISCINITNEEDS_Q11_R1" displayText="Please Select" responseValue="" isDefault="true"></response>		
+			<response id="WISCINITNEEDS_Q11_R2" displayText="No apparent dysfunction" responseValue="0" isDefault="false"></response>		
+			<response id="WISCINITNEEDS_Q11_R3" displayText="Real or perceived situational or minor problems" responseValue="3" isDefault="false"></response>	
+			<response id="WISCINITNEEDS_Q11_R4" displayText="Real or perceived chronic or severe problems" responseValue="5" isDefault="false"></response>	
+		</question>
+		<question responseUIControlType="SELECT" id="WISCINITNEEDS_Q12" text="C.S.O.'S IMPRESSIONS OF DEFENDANT'S NEEDS" rowSequence="12" isRequired="true" isResponseNewLine="true">
+			<response id="WISCINITNEEDS_Q12_R1" displayText="Please Select" responseValue="" isDefault="true"></response>		
+			<response id="WISCINITNEEDS_Q12_R2" displayText="Well Adjusted" responseValue="-1" isDefault="false"></response>		
+			<response id="WISCINITNEEDS_Q12_R3" displayText="No Needs" responseValue="0" isDefault="false"></response>	
+			<response id="WISCINITNEEDS_Q12_R4" displayText="Moderate Needs" responseValue="3" isDefault="false"></response>
+			<response id="WISCINITNEEDS_Q12_R5" displayText="High Needs" responseValue="5" isDefault="false"></response>	
+		</question>
+	</questionGroup>
+</Survey>

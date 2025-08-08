@@ -1,0 +1,388 @@
+<?xml version="1.0" encoding="US-ASCII"?>
+<document size="A4" margin-left="25" margin-right="25" margin-top="25" margin-bottom="25">
+
+	<encryption allow-fillin="false" allow-modify-contents="false" allow-degraded-printing="true" allow-screen-readers="false" allow-copy="false"	allow-printing="false"/>
+	<meta author="JIMS2, Harris County" creator="JIMS2, Harris County" title="JPO Case Plan Review"/>
+
+	<module>
+		<font-def name="title" family="arial" style="bold" size="16"/>
+		<font-def name="tableheader" family="Times New Roman" style="bold" size="10" color="white"/>
+		<font-def name="label" family="Times New Roman" style="bold" size="10"/>
+		<font-def name="large-label" family="Times New Roman" style="bold" size="12"/>
+		<font-def name="small-label" family="Times New Roman" style="bold" size="10"/>
+		<font-def name="text" family="Times New Roman" style="normal" size="10"/>
+		<font-def name="u_text" family="Times New Roman" style="underline" size="10"/>
+		<font-def name="small-text" family="Times New Roman" style="normal" size="10"/>
+		<font-def name="input-text" family="Helvetica" style="bold" size="12"/>
+		<font-def name="large-text" family="Times New Roman" style="normal" size="12"/>
+	</module>
+	
+
+	<footer padding-top="10">
+		<font size="10" color="black">
+		<footer-part padding-top="15" halign="left" width="500">
+		<table columns="1" width="100" halign="center" padding-bottom="20">
+			<cell halign="center">
+				Page ${pageNumber , nointrprt} of ${pageCount , nointrprt}
+			</cell>
+		</table>
+		</footer-part>
+		</font>
+	</footer>
+	
+	<table width="100" columns="2" cell-halign="center" widths="15,80">
+		<table-row>
+			<cell>
+				<image source="MJCW/HarrisCountySeal.jpg" width="75" height="75" scale-to-fit="true"/>
+			</cell>
+			<cell>
+				<font name="title">Harris County Juvenile Probation Department (HCJPD)</font><br/>
+			</cell>
+		</table-row>
+		<table-row><cell><br/><br/><br/></cell></table-row>
+		<table-row>
+			<cell></cell>
+			<cell>
+				<font name="title">Juvenile Probation Officer Case Plan Review</font><br/>
+			</cell>
+		</table-row>
+	</table>
+	<br/>
+	<br/>
+	<br/>
+	
+	<table width="100" border-width="1" border-style="box" columns="2" 
+		halign="center" cell-halign="left" widths="50,50" padding-left="5" padding-bottom="2">
+		<table-header font="tableheader" bgcolor="black">
+			<cell colspan="2" halign="center" valign="middle" padding-bottom="4">
+				IDENTIFYING INFORMATION
+			</cell>
+		</table-header>
+		<table-row>
+			<cell><font name="label">Child's Name:</font> ${juvDetails.fullNameFirst}</cell>
+			<cell font="label">County: <font name="input-text">Harris</font></cell>
+		</table-row>
+		<table-row>
+			<cell><font name="label">Child's Date of Birth:</font> ${juvDetails.dob}</cell>
+			<cell><font name="label">Caseworker PID:</font> ${juvDetails.juvNum}</cell>
+		</table-row>
+		<table-row>
+			<cell><font name="label">Harris County Case#:</font> ${casefileId}</cell>
+			<cell><font name="label">Expected Supervision End Date:</font> ${expectedSupervisionEndDate}</cell>
+		</table-row>
+	</table>
+	<br/><br/><br/>
+	
+	<table width="80" columns="1" halign="center" cell-halign="left" font="text" padding-left="5" padding-bottom="2" spacing-after="20">
+		<table-header font="tableheader" bgcolor="black">
+			<cell halign="center" valign="middle" padding-bottom="4">
+				ASSIGNED GOALS
+			</cell>
+		</table-header>
+		_if_ (${goals} notEmpty)
+			_foreach_(goal ${goals} 'even' 'odd')
+				<table-row>
+					<cell>Goal: ${goal.goal}</cell>
+				</table-row>
+				<table-row>
+					<cell>Goal Status: ${goal.statusStr}</cell>
+				</table-row>
+				<table-row padding-bottom="10">
+					<cell>Progress Notes: ${goal.progressNotes}</cell>
+				</table-row>
+			_endfor_
+		_else_
+			<table-row>
+				<cell>Goal:</cell>
+			</table-row>
+			<table-row>
+				<cell>Goal Status: </cell>
+			</table-row>
+			<table-row padding-bottom="10">
+				<cell>Progress Notes: </cell>
+			</table-row>
+		_endif_
+	</table>
+	
+	<table width="80" columns="2" halign="center" 
+		cell-halign="left" font="text" padding-left="5" padding-bottom="2" widths="7,93" spacing-after="20">
+		<table-header font="tableheader" bgcolor="black">
+			<cell colspan="2" halign="center" valign="middle" padding-bottom="4">
+				SUPERVISION LEVEL ASSIGNMENT
+			</cell>
+		</table-header>
+		_if_ (${riskAnalysisProgressAssessments} notEmpty)
+			_foreach_(riskAnalysisProgressAssessment ${riskAnalysisProgressAssessments} 'even' 'odd')
+				<table-row>
+					<cell colspan="2">Date: ${riskAnalysisProgressAssessment.entryDate}</cell>
+				</table-row>
+				<table-row>
+					<cell colspan="2">Recommendations: ${riskAnalysisProgressAssessment.recommendation}</cell>
+				</table-row>
+				<table-row padding-bottom="10">
+					<cell></cell>
+					<cell>JPO Comments: ${riskAnalysisProgressAssessment.comments}</cell>
+				</table-row>
+			_endfor_
+		_else_
+			<table-row>
+				<cell colspan="2">Recommendations:${recomSupervisionLevel}</cell>
+			</table-row>
+			<table-row padding-bottom="10">
+				<cell></cell>
+				<cell>JPO Comments:${comments}</cell>
+			</table-row>
+		_endif_
+	</table>
+	
+	<table width="80" columns="2" halign="center" 
+		cell-halign="left" font="text" padding-left="5" padding-bottom="2" widths="15,85" spacing-after="20">
+		<table-header font="tableheader" bgcolor="black">
+			<cell colspan="2" halign="center" valign="middle" padding-bottom="4">
+				SERVICES PROVIDED
+			</cell>
+		</table-header>
+		<table-row>
+			<cell fill-row="true">
+				_if_ (${programReferrals} notEmpty)
+					_foreach_(programReferral ${programReferrals} 'even' 'odd')
+						<table width="100" columns="5" widths="35,15,15,18,17">
+							<table-row valign="bottom" halign="left">
+								<cell font="u_text">Program Service Provider 
+								</cell>
+								<cell font="u_text">Start Date
+								</cell>
+								<cell font="u_text">End Date
+								</cell>
+								<cell font="u_text">Status
+								</cell>
+								<cell font="u_text">Outcome
+								</cell>
+							</table-row>
+							<table-row valign="top" halign="left">
+								<cell>${programReferral.juvServiceProviderName}</cell>
+								<cell>${programReferral.beginDateStr}</cell>
+								<cell>${programReferral.endDateStr}</cell>
+								<cell>${programReferral.referralState.description}</cell>
+								<cell>${programReferral.outComeDescription}</cell>
+							</table-row>
+							
+							_if_(${programReferral.referralComments} notEmpty)
+								<table-row>
+									<cell font="u_text" fill-row="true">
+										Progress Notes:
+									</cell>
+								</table-row>
+								<table-row>
+									<cell fill-row="true">
+										_foreach_(referralComment ${programReferral.referralComments} 'even' 'odd')
+											[${referralComment.commentsDate} - ${referralComment.userName}]  ${referralComment.commentText}<br/>
+										_endfor_
+									</cell>
+								</table-row>
+							_endif_
+							
+							_if_(${programReferral.juvenileEvents} notEmpty)
+								<table-row>
+									<cell fill-row="true" halign="right">
+										<table columns="3" widths="7,23,40">
+											<table-row valign="bottom" halign="left">
+												<cell></cell>
+												<cell font="u_text">Date of Service:</cell>
+												<cell font="u_text">Service Comments:</cell>
+											</table-row>
+											_foreach_(juvenileEvent ${programReferral.juvenileEvents} 'even' 'odd')
+												<table-row valign="top" halign="left">
+													<cell></cell>
+													<cell>${juvenileEvent.eventDate}</cell>
+													<cell>${juvenileEvent.eventComments}</cell>
+												</table-row>
+											_endfor_
+										</table>
+									</cell>
+								</table-row>
+							_endif_
+							
+							<table-row><cell fill-row="true" border-color="black" border-style="bottom" border-width="2"><br/></cell></table-row>
+							
+						</table>
+					_endfor_	
+				_else_
+					<table width="100" columns="5" widths="35,15,15,15,20">
+						<table-row>
+							<cell font="u_text">Program Service Provider
+							</cell>
+							<cell font="u_text">Start Date
+							</cell>
+							<cell font="u_text">End Date
+							</cell>
+							<cell font="u_text">Status
+							</cell>
+							<cell font="u_text">Outcome
+							</cell>
+						</table-row>
+					</table>
+				_endif_
+			</cell>
+		</table-row>
+	</table>
+	
+	<table width="80" columns="1" halign="center" cell-halign="left" font="text" padding-left="5" padding-bottom="2" spacing-after="60">
+		<table-header font="tableheader" bgcolor="black">
+			<cell halign="center" valign="middle" padding-bottom="4">
+				CASE PLAN COMPLIANCE
+			</cell>
+		</table-header>
+		
+		<!-- This is the latest JPO Review comment-->
+		<table-row>
+			<cell>Entry Date: ${todaysDate}</cell>
+		</table-row>
+		<table-row padding-bottom="10">
+			<cell>Comments: ${comments}</cell>
+		</table-row>
+		
+		_if_ (${revActivities} notEmpty)
+			_foreach_(revActivity ${revActivities} 'even' 'odd')
+				<table-row>
+					<cell>Entry Date: ${revActivity.activityDate}</cell>
+				</table-row>
+				<table-row padding-bottom="10">
+					<cell>Comments: ${revActivity.comments}</cell>
+				</table-row>
+			_endfor_
+		_endif_
+	</table>
+	<br/><br/><br/>
+	
+	
+	
+	<table  width="80" columns="1" border-style="box" halign="center" border-width="1" padding="0">
+		<table-header font="tableheader" bgcolor="black">
+			<cell halign="center" valign="middle" padding-bottom="4">PLAN OF CONTACT</cell>
+		</table-header>
+		<table-header font="tableheader" bgcolor="black">
+			<cell halign="center" valign="middle" padding-bottom="4">LEVEL OF SUPERVISION &amp; PLAN OF CONTACT</cell>
+		</table-header>
+		<table-row font="small-label">
+			<cell halign="left" valign="bottom" padding-bottom="4" padding-left="4">
+				<font name="label">A. Level of Supervision:</font><space/>  
+				<font name="text">${supervisionLevel} </font>
+			</cell>
+		</table-row>
+		<table-row font="small-label">
+			<cell halign="left" valign="bottom" padding-bottom="4" padding-left="4">
+				<font name="label">B. Is the current level of supervision still appropriate:</font><space/><space/>  
+				<font name="label">
+            	_if_( ${supLevelApproStr} == "No" )
+					<image source="MJCW/unchecked.jpg" width="10" height="10" scale-to-fit="true"/>Yes<space/><space/><space/>
+					<image source="MJCW/checked.jpg" width="10" height="10" scale-to-fit="true"/>No 
+				_else_
+					<image source="MJCW/checked.jpg" width="10" height="10" scale-to-fit="true"/>Yes <space/><space/><space/>
+					<image source="MJCW/unchecked.jpg" width="10" height="10" scale-to-fit="true"/>No					
+				_endif_
+				 </font><br></br>
+				<font name="label"><space/>If the current level of supervision is no longer appropriate, indicate the appropriate level:</font>
+				<font name="text">${recomSupervisionLevel} </font>
+			</cell>
+		</table-row>
+		<table-row font="small-label">
+			<cell halign="left" valign="bottom" padding-bottom="4" padding-left="4">
+				<font name="label">C. Did the JPO maintain contact with the child and family at least monthly?:</font> <space/><space/> 
+				<font name="label">
+				_if_( ${jpoMaintainContactStr} == "No" )
+					<image source="MJCW/unchecked.jpg" width="10" height="10" scale-to-fit="true"/>Yes<space/><space/><space/>
+					<image source="MJCW/checked.jpg" width="10" height="10" scale-to-fit="true"/>No 
+				_else_
+					<image source="MJCW/checked.jpg" width="10" height="10" scale-to-fit="true"/>Yes <space/><space/><space/>
+					<image source="MJCW/unchecked.jpg" width="10" height="10" scale-to-fit="true"/>No					
+				_endif_
+				 </font><br></br>
+				 <space/><font name="label">Explain: </font>
+				 <font name="text">${jpoMaintainExplain} </font>
+			</cell>
+		</table-row>
+		<table-row font="small-label">
+			<cell halign="left" valign="bottom" padding-bottom="4" padding-left="4">
+				<font name="label">D. The current plan of contact between the child and JPO is as follows<i>(document frequency &amp; method)</i>: one face to face visit each week, one monthly workshop and one phone call each week.</font>
+			    <p><font name="text">${contactInformation}</font></p>
+			</cell>
+		</table-row>
+	</table>
+	<br/><br/>
+	
+	
+	<table width="80" columns="1" halign="center" cell-halign="left" 
+		font="text" padding-left="5" padding-bottom="2" keep-together="true">
+		<table-header font="tableheader" bgcolor="black">
+			<cell halign="center" valign="middle" padding-bottom="4">
+				CONDITIONS OF PROBATION COMPLIANCE
+			</cell>
+		</table-header>
+		_if_ (${rules} notEmpty)
+			_foreach_(rule ${rules} 'even' 'odd')
+				<table-row>
+					<cell>Rule: ${rule.resolvedDesc}</cell>
+				</table-row>
+				<table-row>
+					<cell>Rule Status: ${rule.completionStatus}</cell>
+				</table-row>
+				<table-row padding-bottom="10">
+					<cell>Additional Information: ${rule.additionalInformation}</cell>
+				</table-row>
+			_endfor_
+		_else_
+			<table-row>
+				<cell>Rule:</cell>
+			</table-row>
+			<table-row>
+				<cell>Rule Status:</cell>
+			</table-row>
+			<table-row padding-bottom="10">
+				<cell>Additional Information:</cell>
+			</table-row>
+		_endif_
+				
+		<table-row>
+			<cell><font name="u_text">Probation Compliance Comments:</font></cell>
+		</table-row>
+		_if_ (${msrActivities} notEmpty)
+			_foreach_(msrActivity ${msrActivities} 'even' 'odd')
+				<table-row>
+					<cell>Entry Date: ${msrActivity.activityDate}</cell>
+				</table-row>
+				<table-row padding-bottom="10">
+					<cell>Comments: ${msrActivity.comments}</cell>
+				</table-row>
+			_endfor_
+		_else_
+			<table-row>
+				<cell>Entry Date:</cell>
+			</table-row>
+			<table-row padding-bottom="10">
+				<cell>Comments:</cell>
+			</table-row>
+		_endif_
+		<table-row><cell><br/><br/></cell></table-row>	
+		
+		<table-row>
+			<cell>
+				<table border-width="1" border-style="box" width="100" columns="2" widths="50,50" 
+					padding-bottom="2" padding-left="4" keep-together="true">
+					<table-row halign="left">
+						<cell font="label">CHILD:</cell>
+						<cell><font name="label">DATE:</font></cell>
+					</table-row>
+					<table-row halign="left">
+						<cell font="label">FAMILY:</cell>
+						<cell><font name="label">DATE:</font></cell>
+					</table-row>
+					<table-row halign="left">
+						<cell font="label">JPO:</cell>
+						<cell><font name="label">DATE:</font></cell>
+					</table-row>
+				</table>
+			</cell>
+		</table-row>
+	</table>
+</document>

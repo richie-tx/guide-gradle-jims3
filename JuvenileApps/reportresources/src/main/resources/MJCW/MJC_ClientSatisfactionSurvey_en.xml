@@ -1,0 +1,200 @@
+<?xml version="1.0" encoding="US-ASCII"?>
+<document size="LETTER" margin-left="30" margin-right="30" margin-top="60" margin-bottom="25">
+
+	<encryption allow-fillin="false" allow-modify-contents="false" allow-degraded-printing="true" allow-screen-readers="false" allow-copy="false" allow-printing="false"/>
+	<meta author="JIMS2, Harris County" creator="JIMS2, Harris County" title="Client Satisfaction Survey"/>
+	
+	<module>
+		<color-def name="custom-purple" color-space="RGB" value="128,0,128"/>
+		<color-def name="custom-light-gray" color-space="RGB" value="217,217,217"/>
+		<color-def name="custom-dark-purple" color-space="RGB" value="0,0,128"/>
+		
+		<font-def name="trebuchet-ms-10" family="trebuchet-ms" style="normal" size="10"/>
+		<font-def name="trebuchet-ms-10w" family="trebuchet-ms" style="normal" size="10" color="white"/>
+		<font-def name="trebuchet-ms-12" family="trebuchet-ms" style="normal" size="12"/>
+		<font-def name="trebuchet-ms-14" family="trebuchet-ms" style="normal" size="14"/>
+		<font-def name="times new roman-10p" family="times new roman" style="normal" size="10" color="custom-dark-purple"/>
+		<font-def name="times new roman-10w" family="times new roman" style="normal" size="10" color="white"/>
+		<font-def name="times new roman-12" family="times new roman" style="normal" size="12" />
+		<font-def name="hcjpd" family="Helvetica" style="bold" size="16"/>
+	</module>
+
+	<table columns="2" border-style="none" border-width="0" widths="5,95" padding="0" spacing-after="10">
+	    <cell halign="left" valign="top" leading="1" padding-top="0" line-spacing="1">
+	      <paragraph>
+		      <image source="MJCW/HarrisCountySeal.jpg" width="75" height="75" scale-to-fit="true"/>
+	      </paragraph>
+	    </cell>
+		<cell font="hcjpd" valign="top" halign="center"><b>HARRIS COUNTY<br/>JUVENILE PROBATION DEPARTMENT</b></cell>
+	</table>
+	
+	<footer >
+		<footer-part width="500">
+			<table columns="1" width="100" halign="center" padding-bottom="20">
+				<cell halign="left">
+					${currentDate} ${casefileId}
+				</cell>
+			</table>
+		</footer-part>
+	</footer>
+	
+	<paragraph font="trebuchet-ms-12" spacing-after="3">
+		${fullStreetName}
+	</paragraph>
+	
+	<paragraph font="trebuchet-ms-12" spacing-after="20">
+		${cityStateZip}
+	</paragraph>
+
+	<paragraph font="trebuchet-ms-12" spacing-after="20">
+		${currentDate}
+	</paragraph>
+	
+	<paragraph font="trebuchet-ms-12" spacing-after="20">
+		<space/><space/><space/><space/><space/><space/>The Harris County Juvenile Probation Department is committed to achieving total client satisfaction.  We want to provide the best possible service to our probationers and their families.
+	</paragraph>
+	
+	<paragraph font="trebuchet-ms-12" spacing-after="20">
+		<space/><space/><space/><space/><space/><space/>We want to be assured that you feel you are getting quality service.  We will not know this without your input.
+	</paragraph>
+	
+	<paragraph font="trebuchet-ms-12" spacing-after="20">
+		<space/><space/><space/><space/><space/><space/>Please help us to achieve this goal by taking the time to fill out this brief survey.  This information will help us stay focused on your expectations.
+	</paragraph>
+	
+	<paragraph font="trebuchet-ms-12" spacing-after="20">
+		<space/><space/><space/><space/><space/><space/>Please note:  although comments are optional, if you feel services were less than average we would appreciate any comments you could provide that will give us the best opportunity for improving.
+	</paragraph>
+	
+	<paragraph font="trebuchet-ms-12" spacing-after="20">
+		<space/><space/><space/><space/><space/><space/>Finally we feel that our Probation Officers and private providers work hard and take pride in doing a good job.  If you were especially impressed with the services you and your child received from our staff, please take a moment to let us know.
+	</paragraph>
+	
+	<paragraph font="trebuchet-ms-12" spacing-after="20">
+		<space/><space/><space/><space/><space/><space/>Enclosed is a self addressed stamped envelope for you to return your completed survey and thank you in advance for helping us improve our services to youth and families.
+	</paragraph>
+	
+	<new-page size="LETTER" margin-left="25" margin-right="25" margin-top="50" margin-bottom="25"/>
+	
+	<paragraph halign="center" spacing-after="10" font="trebuchet-ms-14">
+		<b>Client Satisfaction Survey</b>
+	</paragraph>
+		
+	<table width="80" halign="center" columns="6" widths="25,15,15,15,15,15" padding="3" border-style="box" border-width="1" spacing-after="20">
+		<table-row font="trebuchet-ms-12" halign="center">
+			<cell fill-row="true"  border-style="none">
+				<b>How would you rate your most recent experience with Juvenile Probation?</b>
+			</cell>
+		</table-row>
+		<table-row font="trebuchet-ms-10w" bgcolor="custom-purple" border-style="box" valign="top" halign="center">
+			<cell></cell>
+			<cell>Excellent</cell>
+			<cell>Above Average</cell>
+			<cell>Average</cell>
+			<cell>Below Average</cell>
+			<cell>Frustrating</cell>
+		</table-row>
+		<table-row font="trebuchet-ms-12" border-style="box" valign="top" halign="left">
+			<cell bgcolor="custom-light-gray"><b>HCJPD Rating</b></cell>
+			<cell></cell>
+			<cell></cell>
+			<cell></cell>
+			<cell></cell>
+		</table-row>
+		<table-row border-style="box">
+			<cell bgcolor="custom-light-gray" valign="top" halign="right" font="times new roman-10p"><b>Comments</b></cell>
+			<cell fill-row="true" height="70"></cell>
+		</table-row>
+	</table>
+	
+	<table width="80" halign="center" columns="6" widths="25,15,15,15,15,15" padding="3" border-style="box" border-width="1" spacing-after="20">
+		<table-row font="trebuchet-ms-12" halign="center">
+			<cell fill-row="true"  border-style="none">
+				<b>How well did Officer ${probationOfficer.fullNameFirst} perform their duties? (Check all that apply)</b>
+			</cell>
+		</table-row>
+		<table-row font="trebuchet-ms-10w" bgcolor="custom-purple" border-style="box" valign="top" halign="center">
+			<cell></cell>
+			<cell>Related well with youth</cell>
+			<cell>Beneficial to youth</cell>
+			<cell>Helpful to family</cell>
+			<cell>Responsive to youth&apos;s needs</cell>
+			<cell>Was difficult to work with</cell>
+		</table-row>
+		<table-row font="trebuchet-ms-12" border-style="box" valign="top" halign="left">
+			<cell bgcolor="custom-light-gray" height="20"></cell>
+			<cell></cell>
+			<cell></cell>
+			<cell></cell>
+			<cell></cell>
+		</table-row>
+		<table-row border-style="box">
+			<cell bgcolor="custom-light-gray" valign="top" halign="right" font="times new roman-10p"><b>Comments</b></cell>
+			<cell fill-row="true" height="70"></cell>
+		</table-row>
+	</table>
+	
+	<table width="80" halign="center" columns="3" widths="80,10,10" padding="4" border-style="box" border-width="1" spacing-after="20">
+		<table-row font="trebuchet-ms-12" halign="center">
+			<cell fill-row="true"  border-style="none">
+				Please check all that apply
+			</cell>
+		</table-row>
+		<table-row font="times new roman-10w" bgcolor="custom-purple" border-style="box">
+			<cell valign="top" halign="left">Overall Satisfaction</cell>
+			<cell valign="top" halign="center">Yes</cell>
+			<cell valign="top" halign="center">No</cell>
+		</table-row>
+		<table-row font="times new roman-12" border-style="box" valign="top" halign="left">
+			<cell bgcolor="custom-light-gray">We were provided with adequate information and documentation.</cell>
+			<cell></cell>
+			<cell></cell>
+		</table-row>
+		<table-row font="times new roman-12" border-style="box" valign="top" halign="left">
+			<cell bgcolor="custom-light-gray">We were required to attend too many programs.</cell>
+			<cell></cell>
+			<cell></cell>
+		</table-row>
+		<table-row font="times new roman-12" border-style="box" valign="top" halign="left">
+			<cell bgcolor="custom-light-gray">Appointments and programs were not conveniently scheduled.</cell>
+			<cell></cell>
+			<cell></cell>
+		</table-row>
+		<table-row font="times new roman-12" border-style="box" valign="top" halign="left">
+			<cell bgcolor="custom-light-gray">Programs were not conveniently located.</cell>
+			<cell></cell>
+			<cell></cell>
+		</table-row>
+		<table-row font="times new roman-12" border-style="box" valign="top" halign="left">
+			<cell bgcolor="custom-light-gray">We were able to provide input in developing case plans and goals.</cell>
+			<cell></cell>
+			<cell></cell>
+		</table-row>
+		<table-row font="times new roman-12" border-style="box" valign="top" halign="left">
+			<cell bgcolor="custom-light-gray">Overall, I was pleased with the contact with the Probation Officer.</cell>
+			<cell></cell>
+			<cell></cell>
+		</table-row>
+	</table>
+	
+</document>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

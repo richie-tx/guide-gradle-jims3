@@ -1,0 +1,460 @@
+/*
+ * Created on May 15, 2007
+ *
+ */
+package ui.juvenilecase.programreferral;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Iterator;
+import java.util.List;
+
+import ui.common.SimpleCodeTableHelper;
+
+import messaging.administerserviceprovider.GetServiceProviderEvent;
+import messaging.administerserviceprovider.reply.JuvenileServiceProviderResponseEvent;
+import messaging.contact.officer.reply.OfficerProfileResponseEvent;
+import messaging.officer.GetOfficerProfileEvent;
+import messaging.programreferral.GetProgramReferralListEvent;
+import messaging.programreferral.ProgramReferralRetrieverAttribute;
+import messaging.programreferral.reply.ProgramReferralResponseEvent;
+import mojo.km.messaging.EventFactory;
+import mojo.km.messaging.Composite.CompositeResponse;
+import mojo.km.utilities.MessageUtil;
+import naming.JuvenileProgramReferralControllerServiceNames;
+import naming.OfficerProfileControllerServiceNames;
+import naming.PDCodeTableConstants;
+import naming.ProgramReferralConstants;
+import naming.ServiceProviderControllerServiceNames;
+
+/**
+ */
+public class UIProgramReferralHelper {
+
+	/**
+	 * @param casefileId
+	 * @param programId
+	 */
+	public static UIProgramReferralBean getActiveProgramReferral(
+			String casefileId, String programId) {
+
+		List attributeList = new ArrayList();
+		ProgramReferralRetrieverAttribute casefileAttribute = ProgramReferralAttributeFactory
+				.getCasefileAttribute();
+		casefileAttribute.setAttributeValue(casefileId);
+
+		attributeList.add(casefileAttribute);
+
+		ProgramReferralRetrieverAttribute programAttribute = ProgramReferralAttributeFactory
+				.getProgramAttribute();
+		programAttribute.setAttributeValue(programId);
+
+		attributeList.add(programAttribute);
+
+		ProgramReferralRetrieverAttribute statusAttribute = ProgramReferralAttributeFactory
+				.getStateAttribute();
+		statusAttribute.setAttributeValue(ProgramReferralConstants.ACCEPTED);
+
+		attributeList.add(statusAttribute);
+
+		statusAttribute = ProgramReferralAttributeFactory.getStateAttribute();
+		statusAttribute.setAttributeValue(ProgramReferralConstants.TENTATIVE);
+
+		attributeList.add(statusAttribute);
+
+		GetProgramReferralListEvent gpre = (GetProgramReferralListEvent) EventFactory
+				.getInstance(JuvenileProgramReferralControllerServiceNames.GETPROGRAMREFERRALLIST);
+
+		gpre.setReferralAttributes(attributeList);
+		gpre.setDetailsNeeded(true);
+
+		CompositeResponse compositeResponse = (CompositeResponse) MessageUtil
+				.postRequest(gpre);
+
+		ProgramReferralResponseEvent resp = (ProgramReferralResponseEvent) MessageUtil
+				.filterComposite(compositeResponse,
+						ProgramReferralResponseEvent.class);
+
+		UIProgramReferralBean programReferralBean = null;
+
+		if (resp != null) {
+			programReferralBean = new UIProgramReferralBean(resp);
+		}
+		return programReferralBean;
+	}
+
+	public static List getActiveCasefileProgramReferrals(String casefileId) {
+
+		List attributeList = new ArrayList();
+		ProgramReferralRetrieverAttribute casefileAttr = ProgramReferralAttributeFactory
+				.getCasefileAttribute();
+
+		casefileAttr.setAttributeValue(casefileId);
+
+		attributeList.add(casefileAttr);
+
+		ProgramReferralRetrieverAttribute statusAttribute = ProgramReferralAttributeFactory
+				.getStateAttribute();
+		statusAttribute.setAttributeValue(ProgramReferralConstants.ACCEPTED);
+
+		attributeList.add(statusAttribute);
+
+		statusAttribute = ProgramReferralAttributeFactory.getStateAttribute();
+		statusAttribute.setAttributeValue(ProgramReferralConstants.TENTATIVE);
+
+		attributeList.add(statusAttribute);
+
+		GetProgramReferralListEvent gpre = (GetProgramReferralListEvent) EventFactory
+				.getInstance(JuvenileProgramReferralControllerServiceNames.GETPROGRAMREFERRALLIST);
+
+		gpre.setReferralAttributes(attributeList);
+		gpre.setDetailsNeeded(false);
+
+		CompositeResponse compositeResponse = (CompositeResponse) MessageUtil
+				.postRequest(gpre);
+
+		List respList = (List) MessageUtil.compositeToCollection(
+				compositeResponse, ProgramReferralResponseEvent.class);
+
+		for (int i = 0; i < respList.size(); i++) {
+			ProgramReferralResponseEvent resp = (ProgramReferralResponseEvent) respList
+					.get(i);
+			resp.setOutComeDesc(SimpleCodeTableHelper.getDescrByCode(
+					PDCodeTableConstants.PROGRAM_REFERRAL_OUTCOME, resp
+							.getOutComeCd()));
+
+		}
+
+		return respList;
+	}
+
+	public static List getActiveJuvenileProgramReferrals(String juvenileNum) {
+
+		List attributeList = new ArrayList();
+		ProgramReferralRetrieverAttribute juvenileAttr = ProgramReferralAttributeFactory
+				.getJuvenileAttribute();
+
+		juvenileAttr.setAttributeValue(juvenileNum);
+
+		attributeList.add(juvenileAttr);
+
+		ProgramReferralRetrieverAttribute statusAttribute = ProgramReferralAttributeFactory
+				.getStateAttribute();
+		statusAttribute.setAttributeValue(ProgramReferralConstants.ACCEPTED);
+
+		attributeList.add(statusAttribute);
+
+		statusAttribute = ProgramReferralAttributeFactory.getStateAttribute();
+		statusAttribute.setAttributeValue(ProgramReferralConstants.TENTATIVE);
+
+		attributeList.add(statusAttribute);
+
+		GetProgramReferralListEvent gpre = (GetProgramReferralListEvent) EventFactory
+				.getInstance(JuvenileProgramReferralControllerServiceNames.GETPROGRAMREFERRALLIST);
+
+		gpre.setReferralAttributes(attributeList);
+		gpre.setDetailsNeeded(false);
+
+		CompositeResponse compositeResponse = (CompositeResponse) MessageUtil
+				.postRequest(gpre);
+
+		List respList = (List) MessageUtil.compositeToCollection(
+				compositeResponse, ProgramReferralResponseEvent.class);
+
+		return respList;
+	}
+
+	public static List getClosedCasefileProgramReferrals(String casefileId) {
+
+		List attributeList = new ArrayList();
+		ProgramReferralRetrieverAttribute casefileAttr = ProgramReferralAttributeFactory
+				.getCasefileAttribute();
+
+		casefileAttr.setAttributeValue(casefileId);
+
+		attributeList.add(casefileAttr);
+
+		ProgramReferralRetrieverAttribute statusAttribute = ProgramReferralAttributeFactory
+				.getStateAttribute();
+		statusAttribute.setAttributeValue(ProgramReferralConstants.CLOSED);
+
+		attributeList.add(statusAttribute);
+
+		GetProgramReferralListEvent gpre = (GetProgramReferralListEvent) EventFactory
+				.getInstance(JuvenileProgramReferralControllerServiceNames.GETPROGRAMREFERRALLIST);
+
+		gpre.setReferralAttributes(attributeList);
+		gpre.setDetailsNeeded(false);
+
+		CompositeResponse compositeResponse = (CompositeResponse) MessageUtil
+				.postRequest(gpre);
+
+		List respList = (List) MessageUtil.compositeToCollection(
+				compositeResponse, ProgramReferralResponseEvent.class);
+
+		for (int i = 0; i < respList.size(); i++) {
+			ProgramReferralResponseEvent resp = (ProgramReferralResponseEvent) respList
+					.get(i);
+			resp.setOutComeDesc(SimpleCodeTableHelper.getDescrByCode(
+					PDCodeTableConstants.PROGRAM_REFERRAL_OUTCOME, resp
+							.getOutComeCd()));
+
+		}
+
+		return respList;
+	}
+
+	public static List getClosedJuvenileProgramReferrals(String juvenileNum) {
+
+		List attributeList = new ArrayList();
+		ProgramReferralRetrieverAttribute juvenileAttr = ProgramReferralAttributeFactory
+				.getJuvenileAttribute();
+
+		juvenileAttr.setAttributeValue(juvenileNum);
+
+		attributeList.add(juvenileAttr);
+
+		ProgramReferralRetrieverAttribute statusAttribute = ProgramReferralAttributeFactory
+				.getStateAttribute();
+		statusAttribute.setAttributeValue(ProgramReferralConstants.CLOSED);
+
+		attributeList.add(statusAttribute);
+
+		GetProgramReferralListEvent gpre = (GetProgramReferralListEvent) EventFactory
+				.getInstance(JuvenileProgramReferralControllerServiceNames.GETPROGRAMREFERRALLIST);
+
+		gpre.setReferralAttributes(attributeList);
+		gpre.setDetailsNeeded(false);
+
+		CompositeResponse compositeResponse = (CompositeResponse) MessageUtil
+				.postRequest(gpre);
+
+		List respList = (List) MessageUtil.compositeToCollection(
+				compositeResponse, ProgramReferralResponseEvent.class);
+
+		return respList;
+	}
+
+	/**
+	 * @param serviceProviderId
+	 */
+	public static List getActiveSPProgramReferrals(String serviceProviderId) {
+
+		List attributeList = new ArrayList();
+		ProgramReferralRetrieverAttribute serviceProviderAttr = ProgramReferralAttributeFactory
+				.getServiceProviderAttribute();
+
+		serviceProviderAttr.setAttributeValue(serviceProviderId);
+
+		attributeList.add(serviceProviderAttr);
+
+		ProgramReferralRetrieverAttribute statusAttribute = ProgramReferralAttributeFactory
+				.getStateAttribute();
+		statusAttribute.setAttributeValue(ProgramReferralConstants.ACCEPTED);
+
+		attributeList.add(statusAttribute);
+
+		statusAttribute = ProgramReferralAttributeFactory.getStateAttribute();
+		statusAttribute.setAttributeValue(ProgramReferralConstants.TENTATIVE);
+
+		attributeList.add(statusAttribute);
+
+		GetProgramReferralListEvent gpre = (GetProgramReferralListEvent) EventFactory
+				.getInstance(JuvenileProgramReferralControllerServiceNames.GETPROGRAMREFERRALLIST);
+
+		gpre.setReferralAttributes(attributeList);
+		gpre.setDetailsNeeded(false);
+
+		CompositeResponse compositeResponse = (CompositeResponse) MessageUtil
+				.postRequest(gpre);
+
+		List respList = (List) MessageUtil.compositeToCollection(
+				compositeResponse, ProgramReferralResponseEvent.class);
+
+		return respList;
+
+	}
+
+	/**
+	 * @param serviceProviderId
+	 */
+	public static List getRejectedSPProgramReferrals(String serviceProviderId) {
+
+		List attributeList = new ArrayList();
+		ProgramReferralRetrieverAttribute serviceProviderAttr = ProgramReferralAttributeFactory
+				.getServiceProviderAttribute();
+
+		serviceProviderAttr.setAttributeValue(serviceProviderId);
+
+		attributeList.add(serviceProviderAttr);
+
+		ProgramReferralRetrieverAttribute statusAttribute = ProgramReferralAttributeFactory
+				.getStateAttribute();
+		statusAttribute.setAttributeValue(ProgramReferralConstants.CLOSED);
+
+		attributeList.add(statusAttribute);
+
+		GetProgramReferralListEvent gpre = (GetProgramReferralListEvent) EventFactory
+				.getInstance(JuvenileProgramReferralControllerServiceNames.GETPROGRAMREFERRALLIST);
+
+		gpre.setReferralAttributes(attributeList);
+		gpre.setDetailsNeeded(false);
+
+		CompositeResponse compositeResponse = (CompositeResponse) MessageUtil
+				.postRequest(gpre);
+
+		List respList = (List) MessageUtil.compositeToCollection(
+				compositeResponse, ProgramReferralResponseEvent.class);
+
+		List rejectedReferrals = new ArrayList();
+		if (!respList.isEmpty() && respList.size() > 0 && respList != null) {
+			Iterator iter = respList.iterator();
+			while (iter.hasNext()) {
+				ProgramReferralResponseEvent resp = (ProgramReferralResponseEvent) iter
+						.next();
+				if (!resp.getReferralSubStatusCd().equals("")
+						&& resp.getReferralSubStatusCd() != null
+						&& resp.getReferralSubStatusCd().equalsIgnoreCase(
+								ProgramReferralConstants.REJECTED)) {
+					rejectedReferrals.add(resp);
+				}
+			}
+		}
+
+		return rejectedReferrals;
+
+	}
+
+	/**
+	 * @param juvenileId
+	 * @return
+	 */
+	public static List getJuvenileReferralHistory(String juvenileId) {
+		List attributeList = new ArrayList();
+		ProgramReferralRetrieverAttribute juvenileAttribute = ProgramReferralAttributeFactory
+				.getJuvenileAttribute();
+
+		juvenileAttribute.setAttributeValue(juvenileId);
+
+		attributeList.add(juvenileAttribute);
+
+		GetProgramReferralListEvent gpre = (GetProgramReferralListEvent) EventFactory
+				.getInstance(JuvenileProgramReferralControllerServiceNames.GETPROGRAMREFERRALLIST);
+
+		gpre.setReferralAttributes(attributeList);
+		gpre.setDetailsNeeded(false);
+
+		CompositeResponse compositeResponse = (CompositeResponse) MessageUtil
+				.postRequest(gpre);
+
+		List respList = (List) MessageUtil.compositeToCollection(
+				compositeResponse, ProgramReferralResponseEvent.class);
+
+		return respList;
+	}
+
+	/**
+	 * @return
+	 */
+	public static String getSPAdminContactId(String serviceProviderId) {
+
+		GetServiceProviderEvent spEvent = (GetServiceProviderEvent) EventFactory
+				.getInstance(ServiceProviderControllerServiceNames.GETSERVICEPROVIDER);
+		spEvent.setServiceProviderId(serviceProviderId);
+
+		CompositeResponse compositeResponse = (CompositeResponse) MessageUtil
+				.postRequest(spEvent);
+
+		JuvenileServiceProviderResponseEvent resp = (JuvenileServiceProviderResponseEvent) MessageUtil
+				.filterComposite(compositeResponse,
+						JuvenileServiceProviderResponseEvent.class);
+		String adminContactId = null;
+
+		if (resp != null) {
+			adminContactId = resp.getAdminUserProfileId();
+		}
+		return adminContactId;
+	}
+
+	/**
+	 * @return
+	 */
+	public static String getSPContactUserProfId(String serviceProviderId) {
+
+		GetServiceProviderEvent spEvent = (GetServiceProviderEvent) EventFactory
+				.getInstance(ServiceProviderControllerServiceNames.GETSERVICEPROVIDER);
+		spEvent.setServiceProviderId(serviceProviderId);
+
+		CompositeResponse compositeResponse = (CompositeResponse) MessageUtil
+				.postRequest(spEvent);
+
+		JuvenileServiceProviderResponseEvent resp = (JuvenileServiceProviderResponseEvent) MessageUtil
+				.filterComposite(compositeResponse,
+						JuvenileServiceProviderResponseEvent.class);
+		String contactUserProfId = null;
+
+		if (resp != null) {
+			contactUserProfId = resp.getContactUserProfileId();
+		}
+		return contactUserProfId;
+	}
+
+	/**
+	 * @param officerId
+	 * @return
+	 */
+	public static String getOfficerUserId(String officerId) {
+		GetOfficerProfileEvent event = (GetOfficerProfileEvent) EventFactory
+				.getInstance(OfficerProfileControllerServiceNames.GETOFFICERPROFILE);
+		event.setOfficerProfileId(officerId);
+		CompositeResponse response = MessageUtil.postRequest(event);
+		OfficerProfileResponseEvent officerProfileResponse = (OfficerProfileResponseEvent) MessageUtil
+				.filterComposite(response, OfficerProfileResponseEvent.class);
+		String userId = null;
+		if (officerProfileResponse != null) {
+			userId = officerProfileResponse.getUserId();
+		}
+
+		return userId;
+	}
+
+	/**
+	 * @param juvenileNum
+	 * @param casefileId
+	 * @return
+	 */
+
+	public static List getJuvenileProgramReferrals(String juvenileNum,
+			String casefileId) {
+
+		List attributeList = new ArrayList();
+		ProgramReferralRetrieverAttribute juvenileAttr = ProgramReferralAttributeFactory
+				.getJuvenileAttribute();
+
+		juvenileAttr.setAttributeValue(juvenileNum);
+
+		attributeList.add(juvenileAttr);
+
+		ProgramReferralRetrieverAttribute casefileAttr = ProgramReferralAttributeFactory
+				.getCasefileAttribute();
+
+		casefileAttr.setAttributeValue(casefileId);
+
+		attributeList.add(casefileAttr);
+
+		GetProgramReferralListEvent gpre = (GetProgramReferralListEvent) EventFactory
+				.getInstance(JuvenileProgramReferralControllerServiceNames.GETPROGRAMREFERRALLIST);
+
+		gpre.setReferralAttributes(attributeList);
+		gpre.setDetailsNeeded(false);
+
+		CompositeResponse compositeResponse = (CompositeResponse) MessageUtil
+				.postRequest(gpre);
+
+		List respList = (List) MessageUtil.compositeToCollection(
+				compositeResponse, ProgramReferralResponseEvent.class);
+
+		return respList;
+	}
+
+}

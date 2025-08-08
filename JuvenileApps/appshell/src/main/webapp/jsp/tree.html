@@ -1,0 +1,38 @@
+<!DOCTYPE HTML>
+<HTML>
+<HEAD>
+<meta http-equiv="x-ua-compatible" content="IE=edge,chrome=1"/>
+<SCRIPT LANGUAGE="JavaScript1.2" SRC="/appshell.war/js/tree.js"></script>
+<SCRIPT LANGUAGE="JavaScript1.2" SRC="/appshell.war/js/menu.js"></script>
+
+<SCRIPT>
+  var menu = createDropDownMenu("tree","skin1");
+  menu.add("Add to Favorites", "self.location=\\'http://www.google.com\\';");
+  menu.add("Logout", "if (confirm(\\'Are you sure that you want to logout?\\')) parent.parent.location=\\'http://www.google.com\\';");
+</SCRIPT>
+
+<STYLE>
+td {font-family:arial;color:black;font-size:10pt}
+a {font-family:arial;color:black;font-size:10pt}
+</STYLE>
+
+<script>
+	ocuTree = new Tree("/appshell.war/images/root",'<A HREF="http://www.esoterix.com/" TARGET="main">Esoterix</A>',""); 
+      ocuTree.id='root';
+      		ocuTree.add("root", "2", "", "Manage Role" , "", "", ""); 
+      		ocuTree.add("root2", "3", "", "View Role" , "", "", ""); 
+      		ocuTree.add("root2", "4", "", "Associate System Activities To Role" , "", "", ""); 
+      		ocuTree.add("root2", "5", "", "View/Modify Role Group" , "", "", ""); 
+	  
+	  
+	initializeDocument();
+
+
+    </script>
+
+</HEAD>
+
+<BODY onLoad="initializeMenus();" BGColor="WHITE" topmargin=0 leftmargin=0 marginheight=0 marginwidth=0>
+<SCRIPT>writeMenus();</SCRIPT>
+</BODY>
+</HTML>

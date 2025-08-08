@@ -1,0 +1,500 @@
+/*
+ * Created on Sep 16, 2005
+ *
+ * To change the template for this generated file go to
+ * Window&gt;Preferences&gt;Java&gt;Code Generation&gt;Code and Comments
+ */
+package ui.juvenilecase.form.riskanalysis;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.List;
+
+import messaging.juvenilecase.reply.CommunityAssessmentEvent;
+import messaging.juvenilecase.reply.InterviewAssessmentEvent;
+import messaging.juvenilecase.reply.ProgressAssessmentEvent;
+import messaging.juvenilecase.reply.ReferralAssessmentEvent;
+import messaging.juvenilecase.reply.ResidentialAssessmentEvent;
+import messaging.juvenilecase.reply.TestingAssessmentEvent;
+import naming.RiskAnalysisConstants;
+
+import org.apache.struts.action.ActionForm;
+
+/**
+ * @author dwilliamson
+ * 
+ *         To change the template for this generated type comment go to
+ *         Window&gt;Preferences&gt;Java&gt;Code Generation&gt;Code and Comments
+ */
+public class RiskAnalysisForm extends ActionForm
+{
+	private String action;
+	private String juvenileNum;
+	private String casefileID;
+	private String recommendationScore;
+	private String riskAssessmentDate;
+	private String riskAssessmentType;
+	private String finalScore; 
+
+	private Collection assessmentList;
+	private List questions;
+
+	// These are used for displaying the details of the risk Assessment done when
+	// the user clicks on the Hyperlink
+	// in the Previous Risk Analysis Assessments done list.
+	private Collection assessmentDetailsResponseList;
+	private ReferralAssessmentEvent referralAssessEvent;
+	private InterviewAssessmentEvent interviewAssessEvent;
+	private ResidentialAssessmentEvent residentialAssessEvent;
+	private CommunityAssessmentEvent communityAssessEvent;
+	private ProgressAssessmentEvent progressAssessEvent;
+	private TestingAssessmentEvent testingAssessEvent; 
+	//private String recommendation;
+	private List releaseOverrideReasons;
+	private List detentionOverrideReasons;
+	private List overrideOtherReasons;
+		
+	// this relates to the radio button, "Override Recommendation"?
+	private boolean recommendationOverridden = false ;
+
+	// this relates to one of the radio button choices for override;
+	// there are currently six radio button choices
+	private String overRiddenReasonCd = "" ;
+	private String overRiddenReasonDesc = "" ;
+	
+	// if the user selected OVERRIDE_TYPE_OTHER, then the user is allowed 
+	// to enter free-form text for the reason - this is where it's stored.
+	private String overRideType = "";
+	
+	private String overRiddenReasonOther = "" ;
+	
+	private String assessmentId;	
+	private String assessmentType;
+	
+	private String overNinetyDays;
+	
+	public void clear()
+	{
+		recommendationOverridden = false ;
+		overRiddenReasonCd = "" ;
+		overRiddenReasonDesc = "" ;
+		overRideType = "" ;
+		overRiddenReasonOther = "" ;
+	}
+	
+	
+	/**
+	 * @return
+	 */
+	public Collection getAssessmentList()
+	{
+		if( assessmentList == null )
+		{
+			assessmentList = new ArrayList();
+		}
+		return assessmentList;
+	}
+
+	/**
+	 * @return
+	 */
+	public String getRecommendationScore()
+	{
+		return recommendationScore;
+	}
+
+	/**
+	 * @return
+	 */
+	public String getRiskAssessmentDate()
+	{
+		return riskAssessmentDate;
+	}
+
+	/**
+	 * @return
+	 */
+	public String getRiskAssessmentType()
+	{
+		return riskAssessmentType;
+	}
+	
+
+	/**
+	 * @return finalscore
+	 */
+	public String getFinalScore() {
+		return finalScore;
+	}
+	
+	/**
+	 * @param finalscore
+	 */
+	public void setFinalScore(String finalScore) {
+		this.finalScore = finalScore;
+	}
+
+	/**
+	 * @param collection
+	 */
+	public void setAssessmentList(Collection collection)
+	{
+		assessmentList = collection;
+	}
+
+	/**
+	 * @param string
+	 */
+	public void setRecommendationScore(String string)
+	{
+		recommendationScore = string;
+	}
+
+	/**
+	 * @param string
+	 */
+	public void setRiskAssessmentDate(String string)
+	{
+		riskAssessmentDate = string;
+	}
+
+	/**
+	 * @param string
+	 */
+	public void setRiskAssessmentType(String string)
+	{
+		riskAssessmentType = string;
+	}
+
+	/**
+	 * @return
+	 */
+	public String getCasefileID()
+	{
+		return casefileID;
+	}
+
+	/**
+	 * @return
+	 */
+	public String getJuvenileNum()
+	{
+		return juvenileNum;
+	}
+
+	/**
+	 * @param string
+	 */
+	public void setCasefileID(String string)
+	{
+		casefileID = string;
+	}
+
+	/**
+	 * @param string
+	 */
+	public void setJuvenileNum(String string)
+	{
+		juvenileNum = string;
+	}
+
+	/**
+	 * @return
+	 */
+	public Collection getAssessmentDetailsResponseList()
+	{
+		if( assessmentDetailsResponseList == null )
+		{
+			assessmentDetailsResponseList = new ArrayList();
+		}
+		return assessmentDetailsResponseList;
+	}
+
+	/**
+	 * @param riskAssessmentDetails
+	 */
+	public void setAssessmentDetailsResponseList(Collection riskAssessmentDetails)
+	{
+		assessmentDetailsResponseList = riskAssessmentDetails;
+
+	}
+
+	/**
+	 * @return
+	 */
+	public InterviewAssessmentEvent getInterviewAssessEvent()
+	{
+		return interviewAssessEvent;
+	}
+
+	/**
+	 * @return
+	 */
+	public ReferralAssessmentEvent getReferralAssessEvent()
+	{
+		return referralAssessEvent;
+	}
+
+	/**
+	 * @param event
+	 */
+	public void setInterviewAssessEvent(InterviewAssessmentEvent event)
+	{
+		interviewAssessEvent = event;
+	}
+
+	/**
+	 * @param event
+	 */
+	public void setReferralAssessEvent(ReferralAssessmentEvent event)
+	{
+		referralAssessEvent = event;
+	}
+
+	/**
+	 * @return
+	 */
+	public ResidentialAssessmentEvent getResidentialAssessEvent()
+	{
+		return residentialAssessEvent;
+	}
+
+	/**
+	 * @param event
+	 */
+	public void setResidentialAssessEvent(ResidentialAssessmentEvent event)
+	{
+		residentialAssessEvent = event;
+	}
+
+	/**
+	 * @return
+	 */
+	public CommunityAssessmentEvent getCommunityAssessEvent()
+	{
+		return communityAssessEvent;
+	}
+
+	/**
+	 * @param event
+	 */
+	public void setCommunityAssessEvent(CommunityAssessmentEvent event)
+	{
+		communityAssessEvent = event;
+	}
+
+	/**
+	 * @return
+	 */
+	public ProgressAssessmentEvent getProgressAssessEvent()
+	{
+		return progressAssessEvent;
+	}
+
+	/**
+	 * @param event
+	 */
+	public void setProgressAssessEvent(ProgressAssessmentEvent event)
+	{
+		progressAssessEvent = event;
+	}
+
+	/**
+	 * @return
+	 */
+	public TestingAssessmentEvent getTestingAssessEvent()
+	{
+		return testingAssessEvent;
+	}
+
+	/**
+	 * @param event
+	 */
+	public void setTestingAssessEvent(TestingAssessmentEvent event)
+	{
+		testingAssessEvent = event;
+	}
+			
+	/**
+	 * @return recommendationOverridden
+	 */
+	public boolean isRecommendationOverridden() {
+		return recommendationOverridden;
+	}
+
+	/**
+	 * @param recommendationOverridden
+	 */
+	public void setRecommendationOverridden(boolean recommendationOverridden) {
+		this.recommendationOverridden = recommendationOverridden;
+	}
+
+	/**
+	 * @return overRiddenReasonCd
+	 */
+	public String getOverRiddenReasonCd() {
+		return overRiddenReasonCd;
+	}
+
+	/**
+	 * @param overRiddenReasonCd
+	 */
+	public void setOverRiddenReasonCd(String overRiddenReasonCd) {
+		this.overRiddenReasonCd = overRiddenReasonCd;
+	}
+
+	/**
+	 * @return overRiddenReasonOther
+	 */
+	public String getOverRiddenReasonOther() {
+		return overRiddenReasonOther;
+	}
+
+	/**
+	 * @param overRiddenReasonOther
+	 */
+	public void setOverRiddenReasonOther(String overRiddenReasonOther) {
+		this.overRiddenReasonOther = overRiddenReasonOther;
+	}
+
+	/**
+	 * @return releaseOverrideReasons
+	 */
+	public List getReleaseOverrideReasons() {
+		return releaseOverrideReasons;
+	}
+
+	/**
+	 * @param releaseOverrideReasons
+	 */
+	public void setReleaseOverrideReasons(List releaseOverrideReasons) {
+		this.releaseOverrideReasons = releaseOverrideReasons;
+	}
+
+	/**
+	 * @return detentionOverrideReasons
+	 */
+	public List getDetentionOverrideReasons() {
+		return detentionOverrideReasons;
+	}
+
+	/**
+	 * @param detentionOverrideReasons
+	 */
+	public void setDetentionOverrideReasons(List detentionOverrideReasons) {
+		this.detentionOverrideReasons = detentionOverrideReasons;
+	}
+
+	/**
+	 * @return overrideOtherReasons
+	 */
+	public List getOverrideOtherReasons() {
+		return overrideOtherReasons;
+	}
+
+	/**
+	 * @param overrideOtherReasons
+	 */
+	public void setOverrideOtherReasons(List overrideOtherReasons) {
+		this.overrideOtherReasons = overrideOtherReasons;
+	}
+
+	/**
+	 * @return assessmentId
+	 */
+	public String getAssessmentId() {
+		return assessmentId;
+	}
+
+	/**
+	 * @param assessmentId
+	 */
+	public void setAssessmentId(String assessmentId) {
+		this.assessmentId = assessmentId;
+	}
+
+	/**
+	 * @return assessmentType
+	 */
+	public String getAssessmentType() {
+		return assessmentType;
+	}
+
+	/**
+	 * @param assessmentType
+	 */
+	public void setAssessmentType(String assessmentType) {
+		this.assessmentType = assessmentType;
+	}
+	
+	/**
+	 * @return the action
+	 */
+	public String getAction()
+	{
+		return action;
+	}
+
+	/**
+	 * @param action the action to set
+	 */
+	public void setAction(String action)
+	{
+		this.action = action;
+	}
+	/**
+	 * @return overRiddenReasonDesc
+	 */
+	public String getOverRiddenReasonDesc() {
+		return overRiddenReasonDesc;
+	}
+	/**
+	 * @param overRiddenReasonDesc
+	 */
+	public void setOverRiddenReasonDesc(String overRiddenReasonDesc) {
+		this.overRiddenReasonDesc = overRiddenReasonDesc;
+	}
+
+	/**
+	 * @return overRideType
+	 */
+	public String getOverRideType() {
+		return overRideType;
+	}
+
+	/**
+	 * @param overRideType
+	 */
+	public void setOverRideType(String overRideType) {
+		this.overRideType = overRideType;
+	}
+
+
+	/**
+	 * @param overNinetyDays
+	 */
+	public void setOverNinetyDays(String overNinetyDays) {
+		this.overNinetyDays = overNinetyDays;
+	}
+
+
+	/**
+	 * @return
+	 */
+	public String getOverNinetyDays() {
+		return overNinetyDays;
+	}
+
+
+	public List getQuestions() {
+		return questions;
+	}
+
+
+	public void setQuestions(List questions) {
+		this.questions = questions;
+	}
+	
+	
+	
+}

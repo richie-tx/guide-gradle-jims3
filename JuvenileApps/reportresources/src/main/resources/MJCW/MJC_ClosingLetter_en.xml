@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="US-ASCII"?>
+<document size="LETTER" margin-left="35" margin-right="35" margin-top="30" margin-bottom="30">
+
+	<encryption allow-fillin="false" allow-modify-contents="false" allow-degraded-printing="true" allow-screen-readers="false" allow-copy="false"	allow-printing="false"/>
+	<meta author="JIMS2, Harris County" creator="JIMS2, Harris County" title="Closing Letter"/>
+
+	<module>
+		<font-def name="title" family="Helvetica" style="bold" size="12"/>
+		<font-def name="header" family="Helvetica" style="bold|underline" size="12"/>
+		<font-def name="label" family="Helvetica" style="bold" size="11"/>
+		<font-def name="text" family="Helvetica" style="normal" size="11"/>
+		<font-def name="text-bold" family="Helvetica" style="bold" size="11"/>
+		<font-def name="text-large" family="Helvetica" style="normal" size="12"/>
+		<font-def name="text-small" family="Helvetica" style="normal" size="8"/>
+		<font-def name="text-italic" family="Helvetica" style="bold|italic" size="11"/>
+		<font-def name="letterheader" family="Helvetica" style="bold" size="12"/>
+		
+		<custom-tag alias="std-title" tag="paragraph">
+			<attribute name="font" value="text-italic"/>
+		</custom-tag>
+		
+		<custom-tag alias="letterheader" tag="paragraph">
+			<attribute name="font" value="letterheader"/>
+		</custom-tag>
+	</module>
+
+    <new-page size="LETTER" margin-left="35" margin-right="35" margin-top="30" margin-bottom="30">
+    </new-page>
+	
+	<table columns="2" border-style="none" border-width="0" widths="10,90" padding="0" >
+		<table-row halign="left">
+	        <cell halign="left" valign="top" >
+	            <paragraph>
+	                <image source="MJCW/HarrisCountySeal.jpg" width="45" height="45" scale-to-fit="true"/>
+	            </paragraph>
+	        </cell>
+	        <cell halign="left" valign="top">
+	        	<table columns="2" padding="3" border-width="0" >
+	        		<table-row>
+				        <cell colspan = "2" halign="left" border-style="bottom" border-width="2" border-color="gray" padding-bottom="5">
+							<letterheader>
+								HARRIS COUNTY
+							</letterheader> 	
+							<letterheader>
+								JUVENILE PROBATION DEPARTMENT
+							</letterheader>  	
+						</cell>
+				    </table-row>	
+    	        	<table-row>
+    	        	   <cell halign="left" valign="top" >
+						  _if_( ${locationUnitName} notEmpty )
+						  	<paragraph font="text">
+						  		<b>${locationUnitName}</b>
+						  	</paragraph>
+						  _endif_
+						 _if_( ${locationAddress} isDefined)
+						   	<paragraph font="text">
+								${locationAddress.streetAddress}
+							</paragraph>
+							<paragraph font="text">									
+								${locationAddress.cityStateZip}
+						  	</paragraph>
+						  _endif_
+      				</cell>				
+      				<cell halign="right" valign="top">
+						<paragraph halign="right" font="text-small" align="top">
+							<b>OFFICER: ${managerFirstName} ${managerLastName}</b> 
+						</paragraph>
+						<paragraph halign="right" font="text-small" align="top">
+							Caseload Manager
+						</paragraph>
+						<paragraph halign="right" font="text-small" align="top">	
+							Office ${managerPhone}
+						</paragraph>	
+				    </cell>		  	
+		 		  </table-row>
+            	</table>    
+	        </cell>
+		</table-row>        
+	</table>
+	
+	
+	
+
+	<paragraph font="text">
+  		${juvenile.fullNameFirst}
+  	</paragraph>	
+  	<paragraph font="text">	
+		c/o ${guardianName.fullNameFirst}
+	</paragraph>	
+	<paragraph font="text">	
+		${guardianAddress.streetAddress}
+	</paragraph>	
+	<paragraph font="text" spacing-after="10">	
+   		${guardianAddress.cityStateZip}
+  	</paragraph> 
+  			
+	<paragraph font="text" spacing-after="10">
+		Supervision#: ${casefileId}
+	</paragraph>
+
+	<if cond="${source=="calendar"}">
+		<paragraph font="text" spacing-after="20" spacing-before="20">    				
+	   	Date: <u>${supervisionEndDate} </u>
+	  	</paragraph> 
+	</if>
+	<else>
+		<paragraph font="text" spacing-after="20" spacing-before="20">    				
+	   	Date: <u> ${currentDate} </u>
+	  	</paragraph> 
+  	</else>
+	<paragraph font="text" spacing-after="10">
+  		${juvenile.fullNameFirst},this letter is to acknowledge that you have completed your period of probation
+		supervision or Informal Adjustment assigned to you under supervision of the Harris County Juvenile
+		Probation Department.  Your case file with Harris County Juvenile Probation is now closed.
+	</paragraph>
+	<paragraph font="text" spacing-after="10">
+		Generally speaking your juvenile court records are confidential; however, this rule does not apply to 
+		everyone or all situations.  The State of Texas has laws that appear within the Texas Family Code (i.e., 
+		sections 58.003 and 58.208) that explain the confidentiality of juvenile court records and to whom it
+		applies.  These sections of the Texas Family Code also provide the procedures for Sealing of Juvenile
+		Court Records and Automatic Restricted Access.
+	</paragraph>
+	<paragraph font="text" spacing-after="10">
+		The sealing of records is a procedure whereby you ask the Court to instruct anyone having records 
+		relating to a juvenile's case to have them sent to the Court where they will be sealed.  Thereby, the 
+		juvenile's Court records can only be made available for review by a Court order.  Automatic restricted
+		access is a procedure in which the Texas Department of Public Safety will certify that a juvenile's case
+		qualifies for restricted access.  Upon certification, persons or agencies in possession of a juvenile's court
+		records may not disclose the existence of the court records to anyone not authorized by statue or law.
+	</paragraph>
+
+	<if cond="${courtNum == "313" || courtNum == "315"}"> 
+		<paragraph font="text" spacing-after="10">
+			The laws regarding the sealing of records, and automatic restricted access are very specific so read the 
+			attached material carefully.  If you have any further questions, please call your attorney.
+		</paragraph>
+
+		<paragraph font="text-bold" spacing-after="45">
+			If you received deferred adjudication or formal probation for a non-violent misdemeanor offense, you
+			may be eligible to apply for a no cost sealing of your juvenile record in a program made possible
+			through the Houston Bar Association and volunteer lawyers from local firms.  You must also meet
+			certain financial guidelines established by the Houston Bar Association in order to be eligible.  Please
+			contact Kay Sim or Annie Houston of the Houston Bar Association for more information.  The contact
+			number is 713.759.1133. 
+		</paragraph>
+	</if>
+	<else>
+		<paragraph font="text" spacing-after="45">
+			The laws regarding the sealing of records, and automatic restricted access are very specific so read the 
+			attached material carefully.  If you have any further questions, please call your attorney.
+		</paragraph>
+	</else>	
+	
+	<table columns="2" widths="50,50" keep-together="true" font="text">
+		<table-row halign="left">
+			<cell></cell>
+			<cell>${officerFirstName} ${officerLastName}</cell>
+		</table-row>
+		<table-row>
+			<cell></cell>
+			<cell>Juvenile Probation Officer</cell>
+		</table-row>
+	</table>
+    
+</document>

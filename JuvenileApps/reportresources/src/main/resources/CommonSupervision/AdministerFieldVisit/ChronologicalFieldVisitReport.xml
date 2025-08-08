@@ -1,0 +1,233 @@
+<?xml version="1.0" encoding="US-ASCII"?>
+<document size="LETTER" margin-left="50" margin-right="50" margin-top="30" margin-bottom="50" height="100">
+<encryption allow-fillin="false" allow-modify-contents="false" allow-degraded-printing="true" allow-screen-readers="false" allow-copy="false"	allow-printing="true"/>
+<meta author="JIMS2, Harris County" creator="JIMS2, Harris County" title="${orderTitle}"/>
+<viewer-preferences page-mode="NoThumbs" zoom="1"/>
+	
+	<font-def name="arial_16" family="arial" style="normal" size="16"/>
+	<font-def name="arial_10" family="arial" style="normal" size="10"/>
+	<font-def name="arial_8" family="arial" style="normal" size="8"/>
+
+	_foreach_(eachEvent ${events} 'even' 'odd')		
+		<header>	
+			<font name="arial_16" >
+				<paragraph halign="center"><b>CHRONOLOGICAL FIELD REPORT</b></paragraph>
+			</font>		
+			<font name="arial_8" >
+				<paragraph halign="center">Call into Base 600 and FAX to 713-755-4230</paragraph>
+		 	</font>					
+		</header>	
+		
+		<footer padding-top="10">
+			<font name="arial_8" >
+			<footer-part padding-top="15" halign="left" width="500">
+		         <table columns="2" border-style="none" keep-together="false" spacing-before="10" line-spacing="1.5" padding="1">	
+					<table-row halign="left" valign="top">
+						<cell halign="left">_____________________</cell>					
+					    <cell halign="left">________________________________________________________</cell> 
+					</table-row>	
+					<table-row halign="left" valign="top">
+						<cell halign="left">Field Date: <u>${fieldVisitDate}</u></cell>					
+					    <cell halign="left" no-wrap="true">Community Supervision Officer/POI</cell> 
+					</table-row>							
+				
+		       </table>
+			</footer-part>
+			</font>
+		</footer>
+					
+		<table columns="5" border-style="none" keep-together="false" spacing-before="5" line-spacing="1.5" padding="1" width="100"  widths="18,23,13,23,23">
+	    	<font name="arial_10">
+			   <table-row halign="left" valign="top">	
+				    <cell halign="left">Defendant's Name:</cell>
+				    <cell halign="left"><font name="arial_10"><if cond="${eachEvent.superviseeName != null && eachEvent.superviseeName != ""}"><u>${eachEvent.superviseeName}</u></if><else>____________________________</else></font>
+					</cell>
+					<cell halign="left">SPN: <font name="arial_8"><if cond="${eachEvent.superviseeId != null && eachEvent.superviseeId != ""}"><u>${eachEvent.superviseeId}</u></if><else>_______________________________________</else></font></cell>
+					<cell halign="left" no-wrap="false">POI of Supervising CSO:</cell>
+					<cell halign="left"><font name="arial_10"><if cond="${eachEvent.probationOfficeInd != null && eachEvent.probationOfficeInd != ""}"><u>${eachEvent.probationOfficeInd}</u></if><else>__________________________</else></font></cell>
+			    </table-row>	
+			    <table-row halign="left" valign="top">	
+			    	<cell></cell>
+				    <cell halign="left"><font name="arial_8">Last, First Middle Suffix</font>				
+					</cell>				
+			    </table-row>		
+	       	</font>
+		</table>	
+		         
+		<table columns="4" border-style="none" keep-together="false" spacing-before="0" line-spacing="1.5" padding="1" width="100"  widths="8,30,35,25">
+		    <font name="arial_10">
+				<table-row halign="left" valign="top">	
+			  		<cell halign="left">Address:</cell> 
+			  		<cell halign="left"><font name="arial_10" ><if cond="${eachEvent.superviseeAddress.streetAddress != null && eachEvent.superviseeAddress.streetAddress != ""}"><u>${eachEvent.superviseeAddress.streetAddress}\t</u></if><else>_______________________</else>	  
+			  		</font></cell>
+			  		<cell halign="left">LOS: <font name="arial_8" ><if cond="${eachEvent.levelOfSupervision != null && eachEvent.levelOfSupervision != ""}"><u>${eachEvent.levelOfSupervision}</u></if><else>__________________________</else></font></cell>	
+			  		<cell halign="left">Key Map Location: <font name="arial_8" ><if cond="${eachEvent.keyMap != null && eachEvent.keyMap != ""}"><u>${eachEvent.keyMap}</u></if><else>________</else></font></cell>		
+				</table-row>	
+		 		<table-row halign="left" valign="top" >
+		 			<cell></cell>	
+		   			<cell halign="left" no-wrap="true"><font name="arial_8">Street\tApt#</font></cell>				
+		   		</table-row>									
+				<table-row halign="left" valign="top">	
+					<cell></cell>			   
+			  		<cell halign="left" no-wrap="true"><font name="arial_10"><if cond="${eachEvent.superviseeAddress.city != null && eachEvent.superviseeAddress.city != ""}"><u>${eachEvent.superviseeAddress.city}, ${eachEvent.superviseeAddress.state} ${eachEvent.superviseeAddress.zipCode}</u></if><else>_______________________</else></font>
+			 		</cell>			   
+			  		<cell halign="left">Start Mileage: <font name="arial_8"><if cond="${startMileage != null && startMileage != ""}"><u>${startMileage}</u></if>
+			  		<else>______________</else></font></cell>
+			  		<cell halign="left">End Mileage: <font name="arial_8"><if cond="${endMileage != null && endMileage != ""}"><u>${endMileage}</u></if>
+			  		<else>______________</else></font></cell>	
+				</table-row>	
+			 	<table-row halign="left" valign="top">
+			 		<cell></cell>	
+			   		<cell halign="left" no-wrap="true"><font name="arial_8">City, State Zip Code</font>				
+					</cell>				
+			   	</table-row>			
+			</font>
+		</table>	
+		         	        
+	    <table columns="4" border-style="none" keep-together="false" line-spacing="1.5" padding="1" width="100"  widths="25,20,25,30">
+	    	<font name="arial_10">
+	  			<table-row halign="left" valign="top">	
+	   				<cell halign="left">Phone: <font name="arial_8"><if cond="${eachEvent.superviseePhone != null && eachEvent.superviseePhone != ""}"><u>${eachEvent.formattedSuperviseePhone}</u></if>
+	     			<else>_____________</else></font></cell>
+					<cell halign="left">Start Time: <font name="arial_8"><if cond="${eachEvent.startTime1 != null && eachEvent.startTime1 != ""}"><u>${eachEvent.startTime1} ${eachEvent.AMPMId1}</u></if>
+	     			<else>___________</else></font></cell>
+					<cell halign="left">End Time: <font name="arial_8"><if cond="${eachEvent.endTime1 != null && eachEvent.endTime1 != ""}"><u>${eachEvent.endTime1} ${eachEvent.AMPMId2}</u></if>
+					<else>___________</else></font></cell>
+					<cell halign="left"></cell>
+	   			</table-row>			
+	     	</font>
+		</table>	
+		         
+		<table columns="1" border-style="none" keep-together="false" line-spacing="1.5" padding="1" >
+	    	<font name="arial_10">
+	 			<table-row halign="left" valign="top">	
+					<cell halign="left"> <b>Field Visit Caution:</b></cell>
+	  			</table-row>
+	  			<table-row>
+	  				<cell halign="left">
+	  					<font name="arial_8"><if cond="${eachEvent.caution != null && eachEvent.caution != ""}"><u>${eachEvent.caution}</u></if>	
+	   						<else>_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+	   						</else> 
+	  					</font>
+	  				</cell>		   
+	  			</table-row>			  
+	    	</font>		     
+	    </table>	
+		         
+	    <table columns="1" border-style="none" keep-together="false" spacing-before="5" line-spacing="1.5" padding="1" >
+			<font name="arial_10">
+		 		<table-row halign="left" valign="top">	
+					<cell halign="left"><b>Field Visit Comments:</b></cell>
+		  		</table-row>	
+				<table-row halign="left" valign="top">		
+		 			<cell halign="left">
+		 				<font  name="arial_8"><if cond="${eachEvent.comments != null && eachEvent.comments != ""}"><u>${eachEvent.comments}</u></if>
+		 					<else>_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+	   						</else>
+		 				</font>
+		 			</cell>		   
+		  		</table-row>
+		  	</font>	     
+	    </table>	
+		         
+		<table columns="1" border-style="none" keep-together="false" spacing-before="5" line-spacing="1.5" padding="1" >
+	    	<font name="arial_10">
+	  			<table-row halign="left" valign="top">	
+	 				<cell halign="left"><b>Address Description:</b></cell>
+	   			</table-row>
+	   			<table-row halign="left" valign="top">		
+	 				<cell halign="left">
+	 					<font  name="arial_8"><if cond="${eachEvent.addrDesc != null && eachEvent.addrDesc != ""}"><u>${eachEvent.addrDesc}</u></if>
+	 						<else>_____________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+	   						</else>
+	 					</font>
+	  				</cell>   
+	 			</table-row>	
+	     	</font>		     
+		</table>	
+	    
+	    <table columns="1" border-width=".75"  border-style="top|bottom" border-color="black"  keep-together="false" spacing-before="10" line-spacing="1.5" padding="1">
+			<table-row halign="left" valign="top">
+	  			<cell halign="left"></cell>				
+	   		</table-row>  
+		</table>
+	
+	    <table columns="1" border-width="1.5"  border-style="box" border-color="black"  keep-together="false" spacing-before="2" line-spacing="1.5" padding="1">
+			<table-row halign="left" valign="top">
+	     		<cell halign="left"></cell>				
+	    	</table-row>						
+		</table>
+		          
+	    <table columns="2" border-style="none" keep-together="false" spacing-before="5" line-spacing="1.5" padding="1">
+	  		<font name="arial_10">
+				<table-row halign="left" valign="top">
+					<cell halign="left"><font name="arial_10"><b>Field Visit Purpose: </b></font><font name="arial_8"><if cond="${eachEvent.purpose != null && eachEvent.purpose != "" }"><u>${eachEvent.purpose}</u></if>
+	    				<else>___________________________________</else></font>
+					</cell>					
+	    			<cell halign="left"><font name="arial_8">Field Visit Type: \t\t\t\t<if cond="${eachEvent.fvType != null && eachEvent.fvType != "" }"><u>${eachEvent.fvType}</u></if>
+	    				<else>_____________________________________</else></font></cell> 
+				</table-row>	
+				<table-row halign="left" valign="top">
+					<cell halign="left"></cell>					
+	    			<cell halign="left" no-wrap="true"><font name="arial_8">Sex Offender Category: \t <if cond="${eachEvent.sexOffendarType != null && eachEvent.sexOffendarType != ""}"><u>${eachEvent.sexOffendarType}</u></if>
+	    				<else>____________________________________</else></font>
+	    			</cell> 
+				</table-row>	
+				<table-row halign="left" valign="top">
+					<cell halign="left"></cell>					
+	    			<cell halign="left"><font name="arial_8">Measurement Result: \t\t<if cond="${eachEvent.measureType!= null && eachEvent.measureType!= "" }"><u>${eachEvent.measureType}</u></if>
+	    				<else>____________________________________</else></font>
+	    			</cell>  
+				</table-row>			
+	 		</font>
+		</table>
+		
+		<table columns="5" border-style="none" keep-together="false" line-spacing="1.5" padding="1" width="100" widths="20,20,20,20,20">
+	    	<font name="arial_8">
+	   			<table-row halign="left" valign="bottom">	
+	    			<cell halign="left"><font name="arial_10"><b>Method Of Contact:</b></font></cell>
+					<cell halign="left"><if cond="${eachEvent.contactMethodCd == 'AS'}"><u>X</u></if>
+	      				<else>___</else> Associate Contact</cell>
+	      			<cell halign="left"><if cond="${eachEvent.contactMethodCd == 'CX'}"><u>X</u></if>
+	      				<else>___</else> CCO Contact</cell>
+					<cell halign="left"><if cond="${eachEvent.contactMethodCd == 'DI'}"><u>X</u></if>
+	      				<else>___</else> Direct Contact</cell>
+					<cell halign="left" no-wrap="true"><if cond="${eachEvent.contactMethodCd == 'NC'}"><u>X</u></if>
+	      				<else>___</else> No Contact</cell>
+	    		</table-row>			
+	      	</font>
+		</table>	
+		       
+	    <table columns="1" border-style="none" keep-together="false" spacing-before="5" line-spacing="1.5" padding="1" >
+	    	<font name="arial_10">
+	     		<table-row halign="left" valign="top">	
+	  				<cell halign="left"><b>Alternate Address Info:</b></cell>
+	    		</table-row>
+	    		<table-row halign="left" valign="top">		
+	   				<cell halign="left"><font  name="arial_8"><if cond="${eachEvent.alternateAddress.newStreetAddress != null && eachEvent.alternateAddress.newStreetAddress != ""}"><u>${eachEvent.alternateAddress.newStreetAddress}\tApt#: ${eachEvent.alternateAddress.aptNum}\tAlternate Phone: ${eachEvent.formattedAlternatePhone}</u></if> <br/>
+	   						<if cond="${eachEvent.alternateAddress.city != null && eachEvent.alternateAddress.city != ""}"><u>${eachEvent.alternateAddress.city}<if cond="${eachEvent.alternateAddress.state!= null && eachEvent.alternateAddress.state != ""}">,</if> ${eachEvent.alternateAddress.state} ${eachEvent.alternateAddress.zipCode}<if cond="${eachEvent.alternateAddress.additionalZipCode != null && eachEvent.alternateAddress.additionalZipCode != ""}">-</if>${eachEvent.alternateAddress.additionalZipCode}</u></if>
+	 						<else>_______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+	   						</else></font>
+	   				</cell>
+			    </table-row>
+	      	</font>		     
+	    </table>
+	       
+	    <table columns="1" border-style="none" keep-together="false" spacing-before="5" line-spacing="1.5" padding="1" >
+	    	<font name="arial_10">
+	   			<table-row halign="left" valign="top">	
+	  				<cell halign="left"><b>Field Narrative:</b></cell>
+	   			</table-row>
+	   			<table-row halign="left" valign="top">		
+	   				<cell halign="left"><font  size="8"><if cond="${eachEvent.narrative != null && eachEvent.narrative != ""}"><u>${eachEvent.narrative}</u></if>
+	   					<else>_______________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________________
+	   						</else></font>
+	   				</cell>		   
+	    		</table-row>		
+	      	</font>		     
+	    </table>		         
+		        
+		<new-page   margin-left="50" margin-right="50" margin-top="30" margin-bottom="50" height="100"></new-page>		
+	_endfor_
+	
+</document>

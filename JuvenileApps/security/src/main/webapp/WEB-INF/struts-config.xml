@@ -1,0 +1,1110 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+
+<struts-config>
+
+	<!-- FORM BEANS -->
+	<form-beans>
+	
+	<!-- System exception bean -->
+	<form-bean name="updatePasswordForm" type="ui.loginlogout.form.UpdatePasswordForm"></form-bean>
+	<form-bean name="roleForm" type="ui.security.form.RoleForm"></form-bean>
+	<form-bean name="saUsersForm" type="ui.security.form.SAUsersForm"></form-bean>
+	<form-bean name="roleGroupForm" type="ui.security.form.RoleGroupForm"></form-bean>
+	<form-bean name="agencyForm" type="ui.contact.agency.form.AgencyForm"></form-bean>
+	<form-bean name="roleSAForm" type="ui.security.form.RoleSAForm"></form-bean>
+	<form-bean name="loginForm" type="ui.loginlogout.form.LoginForm"></form-bean>
+	<form-bean name="assignRolesForm" type="ui.security.form.AssignRolesForm"></form-bean>
+	<form-bean name="userGroupForm" type="ui.security.form.UserGroupForm"></form-bean>
+	<form-bean name="userForm" type="ui.contact.user.form.UserForm"></form-bean>
+	<form-bean name="userProfileForm" type="ui.contact.user.form.UserProfileForm"></form-bean>
+	<form-bean name="userProfileSearchForm" type="ui.contact.user.form.UserProfileSearchForm"></form-bean>		
+	<form-bean name="systemExceptionForm" type="org.apache.struts.validator.DynaValidatorForm">
+		<form-property name="exception" type="java.lang.Throwable"/>
+    </form-bean>
+    <form-bean name="officerForm" type="ui.contact.officer.form.OfficerForm"></form-bean>
+	<form-bean name="departmentForm" type="ui.contact.department.form.DepartmentForm"></form-bean>
+	<form-bean name="securityInquiriesForm" type="ui.security.inquiries.form.SecurityInquiriesForm"></form-bean>	
+	<form-bean name="genericLogonIdForm" type="ui.security.authentication.registergenericaccount.form.GenericLogonIdForm"></form-bean>
+	<form-bean name="jims2AccountForm" type="ui.security.authentication.jims2Account.form.JIMS2AccountForm"></form-bean>
+	</form-beans>
+	<!-- END FORM BEANS -->
+	
+<!-- ========== Exception Definitions ========================= -->
+ 	<global-exceptions>
+		<exception key="exception.title" type="java.lang.Exception" handler="ui.exception.StrutsExceptionHandler" />
+		<exception key="exception.title" type="javax.servlet.jsp.JspException" handler="ui.exception.StrutsExceptionHandler" />
+		<exception key="exception.title" type="javax.servlet.error.exception" handler="ui.exception.StrutsExceptionHandler" />
+		<exception key="exception.title" type="org.apache.struts.action.EXCEPTION" handler="ui.exception.StrutsExceptionHandler" />
+		<exception key="exception.title" type="mojo.km.messaging.exception.ReturnException" handler="ui.exception.ReturnExceptionHandler" />
+	</global-exceptions>
+
+	<!-- Global Forwards -->
+	<global-forwards>
+		<!-- forward   name=displayUpdatePasswordFormAction	path=/displayUpdatePasswordFormAction.do/ -->
+		<!-- forward   name=displayLogoutFormAction	path=/displayLogoutFormAction.do/ -->
+		<forward name="handleException" path="/jsp/error.jsp" />
+		<forward name="cancelMainPageHome" path="/jsp/cancel.htm" />		
+	</global-forwards>
+
+	<!-- **ACTION MAPPINGS** -->
+	<action-mappings>
+	<!-- GENERIC MAPPINGS -->
+	<action path="/globalBack" forward="/jsp/back.jsp"/>
+	<action path="/globalCancel" forward="/jsp/cancel.htm"/>
+	<!-- ========== SORTING =================================== -->
+	
+	<action name="assignRolesForm" path="/assignRoleSortItems" type="ui.common.action.HandleObjectListSortingAction"></action>
+	<action name="userProfileForm" path="/userProfileSortItems" type="ui.common.action.HandleObjectListSortingAction"></action>
+	<action name="roleForm" path="/roleSortItems" type="ui.common.action.HandleObjectListSortingAction"></action>
+	
+	<!-- ========== MANAGE USER PROFILE=================================== -->
+		<!-- Menu Item - Create/Update User Profile -->   
+		<action name="userProfileForm" path="/displayUserProfileCreateUpdate" scope="session" type="ui.contact.user.action.DisplayUserProfileCreateUpdateAction" input="/jsp/userProfiles/userProfileCreateUpdate.jsp" parameter="submitAction">
+			<forward name="createSuccess" path="/jsp/userProfiles/userProfileCreateUpdate.jsp"></forward>				
+			<forward name="failure" path="/jsp/userProfiles/userProfileSearch.jsp"></forward>				
+		</action>
+		
+	     <action name="userProfileForm" path="/displayUserProfileCreateUpdateSummary" scope="session" type="ui.contact.user.action.DisplayUserProfileCreateUpdateSummaryAction" input="/jsp/userProfiles/userProfileCreateUpdate.jsp" parameter="submitAction">
+			<forward name="validateDepartmentSuccess" path="/jsp/userProfiles/userProfileCreateUpdate.jsp"></forward>	
+			<forward name="validateDepartmentFailure" path="/jsp/userProfiles/userProfileCreateUpdate.jsp"></forward>	
+			<forward name="updateFailure" path="/jsp/userProfiles/userProfileCreateUpdate.jsp"></forward>
+			<forward name="validateFailure" path="/jsp/userProfiles/userProfileCreateUpdate.jsp"></forward>
+			<forward name="findSuccess" path="/jsp/userProfiles/userProfileDetails.jsp"></forward>		
+			<forward name="listSuccess" path="/jsp/userProfiles/userProfileMatchingUsersList.jsp"></forward>	
+			<forward name="summarySuccess" path="/jsp/userProfiles/userProfileCreateUpdateSummary.jsp"></forward>	
+			<forward name="cancel" path="/displayUserProfileSearch.do"></forward>
+            <forward name="back" path="/globalBack.do"></forward>   
+            <forward name="reset" path="/jsp/userProfiles/userProfileCreateUpdate.jsp"></forward>  
+			<forward name="failure" path="/jsp/userProfiles/userProfileSearch.jsp"></forward>				
+		</action>                              
+
+        <action name="userProfileForm" path="/submitUserProfileCreateUpdate" scope="session" type="ui.contact.user.action.SubmitUserProfileCreateUpdateAction" input="/jsp/userProfileCreateUpdateSummary.jsp" parameter="submitAction">
+            <forward name="success" path="/jsp/userProfiles/userProfileCreateUpdateSummary.jsp"></forward>
+            <forward name="assignRolesSuccess" path="/displayAssignRolesSearch.do"></forward>  
+        	<forward name="manageUserGroupSuccess" path="/displayUserGroupSearch.do"></forward>  
+        	<forward name="createOfficerSuccess" path="/displayOfficerProfileCreate.do?submitAction=Create Officer Profile"></forward>      
+            <forward name="cancel" path="/displayUserProfileSearch.do"></forward>
+            <forward name="back" path="/jsp/userProfiles/userProfileCreateUpdate.jsp"></forward> 
+            <forward name="failure" path="/jsp/userProfiles/userProfileCreateUpdate.jsp"></forward>   
+            <forward name="search" path="/jsp/userProfiles/userProfileSearch.jsp"></forward>
+            <forward name="searchOfficer" path="/jsp/officers/officerSearch.jsp"></forward>
+			<forward name="searchResults" path="/displayUserProfileSearchResults.do?submitAction=Find User Profiles"></forward>	         
+            <forward name="mainPage" path="/jsp/goToMainMenuPage.jsp"></forward>		
+        </action>
+        
+		<!-- Menu Item - View/Modify User Profile/ User Profile Search Results -->
+		<action name="userProfileSearchForm" path="/displayUserProfileSearch" scope="session" type="ui.contact.user.action.DisplayUserProfileSearchAction" parameter="submitAction">
+			<forward name="success" path="/jsp/userProfiles/userProfileSearch.jsp">
+			</forward>			
+		</action>
+		
+		<action name="userProfileSearchForm" path="/displayUserProfileSearchResults" scope="session" type="ui.contact.user.action.DisplayUserProfileSearchResultsAction" input="/jsp/userProfiles/userProfileSearch.jsp" parameter="submitAction">
+			<forward name="searchUserProfileSuccess" path="/jsp/userProfiles/userProfileDetails.jsp"></forward>
+			<forward name="success" path="/jsp/userProfiles/userProfileSearch.jsp"></forward>	
+			<forward name="cancel" path="/jsp/goToMainMenuPage.jsp"></forward>
+			<forward name="reset" path="/jsp/userProfiles/userProfileSearch.jsp"></forward>
+			<forward name="failure" path="/jsp/userProfiles/userProfileSearch.jsp"></forward>				
+		</action>
+				
+		<!-- View User Profile Department Search Results-->
+		<action name="userProfileForm" path="/displayDepartmentSearch" scope="session" type="ui.contact.user.action.DisplayDepartmentSearchAction">
+        	<forward name="searchDepartmentSuccess" path="/jsp/userProfiles/userProfileDepartmentSearch.jsp"/>
+        </action>	
+		<action name="userProfileForm" path="/displayDepartmentSearchResults" scope="session" type="ui.contact.user.action.DisplayDepartmentSearchResultsAction" parameter="submitAction">
+			<forward name="selectCreateUpdateDepartmentSuccess" path="/jsp/userProfiles/userProfileCreateUpdate.jsp"></forward>
+			<forward name="selectTransferDepartmentSuccess" path="/jsp/userProfiles/userProfileTransfer.jsp"></forward>
+			<forward name="success" path="/jsp/userProfiles/userProfileDepartmentSearch.jsp"></forward>
+			<forward name="searchFailure" path="/jsp/userProfiles/userProfileDepartmentSearch.jsp"></forward>			
+			<forward name="reset" path="/jsp/userProfiles/userProfileDepartmentSearch.jsp"></forward>	
+			<forward name="cancel" path="/displayUserProfileSearch.do"></forward>
+            <forward name="back" path="/globalBack.do"></forward>
+		</action>
+		
+		<action name="userProfileForm" path="/validateDepartment" scope="session" type="ui.contact.user.action.ValidateDepartmentAction" input="/jsp/userProfiles/userProfileCreateUpdate.jsp" parameter="submitAction">
+			  <forward name="validateDepartmentSuccess" path="/jsp/userProfiles/userProfileCreateUpdate.jsp">
+            </forward>		
+		</action>
+		
+		<!-- View User Profile Detail-->
+		<action name="userProfileForm" path="/displayUserProfileDetails" scope="session" type="ui.contact.user.action.DisplayUserProfileDetailsAction" parameter="submitAction">
+			<forward name="viewSuccess" path="/jsp/userProfiles/userProfileDetails.jsp"></forward>						
+			<forward name="viewFailure" path="/jsp/userProfiles/userProfileSearch.jsp"></forward>	
+		</action>
+
+		<!-- View User Profile History  -->				
+		<action name="userProfileForm" path="/displayUserProfileHistory" scope="session" type="ui.contact.user.action.DisplayUserProfileHistoryAction" parameter="submitAction">
+			<forward name="back" path="/globalBack.do"></forward>
+			<forward name="search" path="/displayUserProfileSearch.do"></forward>
+		   	<forward name="searchResults" path="/jsp/userProfiles/userProfileSearch.jsp"></forward> 
+		   	<forward name="viewDetail" path="/jsp/userProfiles/userProfileDetails.jsp"></forward> 		   	
+	   	</action>
+		
+		<!-- User Profile Transfer-->
+			<action name="userProfileForm" path="/displayUserProfileDeptTransferSummary" scope="session" type="ui.contact.user.action.DisplayUserProfileDeptTransferSummaryAction" parameter="submitAction">
+			<forward name="summarySuccess" path="/jsp/userProfiles/userProfileTransferSummary.jsp"></forward>
+			<forward name="searchResults" path="/jsp/userProfiles/userProfileSearch.jsp"></forward>	
+			<forward name="back" path="/globalBack.do"></forward>	
+			<forward name="cancel" path="/displayUserProfileSearch.do"></forward>
+			<forward name="reset" path="/jsp/userProfiles/userProfileTransfer.jsp"></forward>
+			<forward name="validateDepartmentSuccess" path="/jsp/userProfiles/userProfileTransfer.jsp"></forward>				
+			<forward name="failure" path="/jsp/userProfiles/userProfileTransfer.jsp"></forward>		
+		</action>				
+		<action name="userProfileForm" path="/submitUserProfileDeptTransfer" scope="session" type="ui.contact.user.action.SubmitUserProfileDeptTransferAction" parameter="submitAction">
+			<forward name="success" path="/jsp/userProfiles/userProfileTransferSummary.jsp"></forward>
+			<forward name="back" path="/jsp/userProfiles/userProfileTransfer.jsp"></forward>	
+			<forward name="cancel" path="/displayUserProfileSearch.do"></forward>
+			<forward name="failure" path="/jsp/userProfiles/userProfileTransferSummary.jsp"></forward>
+			<forward name="search" path="/jsp/userProfiles/userProfileSearch.jsp"></forward>
+			<forward name="searchResults" path="/displayUserProfileSearchResults.do?submitAction=Find User Profiles"></forward>	         
+            <forward name="mainPage" path="/jsp/goToMainMenuPage.jsp"></forward>
+		</action>
+				
+		<!-- Submit Maintain User Roles Form JSP -->				
+		<action name="userForm" path="/submitUserProfileMaintainRoles" scope="session" type="ui.contact.user.action.SubmitUserProfileMaintainRolesAction" input="/jsp/userProfileRolesUpdate.jsp" parameter="submitAction">
+			<forward name="success" path="/jsp/userProfileRolesUpdateConfirm.jsp"></forward>
+		</action>
+		
+		<!-- Submit User Profile Delete JSP -->                     
+		<action name="userProfileForm" path="/submitUserProfileDelete" scope="session" type="ui.contact.user.action.SubmitUserProfileDeleteAction" parameter="submitAction">
+			<forward name="deleteSuccess" path="/jsp/userProfiles/userProfileDeleteSummary.jsp"></forward>
+			<forward name="cancel" path="/jsp/userProfiles/userProfileSearch.jsp"></forward>
+			<forward name="back" path="/globalBack.do"></forward>
+			<forward name="searchResults"  path="/jsp/userProfiles/userProfileSearch.jsp"></forward>
+ 		</action>
+		
+		<!--Submit User Selections on userProfileSummary JSP for multiple buttons-->
+		<action path="/handleUserProfileSelection" type="ui.contact.user.action.HandleUserProfileSelectionAction" name="userProfileForm" scope="session" parameter="submitAction">
+        	<forward name="updateSuccess" path="/jsp/userProfiles/userProfileCreateUpdate.jsp"></forward>
+        	<forward name="deleteSuccess" path="/jsp/userProfiles/userProfileDetails.jsp"></forward>
+           	<forward name="transferSuccess" path="/jsp/userProfiles/userProfileTransfer.jsp"></forward>        	       	
+        	<forward name="viewHistorySuccess" path="/jsp/userProfiles/userProfileHistory.jsp"></forward>
+        	<forward name="viewSuccess" path="/jsp/userProfiles/userProfileDetails.jsp"></forward>
+        	<forward name="assignRolesSuccess" path="/jsp/assignRoles/roleAssignUser.jsp"></forward>  
+        	<forward name="manageUserGroupSuccess" path="displayUserGroupSearch.do"></forward>        
+        	<forward name="cancel" path="/jsp/goToMainMenuPage.jsp"></forward> 
+        	<forward name="back"  path="/globalBack.do"></forward>
+        	<forward name="failure" path="/jsp/userProfiles/userProfileSearch.jsp"></forward> 
+        </action>
+      
+<!-- ========== LOGIN-LOGOUT USE CASE =================================== -->			
+<!-- ========== LOGIN SUBMIT ================================== -->
+	    <action path="/submitLoginUser" type="ui.loginlogout.action.SubmitLoginUserAction" name="loginForm" scope="request" validate="true" input="/jsp/refApp_splash.jsp">
+    	  <forward name="success" path="/jsp/refApp_menu.jsp"/>
+      	  <forward name="failure" path="/jsp/refApp_splash.jsp"/>
+          <forward name="updatePassword" path="/jsp/refApp_passwordUpdate.jsp" redirect="false"></forward>
+        </action>
+    
+<!-- ========== UPDATE PASSWORD SUBMIT ======================== -->    
+        <action path="/submitUpdatePassword" type="ui.loginlogout.action.SubmitUpdatePasswordAction" name="updatePasswordForm" scope="request" validate="true" input="/jsp/refApp_passwordUpdate.jsp">
+          <forward name="success" path="/jsp/refApp_menu.jsp"/>
+          <forward name="failure" path="/jsp/refApp_passwordUpdate.jsp"/>
+        </action>
+    
+<!-- ========== LOGOUT SUBMIT ================================= -->    
+        <action path="/submitLogoutUser" type="ui.loginlogout.action.SubmitLogoutUserAction">
+          <forward name="success" path="/jsp/refApp_splash.jsp"/>
+          <forward name="failure" path="/jsp/refApp_menu.jsp"/>
+        </action>
+        
+ <!-- ================ MANAGE AGENCY ================== -->
+		<action name="agencyForm" path="/displayAgencyCreate" scope="session" type="ui.contact.agency.action.DisplayAgencyCreateAction">
+			<forward name="success" path="/jsp/agencyCreate.jsp"></forward>
+		</action>
+		<action name="agencyForm" path="/displayAgencySummary"  scope="session" type="ui.contact.agency.action.DisplayAgencySummaryAction" input="/jsp/agencyCreate.jsp" parameter="submitAction">
+        	<forward name="success" path="/jsp/agencyContactManage.jsp"/>
+            <forward name="cancel" path="/jsp/goToMainMenuPage.jsp"/>
+	        <forward name="duplicateSuccess" path="/jsp/agencyCreate.jsp"/>
+        </action>
+		<action name="agencyForm" path="/handleAgencyContacts" type="ui.contact.agency.action.HandleAgencyContactsAction" input="/jsp/agencyContactManage.jsp" scope="session" parameter="submitAction">
+        	<forward name="findSuccess" path="/jsp/agencyContactManage.jsp"></forward>
+        	<forward name="addSuccess" path="/jsp/agencyContactManage.jsp"></forward>
+        	<forward name="continueCreateSuccess" path="/jsp/agencySummary.jsp"></forward>
+        	<forward name="manageDivisionSuccess" path="/jsp/agencyDivisionManage.jsp"></forward>
+           	<forward name="continueSuccess" path="/jsp/agencyContactSummary.jsp"></forward>        	
+           	<forward name="cancelCreate" path="/displayAgencyCreate.do"/>
+            <forward name="cancelUpdate" path="displayAgencySearch.do?action=modify"/>
+        </action>       
+		<action path="/removeCreatedChildren" name="agencyForm" scope="session" type="ui.contact.agency.action.RemoveCreatedChildrenAction" parameter="submitAction">
+			<forward name="removeContactSuccess" path="/jsp/agencyContactManage.jsp"></forward>
+			<forward name="removeDivisionSuccess" path="/jsp/agencyDivisionManage.jsp"></forward>
+		</action>
+	    <action name="agencyForm" path="/handleAgencyDivisions" type="ui.contact.agency.action.HandleAgencyDivisionsAction" input="/jsp/agencyDivisionManage.jsp" scope="session" parameter="submitAction">
+        	<forward name="addSuccess" path="/jsp/agencyDivisionManage.jsp"></forward>
+        	<forward name="continueCreateSuccess" path="/jsp/agencySummary.jsp"></forward>
+  			<forward name="continueSuccess" path="/jsp/agencyDivisionSummary.jsp"></forward>        	
+           	<forward name="cancelCreate" path="/displayAgencyCreate.do"/>
+            <forward name="cancelUpdate" path="displayAgencySearch.do?action=modify"/>
+            <forward name="failure" path="/jsp/agencyDivisionManage.jsp"></forward>
+        </action>
+        <action name="agencyForm" path="/submitAgencyCreateUpdate" type="ui.contact.agency.action.SubmitAgencyCreateUpdateAction" input="/jsp/agencySummary.jsp" scope="session" parameter="submitAction">                       
+            <forward name="viewUpdateSuccess" path="/jsp/agencyDetails.jsp"></forward>
+            <forward name="viewDeleteSuccess" path="/jsp/agencySummary.jsp"></forward>
+            <forward name="confirmCreateSuccess" path="/jsp/agencySummary.jsp"></forward>
+            <forward name="confirmUpdateSuccess" path="/jsp/agencySummary.jsp"></forward>
+            <forward name="confirmDeleteSuccess" path="/jsp/agencySummary.jsp"></forward>
+            <forward name="mainPage" path="/jsp/goToMainMenuPage.jsp"></forward>
+            <forward name="cancelCreate" path="/displayAgencyCreate.do"/>
+            <forward name="cancelUpdate" path="displayAgencySearch.do?action=modify"/>
+            <forward name="cancelDelete" path="displayAgencySearch.do?action=modify"/>
+            <forward name="cancelView" path="displayAgencySearch.do?action=view"/>
+            <forward name="failure" path="/jsp/agencySummary.jsp"/>            
+        </action>
+<!-- These 2 action commented out 3/29/2006 by CShimek, reason action duplicate entry -->		
+<!--	<action name="agencyForm" path="/displayAgencySearch" type="ui.contact.agency.action.DisplayAgencySearchAction" scope="session">
+			<forward name="success" path="/jsp/agencySearch.jsp"></forward>
+		</action>
+		<action name="agencyForm" path="/displayAgencySearchResults" type="ui.contact.agency.action.DisplayAgencySearchResultsAction" input="/jsp/agencySearch.jsp" scope="session" parameter="submitAction">
+			<forward name="listSuccess" path="/jsp/agencySearchResults.jsp"></forward>
+			<forward name="viewOneSuccess" path="/jsp/agencySummary.jsp"></forward>
+			<forward name="modifyOneSuccess" path="/jsp/agencyDetails.jsp"></forward>
+			<forward name="cancel" path="/jsp/goToMainMenuPage.jsp"></forward>
+			<forward name="searchFailure" path="/jsp/agencySearch.jsp"></forward>	
+		</action> -->
+		<action name="agencyForm" path="/displayAgencyDetails" type="ui.contact.agency.action.DisplayAgencyDetailsAction" input="/jsp/agencySearchResults.jsp" scope="session">
+			<forward name="viewSuccess" path="/jsp/agencySummary.jsp"></forward>
+			<forward name="modifySuccess" path="/jsp/agencyDetails.jsp"></forward>
+		</action>
+		<action name="agencyForm" path="/handleAgencySelection" type="ui.contact.agency.action.HandleAgencySelectionAction" input="/jsp/agencyDetails.jsp" scope="session" parameter="submitAction">
+        	<forward name="modifySuccess" path="/jsp/agencySummary.jsp"></forward>
+        	<forward name="deleteSuccess" path="/jsp/agencySummary.jsp"></forward>
+        	<forward name="manageContactSuccess" path="/jsp/agencyContactManage.jsp"></forward>
+        	<forward name="manageDivisionSuccess" path="/jsp/agencyDivisionManage.jsp"></forward>
+        	<forward name="cancel" path="displayAgencySearch.do?action=modify"/>
+        	<forward name="duplicateSuccess" path="/jsp/agencyDetails.jsp"/>
+        </action>
+        <action name="agencyForm" path="/submitAgencyContacts" type="ui.contact.agency.action.SubmitAgencyContactsAction" input="/jsp/agencyContactSummary.jsp" scope="session" parameter="submitAction">
+			<forward name="success" path="/jsp/agencyDetails.jsp"></forward>
+			<forward name="cancel" path="displayAgencySearch.do?action=modify"/>		
+		</action>
+        <action name="agencyForm" path="/submitAgencyDivisions" type="ui.contact.agency.action.SubmitAgencyDivisionsAction" input="/jsp/agencyDivisionSummary.jsp" scope="session" parameter="submitAction">
+			<forward name="success" path="/jsp/agencyDetails.jsp"></forward>
+			<forward name="cancel" path="displayAgencySearch.do?action=modify"/>		
+		</action>
+		
+<!-- ========== MANAGE ROLES =================================== -->        
+        <action path="/displayRoleSearch" name="roleForm" type="ui.security.action.DisplayRoleSearchAction" scope="session">
+        	<forward name="success" path="/jsp/roles/roleSearch.jsp"/>
+        </action>
+        <action path="/displayRoleSearchResults" name="roleForm" type="ui.security.action.DisplayRoleSearchResultsAction" scope="session" parameter="submitAction">
+        	<forward name="listSuccess" path="/jsp/roles/roleSearch.jsp"/>
+        	<forward name="createSuccess" path="/jsp/roles/roleCreate1.jsp"/>
+        	<forward name="searchFailure" path="/jsp/roles/roleSearch.jsp"/>
+        	<forward name="refreshSuccess" path="/jsp/roles/roleSearch.jsp"/>        	
+        	<forward name="cancel" path="/jsp/goToMainMenuPage.jsp"/>
+        </action>
+        <action path="/handleRoleSelection" name="roleForm" type="ui.security.action.HandleRoleSelectionAction" scope="session" parameter="submitAction">
+        	<forward name="viewSuccess" path="/jsp/roles/roleSummary.jsp"/>
+        	<forward name="copySuccess" path="/jsp/roles/roleCreate1.jsp"/>
+        	<forward name="updateSuccess" path="/jsp/roles/roleUpdate.jsp"/>
+        	<forward name="deleteSuccess" path="/jsp/roles/roleSummary.jsp"/>
+        </action>
+        <action path="/displayRoleSummary" name="roleForm" type="ui.security.action.DisplayRoleSummaryAction"  scope="session" parameter="submitAction">
+        	<forward name="updateSuccess" path="/jsp/roles/roleSummary.jsp"/>
+   	      	<forward name="createSuccess" path="/jsp/roles/roleSummary.jsp"/>
+        	<forward name="deleteSuccess" path="/jsp/roles/roleSummary.jsp"/>
+        	<forward name="createFeatureSuccess" path="/jsp/roles/roleCreate3.jsp"/>
+        	<forward name="createFeatureFailure" path="/jsp/roles/roleCreate3.jsp"/>
+        	<forward name="updateAgencySuccess" path="/jsp/roles/roleUpdate.jsp"/>
+        	<forward name="updateFeatureSuccess" path="/jsp/roles/roleUpdate.jsp"/>
+        	<forward name="updateFeatureFailure" path="/jsp/roles/roleUpdate.jsp"/>
+			<forward name="confirmDeleteSuccess" path="/jsp/roles/roleConfirm.jsp"/>
+        	<forward name="copy" path="/jsp/roles/roleCreate1.jsp"/>
+        	<forward name="update" path="/jsp/roles/roleUpdate.jsp"/>
+        	<forward name="cancel" path="/jsp/roles/roleSearch.jsp"/>
+        	<forward name="addSelected" path="/jsp/roles/roleUpdate.jsp"/>
+			<forward name="refreshSuccess" path="/jsp/roles/roleCreate3.jsp"/>
+        </action>
+        <action path="/submitRole" name="roleForm" type="ui.security.action.SubmitRoleAction" scope="session" parameter="submitAction">
+        	<forward name="copySuccess" path="/jsp/roles/roleConfirm.jsp"/>
+	       	<forward name="createSuccess" path="/jsp/roles/roleConfirm.jsp"/>         	
+        	<forward name="deleteSuccess" path="/jsp/roles/roleConfirm.jsp"/>
+        	<forward name="deleteConfirmSuccess" path="/jsp/roles/roleDeleteConfirm.jsp"/>        	
+        	<forward name="updateSuccess" path="/jsp/roles/roleConfirm.jsp"/>   
+        	<forward name="cancelCreate" path="/jsp/roles/roleSearch.jsp"/> 
+        	<forward name="cancel" path="/jsp/roles/roleSearch.jsp"/>         	
+        	<forward name="cancelDelete" path="displayRoleSearch.do"/>         	        	
+	       	<forward name="mainMenu" path="/jsp/roles/roleSearch.jsp"/>        	      	        	
+        </action>
+        <action path="/displayRoleFeatures" name="roleForm" type="ui.security.action.DisplayRoleFeaturesAction" scope="session" parameter="submitAction">
+        	<forward name="copySuccess" path="/jsp/roles/roleFeatures.jsp"/>
+        	<forward name="createSuccess" path="/jsp/roles/roleFeatures.jsp"/>
+        </action>
+        <action path="/handleRoleFeatureSelection" name="roleForm" type="ui.security.action.HandleRoleFeatureSelectionAction" scope="session" parameter="submitAction">
+        	<forward name="addSuccess" path="/jsp/roles/roleFeatures.jsp"/>
+        	<forward name="findSuccess" path="/jsp/roles/roleFeatures.jsp"/>
+        	<forward name="removeSuccess" path="/jsp/roles/roleFeatures.jsp"/>
+	       	<forward name="copySuccess" path="/jsp/roles/roleSummary.jsp"/>         	
+        	<forward name="createSuccess" path="/jsp/roles/roleSummary.jsp"/>
+        </action>
+        <action path="/displayRoleCreate" name="roleForm" type="ui.security.action.DisplayRoleCreateAction" scope="session" parameter="submitAction">
+        	<forward name="maCreateSuccess" path="/jsp/roles/roleCreate2.jsp"/>
+        	<forward name="saCreateSuccess" path="/jsp/roles/roleCreate3.jsp"/> 
+        	<forward name="maCopySuccess" path="/jsp/roles/roleCreate2.jsp"/>
+        	<forward name="saCopySuccess" path="/jsp/roles/roleCreate3.jsp"/>
+        	<forward name="copyFailure" path="/jsp/roles/roleCreate1.jsp"/>
+        	<forward name="cancel" path="/jsp/roles/roleSearch.jsp"/>
+        </action>
+        <action path="/handleRoleAgencySelection" name="roleForm" type="ui.security.action.HandleRoleAgencySelectionAction" scope="session" parameter="submitAction">
+        	<forward name="addSuccess" path="/jsp/roles/roleCreate2.jsp"/>
+        	<forward name="createSuccess" path="/jsp/roles/roleCreate3.jsp"/>
+        	<forward name="agencySuccess" path="/jsp/roles/roleSummary.jsp"/> 
+	       	<forward name="addSelected" path="/jsp/roles/roleCreate2.jsp"/>   
+	       	<forward name="cancel" path="/jsp/roles/roleSearch.jsp"/>   	       	    	
+        </action>
+        
+        <action path="/handleRoleAgencySearch" name="roleForm" type="ui.security.action.HandleRoleAgencySearchAction" scope="session" parameter="submitAction">
+        	<forward name="findSuccess" path="/jsp/roles/roleCreate2.jsp"/>
+        	<forward name="refreshSuccess" path="/jsp/roles/roleCreate2.jsp"/> 
+	       	<forward name="cancel" path="/jsp/roles/roleSearch.jsp"/>           	       	
+        </action>
+        
+        <action path="/handleRoleAgencyRemove" name="roleForm" type="ui.security.action.HandleRoleAgencyRemoveAction" scope="session" parameter="submitAction">
+        	<forward name="createRemoveAgencySuccess" path="/jsp/roles/roleCreate2.jsp"/>
+        	<forward name="updateRemoveAgencySuccess" path="/jsp/roles/roleUpdate.jsp"/>
+        </action>
+        <action path="/handleRoleFeatureRemove" name="roleForm" type="ui.security.action.HandleRoleFeatureRemoveAction" scope="session" parameter="submitAction">
+        	<forward name="createRemoveFeatureSuccess" path="/jsp/roles/roleCreate3.jsp"/>
+        	<forward name="updateRemoveFeatureSuccess" path="/jsp/roles/roleUpdate.jsp"/>
+        </action>
+
+<!-- ========== MANAGE SECURITY ADMINISTRATOR (SA) ROLES ================= -->        
+        <action name="roleSAForm" path="/displaySARoleSearch" type="ui.security.action.DisplaySARoleSearchAction" scope="session">
+        	<forward name="success" path="/jsp/saRoles/roleSASearch.jsp"></forward>
+        </action>
+        <action name="roleSAForm" path="/displaySARoleSearchResults" type="ui.security.action.DisplaySARoleSearchResultsAction" scope="session" parameter="submitAction">
+        	<forward name="listSuccess" path="/jsp/saRoles/roleSASearch.jsp"></forward>
+	       	<forward name="refreshSuccess" path="/jsp/saRoles/roleSASearch.jsp"></forward>        	
+        	<forward name="createSuccess" path="/jsp/saRoles/roleSACreate1.jsp"></forward>
+        	<forward name="searchFailure" path="/jsp/saRoles/roleSASearch.jsp"></forward>        	
+        </action>
+        <action name="roleSAForm" path="/handleSARoleSelection" type="ui.security.action.HandleSARoleSelectionAction" scope="session" parameter="submitAction">
+        	<forward name="updateSuccess" path="/jsp/saRoles/roleSAUpdate.jsp"></forward>
+        	<forward name="deleteSuccess" path="/jsp/saRoles/roleSASummary.jsp"></forward>
+        	<forward name="viewSuccess" path="/jsp/saRoles/roleSASummary.jsp"></forward>
+         </action>
+        <action name="roleSAForm" path="/displaySARoleSummary" type="ui.security.action.DisplaySARoleSummaryAction" scope="session" parameter="submitAction">
+        	<forward name="success" path="/jsp/saRoles/roleSASummary.jsp"></forward>
+        	<forward name="updateSuccess" path="/jsp/saRoles/roleSASummary.jsp"></forward>
+        	<forward name="createSuccess" path="/jsp/saRoles/roleSASummary.jsp"></forward>
+        	<forward name="createFeatureSuccess" path="/jsp/saRoles/roleSACreate3.jsp"></forward>
+        	<forward name="createFeatureFailure" path="/jsp/saRoles/roleSACreate3.jsp"></forward>        	
+        	<forward name="updateFeatureSuccess" path="/jsp/saRoles/roleSAUpdate.jsp"></forward>        	
+        	<forward name="updateFeatureFailure" path="/jsp/saRoles/roleSAUpdate.jsp"></forward>              
+        	<forward name="deleteSuccess" path="/jsp/saRoles/roleSADeleteConfirm.jsp"></forward>        	
+        	<forward name="update" path="/jsp/saRoles/roleSAUpdate.jsp"></forward>
+            <forward name="cancel" path="/jsp/saRoles/roleSASearch.jsp"></forward>
+	       	<forward name="updateRefreshSuccess" path="/jsp/saRoles/roleSAUpdate.jsp"></forward>            
+	       	<forward name="createRefreshSuccess" path="/jsp/saRoles/roleSACreate3.jsp"></forward>            	       	
+        </action>
+        <action name="roleSAForm" path="/submitSARole" type="ui.security.action.SubmitSARoleAction" scope="session" parameter="submitAction">
+        	<forward name="updateSuccess" path="/jsp/saRoles/roleSAConfirm.jsp"></forward>
+			<forward name="deleteSuccess" path="/jsp/saRoles/roleSAConfirm.jsp"></forward>
+			<forward name="createSuccess" path="/jsp/saRoles/roleSAConfirm.jsp"></forward>			
+			<forward name="confirmDeleteSuccess" path="/jsp/saRoles/roleSADeleteConfirm.jsp"></forward>	
+			<forward name="cancel" path="/jsp/saRoles/roleSASearch.jsp"></forward>		
+        	<forward name="mainMenu" path="/jsp/goToMainMenuPage.jsp"></forward>
+        </action>
+        <action name="roleSAForm" path="/displaySARoleDelete" type="ui.security.action.DisplaySARoleDeleteAction" scope="session" parameter="submitAction">
+        	<forward name="deleteSuccess" path="/jsp/saRoles/roleSADeleteConfirm.jsp"></forward>
+        	<forward name="confirmDeleteSuccess" path="/jsp/saRoles/roleSADeleteConfirm.jsp"></forward>
+        	<forward name="cancel" path="/jsp/saRoles/roleSASearch.jsp"></forward>        	
+        </action>
+        <action name="roleSAForm" path="/displaySARoleCreate1" type="ui.security.action.DisplaySARoleCreate1Action" scope="session" parameter="submitAction">
+        	<forward name="createSuccess" path="/jsp/saRoles/roleSACreate1.jsp"></forward>
+        	<forward name="cancel" path="/jsp/saRoles/roleSASearch.jsp"></forward>
+        </action>
+        <action name="roleSAForm" path="/displaySARoleCreate2" type="ui.security.action.DisplaySARoleCreate2Action" scope="session" parameter="submitAction">
+        	<forward name="createSuccess" path="/jsp/saRoles/roleSACreate2.jsp"></forward>
+        	<forward name="cancel" path="/jsp/saRoles/roleSASearch.jsp"></forward>
+        </action>
+        <action name="roleSAForm" path="/displaySARoleCreate3" type="ui.security.action.DisplaySARoleCreate3Action" scope="session" parameter="submitAction">
+        	<forward name="createSuccess" path="/jsp/saRoles/roleSACreate3.jsp"></forward>
+        	<forward name="cancel" path="/jsp/saRoles/roleSASearch.jsp"></forward>
+        	<forward name="searchFailure" path="/jsp/saRoles/displaySARoleCreate3.jsp"></forward>   
+        </action>
+        <action name="roleSAForm" path="/handleSARoleFeatureRemove"  type="ui.security.action.HandleSARoleFeatureRemoveAction" scope="session" parameter="submitAction">
+        	<forward name="createRemoveFeatureSuccess" path="/jsp/saRoles/roleSACreate3.jsp"/>
+        	<forward name="updateRemoveFeatureSuccess" path="/jsp/saRoles/roleSAUpdate.jsp"/>
+        </action>
+        
+<!-- ========== MANAGE SECURITY ADMINISTRATOR USERS ================= -->        
+        <action name="saUsersForm" path="/displaySAUserSearch" type="ui.security.action.DisplaySAUserSearchAction" scope="session" input="/jsp/saUsers/saUsersSearch.jsp" parameter="submitAction">
+        	<forward name="success" path="/jsp/saUsers/saUsersSearch.jsp"></forward>
+        </action>
+        <!-- Display View Search Results-->
+		<action name="saUsersForm" path="/displaySAUserSearchResults" scope="session" type="ui.security.action.DisplaySAUserSearchResultsAction" input="/jsp/saUsers/saUsersSearchResults.jsp" parameter="submitAction">
+			<forward name="success" path="/jsp/saUsers/saUsersSearchResults.jsp"/>
+			<forward name="refreshSuccess" path="/jsp/saUsers/saUsersSearch.jsp"></forward>
+			<forward name="createSuccess" path="/jsp/saRoles/roleSACreate1.jsp"></forward>
+			<forward name="searchFailure" path="/jsp/saUsers/saUsersSearch.jsp"></forward> 
+		</action>
+		<action name="saUsersForm" path="/displaySAUserUpdate" scope="session" type="ui.security.action.DisplaySAUserUpdateAction" input="/jsp/saUsers/saUsersUpdate.jsp" parameter="submitAction">
+			<forward name="success" path="/jsp/saUsers/saUsersUpdate.jsp" />
+			<forward name="cancel" path="/jsp/saUsers/saUsersSearch.jsp" />
+            <forward name="back" path="/jsp/saUsers/saUsersSearch.jsp" />
+		</action>
+		<action name="saUsersForm" path="/displaySAUserDept" scope="session" type="ui.security.action.DisplaySAUserDeptAction" input="/jsp/saUsers/saUsersUpdateDept.jsp" parameter="submitAction">
+			<forward name="success" path="/jsp/saUsers/saUsersUpdateDept.jsp" />
+			<forward name="cancel" path="/jsp/saUsers/saUsersSearch.jsp" />
+            <forward name="back" path="/jsp/saUsers/saUsersUpdate.jsp" />
+			<forward name="successSummary" path="/jsp/saUsers/saUsersUpdateSummary.jsp" />
+		</action>
+		<action name="saUsersForm" path="/displaySAUserDeptUpdate" scope="session" type="ui.security.action.DisplaySAUserDeptUpdateAction" input="/jsp/saUsers/saUsersUpdateSummary.jsp" parameter="submitAction">
+			<forward name="success" path="/jsp/saUsers/saUsersUpdateSummary.jsp" />
+			<forward name="cancel" path="/jsp/saUsers/saUsersUpdate.jsp" />
+            <forward name="back" path="/jsp/saUsers/saUsersUpdateDept.jsp" />
+        </action>
+	    <action name="saUsersForm" path="/displaySAUserSummary" scope="session" type="ui.security.action.DisplaySAUserSummaryAction" input="/jsp/saUsers/saUsersUpdateDept.jsp" parameter="submitAction">
+			<forward name="success" path="/jsp/saUsers/saUsersUpdateConfirm.jsp" />
+            <forward name="back" path="/jsp/saUsers/saUsersUpdateDept.jsp" />			
+		</action>
+		<action path="/path" type="actions.Action">
+        </action>
+
+<!-- ========== MANAGE USER GROUPS ================= -->        
+        <action name="userGroupForm" path="/displayUserGroupSearch" type="ui.security.action.DisplayUserGroupSearchAction" scope="session" input="/jsp/saUsers/saUsersSearch.jsp" parameter="submitAction">
+        	<forward name="success" path="/jsp/userGroups/userGroupSearch.jsp"></forward>
+        </action>
+        <!-- Display View Search Results-->
+		<action name="userGroupForm" path="/displayUserGroupSearchResults" scope="session" type="ui.security.action.DisplayUserGroupSearchResultsAction" input="/jsp/saUsers/saUsersSearchResults.jsp" parameter="submitAction">
+			<forward name="listSuccess" path="/jsp/userGroups/userGroupSearch.jsp" />
+			<forward name="refreshSuccess" path="/jsp/userGroups/userGroupSearch.jsp" />
+			<forward name="searchFailure" path="/jsp/userGroups/userGroupSearch.jsp"></forward> 
+		</action>
+        <action name="userGroupForm" path="/handleUserGroupSelection" type="ui.security.action.HandleUserGroupSelectionAction" scope="session" parameter="submitAction">
+        	<forward name="updateSuccess" path="/jsp/userGroups/userGroupUpdate.jsp"></forward>
+	       	<forward name="updateUsersSuccess" path="/jsp/userGroups/userGroupAddUsers.jsp"></forward>        	
+        	<forward name="deleteSuccess" path="/jsp/userGroups/userGroupDetails.jsp"></forward>
+        	<forward name="viewSuccess" path="/jsp/userGroups/userGroupDetails.jsp"></forward>
+        	<forward name="activateSuccess" path="/jsp/userGroups/userGroupDetails.jsp"></forward>
+        	<forward name="inactivateSuccess" path="/jsp/userGroups/userGroupDetails.jsp"></forward>        	        	
+        </action>
+        <action name="userGroupForm" path="/displayUserGroupSummary" type="ui.security.action.DisplayUserGroupSummaryAction" scope="session" parameter="submitAction">
+        	<forward name="deleteSuccess" path="/jsp/userGroups/userGroupSummary.jsp"></forward>
+        	<forward name="viewSuccess" path="/jsp/userGroups/userGroupSummary.jsp"></forward>
+        	<forward name="activateSuccess" path="/jsp/userGroups/userGroupSummary.jsp"></forward>
+        	<forward name="inactivateSuccess" path="/jsp/userGroups/userGroupSummary.jsp"></forward> 
+        	<forward name="updateSuccess" path="/jsp/userGroups/userGroupUpdate.jsp"></forward> 
+        	<forward name="updateUsersSuccess" path="/jsp/userGroups/userGroupAddUsers.jsp"></forward>
+        	<forward name="cancel" path="displayUserGroupSearch.do"></forward>        	        	
+        </action>
+        <action name="userGroupForm" path="/displayUserGroupCreate" type="ui.security.action.DisplayUserGroupCreateAction" scope="session" parameter="submitAction">
+			<forward name="success" path="/jsp/userGroups/userGroupCreate1.jsp"></forward>
+        </action>
+        <action name="userGroupForm" path="/displayUserGroupCreateSummary" type="ui.security.action.DisplayUserGroupCreateSummaryAction" scope="session" parameter="submitAction">
+        	<forward name="maSuccess" path="/jsp/userGroups/userGroupAddAgency.jsp"></forward>
+        	<forward name="saSuccess" path="/jsp/userGroups/userGroupSummary.jsp"></forward>
+        	<forward name="createFailure" path="/jsp/userGroups/userGroupCreate1.jsp"></forward>        	
+        	<forward name="cancel" path="displayUserGroupSearch.do"></forward>
+        </action>
+        <action name="userGroupForm" path="/handleUserGroupMAAddAgency" type="ui.security.action.HandleUserGroupMAAddAgencyAction" scope="session" parameter="submitAction">
+        	<forward name="findSuccess" path="/jsp/userGroups/userGroupAddAgency.jsp"></forward>
+        	<forward name="success" path="/jsp/userGroups/userGroupSummary.jsp"></forward>
+        	<forward name="cancel" path="displayUserGroupSearch.do"></forward>
+        </action>
+        <action name="userGroupForm" path="/handleUserGroupMAFindAgency" type="ui.security.action.HandleUserGroupMAFindAgencyAction" scope="session" parameter="submitAction">
+        	<forward name="findSuccess" path="/jsp/userGroups/userGroupAddAgency.jsp"></forward>
+        	<forward name="refreshSuccess" path="/jsp/userGroups/userGroupAddAgency.jsp"></forward>        	
+        </action>
+        <action name="userGroupForm" path="/submitUserGroupCreate" type="ui.security.action.SubmitUserGroupCreateAction" scope="session" parameter="submitAction">
+        	<forward name="success" path="/jsp/userGroups/userGroupConfirm.jsp"></forward>
+        	<forward name="cancel" path="displayUserGroupSearch.do"></forward>
+        	<forward name="addSuccess" path="/jsp/userGroups/userGroupAddUsers.jsp"></forward>        	
+        	<forward name="createFailure" path="/jsp/userGroups/userGroupConfirm.jsp"></forward>        	
+         </action>
+        <action name="userGroupForm" path="/submitUserGroupCreateMA" type="ui.security.action.SubmitUserGroupCreateMAAction" scope="session" parameter="submitAction">
+        	<forward name="createSuccess" path="/jsp/userGroups/userGroupConfirm.jsp"></forward>
+        	<forward name="cancel" path="displayUserGroupSearch.do"></forward>
+        	<forward name="addSuccess" path="/jsp/userGroups/userGroupAddUsers.jsp"></forward>
+        	<forward name="createFailure" path="/jsp/userGroups/userGroupConfirm.jsp"></forward>        	        	
+        	<forward name="mainMenu" path="/jsp/goToMainMenuPage.jsp"></forward>
+        </action>
+        <action name="userGroupForm" path="/submitUserGroupUpdate" type="ui.security.action.SubmitUserGroupUpdateAction" scope="session" parameter="submitAction">
+        	<forward name="addSuccess" path="/jsp/userGroups/userGroupAddUsers.jsp"></forward>
+        	<forward name="createSuccess" path="/jsp/userGroups/userGroupConfirm.jsp"></forward>
+        	<forward name="updateSuccess" path="/jsp/userGroups/userGroupConfirm.jsp"></forward>        	
+        	<forward name="cancel" path="displayUserGroupSearch.do"></forward>
+        	<forward name="mainMenu" path="/jsp/goToMainMenuPage.jsp"></forward>
+        </action>
+        <action name="userGroupForm" path="/submitUserGroupAddUsers" type="ui.security.action.SubmitUserGroupAddUsersAction" scope="session" parameter="submitAction">
+         	<forward name="cancel" path="displayUserGroupSearch.do"></forward>
+        	<forward name="addSuccess" path="/jsp/userGroups/userGroupAddUsersSummary.jsp"></forward>           	
+        	<forward name="mainMenu" path="/jsp/goToMainMenuPage.jsp"></forward>
+        	<forward name="assignRolesSuccess" path="/displayAssignUserGroupRoles.do"></forward>
+        </action>
+        <action name="userGroupForm" path="/displayUserGroupSAAddUsers" type="ui.security.action.DisplayUserGroupSAAddUsersAction" scope="session" parameter="submitAction">
+        	<forward name="success" path="/jsp/userGroups/userGroupAddUsers.jsp"></forward>
+        	<forward name="mainMenu" path="/jsp/goToMainMenuPage.jsp"></forward>
+        </action>
+        <action name="userGroupForm" path="/handleUserGroupUpdate" type="ui.security.action.HandleUserGroupUpdateAction" scope="session" parameter="submitAction">
+        	<forward name="findAgencySuccess" path="/jsp/userGroups/userGroupUpdate.jsp"></forward>
+        	<forward name="findUserSuccess" path="/jsp/userGroups/userGroupUpdate.jsp"></forward>
+        	<forward name="updateUsersSuccess" path="/jsp/userGroups/userGroupUpdate.jsp"></forward>
+        	<forward name="searchFailure" path="/jsp/userGroups/userGroupUpdate.jsp"></forward>
+        	<forward name="updateUserRemoveUserSuccess" path="/jsp/userGroups/userGroupAddUsers.jsp"></forward>        	
+        	<forward name="updateSuccess" path="/jsp/userGroups/userGroupSummary.jsp"></forward>
+        	<forward name="resetSuccess" path="handleUserGroupSelection.do"></forward>
+        	<forward name="cancel" path="displayUserGroupSearch.do"></forward>
+			<forward name="duplicateSuccess" path="/jsp/userGroups/userGroupUpdate.jsp"></forward>        	
+        </action>
+        <action name="userGroupForm" path="/handleUserGroupAddUsers" type="ui.security.action.HandleUserGroupAddUsersAction" scope="session" parameter="submitAction">
+        	<forward name="addSuccess" path="/jsp/userGroups/userGroupAddUsersSummary.jsp"></forward>
+        	<forward name="findUserSuccess" path="/jsp/userGroups/userGroupAddUsers.jsp"></forward>
+        	<forward name="updateUsersSuccess" path="/jsp/userGroups/userGroupAddUsers.jsp"></forward>        	
+        	<forward name="searchFailure" path="/jsp/userGroups/userGroupAddUsers.jsp"></forward>  
+        	<forward name="refreshSuccess" path="/jsp/userGroups/userGroupAddUsers.jsp"></forward>        	      	        	
+        	<forward name="cancel" path="displayUserGroupSearch.do"></forward>
+        </action>
+        <action name="userGroupForm" path="/handleUserGroupUserRemove" type="ui.security.action.HandleUserGroupUserRemoveAction" scope="session" parameter="submitAction">
+			<forward name="updateRemoveUserSuccess" path="/jsp/userGroups/userGroupUpdate.jsp"/>
+			<forward name="updateUserRemoveUserSuccess" path="/jsp/userGroups/userGroupAddUsers.jsp"/>			
+			<forward name="createRemoveUserSuccess" path="/jsp/userGroups/userGroupAddUsers.jsp"/>
+        </action>		
+			
+<!-- ========== ASSIGN ROLES ================= -->        
+        <action name="assignRolesForm" path="/displayAssignRolesSearch" type="ui.security.action.DisplayAssignRolesSearchAction">
+        	<forward name="success" path="/jsp/assignRoles/roleAssign.jsp"/>
+        </action>		
+		<action name="assignRolesForm" path="/displayAssignRolesSearchResults" type="ui.security.action.DisplayAssignRolesSearchResultsAction" input="/jsp/assignRoles/roleAssign.jsp" parameter="submitAction">
+			<forward name="success" path="/jsp/assignRoles/roleAssignSearchResults.jsp"/>
+			<forward name="refreshSuccess" path="/jsp/assignRoles/roleAssign.jsp"/>
+			<forward name="searchFailure" path="/jsp/assignRoles/roleAssign.jsp"/>
+		</action>
+		<action name="securityInquiriesForm" path="/displayRoleDetails" type="ui.security.inquiries.action.DisplaySecurityInquiriesRoleDetailsAction" scope="session" parameter="submitAction">
+        	<forward name="success" path="/jsp/roles/roleDetails.jsp"/>
+        </action>
+        <action name="securityInquiriesForm" path="/displayRoleAssignUserProfileDetails" type="ui.security.inquiries.action.DisplaySecurityInquiriesUserProfileDetailsAction" scope="session" parameter="submitAction">
+        	<forward name="success" path="/jsp/assignRoles/roleAssignUserProfileDetails.jsp"/>
+        </action>
+		
+		<!-- User Group -->
+        <action name="assignRolesForm" path="/displayAssignUserGroupRoles" type="ui.security.action.DisplayAssignUserGroupRolesAction">
+        	<forward name="success" path="/jsp/assignRoles/roleAssignUserGroup.jsp"/>
+        </action>			
+		<action name="assignRolesForm" path="/handleAssignUserGroupRoles" type="ui.security.action.HandleAssignUserGroupRolesAction" input="/jsp/assignRoles/roleAssignResults.jsp" parameter="submitAction">
+			<forward name="findSuccess" path="/jsp/assignRoles/roleAssignUserGroup.jsp"/>
+			<forward name="refreshSuccess" path="/jsp/assignRoles/roleAssignUserGroup.jsp"/>			
+			<forward name="addSuccess" path="/jsp/assignRoles/roleAssignUserGroup.jsp"/>
+			<forward name="removeSuccess" path="/jsp/assignRoles/roleAssignUserGroup.jsp"/>
+			<forward name="success" path="/jsp/assignRoles/roleAssignUserGroupSummary.jsp"/>
+			<forward name="cancel" path="displayAssignRolesSearch.do"/>
+			<forward name="searchFailure" path="/jsp/assignRoles/roleAssignUserGroup.jsp"/>
+		</action>
+		<action name="assignRolesForm" path="/handleAssignUserGroupRoleRemove" type="ui.security.action.HandleAssignRoleRemoveAction" scope="session" parameter="submitAction">
+			<forward name="removeSuccess" path="/jsp/assignRoles/roleAssignUserGroup.jsp"/>
+        </action>
+		<action name="assignRolesForm" path="/submitAssignUserGroupRoles" type="ui.security.action.SubmitAssignUserGroupRolesAction" input="/jsp/assignRoles/roleAssignUserGroup.jsp" parameter="submitAction">
+			<forward name="confirmSuccess" path="/jsp/assignRoles/roleAssignUserGroupConfirm.jsp"/>
+			<forward name="mainPage" path="/jsp/goToMainMenuPage.jsp"/>
+			<forward name="cancel" path="displayAssignRolesSearch.do"/>
+		</action>
+		
+		<!-- User -->
+		<action name="assignRolesForm" path="/displayAssignUserRoles" type="ui.security.action.DisplayAssignUserRolesAction">
+        	<forward name="success" path="/jsp/assignRoles/roleAssignUser.jsp"/>
+        </action>
+		<action name="assignRolesForm" path="/handleAssignUserRoles" type="ui.security.action.HandleAssignUserRolesAction" input="/jsp/assignRoles/roleAssignResults.jsp" parameter="submitAction">
+			<forward name="findSuccess" path="/jsp/assignRoles/roleAssignUser.jsp"/>
+			<forward name="refreshSuccess" path="/jsp/assignRoles/roleAssignUser.jsp"/>			
+			<forward name="addSuccess" path="/jsp/assignRoles/roleAssignUser.jsp"/>
+			<forward name="removeSuccess" path="/jsp/assignRoles/roleAssignUser.jsp"/>
+			<forward name="success" path="/jsp/assignRoles/roleAssignUserSummary.jsp"/>
+			<forward name="cancel" path="displayAssignRolesSearch.do"/>
+			<forward name="searchFailure" path="/jsp/assignRoles/roleAssignUser.jsp"/>
+			<forward name="listSuccess" path="/jsp/userProfiles/userProfileSearch.jsp"/>
+		</action>
+		
+		<action name="assignRolesForm" path="/submitAssignUserRoles" type="ui.security.action.SubmitAssignUserRolesAction" input="/jsp/assignRoles/roleAssignUser.jsp" parameter="submitAction">
+			<forward name="confirmSuccess" path="/jsp/assignRoles/roleAssignUserConfirm.jsp"/>
+			<forward name="mainPage" path="/jsp/goToMainMenuPage.jsp"/>
+			<forward name="cancel" path="displayAssignRolesSearch.do"/>
+		</action>
+		<action path="/handleAssignUserRoleRemove" name="assignRolesForm" type="ui.security.action.HandleAssignRoleRemoveAction" scope="session" parameter="submitAction">
+        	<forward name="removeSuccess" path="/jsp/assignRoles/roleAssignUser.jsp"/>
+        </action>	
+        <action path="/handleAssignRolesUserGroupSelection" name="assignRolesForm" type="ui.security.action.HandleAssignRolesUserGroupSelectionAction" scope="session" parameter="submitAction">
+        	<forward name="viewSuccess" path="/jsp/assignRoles/roleAssignUserGroupDetails.jsp"/>
+        </action>	
+
+ <!-- ========== MANAGE AGENCIES ================= -->        
+		<action name="agencyForm" path="/displayAgencySearch" type="ui.contact.agency.action.DisplayAgencySearchAction" scope="session">
+			<forward name="success" path="/jsp/agencies/agencySearch.jsp"/>
+		</action>	
+		<action name="agencyForm" path="/displayAgencySearchResults" type="ui.contact.agency.action.DisplayAgencySearchResultsAction" scope="session" parameter="submitAction">
+			<forward name="findSuccess" path="/jsp/agencies/agencySearch.jsp"/>
+			<forward name="refreshSuccess" path="/jsp/agencies/agencySearch.jsp"/>
+		</action>
+		<action name="agencyForm" path="/handleAgencySelection" type="ui.contact.agency.action.HandleAgencySelectionAction">
+			<forward name="viewSuccess" path="/jsp/agencies/agencySummary.jsp"/>
+			<forward name="deleteSuccess" path="/jsp/agencies/agencySummary.jsp"/>
+			<forward name="updateSuccess" path="/jsp/agencies/agencyUpdate.jsp"/>
+		</action>
+		<action name="agencyForm" path="/displayAgencyCreate" type="ui.contact.agency.action.DisplayAgencyCreateAction">
+			<forward name="createSuccess" path="/jsp/agencies/agencyUpdate.jsp"/>
+		</action>
+		<action name="agencyForm" path="/submitAgencyUpdate" type="ui.contact.agency.action.SubmitAgencyUpdateAction" scope="session" parameter="submitAction">
+			<forward name="confirmUpdateSuccess" path="/jsp/agencies/agencySummary.jsp"/>
+			<forward name="confirmDeleteSuccess" path="/jsp/agencies/agencySummary.jsp"/>
+            <forward name="confirmCreateSuccess" path="/jsp/agencies/agencySummary.jsp"/>
+			<forward name="cancel" path="displayAgencySearch.do"/>
+			<forward name="mainPage" path="/jsp/goToMainMenuPage.jsp"/>
+		</action>
+        <action name="agencyForm" path="/displayAgencySummary" type="ui.contact.agency.action.DisplayAgencySummaryAction" scope="session" parameter="submitAction">
+            <forward name="cancel" path="displayAgencySearch.do"/>
+            <forward name="updateSummary" path="/jsp/agencies/agencySummary.jsp"/>
+            <forward name="updateSuccess" path="/jsp/agencies/agencyUpdate.jsp"/>
+            <forward name="deleteSummary" path="/jsp/agencies/agencySummary.jsp"/>
+            <forward name="createSummary" path="/jsp/agencies/agencySummary.jsp"/>
+		</action>
+		 
+<!-- ==================  MANAGE OFFICER ================== -->
+         <action name="officerForm" path="/displayOfficerUserProfileSearch" scope="session" type="ui.contact.officer.action.DisplayUserProfileSearchAction">
+        	<forward name="success" path="/jsp/officers/officerUserProfileSearch.jsp"/>
+         </action>	
+         <action name="officerForm" path="/displayOfficerProfileCreate" type="ui.contact.officer.action.DisplayOfficerProfileUpdateAction" input="/jsp/officers/officerUserProfileSearch.jsp" parameter="submitAction">
+			<forward name="createSuccess" path="/jsp/officers/officerUpdate.jsp"/>
+			<forward name="createFailure" path="/jsp/officers/officerUserProfileSearch.jsp"/>
+		 </action>
+		 <action name="officerForm" path="/displayOfficerProfileSummary" type="ui.contact.officer.action.DisplayOfficerProfileUpdateAction" input="/jsp/officers/officerUpdate.jsp" parameter="submitAction">
+			<forward name="summarySuccess" path="/jsp/officers/officerUpdateSummary.jsp"/>
+			<forward name="summaryFailure" path="/jsp/officers/officerUpdate.jsp"/>
+			<forward name="validateDepartmentSuccess" path="/jsp/officers/officerUpdate.jsp"/>
+			<forward name="validateDepartmentFailure" path="/jsp/officers/officerUpdate.jsp"/>
+			<forward name="validateManagerSuccess" path="/jsp/officers/officerUpdate.jsp"/>
+			<forward name="validateManagerFailure" path="/jsp/officers/officerUpdate.jsp"/>
+			<forward name="find" path="/jsp/officers/officerUpdate.jsp"/>
+			<forward name="cancel" path="/jsp/officers/officerSearch.jsp"/>
+			<forward name="back" path="/jsp/officers/officerSearch.jsp"/>
+			<forward name="cancelCreate" path="/jsp/officers/officerSearch.jsp"/>
+		</action>
+		<action name="officerForm" path="/submitOfficerProfileUpdate" type="ui.contact.officer.action.SubmitOfficerProfileUpdateAction" input="/jsp/officers/officerUpdateSummary.jsp" parameter="submitAction">
+		    <forward name="confirmSuccess" path="/jsp/officers/officerUpdateConfirm.jsp"/>
+			<forward name="confirmUpdateSuccess" path="/jsp/officers/officerUpdateConfirm.jsp"/>
+			<forward name="confirmDeleteSuccess" path="/jsp/officers/officerUpdateConfirm.jsp"/>
+			<forward name="cancel" path="/jsp/officers/officerSearch.jsp"/>
+			<forward name="cancelCreate" path="/jsp/officers/officerSearch.jsp"/>
+			<forward name="failure" path="/jsp/officers/officerUpdateSummary.jsp"/>
+		 </action>
+		 <action name="officerForm" path="/displayOfficerProfileConfirm" type="ui.contact.officer.action.SubmitOfficerProfileUpdateAction" input="/jsp/officers/officerUpdateSummary.jsp" parameter="submitAction">
+			<forward name="confirmSuccess" path="/jsp/officers/officerUpdateConfirm.jsp"/>
+			<forward name="failure" path="/jsp/officers/officerUpdate.jsp"/>
+		 </action>
+		 <action name="officerForm" path="/handleOfficerTraining" type="ui.contact.officer.action.HandleOfficerTrainingAction" parameter="submitAction">
+			<forward name="success" path="/jsp/training/updateOfficerTraining.jsp"/>
+			<forward name="failure" path="/jsp/training/officerUpdate.jsp"/>
+		 </action>			
+		  <action name="officerForm" path="/displayOfficerManagerSearchResults" type="ui.contact.officer.action.DisplayManagerSearchResultsAction" parameter="submitAction">
+			<forward name="findSuccess" path="/jsp/officers/officerManagerSelection.jsp"/>
+			<forward name="refreshSuccess" path="/jsp/officers/officerManagerSelection.jsp"/>			
+			<forward name="failure" path="/jsp/officers/officerManagerSelection.jsp"/>
+		 </action>
+		 <action name="officerForm" path="/displayOfficerUserProfileSearchResults" type="ui.contact.officer.action.DisplayUserProfileSearchResultsAction" input="/jsp/officers/officerUserProfileSearch.jsp" parameter="submitAction">
+			<forward name="findSuccess" path="/jsp/officers/officerUserProfileSearch.jsp"/>	
+        	<forward name="refreshSuccess" path="/jsp/officers/officerUserProfileSearch.jsp"/> 
+			<forward name="searchFailure" path="/jsp/officers/officerUserProfileSearch.jsp"/>          	       				
+		 </action>
+		 <action name="officerForm" path="/handleOfficerProfileSelection" scope="session" type="ui.contact.officer.action.HandleOfficerProfileSelectionAction" parameter="submitAction">
+			<forward name="viewSuccess" path="/jsp/officers/officerUpdateSummary.jsp"/>
+			<forward name="deleteSuccess" path="/jsp/officers/officerUpdateSummary.jsp"/>
+			<forward name="updateSuccess" path="/jsp/officers/officerUpdate.jsp"/>
+			<forward name="cancel" path="/jsp/officers/officerSearch.jsp"/>
+			<forward name="failure" path="/jsp/officers/officerSearch.jsp"/>
+		 </action>
+		  <action name="officerForm" path="/handleOfficerProfileSelectionLimit" type="ui.contact.officer.action.HandleOfficerProfileSelectionAction">
+			<forward name="viewSuccess" path="/jsp/officers/officerUpdateSummary.jsp"/>
+			<forward name="deleteSuccess" path="/jsp/officers/officerUpdateSummary.jsp"/>
+			<forward name="updateSuccess" path="/jsp/officers/officerUpdateLimit.jsp"/>
+			<forward name="cancel" path="/jsp/officers/officerSearch.jsp"/>
+			<forward name="failure" path="/jsp/officers/officerSearch.jsp"/>
+		 </action>
+		 <action name="officerForm" path="/displayOfficerProfileSearch" scope="session" type="ui.contact.officer.action.DisplayOfficerProfileSearchAction">
+        	<forward name="findSuccess" path="/jsp/officers/officerSearch.jsp"/>
+         </action>
+         <action name="officerForm" path="/displayOfficerProfileSearchResults" type="ui.contact.officer.action.DisplayOfficerProfileSearchResultsAction" parameter="submitAction">
+        	<forward name="findSuccess" path="/jsp/officers/officerSearch.jsp"/>
+        	<forward name="refreshSuccess" path="/jsp/officers/officerSearch.jsp"/>        	
+        	<forward name="failure" path="/jsp/officers/officerSearch.jsp"/>
+         </action>
+         <action name="officerForm" path="/displaySearchForDepartments" scope="session" type="ui.contact.officer.action.DisplayDepartmentSearchAction">
+        	<forward name="searchManageProfileSuccess" path="/jsp/officers/officerDepartmentSearch.jsp"/>
+         </action>	
+		  <action name="officerForm" path="/displaySearchForDepartmentsResults" scope="session" type="ui.contact.officer.action.DisplayDepartmentSearchResultsAction" parameter="submitAction">
+        	<forward name="findManageProfileDepartmentSuccess" path="/jsp/officers/officerDepartmentSearch.jsp"/>
+        	<forward name="refreshSuccess" path="/jsp/officers/officerDepartmentSearch.jsp"/>
+        	<forward name="failure" path="/jsp/officers/officerDepartmentSearch.jsp"/>
+         	<forward name="selectDepartmentSuccess" path="/jsp/officers/officerDepartmentSearch.jsp"/>
+         	<forward name="cancel" path="/jsp/officers/officerDepartmentSearch.jsp"/>
+         	<forward name="back" path="/jsp/officers/officerDepartmentSearch.jsp"/>
+         </action>	
+          <action name="officerForm" path="/selectOfficerSearchDepartment" type="ui.contact.officer.action.HandleOfficerProfileDepartmentSelectionAction">
+			<forward name="selectDepartmentSuccess" path="/jsp/officers/officerUpdate.jsp"/>
+		 </action>
+		 	
+         <action name="officerForm" path="/selectOfficerManagerSelection" type="ui.contact.officer.action.HandleManagerProfileSelectionAction">
+			<forward name="selectManagerSuccess" path="/jsp/officers/officerUpdate.jsp"/>
+		 </action>
+		
+		<action name="officerForm" path="/displayOfficerValidateDeptCode" type="ui.contact.officer.action.DisplayOfficerProfileUpdateAction">
+			<forward name="validateDepartmentSuccess" path="/jsp/officers/officerUpdate.jsp"/>
+			<forward name="success" path="/jsp/officers/officerUpdate.jsp"/>
+		 </action>
+		 <action name="officerForm" path="/displayOfficerProfileUpdate" type="ui.contact.officer.action.DisplayOfficerProfileUpdateAction">
+			<forward name="createSuccess" path="/jsp/officers/officerUpdate.jsp"/>
+		 </action>
+		 
+		 <action name="officerForm" path="/displayOfficerManagerSearch" type="ui.contact.officer.action.DisplayManagerSearchAction">
+			<forward name="searchSuccess" path="/jsp/officers/officerManagerSelection.jsp"/>
+		 </action>
+		 
+<!-- ========== MANAGE DEPARTMENTS ================= -->        
+		<action name="departmentForm" path="/departmentManageDepartments" type="ui.contact.department.action.DisplayDepartmentSearchAction" input="/jsp/department/departmentSearch.jsp" parameter="submitAction">
+			<forward name="success" path="/jsp/department/departmentSearch.jsp"/>
+			<forward name="failure" path="/jsp/department/departmentSearch.jsp"/>
+		</action>	
+		<action name="departmentForm" path="/departmentCreateDepartments" type="ui.contact.department.action.DisplayDepartmentCreateAction" scope="session" parameter="submitAction">
+			<forward name="createSuccess" path="/jsp/department/departmentCreateAgencySelect.jsp"/>
+			<forward name="failure" path="/jsp/department/departmentSearch.jsp"/>
+			<forward name="cancel" path="/departmentManageDepartments.do"/>
+		</action>
+		<action name="departmentForm" path="/departmentFindDepartments" type="ui.contact.department.action.DisplayDepartmentSearchResultsAction" scope="session" parameter="submitAction">
+			<forward name="findSuccess" path="/jsp/department/departmentSearch.jsp"/>
+			<forward name="refreshSuccess" path="/jsp/department/departmentSearch.jsp"/>			
+			<forward name="failure" path="/jsp/department/departmentSearch.jsp"/>
+			<forward name="cancel" path="/departmentManageDepartments.do"/>
+		</action>
+		<action name="departmentForm" path="/departmentDisplayDetails" type="ui.contact.department.action.DisplayDepartmentDetailsAction" input="/jsp/department/departmentSearch.jsp" parameter="submitAction" >
+			<forward name="viewDepartmentSuccess" path="/jsp/department/departmentSummary.jsp"/>
+			<forward name="updateDeptSuccess" path="/jsp/department/departmentUpdate.jsp"/>
+			<forward name="deleteDeptSuccess" path="/jsp/department/departmentSummary.jsp"/>
+			<forward name="copyDeptSuccess" path="/jsp/department/departmentUpdate.jsp"/>
+			<forward name="createContactSuccess" path="/jsp/department/departmentContactSearch.jsp"/>
+			<forward name="modifyContactSuccess" path="/jsp/department/departmentContactList.jsp"/>
+			<forward name="failure" path="/jsp/department/departmentSearch.jsp"/>
+			<forward name="cancel" path="/departmentManageDepartments.do"/>
+		</action>
+		<action name="departmentForm" path="/handleDepartmentSelection" type="ui.contact.department.action.HandleDepartmentSelectionAction" scope="session" parameter="submitAction">
+			<forward name="updateDeptSuccess" path="/jsp/department/departmentUpdate.jsp"/>
+			<forward name="deleteDeptSuccess" path="/jsp/department/departmentSummary.jsp"/>
+			<forward name="copyDeptSuccess" path="/jsp/department/departmentUpdate.jsp"/>
+			<forward name="createContactSuccess" path="/jsp/department/departmentContactSearch.jsp"/>
+			<forward name="modifyContactSuccess" path="/jsp/department/departmentContactList.jsp"/>
+			<forward name="viewDepartmentSuccess" path="/jsp/department/departmentSummary.jsp"/>
+			<forward name="failure" path="/jsp/department/departmentSearch.jsp"/>
+			<forward name="cancel" path="/departmentManageDepartments.do"/>
+		</action>
+		<action name="departmentForm" path="/departmentAgencySearch" type="ui.contact.department.action.DisplayAgencySearchAction" scope="session" parameter="submitAction">
+			<forward name="updateDeptSuccess" path="/jsp/department/departmentUpdate.jsp"/>
+			<forward name="createDeptSuccess" path="/jsp/department/departmentCreate.jsp"/>
+			<forward name="deleteDeptSuccess" path="/jsp/department/departmentSummary.jsp"/>
+			<forward name="copyDeptSuccess" path="/jsp/department/departmentUpdate.jsp"/>
+			<forward name="createContactSuccess" path="/jsp/department/departmentContactSearch.jsp"/>
+			<forward name="modifyContactSuccess" path="/jsp/department/departmentContactList.jsp"/>
+			<forward name="failure" path="/jsp/department/departmentSearch.jsp"/>
+			<forward name="cancel" path="/departmentManageDepartments.do"/>
+		</action>
+		<action name="departmentForm" path="/departmentFindAgencies" type="ui.contact.department.action.DisplayAgencySearchResultsAction" scope="session" parameter="submitAction" input="/jsp/department/departmentCreateAgencySelect.jsp">
+			<forward name="findSuccess" path="/jsp/department/departmentCreateAgencySelect.jsp"/>
+			<forward name="refreshSuccess" path="/jsp/department/departmentCreateAgencySelect.jsp"/>			
+			<forward name="cancel" path="/departmentManageDepartments.do"/>
+			<forward name="create" path="/jsp/department/departmentCreate.jsp"/>
+			<forward name="failure" path="/jsp/department/departmentCreateAgencySelect.jsp"/>
+		</action>
+		 <action name="departmentForm" path="/displayDepartmentCreate" type="ui.contact.department.action.DisplayDepartmentCreateAction" scope="session" parameter="submitAction">
+			<forward name="success" path="/jsp/department/departmentCreate.jsp"/>
+			<forward name="failure" path="/jsp/department/departmentCreateAgencySelect.jsp"/>
+			<forward name="cancel" path="/departmentManageDepartments.do"/>
+		</action>
+		 <action name="departmentForm" path="/departmentDisplayContactUserSearch" type="ui.contact.department.action.DisplayContactUserSearchAction" scope="session" parameter="submitAction">
+			<forward name="success" path="/jsp/department/departmentContactSearch.jsp"/>
+			<forward name="createContact" path="/jsp/department/departmentContactSearch.jsp"/>
+			<forward name="mainMenu" path="/jsp/goToMainMenuPage.jsp"/>
+			<forward name="confirmFailure" path="/jsp/department/departmentSummary.jsp"/>
+			<forward name="failure" path="/jsp/department/departmentCreate.jsp"/>
+			<forward name="cancel" path="/departmentManageDepartments.do"/>
+		</action>
+		 <action name="departmentForm" path="/departmentFindContactUsers" type="ui.contact.department.action.DisplayContactUserSearchResultsAction" scope="session" parameter="submitAction" input="/jsp/department/departmentContactSearch.jsp">
+			<forward name="findSuccess" path="/jsp/department/departmentContactSearch.jsp"/>
+			<forward name="refreshSuccess" path="/jsp/department/departmentContactSearch.jsp"/>			
+			<forward name="failure" path="/jsp/department/departmentContactSearch.jsp"/>
+			<forward name="cancel" path="/departmentManageDepartments.do"/>
+		</action>
+		 <action name="departmentForm" path="/departmentHandleContactSelection" type="ui.contact.department.action.HandleContactSelectionAction" scope="session" parameter="submitAction">
+			<forward name="selectSuccess" path="/jsp/department/departmentContactSearch.jsp"/>
+			<forward name="addToListSuccess" path="/jsp/department/departmentContactSearch.jsp"/>
+			<forward name="removeFromListSuccess" path="/jsp/department/departmentContactSearch.jsp"/>
+			<forward name="viewContactSuccess" path="/jsp/department/departmentManageContactSummary.jsp"/>
+			<forward name="updateContactSuccess" path="/jsp/department/departmentManageContact.jsp"/>
+			<forward name="deleteContactSuccess" path="/jsp/department/departmentManageContactSummary.jsp"/>
+			<forward name="failure" path="/jsp/department/departmentContactSearch.jsp"/>
+			<forward name="cancel" path="/departmentManageDepartments.do"/>
+		</action>
+		<action name="departmentForm" path="/departmentDoContactSelection" type="ui.contact.department.action.HandleContactSelectionAction" scope="session" parameter="submitAction">
+			<forward name="createContactSuccess" path="/jsp/department/departmentContactSearch.jsp"/>
+			<forward name="updateContactSuccess" path="/jsp/department/departmentManageContact.jsp"/>
+			<forward name="deleteContactSuccess" path="/jsp/department/departmentContactSummary.jsp"/>
+			<forward name="failure" path="/jsp/department/departmentContactSummary.jsp"/>
+			<forward name="cancel" path="/departmentManageDepartments.do"/>
+		</action>
+		 <action name="departmentForm" path="/departmentDisplaySummary" type="ui.contact.department.action.DisplayDepartmentSummaryAction" scope="session" input="/jsp/department/departmentSummary.jsp" parameter="submitAction">
+			<forward name="createSuccess" path="/jsp/department/departmentSummary.jsp"/>
+			<forward name="updateSuccess" path="/jsp/department/departmentSummary.jsp"/>
+			<forward name="copySuccess" path="/jsp/department/departmentSummary.jsp"/>
+			<forward name="updateFailure" path="/jsp/department/departmentUpdate.jsp"/>
+			<forward name="createFailure" path="/jsp/department/departmentCreate.jsp"/>
+			<forward name="failure" path="/jsp/department/departmentUpdate.jsp"/>
+			<forward name="createContactFailure" path="/jsp/department/departmentContactSearch.jsp"/>
+			<forward name="cancel" path="/departmentManageDepartments.do"/>
+		</action>
+		 <action name="departmentForm" path="/departmentSubmitSummary" type="ui.contact.department.action.SubmitDepartmentUpdateAction" scope="session" input="/jsp/department/departmentSummary.jsp" parameter="submitAction">
+			<forward name="confirmCreateSuccess" path="/jsp/department/departmentSummary.jsp"/>
+			<forward name="confirmUpdateSuccess" path="/jsp/department/departmentSummary.jsp"/>
+			<forward name="confirmCopySuccess" path="/jsp/department/departmentSummary.jsp"/>
+			<forward name="confirmDeleteSuccess" path="/jsp/department/departmentSummary.jsp"/>
+			<forward name="cancel" path="/departmentManageDepartments.do"/>
+			<forward name="failure" path="/jsp/department/departmentSummary.jsp"/>
+			<forward name="mainMenu" path="/jsp/goToMainMenuPage.jsp"/>			
+		</action>
+		 <action name="departmentForm" path="/departmentSubmitContactSummary" type="ui.contact.department.action.SubmitContactUpdateAction" scope="session" parameter="submitAction">
+			<forward name="confirmCreateSuccess" path="/jsp/department/departmentManageContactSummary.jsp"/>
+			<forward name="confirmDeleteSuccess" path="/jsp/department/departmentManageContactSummary.jsp"/>
+			<forward name="deleteFailure" path="/jsp/department/departmentManageContactSummary.jsp"/>
+			<forward name="failure" path="/jsp/department/departmentManageContact.jsp"/>
+			<forward name="cancel" path="/departmentManageDepartments.do"/>
+		</action>
+		 <action name="departmentForm" path="/departmentDisplayContactSummary" type="ui.contact.department.action.DisplayContactSummaryAction" scope="session" parameter="submitAction">
+			<forward name="updateSuccess" path="/jsp/department/departmentManageContactSummary.jsp"/>
+			<forward name="createContactSuccess" path="/jsp/department/departmentContactSummary.jsp"/>
+			<forward name="failure" path="/jsp/department/departmentManageContact.jsp"/>
+		</action>
+		<action name="departmentForm" path="/departmentSubmitContactCreateUpdate" type="ui.contact.department.action.SubmitContactUpdateAction" scope="session" parameter="submitAction">
+			<forward name="confirmCreateSuccess" path="/jsp/department/departmentContactSummary.jsp"/>
+			<forward name="failure" path="/jsp/department/departmentContactSearch.jsp"/>
+			<forward name="cancel" path="/departmentManageDepartments.do"/>
+		</action>
+		<action name="departmentForm" path="/departmentDisplayContactList" type="ui.contact.department.action.DisplayContactListAction" scope="session" parameter="submitAction">
+			<forward name="contactListSuccess" path="/jsp/department/departmentContactList.jsp"/>
+			<forward name="mainMenu" path="/jsp/goToMainMenuPage.jsp"/>
+			<forward name="failure" path="/jsp/department/departmentContactSummary.jsp"/>
+			<forward name="cancel" path="/departmentManageDepartments.do"/>
+		</action>
+		 <action name="departmentForm" path="/departmentHandleContactAddRemove" type="ui.contact.department.action.HandleContactAddRemoveAction" scope="session" parameter="submitAction" input="/jsp/department/departmentContactSearch.jsp">
+			<forward name="selectSuccess" path="/jsp/department/departmentContactSearch.jsp"/>
+			<forward name="addToListSuccess" path="/jsp/department/departmentContactSearch.jsp"/>
+			<forward name="removeFromListSuccess" path="/jsp/department/departmentContactSearch.jsp"/>
+			<forward name="updateContactSuccess" path="/jsp/department/departmentContactSummary.jsp"/>
+			<forward name="failure" path="/jsp/department/departmentContactSearch.jsp"/>
+			<forward name="cancel" path="/departmentManageDepartments.do"/>
+		</action>
+ 
+<!-- ========== SECURITY INQUIRIES =================================== -->        
+        <action name="securityInquiriesForm" path="/displaySecurityInquiriesSearch" type="ui.security.inquiries.action.DisplaySecurityInquiriesSearchAction" scope="session">
+        	<forward name="success" path="/jsp/securityInquiries/securityInquiriesSearch.jsp"/>
+        </action>
+        <action name="securityInquiriesForm" path="/handleSecurityInquiriesSearchSelection" type="ui.security.inquiries.action.HandleSecurityInquiriesSearchSelectionAction" scope="session" parameter="submitAction">
+        	<forward name="agencySuccess" path="/displaySecurityInquiriesAgencySearchResults.do"/>
+        	<forward name="employeeIdSuccess" path="/displaySecurityInquiriesEmployeeIdSearchResults.do"/>        	        	
+        	<forward name="roleSuccess" path="/displaySecurityInquiriesRoleSearchResults.do"/>
+        	<forward name="subsystemSuccess" path="/displaySecurityInquiriesSubsystemSearchResults.do"/>
+        	<forward name="userGroupSuccess" path="/displaySecurityInquiriesUserGroupSearchResults.do"/>
+        	<forward name="userProfileSuccess" path="/displaySecurityInquiriesUserProfileSearchResults.do"/>        	
+        	<forward name="refreshSuccess" path="/jsp/securityInquiries/securityInquiriesSearch.jsp"/>			
+        	<forward name="failure" path="/jsp/securityInquiries/securityInquiriesSearch.jsp"/>	
+        	<forward name="go" path="/jsp/securityInquiries/securityInquiriesSearch.jsp"/>	        	
+        </action>
+        <!--  Agency -->
+        <action name="securityInquiriesForm" path="/displaySecurityInquiriesAgencySearchResults" type="ui.security.inquiries.action.DisplaySecurityInquiriesAgencySearchResultsAction" scope="session" parameter="submitAction">
+        	<forward name="agencySuccess" path="/displaySecurityInquiriesAgencyDetails.do"/>
+			<forward name="agencyListSuccess" path="/jsp/securityInquiries/securityInquiriesAgencySearchResults.jsp"/>
+        	<forward name="failure" path="/jsp/securityInquiries/securityInquiriesSearch.jsp"/>	
+        </action>
+        <action name="securityInquiriesForm" path="/displaySecurityInquiriesAgencyDetails" type="ui.security.inquiries.action.DisplaySecurityInquiriesAgencyDetailsAction" scope="session">
+        	<forward name="success" path="/jsp/securityInquiries/securityInquiriesAgencyDetails.jsp"/>
+        	<forward name="failure" path="/jsp/securityInquiries/securityInquiriesSearch.jsp"/>	
+        </action>
+        
+		<!--  Employee Id -->
+        <action name="securityInquiriesForm" path="/displaySecurityInquiriesEmployeeIdSearchResults" type="ui.security.inquiries.action.DisplaySecurityInquiriesEmployeeIdSearchResultsAction" scope="session" parameter="submitAction">
+        	<forward name="employeeIdSuccess" path="/displaySecurityInquiriesUserProfileDetails.do"/>
+        	<forward name="failure" path="/jsp/securityInquiries/securityInquiriesSearch.jsp"/>	
+        </action>
+       <!--  Role -->        
+        <action name="securityInquiriesForm" path="/displaySecurityInquiriesRoleSearchResults" type="ui.security.inquiries.action.DisplaySecurityInquiriesRoleSearchResultsAction" scope="session" parameter="submitAction">
+        	<forward name="roleSuccess" path="/displaySecurityInquiriesRoleDetails.do"/>
+			<forward name="roleListSuccess" path="/jsp/securityInquiries/securityInquiriesRoleSearchResults.jsp"/>
+        	<forward name="failure" path="/jsp/securityInquiries/securityInquiriesSearch.jsp"/>	
+        </action>
+        <action name="securityInquiriesForm" path="/displaySecurityInquiriesRoleDetails" type="ui.security.inquiries.action.DisplaySecurityInquiriesRoleDetailsAction" scope="session" parameter="submitAction">
+        	<forward name="success" path="/jsp/securityInquiries/securityInquiriesRoleDetails.jsp"/>
+        	<forward name="failure" path="/jsp/securityInquiries/securityInquiriesSearch.jsp"/>	
+        </action>
+      <!--  Subsystem -->        
+        <action name="securityInquiriesForm" path="/displaySecurityInquiriesSubsystemSearchResults" type="ui.security.inquiries.action.DisplaySecurityInquiriesSubsystemSearchResultsAction" scope="session" parameter="submitAction">
+        	<forward name="subsystemSuccess" path="/displaySecurityInquiriesSubsystemDetails.do"/>
+			<forward name="subsystemListSuccess" path="/jsp/securityInquiries/securityInquiriesSubsystemSearchResults.jsp"/>
+        	<forward name="failure" path="/jsp/securityInquiries/securityInquiriesSearch.jsp"/>	
+        </action>
+        <action name="securityInquiriesForm" path="/displaySecurityInquiriesSubsystemDetails" type="ui.security.inquiries.action.DisplaySecurityInquiriesSubsystemDetailsAction" scope="session" parameter="submitAction">
+        	<forward name="success" path="/jsp/securityInquiries/securityInquiriesSubsystemDetails.jsp"/>
+         	<forward name="failure" path="/jsp/securityInquiries/securityInquiriesSearch.jsp"/>	
+        </action>        
+      <!--  User Group -->        
+        <action name="securityInquiriesForm" path="/displaySecurityInquiriesUserGroupSearchResults" type="ui.security.inquiries.action.DisplaySecurityInquiriesUserGroupSearchResultsAction" scope="session" parameter="submitAction">
+        	<forward name="userGroupSuccess" path="/displaySecurityInquiriesUserGroupDetails.do"/>
+			<forward name="userGroupListSuccess" path="/jsp/securityInquiries/securityInquiriesUserGroupSearchResults.jsp"/>
+        	<forward name="failure" path="/jsp/securityInquiries/securityInquiriesSearch.jsp"/>	
+        </action>
+        <action name="securityInquiriesForm" path="/displaySecurityInquiriesUserGroupDetails" type="ui.security.inquiries.action.DisplaySecurityInquiriesUserGroupDetailsAction" scope="session" parameter="submitAction">
+        	<forward name="success" path="/jsp/securityInquiries/securityInquiriesUserGroupDetails.jsp"/>
+        	<forward name="failure" path="/jsp/securityInquiries/securityInquiriesSearch.jsp"/>	
+        </action>        
+      <!--  User Profile -->        
+        <action name="securityInquiriesForm" path="/displaySecurityInquiriesUserProfileSearchResults" type="ui.security.inquiries.action.DisplaySecurityInquiriesUserProfileSearchResultsAction" scope="session" parameter="submitAction">
+        	<forward name="userProfileSuccess" path="/displaySecurityInquiriesUserProfileDetails.do"/>
+			<forward name="userProfileListSuccess" path="/jsp/securityInquiries/securityInquiriesUserProfileSearchResults.jsp"/>
+         	<forward name="failure" path="/jsp/securityInquiries/securityInquiriesSearch.jsp"/>	
+        </action>
+        <action name="securityInquiriesForm" path="/displaySecurityInquiriesUserProfileDetails" type="ui.security.inquiries.action.DisplaySecurityInquiriesUserProfileDetailsAction" scope="session" parameter="submitAction">
+        	<forward name="success" path="/jsp/securityInquiries/securityInquiriesUserProfileDetails.jsp"/>
+        	<forward name="failure" path="/jsp/securityInquiries/securityInquiriesSearch.jsp"/>	
+        </action>           
+  
+        <action name="securityInquiriesForm" path="/displaySecurityInquiriesSummary" type="ui.security.inquiries.action.DisplaySecurityInquiriesSummaryAction" scope="session" parameter="submitAction">
+        	<forward name="cancel" path="/jsp/securityInquiries/securityInquiriesSearch.jsp"/>			
+        </action>
+        
+<!-- ========== Generic Account  =================================== -->        
+        <action name="genericLogonIdForm" path="/displayGenericLogonIDSearch" type="ui.security.authentication.registergenericaccount.action.DisplayGenericLogonIDSearchAction" scope="session">
+        	<forward name="success" path="/jsp/registergenericaccount/genericLogonIDSearch.jsp"/>
+        	<forward name="failure" path="/jsp/registergenericaccount/genericLogonIDSearch.jsp"/>
+        </action>
+        
+        <action name="genericLogonIdForm" path="/displayGenericLogonIDSearchResults" type="ui.security.authentication.registergenericaccount.action.DisplayGenericLogonIDSearchResultsAction" scope="session" parameter="submitAction">
+			<forward name="findSuccess" path="/jsp/registergenericaccount/genericLogonIDSearch.jsp"/>
+			<forward name="refreshSuccess" path="/jsp/registergenericaccount/genericLogonIDSearch.jsp"/>			
+			<forward name="searchFailure" path="/jsp/registergenericaccount/genericLogonIDSearch.jsp"/>
+			<forward name="createSuccess" path="/jsp/registergenericaccount/genericLogonIDCreate.jsp"/>
+		</action>
+        
+        <action name="genericLogonIdForm" path="/handleGenericLogonIDSelection" type="ui.security.authentication.registergenericaccount.action.HandleGenericLogonIDSelectionAction" scope="session" parameter="submitAction">
+			<forward name="updateSuccess" path="/jsp/registergenericaccount/genericLogonIDUpdate.jsp"/>
+			<forward name="inactivateSuccess" path="/jsp/registergenericaccount/genericLogonIDSummary.jsp"/>
+        </action>
+        
+        <action name="genericLogonIdForm" path="/displayGenericLogonIDSummary" type="ui.security.authentication.registergenericaccount.action.DisplayGenericLogonIDSummaryAction" scope="session" input="/jsp/registergenericaccount/genericLogonIDSummary.jsp" parameter="submitAction">
+			<forward name="success" path="/jsp/registergenericaccount/genericLogonIDSummary.jsp"/>
+			<forward name="cancel" path="/jsp/registergenericaccount/genericLogonIDSearch.jsp"/>
+        	<forward name="returnSuccess" path="/jsp/registergenericaccount/genericLogonIDSearch.jsp"/>			
+        	<forward name="createFailure" path="/jsp/registergenericaccount/genericLogonIDCreate.jsp"/>	
+        	<forward name="updateFailure" path="/jsp/registergenericaccount/genericLogonIDUpdate.jsp"/>	
+		</action>
+        
+		<action name="genericLogonIdForm" path="/submitGenericLogonIDCreateUpdate" type="ui.security.authentication.registergenericaccount.action.SubmitGenericLogonIDCreateUpdateAction" scope="session" parameter="submitAction">
+			<forward name="success" path="/jsp/registergenericaccount/genericLogonIDSummary.jsp"/>
+			<forward name="back" path="/jsp/registergenericaccount/genericLogonIDSummary.jsp"/>
+			<forward name="cancel" path="/jsp/registergenericaccount/genericLogonIDSearch.jsp"/>
+			<forward name="returnSuccess" path="/jsp/registergenericaccount/genericLogonIDSearch.jsp"/>
+		</action>
+		
+<!-- ========== JIMS2 Account =================================== -->        
+        <action name="jims2AccountForm" path="/displayJIMS2AccountSearch" type="ui.security.authentication.jims2Account.action.DisplayJIMS2AccountSearchAction" scope="session">
+        	<forward name="success" path="/jsp/jims2Account/jims2AccountSearch.jsp"/>
+        	<forward name="genericSuccess" path="/jsp/jims2Account/jims2AccountUpdate.jsp"/>
+        	<forward name="nonGenericSuccess" path="/jsp/jims2Account/jims2AccountUpdate.jsp"/>			
+        </action>
+        <action name="jims2AccountForm" path="/displayJIMS2AccountSearchResults" type="ui.security.authentication.jims2Account.action.DisplayJIMS2AccountSearchResultsAction" scope="session" parameter="submitAction">
+        	<forward name="listSuccess" path="/jsp/jims2Account/jims2AccountSearch.jsp"/>
+        	<forward name="refreshSuccess" path="/jsp/jims2Account/jims2AccountSearch.jsp"/>			
+			<forward name="createSuccess" path="/jsp/jims2Account/jims2AccountCreateSearch.jsp"/>
+        	<forward name="failure" path="/jsp/jims2Account/jims2AccountSearch.jsp"/>	
+        </action>
+        <action name="jims2AccountForm" path="/handleJIMS2AccountSelection" type="ui.security.authentication.jims2Account.action.HandleJIMS2AccountSelectionAction" scope="session" parameter="submitAction">
+        	<forward name="updateSuccess" path="/jsp/jims2Account/jims2AccountUpdate.jsp"/>
+        	<forward name="inactivateSuccess" path="/jsp/jims2Account/jims2AccountSummary.jsp"/>			
+        	<forward name="detailSuccess" path="/jsp/jims2Account/jims2AccountDetails.jsp"/>						
+        	<forward name="failure" path="/jsp/jims2Account/jims2AccountSearch.jsp"/>	
+        </action>
+        <action name="jims2AccountForm" path="/displayJIMS2AccountSummary" type="ui.security.authentication.jims2Account.action.DisplayJIMS2AccountSummaryAction" scope="session" parameter="submitAction">
+        	<forward name="createSuccess" path="/jsp/jims2Account/jims2AccountSummary.jsp"/>
+        	<forward name="updateSuccess" path="/jsp/jims2Account/jims2AccountSummary.jsp"/>			
+			<forward name="inactiveSelectSuccess" path="/jsp/jims2Account/jims2AccountSummary.jsp"/>
+        	<forward name="updateSelectSuccess" path="/jsp/jims2Account/jims2AccountUpdate.jsp"/>	
+			<forward name="cancel" path="/jsp/jims2Account/jims2AccountSearch.jsp"/>				
+        	<forward name="failure" path="/jsp/jims2Account/jims2AccountSearch.jsp"/>	
+        	<forward name="updateFailure" path="/jsp/jims2Account/jims2AccountUpdate.jsp"/>	        	
+        	<forward name="createFailure" path="/jsp/jims2Account/jims2AccountCreate.jsp"/>	 
+			<forward name="mainPage" path="/jsp/goToMainMenuPage.jsp"/>  
+			<forward name="createReset" path="/jsp/jims2Account/jims2AccountCreate.jsp"/>
+			<forward name="updateReset" path="/handleJIMS2AccountSelection.do" />      	       	        	
+        </action>
+        <action name="jims2AccountForm" path="/submitJIMS2AccountCreateUpdate" type="ui.security.authentication.jims2Account.action.SubmitJIMS2AccountCreateUpdateAction" scope="session" parameter="submitAction">
+        	<forward name="updateSuccess" path="/jsp/jims2Account/jims2AccountSummary.jsp"/>
+			<forward name="createSuccess" path="/jsp/jims2Account/jims2AccountSummary.jsp"/>	
+			<forward name="inactivateSuccess" path="/jsp/jims2Account/jims2AccountSummary.jsp"/>			
+			<forward name="cancel" path="/jsp/jims2Account/jims2AccountSearch.jsp"/>
+	       	<forward name="basicUserCancel" path="/jsp/jims2Account/jims2AccountUpdate.jsp"/>								
+        	<forward name="basicUserFailure" path="/jsp/jims2Account/jims2AccountSummary.jsp"/>	        	
+			<forward name="basicUserUpdateSuccess" path="/jsp/jims2Account/jims2AccountLogout.jsp"/>			        	
+        	<forward name="returnSuccess" path="/jsp/jims2Account/jims2AccountSearch.jsp"/>						
+        	<forward name="failure" path="/jsp/jims2Account/jims2AccountSummary.jsp"/>	
+        </action>
+        <action name="jims2AccountForm" path="/displayJIMS2AccountCreateSearch" type="ui.security.authentication.jims2Account.action.DisplayJIMS2AccountCreateSearchAction" scope="session" parameter="submitAction">
+        	<forward name="success" path="/jsp/jims2Account/jims2AccountCreate.jsp"/>
+			<forward name="serviceProviderSuccess" path="/jsp/jims2Account/jims2AccountGenericSearch.jsp"/>	
+        	<forward name="officerProfileSuccess" path="/jsp/jims2Account/jims2AccountGenericSearch.jsp"/>						
+			<forward name="cancel" path="/jsp/jims2Account/jims2AccountSearch.jsp"/>				
+			<forward name="resetSuccess" path="/jsp/jims2Account/jims2AccountCreateSearch.jsp"/>							
+        	<forward name="failure" path="/jsp/jims2Account/jims2AccountSearch.jsp"/>
+        	<forward name="searchFailure" path="/jsp/jims2Account/jims2AccountCreateSearch.jsp"/>	
+        </action>
+        <action name="jims2AccountForm" path="/displayJIMS2AccountCreateSearchById" type="ui.security.authentication.jims2Account.action.DisplayJIMS2AccountCreateSearchByIdAction" scope="session" parameter="submitAction">
+        	<forward name="serviceProviderSuccess" path="/jsp/jims2Account/jims2AccountCreate.jsp"/>
+        	<forward name="officerProfileSuccess" path="/jsp/jims2Account/jims2AccountCreate.jsp"/>        	
+			<forward name="cancel" path="/jsp/jims2Account/jims2AccountSearch.jsp"/>
+			<forward name="resetSuccess" path="/jsp/jims2Account/jims2AccountGenericSearch.jsp"/>														
+        	<forward name="failure" path="/jsp/jims2Account/jims2AccountSearch.jsp"/>
+        	<forward name="searchFailure" path="/jsp/jims2Account/jims2AccountGenericSearch.jsp"/>	
+        </action>
+        <!-- ========== Transfer Caseload =================================== -->        
+        <action name="officerForm" path="/displayTransferCaseloadSearch" type="ui.contact.officer.action.DisplayTransferCaseloadSearchAction" scope="session">
+			<forward name="searchSuccess" path="/jsp/officers/transferManagerCaseload/transferCaseloadSearch.jsp"/>
+		 </action>
+		 <action name="officerForm" path="/handleTransferCaseloadSearch" type="ui.contact.officer.action.HandleTransferCaseloadSearchAction" scope="session" parameter="submitAction">
+			<forward name="findSuccess" path="/jsp/officers/transferManagerCaseload/transferCaseloadSearch.jsp"/>
+			<forward name="nextSuccess" path="/jsp/officers/transferManagerCaseload/transferCaseloadResults.jsp"/>
+			<forward name="searchFailure" path="jsp/officers/transferManagerCaseload/transferCaseloadSearch.jsp"/>
+			<forward name="viewSuccess" path="/jsp/officers/transferManagerCaseload/transferOfficerDetails.jsp"/>
+			<forward name="cancel" path="/globalBack.do"/>
+			<forward name="back" path="/globalBack.do"/>
+		 </action>
+		 <action name="officerForm" path="/displayTransferOfficerSummary" type="ui.contact.officer.action.DisplayTransferOfficerSummaryAction" scope="session" parameter="submitAction">
+			<forward name="success" path="/jsp/officers/transferManagerCaseload/transferCaseloadSummary.jsp"/>
+			<forward name="viewSuccess" path="/jsp/officers/transferManagerCaseload/transferOfficerDetails.jsp"/>
+			<forward name="cancel" path="/displayTransferCaseloadSearch.do?submitAction=Link"/>
+			<forward name="back" path="/globalBack.do"/>
+		 </action>
+		 <action name="officerForm" path="/submitTransferOfficerSummary" type="ui.contact.officer.action.SubmitTransferOfficerSummaryAction" scope="session" parameter="submitAction">
+			<forward name="finish" path="/jsp/officers/transferManagerCaseload/transferCaseloadSummary.jsp"/>
+			<forward name="searchSuccess" path="/displayTransferCaseloadSearch.do?submitAction=Link"/>
+			<forward name="cancel" path="/displayTransferCaseloadSearch.do?submitAction=Link"/>
+			<forward name="back" path="/globalBack.do"/>
+		 </action>
+        </action-mappings>
+        
+<!-- controller processorClass=jims2.refapp.utility.ui.RequestProcessor / -->
+	
+<!-- ========== Message Resources ============================= -->
+	<!--LDEEN 10/20/05<message-resources parameter="struts.resources.ApplicationResources"/>-->
+	<message-resources parameter="ApplicationResources_Security"/>
+
+<!-- ========== Plug Ins Configuration ======================== -->
+	  <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+    <set-property
+        property="pathnames"
+        value="/WEB-INF/validator-rules.xml,
+               /WEB-INF/validation.xml"/>
+  </plug-in>
+
+</struts-config>

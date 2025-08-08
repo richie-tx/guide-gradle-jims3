@@ -1,0 +1,237 @@
+/*
+ * Created on Oct 25, 2005
+ *
+ * To change the template for this generated file go to
+ * Window&gt;Preferences&gt;Java&gt;Code Generation&gt;Code and Comments
+ */
+package messaging.juvenilecase.reply;
+
+import java.util.Date;
+import java.util.List;
+
+//import naming.PDCodeTableConstants;
+//import ui.common.CodeHelper;
+
+import mojo.km.messaging.ResponseEvent;
+
+/**
+ * @author kmurthy
+ *
+ * To change the template for this generated type comment go to
+ * Window&gt;Preferences&gt;Java&gt;Code Generation&gt;Code and Comments
+ */
+public class InterviewAssessmentEvent extends ResponseEvent
+{
+	
+	private Date enteredDate = null;
+	private String custodyStatus = "";
+	private String assessmentType = "";
+	private int finalScore;
+	//private String recommendation = "";
+	private List recommendations;
+	private String onSetAge = "";
+	private String sexCd = "";
+	
+	private boolean recommendationOverridden;
+	private String overRiddenReasonCd;
+	private String overRiddenReasonOther;
+	private String modReason;
+	
+	private String casefileId;
+
+	public InterviewAssessmentEvent()
+	{
+	}
+	
+	/**
+	 * @return
+	 */
+	public String getAssessmentType()
+	{
+		return assessmentType;
+	}
+
+	/**
+	 * @return
+	 */
+	public String getCustodyStatus()
+	{
+		return custodyStatus;
+	}
+
+	/**
+	 * @return
+	 */
+	public Date getEnteredDate()
+	{
+		return enteredDate;
+	}
+
+	/**
+	 * @return
+	 */
+	public int getFinalScore()
+	{
+		return finalScore;
+	}
+
+	/**
+	 * @return
+	 */
+//	public String getRecommendation()
+//	{
+//		return recommendation;
+//	}
+
+	/**
+	 * @param string
+	 */
+	public void setAssessmentType(final String string)
+	{
+		assessmentType = string;
+	}
+
+	/**
+	 * @param string
+	 */
+	public void setCustodyStatus(final String string)
+	{
+		custodyStatus = string;
+	}
+
+	/**
+	 * @param date
+	 */
+	public void setEnteredDate(final Date date)
+	{
+		enteredDate = date;
+	}
+
+	/**
+	 * @param i
+	 */
+	public void setFinalScore(final int i)
+	{
+		finalScore = i;
+	}
+
+	/**
+	 * @param string
+	 */
+//	public void setRecommendation(final String string)
+//	{
+//		recommendation = string;
+//	}
+	
+	/**
+	 * @return
+	 */
+	public String getOnSetAge() {
+		return onSetAge;
+	}
+
+	/**
+	 * @param onSetAge
+	 */
+	public void setOnSetAge(String onSetAge) {
+		this.onSetAge = onSetAge;
+	}
+
+	/**
+	 * @return
+	 */
+	public String getSexCd() {
+		return sexCd;
+	}
+	
+	/**
+	 * @return
+	 */
+	public String getSex() {
+		String gender = "";
+		if (this.sexCd != null && this.sexCd.equalsIgnoreCase("M")) {
+			gender = "MALE";
+		} else if (this.sexCd != null && this.sexCd.equalsIgnoreCase("F")) {
+			gender = "FEMALE";
+		} else {
+			gender = "";
+		}
+	
+		//return CodeHelper.getCodeDescription( PDCodeTableConstants.JJS_SEX, this.sexCd ) ;
+		return gender;
+	}
+
+	/**
+	 * @param sexCd
+	 */
+	public void setSexCd(String sexCd) {
+		this.sexCd = sexCd;
+	}
+	
+	/**
+	 * @return recommendationOverridden
+	 */
+	public boolean isRecommendationOverridden() {
+		return recommendationOverridden;
+	}
+
+	/**
+	 * @param recommendationOverridden
+	 */
+	public void setRecommendationOverridden(boolean recommendationOverridden) {
+		this.recommendationOverridden = recommendationOverridden;
+	}
+
+	/**
+	 * @return overRiddenReasonCd
+	 */
+	public String getOverRiddenReasonCd() {
+		return overRiddenReasonCd;
+	}
+
+	/**
+	 * @param overRiddenReasonCd
+	 */
+	public void setOverRiddenReasonCd(String overRiddenReasonCd) {
+		this.overRiddenReasonCd = overRiddenReasonCd;
+	}
+
+	/**
+	 * @return overRiddenReasonOther
+	 */
+	public String getOverRiddenReasonOther() {
+		return overRiddenReasonOther;
+	}
+
+	/**
+	 * @param overRiddenReasonOther
+	 */
+	public void setOverRiddenReasonOther(String overRiddenReasonOther) {
+		this.overRiddenReasonOther = overRiddenReasonOther;
+	}
+
+	public void setModReason(String modReason) {
+		this.modReason = modReason;
+	}
+
+	public String getModReason() {
+		return modReason;
+	}
+	
+	public void setCasefileId(String casefileId) {
+		this.casefileId = casefileId;
+	}
+
+	public String getCasefileId() {
+		return casefileId;
+	}
+
+	public void setRecommendations(List recommendations) {
+		this.recommendations = recommendations;
+	}
+
+	public List getRecommendations() {
+		return recommendations;
+	}
+
+}

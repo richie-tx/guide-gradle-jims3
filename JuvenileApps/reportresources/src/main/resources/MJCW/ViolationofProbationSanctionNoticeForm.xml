@@ -1,0 +1,139 @@
+<?xml version="1.0" encoding="US-ASCII"?>
+<document size="LETTER" margin-left="62" margin-right="62" margin-top="25" margin-bottom="25">
+
+	<encryption allow-fillin="false" allow-modify-contents="false" allow-degraded-printing="true" allow-screen-readers="false" allow-copy="false" allow-printing="false"/>
+	<meta author="JIMS2, Harris County" creator="JIMS2, Harris County" title="Casefile NonCompliance Notice"/>
+
+	<module>
+		<font-def name="arial-10" family="arial" size="10"/>
+		<font-def name="arial-11-bold" family="arial" style="bold" size="11"/>
+		<font-def name="arial-11" family="arial" style="normal" size="11"/>
+		<font-def name="arial-12" family="arial" style="normal" size="12"/>
+		<font-def name="arial-14" family="arial" style="normal" size="14"/>
+		<font-def name="arial-16" family="arial" style="normal" size="16"/>
+		<font-def name="arial-12b" family="arial" style="bold" size="12"/>
+		<font-def name="hcjpd" family="Helvetica" style="old|underline" size="16"/>
+		<font-def name="label" family="Helvetica" style="bold" size="10"/>
+		<font-def name="text" family="arial" style="normal" size="12"/>
+		<font-def name="columnheader" family="Helvetica" style="bold|underline" size="10"/>
+		
+		<custom-tag alias="shr-label" tag="phrase">
+			<attribute name="font" value="label"/>
+		</custom-tag>
+		
+		<custom-tag alias="shr-text" tag="paragraph">
+			<attribute name="font" value="text"/>
+		</custom-tag>
+		
+		<custom-tag alias="column-header" tag="paragraph">
+			<attribute name="font" value="columnheader"/>
+		</custom-tag>
+	</module>
+
+	<!--
+        DETAIL PAGES
+	-->
+
+	<table columns="1" border-style="none" border-width="0" widths="100" padding="0" spacing-after="20">
+		<table-row>
+			<cell font="hcjpd" valign="top" halign="center"><b>Violation of Probation Sanction Notice</b></cell>
+		</table-row>
+		<table-row>
+			<cell height="12"></cell>
+		</table-row>
+		<table-row>
+			<cell font="arial-12b" halign="center">Name: ${juvenileFullName}</cell>
+		</table-row>
+		<table-row>
+			<cell font="arial-12b" halign="center">Juvenile Number: ${juvenileNum}</cell>
+		</table-row>
+		<table-row>
+			<cell font="arial-12b" halign="center">Date: ${currentDateStr}</cell>
+		</table-row>
+	</table>
+	
+	<table columns="1" border-style="none" border-width="1" widths="100" padding="0" spacing-after="10">	
+		
+		<table-row>
+			_if_ (${nonComplianceDateStr} notEmpty)
+				<cell font="arial-11">On ${nonComplianceDate format "MMMM d, yyyy"}, you were in violation of probation by:</cell>
+			_else_	
+				<cell font="arial-11">On _______________________________________, you were in violation of probation by: </cell>
+			_endif_
+		</table-row>
+		_foreach_(techVOP ${probationViolationList} 'even' 'odd')		
+			<table-row>
+				<cell font="arial-11">&#8226; ${techVOP.description}</cell>
+			</table-row>
+		_endfor_	
+	</table>
+	
+	<table columns="2" border-style="none" border-width="1" widths="2,98" padding="0" spacing-after="15">		
+		<table-row>	
+			<cell font="arial-11" colspan="2">As a result, the following responses(s) is (are) imposed: </cell>
+		</table-row>
+		_foreach_(sanction ${selectedSanctionsList} 'even' 'odd')		
+			<table-row>
+				<cell valign="top">&#8226;</cell>
+  				<cell font="arial-11" valign="top">
+       				_if_ (${sanction.comments} notEmpty)
+						 ${sanction.otherText}: ${sanction.comments}
+					_else_	
+						 ${sanction.otherText}
+					_endif_
+   				</cell>
+			</table-row>
+		_endfor_
+	</table>
+
+	<table columns="1" border-style="none" border-width="0" widths="100" padding="0" spacing-after="10">	
+		<table-row>
+			<cell font="arial-11" halign="left">The following time frame has been allotted for completion of the imposed sanction(s).</cell>
+		</table-row>
+	</table>
+
+	<table columns="2" border-style="none" border-width="0" widths="45,55" padding="0" spacing-after="10">	
+		<table-row>
+			<cell font="arial-11">Date Imposed: ${sanctionAssignedDateStr} </cell>
+			<cell font="arial-11">Date Completion Required: ${sanctionCompleteByDateStr}</cell>
+		</table-row>
+	</table>
+
+	<table columns="1" border-style="none" border-width="0" widths="100" padding="0" spacing-after="10">	
+		<table-row>
+			<cell font="arial-11" halign="left">Failure to successfully complete the sanctions imposed may result in </cell>
+		</table-row>
+		<table-row>	
+			<cell font="arial-11" halign="left">further sanctions or a return to Court.</cell>
+		</table-row>
+	</table>
+
+	<table columns="2" border-style="none" border-width="0" widths="60,40" padding="0" spacing-after="15">	
+		<table-row>
+			<cell height="25" colspan="2"></cell>
+		</table-row>
+		<table-row>
+			<cell valign="bottom">____________________________________</cell>
+			<cell valign="bottom">____________________________</cell>
+		</table-row>
+		<table-row>
+			<cell font="arial-12" valign="top">Probationer</cell>
+			<cell font="arial-12" valign="top">Date</cell>
+		</table-row>
+	</table>
+		
+	<table columns="2" border-style="none" border-width="0" widths="60,40" padding="0" spacing-after="20">
+		<table-row>
+			<cell height="15" colspan="2"></cell>
+		</table-row>		
+		<table-row>
+			<cell valign="bottom">____________________________________</cell>
+			<cell valign="bottom">____________________________</cell>
+		</table-row>	
+		<table-row>
+			<cell font="arial-12">Probation Officer</cell>
+			<cell font="arial-12">Date</cell>
+		</table-row>
+	</table>
+	
+</document>

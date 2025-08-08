@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="US-ASCII"?>
+<document size="LETTER" margin-left="25" margin-right="25" margin-top="70" margin-bottom="50">
+
+	<encryption allow-fillin="false" allow-modify-contents="false" allow-degraded-printing="true" allow-screen-readers="false" allow-copy="false"	allow-printing="false"/>
+	<meta author="JIMS2, Harris County" creator="JIMS2, Harris County" title="Juvenile Offender Tracking Report"/>
+
+	<module>
+		<color-def name="custom-gray" color-space="RGB" value="223,223,223"/>
+	
+		<font-def name="title" family="Helvetica" style="bold" size="12"/>
+		<font-def name="header" family="Helvetica" style="bold" size="12"/>
+		<font-def name="label" family="Helvetica" style="bold" size="11"/>
+		<font-def name="text" family="Helvetica" style="normal" size="10"/>
+		<font-def name="text-large" family="Helvetica" style="normal" size="12"/>
+		<font-def name="text-small" family="Helvetica" style="normal" size="8"/>
+		<font-def name="text-italic" family="Helvetica" style="bold|italic" size="11"/>
+		<font-def name="letterheader" family="Helvetica" style="bold" size="16"/>
+		<font-def name="subheader" family="Helvetica" style="bold|underline" size="14"/>
+		
+		<font-def name="pre-filled-answers" family="times new roman" style="italic" size="9"/>
+		
+		<custom-tag alias="std-title" tag="paragraph">
+			<attribute name="font" value="text-italic"/>
+		</custom-tag>
+		
+		<custom-tag alias="letterheader" tag="paragraph">
+			<attribute name="font" value="letterheader"/>
+		</custom-tag>
+		<custom-tag alias="subheader" tag="paragraph">
+			<attribute name="font" value="subheader"/>
+		</custom-tag>
+		<custom-tag alias="mainText" tag="paragraph">
+			<attribute name="font" value="text"/>
+		</custom-tag>
+	</module>
+	 <new-page size="LETTER" margin-left="30" margin-right="30" margin-top="25" margin-bottom="10">
+    </new-page>
+		<table columns="1" border-style="none" border-width="0"  padding="15" halign="center">
+				<table-row halign="center">
+			        <cell halign="center" border-style="none" border-width="2" border-color="gray" padding-bottom="1">
+						<letterheader halign="center">
+							Juvenile Offender Tracking Report
+						</letterheader> 	
+					</cell>
+				</table-row>
+				<table-row halign="center">
+			        <cell halign="center" border-style="none" border-width="2" border-color="gray" padding-bottom="5">
+						<letterheader halign="center">
+							(JOT)
+						</letterheader> 	
+					</cell>
+				</table-row>
+		</table>
+		<table columns="3" widths="15,10,10" border-style="none" border-width="0"  padding="0" >
+				
+			<table-row>
+				<cell halign="left" valign="top" padding-top="10">
+					<mainText halign="left">
+						<b>Name:</b> ${juvenileName}
+					</mainText>
+				</cell>	
+				<cell halign="center" valign="top" padding-top="10">					
+				</cell>
+				<cell halign="right" valign="top" padding-top="10">
+					<mainText >
+					  <b>Juvenile#:</b> ${juvenileNum}
+					</mainText>
+				</cell>				
+			</table-row>		
+			<table-row>
+				<cell halign="left" valign="top" padding-top="10">
+					<mainText halign="left">
+						<b>SID#:</b> ${sidNumber}
+					</mainText>
+				</cell>					
+			</table-row>
+			<table-row>
+				<cell halign="left" valign="top" padding-top="10">
+					<mainText halign="left">
+						<b>Race:</b> ${race}
+					</mainText>
+				</cell>
+				<cell halign="center" valign="top" padding-top="10">
+					<mainText >
+					  <b>Multiracial?:</b> 
+					  _if_ (${multiracial})
+					  YES
+					  _else_
+					  NO
+					  _endif_
+					</mainText>
+				</cell>
+				<cell halign="right" valign="top" padding-top="10">
+					<mainText >
+					
+					  <b>Hispanic?:</b> 
+					  _if_ ( ${hispanic} )
+					  YES
+					  _else_
+					  NO
+					  _endif_
+					</mainText>
+				</cell>								
+			</table-row>	
+			<table-row>
+				<cell halign="left" valign="top" padding-top="10">
+					<mainText halign="left">
+						<b>Gender:</b> ${gender}
+					</mainText>
+				</cell>	
+				<cell halign="center" valign="top" padding-top="10">					
+				</cell>
+				<cell halign="right" valign="top" padding-top="10">
+					<mainText >
+					  <b>Current Age#:</b> ${currentAge}
+					</mainText>
+				</cell>				
+			</table-row>
+			<table-row>
+				<cell halign="left" valign="top" padding-top="10">
+					<mainText halign="left">
+						<b>DOB:</b> ${dateOfBirth}
+					</mainText>
+				</cell>	
+				<cell halign="center" valign="top" padding-top="10">					
+				</cell>
+				<cell halign="right" valign="top" padding-top="10">
+					<mainText >
+					  <b>Verified?:</b> 
+					  _if_ ( ${verifiedDOBDescription} )
+					  YES
+					  _else_
+					  NO
+					  _endif_
+					</mainText>
+				</cell>				
+			</table-row>		
+		</table>
+			<br/>
+		<br/>
+		<table columns="2" border-style="none" border-width="1" widths="25,10" padding="0" spacing-after="15">
+		
+		_foreach_(jotCharge ${jotCharges} 'even' 'odd')
+		
+			<table-row>
+				<cell halign="left" valign="top" padding-top="10">
+				<mainText >
+					  <b>CJIS Tracking #:</b>${jotCharge.cJISNum}
+					  _if_(${jotCharge.cJISSuffixNum != null && jotCharge.cJISSuffixNum != ""})
+					  -${jotCharge.cJISSuffixNum}
+					  _endif_
+				</mainText></cell>
+			</table-row>
+			<table-row>
+				<cell halign="left" valign="top" padding-top="10">
+				<mainText >
+					 <b>Arrest Date:</b>${arrestDate}</mainText></cell>
+				<cell halign="right" valign="top" padding-top="10">
+				<mainText >
+					 <b>Arrest Time:</b>${arrestTime}</mainText></cell>
+			</table-row>
+			<table-row>
+				<cell halign="left" valign="top" padding-top="10">
+				<mainText >
+					 <b>Arresting Agency:</b>${jotCharge.lawEnforcementAgency}</mainText></cell>								
+			</table-row>
+			<table-row>
+				<cell halign="left" valign="top" padding-top="10">
+				<mainText >
+					 <b>Charge:</b>${jotCharge.charge}</mainText></cell>
+				<cell halign="right" valign="top" padding-top="10">
+				<mainText >
+					 <b>JOT Log #:</b>${jotCharge.daLogNum}</mainText></cell>
+			</table-row>
+			<table-row padding-bottom="2">
+				<cell halign="left" valign="top" padding-top="10" padding-bottom="30">
+				<mainText >
+					 <b>Referral/Offense:</b>${referralNum}/${jotCharge.offense}</mainText></cell>
+				<cell halign="right" valign="top" padding-top="10">
+				<mainText >
+					 <b>Petition #:</b>${jotCharge.petitionNum}</mainText></cell>
+			</table-row>				
+		_endfor_
+	</table>
+	<br/>
+		<table columns="1" border-style="box" border-width="0" width="90" padding="0" spacing-after="25">
+    	<table-row>
+    		<cell halign="center" valign="top" padding-bottom="10" padding-top="10">			    					
+			    <b><u>SUMMARY OF FACTS</u></b>			    			  
+			</cell>
+    	</table-row>  
+		<table-row>
+    		<cell halign="center" valign="top" padding-bottom="10" padding-top="10">	
+			<font name="text-small">
+				_foreach_(facts ${summaryOfFacts} 'even' 'odd')
+					${facts}<br/>
+				_endfor_
+			  
+			</font>
+			</cell>
+    	</table-row>  
+		
+			
+		</table>
+</document>

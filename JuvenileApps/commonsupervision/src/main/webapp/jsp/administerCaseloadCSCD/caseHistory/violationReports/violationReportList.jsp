@@ -1,0 +1,272 @@
+<!DOCTYPE HTML PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN">
+<!--MODIFICATIONS -->
+<!-- 02/11/2008 Debbie Williamson - Converted PT to JSP -->
+<!-- 01/16/2009 C Shimek          - added hidden field and logic tags for orderStatus, needed for inactive button display -->
+<!-- 01/26/2009 C Shimek          - #52815 revised dateformat in status block -->
+<!-- 02/13/2009 C Shimek  		  - add logic tag around Maintain button, user must be SA  -->
+<!-- 02/20/2009 C Shimek  		  - #57414 added code and call to auto select single search result -->
+<!-- 03/09/2009 C Shimek          - 57049 add Maintain button with logic check for user not = SA but has CSCD_NONCOMP_MAINT feature  -->
+
+<!--TAG LIBRARIES NEEDED FOR STRUTS -->
+<%@ taglib uri="/WEB-INF/struts-html.tld" prefix="html"%>
+<%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean"%>
+<%@ taglib uri="/WEB-INF/struts-tiles.tld" prefix="tiles"%>
+<%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic"%>
+<%@ taglib uri="/WEB-INF/jims2-presentation.tld" prefix="jims2"%>
+<%@page import="naming.UIConstants"%>
+<!--CUSTOM LIBRARIES NEEDED FOR PAGE -->
+<%@ taglib uri="/WEB-INF/pager-taglib.tld" prefix="pg" %>
+<!-- TAB LIBRARIES NEEDED FOR MOJO -->
+<%@ taglib uri="/WEB-INF/msp.tld" prefix="msp"%>
+
+<%@ page import="naming.Features" %>
+<!--LOCALE USED FOR INTERNATIONALIZATION-NOT USED YET -->
+
+
+<!--BEGIN HEADER TAG-->
+<head>
+<msp:nocache />
+<%-- Checks to make sure if the user is logged in. --%>
+<%--msp:login / --%>
+<meta http-equiv="Content-Language" content="en-us">
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
+	pageEncoding="ISO-8859-1"%>
+<META http-equiv="Content-Type" content="text/html; charset=ISO-8859-1">
+<META name="GENERATOR" content="IBM WebSphere Studio">
+<META http-equiv="Content-Style-Type" content="text/css">
+
+<!-- STYLE SHEET LINK -->
+<link rel="stylesheet" type="text/css" href="/<msp:webapp/>css/base.css" />
+<html:base />
+<title><bean:message key="title.heading" /> - administerCaseloadCSCD/caseHistory/violationReports/violationReportList.jsp</title>
+<script type='text/javascript' src="/<msp:webapp/>js/timeout.js"></script>
+<script type="text/javascript" src="/<msp:webapp/>js/common_supervision_util.js"></script>
+<script type="text/javascript" src="/<msp:webapp/>js/caseHistory/violationReports/violationReportList.js"></script>
+</head>  
+<body topmargin="0" leftmargin="0"  onKeyDown="return checkEnterKeyAndSubmit(event,true);" onload="return selectSingleResult()">
+<html:form action="/handleViolationReportSelection" target="content">
+<input type="hidden" name="helpFile" value="commonsupervision/CSCD_Caseload/Violation_Reports/CSCD_Violation_Reports.htm#|1">
+<%-- Begin Pagination Header Tag--%>
+<bean:define id="paginationResultsPerPage" type="java.lang.String"><bean:message key="pagination.recordsPerPage"></bean:message></bean:define> 
+<pg:pager index="center" maxPageItems="<%=Integer.parseInt(paginationResultsPerPage)%>"
+    maxIndexPages="10" export="offset,currentPageNumber=pageNumber" scope="request">
+  <input type="hidden" name="pager.offset" value="<%= offset %>"> 
+<%-- End Pagination header stuff --%>
+<div align="center">
+<!-- BEGIN PAGE TABLE -->
+<table width="98%" border="0" cellpadding="0" cellspacing="0" >
+	<tr>
+		<td valign="top"><img src="/<msp:webapp/>images/spacer.gif" height="5"></td>
+	</tr>
+	<tr>
+		<td valign="top">
+<!-- BEGIN BLUE TABS TABLE -->		
+			<table width="100%" border="0" cellpadding="0" cellspacing="0" >
+				<tr>
+					<td valign="top">
+						<tiles:insert page="../../../common/commonSupervisionTabs.jsp" flush="true">
+							<tiles:put name="tab" value="caseloadTab" />
+						</tiles:insert>
+					</td>
+				</tr>
+				<tr>
+					<td bgcolor="#6699FF"><img src="/<msp:webapp/>images/spacer.gif" height="5"></td>
+				</tr>
+			</table>
+<!-- END BLUE TABS TABLE -->	
+<!-- BEGIN BLUE BORDER TABLE -->				
+			<table width="100%" border="0" cellpadding="0" cellspacing="0" class="borderTableBlue">
+				<tr>
+					<td><img src="/<msp:webapp/>images/spacer.gif" height="5"></td>
+				</tr>
+				<tr>
+					<td valign="top" align="center">
+<!-- BEGIN SUPERVISEE INFO TABLE -->  
+						<table width="98%" border="0" cellpadding="0" cellspacing="0">
+							<tr>
+								<td bgcolor="#cccccc" colspan="2">
+									<tiles:insert page="../../../common/caseloadHeaderCase.jsp" flush="true">
+									</tiles:insert> 
+								</td> 
+							</tr>
+							<tr>
+								<td><img src="/<msp:webapp/>images/spacer.gif" height="5"></td>
+							</tr>
+						</table>
+<!-- END SUPERVISEE INFO TABLE -->	
+<!-- BEGIN GREEN TABS TABLE -->
+						<table width="98%" border="0" cellpadding="0" cellspacing="0" >
+							<tr>
+								<td valign="top">
+									<tiles:insert page="../../../common/caseloadCSCDSubTabs.jsp" flush="true">
+										<tiles:put name="tab" value="CasesTab" />
+									</tiles:insert>
+								</td>
+							</tr>
+							<tr>
+								<td bgcolor="#33cc66"><img src="/<msp:webapp/>images/spacer.gif" height="5"></td>
+							</tr>
+						</table>
+<!-- END GREEN TABS TABLE -->	
+<!-- BEGIN GREEN BORDER TABLE -->						
+						<table width="98%" border="0" cellpadding="0" cellspacing="0" class="borderTableGreen">
+							<tr>
+								<td><img src="/<msp:webapp/>images/spacer.gif" height="5"></td>
+							</tr>
+							<tr>
+								<td valign="top" align="center">
+<!-- BEGIN HEADING TABLE -->
+									<table width="100%">
+										<tr>
+											<td align="center" class="header">
+											   <bean:message key="title.CSCD"/>&nbsp;-&nbsp;<bean:message key="title.violationReports"/>&nbsp;<bean:message key="prompt.list"/> 
+												<input type="hidden" name="orderStatusVal" value="<bean:write name="violationReportsForm" property="orderStatus" />" />											   
+   											</td>
+										</tr>
+									</table>
+<!-- END HEADING TABLE -->
+<%-- BEGIN ERROR TABLE --%>
+									<table width="98%" align="center"> 
+										<tr>
+											<td align="center" class="errorAlert"><html:errors></html:errors></td>
+										</tr>
+									</table>								
+<!-- END ERROR TABLE -->
+									<logic:notEmpty name="violationReportsForm" property="violationReportsDisplayList"> 
+<!-- BEGIN DETAIL LIST TABLE -->
+										<table width="98%" border="0" cellpadding="2" cellspacing="1" class="borderTableBlue">
+											<tr class="detailHead">
+												<td width="1%">
+												</td>
+												<td><bean:message key="prompt.status" />
+	                                                <jims2:sortResults beanName="violationReportsForm" results="violationReportsDisplayList" primaryPropSort="status" primarySortType="STRING"  defaultSort="true" defaultSortOrder="ASC" sortId="1" levelDeep="4"/>
+	                                            </td>
+												<td><bean:message key="prompt.statusChangedDate" />
+	                                                <jims2:sortResults beanName="violationReportsForm" results="violationReportsDisplayList" primaryPropSort="statusChangedDate" primarySortType="DATE"  defaultSort="false" sortId="2" levelDeep="4"/>
+	                                            </td>
+												<td><bean:message key="prompt.createdBy" />
+	                                                <jims2:sortResults beanName="violationReportsForm" results="violationReportsDisplayList" primaryPropSort="createdBy" primarySortType="STRING" defaultSort="false" sortId="3" levelDeep="4"/>
+	                                            </td>
+												<td><bean:message key="prompt.createDate" />
+	                                                <jims2:sortResults beanName="violationReportsForm" results="violationReportsDisplayList" primaryPropSort="createDate" primarySortType="DATE"  defaultSort="false" sortId="4" levelDeep="4"/>
+	                                            </td>
+											</tr>
+	                                     <logic:iterate id="vrIter" name="violationReportsForm" property="violationReportsDisplayList" indexId="index">
+											  <pg:item> 
+												<tr class="<%out.print((index.intValue() % 2 == 1) ? "alternateRow" : "normalRow"); %>">
+	                                            	<td align="center">
+	                                            		<input type="radio" name="vrStatus" value='<bean:write name="vrIter" property="statusId"/>' onClick="disableButtons('<bean:write name="vrIter" property="statusId"/>') & setVRvalue('<bean:write name="vrIter" property="ncResponseId"/>');"> 
+	                                            		<input type="hidden" name="ncResponseId" value=<bean:write name="vrIter" property="ncResponseId"/>  /> 
+	                                            	</td>
+													<td><bean:write name="vrIter" property="status"/></td>
+													<td><bean:write name="vrIter" property="statusChangedDate" formatKey="datetime.format.mmddyyyyHHmmAMPM"/></td>
+													<td><bean:write name="vrIter" property="createdByName"/></td>
+													<td><bean:write name="vrIter" property="createDate" formatKey="datetime.format.mmddyyyyHHmmAMPM"/></td>
+													<logic:notEqual name="vrIter" property="statusId" value="FL">
+														<logic:notPresent name="hideCreateButton">
+															<bean:define id="hideCreateButton" value="Y" />
+														</logic:notPresent>
+													</logic:notEqual>
+												</tr>
+	                                       </pg:item>   
+											</logic:iterate>  
+											<tr>
+												<td><input type="hidden" name="violationReportId" value=""></td>
+											</tr>
+											</table> 
+<!-- BEGIN PAGINATION NAVIGATOIN TABLE -->
+											<table width="98%" border="0">
+												<tr>
+													<td colspan="9">
+														<table align="center">
+															<tr>
+																<td>
+																	<pg:index>
+																		<tiles:insert page="/jsp/jimsPagination.jsp" flush="true">
+																			<tiles:put name="pagerUniqueName" value="pagerSearch"/>
+																			<tiles:put name="resultsPerPage" value="<%=paginationResultsPerPage%>"/>
+																		</tiles:insert>
+																	</pg:index>
+																</td>
+															</tr>
+														</table>
+													</td>	
+												</tr>	
+										</table>
+<!-- END PAGINATION NAVIGATOIN TABLE -->		                                       
+									</logic:notEmpty>
+<!-- END DETAILS LIST TABLE -->		
+									<br>							
+<!-- BEGIN BUTTON TABLE -->
+									<table border="0" width="100%">
+										<logic:notEmpty name="violationReportsForm" property="violationReportsDisplayList">
+											<tr>
+												<td align="center">
+	                                                <html:submit property="submitAction" onclick="return checkSelection(this) && disableSubmit(this, this.form);"> <bean:message key="button.view" /></html:submit> 
+	                                                <html:submit property="submitAction" onclick="return checkSelection(this) && disableSubmit(this, this.form)"> <bean:message key="button.update" /></html:submit>
+	                                                <logic:notPresent name="hideCreateButton">
+	                                                	<logic:equal name="violationReportsForm" property="orderStatus" value="ACTIVE">
+			                                                <html:submit property="submitAction" onclick="return disableSubmit(this, this.form)"> <bean:message key="button.createViolationReport" /></html:submit>
+		                                                </logic:equal>
+	                                                </logic:notPresent>
+	                                               	<html:submit property="submitAction" onclick="return checkSelection(this) && disableSubmit(this, this.form)"> <bean:message key="button.delete" /></html:submit>
+												</td>
+											</tr>
+											<tr>
+												<td align="center">
+													<html:submit property="submitAction"> <bean:message key="button.back" /></html:submit>
+													<logic:equal name="violationReportsForm" property="allowMaintain" value="<%=UIConstants.YES%>">
+														<html:submit property="submitAction" onclick="return checkSelection(this) && disableSubmit(this, this.form)"> <bean:message key="button.maintain" /></html:submit>
+	                                                </logic:equal>
+	                                                <logic:notEqual name="violationReportsForm" property="allowMaintain" value="<%=UIConstants.YES%>">
+  														<jims2:isAllowed requiredFeatures='<%=Features.CSCD_NONCOMPLIANCE_MAINT_ACCESS%>'>
+		                                                	<html:submit property="submitAction" onclick="return checkSelection(this) && disableSubmit(this, this.form)"> <bean:message key="button.maintain" /></html:submit>
+	                                                	</jims2:isAllowed>
+	                                                </logic:notEqual>
+	                                                <jims2:isAllowed requiredFeatures='<%=Features.CSCD_TASKS_CREATE %>'>
+	                                                	<html:submit property="submitAction" onclick="return disableSubmit(this, this.form)"> <bean:message key="button.createTask" /></html:submit>
+	                                                </jims2:isAllowed>
+													<html:submit property="submitAction"> <bean:message key="button.cancel" /></html:submit>
+												</td>
+											</tr>
+										</logic:notEmpty>
+										<logic:empty name="violationReportsForm" property="violationReportsDisplayList">
+											<tr>
+												<td align="center">
+													<logic:equal name="violationReportsForm" property="orderStatus" value="ACTIVE">
+		                                                <html:submit property="submitAction" onclick="return disableSubmit(this, this.form)"> <bean:message key="button.createViolationReport" /></html:submit>
+		                                            </logic:equal>    
+												</td>
+											</tr>
+											<tr>
+												<td align="center">
+													<html:submit property="submitAction" onclick="return disableSubmit(this, this.form)"> <bean:message key="button.back" /></html:submit>
+													<jims2:isAllowed requiredFeatures='<%=Features.CSCD_TASKS_CREATE %>'>
+	                                                	<html:submit property="submitAction" onclick="return disableSubmit(this, this.form)"> <bean:message key="button.createTask" /></html:submit>
+	                                                </jims2:isAllowed>
+													<html:submit property="submitAction" onclick="return disableSubmit(this, this.form)"> <bean:message key="button.cancel" /></html:submit>
+												</td>
+											</tr>
+										</logic:empty>
+									</table>
+<!-- END BUTTON TABLE -->
+									</td>
+								</tr>
+							</table>
+<!-- END GREEN BORDER TABLE -->							
+							<br>
+						</td>
+					</tr>
+				</table>
+<!-- END BLUE BORDER TABLE -->					
+				<br>
+			</td>
+		</tr>
+	</table>
+<!-- END PAGE TABLE -->
+</div>
+</pg:pager>
+<br>
+</html:form>
+<div align="center"><script type="text/javascript">renderBackToTop()</script></div></body>
+</html:html>

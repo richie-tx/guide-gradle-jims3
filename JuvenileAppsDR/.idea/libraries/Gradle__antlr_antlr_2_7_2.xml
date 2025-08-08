@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="Gradle: antlr:antlr:2.7.2" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="antlr" artifactId="antlr" version="2.7.2" baseVersion="2.7.2" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/antlr/antlr/2.7.2/antlr-2.7.2.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

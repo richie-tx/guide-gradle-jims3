@@ -1,0 +1,290 @@
+package pd.juvenilecase.riskanalysis;
+
+import mojo.km.messaging.IEvent;
+import mojo.km.persistence.Home;
+import mojo.km.persistence.IHome;
+import mojo.km.persistence.PersistentObject;
+import java.util.Collection;
+import java.util.Iterator;
+import pd.codetable.ICodetable;
+
+/**
+* Properties for weightedResponses
+* @referencedType pd.juvenilecase.RiskWeightedResponse
+* @detailerDoNotGenerate false
+*/
+public class RiskQuestions extends PersistentObject implements ICodetable {
+	private String assessmentType;
+	private String uiControlType;
+	private String controlCode;
+	/**
+	* Properties for weightedResponses
+	* @referencedType pd.juvenilecase.RiskWeightedResponse
+	* @detailerDoNotGenerate false
+	*/
+	private Collection weightedResponses = null;
+	private String questionText;
+	private int questionID;
+	private String questionNbr; //The Sequential number of the question for the Assessment type
+	private String initialAction;
+	private String helpFileId;
+	private boolean required;
+	
+	
+	/**
+	* @roseuid 433D86DE0234
+	*/
+	public RiskQuestions() {
+	}
+	
+	
+	/**
+	* @return RiskQuestions
+	* @param questionId
+	*/
+	static public RiskQuestions find(String questionId) {
+		IHome home = new Home();
+		RiskQuestions riskQues = (RiskQuestions) home.find(questionId, RiskQuestions.class);
+		return riskQues;
+	}
+	/**
+	* Finds RiskQuestions by an event
+	* @return Iterator of RiskQuestions
+	* @param event
+	*/
+	static public Iterator findAll(IEvent event) {
+		IHome home = new Home();
+		Iterator questions = home.findAll(event, RiskQuestions.class);
+		return questions;
+	}
+	/**
+	* Finds all RiskQuestions by an attribute value
+	* @return 
+	* @param attributeName
+	* @param attributeValue
+	*/
+	static public Iterator findAll(String attributeName, String attributeValue) {
+		IHome home = new Home();
+		Iterator policies = home.findAll(attributeName, attributeValue, RiskQuestions.class);
+		return policies;
+	}
+
+	/**
+	* @roseuid 433C3D3D0293
+	*/
+	public void None() {
+		markModified();
+	}
+	/**
+	* @return 
+	*/
+	public String getAssessmentType() {
+		fetch();
+		return assessmentType;
+	}
+	/**
+	* @return 
+	*/
+	public int getQuestionID() {
+		fetch();
+		return questionID;
+	}
+	/**
+	* @return 
+	*/
+	public String getQuestionText() {
+		fetch();
+		return questionText;
+	}
+	/**
+	* @return 
+	*/
+	public String getUiControlType() {
+		fetch();
+		return uiControlType;
+	}
+	/**
+	* @param string
+	*/
+	public void setAssessmentType(String string) {
+		if (this.assessmentType == null || !this.assessmentType.equals(string)) {
+			markModified();
+		}
+		assessmentType = string;
+	}
+	/**
+	* @param i
+	*/
+	public void setQuestionID(int i) {
+		if (this.questionID != i) {
+			markModified();
+		}
+		questionID = i;
+	}
+	/**
+	* @param string
+	*/
+	public void setQuestionText(String string) {
+		if (this.questionText == null || !this.questionText.equals(string)) {
+			markModified();
+		}
+		questionText = string;
+	}
+	/**
+	* @param string
+	*/
+	public void setUiControlType(String string) {
+		if (this.uiControlType == null || !this.uiControlType.equals(string)) {
+			markModified();
+		}
+		uiControlType = string;
+	}
+	/**
+	* Initialize class relationship implementation for pd.juvenilecase.RiskWeightedResponse
+	*/
+	private void initWeightedResponses() {
+		if (weightedResponses == null) {
+			if (this.getOID() == null) {
+				new mojo.km.persistence.Home().bind(this);
+			}
+			weightedResponses = new mojo.km.persistence.ArrayList(pd.juvenilecase.riskanalysis.RiskWeightedResponse.class, "riskQuestionsId", "" + getOID());
+		}
+	}
+	/**
+	* returns a collection of pd.juvenilecase.RiskWeightedResponse
+	*/
+	public java.util.Collection getWeightedResponses() {
+		initWeightedResponses();
+		return weightedResponses;
+	}
+	/**
+	* insert a pd.juvenilecase.RiskWeightedResponse into class relationship collection.
+	*/
+	public void insertWeightedResponses(pd.juvenilecase.riskanalysis.RiskWeightedResponse anObject) {
+		initWeightedResponses();
+		weightedResponses.add(anObject);
+	}
+	/**
+	* Removes a pd.juvenilecase.RiskWeightedResponse from class relationship collection.
+	*/
+	public void removeWeightedResponses(pd.juvenilecase.riskanalysis.RiskWeightedResponse anObject) {
+		initWeightedResponses();
+		weightedResponses.remove(anObject);
+	}
+	/**
+	* Clears all pd.juvenilecase.RiskWeightedResponse from class relationship collection.
+	*/
+	public void clearWeightedResponses() {
+		initWeightedResponses();
+		weightedResponses.clear();
+	}
+	/**
+	 * @return
+	 */
+	public String getQuestionNbr()
+	{
+		fetch();
+		return questionNbr;
+	}
+
+	/**
+	 * @param i
+	 */
+	public void setQuestionNbr(String aQuestionNbr)
+	{
+		if (this.questionNbr == null || !this.questionNbr.equals(aQuestionNbr)) {
+			markModified();
+		}
+		questionNbr = aQuestionNbr;
+	}
+
+
+	/**
+	 * @param aControlCode
+	 */
+	public void setControlCode(String aControlCode) {
+		if (this.controlCode == null || !this.controlCode.equals(aControlCode)) {
+			markModified();
+		}
+		controlCode = aControlCode;
+	}
+
+
+	/**
+	 * @return
+	 */
+	public String getControlCode() {
+		fetch();
+		return controlCode;
+	}
+
+
+	public Iterator findAll() {
+		IHome home = new Home();
+		return home.findAll(RiskQuestions.class);
+	}
+
+
+	public void inActivate() {
+		// TODO Auto-generated method stub
+		
+	}
+
+	/**
+	 * @param initialAction
+	 */
+	public void setInitialAction(String aInitialAction) {
+		if (this.initialAction == null || !this.initialAction.equals(aInitialAction)) {
+			markModified();
+		}
+		initialAction = aInitialAction;
+	}
+
+
+	/**
+	 * @return
+	 */
+	public String getInitialAction() {
+		fetch();
+		return initialAction;
+	}
+	
+	/**
+	 * @param helpFileId
+	 */
+	public void setHelpFileId(String ahelpFileId) {
+		if (this.helpFileId == null || !this.helpFileId.equals(ahelpFileId)) {
+			markModified();
+		}
+		helpFileId = ahelpFileId;
+	}
+
+	/**
+	 * @return
+	 */
+	public String getHelpFileId() {
+		fetch();
+		return helpFileId;
+	}
+	
+	/**
+	 * @return
+	 */
+	public boolean isRequired()
+	{
+		fetch();
+		return required;
+	}
+	
+	/**
+	 * @param b
+	 */
+	public void setRequired(boolean b)
+	{
+		if (this.required != b) {
+			markModified();
+		}
+		required = b;
+	}
+
+}

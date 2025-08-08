@@ -1,0 +1,500 @@
+<?xml version="1.0" encoding="US-ASCII"?>
+<document size="LETTER" margin-left="10" margin-right="10" margin-top="10" margin-bottom="10">
+
+	<encryption allow-fillin="false" allow-modify-contents="false" allow-degraded-printing="true" allow-screen-readers="false" allow-copy="false"	allow-printing="false"/>
+	<meta author="JIMS2, Harris County" creator="JIMS2, Harris County" title="Hire Attorney Report"/>
+
+	<module>
+		<color-def name="custom-purple" color-space="RGB" value="64,111,159"/>
+	
+		<font-def name="title" family="Helvetica" style="bold" size="11"/>
+		<font-def name="header" family="Helvetica" style="bold|underline" size="11"/>
+        
+		<custom-tag alias="std-paragraph" tag="paragraph">
+			<attribute name="font" value="text"/>
+			<attribute name="spacing-after" value="5"/>
+		</custom-tag>
+		
+		<custom-tag alias="std-title" tag="paragraph">
+			<attribute name="font" value="title"/>
+			<attribute name="spacing-after" value="8"/>
+		</custom-tag>
+		
+		<custom-tag alias="std-header" tag="paragraph">
+			<attribute name="font" value="header"/>
+			<attribute name="spacing-after" value="8"/>
+		</custom-tag>
+
+        
+		<font-def name="label" family="Helvetica" style="bold" size="11"/>
+		<font-def name="text-large" family="Helvetica" style="normal" size="12"/>
+		<font-def name="tableheader" family="Helvetica" style="bold|underline" size="10"/>
+		<font-def name="text" family="arial" style="none" size="9"/>
+		<font-def name="text-bold" family="arial" style="bold" size="9" color="custom-purple"/>
+		<font-def name="purple-header" family="arial" style="bold" size="10" color="custom-purple"/>
+		
+		<custom-tag alias="shr-label" tag="phrase">
+			<attribute name="font" value="label"/>
+		</custom-tag>
+		
+		<custom-tag alias="shr-text" tag="paragraph">
+			<attribute name="font" value="text"/>
+		</custom-tag>
+		
+		<custom-tag alias="shr-tableheader" tag="phrase">
+			<attribute name="font" value="tableheader"/>
+		</custom-tag>
+	</module>	
+		
+	<footer padding-top="10">
+		<font size="10" color="black">
+			<footer-part padding-top="5" halign="left" width="500">
+				<table columns="2" width="100" halign="center">
+					<table-row halign="left">
+						<cell halign="left">
+							Declaracion Por Escrito  De Padres - Pagina ${pageNumber,  nointrprt} de ${pageCount,  nointrprt}
+						</cell>
+						<cell halign="right">
+							TJPC-AGE-07-04
+						</cell>
+					</table-row>
+					<table-row halign="left"><cell><br/></cell>
+					</table-row>
+				</table>
+			</footer-part>
+		</font>
+	</footer>	
+		
+	
+	
+    <!--  =============================================================================================================
+        Page 1 - Cover Sheet (removed for Spanish version)
+    -->
+
+    
+    <!--  =============================================================================================================
+        Page 2  
+    -->
+    
+	<table columns="2" border-style="none" border-width="0" widths="4,2" padding="1" keep-together="true" font="text">
+    
+        <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+            Left side of page 2.  
+        -->
+        
+        <cell halign="left" valign="top" leading="1" padding="8" line-spacing="1">
+
+            <paragraph halign="center" spacing-after="10">
+                <font name="purple-header">Instrucci&#243;nes Para Completar La Declaraci&#243;n Por Escrito De Padres</font>
+        	</paragraph>
+    
+            <std-paragraph>
+                El C&#243;digo de la Familia de Texas, Secci&#243;n 61.104, requiere que los padres de un joven que esta 
+                acusado de cometer un delito en contra de la ley y que debe aparecer ante una corte juvenil del estado de 
+                Texas tengan la oportunidad de dar una declaraci&#243;n por escrito sobre su hijo.   
+        	</std-paragraph>
+
+            <std-paragraph>
+                La declaraci&#243;n por escrito de padres es su oportunidad de informale a la corte sobre las necesidades 
+                de su hijo y de su familia y puede inclurir las calidades positivas y otras cosas importantes en cuestion 
+                de el caso de su hijo.<span>&#160; </span>El Juez puede considerar esta declaraci&#243;n al hacer su decision final.
+        	</std-paragraph>
+
+            <std-paragraph>
+                Una declaraci&#243;n por escrito de padres puede ser sometido cuando los siguentes documentos legales que han 
+                sido entregados a la corte juvenil en el caso de su hijo.
+        	</std-paragraph>
+
+            <list numbered="false" lettered="false" symbol-indent="15">
+                <list-symbol>-</list-symbol>
+                <list-item>Una petici&#243;n [acusacion formal escrito] para una audiencia de adjudicaci&#243;n;</list-item>
+                <list-item>Un moci&#243;n o petici&#243;n para audiencia para modificar las condiciones de libertad condicional;</list-item>
+                <list-item spacing-after="5">Un moci&#243;n o petici&#243;n para una audiencia con el proposito de tranferir con 
+                discreci&#243;n a su hijo a la corte de adultos donde sera juzgado como adulto.</list-item>
+            </list>
+
+            <std-paragraph>
+                Cualquier informaci&#243;n que usted proporciona, <font name="text-bold">NO</font> sera usada en la audencia de adjudicaci&#243;n que 
+                es una audencia para determiner si su hijo a cometio la ofensa.<span>&#160; </span>Puede ser sin embargo usado 
+                en la disposici&#243;n del caso que pueda asistir a la corte para ser una determinaci&#243;n final en el caso 
+                de su hijo que puede determiner lo siguiente:
+        	</std-paragraph>
+
+           	<list numbered="false" lettered="false" symbol-indent="15">
+                <list-symbol>-</list-symbol>
+                <list-item>Poner su hijo en libertad condicional en su casa;</list-item>
+                <list-item>Poner su hijo bajo libertad condicional fuera de su casa con parientes o otras personas.</list-item>
+                <list-item>Poner su hijo bajo libertad condicional en una facilidad residencial securo o sin 
+                    securidad para jovenes, o</list-item>
+                <list-item spacing-after="5">Poner su hijo en la custodia del Departamento De Justicia Para Menores Infractores De Texas [Texas Juvenile Justice Department].</list-item>
+            </list>
+
+            <std-paragraph>
+                Si los dos padres residen juntos en la misma casa con su hijo, solamente una declaraci&#243;n por escrito por familia 
+                puede ser sometido. Si usted es divorciado o separado, entonces los dos padres pueden someter una 
+                declaraci&#243;n separados.  
+        	</std-paragraph>
+
+            <std-paragraph>
+                <u>Una declaraci&#243;n por escrito de padres es completamente voluntario y usted puede 
+                considerar de <i>no</i> someter una declaraci&#243;n con respecto del caso de su hijo. 
+                </u> Usted puede escoger de <i>no </i>responder a algunas o todas de las secciones en la forma.
+                Aunque se presentan ejemplos, usted como padre no esta limitada a esos ejemplos. 
+                Su declaraci&#243;n en su totalidad sera presentada al juez, el departamento de libertad 
+                condicional de juvenil, el abogado que representa a su hijo, el fiscal y cualquier persona 
+                que la corte juvenil determina si debera tener una copia. 
+                Cualquier informaci&#243;n que usted entrega a la corte puede ser usada en contra de su hijo; 
+                asi que, usted debera consultar con un abogado sobre las consequencias si presenta su declaracion a la corte juvenil.
+                Si usted, sin embargo desea someter una declaracion, lo puede someter en su propio papel 
+                o usar cualquier forma que desea. Puede a la ves agregar otras paginas o 
+                escoger su propio forma si necesita mas espacio. Cuando su declaraci&#243;n esta completa, 
+                por favor de entregarlo al departamento de libertad condicional de juvenil al domicio mencionado 
+                abajo. Si entrega su declaraci&#243;n al departamento de libertad condicional, ese departamento 
+                entregara su declaraci&#243;n a la corte juvenil.
+                    
+        	</std-paragraph>
+
+            <std-paragraph>
+                Si usted tiene preguntas en cuestion de completer su declaraci&#243;n por escrito de padres, 
+                usted puede ponerse en contacto con el departamento de libertad condicional de juvenil mencionado abajo. 
+                Estando la declaracion por escrito de padres completa, por favor de enviarlo por correo o entregarlo 
+                personalmente el dia necesitada o antes, al departmento de libertad condicional.
+        	</std-paragraph>
+
+			<paragraph halign="center" spacing-after="10">
+                <font name="purple-header">
+					${locationUnitName}<br/>
+	                ${locationAddress.streetNum} ${locationAddress.streetName} ${locationAddress.streetTypeCode} ${locationAddress.aptNum}<br/>
+	                ${locationAddress.city}
+					_if_(${locationAddress.city} isDefined), _endif_
+					${locationAddress.stateCode} ${locationAddress.zipCode}<br/>
+	                ${locationUnitPhone.formattedPhoneNumber}
+				</font>
+        	</paragraph>
+			
+			<std-paragraph>
+                <i>Si se necesita mas copias de estas instrucci&#243;nes o de la declaraci&#243;n por escrito de padres, 
+                puede solicitarlas al departamento de libertad condicional de juvenil. Este formulario tambien se puede encontrar 
+                en la pagina de internet de la Comisi&#243;n de Libertad Condicional de Juvenil de Texas en www.tjpc.state.tx.us.</i>
+        	</std-paragraph>
+        </cell>
+        
+        <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+            Right side of page 2.  
+        -->
+        
+        <cell valign="top" halign="left" leading="1" padding="8" line-spacing="1" border-style="box" border-width="2">
+        
+            <br/>
+            <paragraph halign="center" spacing-after="10">
+                <font name="purple-header">T&#233;rminos Com&#250;nes Usados En <br /> El Sistema De Justicia Juvenil</font>
+        	</paragraph>
+            <br/>
+            
+            
+            <paragraph halign="left" spacing-after="10">
+                <font name="purple-header">Audencia de Adjudicaci&#243;n</font> - Una audencia donde el juez o jurado determina 
+                si su hijo cometio la ofensa del cual se lo acusa o es inocente de los cargos.            
+        	</paragraph>
+        
+           <paragraph halign="left" spacing-after="10">
+                <font name="purple-header">Abogado Defensor</font> - Un abogado que representa su hijo y que asegura que los 
+                derechos de su hijo estan protegidos.  La Corte Juvenil debera nombrar un abogado 
+                que represente a su hijo si la Corte determina que usted como padre, no pueda 
+                emplear un abogado por causas economicas.
+        	</paragraph>
+        
+            <paragraph halign="left" spacing-after="10">
+                <font name="purple-header">Una Audencia Para Transferir con Discreci&#243;n</font> - Una audencia donde el juez decide 
+                si debera transferir el caso de su hijo a una corte criminal donde su hijo sera 
+                juzgado como adulto.             
+        	</paragraph>
+        
+            <paragraph halign="left" spacing-after="10">
+                <font name="purple-header">Audencia de Disposici&#243;n</font> -  Una audencia que tiene lugar despues de la audencia de 
+                adjudicaci&#243;n en la cual el juez o el jurado hace la decisi&#243;n final con respecto al 
+                caso de su hijo y donde  pueda recibir libertad condicional o internaci&#243;n en la 
+                Comisi&#243;n de Jovenes de Texas.             
+        	</paragraph>
+        
+            <paragraph halign="left" spacing-after="10">
+                <font name="purple-header">Audencia Para Modificar</font> - Una audencia para cambiar las condiciones previas de la 
+                libertad condicional de su hijo o para revocar la libertad condicional por dichos 
+                violaci&#243;nes.
+        	</paragraph>
+        
+            <paragraph halign="left" spacing-after="10">
+                <font name="purple-header">Petici&#243;n / Moci&#243;n</font> - Un documento legal escrito archivado por el fiscal que le informa 
+                a usted y su hijo del delito, que segun se alega cometio, dando la fecha, tiempo y el 
+                lugar para una audencia delante de la corte en el futuro. Usted y su hijo deberan recibir 
+                una copia de este documento.            
+        	</paragraph>
+            
+            <paragraph halign="left" spacing-after="10">
+                <font name="purple-header">Fiscal/Procurador</font>- Abogado acusador que trabaja para el condado, el districto, o las 
+                fiscalias/procuradores criminal que manejan casos de juveniles. Estas personas se conocen 
+                como fiscal/procurador del districto, fiscal/procurador del condado o asistentes del 
+                fiscal/procurador del Condado.             
+        	</paragraph>
+
+            <paragraph halign="left" spacing-after="10">
+                <font name="purple-header">Departamento De Justicia Para Menores Infractores De Texas [Texas Juvenile Justice Department]</font> - Una agencia estatal que opera 
+                facilidades correcci&#243;nales de securidad para jovenes internados por la Corte Juvenil.            
+        	</paragraph>
+        </cell>
+	</table>
+
+    
+    <!--  =============================================================================================================
+        Page 3  
+    -->
+    
+	<new-page size="LETTER" margin-left="20" margin-right="20" margin-top="20" margin-bottom="20">
+	</new-page>
+
+    <std-title>
+        POR FAVOR DE COMPLETAR ESTA FORMA Y ENVIARLO AL DEPARTAMENTO DE LIBERTAD CONDICIONAL ESTE DIA ${courtDate} O ANTES.
+    </std-title>
+    
+    <std-title halign="center">
+        CAUSA NUMERO: ${petitionNumber}
+    </std-title>
+
+	<table columns="3" border-style="none" border-width="0" widths="8,1,8" padding="2">
+        <table-row>
+            <cell halign="left" valign="top" leading="1" padding-top="0" line-spacing="1">
+            	<std-title>
+                    EN EL INTERES DE <br/>
+                    <br/>
+                    ${juvenileName}<br/>
+                    <br/>
+                    UN JUVENIL<br/>
+            	</std-title>
+            </cell>
+            <cell halign="left" valign="top" leading="1" padding-top="0" line-spacing="1">
+            	<std-title>
+                    .<br/>
+                    .<br/>
+                    .<br/>
+                    .<br/>
+                    .<br/>
+                </std-title>
+            </cell>
+            <cell halign="left" valign="top" leading="1" padding-top="0" line-spacing="1">
+            	<std-title>
+                    EN JUZGADO DE DISTRITO  ${courtName}<br/>
+                    EN EL CONDAO DE<br/>
+                    HARRIS, TEXAS
+            	</std-title>
+            </cell>
+        </table-row>
+	</table>
+	<br/>
+
+    <std-title halign="center">
+        DECLARACI&#211;N POR ESCRITO DE PADRES 
+    </std-title>
+	<br/>
+
+    <std-paragraph>
+        Yo ________________________________________________________________________ padre o persona 
+        responsable  del joven mencionada en este documento, entrego esta declaraci&#243;n como esta 
+        autorizada bajo el Codigo de Texas de la Familia, Secci&#243;n 61.104. Yo quisiera proporcionar 
+        la siguiente informaci&#243;n para que la Corte tenga mis pensamientos para un major entendimiento 
+        de las necesidades y potencias de mi hijo, nuestra familia y cualquier information importante 
+        para la disposici&#243;n de este caso.  
+    </std-paragraph>
+    <br/>
+    
+    <std-paragraph>
+        1.	<b>Historia.</b>  La Corte debe saber la siguiente informaci&#243;n sobre el pasado de mi hijo. 
+        <i>[use este espacio para describir informacion, como eventos importantes, como problemas de 
+        drogas y situaci&#243;nes deficiles que usted cree que contribuyen a las circumstancias que hoy 
+        se encuentra su hijo].</i> <br/>
+        <br/>
+        ___________________________________________________________________________________________________<br/>
+        <br/>
+        ___________________________________________________________________________________________________<br/>
+        <br/>
+        ___________________________________________________________________________________________________<br/>
+        <br/>
+        ___________________________________________________________________________________________________<br/>
+        <br/>
+        ___________________________________________________________________________________________________<br/>
+        <br/>
+        ___________________________________________________________________________________________________<br/>
+    </std-paragraph>
+
+    <std-paragraph>
+        2.	<b>Medico y Psicologico.</b>  La Corte deberia saber los siguientes tratamientos medicos y 
+        historia psicologica de mi hijo. <i>[use este espacio para describir cualquier condici&#243;n medica, 
+        enfermedades, disabilidades fisicas, necesidades de medicinas, historia psicologica, tratamientos 
+        psicologicas o terapia, de haber recibido consejos professional o historia de suicidio, etc.]</i><br/>
+        <br/>
+        ___________________________________________________________________________________________________<br/>
+        <br/>
+        ___________________________________________________________________________________________________<br/>
+        <br/>
+        ___________________________________________________________________________________________________<br/>
+        <br/>
+        ___________________________________________________________________________________________________<br/>
+        <br/>
+        ___________________________________________________________________________________________________<br/>
+        <br/>
+        ___________________________________________________________________________________________________<br/>
+    </std-paragraph>
+
+    <!--  =============================================================================================================
+        Page 4 
+    -->
+    
+	<new-page size="LETTER" margin-left="20" margin-right="20" margin-top="20" margin-bottom="20">
+	</new-page>
+    
+    <std-paragraph>
+        3.	<b>Educaci&#243;n.</b>  La Corte deberia saber la siguiente informaci&#243;n sobre la historia de la 
+        educaci&#243;n de mi hijo. <i>[use este espacio para describir la informaci&#243;n de los exitos o problemas 
+        que su hijo haya experimentado en la escuela, incluyendo asistencia en la escuela, grados, 
+        educaci&#243;n especial, problemas de diciplina, conflictos, o cosas extras en el plan de estudios, 
+        premios, deportes, habilidades especiales y trabajo, etc.]</i><br/>
+        <br/>
+        ___________________________________________________________________________________________________<br/>
+        <br/>
+        ___________________________________________________________________________________________________<br/>
+        <br/>
+        ___________________________________________________________________________________________________<br/>
+        <br/>
+        ___________________________________________________________________________________________________<br/>
+        <br/>
+        ___________________________________________________________________________________________________<br/>
+    </std-paragraph>
+
+    <std-paragraph>
+        4.	<b>Medio Ambiente En La Casa.</b> El medio ambiente en la casa y situaci&#243;nes de la familia seria 
+        mas bien discrito de la siguiente manera. <i>[use este espacio para informarle a la Corte sobre el medio 
+        ambiente que existe en la casa de su hijo y decirle a la Corte como se porta su hijo con usted. 
+        Tambien, como su hijo se porta con sus hermanos o cualquier otra persona que vive tambien en la casa. 
+        Si su hijo cumple con el quehacer domestico o otros trabajos alrededor de la casa y si hay problemas 
+        de conducta o disciplina. Por favor de explicar si su hijo trabaja ayudando a la familia economicamente, 
+        y si su vecindad influye positivamente o negativamente.</i> <br/>
+        <br/>
+        ___________________________________________________________________________________________________<br/>
+        <br/>
+        ___________________________________________________________________________________________________<br/>
+        <br/>
+        ___________________________________________________________________________________________________<br/>
+        <br/>
+        ___________________________________________________________________________________________________<br/>
+        <br/>
+        ___________________________________________________________________________________________________<br/>
+    </std-paragraph>
+    
+    <std-paragraph>
+        5.	<b>Supervisi&#243;n.</b>  Si la Corte pone mi hijo bajo mi supervisi&#243;n, yo hare todo lo posible que mi 
+        hijo no tenga mas problemas mientras este bajo libertad condicional. <i>[use este espacio para decirle a 
+        la corte que habilidad tiene como padres de supervisar a su hijo, y informar si hay otros adultos 
+        competentes de ayudales en la supervisi&#243;n de su hijo/hija.  A la vez, explicar si va a tener problemas 
+        con la supervision; su plan de asistir al departamento de libertad condicional en asegurar  que su hijo 
+        vaya a la escuela y complir con los  deseos del departmento de libertad condicional.</i><br/>
+        <br/>
+        ___________________________________________________________________________________________________<br/>
+        <br/>
+        ___________________________________________________________________________________________________<br/>
+        <br/>
+        ___________________________________________________________________________________________________<br/>
+        <br/>
+        ___________________________________________________________________________________________________<br/>
+        <br/>
+        ___________________________________________________________________________________________________<br/>
+        <br/>
+        ___________________________________________________________________________________________________<br/>
+    </std-paragraph>
+    
+    <!--  =============================================================================================================
+        Page 5 
+    -->
+    
+	<new-page size="LETTER" margin-left="20" margin-right="20" margin-top="20" margin-bottom="20">
+	</new-page>
+    
+    <std-paragraph>
+        6.	<b>Cosas Positivas de su Hijo.</b>  La Corte deberia saber las cosas buenas de su hijo. 
+        <i>[use este espacio para darle informaci&#243;n al juez sobre exitos especiales, caracteristicas 
+        peculiares, trabajos que haya hecho voluntariamente, trabajos pasados, clubs, organizaci&#243;nes, 
+        comunidad o de la Iglesia en lo cual su hijo haya participado].</i><br/>
+        <br/>
+        ___________________________________________________________________________________________________<br/>
+        <br/>
+        ___________________________________________________________________________________________________<br/>
+        <br/>
+        ___________________________________________________________________________________________________<br/>
+        <br/>
+        ___________________________________________________________________________________________________<br/>
+        <br/>
+        ___________________________________________________________________________________________________<br/>
+    </std-paragraph>
+    
+    <std-paragraph>
+        7.	<b>Resultados Recomendado.</b>  Cuando la Corte considera los resultados finales del caso de mi 
+        hijo, yo quisiera que el juez ordenara lo siguiente: [use este espacio para decirle al juez lo que 
+        usted piensa de que le deberia de pasar a su hijo en este caso.  En su opinion, que necesidades tiene 
+        su hijo. Tambien deberia discutir que le paseria a su familia si su hijo fuera internado afuera de 
+        su casa y de su costodia.<br/>
+        <br/>
+        ___________________________________________________________________________________________________<br/>
+        <br/>
+        ___________________________________________________________________________________________________<br/>
+        <br/>
+        ___________________________________________________________________________________________________<br/>
+        <br/>
+        ___________________________________________________________________________________________________<br/>
+        <br/>
+        ___________________________________________________________________________________________________<br/>
+    </std-paragraph>
+    
+    <std-paragraph>
+        8.	<b>Informaci&#243;n Adicional.</b> La Corte deberia saber lo siguiente informacion importante que 
+        ayudaria a la Corte en hacer una decisi&#243;n final. <i>[use este espacio para proporcionarle al juez 
+        cualquier informaci&#243;n que usted siente que pudiera ejercer influencia al juez cuando haga una 
+        decision final.</i><br/>
+        <br/>
+        ___________________________________________________________________________________________________<br/>
+        <br/>
+        ___________________________________________________________________________________________________<br/>
+        <br/>
+        ___________________________________________________________________________________________________<br/>
+        <br/>
+        ___________________________________________________________________________________________________<br/>
+        <br/>
+        ___________________________________________________________________________________________________<br/>
+    </std-paragraph>
+
+    <std-paragraph>
+        Toda la informaci&#243;n que yo he proporcionado a la Corte en esta declaracion por escrito de padres es 
+        verdadero y correcto de la major manera de mis conocimientos y creencia. 
+    </std-paragraph>
+    <br/>
+    
+	<table columns="2" border-style="none" border-width="0" widths="3,2" padding="0">
+        <table-row>
+            <cell halign="left" valign="top" leading="1" padding-top="0" line-spacing="1">
+            	<std-paragraph>
+                    ___________________________________________ <br/>
+                    Firma del Padre o otra Persona<br/>
+                    <br/>
+                    ___________________________________________<br/>
+                    Deletrear la firma del Padre o otra Persona
+
+            	</std-paragraph>
+            </cell>
+            <cell halign="left" valign="top" leading="1" padding-top="0" line-spacing="1">
+            	<std-paragraph>
+                    ________________________________________<br/>
+                    Fecha cuando fue firmado
+            	</std-paragraph>
+            </cell>
+        </table-row>
+	</table>
+
+    
+</document>

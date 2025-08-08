@@ -1,0 +1,356 @@
+<?xml version="1.0" encoding="US-ASCII"?>
+
+<document size="LETTER" margin-left="15" margin-right="30" margin-top="25" margin-bottom="25">
+
+	<encryption allow-fillin="false" allow-modify-contents="false" allow-degraded-printing="true" allow-screen-readers="false" allow-copy="false" allow-printing="false"/>
+	<meta author="JIMS2, Harris County" creator="JIMS2, Harris County" title="Adjudication Notification"/>
+
+	<module>
+		<font-def name="arial-08" family="arial" size="8"/>
+		<font-def name="arial-10" family="arial" size="10"/>
+		<font-def name="arial-11-bold" family="arial" style="bold" size="11"/>
+		<font-def name="arial-11" family="arial" style="normal" size="11"/>
+		<font-def name="arial-12" family="arial" style="normal" size="12"/>
+		<font-def name="arial-12-red" family="arial" style="normal" size="12" color="red"/>
+		<font-def name="arial-14" family="arial" style="normal" size="14"/>
+		<font-def name="hcjpd" family="times" style="bold" size="16"/>
+		<font-def name="fsd" family="times" style="bold" size="14"/>
+		<font-def name="label" family="Helvetica" style="bold" size="10"/>
+		<font-def name="text" family="arial" style="normal" size="8"/>
+		<font-def name="columnheader" family="Helvetica" style="bold|underline" size="10"/>
+		
+		<custom-tag alias="shr-label" tag="phrase">
+			<attribute name="font" value="label"/>
+		</custom-tag>
+		
+		<custom-tag alias="shr-text" tag="paragraph">
+			<attribute name="font" value="text"/>
+		</custom-tag>
+		
+		<custom-tag alias="column-header" tag="paragraph">
+			<attribute name="font" value="columnheader"/>
+		</custom-tag>
+	</module>
+
+	<footer padding-top="10">
+		<font size="10" color="black">
+		<footer-part padding-top="15" halign="left" width="500">
+		<table columns="1" width="100" halign="center">
+			<cell halign="center">
+				Page : ${pageNumber , nointrprt} of ${pageCount , nointrprt}
+			</cell>
+			<cell halign="center"><br/></cell>
+		</table>
+		</footer-part>
+		</font>
+	</footer>
+
+	<!--
+        DETAIL PAGES
+	-->
+
+	<table columns="2" border-style="none" border-width="0" widths="10,90" spacing-after="10">
+		<table-row>
+			<cell halign="left" valign="bottom" leading="1" padding-bottom="0" line-spacing="1" colspan="2">
+				<paragraph>
+					<image source="MJCW/hcjpdfsd.jpg" width="575" height="90" scale-to-fit="true"/>
+				</paragraph>
+			</cell>
+		</table-row>
+	</table>
+	
+	<paragraph halign="center" spacing-before="10" spacing-after="6" font="arial-12-red">
+		<b><u>PERSONAL AND CONFIDENTIAL!!!!!!</u></b>
+	</paragraph>
+
+	<table columns="3" border-style="none" border-width="0" widths="3,15,82" padding-left="6" padding-bottom="6" spacing-before="6" spacing-after="6" font="arial-10">	
+		<table-row>
+			<cell></cell>
+			<cell valign="top">Date:</cell>
+			<cell valign="top" halign="left">${currentDate format "MM/dd/yyyy"}</cell>
+		</table-row>
+		<table-row></table-row>
+		<table-row>
+			<cell></cell>	
+			<cell valign="top">To:</cell>
+			<cell valign="top" halign="left">Superintendent/Principal</br>${currentService.schoolDistrictName}</cell>
+		</table-row>
+		<table-row></table-row>
+		<table-row>
+			<cell></cell>
+			<cell valign="top">Address:</cell>
+			<cell valign="top">${currentService.schoolName}</br>
+				${currentService.schoolStreet}</br>
+				${currentService.schoolCity}, ${currentService.schoolState} ${currentService.schoolZip}
+			</cell>
+		</table-row>
+		<table-row></table-row>
+		<table-row>
+			<cell></cell>
+			<cell valign="top">Regarding:</cell>
+			<cell valign="top">${juvenileFullName}</br>DOB: ${birthDate}</cell>
+		</table-row>
+	</table>
+	
+	<table columns="2" border-style="none" border-width="0" widths="3,90" padding-left="6" font="arial-10">	
+		<table-row>
+			<cell></cell>
+			<cell><paragraph halign="left" spacing-after="6" font="arial-10">
+				Dear Sir/Madame:
+			</paragraph></cell>
+		</table-row>
+		<table-row>
+			<cell></cell>
+			<cell><paragraph halign="left" spacing-after="6" font="arial-10">
+				In accordance with Article 15.27 of the Texas Code of Criminal Procedure, I orally notified ${currentService.contactFirstName} 
+				${currentService.contactLastName} on ${currentService.currentEvent.eventDateStr} at ${currentService.currentEvent.eventTime} that 
+				the above-mentioned juvenile, believed to be transferring to or returning to your school or school district, or transferring to 
+				or returning to another school within your district was adjudicated for the	criminal offense of
+			</paragraph></cell>
+		</table-row>	
+	</table>	
+	
+	_foreach_(offense ${offenseInvolvedWeaponList} 'even' 'odd')
+		<table columns="5" border-style="none" border-width="0" widths="3,26,20,20,31" padding-left="8" padding-bottom="6" spacing-after="1" spacing-before="6" font="arial-10">	
+			<table-row>
+				<cell></cell>
+				<cell colspan="4" halign="left">
+					${offense.offenseDescription} 
+				</cell>
+	 		</table-row>
+			<table-row></table-row>
+			<table-row>
+				<cell></cell>
+				<cell colspan="4" halign="left">
+					This adjudication involved the following conduct:
+				</cell>
+			</table-row>
+			<table-row>
+				<cell></cell>
+				<cell>
+					Offense Code: <u>${offense.offenseCodeId}</u>
+				</cell>
+				
+				<cell>
+					<if cond="${offense.category == "F1" || offense.category == "F2" || offense.category == "F3" || offense.category == "JF" || offense.category == "CF"}"> 
+						<u><space/>X<space/></u>Felony
+					</if>
+					<else>
+						___Felony
+					</else>				
+				</cell>
+				<cell>
+					<if cond="${offense.category == "F1" || offense.category == "F2" || offense.category == "F3" || offense.category == "JF" || offense.category == "CF"}"> 
+						___Misdemeanor
+					</if>
+					<else>
+						<u><space/>X<space/></u>Misdemeanor
+					</else>				
+				</cell>
+				<cell>		
+					Petition#:<space/><u>${offense.petitionNumber}</u>
+				</cell>	
+			</table-row>						
+			<table-row></table-row>
+			<table-row>
+				<cell></cell>
+				<cell colspan="4" halign="left">
+					<u>Punishment Classification</u>
+				</cell>
+			</table-row>
+		</table>
+		<table columns="5" border-style="none" border-width="0" widths="3,26,9,8,54" padding-left="8" padding-bottom="6" spacing-after="3" spacing-before="0" font="arial-10">	
+			<table-row>
+				<cell></cell>
+				<cell>
+					Assaultive or Violent Behavior
+				</cell>
+				<cell>
+					<if cond="${offense.severitySubtype == "V"}"> 
+						<u><space/>X<space/></u>Yes
+					</if>
+					<else>
+						___Yes
+					</else>
+				</cell>
+				<cell>
+					<if cond="${offense.severitySubtype == "V"}"> 
+						___No
+					</if>
+					<else>
+						<u><space/>X<space/></u>No
+					</else>
+				</cell>	
+				<cell></cell>
+			</table-row>
+			<table-row></table-row>
+			<!--  currentService fields may need to be added to offense entity -->
+			<table-row>
+				<cell></cell>
+				<cell>
+					Weapon Involved
+				</cell>
+				<cell>
+					<if cond="${offense.weaponInvolvedStr == "Y"}"> 
+						<u><space/>X<space/></u>Yes
+					</if>
+					<else>
+						___Yes
+					</else>
+				</cell>
+				<cell>
+					<if cond="${offense.weaponInvolvedStr == "N"}"> 
+						<u><space/>X<space/></u>No
+					</if>
+					<else>
+						___No
+					</else>
+				</cell>
+				<cell></cell>
+			</table-row>
+		</table>
+		<table columns="7" border-style="none" border-width="0" widths="3,20,6,10,14,12,35" padding-left="8" padding-bottom="6" spacing-after="6" spacing-before="2" font="arial-10">	
+			<table-row>
+				<cell></cell>
+				<cell halign="right">
+					Type of Weapon:
+				</cell>
+				<cell></cell>
+				<cell>	
+					<if cond="${offense.typeOfWeaponId == "FRM"}">
+						<u><space/>X<space/></u>Firearm
+					</if>
+					<else>	 
+					___Firearm
+					</else>
+				</cell>
+				<cell>
+					<if cond="${offense.typeOfWeaponId == "ILK"}">
+						<u><space/>X<space/></u>Illegal Knife
+					</if>
+					<else>	 
+					___Illegal Knife
+					</else>
+				</cell>
+				<cell>
+					<if cond="${offense.typeOfWeaponId == "EXP"}">
+						<u><space/>X<space/></u>Explosive
+					</if>
+					<else>	 
+					___Explosive
+					</else>
+				</cell>
+				<cell>
+					<if cond="${offense.typeOfWeaponId == "CDD"}">
+						<u><space/>X<space/></u>Chemical Dispensing Device
+					</if>
+					<else>	 
+					___Chemical Dispensing Device
+					</else>
+				</cell>
+			</table-row>
+			<table-row>
+				<cell colspan="3"></cell>
+				<cell colspan="4" halign="left">
+					<if cond="${offense.typeOfWeaponId == "OTH"}">
+						<u><space/>X<space/></u>Other/Specify<space/><u>${offense.typeOfWeaponDescription}</u>
+					</if>
+					<else>	 
+					___Other/Specify _________________________________________________________
+					</else>
+				</cell>
+			</table-row>
+		</table>
+	_endfor_.
+	<table columns="5" border-style="none" border-width="0" widths="3,26,9,8,54" padding-left="8" padding-bottom="6" spacing-after="6" spacing-before="2" font="arial-10">	
+		<table-row>
+			<cell></cell>
+			<cell>
+				Sex Offender Registrant
+			</cell>
+			<cell>
+				<if cond="${currentService.sexOffenderRegistrantStr == "Y"}"> 
+					<u><space/>X<space/></u>Yes
+				</if>
+				<else>
+					___Yes
+				</else>
+			</cell>
+			<cell>
+				<if cond="${currentService.sexOffenderRegistrantStr == "N"}"> 
+					<u><space/>X<space/></u>No
+				</if>
+				<else>
+				___No
+				</else>
+			</cell>
+			<cell>	
+				<space/>
+				Restrictions/Other<space/>
+				<if cond="${currentService.sexOffenderRegistrantStr == "Y"}">
+					<u>${currentService.restrictionsOther}</u>
+				</if>
+				<else>
+				 ___________________________________
+				</else>
+			</cell>
+		</table-row>
+	</table>
+	
+	<table columns="2" border-style="none" border-width="0" widths="3,90" padding-left="6" spacing-after="6" font="arial-10">	
+		<table-row>
+			<cell></cell>
+			<cell><paragraph halign="left" spacing-after="10" font="arial-10">
+				Please be advised that Article 15.27 of the Texas Code of Criminal Procedure states that the information contained in this notice
+				MAY NOT BE DISCLOSED except as specifically authorized by Article 15.27.  A person who intentionally violates this mandate may
+				have their certification suspended or revoked.  In addition, an individual violating this mandate commits an offense, and may be 
+				prosecuted.
+			</paragraph></cell>
+		</table-row>
+		<table-row>
+			<cell></cell>
+			<cell><paragraph halign="left" spacing-after="6" font="arial-10">
+				Pursuant to Section 37.017 of the Texas Education Code, this notification MAY NOT be attached to the permanent academic file
+				of the student who is named in this notification.  The statute requires the school district to destroy the information contained in
+				this report at the end of the academic year in which it was filed.
+			</paragraph></cell>
+		</table-row>
+	</table>
+	
+	<table columns="3" border-style="none" border-width="0" widths="5,48,49" padding="0" spacing-after="6" font="arial-10">	
+		<table-row>
+			_if_(${officerPhone})
+			<cell></cell>
+			<cell>___________________________________________</cell>
+			<cell halign="right">___________________________________________</cell>
+			_else_
+			<cell></cell>
+			<cell>___________________________________________</cell>
+			<cell halign="right"><u>${officerPhone}</u></cell>
+			_endif_
+		</table-row>
+		<table-row>	
+			<cell></cell>
+			<cell>Harris County Juvenile Probation Department</cell>
+			<cell halign="right">Contact Number</cell>
+		</table-row>
+		<table-row>
+			<cell></cell>
+			<cell>Administrator/Supervisor</cell>
+		</table-row>
+	</table>	
+	<table columns="3" border-style="none" border-width="0" widths="5,48,49" padding="0" spacing-after="20" font="arial-10">	
+		<table-row>
+			<cell></cell>
+			<cell>___________________________________________</cell>
+		</table-row>
+		<table-row>	
+			<cell></cell>
+			<cell>Harris County Juvenile Probation Department</cell>
+		</table-row>
+		<table-row>
+			<cell></cell>
+			<cell>Official Designee</cell>
+		</table-row>
+	</table>
+</document>

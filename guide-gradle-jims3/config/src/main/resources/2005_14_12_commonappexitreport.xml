@@ -1,0 +1,138 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<survey xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  type="CommonAppExitReport" name="2005_14_12_commonappexitreport.xml">
+	<questionGroup id="1">
+		<question id="2005_14_12_COMMONAPPEXITREPORT_Q36" text="Facility" rowSequence="36" responseUIControlType="SELECT" isRequired="true" isResponseNewLine="false" uiControlSize="1" validationDescription="Facility">
+			<response displayText="Please Select" id="2005_14_12_COMMONAPPEXITREPORT_Q36_R1" responseValue="" IsDefault="true"></response>
+			<response displayText="dummyResponseForCodeTable" id="2005_14_12_COMMONAPPEXITREPORT_Q36_R2" responseValue="fake" IsDefault="false" codeTableName="FACILITY"></response>
+				</question>
+		<question id="2005_14_12_COMMONAPPEXITREPORT_Q1" text="Briefly describe your impressions of the child including present problems." validationDescription="Describe impressions with the child" rowSequence="1" responseUIControlType="TEXTBOX" isRequired="true" isResponseNewLine="true" uiControlSize="4" textLength="1000"> </question>
+	
+		<question id="2005_14_12_COMMONAPPEXITREPORT_Q2" text="Describe the child's strengths." rowSequence="2" responseUIControlType="TEXTBOX" isRequired="false" isResponseNewLine="true" uiControlSize="4" textLength="1000"></question>
+		<question id="2005_14_12_COMMONAPPEXITREPORT_Q3" text="Will family/others participate in treatment or cooperate with 
+				others?" rowSequence="3" responseUIControlType="RADIO" isRequired="true" isResponseNewLine="false" validationDescription="Will family participate in treatment">
+						<response displayText="Yes" id="2005_14_12_COMMONAPPEXITREPORT_Q3_R1" responseValue="true" IsDefault="false"></response>
+						<response displayText="No" id="2005_14_12_COMMONAPPEXITREPORT_Q3_R2" responseValue="false" IsDefault="false"></response>
+		</question>
+		<question id="2005_14_12_COMMONAPPEXITREPORT_Q4" text="if yes, specify:"  validationDescription="Answering YES to will the family participate in treatment means a reason"
+					rowSequence="4" responseUIControlType="TEXTBOX" isRequired="false" isResponseNewLine="true" uiControlSize="4" textLength="1000">
+			<responseDependancy selectedResponseId="2005_14_12_COMMONAPPEXITREPORT_Q3_R1" questionId="2005_14_12_COMMONAPPEXITREPORT_Q3"></responseDependancy>
+		</question>
+		<!-- ER changes 11454 
+		<question id="2005_14_12_COMMONAPPEXITREPORT_Q5" text="Does 
+					the youth have a diagnosed or suspected health condition or disability?" rowSequence="5" responseUIControlType="RADIO" isRequired="true" isResponseNewLine="false" validationDescription="Special Health  Condition or Disability">
+			<response displayText="Yes" id="2005_14_12_COMMONAPPEXITREPORT_Q5_R1" responseValue="true" IsDefault="false"></response>
+			<response displayText="No" id="2005_14_12_COMMONAPPEXITREPORT_Q5_R2" responseValue="false" IsDefault="false"></response>
+		</question>  -->
+		<question id="2005_14_12_COMMONAPPEXITREPORT_Q6" text="Describe any physical health problems or disability not otherwise 
+					documented." rowSequence="6" responseUIControlType="TEXTBOX" isRequired="false" isResponseNewLine="true" uiControlSize="4" textLength="1000">
+		</question>
+		<question id="2005_14_12_COMMONAPPEXITREPORT_Q7" text="Does the physical condition require specialized treatment?" rowSequence="7" responseUIControlType="RADIO" isRequired="true" isResponseNewLine="false" validationDescription="Physical Condition require specialized 
+					treatment">
+			<response displayText="Yes" id="2005_14_12_COMMONAPPEXITREPORT_Q7_R1" responseValue="true" IsDefault="false"></response>
+			<response displayText="No" id="2005_14_12_COMMONAPPEXITREPORT_Q7_R2" responseValue="false" IsDefault="false"></response>
+		</question>
+			<question id="2005_14_12_COMMONAPPEXITREPORT_Q10" text="Date of last physical by a licensed physician" rowSequence="10" responseUIControlType="TEXT" isRequired="false" isResponseNewLine="false" responseDataType="DATE"  FormatKey="mm/dd/yyyy" uiControlSize="10" validationDescription="Date of last 
+				Physical">
+		</question>
+		<question id="2005_14_12_COMMONAPPEXITREPORT_Q8" text="Does the child have mental health needs requiring treatment?" rowSequence="8" responseUIControlType="RADIO" isRequired="true" isResponseNewLine="false" validationDescription="Child have mental health needs">
+			<response displayText="Yes" id="2005_14_12_COMMONAPPEXITREPORT_Q8_R1" responseValue="true" IsDefault="false"></response>
+			<response displayText="No" id="2005_14_12_COMMONAPPEXITREPORT_Q8_R2" responseValue="false" IsDefault="false"></response>
+		</question>
+		
+		<question id="2005_14_12_COMMONAPPEXITREPORT_Q9" text="Describe any mental health problems not otherwise documented." rowSequence="9" responseUIControlType="TEXTBOX" isRequired="false" isResponseNewLine="true" uiControlSize="4" textLength="1000"></question>
+	
+		<question id="2005_14_12_COMMONAPPEXITREPORT_Q11" text="Describe the most important factor that led to the recommended level 
+				of care." rowSequence="11" responseUIControlType="TEXTBOX" isRequired="false" isResponseNewLine="true" uiControlSize="4" textLength="1000">
+		</question>
+		<question id="2005_14_12_COMMONAPPEXITREPORT_Q12" text="Describe the second most important factor that led to the recommended 
+				level of care." rowSequence="12" responseUIControlType="TEXTBOX" isRequired="false" isResponseNewLine="true" uiControlSize="4" textLength="1000">
+		</question>
+		<question id="2005_14_12_COMMONAPPEXITREPORT_Q13" text="Describe the third most important factor that led to the recommended 
+				level of care." rowSequence="13" responseUIControlType="TEXTBOX" isRequired="false" isResponseNewLine="true" uiControlSize="4" textLength="1000">
+		</question>
+		<question id="2005_14_12_COMMONAPPEXITREPORT_Q40" text="Other considerations or comments, if any." rowSequence="40" responseUIControlType="TEXTBOX" isRequired="false" isResponseNewLine="true" uiControlSize="4" textLength="1000"></question>
+		<!-- //added for task#34434 ,#27104-->
+		<question id="2005_14_12_COMMONAPPEXITREPORT_Q41" text="Do any family members or relatives have gang affiliation?" rowSequence="41" responseUIControlType="RADIO" isRequired="true" isResponseNewLine="false" validationDescription="Do any family members or relatives have gang affiliation?">
+			<response displayText="Yes" id="2005_14_12_COMMONAPPEXITREPORT_Q41_R1" responseValue="true" IsDefault="false"></response>
+			<response displayText="No" id="2005_14_12_COMMONAPPEXITREPORT_Q41_R2" responseValue="false" IsDefault="false"></response>
+		</question>
+		<question id="2005_14_12_COMMONAPPEXITREPORT_Q42" text="if yes, Gang Name" rowSequence="42" responseUIControlType="TEXT" isRequired="false" isResponseNewLine="false" responseDataType="Text"  uiControlSize="30" validationDescription="Answering YES to Do any family members or relatives have gang affiliation means Gang Name">
+			<responseDependancy selectedResponseId="2005_14_12_COMMONAPPEXITREPORT_Q41_R1" questionId="2005_14_12_COMMONAPPEXITREPORT_Q41"></responseDependancy>
+		</question>
+		<question id="2005_14_12_COMMONAPPEXITREPORT_Q43" text="Does the child admit to a gang affiliation?" rowSequence="43" responseUIControlType="RADIO" isRequired="true" isResponseNewLine="false" validationDescription="Does the child admit to a gang affiliation?">
+			<response displayText="Yes" id="2005_14_12_COMMONAPPEXITREPORT_Q43_R1" responseValue="true" IsDefault="false"></response>
+			<response displayText="No" id="2005_14_12_COMMONAPPEXITREPORT_Q43_R2" responseValue="false" IsDefault="false"></response>
+		</question>
+		<question id="2005_14_12_COMMONAPPEXITREPORT_Q44" text="if yes, Gang Name" rowSequence="44" responseUIControlType="TEXT" isRequired="false" isResponseNewLine="false" responseDataType="Text"  uiControlSize="30" validationDescription="Answering YES to Does the child admit to a gang affiliation means Gang Name">
+			<responseDependancy selectedResponseId="2005_14_12_COMMONAPPEXITREPORT_Q43_R1" questionId="2005_14_12_COMMONAPPEXITREPORT_Q43"></responseDependancy>
+		</question>
+		<!-- //added for task#34434 ,#27104-->
+		<question id="2005_14_12_COMMONAPPEXITREPORT_Q39" text="Describe the circumstances that led to the referral." rowSequence="39" responseUIControlType="TEXTBOX" isRequired="false" isResponseNewLine="true" uiControlSize="4" textLength="1000"></question>
+		<question id="2005_14_12_COMMONAPPEXITREPORT_Q14" text="Describe immediate and long term goals of placement." rowSequence="14" responseUIControlType="TEXTBOX" isRequired="false" isResponseNewLine="true" uiControlSize="4" textLength="1000"></question>
+		<question id="2005_14_12_COMMONAPPEXITREPORT_Q15" text="Describe juvenile behavior (appropriate and inappropriate)." rowSequence="15" responseUIControlType="TEXTBOX" isRequired="false" isResponseNewLine="true" uiControlSize="4" textLength="1000"></question>
+		<question id="2005_14_12_COMMONAPPEXITREPORT_Q16" text="Describe delinquent peer/sibling/associations." rowSequence="16" responseUIControlType="TEXTBOX" isRequired="false" isResponseNewLine="true" uiControlSize="4" textLength="1000"></question>
+		<question id="2005_14_12_COMMONAPPEXITREPORT_Q17" text="Describe development history and level of functioning." rowSequence="17" responseUIControlType="TEXTBOX" isRequired="false" isResponseNewLine="true" uiControlSize="4" textLength="1000"></question>
+		<question id="2005_14_12_COMMONAPPEXITREPORT_Q18" text="Briefly describe the child's history of delinquency. Include a description of contributing factors, and any patterns of delinquency you detect. Indicate 
+whether the child is a follower or a leader." rowSequence="18" responseUIControlType="TEXTBOX" isRequired="false" isResponseNewLine="true" uiControlSize="4" textLength="1000">
+		</question>
+		<question id="2005_14_12_COMMONAPPEXITREPORT_Q19" text="Describe the child's most recent criminal episode, contributing factors, the child's actions or role in the episode, and how this episode fits 
+into the child's history of delinquency." rowSequence="19" responseUIControlType="TEXTBOX" isRequired="false" isResponseNewLine="true" uiControlSize="4" textLength="1000">
+		</question>
+		<question id="2005_14_12_COMMONAPPEXITREPORT_Q20" text="Describe suicide attempts and gestures in detail. Include the number of suicide attempts and the date of the last known suicide attempt." rowSequence="20" responseUIControlType="TEXTBOX" isRequired="false" isResponseNewLine="true" uiControlSize="4" textLength="1000">
+		</question>
+		<question id="2005_14_12_COMMONAPPEXITREPORT_Q26" text="Detail the history of child's assaultive behavior." rowSequence="26" responseUIControlType="TEXTBOX" isRequired="false" isResponseNewLine="true" uiControlSize="4" textLength="1000">
+		</question>
+		<question id="2005_14_12_COMMONAPPEXITREPORT_Q38" text="Runaway history" rowSequence="38" responseUIControlType="TEXTBOX" isRequired="false" isResponseNewLine="true" uiControlSize="4" textLength="1000">
+		</question>
+		<question id="2005_14_12_COMMONAPPEXITREPORT_Q21" text="Other significant needs, problems and behaviors (including setting 
+fires, maternity, etc.)." rowSequence="21" responseUIControlType="TEXTBOX" isRequired="false" isResponseNewLine="true" uiControlSize="4" textLength="1000">
+		</question>
+		<question id="2005_14_12_COMMONAPPEXITREPORT_Q22" text="Describe the child's history of substance use, abuse, manufacture, 
+possessions, and/or delivery." rowSequence="22" responseUIControlType="TEXTBOX" isRequired="false" isResponseNewLine="true" uiControlSize="4" textLength="1000">
+		</question>
+		<question id="2005_14_12_COMMONAPPEXITREPORT_Q23" text="Describe the child's family history of substance use, abuse, manufacture, possession, and/or delivery. Include not only parents and siblings, but 
+also extended-family members (such as grandparents, aunts, uncles) even if they 
+do not live in the same household as the child." rowSequence="23" responseUIControlType="TEXTBOX" isRequired="false" isResponseNewLine="true" uiControlSize="4" textLength="1000">
+		</question>
+<!--  10/26/2012 revised text per defect 73991 -->			
+		<question id="2005_14_12_COMMONAPPEXITREPORT_Q24" text="Describe any treatment the child has received for substance abuse and the success or failure of this treatment. Include information such as the length and dates of 
+treatment, whether the program was residential or outpatient, whether the child 
+completed the program, whether the family was included in the treatment, etc." 
+rowSequence="24" responseUIControlType="TEXTBOX" isRequired="false" isResponseNewLine="true" uiControlSize="4" textLength="1000">
+		</question>
+		<question id="2005_14_12_COMMONAPPEXITREPORT_Q25" text="Is a specialized drug program required?" rowSequence="25" responseUIControlType="RADIO" isRequired="true" isResponseNewLine="false" validationDescription="Specialized Drug 
+Program">
+			<response displayText="Yes" id="2005_14_12_COMMONAPPEXITREPORT_Q25_R1" responseValue="true" IsDefault="false"></response>
+			<response displayText="No" id="2005_14_12_COMMONAPPEXITREPORT_Q25_R2" responseValue="false" IsDefault="false"></response>
+		</question>
+<!--  10/26/2012 commented out per defect 73991 		
+	<question id="2005_14_12_COMMONAPPEXITREPORT_Q26" text="Describe any treatment the youth has received for substance abuse and 
+the success or failure of this treatment. Include informations such as the 
+length and dates of treatement, whether the program was residential or 
+outpatient, whether the youth completed the program, and/or whether the family was 
+included in treatment." rowSequence="26" responseUIControlType="TEXTBOX" isRequired="false" isResponseNewLine="true" uiControlSize="4" textLength="1000">
+		</question> -->
+
+		<question id="2005_14_12_COMMONAPPEXITREPORT_Q27" text="Describe the overall family situation, highlighting the positive and negative aspects of the youth's family environment including all the family 
+characteristics selected previously." rowSequence="27" responseUIControlType="TEXTBOX" isRequired="false" isResponseNewLine="true" uiControlSize="4" textLength="1000">
+		</question>
+		<question id="2005_14_12_COMMONAPPEXITREPORT_Q28" text="Describe the youth's relationship with family members and significant other both in and out of the home. Please address both strengths and 
+weaknesses." rowSequence="28" responseUIControlType="TEXTBOX" isRequired="false" isResponseNewLine="true" uiControlSize="4" textLength="1000">
+		</question>
+		<question id="2005_14_12_COMMONAPPEXITREPORT_Q29" text="Describe juvenile's relationship with adults and children in the family." rowSequence="29" responseUIControlType="TEXTBOX" isRequired="false" isResponseNewLine="true" uiControlSize="4" textLength="1000">
+		</question>		
+		<question id="2005_14_12_COMMONAPPEXITREPORT_Q32" text="Can youth return home?" rowSequence="32" responseUIControlType="RADIO" isRequired="false" isResponseNewLine="false">
+			<response displayText="Yes" id="2005_14_12_COMMONAPPEXITREPORT_Q32_R1" responseValue="true" IsDefault="false"></response>
+			<response displayText="No" id="2005_14_12_COMMONAPPEXITREPORT_Q32_R2" responseValue="false" IsDefault="false"></response>
+			<response displayText="Unknown" id="2005_14_12_COMMONAPPEXITREPORT_Q32_R3" responseValue="Unknown" IsDefault="false"></response>
+			<response displayText="For Visits Only" id="2005_14_12_COMMONAPPEXITREPORT_Q32_R4" responseValue="For Visits Only" IsDefault="false"></response>
+		</question>
+		<question id="2005_14_12_COMMONAPPEXITREPORT_Q33" text="Number of runaways by youth from placements." rowSequence="33" responseUIControlType="TEXT" isRequired="false" isResponseNewLine="false" uiControlSize="3" validationDescription="Number of runaways" responseDataType="integer"></question>
+		<!--  changes for ER 11502 starts -->
+		<question id="2005_14_12_COMMONAPPEXITREPORT_Q5" text="Number of documented school disruptive incidents." rowSequence="5" responseUIControlType="TEXT" isRequired="false" isResponseNewLine="false" uiControlSize="2" validationDescription="Number of documented disruptive incidents" responseDataType="integer"></question>
+		<question id="2005_14_12_COMMONAPPEXITREPORT_Q37" text="Number of school suspensions." rowSequence="37" responseUIControlType="TEXT" isRequired="false" isResponseNewLine="false" uiControlSize="2" validationDescription="Number of suspensions" responseDataType="integer"></question>
+		<question id="2005_14_12_COMMONAPPEXITREPORT_Q35" text="Number of school expulsions." rowSequence="35" responseUIControlType="TEXT" isRequired="false" isResponseNewLine="false" uiControlSize="2" validationDescription="Number of expulsions" responseDataType="integer"></question>
+		<!--  changes for ER 11502 ends -->
+		<question id="2005_14_12_COMMONAPPEXITREPORT_Q34" text="Describe any educational problems, needs or behaviors not otherwise documented." rowSequence="34" responseUIControlType="TEXTBOX" isRequired="false" isResponseNewLine="true" uiControlSize="4" textLength="1000"></question>
+	</questionGroup>
+</survey>

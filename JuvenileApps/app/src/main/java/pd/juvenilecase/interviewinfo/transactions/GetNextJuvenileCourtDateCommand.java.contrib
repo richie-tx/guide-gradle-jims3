@@ -1,0 +1,85 @@
+package pd.juvenilecase.interviewinfo.transactions;
+
+import java.util.Iterator;
+
+import messaging.interviewinfo.GetNextJuvenileCourtDateEvent;
+import messaging.interviewinfo.reply.JuvenileCourtDateEvent;
+import mojo.km.context.ICommand;
+import mojo.km.dispatch.EventManager;
+import mojo.km.dispatch.IDispatch;
+import mojo.km.messaging.IEvent;
+import pd.juvenile.Juvenile;
+import pd.juvenilecase.JuvenileCasefile;
+import pd.juvenilecase.interviewinfo.InterviewHelper;
+import pd.juvenilecase.referral.JJSReferral;
+
+public class GetNextJuvenileCourtDateCommand implements ICommand 
+{
+   
+   /**
+    * @roseuid 448EC54501B8
+    */
+   public GetNextJuvenileCourtDateCommand() 
+   {
+   }
+   
+	/**
+	 * @param event
+	 * @roseuid 448D7EEE03B2
+	 */
+	public void execute(IEvent event)
+		throws Exception
+	{
+		GetNextJuvenileCourtDateEvent request = (GetNextJuvenileCourtDateEvent)event;
+		String casefileId = request.getCasefileId();
+		JuvenileCasefile casefile = JuvenileCasefile.find( casefileId );
+		Juvenile juvenile = casefile.getJuvenile();
+
+		JuvenileCourtDateEvent respEvent = new JuvenileCourtDateEvent();
+		respEvent.setCasefileId( casefileId );
+		respEvent.setJuvenileId( juvenile.getOID().toString() );
+		
+		Iterator referrals = InterviewHelper.getCurrentReferralsForJuvenile(juvenile).iterator();
+		// Court info is not set if there is not current referral.
+		if ( referrals.hasNext() )
+		{
+			JJSReferral referral = (JJSReferral)referrals.next();
+			
+			respEvent.setReferralNum( referral.getReferralNum() );
+			respEvent.setCourtDate( referral.getCourtDate() );
+			if( referral.getCourt() != null)
+				respEvent.setCourtName( referral.getCourt().getDescription() );
+		}
+		
+		IDispatch dispatch 	= EventManager.getSharedInstance(EventManager.REPLY);
+		dispatch.postEvent(respEvent);
+	}
+
+   /**
+    * @param event
+    * @roseuid 448D7EEE03B4
+    */
+   public void onRegister(IEvent event) 
+   {
+    
+   }
+   
+   /**
+    * @param event
+    * @roseuid 448D7EEE03BB
+    */
+   public void onUnregister(IEvent event) 
+   {
+    
+   }
+   
+   /**
+    * @param anObject
+    * @roseuid 448D7EEE03BD
+    */
+   public void update(Object anObject) 
+   {
+    
+   }
+   
+}

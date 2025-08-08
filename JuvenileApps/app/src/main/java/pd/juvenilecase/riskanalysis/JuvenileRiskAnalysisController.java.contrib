@@ -1,0 +1,154 @@
+/*
+ * Created on Jan 13, 2006
+ *
+ * To change the template for this generated file go to
+ * Window&gt;Preferences&gt;Java&gt;Code Generation&gt;Code and Comments
+ */
+package pd.juvenilecase.riskanalysis;
+
+/**
+ * @author dnikolis
+ * @stereotype control 
+ */
+public class JuvenileRiskAnalysisController
+{
+	/**
+	 * @stereotype design
+	 * @roseuid 43821A0F0138
+	 */
+	public void checkCommunityPreConditions() 
+	{
+    
+	}
+   
+	/**
+	 * @stereotype design
+	 * @param juvenileNumber
+	 * @param caseFileId
+	 * @roseuid 43821A0F008C
+	 */
+	public void checkInterviewPreconditions(int juvenileNumber, int caseFileId) 
+	{
+    
+	}
+   
+	/**
+	 * @stereotype design
+	 * @roseuid 43821A0F00BB
+	 */
+	public void checkReferralPreconditions() 
+	{
+    
+	}
+   
+	/**
+	 * @stereotype design
+	 * @roseuid 43821A0F0119
+	 */
+	public void checkResidentialPreConditions() 
+	{
+    
+	}
+   
+	/**
+	 * @stereotype design
+	 * @roseuid 43821A0F0119
+	 */
+	public void checkProgressPreConditions() 
+	{
+    
+	}
+   
+	/**
+	 * @stereotype design
+	 * @roseuid 43821A0F0119
+	 */
+	public void checkTestingPreConditions() 
+	{
+    
+	}
+	
+	/**
+	 * @stereotype design
+	 * @param juvenileNumber
+	 * @roseuid 43821A0F00EA
+	 */
+	public void getAllRiskAssessments(int juvenileNumber) 
+	{
+    
+	}
+	
+	/**
+	 * @stereotype design
+	 * @roseuid 43821A0F00FB
+	 */
+	public void getRiskAssessmentDetails() 
+	{
+    
+	}
+   
+	/**
+	 * @stereotype design
+	 * @roseuid 43821A0F009C
+	 */
+	public void getRiskQuestionAnswers() 
+	{
+    
+	}
+	
+	/**
+	 * @stereotype design
+	 * @roseuid 43821A0F0148
+	 */
+	public void saveCommunityAssessment() 
+	{
+    
+	}
+   
+	/**
+	 * @stereotype design
+	 * @roseuid 43821A0F00AB
+	 */
+	public void saveInterviewAssessment() 
+	{
+    
+	}
+	
+	/**
+	 * @stereotype design
+	 * @roseuid 43821A0F00DA
+	 */
+	public void saveReferralAssessment() 
+	{
+    
+	}
+   
+	/**
+	 * @stereotype design
+	 * @roseuid 43821A0F0128
+	 */
+	public void saveResidentialAssessment() 
+	{
+    
+	}
+	
+	
+	/**
+	 * @stereotype design
+	 * @roseuid 43821A0F00DA
+	 */
+	public void saveProgressAssessment() 
+	{
+    
+	}
+   
+	/**
+	 * @stereotype design
+	 * @roseuid 43821A0F00DA
+	 */
+	public void saveTestingAssessment() 
+	{
+    
+	}
+
+}

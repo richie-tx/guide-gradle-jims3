@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- REPORT MAPPING FOR MANAGE JUVENILE CASEWORK SUBSYSTEM  -->
+
+<Mapping>
+  <EntityMappings>
+	<EntityMapping name="MJCW/AdjudicationNotification.xml" contextKey="REPORTING::ADJUDICATION_NOTIFICATION">
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>
+	<EntityMapping name="MJCW/ChronologicalDictationJournal.xml" contextKey="REPORTING::CHRONOLOGICAL_DICTATION_JOURNAL" />
+	<EntityMapping name="MJCW/ProgramReferralListReport.xml" contextKey="REPORTING::PROGRAM_REFERRAL_LIST_REPORT">
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>
+	<EntityMapping name="MJCW/SocialHistoryReport.xml" contextKey="REPORTING::SOCIAL_HISTORY_REPORT" />
+	<EntityMapping name="MJCW/SocialHistoryReportGeneric.xml" contextKey="REPORTING::SOCIAL_HISTORY_REPORT_GENERIC" />
+	<EntityMapping name="MJCW/ReportToRefereeInitiation.xml" contextKey="REPORTING::SOCIAL_HISTORY_REFEREE_TO_INITIATION" />
+	<EntityMapping name="MJCW/HireAttorneyReport.xml" contextKey="REPORTING::HIRE_ATTORNEY_REPORT" />
+	<EntityMapping name="MJCW/RequestAttorneyReport.xml" contextKey="REPORTING::REQUEST_ATTORNEY_REPORT">
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>
+	<EntityMapping name="MJCW/ParentalStatementReport_en.xml" contextKey="REPORTING::PARENTAL_STATEMENT_REPORT_EN" />
+	<EntityMapping name="MJCW/ParentalStatementReport_es.xml" contextKey="REPORTING::PARENTAL_STATEMENT_REPORT_ES" />
+	<EntityMapping name="MJCW/EventCancellationCallList.xml" contextKey="REPORTING::EVENT_CANCELLATION_CALL_LIST">
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>
+	<EntityMapping name="MJCW/EventSignInSheet.xml" contextKey="REPORTING::EVENT_SIGN_IN_SHEET">
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>
+	<EntityMapping name="MJCW/MJC_ScheduleEventsList.xml" contextKey="REPORTING::SCHEDULE_EVENTS_LIST">
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>
+	<EntityMapping name="MJCW/InterviewTaskChecklist.xml" contextKey="REPORTING::INTERVIEW_TASK_CHECKLIST">
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>
+		<EntityMapping name="MJCW/EventSignInSheet.xml" contextKey="REPORTING::EVENT_SIGN_IN_SHEET">
+			<QueryCallbacks>
+				<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+			</QueryCallbacks>
+	</EntityMapping>
+	<EntityMapping name="MJCW/InterviewAppointmentLetter.xml" contextKey="REPORTING::INTERVIEW_APPOINTMENT_LETTER">
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>
+	<EntityMapping name="MJCW/InterviewAppointmentLetter_sp.xml" contextKey="REPORTING::INTERVIEW_APPOINTMENT_LETTER_SPANISH">
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>
+	<EntityMapping name="MJCW/WritingSample.xml" contextKey="REPORTING::WRITING_SAMPLE">
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>
+	<EntityMapping name="MJCW/IdInfo.xml" contextKey="REPORTING::ID_INFO">
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>
+	<EntityMapping name="MJCW/ChildFamilyCaseplanReview.xml" contextKey="REPORTING::CHILD_FAMILY_CASEPLAN_REVIEW">
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>
+	<EntityMapping name="MJCW/JPOCaseplanReview.xml" contextKey="REPORTING::JPO_CASEPLAN_REVIEW">
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>
+	<EntityMapping name="MJCW/FieldSupervisionCasePlanReview.xml" contextKey="REPORTING::FIELD_SUPERVISION_CASEPLAN_REVIEW">
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>
+		<EntityMapping name="MJCW/MJC_ClosingLetter_en.xml" contextKey="REPORTING::CLOSING_LETTER_ENGLISH">
+  		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>
+	<EntityMapping name="MJCW/MJC_ClosingLetter_sp.xml" contextKey="REPORTING::CLOSING_LETTER_SPANISH">
+  		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>
+	<EntityMapping name="MJCW/MJC_ExitPlan.xml" contextKey="REPORTING::COMMUNITY_EXIT_PLAN">
+  		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>
+	<EntityMapping name="MJCW/MJC_RestrictedAccess_2012en.xml" contextKey="REPORTING::RESTRICTED_ACCESS_EN">
+  		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>
+	<EntityMapping name="MJCW/MJC_RestrictedAccess_sp.xml" contextKey="REPORTING::RESTRICTED_ACCESS_SP">
+  		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>
+	<EntityMapping name="MJCW/MJC_VendorSatisfactionSurvey_en.xml" contextKey="REPORTING::VENDOR_SATISFACTION_SURVEY">
+  		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>
+	<EntityMapping name="MJCW/MJC_ClientSatisfactionSurvey_en.xml" contextKey="REPORTING::CLIENT_SATISFACTION_SURVEY_EN">
+  		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>
+	<EntityMapping name="MJCW/MJC_ClientSatisfactionSurvey_es.xml" contextKey="REPORTING::CLIENT_SATISFACTION_SURVEY_ES">
+  		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>
+	<EntityMapping name="MJCW/MJC_SealingOfRecordsBrochure_en.xml" contextKey="REPORTING::SEALING_OF_RECORDS_BROCHURE_EN">
+  		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>
+	<EntityMapping name="MJCW/MJC_PlacementExitPlan.xml" contextKey="REPORTING::RESIDENTIAL_EXIT_PLAN">
+  		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>
+	<EntityMapping name="MJCW/MJC_DeferredAdjudicationClosingLetter.xml" contextKey="REPORTING::DEFERRED_ADJUDICATION_CLOSING_LETTER">
+  		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>
+	<EntityMapping name="MJCW/MJC_DeferredProsecutionClosingLetter.xml" contextKey="REPORTING::DEFERRED_PROSECUTION_CLOSING_LETTER">
+  		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>
+	<EntityMapping name="MJCW/MJC_CommonApplicationForPlacementOfChildren.xml" contextKey="REPORTING::COMMON_APPLICATION_FOR_PLACEMENT_OF_CHILDREN">
+  		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>
+	<EntityMapping name="MJCW/MJC_MAYSIRequestInfo.xml" contextKey="REPORTING::MAYSI_REQUEST_INFO">
+  		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>
+	<EntityMapping name="MJC_Placement Exit Plan.xml" contextKey="REPORTING::pd.juvenile.reporting.wordxml.MSWordReporting::RESIDENTIAL_EXIT_PLAN">
+    <QueryCallbacks>
+	  <QueryCallback name="ui.juvenilecase.casefile.ResidentialExitPlanPrintBean" mappingClassName="None" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="MJC_Placement Exit Plan.xml" connectionName="None" eventName="ui.juvenilecase.casefile.ResidentialExitPlanPrintBean" source="None" whereClause="none">
+		<FieldMappings>   
+		      <FieldMapping dataItemName="answers" associationType="none" name="[answer1]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="" propertyName="answers.2005_14_12_RESIDENTIALEXITPLAN_Q1" propertyType="Map" formatString="none" />
+		      <FieldMapping dataItemName="answers" associationType="none" name="[answer2]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="" propertyName="answers.2005_14_12_RESIDENTIALEXITPLAN_Q2" propertyType="Map" formatString="none" />                                            
+		      <FieldMapping dataItemName="answers" associationType="none" name="[answer3]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="" propertyName="answers.2005_14_12_RESIDENTIALEXITPLAN_Q3" propertyType="Map" formatString="none" />
+		      <FieldMapping dataItemName="answers" associationType="none" name="[answer4]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="" propertyName="answers.2005_14_12_RESIDENTIALEXITPLAN_Q4" propertyType="Map" formatString="none" />
+		</FieldMappings>
+	  </QueryCallback>
+    </QueryCallbacks>
+	</EntityMapping>    
+	<EntityMapping name="MJC_Common_App_For_Placement_Of_Children.xml" contextKey="REPORTING::pd.juvenile.reporting.wordxml.MSWordReporting::COMMON_APP_REPORT">
+		<QueryCallbacks>
+			<QueryCallback name="ui.juvenilecase.casefile.CommonAppReportPrintBean" mappingClassName="None" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="MJC_Placement Exit Plan.xml" connectionName="None" eventName="ui.juvenilecase.casefile.CommonAppReportPrintBean" source="None" whereClause="none">
+				<FieldMappings>   
+					<FieldMapping dataItemName="answers" associationType="none" name="[answer1]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="" propertyName="answers.2005_14_12_COMMONAPPEXITREPORT_Q1" propertyType="Map" formatString="none" />
+					<FieldMapping dataItemName="answers" associationType="none" name="[answer2]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="" propertyName="answers.2005_14_12_COMMONAPPEXITREPORT_Q2" propertyType="Map" formatString="none" />                                            
+					<FieldMapping dataItemName="answers" associationType="none" name="[answer3]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="" propertyName="answers.2005_14_12_COMMONAPPEXITREPORT_Q3" propertyType="Map" formatString="none" />
+					<FieldMapping dataItemName="answers" associationType="none" name="[answer4]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="" propertyName="answers.2005_14_12_COMMONAPPEXITREPORT_Q4" propertyType="Map" formatString="none" />
+					<FieldMapping dataItemName="answers" associationType="none" name="[answer5]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="" propertyName="answers.2005_14_12_COMMONAPPEXITREPORT_Q5" propertyType="Map" formatString="none" />
+					<FieldMapping dataItemName="answers" associationType="none" name="[answer6]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="" propertyName="answers.2005_14_12_COMMONAPPEXITREPORT_Q6" propertyType="Map" formatString="none" />                                            
+					<FieldMapping dataItemName="answers" associationType="none" name="[answer7]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="" propertyName="answers.2005_14_12_COMMONAPPEXITREPORT_Q7" propertyType="Map" formatString="none" />
+					<FieldMapping dataItemName="answers" associationType="none" name="[answer8]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="" propertyName="answers.2005_14_12_COMMONAPPEXITREPORT_Q8" propertyType="Map" formatString="none" />
+					<FieldMapping dataItemName="answers" associationType="none" name="[answer9]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="" propertyName="answers.2005_14_12_COMMONAPPEXITREPORT_Q9" propertyType="Map" formatString="none" />
+					<FieldMapping dataItemName="answers" associationType="none" name="[answer10]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="" propertyName="answers.2005_14_12_COMMONAPPEXITREPORT_Q10" propertyType="Map" formatString="none" />                                            
+					<FieldMapping dataItemName="answers" associationType="none" name="[answer11]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="" propertyName="answers.2005_14_12_COMMONAPPEXITREPORT_Q11" propertyType="Map" formatString="none" />
+					<FieldMapping dataItemName="answers" associationType="none" name="[answer12]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="" propertyName="answers.2005_14_12_COMMONAPPEXITREPORT_Q12" propertyType="Map" formatString="none" />
+					<FieldMapping dataItemName="answers" associationType="none" name="[answer13]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="" propertyName="answers.2005_14_12_COMMONAPPEXITREPORT_Q13" propertyType="Map" formatString="none" />
+					<FieldMapping dataItemName="answers" associationType="none" name="[answer14]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="" propertyName="answers.2005_14_12_COMMONAPPEXITREPORT_Q14" propertyType="Map" formatString="none" />                                            
+					<FieldMapping dataItemName="answers" associationType="none" name="[answer15]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="" propertyName="answers.2005_14_12_COMMONAPPEXITREPORT_Q15" propertyType="Map" formatString="none" />
+					<FieldMapping dataItemName="answers" associationType="none" name="[answer16]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="" propertyName="answers.2005_14_12_COMMONAPPEXITREPORT_Q16" propertyType="Map" formatString="none" />
+					<FieldMapping dataItemName="answers" associationType="none" name="[answer17]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="" propertyName="answers.2005_14_12_COMMONAPPEXITREPORT_Q17" propertyType="Map" formatString="none" />
+					<FieldMapping dataItemName="answers" associationType="none" name="[answer18]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="" propertyName="answers.2005_14_12_COMMONAPPEXITREPORT_Q18" propertyType="Map" formatString="none" />                                            
+					<FieldMapping dataItemName="answers" associationType="none" name="[answer19]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="" propertyName="answers.2005_14_12_COMMONAPPEXITREPORT_Q19" propertyType="Map" formatString="none" />
+					<FieldMapping dataItemName="answers" associationType="none" name="[answer20]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="" propertyName="answers.2005_14_12_COMMONAPPEXITREPORT_Q20" propertyType="Map" formatString="none" />
+					<FieldMapping dataItemName="answers" associationType="none" name="[answer21]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="" propertyName="answers.2005_14_12_COMMONAPPEXITREPORT_Q21" propertyType="Map" formatString="none" />
+					<FieldMapping dataItemName="answers" associationType="none" name="[answer22]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="" propertyName="answers.2005_14_12_COMMONAPPEXITREPORT_Q22" propertyType="Map" formatString="none" />                                            
+					<FieldMapping dataItemName="answers" associationType="none" name="[answer23]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="" propertyName="answers.2005_14_12_COMMONAPPEXITREPORT_Q23" propertyType="Map" formatString="none" />
+					<FieldMapping dataItemName="answers" associationType="none" name="[answer24]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="" propertyName="answers.2005_14_12_COMMONAPPEXITREPORT_Q24" propertyType="Map" formatString="none" />
+					<FieldMapping dataItemName="answers" associationType="none" name="[answer25]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="" propertyName="answers.2005_14_12_COMMONAPPEXITREPORT_Q25" propertyType="Map" formatString="none" />
+					<FieldMapping dataItemName="answers" associationType="none" name="[answer26]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="" propertyName="answers.2005_14_12_COMMONAPPEXITREPORT_Q26" propertyType="Map" formatString="none" />                                            
+					<FieldMapping dataItemName="answers" associationType="none" name="[answer27]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="" propertyName="answers.2005_14_12_COMMONAPPEXITREPORT_Q27" propertyType="Map" formatString="none" />
+					<FieldMapping dataItemName="answers" associationType="none" name="[answer28]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="" propertyName="answers.2005_14_12_COMMONAPPEXITREPORT_Q28" propertyType="Map" formatString="none" />
+					<FieldMapping dataItemName="answers" associationType="none" name="[answer29]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="" propertyName="answers.2005_14_12_COMMONAPPEXITREPORT_Q29" propertyType="Map" formatString="none" />
+					<FieldMapping dataItemName="answers" associationType="none" name="[answer20]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="" propertyName="answers.2005_14_12_COMMONAPPEXITREPORT_Q30" propertyType="Map" formatString="none" />                                            
+					<FieldMapping dataItemName="answers" associationType="none" name="[answer31]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="" propertyName="answers.2005_14_12_COMMONAPPEXITREPORT_Q31" propertyType="Map" formatString="none" />
+					<FieldMapping dataItemName="answers" associationType="none" name="[answer32]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="" propertyName="answers.2005_14_12_COMMONAPPEXITREPORT_Q32" propertyType="Map" formatString="none" />
+					<FieldMapping dataItemName="answers" associationType="none" name="[answer33]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="" propertyName="answers.2005_14_12_COMMONAPPEXITREPORT_Q33" propertyType="Map" formatString="none" />
+					<FieldMapping dataItemName="answers" associationType="none" name="[answer34]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="" propertyName="answers.2005_14_12_COMMONAPPEXITREPORT_Q34" propertyType="Map" formatString="none" />                                            
+					<FieldMapping dataItemName="schoolName" associationType="none" name="[SCHOOL_HISTORY.SchoolName]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="" propertyName="schoolName" propertyType="String" formatString="none" />                                            					
+					<FieldMapping dataItemName="schoolDistrict" associationType="none" name="[SCHOOL_HISTORY.SchoolDistrict]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="" propertyName="schoolDistrict" propertyType="String" formatString="none" />                                            										
+					<FieldMapping dataItemName="guardianName1" associationType="none" name="[GuardianName1]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="" propertyName="guardianName1" propertyType="String" formatString="none" />                                            															
+					<FieldMapping dataItemName="isDisabledGuardian1" associationType="none" name="[Disabled1]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="" propertyName="isDisabledGuardian1" propertyType="String" formatString="none" />                                            																				
+					<FieldMapping dataItemName="occupationGuardian1" associationType="none" name="[Occupation1]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="" propertyName="occupationGuardian1" propertyType="String" formatString="none" />                                            															
+					<FieldMapping dataItemName="employerNameGuardian1" associationType="none" name="[EmployerName1]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="" propertyName="employerNameGuardian1" propertyType="String" formatString="none" />                                            															
+					<FieldMapping dataItemName="salaryGuardian1" associationType="none" name="[Salary1]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="salaryGuardian1" propertyType="String" formatString="none" />                                            															
+					<FieldMapping dataItemName="salaryRateGuardian1" associationType="none" name="[SalRate1]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="" propertyName="salaryRateGuardian1" propertyType="String" formatString="none" />                                            																														
+					<FieldMapping dataItemName="otherIncomeAmountGuardian1" associationType="none" name="[OtherIncome1]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="" propertyName="otherIncomeAmountGuardian1" propertyType="String" formatString="none" />
+					<FieldMapping dataItemName="annualNetIncomeGuardian1" associationType="none" name="[AnnualIncome1]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="" propertyName="annualNetIncomeGuardian1" propertyType="String" formatString="none" />
+					<FieldMapping dataItemName="foodStampsGuardian1" associationType="none" name="[FoodStamps1]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="" propertyName="foodStampsGuardian1" propertyType="String" formatString="none" />	
+					<FieldMapping dataItemName="intangiblePropertyGuardian1" associationType="none" name="[IntangProp1]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="" propertyName="intangiblePropertyGuardian1" propertyType="String" formatString="none" />
+					<FieldMapping dataItemName="monthlyLifeInsurancePremiumGuardian1" associationType="none" name="[LicPrem1]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="" propertyName="monthlyLifeInsurancePremiumGuardian1" propertyType="String" formatString="none" />
+					<FieldMapping dataItemName="propertyValueGuardian1" associationType="none" name="[PropVal1]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="" propertyName="propertyValueGuardian1" propertyType="String" formatString="none" />
+					<FieldMapping dataItemName="tanfGuardian1" associationType="none" name="[Tanf1]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="" propertyName="tanfGuardian1" propertyType="String" formatString="none" />
+					<FieldMapping dataItemName="healthInsuranceTypeCDGuardian1" associationType="none" name="[HealthInsur1]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="" propertyName="healthInsuranceTypeCDGuardian1" propertyType="String" formatString="none" />
+					<FieldMapping dataItemName="guardianName2" associationType="none" name="[GuardianName2]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="" propertyName="guardianName2" propertyType="String" formatString="none" />					
+					<FieldMapping dataItemName="isDisabledGuardian2" associationType="none" name="[Disabled2]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="" propertyName="isDisabledGuardian2" propertyType="String" formatString="none" />                                            																				
+					<FieldMapping dataItemName="occupationGuardian2" associationType="none" name="[Occupation2]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="" propertyName="occupationGuardian2" propertyType="String" formatString="none" />                                            															
+					<FieldMapping dataItemName="employerNameGuardian2" associationType="none" name="[EmployerName2]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="" propertyName="employerNameGuardian2" propertyType="String" formatString="none" />                                            															
+					<FieldMapping dataItemName="salaryGuardian2" associationType="none" name="[Salary2]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="" propertyName="salaryGuardian2" propertyType="String" formatString="none" />                                            															
+					<FieldMapping dataItemName="salaryRateGuardian2" associationType="none" name="[SalRate2]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="" propertyName="salaryRateGuardian2" propertyType="String" formatString="none" />                                            																														
+					<FieldMapping dataItemName="otherIncomeAmountGuardian2" associationType="none" name="[OtherIncome2]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="" propertyName="otherIncomeAmountGuardian2" propertyType="String" formatString="none" />
+					<FieldMapping dataItemName="annualNetIncomeGuardian2" associationType="none" name="[AnnualIncome2]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="" propertyName="annualNetIncomeGuardian2" propertyType="String" formatString="none" />
+					<FieldMapping dataItemName="foodStampsGuardian2" associationType="none" name="[FoodStamps2]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="" propertyName="foodStampsGuardian2" propertyType="String" formatString="none" />	
+					<FieldMapping dataItemName="intangiblePropertyGuardian2" associationType="none" name="[IntangProp2]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="" propertyName="intangiblePropertyGuardian2" propertyType="String" formatString="none" />
+					<FieldMapping dataItemName="monthlyLifeInsurancePremiumGuardian2" associationType="none" name="[LicPrem2]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="" propertyName="monthlyLifeInsurancePremiumGuardian2" propertyType="String" formatString="none" />
+					<FieldMapping dataItemName="propertyValueGuardian2" associationType="none" name="[PropVal2]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="" propertyName="propertyValueGuardian2" propertyType="String" formatString="none" />
+					<FieldMapping dataItemName="tanfGuardian2" associationType="none" name="[Tanf2]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="" propertyName="tanfGuardian2" propertyType="String" formatString="none" />
+					<FieldMapping dataItemName="healthInsuranceTypeCDGuardian2" associationType="none" name="[HealthInsur2]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="" propertyName="healthInsuranceTypeCDGuardian2" propertyType="String" formatString="none" />
+					<FieldMapping dataItemName="isEligibleForMedicaid" associationType="none" name="[IsEligibleForMedicaid]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="" propertyName="isEligibleForMedicaid" propertyType="String" formatString="none" />                                            																									
+					<FieldMapping dataItemName="isReceivingMedicaid" associationType="none" name="[IsReceivingMedicaid]" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="" propertyName="isReceivingMedicaid" propertyType="String" formatString="none" />                                            																				
+				</FieldMappings>
+			</QueryCallback>	
+		</QueryCallbacks>	
+	</EntityMapping>  
+	<EntityMapping name="MJCW/ViolationofProbationSanctionNoticeForm.xml" contextKey="REPORTING::NONCOMPLIANCE_NOTICE">
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>
+		<EntityMapping name="MJCW/SuspiciousMemberMergeMemberFromForm.xml" contextKey="REPORTING::SUSPICIOUSMEMBERMERGE_FORM">
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>
+  	<EntityMapping name="MJCW/TEA_StudentDataReport.xml" contextKey="REPORTING::TEA_REPORT">
+  		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>
+	<EntityMapping name="MJCW/MJC_JOTChargeReport.xml" contextKey="REPORTING::JOT_CHARGE_REPORT">
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>
+  </EntityMappings>
+</Mapping>

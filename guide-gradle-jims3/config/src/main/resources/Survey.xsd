@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- edited with XMLSpy v2006 sp2 U (http://www.altova.com) by Justin Jose (Harris County) -->
+<xs:schema xmlns:xs="http://www.w3.org/2001/XMLSchema" elementFormDefault="qualified" attributeFormDefault="unqualified">
+	<xs:element name="Survey">
+		<xs:annotation>
+			<xs:documentation>A survey</xs:documentation>
+		</xs:annotation>
+		<xs:complexType>
+			<xs:sequence>
+				<xs:element name="questionGroup" maxOccurs="unbounded">
+					<xs:complexType>
+						<xs:sequence>
+							<xs:element name="question" maxOccurs="unbounded">
+								<xs:complexType>
+									<xs:sequence>
+										<xs:element name="response" minOccurs="0" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:attribute name="codeTableName" type="xs:string" use="optional"/>
+												<xs:attribute name="id" type="xs:string" use="required"/>
+												<xs:attribute name="displayText" type="xs:string" use="required"/>
+												<xs:attribute name="responseValue" type="xs:string" use="required"/>
+												<xs:attribute name="isDefault" type="xs:boolean" use="optional" default="false"/>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="responseDependancy" minOccurs="0">
+											<xs:complexType>
+												<xs:attribute name="questionId" type="xs:string" use="required"/>
+												<xs:attribute name="selectedResponseId" type="xs:string" use="required"/>
+											</xs:complexType>
+										</xs:element>
+										<xs:element name="AltRef" minOccurs="0" maxOccurs="unbounded">
+											<xs:complexType>
+												<xs:attribute name="token" type="xs:string" use="required"/>
+											</xs:complexType>
+										</xs:element>
+									</xs:sequence>
+									<xs:attribute name="id" type="xs:string" use="required"/>
+									<xs:attribute name="text" type="xs:string" use="required"/>
+									<xs:attribute name="rowSequence" type="xs:short" use="required"/>								
+									<xs:attribute name="columnSequence" type="xs:short" use="optional">
+										<xs:annotation>
+											<xs:documentation>Used for displaying questions side by side instead of row wise</xs:documentation>
+										</xs:annotation>
+									</xs:attribute>
+									<xs:attribute name="responseUIControlType" type="UIControl" use="required"/>
+									<xs:attribute name="uiControlSize" type="xs:short" use="optional"/>
+									<xs:attribute name="responseDataType" type="xs:string" use="optional">
+										<xs:annotation>
+											<xs:documentation>Data type of the response for validation purpose</xs:documentation>
+										</xs:annotation>
+									</xs:attribute>
+									<xs:attribute name="validationDescription" type="xs:string" use="optional">
+										<xs:annotation>
+											<xs:documentation>Message to be displayed if the validation fails</xs:documentation>
+										</xs:annotation>
+									</xs:attribute>
+									<xs:attribute name="formatKey" type="xs:string" use="optional">
+										<xs:annotation>
+											<xs:documentation>Visual formatting mask. e.g. $$$.$$</xs:documentation>
+										</xs:annotation>
+									</xs:attribute>
+									<xs:attribute name="isResponseNewLine" type="xs:boolean" use="optional" default="false"/>
+									<xs:attribute name="isRequired" type="xs:boolean" use="optional" default="false"/>
+									<xs:attribute name="isRenderQuesNum" type="xs:boolean" use="optional" default="false"/>
+									<xs:attribute name="textLength" type="xs:string" use="optional"/>
+								</xs:complexType>
+							</xs:element>
+							<xs:element name="responseDependancy" minOccurs="0">
+								<xs:complexType>
+									<xs:attribute name="questionId" use="required"/>
+									<xs:attribute name="selectedResponseId" use="required"/>
+								</xs:complexType>
+							</xs:element>
+						</xs:sequence>
+						<xs:attribute name="id" type="xs:string" use="required"/>
+						<xs:attribute name="name" type="xs:string" use="optional"/>
+						<xs:attribute name="sequence" type="xs:short" use="optional"/>
+					</xs:complexType>
+				</xs:element>
+			</xs:sequence>
+			<xs:attribute name="name" type="xs:string" use="required"/>
+			<xs:attribute name="description" use="optional"/>
+			<xs:attribute name="type" type="xs:string" use="required"/>
+		</xs:complexType>
+	</xs:element>
+	<xs:simpleType name="UIControl" final="restriction">
+		<xs:annotation>
+			<xs:documentation>Type of UI Control to use for presenting possible responses</xs:documentation>
+		</xs:annotation>
+		<xs:restriction base="xs:string">
+			<xs:enumeration value="SELECT"/>
+			<xs:enumeration value="TEXTBOX"/>
+			<xs:enumeration value="text"/>
+			<xs:enumeration value="RADIO"/>
+		</xs:restriction>
+	</xs:simpleType>
+</xs:schema>

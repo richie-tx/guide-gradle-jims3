@@ -1,0 +1,53 @@
+package naming;
+
+public class SupervisionOptionsControllerServiceNames
+{
+	static public String GETCSTASK = "GetCSTask";
+	static public String DELETECSTASK = "DeleteCSTask";
+	static public String SAVECSTASK = "SaveCSTask";
+	static public String GETCOURTPOLICYDETAILS = "GetCourtPolicyDetails";
+	static public String DELETECOURTPOLICY = "DeleteCourtPolicy";
+	static public String GETALLCOURTS = "GetAllCourts";
+	static public String GETFILTEREDCOURTS = "GetFilteredCourts";
+	static public String GETALLGROUPS = "GetAllGroups";
+	static public String GETEVENTTYPES = "GetEventTypes";
+	static public String GETDETAILDICTIONARY = "GetDetailDictionary";
+	static public String GENERATECOURTPOLICYNAME = "GenerateCourtPolicyName";
+	static public String VALIDATECOURTPOLICY = "ValidateCourtPolicy";
+	static public String SAVECOURTPOLICY = "SaveCourtPolicy";
+	static public String GETCOURTPOLICIESINUSE = "GetCourtPoliciesInUse";
+	static public String GETDEPTPOLICIESINUSE = "GetDeptPoliciesInUse";
+	static public String GETASSOCIATEDCONDITIONSFORPOLICY = "GetAssociatedConditionsForPolicy";
+	static public String GETCOURTPOLICIES = "GetCourtPolicies";
+	static public String GETDEPARTMENTPOLICYDETAILS = "GetDepartmentPolicyDetails";
+	static public String DELETEDEPARTMENTPOLICY = "DeleteDepartmentPolicy";
+	static public String GENERATEDEPARTMENTPOLICYNAME = "GenerateDepartmentPolicyName";
+	static public String VALIDATEDEPARTENTPOLICY = "ValidateDepartentPolicy";
+	static public String SAVEDEPARTMENTPOLICY = "SaveDepartmentPolicy";
+	static public String GETDEPARTMENTPOLICIES = "GetDepartmentPolicies";
+	static public String GETSUPERVISIONCONDITIONS = "GetSupervisionConditions";
+	static public String GETSUPERVISIONCONDITIONDETAILS = "GetSupervisionConditionDetails";
+	static public String GENERATESUPERVISIONCONDITIONNAME = "GenerateSupervisionConditionName";
+	static public String SAVESUPERVISIONCONDITION = "SaveSupervisionCondition";
+	static public String NONE = "None";
+	static public String VALIDATESUPERVISIONCONDITION = "ValidateSupervisionCondition";
+	static public String DELETESUPERVISIONCONDITION = "DeleteSupervisionCondition";
+	static public String GETSUPERVISIONCONDITIONSINUSE = "GetSupervisionConditionsInUse";
+	static public String GETPOLICIESTODISASSOCIATE = "GetPoliciesToDisassociate";
+	static public String GETASSOCIATEDCONDITIONSFORCOURTPOLICY = "GetAssociatedConditionsForCourtPolicy";
+	static public String GETASSOCIATEDCONDITIONSFORDEPARTMENTPOLICY = "GetAssociatedConditionsForDepartmentPolicy";
+	static public String SAVECOURTPOLICYASSOCIATETOCONDITIONS = "SaveCourtPolicyAssociateToConditions";
+	static public String SAVEDEPARTMENTPOLICYASSOCIATETOCONDITIONS = "SaveDepartmentPolicyAssociateToConditions";
+	static public String GETASSOCIATEDDEPARTMENTPOLICIESFORCONDITION = "GetAssociatedDepartmentPoliciesForCondition";
+	static public String SAVECONDITIONASSOCIATETODEPARTMENTPOLICIES = "SaveConditionAssociateToDepartmentPolicies";
+	static public String GETASSOCIATEDPOLICIESFORCONDITION = "GetAssociatedPoliciesForCondition";
+	static public String SAVECONDITIONASSOCIATETOCOURTPOLICIES = "SaveConditionAssociateToCourtPolicies";
+	static public String SEARCHSUPERVISIONCONDITIONSDETAILS = "SearchSupervisionConditionsDetails";
+	static public String GETASSOCIATEDCOURTPOLICIESFORCONDITION = "GetAssociatedCourtPoliciesForCondition";
+	static public String ARCHIVESUPERVISIONCONDITION = "ArchiveSupervisionCondition";
+	static public String VALIDATECONDITIONCHANGE = "ValidateConditionChange";
+	static public String GETCONDITIONSTODISASSOCIATEFROMCOURTPOLICIES = "GetConditionsToDisassociateFromCourtPolicies";
+	static public String VALIDATEDEPARTMENTPOLICY = "ValidateDepartmentPolicy";
+	static public String GETCONDITIONSTODISASSOCIATEFROMDEPARTMENTPOLICIES = "GetConditionsToDisassociateFromDepartmentPolicies";
+	static public String GETSUBGROUPS = "GetSubGroups";
+}

@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Mapping>
+  <EntityMappings>
+     <EntityMapping name="pd.webfocus.WebFocusReportCatalog" contextKey="pd.webfocus.WebFocusReportCatalog">
+      <QueryCallbacks>
+        <QueryCallback name="OIDQuery" mappingClassName="mojo.km.context.multidatasource.JDBCSQLMapping" mappingMethodName="retrieve" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="GLWEBFOCUSCAT" connectionName="JDBCMSSQL" eventName="mojo.km.persistence.OIDEvent" source="GLWEBFOCUSCAT" whereClause="WEBFOCUSCAT_ID = ?">
+          <ParmMappings>
+            <ParmMapping name="OID" dataItemName="WEBFOCUSCAT_ID" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="OID" propertyType="Numeric" formatString="none" convertWilcard="n" />
+          </ParmMappings>
+		  <FieldMappings>
+            <FieldMapping name="reportDesc" associationType="none" dataItemName="REPORTDESC" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" padChar="none" length="0" text="none" propertyName="reportDesc" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="userParm" associationType="none" dataItemName="USERPARM" parmIndex="2" format="none" position="0" cardPosition="0" appendFiller="0" padChar="none" length="0" text="none" propertyName="userParm" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="url" associationType="none" dataItemName="URL" parmIndex="3" format="none" position="0" cardPosition="0" appendFiller="0" padChar="none" length="0" text="none" propertyName="url" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="reportId" associationType="none" dataItemName="REPORTCD" parmIndex="4" format="none" position="0" cardPosition="0" appendFiller="0" padChar="none" length="0" text="none" propertyName="reportId" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="OID" associationType="none" dataItemName="WEBFOCUSCAT_ID" parmIndex="5" format="none" position="0" cardPosition="0" appendFiller="0" padChar="none" length="0" text="none" propertyName="OID" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="passwordParm" associationType="none" dataItemName="PASSWORDPARM" parmIndex="6" format="none" position="0" cardPosition="0" appendFiller="0" padChar="none" length="0" text="none" propertyName="passwordParm" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="webFocusName" associationType="none" dataItemName="WEBFOCUSNAME" parmIndex="7" format="none" position="0" cardPosition="0" appendFiller="0" padChar="none" length="0" text="none" propertyName="webFocusName" propertyType="String" formatString="none" convertWilcard="n" />
+          </FieldMappings>
+        </QueryCallback>
+        <QueryCallback name="AttributeQuery" mappingClassName="mojo.km.context.multidatasource.JDBCSQLMapping" mappingMethodName="retrieve" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="GLWEBFOCUSCAT" connectionName="JDBCMSSQL" eventName="mojo.km.persistence.AttributeEvent" source="GLWEBFOCUSCAT" whereClause="none">          
+          <FieldMappings>
+            <FieldMapping name="reportDesc" associationType="none" dataItemName="REPORTDESC" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" padChar="none" length="0" text="none" propertyName="reportDesc" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="userParm" associationType="none" dataItemName="USERPARM" parmIndex="2" format="none" position="0" cardPosition="0" appendFiller="0" padChar="none" length="0" text="none" propertyName="userParm" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="url" associationType="none" dataItemName="URL" parmIndex="3" format="none" position="0" cardPosition="0" appendFiller="0" padChar="none" length="0" text="none" propertyName="url" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="reportId" associationType="none" dataItemName="REPORTCD" parmIndex="4" format="none" position="0" cardPosition="0" appendFiller="0" padChar="none" length="0" text="none" propertyName="reportId" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="OID" associationType="none" dataItemName="WEBFOCUSCAT_ID" parmIndex="5" format="none" position="0" cardPosition="0" appendFiller="0" padChar="none" length="0" text="none" propertyName="OID" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="passwordParm" associationType="none" dataItemName="PASSWORDPARM" parmIndex="6" format="none" position="0" cardPosition="0" appendFiller="0" padChar="none" length="0" text="none" propertyName="passwordParm" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="webFocusName" associationType="none" dataItemName="WEBFOCUSNAME" parmIndex="7" format="none" position="0" cardPosition="0" appendFiller="0" padChar="none" length="0" text="none" propertyName="webFocusName" propertyType="String" formatString="none" convertWilcard="n" />
+          </FieldMappings>
+        </QueryCallback>
+        <QueryCallback name="AllQuery" mappingClassName="mojo.km.context.multidatasource.JDBCSQLMapping" mappingMethodName="retrieve" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="none" connectionName="none" eventName="mojo.km.persistence.AllQueryEvent" source="GLWEBFOCUSCAT" whereClause="none">
+           <FieldMappings>
+            <FieldMapping name="reportDesc" associationType="none" dataItemName="REPORTDESC" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" padChar="none" length="0" text="none" propertyName="reportDesc" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="userParm" associationType="none" dataItemName="USERPARM" parmIndex="2" format="none" position="0" cardPosition="0" appendFiller="0" padChar="none" length="0" text="none" propertyName="userParm" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="url" associationType="none" dataItemName="URL" parmIndex="3" format="none" position="0" cardPosition="0" appendFiller="0" padChar="none" length="0" text="none" propertyName="url" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="reportId" associationType="none" dataItemName="REPORTCD" parmIndex="4" format="none" position="0" cardPosition="0" appendFiller="0" padChar="none" length="0" text="none" propertyName="reportId" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="OID" associationType="none" dataItemName="WEBFOCUSCAT_ID" parmIndex="5" format="none" position="0" cardPosition="0" appendFiller="0" padChar="none" length="0" text="none" propertyName="OID" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="passwordParm" associationType="none" dataItemName="PASSWORDPARM" parmIndex="6" format="none" position="0" cardPosition="0" appendFiller="0" padChar="none" length="0" text="none" propertyName="passwordParm" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="webFocusName" associationType="none" dataItemName="WEBFOCUSNAME" parmIndex="7" format="none" position="0" cardPosition="0" appendFiller="0" padChar="none" length="0" text="none" propertyName="webFocusName" propertyType="String" formatString="none" convertWilcard="n" />
+          </FieldMappings>
+        </QueryCallback>
+      </QueryCallbacks>
+    </EntityMapping>
+  </EntityMappings>
+</Mapping>
+

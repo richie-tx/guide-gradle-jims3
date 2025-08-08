@@ -1,0 +1,66 @@
+<?xml version="1.0" encoding="US-ASCII"?>
+<document size="LETTER" margin-left="25" margin-right="25" margin-top="50" margin-bottom="25">
+
+	<encryption allow-fillin="false" allow-modify-contents="false" allow-degraded-printing="true" allow-screen-readers="false" allow-copy="false" allow-printing="true"/>
+	<meta author="JIMS2, Harris County" creator="JIMS2, Harris County" title="Interview Task Checklist"/>
+
+	<module>
+		<font-def name="label" family="Times New Roman" style="normal" size="12"/>
+		<font-def name="text" family="Times New Roman" style="normal" size="10"/>
+		<font-def name="letterheader" family="Times New Roman" style="normal" size="16"/>
+		
+	</module>
+
+	
+	<table columns="2" border-style="box" border-width="1" border-color="black" widths="15,80">
+		<table-row halign="left">
+			<cell padding-bottom="4" padding-left="4">Juvenile Name:</cell>
+			<cell padding-bottom="4" padding-left="4">${juvenileName}</cell>
+		</table-row>
+		<table-row halign="left">
+			<cell padding-bottom="4" padding-left="4">Juvenile Number:</cell>
+			<cell padding-bottom="4" padding-left="4">${juvenileNumber}</cell>
+		</table-row>
+		<table-row halign="left">
+			<cell padding-bottom="4" padding-left="4">Casefile Number:</cell>
+			<cell padding-bottom="4" padding-left="4">${casefileNumber}</cell>
+		</table-row>
+	</table>
+	<br/><br/><br/>
+	
+	<paragraph spacing-after="10">
+		<b><i>*When a listed task is finished, return to the Interview Checklist page and mark the task complete.</i></b>
+	</paragraph>	
+		
+	<table columns="3" border-style="box" border-width="1" border-color="black" widths="30,10,55">
+		<table-row halign="left" bgcolor="B3C9F5">
+			<cell colspan="3" padding-bottom="4" padding-left="2">Interview Checklist</cell>
+		</table-row>
+		<table-row halign="center" bgcolor="f0f0f0">
+			<cell padding-bottom="4" padding-left="2">Task</cell>
+			<cell padding-bottom="4" padding-left="2">Task Status</cell>
+			<cell padding-bottom="4" padding-left="2">Link</cell>
+		</table-row>
+		
+		_foreach_(eachChecklist ${checklist} 'even' 'odd')
+		<table-row halign="left" bgcolor="white">
+			<cell padding-bottom="4" padding-left="2">${eachChecklist.taskName}</cell>
+			<cell padding-bottom="4" padding-left="2" halign="center">
+				_if_(eachChecklist.completed == "true")
+					Completed
+				_else_
+					In Progress
+				_endif_
+				
+			</cell>
+			<cell padding-bottom="4" padding-left="2">
+				${urlPrefix}/JuvenileCasework/juvenileCaseExecuteTask.do?taskId=${eachChecklist.execTaskId}
+			</cell>
+		</table-row>
+		_endfor_
+	</table>
+	
+	
+	
+    
+</document>

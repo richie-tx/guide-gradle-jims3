@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<survey xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  type="CommonAppExitReport" name="2014_24_11_commonappexitreportsubstanceabusehistory.xml">
+	<questionGroup id="1">
+		<question id="2005_14_12_COMMONAPPEXITREPORT_Q22" text="Describe the child's history of substance use, abuse, manufacture, 
+possessions, and/or delivery." rowSequence="22" responseUIControlType="TEXTBOX" isRequired="false" isResponseNewLine="true" uiControlSize="4" textLength="1000">
+		</question>
+		<question id="2005_14_12_COMMONAPPEXITREPORT_Q23" text="Describe the child's family history of substance use, abuse, manufacture, possession, and/or delivery. Include not only parents and siblings, but 
+also extended-family members (such as grandparents, aunts, uncles) even if they 
+do not live in the same household as the child." rowSequence="23" responseUIControlType="TEXTBOX" isRequired="false" isResponseNewLine="true" uiControlSize="4" textLength="1000">
+		</question>
+<!--  10/26/2012 revised text per defect 73991 -->			
+		<question id="2005_14_12_COMMONAPPEXITREPORT_Q24" text="Describe any treatment the child has received for substance abuse and the success or failure of this treatment. Include information such as the length and dates of 
+treatment, whether the program was residential or outpatient, whether the child 
+completed the program, whether the family was included in the treatment, etc." 
+rowSequence="24" responseUIControlType="TEXTBOX" isRequired="false" isResponseNewLine="true" uiControlSize="4" textLength="1000">
+		</question>
+		<question id="2005_14_12_COMMONAPPEXITREPORT_Q25" text="Is a
+specialized drug program required?" rowSequence="25" responseUIControlType="RADIO" isRequired="true" isResponseNewLine="false" validationDescription="Specialized Drug 
+Program">
+			<response displayText="Yes" id="2005_14_12_COMMONAPPEXITREPORT_Q25_R1" responseValue="true" IsDefault="false"></response>
+			<response displayText="No" id="2005_14_12_COMMONAPPEXITREPORT_Q25_R2" responseValue="false" IsDefault="false"></response>
+		</question>
+	</questionGroup>
+</survey>

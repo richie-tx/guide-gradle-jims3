@@ -1,0 +1,191 @@
+<NotificationDefinitions>
+	<Notification topic="JW.DTA.INITIATED" defaultSeverity="M">
+		<Source transportType="email" value="jims2notification@itc.hctx.net" />
+		<Destination transportType="email" bean="pd.contact.user.UserProfile" property="email"  value="richard.capestani-knape@itc.hctx.net" />
+		<Destination transportType="email" bean="pd.contact.user.UserProfile" property="email"  value="kevin.harris@itc.hctx.net" />
+		<Template>
+		A Directive to Apprehend #{pd.juvenilewarrant.JuvenileWarrant.warrantNum} has been witnessed by #{pd.contact.officer.OfficerProfile.firstName} #{pd.contact.officer.OfficerProfile.lastName} and was file stamped #{pd.juvenilewarrant.JuvenileWarrant.dateOfIssueString}.  Please acknowledge this notice upon his arrival to your office.
+		</Template>
+	</Notification>
+	<Notification topic="JW.DTA.ACKNOWLEDGED" defaultSeverity="M">
+		<Source transportType="email" value="jims2notification@itc.hctx.net" />
+		<Destination transportType="email" bean="pd.contact.user.UserProfile" property="email"  value="richard.capestani-knape@itc.hctx.net" />
+		<Destination transportType="email" bean="pd.contact.user.UserProfile" property="email"  value="kevin.harris@itc.hctx.net" />
+		<Template>
+		A Juvenile Directive to Apprehend #{pd.juvenilewarrant.JuvenileWarrant.warrantNum} is now ready and needs to be activated.
+
+The Directive to Apprehend was file stamped on #{pd.juvenilewarrant.JuvenileWarrant.fileStampDateString} and acknowledged on #{pd.juvenilewarrant.JuvenileWarrant.warrantAcknowledgementDateString}.
+		</Template>
+	</Notification>
+	<Notification topic="JW.DTA.ACTIVATED" defaultSeverity="M">
+		<Source transportType="email" value="jims2notification@itc.hctx.net" />
+		<Destination transportType="email" bean="pd.contact.user.UserProfile" property="email" context="warrantOriginator" />
+		<Destination transportType="email" bean="pd.contact.officer.OfficerProfile" property="email" context="officer" />
+		<Destination transportType="email" bean="pd.contact.user.UserProfile" property="email" context="warrantJPO" />
+		<Template>
+		#{pd.juvenilewarrant.JuvenileWarrant.nameFirstMiddleLastSuffix} is wanted pursuant to a Directive to Apprehend #{pd.juvenilewarrant.JuvenileWarrant.warrantNum}.  
+
+If located contact Juvenile Probation Intake at 713-222-4100.
+		</Template>
+	</Notification>
+	<Notification topic="JW.PCW.INITIATED" defaultSeverity="M">
+		<Source transportType="email" value="jims2notification@itc.hctx.net" />
+		<Destination transportType="email" bean="pd.contact.user.UserProfile" property="email" context="warrantOriginator" />
+		<Destination transportType="email" bean="pd.contact.officer.OfficerProfile" property="email" context="officer" />
+		<Destination transportType="email" bean="pd.contact.user.UserProfile" property="email" context="warrantJPO" />
+		<Template>
+		A Probable Cause Warrant #{pd.juvenilewarrant.JuvenileWarrant.warrantNum} has been issued for #{pd.juvenilewarrant.JuvenileWarrant.nameFirstMiddleLastSuffix}.
+
+If juvenile is located, please contact the Juvenile Probation Intake at 713-222-4100.
+		</Template>
+	</Notification>
+	<Notification topic="JW.OIC.INITIATED" defaultSeverity="M">
+		<Source transportType="email" value="jims2notification@itc.hctx.net" />
+		<Destination transportType="email" bean="pd.contact.user.UserProfile" property="email"  value="richard.capestani-knape@itc.hctx.net" />
+		<Destination transportType="email" bean="pd.contact.user.UserProfile" property="email"  value="kevin.harris@itc.hctx.net" />
+		<Template>
+		The Order of Immediate Custody #{pd.juvenilewarrant.JuvenileWarrant.warrantNum} for #{pd.juvenilewarrant.JuvenileWarrant.nameFirstMiddleLastSuffix} has been initiated as of #{pd.juvenilewarrant.JuvenileWarrant.dateOfIssueString} and is ready to be signed.
+		</Template>
+	</Notification>
+	<Notification topic="JW.OIC.WANTED" defaultSeverity="M">
+		<Source transportType="email" value="jims2notification@itc.hctx.net" />
+		<Destination transportType="email" bean="pd.contact.user.UserProfile" property="email" context="warrantJPO" />
+		<Destination transportType="email" bean="pd.contact.user.UserProfile" property="email"  value="richard.capestani-knape@itc.hctx.net" />
+		<Destination transportType="email" bean="pd.contact.user.UserProfile" property="email"  value="kevin.harris@itc.hctx.net" />
+		<Template>
+		#{pd.juvenilewarrant.JuvenileWarrant.nameFirstMiddleLastSuffix} is wanted pursuant to an Order of Immediate Custody on #{pd.juvenilewarrant.Charge.petitionNum} issued by #{pd.juvenilewarrant.Charge.courtId}th District Court on #{pd.juvenilewarrant.JuvenileWarrant.dateOfIssueString}.
+
+If the youth is located, contact the Harris County Juvenile Probation Department at (713) 222-4100.
+		</Template>
+	</Notification>
+	<Notification topic="JW.OIC.RETURNED" defaultSeverity="M">
+		<Source transportType="email" value="jims2notification@itc.hctx.net" />
+		<Destination transportType="email" bean="pd.contact.user.UserProfile" property="email"  value="richard.capestani-knape@itc.hctx.net" />
+		<Destination transportType="email" bean="pd.contact.user.UserProfile" property="email"  value="kevin.harris@itc.hctx.net" />
+		<Template>
+		The #{pd.juvenilewarrant.Charge.courtId}th District Court has decided that the Order of Immediate Custody #{pd.juvenilewarrant.JuvenileWarrant.warrantNum} will not be issued until the following updates have been completed.
+
+#{pd.juvenilewarrant.JuvenileWarrant.unsendNotSignedReason}
+		</Template>
+	</Notification>
+	<Notification topic="JW.OIC.UNSEND" defaultSeverity="M">
+		<Source transportType="email" value="jims2notification@itc.hctx.net" />
+		<Destination transportType="email" bean="pd.contact.user.UserProfile" property="email"  value="richard.capestani-knape@itc.hctx.net" />
+		<Destination transportType="email" bean="pd.contact.user.UserProfile" property="email"  value="kevin.harris@itc.hctx.net" />
+		<Template>
+		The #{pd.juvenilewarrant.JuvenileWarrant.warrantOriginatorCourt}th District Court has decided that the Order of Immediate Custody #{pd.juvenilewarrant.JuvenileWarrant.warrantNum} will not be issued.
+		</Template>
+	</Notification>
+	<Notification topic="JW.VOP.INITIATED" defaultSeverity="M">
+		<Source transportType="email" value="jims2notification@itc.hctx.net" />
+		<Destination transportType="email" bean="pd.contact.user.UserProfile" property="email"  value="richard.capestani-knape@itc.hctx.net" />
+		<Destination transportType="email" bean="pd.contact.user.UserProfile" property="email"  value="kevin.harris@itc.hctx.net" />
+		<Template>
+		A Violation of Probation warrant #{pd.juvenilewarrant.JuvenileWarrant.warrantNum} is now ready and needs to be activated.
+
+The Violation of Probation warrant was created on #{pd.juvenilewarrant.JuvenileWarrant.dateOfIssueString} for #{pd.juvenilewarrant.JuvenileWarrant.nameFirstMiddleLastSuffix}, juvenile number #{pd.juvenilewarrant.JuvenileWarrant.juvenileNum}.  Please review VOP documents for activation.
+		</Template>
+	</Notification>
+	<Notification topic="JW.VOP.ACTIVATED" defaultSeverity="M">
+		<Source transportType="email" value="jims2notification@itc.hctx.net" />
+		<Destination transportType="email" bean="pd.contact.user.UserProfile" property="email" context="warrantOriginator" />
+		<Destination transportType="email" bean="pd.contact.user.UserProfile" property="email"  value="richard.capestani-knape@itc.hctx.net" />
+		<Template>
+		The Violation of Probation warrant #{pd.juvenilewarrant.JuvenileWarrant.warrantNum} has been activated on #{pd.juvenilewarrant.JuvenileWarrant.warrantActivationDate} for #{pd.juvenilewarrant.JuvenileWarrant.nameFirstMiddleLastSuffix}, juvenile number #{pd.juvenilewarrant.JuvenileWarrant.juvenileNum}.
+		</Template>
+	</Notification>
+	<Notification topic="JW.VOP.UNSEND" defaultSeverity="M">
+		<Source transportType="email" value="jims2notification@itc.hctx.net" />
+		<Destination transportType="email" bean="pd.contact.user.UserProfile" property="email" context="warrantOriginator" />
+		<Destination transportType="email" bean="pd.contact.user.UserProfile" property="email"  value="richard.capestani-knape@itc.hctx.net" />
+		<Template>
+		The Violation of Probation warrant #{pd.juvenilewarrant.JuvenileWarrant.warrantNum} has been returned for #{pd.juvenilewarrant.JuvenileWarrant.nameFirstMiddleLastSuffix}, juvenile number #{pd.juvenilewarrant.JuvenileWarrant.juvenileNum} because #{pd.juvenilewarrant.JuvenileWarrant.unsendNotSignedReason}. 
+		</Template>
+	</Notification>
+	<Notification topic="JW.VOP.REJECTED" defaultSeverity="M">
+		<Source transportType="email" value="jims2notification@itc.hctx.net" />
+		<Destination transportType="email" bean="pd.contact.user.UserProfile" property="email" context="warrantOriginator" />
+		<Destination transportType="email" bean="pd.contact.user.UserProfile" property="email"  value="richard.capestani-knape@itc.hctx.net" />
+		<Template>
+		The Violation of Probation warrant #{pd.juvenilewarrant.JuvenileWarrant.warrantNum} has been rejected for #{pd.juvenilewarrant.JuvenileWarrant.nameFirstMiddleLastSuffix}, juvenile number #{pd.juvenilewarrant.JuvenileWarrant.juvenileNum} because #{pd.juvenilewarrant.JuvenileWarrant.unsendNotSignedReason}.
+		</Template>
+	</Notification>
+	<Notification topic="JW.ARR.INITIATED" defaultSeverity="M">
+		<Source transportType="email" value="jims2notification@itc.hctx.net" />
+		<Destination transportType="email" bean="pd.contact.user.UserProfile" property="email"  value="richard.capestani-knape@itc.hctx.net" />
+		<Destination transportType="email" bean="pd.contact.user.UserProfile" property="email"  value="kevin.harris@itc.hctx.net" />
+		<Template>
+		The Arrest Warrant #{pd.juvenilewarrant.JuvenileWarrant.warrantNum} for juvenile #{pd.juvenilewarrant.JuvenileWarrant.nameFirstMiddleLastSuffix} needs to be activated.
+		</Template>
+	</Notification>
+	<Notification topic="JW.ARR.WANTED" defaultSeverity="M">
+		<Source transportType="email" value="jims2notification@itc.hctx.net" />
+		<Destination transportType="email" bean="pd.contact.user.UserProfile" property="email" context="warrantOriginator" />
+		<Destination transportType="email" bean="pd.contact.officer.OfficerProfile" property="email" context="officer" />
+		<Destination transportType="email" bean="pd.contact.user.UserProfile" property="email" context="warrantJPO" />
+		<Template>
+		The juvenile #{pd.juvenilewarrant.JuvenileWarrant.nameFirstMiddleLastSuffix} is wanted on Arrest Warrant #{pd.juvenilewarrant.JuvenileWarrant.warrantNum}.
+
+Contact the Juvenile Probation Department at 713-512-4000 for processing information if apprehended.
+		</Template>
+	</Notification>
+	<Notification topic="JW.WARRANT.RECALLED" defaultSeverity="M">
+		<Source transportType="email" value="jims2notification@itc.hctx.net" />
+		<Destination transportType="email" bean="pd.contact.user.UserProfile" property="email"  value="richard.capestani-knape@itc.hctx.net" />
+		<Destination transportType="email" bean="pd.contact.user.UserProfile" property="email" context="warrantOriginator" />
+		<Destination transportType="email" bean="pd.contact.officer.OfficerProfile" property="email" context="officer" />
+		<Destination transportType="email" bean="pd.contact.user.UserProfile" property="email" context="warrantJPO" />
+		<Template>
+		The #{pd.codetable.Code.description} warrant issued on #{pd.juvenilewarrant.JuvenileWarrant.dateOfIssueString} for #{pd.juvenilewarrant.JuvenileWarrant.nameFirstMiddleLastSuffix} has been recalled because #{pd.juvenilewarrant.JuvenileWarrant.recallReasonDescription}.
+		</Template>
+	</Notification>
+	<Notification topic="JW.WARRANT.SERVED" defaultSeverity="M">
+		<Source transportType="email" value="jims2notification@itc.hctx.net" />
+		<Destination transportType="email" bean="pd.contact.user.UserProfile" property="email" context="warrantOriginator" />
+		<Destination transportType="email" bean="pd.contact.user.UserProfile" property="email"  value="richard.capestani-knape@itc.hctx.net" />
+		<Destination transportType="email" bean="pd.contact.user.UserProfile" property="email"  value="kevin.harris@itc.hctx.net" />
+		<Template>
+		The #{pd.codetable.Code.description} warrant, #{pd.juvenilewarrant.JuvenileWarrant.warrantNum} has been executed by #{messaging.contact.user.to.UserBean.firstName} #{messaging.contact.user.to.UserBean.lastName}, #{messaging.contact.user.to.UserBean.departmentName}, #{pd.contact.officer.OfficerProfile.officerPhoneNumbers}, regarding juvenile #{pd.juvenilewarrant.JuvenileWarrant.nameFirstMiddleLastSuffix}.  The juvenile was apprehended on #{pd.juvenilewarrant.JuvenileWarrant.arrestTimeStampString}.
+		</Template>
+	</Notification>
+	<Notification topic="JW.RETURNOFSERVICE.TOBE.FILED" defaultSeverity="M">
+		<Source transportType="email" value="jims2notification@itc.hctx.net" />
+		<Destination transportType="email" bean="pd.contact.user.UserProfile" property="email" context="warrantOriginator" />
+		<Destination transportType="email" bean="pd.contact.user.UserProfile" property="email"  value="richard.capestani-knape@itc.hctx.net" />
+		<Template>
+		The juvenile Warrant #{pd.juvenilewarrant.JuvenileWarrant.warrantNum} on #{pd.juvenilewarrant.JuvenileWarrant.nameFirstMiddleLastSuffix} is ready to be filed.
+		</Template>
+	</Notification>
+	<Notification topic="JW.RELEASE.DECISION.DETENTION" defaultSeverity="M">
+		<Source transportType="email" value="jims2notification@itc.hctx.net" />
+		<Destination transportType="email" bean="pd.contact.officer.OfficerProfile" property="email" context="officer" />
+		<Template>
+		After reviewing the information of #{pd.juvenilewarrant.JuvenileWarrant.nameFirstMiddleLastSuffix} on #{pd.juvenilewarrant.JuvenileWarrant.warrantNum} it has been determined that the juvenile can be brought to the Juvenile Detention Center at 1200 Congress, Houston, Texas.  Please enter the details documenting the release to Juvenile Probation.
+		</Template>
+	</Notification>
+	<Notification topic="JW.RELEASE.DECISION.PERSON" defaultSeverity="M">
+		<Source transportType="email" value="jims2notification@itc.hctx.net" />
+		<Destination transportType="email" bean="pd.contact.officer.OfficerProfile" property="email" context="officer" />
+		<Template>
+		After reviewing the information of #{pd.juvenilewarrant.JuvenileWarrant.nameFirstMiddleLastSuffix} on #{pd.juvenilewarrant.JuvenileWarrant.warrantNum} it has been determined that the juvenile can be released to a parent or guardian.  Please enter the details documenting the release to person details.
+		</Template>
+	</Notification>
+	<Notification topic="JW.INVALID.ADDRESS" defaultSeverity="M">
+		<Source transportType="email" value="jims2notification@itc.hctx.net" />
+		<Destination transportType="email" bean="pd.contact.user.UserProfile" property="email" context="warrantOriginator" />
+		<Destination transportType="email" bean="pd.contact.user.UserProfile" property="email"  value="richard.capestani-knape@itc.hctx.net" />
+		<Template>
+		#{pd.juvenilewarrant.JuvenileWarrant.warrantNum} associated with the following address:		
+		</Template>
+	</Notification>
+	<Notification topic="JW.JUVENILEWARRANT.NOTICE" defaultSeverity="M">
+		<Source  value="jims2notification@itc.hctx.net" />
+		<Destination transportType="notice" bean="pd.contact.user.UserProfile" property="logonId" context="warrantOriginator" />
+		<Destination transportType="email" bean="pd.contact.user.UserProfile" property="email"  value="richard.capestani-knape@itc.hctx.net" />
+		<Destination transportType="notice" bean="pd.contact.user.UserProfile" property="logonId" context="context1" />
+		<Destination transportType="notice" value="jirac" />
+		<Template>
+		Juvenile Warrant #{pd.juvenilewarrant.JuvenileWarrant.warrantNum} has been created.
+		</Template>
+	</Notification>
+</NotificationDefinitions>

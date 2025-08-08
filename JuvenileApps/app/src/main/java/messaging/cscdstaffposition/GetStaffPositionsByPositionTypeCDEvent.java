@@ -1,0 +1,62 @@
+/*
+ * Created on May 23, 2007
+ *
+ */
+package messaging.cscdstaffposition;
+
+import mojo.km.messaging.RequestEvent;
+
+/**
+ * @author dgibler
+ *
+ */
+public class GetStaffPositionsByPositionTypeCDEvent extends RequestEvent {
+    private String agencyId;
+    private String organizationId;
+    private String positionTypeCd;
+    private String statusId;
+    /**
+     * @return Returns the agencyId.
+     */
+    public String getAgencyId() {
+        return agencyId;
+    }
+    /**
+     * @return Returns the organizationId.
+     */
+    public String getOrganizationId() {
+        return organizationId;
+    }
+
+    /**
+     * @return Returns the statusId.
+     */
+    public String getStatusId() {
+        return statusId;
+    }
+    /**
+     * @param agencyId The agencyId to set.
+     */
+    public void setAgencyId(String agencyId) {
+        this.agencyId = agencyId;
+    }
+    /**
+     * @param organizationId The organizationId to set.
+     */
+    public void setOrganizationId(String organizationId) {
+        this.organizationId = organizationId;
+    }
+
+    public String getPositionTypeCd() {
+		return positionTypeCd;
+	}
+	public void setPositionTypeCd(String positionTypeCd) {
+		this.positionTypeCd = positionTypeCd;
+	}
+	/**
+     * @param statusId The statusId to set.
+     */
+    public void setStatusId(String statusId) {
+        this.statusId = statusId;
+    }
+}

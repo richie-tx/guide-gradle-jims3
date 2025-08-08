@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="US-ASCII"?>
+<document size="LETTER" margin-left="50" margin-right="50" margin-top="25" margin-bottom="30" height="100">
+<encryption allow-fillin="false" allow-modify-contents="false" allow-degraded-printing="true" allow-screen-readers="false" allow-copy="false"	allow-printing="true"/>
+<meta author="JIMS2, Harris County" creator="JIMS2, Harris County" title="${orderTitle}"/>
+<viewer-preferences page-mode="NoThumbs" zoom="1"/>
+
+	<font-def name="title" family="TIMES" style="bold" size="10"/>
+	<font-def name="times_10" family="TIMES" style="normal" size="9"/>
+	<font-def name="label" family="TIMES" style="bold" size="8"/>
+	<font-def name="text" family="arial" style="normal|underline" size="9"/>
+	<font-def name="times_8" family="TIMES" style="normal" size="8"/>
+
+	<table columns="1" border-style="none">
+		<font name="title">
+			<table-row halign="center" valign="middle" padding-top="5">
+				<cell>TCOOMMI/MHMR-New START Program</cell>
+			</table-row>
+			<table-row halign="center" valign="middle">
+				<cell>7200 North Loop East</cell>
+			</table-row>	
+			<table-row halign="center" valign="middle">
+				<cell>Houston, TX 77028</cell>
+			</table-row>
+			<table-row padding-top="5">
+				<cell halign="left" no-wrap="true" border-style="bottom"><br/></cell>
+			</table-row>
+        </font>
+	</table>	
+	
+	 <table columns="3" widths="5, 10, 85" border-style="none" keep-together="false" spacing-before="1.5"  line-spacing="1.5" padding="1" >				
+		<font name="times_10">
+			<table-row halign="left" valign="middle">	
+				<cell border-style="top"></cell>	
+				<cell border-style="top">Diagnostics:</cell>
+				<cell border-style="top">Must have Axis I mental health diagnosis; Axis II of mental retardation; or other severe and persistent mental disorder.		
+				</cell>		
+			</table-row>
+			<table-row halign="left" valign="middle" padding-bottom="5" >
+				<cell></cell>		
+				<cell halign="left" valign="middle">Legal:</cell>
+				<cell halign="left" valign="middle">Must be currently on parole; probation; or in pre-trial phase.</cell>			
+			</table-row>
+			<table-row halign="left" valign="middle" line-spacing="1">
+				<cell></cell>
+				<cell halign="left" valign="middle">Other:</cell>		
+				<cell halign="left" valign="middle">Must be a U.S. Citizen.
+				</cell>			
+			</table-row>
+			<table-row halign="left" valign="middle" line-spacing="1">
+				<cell></cell>
+				<cell halign="left" valign="middle"></cell>		
+				<cell halign="left" valign="middle">Must have a need for <b>intensive</b> case management and rehabilitation services.
+				</cell>			
+			</table-row>		
+			<table-row halign="center" valign="middle" padding-top="5" line-spacing="1.25" >
+				<cell></cell>		
+				<cell colspan="2" halign="center"><b>Contact the Special Programs supervisor at 713-220-8966 to start the referral process. The probationer will be seen by appointment at the Special Programs Office.</b>
+				</cell>			
+			</table-row>
+		</font>
+		<font name="times_8">		
+			<table-row halign="left" valign="middle" padding-top="5" padding-bottom="5" line-spacing="1.25" >		
+				<cell colspan="3" halign="center" no-wrap="true" border-style="bottom"><b>For potential referrals or questions, please call 713-970-8625 or ask for COC <br/>Worker. Please fax completed referrals to 713-970-8656 or 713-970-864. </b>
+				</cell>			
+			</table-row>		
+		</font>		
+	 </table>
+	 
+	<table columns="2" widths="5, 95" keep-together="false" spacing-before="1.5"  line-spacing="2" padding="1" >				
+		<font name="times_10">
+			<table-row halign="left" valign="middle" border-style="top" >
+				<cell></cell>		
+				<cell halign="left">Date of Referral:\t<if cond="${referralDateAsStr != null && referralDateAsStr != ""}"><u>${referralDateAsStr}</u></if><else>_______________________________________________________</else>		
+			 </cell>		
+			</table-row>
+			<table-row halign="left" valign="middle">
+				<cell></cell>		
+				<cell halign="left"  >Referring Agency &amp; Address:\t<u><b>Harris County Community Supervision &amp; Corrections Department</b></u>
+				<br/>\t\t\t\t\t\t\t\t\t\t\t\t\t<if cond="${programUnitAddress != null && programUnitAddress != ""}"><u>${programUnitAddress}</u></if><else>________________________________<space/><u>, TEXAS</u></else></cell>		
+			</table-row>
+			<table-row halign="left" valign="middle">
+				<cell></cell>		
+				<cell halign="left">Telephone #:\t<if cond="${programUnitPhone != null && programUnitPhone != ""}"><u>${programUnitPhone}</u></if><else>____________</else>
+					Fax:\t<if cond="${programUnitFax != null && programUnitFax != ""}"><u>${programUnitFax}</u></if><else>____________</else>
+				</cell>		
+			</table-row>
+			<table-row halign="left" valign="middle" padding-bottom="10">		
+				<cell colspan="2" halign="left"  border-style="bottom"></cell>
+			</table-row>				
+		</font>		
+	 </table>
+	 
+	 <table columns="4" widths="5, 30, 30, 35" border-style="none" keep-together="false" spacing-before="1.5" line-spacing="2" padding="1" >				
+		<font name="times_10">
+			<table-row halign="left" valign="middle">
+				<cell border-style="top"></cell>		
+				<cell colspan="3" halign="center" border-style="top"><b>Information Regarding Individual Being Referred</b></cell>		
+			</table-row>
+			<table-row halign="left" valign="middle">
+				<cell></cell>		
+				<cell colspan="3" halign="left" >Name:\t<if cond="${superviseeName != null && superviseeName != ""}"><u>${superviseeName}</u></if><else>______________________________________________________________________________________________________________</else></cell>		
+			</table-row>
+			<table-row halign="left" valign="middle">
+				<cell></cell>		
+				<cell halign="left" >TDC #\t<if cond="${superviseeTDCNumber != null && superviseeTDCNumber != ""}"><u>${superviseeTDCNumber}</u></if><else>___________________________</else></cell>
+				<cell>SID#\t<if cond="${sid != null && sid != ""}"><u>${sid}</u></if><else>______________________</else></cell>
+				<cell>SPN#\t<if cond="${superviseeId != null && superviseeId != ""}"><u>${superviseeId}</u></if><else> ______________________________</else></cell>		
+			</table-row>
+			<table-row halign="left" valign="middle">
+				<cell></cell>		
+				<cell halign="left" >DOB:\t<if cond="${superviseeDOB != null && superviseeDOB != ""}"><font name="text">${superviseeDOB}</font></if><else>__________________________</else></cell>
+				<cell>SSN#\t <if cond="${ssn != null && ssn != ""}"><u>${ssn}</u></if><else>_____________________</else></cell>
+				<cell></cell>		
+			</table-row>
+			<table-row halign="left" valign="middle">
+				<cell></cell>		
+				<cell colspan="3" halign="left">Current Address:\t<if cond="${superviseeAddress!= null && superviseeAddress != ""}"><u>${superviseeAddress}</u></if><else>____________________________________________________________________________________________</else></cell>		
+			</table-row>
+			<table-row halign="left" valign="middle">
+				<cell></cell>		
+				<cell colspan="3" halign="left">Telephone Number/Contact Method:\t
+					<if cond="${superviseePhone != null && superviseePhone != ""}"><font name="text">${superviseePhone}</font></if>
+					<else>______________</else>	
+					<if cond="${superviseeContMethDesc == "25"}"><u>/In Person</u></if>
+					<else><if cond="${superviseeContMethDesc == "26"}"><u>/Phone</u></if><else><font name="text"></font></else></else>
+				</cell>		
+			</table-row>		
+			<table-row halign="left" valign="middle" padding-bottom="10">
+				<cell colspan="4" border-style="bottom"></cell>				
+			</table-row>				
+		</font>		
+	 </table>
+	 
+	 <table columns="3" widths="10, 45, 45" border-style="none" keep-together="false" spacing-before="1.5" line-spacing="2" padding="1" >				
+		<font name="times_10">
+			<table-row halign="left" valign="middle">			
+				<cell  colspan="3" halign="center" border-style="top"><b>Legal History</b></cell>		
+			</table-row>		
+			<table-row halign="left" valign="middle">		
+				<cell colspan="3" halign="left"  >Is New START participation court ordered or mandatory?\t\t\t 
+					<if cond="${newStartCrtOrderIndicator == "28"}"><u>Court Ordered</u></if>
+					<if cond="${newStartCrtOrderIndicator == "29"}"><u>Mandatory</u></if>
+					\t\t\t<if cond="${newStartCrtOrderIndicator == "28" || newStartCrtOrderIndicator == "29"}">[x]</if><else>[ ]</else> YES 
+					\t\t<if cond="${newStartCrtOrderIndicator == "27"}">[x]</if><else>[ ]</else> NO
+				</cell>		
+			</table-row>
+			<table-row halign="left" valign="middle">		
+				<cell colspan="3" halign="left"  >Instant Offense &amp; Date:  <if cond="${currentOffense != null && currentOffense != ""}"><u>${currentOffense}</u></if><else>_________________________________</else> / <if cond="${currentOffenseDate != null }"><u>${currentOffenseDate format "MM/dd/yyyy"}</u></if><else>_____________________________</else></cell>		
+			</table-row>
+			<table-row halign="left" valign="middle">		
+				<cell colspan="3" halign="left">OTHER OFFENSES:</cell>
+			</table-row>
+			<table-row>		
+				<cell halign="left"  >DATE:</cell>
+				<cell halign="left"  >OFFENSE:</cell>
+				<cell halign="left" padding-left="5">DISPOSITION:</cell>
+			</table-row>
+			 _foreach_(eachCase ${priorOffenseRecordList} 'even' 'odd')
+			 <table-row halign="left" valign="middle">				
+				<cell halign="left" valign="top"><if cond="${eachCase.priorOffenseDate != null}"><u>${eachCase.priorOffenseDate format "MM/dd/yyyy" }</u></if><else>___________</else></cell>
+				<cell halign="left" valign="top"><if cond="${eachCase.offenseDesc != ""}"><u>${eachCase.offenseDesc}</u></if><else>__________________________________</else></cell>
+				<cell halign="left" valign="top" padding-left="5"><if cond="${eachCase.dispositionDesc!= ""}"><u>${eachCase.dispositionDesc}</u></if><else>__________________________________</else></cell>
+			</table-row>		 
+			 _endfor_		
+		</font>
+	</table>
+	
+	<table columns="4" widths="25, 20, 25, 30" border-style="none" keep-together="false" spacing-before="1.5" line-spacing="2" padding="1" >
+		<font name="times_10">		
+			<table-row halign="left" valign="middle">		
+				<cell halign="left"  >Supervised By: \t\t[ ] PAROLE</cell>		
+				<cell halign="center">[X] PROBATION</cell>
+				<cell halign="left"  >[ ] INCARCERATED</cell>
+				<cell halign="left"  >[ ] OTHER \t\t*Check all that apply</cell>
+			</table-row>
+			<table-row halign="left" valign="middle">		
+				<cell colspan="2" halign="left"  >Supervising Officer: <if cond="${supervisionStaffName != null && supervisionStaffName != ""}"><u>${supervisionStaffName}</u></if><else><u>No Officer Assigned</u></else></cell>		
+				<cell halign="left"  >Phone #: <if cond="${supervisionStaffPhone != null && supervisionStaffPhone != ""}"><u>${supervisionStaffPhone}</u></if><else>_____________________</else></cell>
+				<cell halign="left"  >Fax #: <if cond="${supervisionStaffFax != null && supervisionStaffFax != ""}"><u>${supervisionStaffFax}</u></if><else>_____________________</else></cell>			
+			</table-row>
+			<table-row halign="left" valign="middle">		
+				<cell colspan="4" halign="left"  >Date of Discharge from Parole/ Probation:  <if cond="${dischargeDate != null}"><u>${dischargeDate format "MM/dd/yyyy"}</u></if><else>______________________________</else></cell>
+			</table-row>
+			<table-row halign="left" valign="middle">		
+				<cell colspan="4" halign="left"  >Is case in Court or in danger of revocation? \t\t\t\t\t\t [<if cond="${ revcRiskIndicator == "1"}">x</if>] YES \t\t[<if cond="${revcRiskIndicator != "1"}">x</if>] NO</cell>
+			</table-row>
+		</font>	
+	</table>
+				 
+	<table columns="1" border-style="none" keep-together="false" spacing-before="2" line-spacing="1" padding="1" >				
+		<font name="times_10">
+			<table-row halign="left" valign="middle" line-spacing="1.5">		
+				<cell halign="left" >*If Yes, Explain: <if cond="${revcRiskComments != null && revcRiskComments != ""}"><u>${revcRiskComments}</u></if>
+					<else>__________________________________________________________________________________________________________________</else><br/>
+				</cell>
+			</table-row>
+			 <table-row halign="left" valign="middle">		
+				<cell halign="left"  ></cell>
+			</table-row>
+			 <table-row halign="left" valign="middle">		
+				<cell halign="left"  border-style="bottom"><br/></cell>				
+			 </table-row>
+		</font>	
+	</table>
+			
+	<table columns="1" border-style="none" keep-together="false" spacing-before="1.5" line-spacing="2" padding="1" >				
+		 <table-row halign="left" valign="middle">		
+			<cell halign="left"  border-style="top" ></cell>
+		</table-row> 		      
+	</table>	
+		
+	<new-page   margin-left="50" margin-right="50" margin-top="30" margin-bottom="50" height="100"></new-page>
+    
+    <table columns="1" border-style="none" keep-together="false" spacing-before="2" line-spacing="1.5" padding="1"  width="100">				
+		<font name="times_10">
+			<table-row halign="left" valign="middle">		
+				<cell halign="center"  ><b>Mental Health Information</b></cell>
+		    </table-row>
+		    <table-row halign="left" valign="middle">		
+				<cell halign="left"  >Diagnosis and/ or Presenting Psychiatric Problems:</cell>
+		   	</table-row>	
+		    <table-row halign="left" valign="middle">		
+				<cell halign="left"  ><if cond="${mentalHealthComments != null && mentalHealthComments != ""}"><u>${mentalHealthComments}</u></if>
+					<else>__________________________________________________________________________________________________________________<br/>
+						__________________________________________________________________________________________________________________<br/>
+						__________________________________________________________________________________________________________________<br/>
+					</else>
+				</cell>
+		   	</table-row>	
+		    <table-row halign="left" valign="middle">		
+				<cell halign="left"  >Current Medications:</cell>
+		   	</table-row>	
+		   	<table-row halign="left" valign="middle">		
+				<cell halign="left"  ><if cond="${medicationComments != null && medicationComments != ""}"><u>${medicationComments}</u></if>
+					<else>__________________________________________________________________________________________________________________<br/>
+						__________________________________________________________________________________________________________________<br/>
+						__________________________________________________________________________________________________________________<br/>
+					</else>
+				</cell>
+		   </table-row>			   
+		</font>	
+	</table>
+			
+	<table columns="2" border-style="none" keep-together="false" spacing-before="5" line-spacing="1.5" padding="1"  width="100">				
+		<font name="times_10">
+			<table-row halign="left" valign="middle">		
+				<cell halign="left"  >Substance Abuse History?  \t\t<if cond="${subsAbuseHistIndicator == "1"}">[x] YES \t\t[] NO</if><else>[] YES \t\t[x] NO</else></cell>  
+		  		<cell halign="left"  >Current Use?  \t\t<if cond="${subsAbuseCurrUsrIndicator == "1"}">[x] YES \t\t[] NO</if><else>[] YES \t\t[x] NO</else></cell>		  		
+		    </table-row>	
+		    <table-row halign="left" valign="middle">		
+			    <cell halign="left"  colspan="2" border-style="bottom"><br/></cell>  		  		
+		    </table-row>		      	   
+		</font>	
+	</table>	
+			  
+	<table columns="1" border-style="none" keep-together="false" spacing-before="1.5" line-spacing="1.5" padding="1"  width="100">				
+		<font name="times_10">
+			<table-row halign="left" valign="middle">		
+				<cell halign="center"  border-style="top"><b>Reason for Referral</b></cell> 
+		  	</table-row>
+		  	<table-row halign="left" valign="middle">		
+			    <cell halign="left"  >Why does client need intensive case management and rehabilitation?</cell> 
+		  	</table-row>		
+		  	<table-row halign="left" valign="middle">		
+				<cell halign="left"  ><if cond="${referralNeeds != null && referralNeeds != ""}"><u>${referralNeeds}</u></if>
+					<else>
+						__________________________________________________________________________________________________________________<br/>
+						__________________________________________________________________________________________________________________<br/>
+						__________________________________________________________________________________________________________________<br/>
+						__________________________________________________________________________________________________________________<br/>
+						__________________________________________________________________________________________________________________<br/>
+						__________________________________________________________________________________________________________________<br/>
+						__________________________________________________________________________________________________________________<br/>
+						__________________________________________________________________________________________________________________<br/>		
+						__________________________________________________________________________________________________________________
+					</else>
+				</cell>
+		   	</table-row>
+		    <table-row halign="left" valign="middle">		
+			    <cell halign="left"  border-style="bottom"><br/></cell> 		  			  		
+		    </table-row>		      	   
+		</font>	
+	</table>
+		      
+	<table columns="2" border-style="none" keep-together="false" spacing-before="1" line-spacing="2" padding="1"  width="100">				
+		<font name="times_10">
+			<table-row halign="left" valign="middle">		
+				<cell halign="left"  border-style="top"><b>Current Needs</b></cell> 
+			    <cell halign="left"  border-style="top">*Check all that apply</cell> 
+		  	</table-row>		  
+	    </font>	
+	</table>		
+
+    <table columns="4" border-style="none" keep-together="false" spacing-before="1" line-spacing="2" padding="1"  width="100">				
+		<font name="times_10">
+			<table-row halign="left" valign="middle">		
+				<cell halign="left" >Psychiatric: </cell> 
+			    <cell halign="left" ><if cond="${psychIndicator == "1"}">( x )</if><else>(\t)</else></cell> 
+			    <cell halign="left" >Employment/Training:</cell> 
+			    <cell halign="left" ><if cond="${empTrainingIndicator == "1"}">( x )</if><else>(\t)</else></cell> 
+		  	</table-row>	
+		  	<table-row halign="left" valign="middle">		
+			    <cell halign="left" >Medical: </cell> 
+			    <cell halign="left" ><if cond="${medicalIndicator == "1"}">( x )</if><else>(\t)</else></cell> 
+			    <cell halign="left" >Group Program:</cell> 
+			    <cell halign="left" ><if cond="${groupProgramIndicator == "1"}">( x )</if><else>(\t)</else></cell> 
+		  	</table-row>	
+		  	<table-row halign="left" valign="middle">		
+			    <cell halign="left" >Drug/ Alcohol Treatment: </cell> 
+			    <cell halign="left" ><if cond="${drugAlcoholIndicator == "1"}">( x )</if><else>(\t)</else></cell> 
+			    <cell halign="left" >Individual Counseling:</cell> 
+			    <cell halign="left" ><if cond="${indvCounselingIndicator == "1"}">( x )</if><else>(\t)</else></cell> 
+		  	</table-row>	
+		  	<table-row halign="left" valign="middle">		
+			    <cell halign="left" >Housing:</cell> 
+			    <cell halign="left" ><if cond="${housingIndicator == "1"}">( x )</if><else>(\t)</else></cell> 
+			    <cell halign="left" >Benefits Application:</cell> 
+			    <cell halign="left" ><if cond="${benefitsAppIndicator == "1"}">( x )</if><else>(\t)</else></cell> 
+		  	</table-row>	
+		  	<table-row halign="left" valign="middle">		
+			    <cell halign="left" >Education: </cell> 
+			    <cell halign="left" ><if cond="${educationIndicator == "1"}">( x )</if><else>(\t)</else></cell> 
+			    <cell halign="left" >Other:</cell> 
+			    <cell halign="left" line-spacing="1.25"><if cond="${otherComments != null && otherComments!= ""}"><u>${otherComments}</u></if><else>____________________________</else></cell> 
+		  	</table-row>		  
+	    </font>	
+	</table>
+		      
+	<table columns="1" border-style="none" keep-together="false" spacing-before="25" line-spacing="1.5" padding="1"  width="100">				
+		<font name="times_10">
+			<table-row halign="left" valign="middle">		
+			    <cell halign="center" ><b>*NOTE: TO EXPEDITE THE REFERRAL PROCESS,<br/>PLEASE FORWARD ANY AVAILABLE LEGAL <br/>(PAROLE/PROBATION CONDITIONS, CASE<br/>SUMMARY, ETC.) AND MENTAL HEALTH <br/>INFORMATION WITH THE REFERRAL FORM.</b></cell> 			     
+		  	</table-row>		  
+	    </font>	
+	</table>
+		
+</document>

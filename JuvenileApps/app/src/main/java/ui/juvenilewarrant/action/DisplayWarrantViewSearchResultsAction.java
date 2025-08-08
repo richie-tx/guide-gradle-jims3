@@ -1,0 +1,389 @@
+//Source file: C:\\views\\dev\\app\\src\\ui\\juvenilewarrant\\action\\DisplayViewSearchResultsAction.java
+//
+//HRodriguez - 02/17/2005 - Create action 
+//LDeen		 - 03/23/2005 - Revise action to store warrant number in session
+//CShimek	 - 04/06/2006 - Added refresh method for refresh button
+//RCapestani - 09/30/2010 - Added searchDate1, searchDate2 and warrantStatusId
+package ui.juvenilewarrant.action;
+
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Date;
+import java.util.List;
+import java.util.Iterator;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import org.apache.struts.action.ActionMessage;
+import org.apache.struts.action.ActionErrors;
+import org.apache.struts.action.ActionForm;
+import org.apache.struts.action.ActionForward;
+import org.apache.struts.action.ActionMapping;
+
+import messaging.contact.officer.reply.OfficerProfileResponseEvent;
+import messaging.info.reply.CountInfoMessage;
+import messaging.juvenilewarrant.GetJuvenileWarrantsForViewEvent;
+import messaging.juvenilewarrant.reply.JuvenileWarrantResponseEvent;
+import messaging.officer.GetOfficerProfileByIdEvent;
+
+import ui.action.JIMSBaseAction;
+import ui.juvenilecase.UIJuvenileHelper;
+import ui.juvenilecase.form.JuvenilePhotoForm;
+import ui.juvenilewarrant.UIJuvenileWarrantHelper;
+import ui.juvenilewarrant.form.JuvenileWarrantForm;
+import ui.juvenilewarrant.helper.JuvenileNameComparator;
+
+import mojo.km.messaging.EventFactory;
+import mojo.km.messaging.Composite.CompositeResponse;
+import mojo.km.utilities.DateUtil;
+import mojo.km.utilities.MessageUtil;
+
+import naming.JuvenileWarrantControllerServiceNames;
+import naming.OfficerProfileControllerServiceNames;
+
+import naming.UIConstants;
+
+/**
+ * @author ryoung
+ * 
+ *         This action will display the warrantViewSearchResults.jsp if more
+ *         than 1 warrant is retrieved. It also forwards to
+ *         warrantViewDetailsAction.java in struts.
+ */
+public class DisplayWarrantViewSearchResultsAction extends JIMSBaseAction {
+
+	/**
+	 * @roseuid 41F7C37A00C3
+	 */
+	public DisplayWarrantViewSearchResultsAction() {
+
+	}
+
+	public void addButtonMapping(Map buttonMap) {
+		buttonMap.put("button.cancel", UIConstants.CANCEL);
+		buttonMap.put("button.submit", UIConstants.FIND);
+		buttonMap.put("button.refresh", "refresh");
+	}
+
+	/**
+	 * @param aMapping
+	 * @param aForm
+	 * @param aRequest
+	 * @param aResponse
+	 * @return ActionForward
+	 * @roseuid 41F7BE6C0334
+	 */
+	public ActionForward find(ActionMapping aMapping, ActionForm aForm,
+			HttpServletRequest aRequest, HttpServletResponse aResponse) {
+
+		ActionForward forward = new ActionForward();
+		JuvenileWarrantForm jwForm = (JuvenileWarrantForm) aForm;
+
+		jwForm.setBackForward("viewDetail");
+
+		GetJuvenileWarrantsForViewEvent jwRequestEvent = (GetJuvenileWarrantsForViewEvent) EventFactory
+				.getInstance(JuvenileWarrantControllerServiceNames.GETJUVENILEWARRANTSFORVIEW);
+
+		String warrantNum = jwForm.getWarrantNumParameter(aRequest);
+		
+		String secondaryAction = aRequest.getParameter("secondaryAction");
+		if (secondaryAction == null) {
+			secondaryAction = "";
+		}
+		jwForm.setSelectedValue(secondaryAction);
+
+		jwRequestEvent.setAssociateFirstName(jwForm.getAssociateFirstName());
+		jwRequestEvent.setAssociateLastName(jwForm.getAssociateLastName());
+		jwRequestEvent.setFirstName(jwForm.getFirstName());
+		jwRequestEvent.setLastName(jwForm.getLastName());
+		jwRequestEvent.setOriginatorId(jwForm.getWarrantOriginatorId());
+		jwRequestEvent.setWarrantNum(warrantNum);
+		jwRequestEvent.setWarrantTypeId(jwForm.getWarrantTypeId());
+		Calendar cal = Calendar.getInstance();
+		Date xdate = DateUtil.stringToDate(jwForm.getSearchDate1(), DateUtil.DATE_FMT_1);
+		if (xdate!=null){
+			cal.setTime(xdate);
+			cal.set(Calendar.HOUR_OF_DAY,0);
+			cal.set(Calendar.MINUTE,0);
+			cal.set(Calendar.MILLISECOND,1);
+			jwRequestEvent.setSearchDate1(cal.getTime());
+		}
+		xdate = DateUtil.stringToDate(jwForm.getSearchDate2(), DateUtil.DATE_FMT_1);
+		if (xdate!=null){
+			cal.setTime(xdate);
+			cal.set(Calendar.HOUR_OF_DAY,23);
+			cal.set(Calendar.MINUTE,59);
+			jwRequestEvent.setSearchDate2(cal.getTime());
+		}
+		jwRequestEvent.setWarrantStatusId(jwForm.getWarrantStatusId());
+
+		CompositeResponse response = null;
+		String officerId = null;
+		officerId = jwForm.getOfficerId();
+		List warrants = new ArrayList();
+
+		if (warrantNum.equals("") && officerId != null && !officerId.equals("")) {
+			List officerList = findOfficerIdFromBadgeOrOtherId(jwForm);
+			if (officerList.size() > 0) {
+				List tempList = null;
+				OfficerProfileResponseEvent officerProfileId = null;
+				for (int i = 0; i < officerList.size(); i++) {
+					officerProfileId = (OfficerProfileResponseEvent) officerList
+							.get(i);
+					if (!officerProfileId.getStatusId().equals("I")
+							&& !officerProfileId.getStatusId().equals(
+									"INACTIVE")) {
+						officerId = officerProfileId.getOfficerId();
+						jwRequestEvent.setOfficerId(officerId);
+						response = MessageUtil.postRequest(jwRequestEvent);
+						if (response != null) {
+							tempList = MessageUtil.compositeToList(response,
+									JuvenileWarrantResponseEvent.class);
+							if (tempList != null && !tempList.isEmpty()) {
+								warrants.addAll(tempList);
+							}
+						}
+					}
+				}
+			}
+		} else {
+
+			response = MessageUtil.postRequest(jwRequestEvent);
+			List tempList = null;
+			if (response != null) {
+				tempList = MessageUtil.compositeToList(response,
+						JuvenileWarrantResponseEvent.class);
+				if (tempList != null && !tempList.isEmpty()) {
+					warrants.addAll(tempList);
+				}
+			}
+			if (MessageUtil.filterComposite(response, CountInfoMessage.class) != null) {
+				
+				sendToErrorPage(aRequest, "error.max.limit.exceeded");
+				 return aMapping.findForward(UIConstants.SEARCH_FAILURE);
+				
+			} else {
+
+				warrants = MessageUtil.compositeToList(response,
+						JuvenileWarrantResponseEvent.class);
+
+			}
+
+		}
+
+			int size = warrants.size();
+			/**
+			 * if search response gets 0 result - return to the Search page with
+			 * error message
+			 */
+			if (size == 0) {
+				ActionErrors errors = new ActionErrors();
+				StringBuffer buffer = new StringBuffer(30);
+				String firstName = jwForm.getFirstName();
+				String lastName = jwForm.getLastName();
+				String warrantTypeId = jwForm.getWarrantTypeId();
+				String associateFirstName = jwForm.getAssociateFirstName();
+				String associateLastName = jwForm.getAssociateLastName();
+				String warrantOriginatorId = jwForm.getWarrantOriginatorId();
+
+				if (warrantNum != null && !warrantNum.equals("")) {
+					buffer.append(" Warrant # ");
+					buffer.append(warrantNum);
+				}
+				
+				else if (lastName != null && !lastName.equals("")) {
+					buffer.append(" Juvenile ");
+					if (firstName != null && !firstName.equals("")) {
+						buffer.append(firstName);
+						buffer.append(" ");
+					}
+					buffer.append(lastName);
+				}
+				
+				else if (warrantTypeId != null && !warrantTypeId.equals("")) {
+					if (warrantTypeId.equalsIgnoreCase("ARR")) {
+						buffer.append(" Arrest warrant type");
+					}
+					else if (warrantTypeId.equalsIgnoreCase("DTA")) {
+						buffer.append(" Directive to Apprehend warrant type");
+					}
+					else if (warrantTypeId.equalsIgnoreCase("OIC")) {
+						buffer.append(" Order of Immedeate Custody warrant type");
+					}
+					else if (warrantTypeId.equalsIgnoreCase("PC")) {
+						buffer.append(" Probable Cause warrant type");
+					}
+					else if (warrantTypeId.equalsIgnoreCase("VOP")) {
+						buffer.append(" Violation of Probation warrant type");
+					}
+				}
+
+				else if (officerId != null && !officerId.equals("")) {
+					buffer.append(" Officer ID ");
+					buffer.append(officerId);
+				}
+
+				else if (associateLastName != null && !associateLastName.equals("")) {
+					buffer.append(" Responsible Adult ");
+					if (associateFirstName != null
+							&& !associateFirstName.equals("")) {
+						buffer.append(associateFirstName);
+						buffer.append(" ");
+					}
+					buffer.append(associateLastName);
+				}
+
+				else if (warrantOriginatorId != null
+						&& !warrantOriginatorId.equals("")) {
+					buffer.append(" Originator ID ");
+					buffer.append(warrantOriginatorId);
+				}
+				String errorString = buffer.toString();
+				Object[] values = new Object[1];
+				values[0] = errorString;
+				errors.add(ActionErrors.GLOBAL_MESSAGE, new ActionMessage(
+						"error.noRecordsFound", values));
+				saveErrors(aRequest, errors);
+				forward = aMapping.findForward(UIConstants.SEARCH_FAILURE);
+			}
+
+			/** if search response gets only 1 result - go to Details page */
+			else if (size == 1) {
+				Iterator warrantIterator = warrants.iterator();
+				if (warrantIterator.hasNext()) {
+					// process juvenile warrant data
+					JuvenileWarrantResponseEvent jwResponseEvent = (JuvenileWarrantResponseEvent) warrantIterator
+							.next();
+
+					// setting in session to retrieve it in the next action
+					aRequest.getSession().setAttribute(UIConstants.WARRANT_NUM,
+							jwResponseEvent.getWarrantNum());
+					jwForm.setProperties( response );
+
+					JuvenilePhotoForm myPhotoForm = UIJuvenileHelper
+							.getJuvPhotoForm(aRequest, true);
+					myPhotoForm.setJuvenileNumber(jwForm.getJuvenileNum());
+					forward = aMapping.findForward(UIConstants.SUCCESS);
+
+					jwForm.setWarrantTypeUI(UIConstants.VIEW_DETAIL);
+
+					jwForm.setBackToWarrantUrl(forward.getPath());
+				}
+			}
+
+			/**
+			 * if search response gets multiple results - go to searchResults
+			 * page
+			 */
+			else {
+				jwForm.setSearchResultSize(String.valueOf(size));
+				Collections.sort(warrants, new JuvenileNameComparator());
+				jwForm.setWarrantsSearchResults(warrants);
+				forward = aMapping.findForward(UIConstants.LISTSUCCESS);
+			}
+		//}
+		return forward;
+	}
+
+	/**
+	 * Handle cancel action from viewDetail page,
+	 * 
+	 * @param aMapping
+	 * @param aForm
+	 * @param aRequest
+	 * @param aResponse
+	 * @return ActionForward
+	 */
+	public ActionForward cancel(ActionMapping aMapping, ActionForm aForm,
+			HttpServletRequest aRequest, HttpServletResponse aResponse) {
+
+		ActionForward forward = new ActionForward();
+		JuvenileWarrantForm jwForm = (JuvenileWarrantForm) aForm;
+
+		Collection warrants = jwForm.getWarrants();
+		if (warrants == null) {
+			aMapping.findForward(UIConstants.FAILURE);
+		}
+
+		int size = 0;
+		if (warrants != null) {
+			size = warrants.size();
+		}
+
+		/** if not coming from list, go to search page */
+		if (size <= 1) {
+			jwForm.clear();
+			forward = aMapping.findForward(UIConstants.BACK);
+		}
+
+		/** if comes from list - go to searchResults page */
+		else {
+			String searchResultSize = String.valueOf(size);
+			jwForm.setSearchResultSize(searchResultSize);
+
+			forward = aMapping.findForward(UIConstants.LISTSUCCESS);
+		}
+
+		return forward;
+	}
+
+	/**
+	 * @param aMapping
+	 * @param aForm
+	 * @param aRequest
+	 * @param aResponse
+	 * @return ActionForward
+	 */
+	public ActionForward refresh(ActionMapping aMapping, ActionForm aForm,
+			HttpServletRequest aRequest, HttpServletResponse aResponse) {
+		JuvenileWarrantForm jwForm = (JuvenileWarrantForm) aForm;
+		jwForm.setWarrantOriginatorAgencyId("");
+		jwForm.setAssociateFirstName("");
+		jwForm.setAssociateLastName("");
+		jwForm.setFirstName("");
+		jwForm.setLastName("");
+		jwForm.setOfficerId("");
+		jwForm.setWarrantNum("");
+		jwForm.setWarrantOriginatorId("");
+		jwForm.setWarrantTypeId("");
+		return aMapping.findForward(UIConstants.REFRESH_SUCCESS);
+	}
+
+	/**
+	 * @param aForm
+	 */
+	private List findOfficerIdFromBadgeOrOtherId(ActionForm aForm) {
+		JuvenileWarrantForm jwForm = (JuvenileWarrantForm) aForm;
+		String officerAgencyId = null;
+		String officerBadgeNumber = null;
+		String officerId = null;
+		String officerIdTypeId = null;
+		String officerOtherIdNumber = null;
+
+		officerAgencyId = jwForm.getOfficerAgencyId();
+		officerId = jwForm.getOfficerId();
+		officerIdTypeId = jwForm.getOfficerIdTypeId();
+
+		if (officerIdTypeId.equals("B")) {
+			officerBadgeNumber = officerId;
+			jwForm.setOfficerId("");
+		} else if (officerIdTypeId.equals("O")) {
+			officerOtherIdNumber = officerId;
+			jwForm.setOfficerId("");
+		}
+
+		GetOfficerProfileByIdEvent officerEvent = (GetOfficerProfileByIdEvent) EventFactory
+				.getInstance(OfficerProfileControllerServiceNames.GETOFFICERPROFILEBYID);
+		officerEvent.setBadgeNum(officerBadgeNumber);
+		officerEvent.setDepartmentId(officerAgencyId);
+		officerEvent.setOtherIdNum(officerOtherIdNumber);
+
+		List officerList = MessageUtil.postRequestListFilter(officerEvent,
+				OfficerProfileResponseEvent.class);
+		return officerList;
+	}
+}

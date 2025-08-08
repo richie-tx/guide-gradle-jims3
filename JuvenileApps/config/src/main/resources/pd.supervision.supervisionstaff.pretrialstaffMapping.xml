@@ -1,0 +1,68 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Mapping>
+  <EntityMappings>
+    <EntityMapping name="pd.supervision.supervisionstaff.pretrialstaff.SupervisionStaff" contextKey="pd.supervision.supervisionstaff.pretrialstaff.SupervisionStaff">
+      <QueryCallbacks>
+        <QueryCallback name="OIDQuery" mappingClassName="mojo.km.context.multidatasource.JDBCSQLMapping" mappingMethodName="retrieve" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="CSSPRVISIONSTAFF" connectionName="JDBCMSSQL" eventName="mojo.km.persistence.OIDEvent" source="CSSPRVISIONSTAFF" whereClause="SPRVISIONSTAFF_ID= ?">
+          <ParmMappings>
+            <ParmMapping name="OID" dataItemName="SPRVISIONSTAFF_ID" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="OID" propertyType="Numeric" formatString="none" convertWilcard="n" />
+          </ParmMappings>
+          <FieldMappings>
+            <FieldMapping name="jobTitleId" associationType="none" dataItemName="JOBTITLECD" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="jobTitleId" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="OID" associationType="none" dataItemName="SPRVISIONSTAFF_ID" parmIndex="2" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="OID" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="userProfileId" associationType="none" dataItemName="USERPROFILE_ID" parmIndex="3" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="userProfileId" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="primaryCourtAssignmentId" associationType="none" dataItemName="PRIMRYCRTASSGNMTCD" parmIndex="4" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="primaryCourtAssignmentId" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="isSupervisor" associationType="none" dataItemName="ISSUPERVISOR" parmIndex="5" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="isSupervisor" propertyType="boolean" formatString="none" convertWilcard="n" />
+            <FieldMapping name="backupCourtAssignmentId" associationType="none" dataItemName="BACKUPCRTASMNTCD" parmIndex="6" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="backupCourtAssignmentId" propertyType="String" formatString="none" convertWilcard="n" />
+          </FieldMappings>
+        </QueryCallback>
+        <QueryCallback name="AttributeQuery" mappingClassName="mojo.km.context.multidatasource.JDBCSQLMapping" mappingMethodName="retrieve" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="CSSPRVISIONSTAFF" connectionName="JDBCMSSQL" eventName="mojo.km.persistence.AttributeEvent" source="CSSPRVISIONSTAFF" whereClause="none">
+          <FieldMappings>
+            <FieldMapping name="jobTitleId" associationType="none" dataItemName="JOBTITLECD" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="jobTitleId" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="OID" associationType="none" dataItemName="SPRVISIONSTAFF_ID" parmIndex="2" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="OID" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="userProfileId" associationType="none" dataItemName="USERPROFILE_ID" parmIndex="3" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="userProfileId" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="primaryCourtAssignmentId" associationType="none" dataItemName="PRIMRYCRTASSGNMTCD" parmIndex="4" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="primaryCourtAssignmentId" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="isSupervisor" associationType="none" dataItemName="ISSUPERVISOR" parmIndex="5" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="isSupervisor" propertyType="boolean" formatString="none" convertWilcard="n" />
+            <FieldMapping name="backupCourtAssignmentId" associationType="none" dataItemName="BACKUPCRTASMNTCD" parmIndex="6" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="backupCourtAssignmentId" propertyType="String" formatString="none" convertWilcard="n" />
+          </FieldMappings>
+        </QueryCallback>
+        <QueryCallback name="AllQuery" mappingClassName="mojo.km.context.multidatasource.JDBCSQLMapping" mappingMethodName="retrieve" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="CSSPRVISIONSTAFF" connectionName="JDBCMSSQL" eventName="mojo.km.persistence.AllQueryEvent" source="CSSPRVISIONSTAFF" whereClause="none">
+          <FieldMappings>
+            <FieldMapping name="jobTitleId" associationType="none" dataItemName="JOBTITLECD" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="jobTitleId" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="OID" associationType="none" dataItemName="SPRVISIONSTAFF_ID" parmIndex="2" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="OID" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="userProfileId" associationType="none" dataItemName="USERPROFILE_ID" parmIndex="3" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="userProfileId" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="primaryCourtAssignmentId" associationType="none" dataItemName="PRIMRYCRTASSGNMTCD" parmIndex="4" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="primaryCourtAssignmentId" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="isSupervisor" associationType="none" dataItemName="ISSUPERVISOR" parmIndex="5" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="isSupervisor" propertyType="boolean" formatString="none" convertWilcard="n" />
+            <FieldMapping name="backupCourtAssignmentId" associationType="none" dataItemName="BACKUPCRTASMNTCD" parmIndex="6" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="backupCourtAssignmentId" propertyType="String" formatString="none" convertWilcard="n" />
+          </FieldMappings>
+        </QueryCallback>
+        <QueryCallback name="GetAllSupervisionStaffQuery" mappingClassName="mojo.km.context.multidatasource.JDBCSQLMapping" mappingMethodName="retrieve" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="CSSPRVISIONSTAFF" connectionName="JDBCMSSQL" eventName="messaging.pretrialstaff.GetAllSupervisionStaffEvent" source="CSSPRVISIONSTAFF" whereClause="none">
+          <FieldMappings>
+            <FieldMapping name="jobTitleId" associationType="none" dataItemName="JOBTITLECD" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="jobTitleId" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="OID" associationType="none" dataItemName="SPRVISIONSTAFF_ID" parmIndex="2" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="OID" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="userProfileId" associationType="none" dataItemName="USERPROFILE_ID" parmIndex="3" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="userProfileId" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="primaryCourtAssignmentId" associationType="none" dataItemName="PRIMRYCRTASSGNMTCD" parmIndex="4" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="primaryCourtAssignmentId" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="isSupervisor" associationType="none" dataItemName="ISSUPERVISOR" parmIndex="5" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="isSupervisor" propertyType="boolean" formatString="none" convertWilcard="n" />
+            <FieldMapping name="backupCourtAssignmentId" associationType="none" dataItemName="BACKUPCRTASMNTCD" parmIndex="6" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="backupCourtAssignmentId" propertyType="String" formatString="none" convertWilcard="n" />
+          </FieldMappings>
+        </QueryCallback>
+      </QueryCallbacks>
+      <SaveCallbacks>
+        <SaveCallback name="Save" mappingClassName="mojo.km.context.multidatasource.JDBCSQLMapping" mappingMethodName="save" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="CSSPRVISIONSTAFF" connectionName="JDBCMSSQL" whereClause="SPRVISIONSTAFF_ID = ?" source="CSSPRVISIONSTAFF">
+          <ParmMappings>
+            <ParmMapping name="OID" dataItemName="SPRVISIONSTAFF_ID" parmIndex="8" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="OID" propertyType="Numeric" formatString="none" convertWilcard="n" />
+          </ParmMappings>
+          <FieldMappings>
+            <FieldMapping name="jobTitleId" associationType="none" dataItemName="JOBTITLECD" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="jobTitleId" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="userProfileId" associationType="none" dataItemName="USERPROFILE_ID" parmIndex="2" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="userProfileId" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="primaryCourtAssignmentId" associationType="none" dataItemName="PRIMRYCRTASSGNMTCD" parmIndex="3" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="primaryCourtAssignmentId" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="isSupervisor" associationType="none" dataItemName="ISSUPERVISOR" parmIndex="4" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="isSupervisor" propertyType="boolean" formatString="none" convertWilcard="n" />
+            <FieldMapping name="backupCourtAssignmentId" associationType="none" dataItemName="BACKUPCRTASMNTCD" parmIndex="5" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="backupCourtAssignmentId" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="createUserID" associationType="none" dataItemName="CREATEUSER" parmIndex="6" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="createUserID" propertyType="user" formatString="none" />
+            <FieldMapping name="createJIMS2UserID" associationType="none" dataItemName="CREATEJIMS2USER" parmIndex="7" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="createJIMS2UserID" propertyType="JIMS2User" formatString="none" />
+          </FieldMappings>
+        </SaveCallback>
+      </SaveCallbacks>
+    </EntityMapping>
+  </EntityMappings>
+</Mapping>

@@ -1,0 +1,187 @@
+//Source file: C:\\views\\CommonSupervision\\app\\src\\pd\\juvenilecase\\transactions\\CheckInterviewPreconditionsCommand.java
+
+package pd.juvenilecase.riskanalysis.transactions;
+
+import org.apache.commons.lang.StringUtils ;
+
+import messaging.juvenilecase.reply.InterviewPreConditionFailedResponseEvent;
+import messaging.juvenilecase.reply.InterviewPrefillResponseEvent;
+import messaging.juvenilecase.reply.JuvenileDeliquencyHistoryEvent;
+import messaging.juvenilecase.reply.ReferralPreConditionFailedResponseEvent;
+import messaging.riskanalysis.CheckInterviewPreconditionsEvent;
+import mojo.km.context.ICommand;
+import mojo.km.dispatch.EventManager;
+import mojo.km.dispatch.IDispatch;
+import mojo.km.messaging.IEvent;
+import naming.PDCodeTableConstants;
+import naming.RiskAnalysisConstants;
+import naming.UIConstants;
+import pd.codetable.Code;
+import pd.juvenilecase.JuvenileCasefile;
+import pd.juvenilecase.riskanalysis.PDRiskAnalysisHelper;
+import pd.juvenilecase.riskanalysis.RiskAnalysis;
+
+public class CheckInterviewPreconditionsCommand implements ICommand
+{
+	/**
+	 * @roseuid 4342C2E4035E
+	 */
+	public CheckInterviewPreconditionsCommand()
+	{
+	}
+
+	/**
+	 * @param event
+	 * @roseuid 433C3D3C0351
+	 */
+	public void execute( IEvent event )
+	{
+		/*
+		 * <pre-condition> Casefile case status = active and 
+		 * supervision type = intake; status offender supervision;
+		 * court supervison;deferred prosecution;deferred adjudication. 
+		 * JUVENILE_RISK_ANALYSIS.PartNumber = 1 for the supervision 
+		 * casefile has been completed. JPO for Part 2 assessment should 
+		 * complete anytime < 14 days of casefile assignment and
+		 * typically not same JPO for Part1. </pre-condition>
+		 */
+		IDispatch dispatch = EventManager.getSharedInstance( EventManager.REPLY );
+
+		CheckInterviewPreconditionsEvent preCondEvent = (CheckInterviewPreconditionsEvent)event;
+		JuvenileCasefile juvCaseFile = JuvenileCasefile.find( preCondEvent.getCaseFileId() );
+
+		if( juvCaseFile != null )
+		{
+			if( juvCaseFile.getCaseStatusId().equals( "A" ) && 
+					(juvCaseFile.getSupervisionCategoryId().equals( PDCodeTableConstants.CASEFILE_SUPERVISION_CAT_PRE_PETITION ) || 
+					 juvCaseFile.getSupervisionCategoryId().equals( PDCodeTableConstants.CASEFILE_SUPERVISION_CAT_PRE_ADJ )) )
+			{
+				// check if the Referral has been done before Interview can be done.
+				// The Testing preconditions event is reused since the mapping xml has
+				// this event for RiskAnalysis
+				if( !juvCaseFile.getIsReferralRiskNeeded() )
+				{
+					
+					boolean riskAnalysisExist = PDRiskAnalysisHelper.doesRiskAnalysisExistWithinTheHour(juvCaseFile.getOID(), RiskAnalysisConstants.RISK_TYPE_INTERVIEW);
+					if (riskAnalysisExist) {
+						InterviewPreConditionFailedResponseEvent preCondFailedEvent = new InterviewPreConditionFailedResponseEvent();
+						preCondFailedEvent.setMessage( RiskAnalysisConstants.SAME_HOUR_SAME_CASEFILE);
+						dispatch.postEvent( preCondFailedEvent );
+					}
+					
+					InterviewPrefillResponseEvent intwPrefillResp = new InterviewPrefillResponseEvent();
+					
+					{ Code sex = juvCaseFile.getJuvenile().getSex();
+						String sexDescription = (sex == null) ? UIConstants.EMPTY_STRING : sex.getDescription();
+						String sexId = (sex == null) ? UIConstants.EMPTY_STRING : sex.getCode();
+						
+						intwPrefillResp.setJuvSex( sexDescription );
+						intwPrefillResp.setJuvSexId( sexId );
+					}
+					
+					/*
+					 * This attribute represents the number of points associated with the
+					 * age of the first referral to HCJPD.
+					 * Source=JUVENILE_DELINQUENCY_HISTORY.AgeFirstReferral. Required If
+					 * age is 16 then points=1 if age is 14-15 then points=2if age is 13
+					 * or younger then points=3
+					 */
+
+					JuvenileDeliquencyHistoryEvent juvDelqHist = CheckReferralPreconditionsCommand.getDelinquencyHistory( juvCaseFile.getJuvenileNum(), 0 );
+					
+					if( juvDelqHist != null &&
+							StringUtils.isNotEmpty( juvDelqHist.getAgeFirstReferred() ) )
+					{ // BTW - "juvDelqHist" will always be non-null
+						try
+						{
+							int ageFirstReferral = Integer.parseInt( juvDelqHist.getAgeFirstReferred() ) ;
+							intwPrefillResp.setOnsetAge( ageFirstReferral );
+						}
+						catch( NumberFormatException nfe )
+						{
+						}
+					}
+					else
+					{ // if no delinquency history found, assume a value
+						intwPrefillResp.setOnsetAge( 15 );
+					}
+
+					RiskAnalysis latestReferralRiskAnalysis = null;
+					String juvNumber = preCondEvent.getJuvenileNumber() ;
+					RiskAnalysis latestCustodyeferralRiskAnalysis 
+						= PDRiskAnalysisHelper.getLatestRiskAnalysisUpTo30Days( juvNumber, RiskAnalysisConstants.RISK_TYPE_CUSTODY_REFERRAL );
+					RiskAnalysis latestNonCustodyReferralRiskAnalysis 
+						= PDRiskAnalysisHelper.getLatestRiskAnalysisUpTo30Days( juvNumber, RiskAnalysisConstants.RISK_TYPE_NON_CUSTODY_REFERRAL );
+
+					if (latestCustodyeferralRiskAnalysis != null && latestNonCustodyReferralRiskAnalysis != null) 
+					{
+						if(latestCustodyeferralRiskAnalysis.getEnteredDate().compareTo(latestNonCustodyReferralRiskAnalysis.getEnteredDate()) > 0) 
+						{
+							latestReferralRiskAnalysis = latestCustodyeferralRiskAnalysis;
+						} 
+						else 
+						{
+							latestReferralRiskAnalysis = latestNonCustodyReferralRiskAnalysis;
+						}
+					} 
+					else if (latestCustodyeferralRiskAnalysis != null && latestNonCustodyReferralRiskAnalysis == null) 
+					{
+						latestReferralRiskAnalysis = latestCustodyeferralRiskAnalysis;
+					} 
+					else if (latestNonCustodyReferralRiskAnalysis != null && latestCustodyeferralRiskAnalysis == null) 
+					{
+						latestReferralRiskAnalysis = latestNonCustodyReferralRiskAnalysis;
+					}
+					
+					if( latestReferralRiskAnalysis != null )
+					{
+						dispatch.postEvent( intwPrefillResp );
+						PDRiskAnalysisHelper.retrieveRiskQuestions( RiskAnalysisConstants.RISK_TYPE_INTERVIEW, dispatch);
+					}
+					else
+					{
+						InterviewPreConditionFailedResponseEvent preCondFailedEvent = new InterviewPreConditionFailedResponseEvent();
+						preCondFailedEvent.setMessage( "5" );
+						dispatch.postEvent( preCondFailedEvent );
+					}
+				} // if !juvCaseFile.getIsReferralRiskNeeded()
+				else
+				{
+					InterviewPreConditionFailedResponseEvent preCondFailedEvent = new InterviewPreConditionFailedResponseEvent();
+					preCondFailedEvent.setMessage( "1" );
+					dispatch.postEvent( preCondFailedEvent );
+				}
+			}
+			else
+			{
+				InterviewPreConditionFailedResponseEvent preCondFailedEvent = new InterviewPreConditionFailedResponseEvent();
+				preCondFailedEvent.setMessage( "2" );
+				dispatch.postEvent( preCondFailedEvent );
+			}
+		}
+	}
+
+	/**
+	 * @param event
+	 * @roseuid 433C3D3C0364
+	 */
+	public void onRegister( IEvent event )
+	{
+	}
+
+	/**
+	 * @param event
+	 * @roseuid 433C3D3C036E
+	 */
+	public void onUnregister( IEvent event )
+	{
+	}
+
+	/**
+	 * @param anObject
+	 * @roseuid 433C3D3C0370
+	 */
+	public void update( Object anObject )
+	{
+	}
+}

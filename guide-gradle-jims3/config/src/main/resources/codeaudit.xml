@@ -1,0 +1,39 @@
+<CodeAudit>
+		
+	<check name="mojo.tools.code.audit.check.coding.PackageThrowsCheck">
+		<property name="severity" value="warning" />
+		<property name="packageName" value="pd" />		
+	</check>
+	
+	<check name="mojo.tools.code.audit.check.coding.NoBranchLogicCheck">
+		<property name="severity" value="warning" />
+		<property name="parentType" value="ResponseEvent, RequestEvent, mojo.km.messaging.RequestEvent, mojo.km.messaging.ResponseEvent, mojo.km.messaging.Composite.CompositeRequest, mojo.km.messaging.Composite.CompositeResponse" />
+	</check>
+	
+<!-- 	<check name="mojo.tools.code.audit.check.coding.StatelessCommandsCheck">
+			<property name="severity" value="error"/>
+	</check>
+	-->
+	
+	<check name="mojo.tools.code.audit.check.coding.StatelessClassCheck">
+	        <property name="parentType" value="mojo.km.context.ICommand,org.apache.struts.action.Action,org.apache.struts.actions.LookupDispatchAction,ui.action.JIMSBaseAction" />
+			<property name="severity" value="error"/>
+	</check>		
+	
+	<check name="mojo.tools.code.audit.check.coding.MarkModifiedInAccessorCheck">
+			<property name="severity" value="error"/>
+	</check>
+	
+	<check name="mojo.tools.code.audit.check.coding.PublicStaticMethodCheck">
+			<property name="severity" value="error"/>
+			<property name="parentType" value="LookupDispatchAction, Action, org.struts.action.LookupDispatchAction, org.struts.action.Action" />
+	</check>
+	
+	<check name="mojo.tools.code.audit.check.imports.PackageControlCheck">
+		<property name="configFile" value="../configuration/dev/package-control.xml"/>
+	</check>
+	<check name="mojo.tools.code.audit.check.coding.InvalidEqualsCheck">
+			<property name="severity" value="error"/>
+	</check>
+	
+</CodeAudit>

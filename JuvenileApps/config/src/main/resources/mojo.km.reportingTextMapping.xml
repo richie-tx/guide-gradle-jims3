@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Mapping>
+	<EntityMappings>
+		<EntityMapping name="mojo.km.reporting.text.TextReportTemplate" contextKey="mojo.km.reporting.text.TextReportTemplate">
+			<QueryCallbacks>
+				<QueryCallback name="AttributeQueryEvent" mappingClassName="mojo.km.context.multidatasource.JDBCSQLMapping" mappingMethodName="retrieve" storedProcedureName="none" cicsProgramName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="GLREPTEMPL" connectionName="JDBCMSSQL" eventName="mojo.km.persistence.AttributeEvent" source="GLREPTEMPL" whereClause="none">
+					<FieldMappings>
+						<FieldMapping name="OID" associationType="none" dataItemName="REPTEMPL_ID" parmIndex="1" format="none" position="" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="4" text="" propertyName="OID" propertyType="String" formatString="none" />
+						<FieldMapping name="name" associationType="none" dataItemName="NAME" parmIndex="2" format="none" position="" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="50" text="" propertyName="name" propertyType="String" formatString="none" />
+						<FieldMapping name="template" associationType="none" dataItemName="TEMPLATE" parmIndex="3" format="none" position="" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="4" text="" propertyName="template" propertyType="clob" formatString="none" />
+					</FieldMappings>
+				</QueryCallback>
+			</QueryCallbacks>
+			<SaveCallbacks>
+				<SaveCallback name="Save" mappingClassName="mojo.km.context.multidatasource.JDBCSQLMapping" mappingMethodName="save" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="GLREPTEMPL" connectionName="JDBCMSSQL" whereClause="REPTEMPL_ID=?" source="GLREPTEMPL">
+					<ParmMappings>
+						<ParmMapping name="OID" associationType="none" dataItemName="REPTEMPL_ID" parmIndex="3" format="none" position="" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="4" text="" propertyName="OID" propertyType="Numeric" formatString="none" />
+					</ParmMappings>
+					<FieldMappings>
+						<FieldMapping name="name" associationType="none" dataItemName="NAME" parmIndex="1" format="none" position="" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="50" text="" propertyName="name" propertyType="String" formatString="none" />
+						<FieldMapping name="template" associationType="none" dataItemName="TEMPLATE" parmIndex="2" format="none" position="" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="4" text="" propertyName="template" propertyType="clob" formatString="none" />
+					</FieldMappings>
+				</SaveCallback>
+			</SaveCallbacks>
+		</EntityMapping>
+	</EntityMappings>
+</Mapping>

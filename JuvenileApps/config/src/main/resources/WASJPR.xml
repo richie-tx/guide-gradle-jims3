@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Mojo import="ProdEnv.xml">
+  <Application>
+    <GroupMembership value="file"/>  
+    <UseLogging value="false"/>
+     <!--     //# task 44099 . U.S #41378 -->
+    <PactServerName value="pact.hctx.net"/>
+    <PactDatabaseName value="SVPPACTSQL.hco.hc.hctx.net"/>
+    <PactSchemaName value="NSGCMS_TX_Harris_Juvenile"/>
+    <PactApplicationName value="NSGCMS-TX-Harris"/>
+    
+     <!-- Security Manager -->
+    <SecurityManagerServerName value="coreservices.ja.itc.harriscountytx.gov"/>
+    <IdentityManagerServerName value="identity.harriscountytx.gov"/>
+  </Application>
+  <Servers>
+    <Server name="GUIController" contextClassName="mojo.km.context.multidatasource.GenericContextManager">
+      <EventManager>
+        <Async value="mojo.km.dispatch.CurrentContext.RequestDispatch" />
+        <ClientPubSub value="mojo.km.dispatch.Multicast.MCPubSubStrategy" />
+        <Context value="mojo.km.dispatch.CurrentContext.CurrentContextStrategy" />
+        <PubSub value="mojo.km.dispatch.CurrentContext.CurrentContextStrategy" />
+        <Queue value="mojo.km.dispatch.CurrentContext.RequestDispatch" />
+        <Reply value="mojo.km.dispatch.CurrentContext.ReplyDispatch" />
+        <Request value="mojo.km.dispatch.CurrentContext.RequestDispatch" />
+        <RequestReply value="mojo.km.dispatch.CurrentContext.CurrentContextStrategy" />
+      </EventManager>
+      <LogManager>
+        <APPEXCEPTION value="ERROR" />
+        <ERROR value="WARN" />
+        <ERRSTREAM value="WARN" />
+        <EXCEPTION value="ERROR" />
+        <LoggerAdapter value="mojo.km.logging.log4j.MojoLogStream" />
+        <OUTSTREAM value="INFO" />
+        <RUNTIMEEXCEPTION value="ERROR" />
+        <STACKTRACE value="ERROR" />
+      </LogManager>
+      <Session>
+        <ConnectionPool value="false" />
+        <DbPassword value="devuser7" />
+        <DbURL value="jdbc:oracle:thin:@dc-dbdev.dcdirect.com:1521:dcdev" />
+        <DbUserID value="devuser7" />
+        <DebugMode value="true" />
+        <LastAccessed value="0" />
+        <ProjectClass value="mapping.dcdirectmap" />
+        <WorkflowEnabled value="false" />
+        <LogManager value="mojo.km.logging.log4j.LogManager"/>
+      </Session>
+    </Server>
+  </Servers>
+  <Connections pooling="Yes">
+      <!--  Pooling definitions 
+			maxActive: cap on the total number of active instances from the pool.
+			minIdle: minimum number of idle objects in the pool
+			maxIdle: cap on the number of "sleeping" instances in the pool.
+			maxWaitTime: maximum amount of time (in millis) the pool's borrow method should block before throwing an exception when the pool is exhausted.
+			whenExhausted: the action to take when the pool's borrow method is invoked when the pool is exhausted (the maximum number 
+			                       of "active" objects has been reached).  This field can be BLOCK, FAIL, or GROW.
+					     when set to GROW, the maxActive value is meaningless
+			evictableIdleTime:	the minimum number of milliseconds an object can sit idle in the pool before it is eligable for evcition with the condition 
+						that at least "minIdle" amount of object remain in the pool.
+	-->
+ 	<Connection name="JDBCMSSQL" driver="com.microsoft.sqlserver.jdbc.SQLServerDriver" userID="jims2user" password="jims2userpassword" connectionAdapter="mojo.km.context.multidatasource.JDBCSQLAdapter" URL="jdbc/sqldev" testUrl="jdbc:sqlserver://SVPJIMS2SQL01.hco.hc.hctx.net:1433;databaseName=JIMS2" port="none" db2SchemaName="JIMS2" region="PRODURL" pooling="Yes">
+		<Pool maxActive="50" minIdle="50" maxIdle="50" whenExhausted="GROW" maxWaitTime="60000" evictableIdleTime="60000" />
+	</Connection>
+	
+  </Connections>
+  
+</Mojo>
+

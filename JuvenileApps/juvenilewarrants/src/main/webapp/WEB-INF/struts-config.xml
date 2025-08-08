@@ -1,0 +1,666 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+
+<struts-config>
+
+	<!-- FORM BEANS -->
+	<form-beans>
+
+		<!-- System exception bean -->
+		<!--&lt;form-bean name=&quot;systemExceptionForm&quot;   	type=&quot;org.apache.struts.validator.DynaValidatorForm&quot;&gt;
+			&lt;form-property name=&quot;exception&quot; type=&quot;java.lang.Throwable&quot;/&gt;
+			&lt;/form-bean&gt; -->
+
+		<form-bean name="juvenileAssociateForm" type="ui.juvenilewarrant.form.JuvenileAssociateForm"/>
+		<form-bean name="juvenilePhotoForm" type="ui.juvenilecase.form.JuvenilePhotoForm"/>
+		<form-bean name="juvenileWarrantForm" type="ui.juvenilewarrant.form.JuvenileWarrantForm"/>
+		<!-- <form-bean name="warrantAffidavitForm" type="ui.reporting.forms.WarrantAffidavitForm" />  -->
+
+	</form-beans>
+	<!-- END FORM BEANS -->
+
+	<!-- ===onclick="return validateJuvenileAssociateForm(this.form);">======= Exception Definitions ========================= -->
+	<global-exceptions>
+		<exception key="exception.title" type="java.lang.Exception" handler="ui.exception.StrutsExceptionHandler" />
+		<exception key="exception.title" type="javax.servlet.jsp.JspException" handler="ui.exception.StrutsExceptionHandler" />
+		<exception key="exception.title" type="javax.servlet.error.exception" handler="ui.exception.StrutsExceptionHandler" />
+		<exception key="exception.title" type="org.apache.struts.action.EXCEPTION" handler="ui.exception.StrutsExceptionHandler" />
+		<exception key="exception.title" type="mojo.km.messaging.exception.ReturnException" handler="ui.exception.ReturnExceptionHandler" />
+	</global-exceptions>
+
+	<!-- Global Forwards -->
+	<global-forwards>
+		<forward name="handleException" path="/jsp/error.jsp" />
+		<forward name="validateAddress" path="/validateAddress.do" />
+		<forward name="mainPage" path="/jsp/goToMainMenuPage.jsp"/>
+		<forward name="backToWarrant" path="/jsp/warrantViewDetails.jsp"/>
+	</global-forwards>	
+
+	<!-- **ACTION MAPPINGS** -->
+	<action-mappings>
+		 <!--  ~~~~~~~~~~~~~~~~~~~~~ GENERIC  MAPPINGS  ~~~~~~~~~~~~~~~~~~~~~~~~~ -->
+	<action path="/globalBack" forward="/jsp/back.jsp"/>
+	<action path="/globalCancel" forward="/jsp/cancel.htm"/>
+	<action name="juvenilePhotoForm" path="/getJuvenilePhoto" type="ui.juvenilecase.action.GetJuvenilePhotoAction" scope="session"  parameter="submitAction">
+		<forward name="success" path="/jsp/juvenilePhoto.jsp" />
+	</action>
+
+
+		<!-- ========== MANAGE JUVENILE WARRANTS =================================== -->
+		
+		<!--***************BEGIN PRINTING/REPORTING MAPPINGS***********-->    
+            <action name="juvenileWarrantForm" path="/printWarrantTemplateReport" type="ui.juvenilewarrant.action.SubmitWarrantPrintTemplateAction"  scope="session" parameter="submitAction"/>
+		<!--***************END PRINTING/REPORTING MAPPINGS***********-->    
+
+		<!--***************BEGIN ADDRESS VALIDATION MAPPINGS***********-->    
+		<action name="juvenileAssociateForm" path="/validateAddress" scope="session" type="ui.common.action.ValidateAddressAction" />
+		<action name="juvenileWarrantForm" path="/validateAddressWarrants" scope="session" type="ui.common.action.ValidateAddressAction" />		 
+		<!--***************ENd ADDRESS VALIDATION MAPPINGS***********-->    
+
+
+		<!--**********************BEGIN ASSOCIATE ACTION MAPPINGS ***************************-->
+		<!-- Display Associate Details from any Warrant Page-->
+		<action name="juvenileAssociateForm" path="/displayAssociateDetails" scope="session" type="ui.juvenilewarrant.action.DisplayWarrantAssociateDetailsAction"
+			input="jsp/warrantAssociateDetails.jsp" validate="false">
+			<forward name="success" path="/jsp/warrantAssociateDetails.jsp"/>
+		</action>
+
+		<!-- Display Associate Create/Update Form from Warrant Confirm Page-->
+		<action name="juvenileAssociateForm" path="/displayWarrantAssociateCreateUpdate" scope="session" type="ui.juvenilewarrant.action.DisplayWarrantAssociateCreateUpdateAction" 
+			input="/jsp/warrantAssociateCreateUpdate.jsp" validate="true" parameter="submitAction">
+			<forward name="success" path="/jsp/warrantAssociateCreateUpdate.jsp"/>
+			<forward name="listSuccess" path="/jsp/warrantAssociateList.jsp"/>
+			<forward name="cancel" path="/jsp/warrantConfirm.jsp"/>
+			<forward name="updateVOPSuccess" path="/jsp/warrantVOPUpdateSummary.jsp"/>
+			<forward name="updateOICSuccess" path="/jsp/warrantOICUpdateConfirm.jsp"/>
+			<forward name="warrantViewDetail" path="/jsp/warrantViewDetails.jsp"/>
+			<forward name="back" path="/globalBack.do"/>
+			
+		</action>
+
+		<!-- From Associate Create/Update Page handle create, update or user selecting Manage Addresses button-->
+		<action name="juvenileAssociateForm" path="/handleWarrantAssociateSelection" scope="session" type="ui.juvenilewarrant.action.HandleWarrantAssociateSelectionAction" 
+			input="/jsp/warrantAssociateSummary.jsp" validate="true" parameter="submitAction">
+			<forward name="createSuccess" path="/jsp/warrantAssociateSummary.jsp"/>
+			<forward name="updateSuccess" path="/jsp/warrantAssociateSummary.jsp"/>
+			<forward name="manageAddressSuccess" path="/jsp/warrantAssociateAddress.jsp"/>
+			<forward name="cancel" path="/jsp/warrantConfirm.jsp"/>
+			<forward name="cancelDetails" path="/jsp/warrantAssociateDetails.jsp"/>
+			<forward name="updateVOPSuccess" path="/jsp/warrantVOPUpdateSummary.jsp"/>
+			<forward name="updateOICSuccess" path="/jsp/warrantOICUpdateConfirm.jsp"/>
+			<forward name="back" path="/globalBack.do"/>
+		</action>
+
+		<!-- Submit Associate Create/Update and display Confirmation-->
+		<action name="juvenileAssociateForm" path="/submitWarrantAssociateCreateUpdate" scope="session" type="ui.juvenilewarrant.action.SubmitWarrantAssociateCreateUpdateAction" 
+			input="/jsp/warrantAssociateConfirm.jsp" validate="false" parameter="submitAction">
+			<forward name="confirmCreateSuccess" path="/jsp/warrantAssociateConfirm.jsp"/>
+			<forward name="confirmUpdateSuccess" path="/jsp/warrantAssociateConfirm.jsp"/>
+			<forward name="back" path="/jsp/warrantAssociateCreateUpdate.jsp"/> 
+		</action>
+
+		<!-- Associate Manage Addresses-->
+		<action name="juvenileAssociateForm" path="/handleWarrantAssociateAddresses" scope="session" type="ui.juvenilewarrant.action.HandleWarrantAssociateAddressesAction" 
+			input="/jsp/warrantAssociateAddress.jsp" validate="false" parameter="submitAction">
+			<forward name="addSuccess" path="/jsp/warrantAssociateAddress.jsp"/>
+			<forward name="next" path="/jsp/warrantAssociateSummary.jsp"/>
+			<forward name="cancel" path="/jsp/warrantAssociateCreateUpdate.jsp"/>
+			<forward name="continueSuccess" path="/jsp/warrantAssociateAddressSummary.jsp"/>
+		</action>
+		<!--**********************END ASSOCIATE ACTION MAPPINGS ***************************-->
+
+		
+		<!--**********************BEGIN JOT BASED WARRANT ACTION MAPPINGS ***************************-->
+		<!-- Menu Item-Initiate JOT Based (arrest, directive to apprehend, probable cause)Warrant-->
+		<action name="juvenileWarrantForm" path="/displayJOTSearch" scope="session" type="ui.juvenilewarrant.action.DisplayJOTSearchAction"
+			input="/jsp/warrantJOTSearch.jsp" validate="false">
+			<forward name="dtaSuccess" path="/jsp/warrantJOTSearch.jsp"/>
+			<forward name="arrSuccess" path="/jsp/warrantJOTSearch.jsp"/>
+			<forward name="pcSuccess" path="/jsp/warrantJOTSearch.jsp"/>
+		</action>
+
+		<!-- Display JOT based (arrest, directive to apprehend, probable cause)Create Form -->
+		<action name="juvenileWarrantForm" path="/displayJOTSearchResults" scope="session" type="ui.juvenilewarrant.action.DisplayJOTSearchResultsAction" 
+			input="/jsp/warrantJOTCreate.jsp" validate="false" parameter="submitAction">
+			<forward name="success" path="/jsp/warrantJOTCreate.jsp"/>
+			<forward name="cancel" path="/jsp/warrantJOTSearch.jsp"/>
+			<forward name="searchFailure" path="/jsp/warrantJOTSearch.jsp"/>
+			<forward name="refreshSuccess" path="/jsp/warrantJOTSearch.jsp"/>
+		</action>
+
+		<!-- Create Officer and Display common (JOT and JJS)Warrant Summary Page -->
+		<action name="juvenileWarrantForm" path="/createOfficerAndDisplaySummary" scope="session" type="ui.juvenilewarrant.action.CreateOfficerAndDisplaySummaryAction" 
+			input="/jsp/warrantJOTCreate.jsp" validate="false" parameter="submitAction">
+		    <forward name="back" path="/jsp/warrantJOTCreate.jsp"/>
+		    <forward name="backService" path="/displayWarrantServiceStatusSearchResults.do"/>
+		    <forward name="cancel" path="/displayJOTSearch.do" />
+		    <forward name="cancelService" path="/displayGenericSearch.do?warrantTypeUI=warrantService" />
+			<forward name="success" path="/jsp/warrantSummary.jsp"/>
+			<forward name="warrantServiceSuccess" path="/jsp/warrantServiceStatusUpdate2.jsp"/>
+			<forward name="releaseToJPSuccess" path="/jsp/warrantReleaseToJPSummary.jsp"/>
+			<forward name="releaseToJP" path="/jsp/warrantReleaseToJP.jsp"/>
+		</action>
+
+		<!-- Display Summary Of Facts Page -->
+		<action name="juvenileWarrantForm" path="/displaySummaryOfFacts" scope="session" type="ui.juvenilewarrant.action.DisplaySummaryOfFactsAction" 
+			input="/jsp/warrantJOTSummaryOfFacts.jsp" validate="false" parameter="submitAction">
+			<forward name="success" path="/jsp/warrantJOTSummaryOfFacts.jsp"/>
+		</action>	
+		<!--**********************END JOT BASED WARRANT ACTION MAPPINGS ***************************-->
+
+		<!--**********************BEGIN JJS BASED WARRANT ACTION MAPPINGS ***************************-->
+		<!-- Menu Item-Initiate JJS Based (order of mmediate custody and violation of probation)Warrant-->
+		<action name="juvenileWarrantForm" path="/displayJJSSearch" scope="session" type="ui.juvenilewarrant.action.DisplayJJSSearchAction"
+			input="/jsp/warrantJJSSearch.jsp" validate="false">
+			<forward name="oicSuccess" path="/jsp/warrantJJSSearch.jsp"/>
+			<forward name="vopSuccess" path="/jsp/warrantJJSSearch.jsp"/>
+		</action>
+
+		<!-- Display JJS based (order of immediate custody and violation of probation)Create Form -->
+		<action name="juvenileWarrantForm" path="/displayJJSSearchResults" scope="session" type="ui.juvenilewarrant.action.DisplayJJSSearchResultsAction" 
+				input="/jsp/warrantJJSCreate.jsp" validate="false" parameter="submitAction">
+			<forward name="success" path="/jsp/warrantJJSCreate.jsp"/>
+			<forward name="listSuccess" path="/jsp/warrantJJSSearchResults.jsp"/>
+			<forward name="cancel" path="/jsp/warrantJJSSearch.jsp"/>
+			<forward name="searchFailure" path="/jsp/warrantJJSSearch.jsp"/>
+			<forward name="refreshSuccess" path="/jsp/warrantJJSSearch.jsp"/>			
+		</action>
+		<!--**********************END JJS BASED WARRANT ACTION MAPPINGS ***************************-->
+
+		<!--***********BEGIN WARRANT ACTION MAPPINGS THAT ARE COMMON FOR MANY WARRANTS*************-->
+		<!-- Display common (JOT and JJS)Warrant Summary Page -->
+		<action name="juvenileWarrantForm" path="/displayJuvWarrantSummary" scope="session" type="ui.juvenilewarrant.action.DisplayJuvWarrantSummaryAction" 
+				input="/jsp/warrantJJSCreate.jsp" validate="true" parameter="submitAction">
+			<forward name="success" path="/jsp/warrantSummary.jsp"/>
+			<forward name="lawEnforcementInfo" path="/jsp/warrantLawEnforcementInfo.jsp"/>
+			<forward name="invalidLawEnforcement" path="/jsp/warrantJOTCreate.jsp"/>
+			<forward name="go" path="/jsp/warrantJJSCreate.jsp"/>
+			<forward name="findSuccess" path="/jsp/warrantJOTCreate.jsp"/>
+			<forward name="failure" path="/jsp/warrantJOTCreate.jsp"/>
+			<forward name="viewDetail" path="/displayAssociateDetails.do" />
+			<forward name="validateDepartmentSuccess" path="/jsp/warrantJOTCreate.jsp"/>
+		</action>
+		
+		<!-- Submit common (JOT and JJS)Summary and Confirmation Pages -->
+		<action name="juvenileWarrantForm" path="/submitJuvWarrantCreate" scope="session" type="ui.juvenilewarrant.action.SubmitJuvWarrantCreateAction" 
+			input="/jsp/warrantConfirm.jsp" validate="false" parameter="submitAction">
+			<forward name="success" path="/jsp/warrantConfirm.jsp"/>
+			<forward name="jjsBack" path="/jsp/warrantJJSCreate.jsp"/>
+			<forward name="jotBack" path="/jsp/warrantJOTCreate.jsp"/>
+			<forward name="jotSearch" path="/jsp/warrantJOTSearch.jsp"/>
+			<forward name="jjsSearch" path="/jsp/warrantJJSSearch.jsp"/>
+			<forward name="searchFailure" path="/jsp/warrantGenericSearch.jsp"/>
+			<forward name="viewDetail" path="/jsp/warrantViewDetails.jsp"/>
+			<forward name="createFailure" path="/jsp/warrantConfirm.jsp"/>
+			
+		</action>
+		
+		<!-- Menu Item-Display Generic Search Form-->
+		<action name="juvenileWarrantForm" path="/displayGenericSearch" scope="session" type="ui.juvenilewarrant.action.DisplayGenericSearchAction"
+			input="/jsp/warrantGenericSearch.jsp" validate="false">
+			<forward name="reqAckDTASuccess" path="/jsp/warrantGenericSearch.jsp"/>
+			<forward name="actDTASuccess" path="/jsp/warrantGenericSearch.jsp"/>
+			<forward name="actARRSuccess" path="/jsp/warrantGenericSearch.jsp"/>
+			<forward name="actVOPSuccess" path="/jsp/warrantGenericSearch.jsp"/>
+			<forward name="reqSigOICSuccess" path="/jsp/warrantGenericSearch.jsp"/>
+			<forward name="updateOICSuccess" path="/jsp/warrantGenericSearch.jsp"/>
+			<forward name="updateVOPSuccess" path="/jsp/warrantGenericSearch.jsp"/>
+			<forward name="inactivateSuccess" path="/jsp/warrantGenericSearch.jsp"/>
+			<forward name="recallSuccess" path="/jsp/warrantGenericSearch.jsp"/>
+			<forward name="releaseDecisionSuccess" path="/jsp/warrantGenericSearch.jsp"/>
+			<forward name="releaseToJPSuccess" path="/jsp/warrantGenericSearch.jsp"/>
+			<forward name="releaseToPersonSuccess" path="/jsp/warrantGenericSearch.jsp"/>
+			<forward name="warrantServiceSuccess" path="/jsp/warrantGenericSearch.jsp"/>
+			<forward name="processReturnSuccess" path="/jsp/warrantGenericSearch.jsp"/>
+			<forward name="retSigStatusSuccess" path="/jsp/warrantGenericSearch.jsp"/>
+			
+		</action>
+
+		<!-- Display Generic Search Results-->
+		<action name="juvenileWarrantForm" path="/displayGenericSearchResults" scope="session" type="ui.juvenilewarrant.action.DisplayGenericSearchResultsAction"
+			input="/jsp/warrantGenericSearch.jsp" validate="false">
+			<forward name="reqAckDTASuccess" path="/displayWarrantDTAAcknowledgementSearchResults.do"/>
+			<forward name="reqAckDTAListSuccess" path="/jsp/warrantDTAAcknowledgementSearchResults.jsp"/>
+			<forward name="inactivateSuccess" path="/displayWarrantInactivateSearchResults.do"/>
+			<forward name="recallSuccess" path="/displayWarrantRecallSearchResults.do"/>
+			<forward name="actDTASuccess" path="/displayWarrantActivateDetails.do"/>
+			<forward name="actARRSuccess" path="/displayWarrantActivateDetails.do"/>
+			<forward name="actVOPSuccess" path="/displayWarrantVOPActivateDetails.do"/>
+			<!--&lt;forward name=&quot;actVOPListSuccess&quot; path=&quot;/displayWarrantVOPActivateSearchResults.do&quot;&gt;&lt;/forward&gt;-->
+			<forward name="reqSigOICSuccess" path="/displayWarrantOICSignatureSearchResults.do"/>
+			<forward name="reqSigOICListSuccess" path="/displayWarrantOICSignatureSearchResults.do"/>
+			<forward name="updateOICSuccess" path="/displayWarrantOICUpdate.do"/>
+			<forward name="updateVOPSuccess" path="/displayVOPUpdate.do"/>			
+			<forward name="releaseDecisionSuccess" path="/displayReleaseSearchResults.do"/>
+			<forward name="releaseToJPSuccess" path="/displayReleaseSearchResults.do"/>
+			<forward name="releaseToPersonSuccess" path="/displayReleaseSearchResults.do"/>
+			<forward name="warrantServiceSuccess" path="/displayWarrantServiceStatusSearchResults.do"/>
+			<forward name="processReturnSuccess" path="/displayWarrantProcessReturnOfServiceSearchResults.do"/>
+			<forward name="retSigStatusSuccess" path="/displayWarrantReturnOfServiceSignatureSearchResults.do"/>
+			<forward name="searchFailure" path="/jsp/warrantGenericSearch.jsp"/>	
+			<forward name="refreshSuccess" path="/jsp/warrantGenericSearch.jsp"/>		
+		</action>
+		<!--***********BEGIN WARRANT ACTION MAPPINGS THAT ARE COMMON FOR MANY WARRANTS*************-->
+		
+		<!--***********BEGIN ACKNOWLEDGE DTA WARRANT ACTION MAPPINGS***************************-->
+		<!-- Display DTA Acknowledgement Search Results-->
+		<action name="juvenileWarrantForm" path="/displayWarrantDTAAcknowledgementSearchResults" scope="session" type="ui.juvenilewarrant.action.DisplayWarrantDTAAcknowledgementSearchResultsAction"
+			input="/jsp/warrantDTAAcknowledgementSearchResults.jsp" validate="false">
+			<forward name="reqAckDTAListSuccess" path="/jsp/warrantDTAAcknowledgementSearchResults.jsp"/>
+			<forward name="reqAckDTASuccess" path="/jsp/warrantDTAAcknowledgementDetails.jsp"/>
+			<forward name="cancel" path="displayGenericSearch.do?warrantTypeUI=reqAckDTA"/>
+			<forward name="searchFailure" path="displayGenericSearch.do?warrantTypeUI=reqAckDTA"/>
+		</action>
+
+		<!-- Submit Warrant DTA Acknowledgement Confirm-->
+		<action name="juvenileWarrantForm" path="/submitWarrantDTAAcknowledgement" scope="session" type="ui.juvenilewarrant.action.SubmitWarrantDTAAcknowledgementAction"
+			input="/jsp/warrantDTAAcknowledgementConfirm.jsp" validate="false">
+			<forward name="success" path="/jsp/warrantDTAAcknowledgementConfirm.jsp"/>
+		</action>
+		<!--***********END ACKNOWLEDGE DTA WARRANT ACTION MAPPINGS***************************-->
+		
+		<!--***********BEGIN ACTIVATE WARRANT ACTION MAPPINGS***************************-->
+		<!-- Submit Activate for DTA &amp; ARR -->
+		<action name="juvenileWarrantForm" path="/submitWarrantActivate" scope="session" type="ui.juvenilewarrant.action.SubmitWarrantActivateAction"
+			input="/submitWarrantDTAActivate.do" validate="false">
+			<forward name="actDTASuccess" path="/submitWarrantDTAActivate.do"/>
+			<forward name="actARRSuccess" path="/submitWarrantARRActivate.do"/>
+			<forward name="mainPageDTA" path="/displayGenericSearch.do?warrantTypeUI=actDTA"/>
+			<forward name="mainPageARR" path="/displayGenericSearch.do?warrantTypeUI=actARR"/>
+		</action>
+
+		<!-- Submit Warrant DTA Activate Confirm-->
+		<action name="juvenileWarrantForm" path="/submitWarrantDTAActivate" scope="session" type="ui.juvenilewarrant.action.SubmitWarrantDTAActivateAction"
+			input="/jsp/warrantActivateConfirm.jsp" validate="false">
+			<forward name="actDTASuccess" path="/jsp/warrantActivateConfirm.jsp"/>
+			<forward name="searchFailure" path="displayGenericSearch.do?warrantTypeUI=actDTA"/>
+			<forward name="mainPageDTA" path="/displayGenericSearch.do?warrantTypeUI=actDTA"/>
+		</action>
+
+		<!-- Display ARR and DTA Activation Search Results-->
+		<action name="juvenileWarrantForm" path="/displayWarrantActivateDetails" scope="session" type="ui.juvenilewarrant.action.DisplayWarrantActivateDetailsAction"
+			input="/jsp/warrantActivateConfirm.jsp" validate="false">
+			<forward name="actARRSuccess" path="/jsp/warrantActivateDetails.jsp"/>
+			<forward name="actDTASuccess" path="/jsp/warrantActivateDetails.jsp"/>
+			<forward name="cancelDTA" path="displayGenericSearch.do?warrantTypeUI=actDTA"/>
+			<forward name="cancelARR" path="displayGenericSearch.do?warrantTypeUI=actARR"/>
+			<forward name="searchFailure" path="/jsp/warrantGenericSearch.jsp"/>
+			<forward name="mainPageDTA" path="/displayGenericSearch.do?warrantTypeUI=actDTA"/>
+			<forward name="mainPageARR" path="/displayGenericSearch.do?warrantTypeUI=actARR"/>
+		</action>
+
+		<!-- Submit Warrant ARR Activate Confirm-->
+		<action name="juvenileWarrantForm" path="/submitWarrantARRActivate" scope="session" type="ui.juvenilewarrant.action.SubmitWarrantARRActivateAction"
+			input="/jsp/warrantActivateConfirm.jsp" validate="false">
+			<forward name="actARRSuccess" path="/jsp/warrantActivateConfirm.jsp"/>
+			<forward name="searchFailure" path="displayGenericSearch.do?warrantTypeUI=actARR"/>
+		
+		</action>
+
+		<!-- Display VOP Activation Search Results -->
+		<action name="juvenileWarrantForm" path="/displayWarrantVOPActivateDetails" scope="session" type="ui.juvenilewarrant.action.DisplayWarrantVOPActivateDetailsAction"
+			input="/jsp/warrantVOPActivateDetails.jsp" validate="false">
+			<forward name="searchFailure" path="/displayGenericSearch.do?warrantTypeUI=actVOP"/>
+			<forward name="success" path="/jsp/warrantVOPActivateDetails.jsp"/>
+			<forward name="actVOPListSuccess" path="/jsp/warrantVOPActivateSearchResults.jsp"/>
+		</action>
+				
+		<action name="juvenileWarrantForm" path="/displayWarrantVOPActivateSearchResults" scope="session" type="ui.juvenilewarrant.action.DisplayWarrantVOPActivateSearchResultsAction"
+			input="/jsp/warrantVOPActivateDetails.jsp" validate="false">
+			<forward name="searchFailure" path="/displayGenericSearch.do?warrantTypeUI=actVOP"/>
+			<forward name="success" path="/jsp/warrantVOPActivateDetails.jsp"/>
+		</action>
+				
+		<action name="juvenileWarrantForm" path="/displayWarrantVOPActivateSummary" scope="session" type="ui.juvenilewarrant.action.DisplayWarrantVOPActivateSummaryAction" 
+			input="/jsp/warrantVOPActivateSummary.jsp" validate="false" parameter="submitAction">
+			<forward name="back" path="/displayGenericSearch.do?warrantTypeUI=actVOP"/>
+			<forward name="next" path="/jsp/warrantVOPActivateSummary.jsp"/>
+			<forward name="cancel" path="/displayGenericSearch.do?warrantTypeUI=actVOP"/>
+			
+		</action>		
+
+		<!-- Submit Warrant VOP Activate Confirm -->
+		<action name="juvenileWarrantForm" path="/submitWarrantVOPActivate" scope="session" type="ui.juvenilewarrant.action.SubmitWarrantVOPActivateAction" 
+			input="/jsp/warrantVOPActivateSummary.jsp" validate="false" parameter="submitAction">
+			<forward name="back" path="/jsp/warrantVOPActivateDetails.jsp"/>
+			<forward name="success" path="/jsp/warrantVOPActivateSummary.jsp"/>
+			
+		</action>
+		
+		<!-- Display VOP Update -->
+		<action name="juvenileWarrantForm" path="/displayVOPUpdate" scope="session" type="ui.juvenilewarrant.action.DisplayVOPUpdateAction"
+			input="/jsp/warrantVOPUpdate.jsp" validate="false">
+			<forward name="success" path="/jsp/warrantVOPUpdate.jsp"/>
+			<forward name="cancel" path="/displayGenericSearch.do?warrantTypeUI=updateVOP"/>
+			<forward name="searchFailure" path="/displayGenericSearch.do?warrantTypeUI=updateVOP"/>
+			
+		</action>
+
+		<!-- Display Warrant VOP Update Confirmation -->
+		<action name="juvenileWarrantForm" path="/displayVOPUpdateSummary" scope="session" type="ui.juvenilewarrant.action.DisplayVOPUpdateSummaryAction" 
+			input="/jsp/warrantVOPUpdateSummary.jsp" validate="false" parameter="submitAction">
+			<forward name="back" path="displayVOPUpdate.jsp"/>
+			<forward name="finish" path="/jsp/warrantVOPUpdateSummary.jsp"/>
+			<forward name="next" path="/jsp/warrantVOPUpdateSummary.jsp"/>
+			<forward name="go" path="/jsp/warrantVOPUpdate.jsp"/>
+			
+		</action>
+		
+		
+		<!--***********END ACTIVATE WARRANT ACTION MAPPINGS***************************-->
+		
+		<!--***********BEGIN INACTIVATE WARRANT ACTION MAPPINGS***************************-->
+		<!-- Display Inactivate Search Results-->
+		<action name="juvenileWarrantForm" path="/displayWarrantInactivateSearchResults" scope="session" type="ui.juvenilewarrant.action.DisplayWarrantInactivateSearchResultsAction"
+			input="/jsp/warrantInactivateSearchResults.jsp" validate="false">
+			<forward name="listSuccess" path="/jsp/warrantInactivateSearchResults.jsp"/>
+			<forward name="success" path="/jsp/warrantInactivate.jsp"/>
+			<forward name="searchFailure" path="/jsp/warrantGenericSearch.jsp"/>
+		</action>
+		<!-- Submit Warrant Inactivate Summary/Confirm-->
+		<action name="juvenileWarrantForm" path="/submitWarrantInactivate" scope="session" type="ui.juvenilewarrant.action.SubmitWarrantInactivateAction" parameter="submitAction"
+			input="/jsp/warrantInactivateConfirm.jsp" validate="true">
+			<forward name="next" path="/jsp/warrantInactivateConfirm.jsp"/>
+			<forward name="success" path="/jsp/warrantInactivateConfirm.jsp"/>
+			<forward name="cancel" path="displayGenericSearch.do?warrantTypeUI=inactivate"/>
+		
+		</action>
+		<!--***********END INACTIVATE WARRANT ACTION MAPPINGS***************************-->
+
+		<!--***********BEGIN RECALL WARRANT ACTION MAPPINGS***************************-->		
+		<!-- Display Recall Search Results-->
+		<action name="juvenileWarrantForm" path="/displayWarrantRecallSearchResults" scope="session" type="ui.juvenilewarrant.action.DisplayWarrantRecallSearchResultsAction"
+			input="/jsp/warrantRecallSearchResults.jsp" validate="false">
+			<forward name="listSuccess" path="/jsp/warrantRecallSearchResults.jsp"/>
+			<forward name="success" path="/jsp/warrantRecall.jsp"/>
+			<forward name="searchFailure" path="/jsp/warrantGenericSearch.jsp"/>
+		</action>
+		<!-- Display Recall Details - NOT USED ANYMORE - IS BEING DISPLAYED IN displayWarrantRecallSearchResults -->
+
+		<!-- Submit Warrant Recall Summary/Confirm-->
+		<action name="juvenileWarrantForm" path="/submitWarrantRecall" scope="session" type="ui.juvenilewarrant.action.SubmitWarrantRecallAction" parameter="submitAction"
+			input="/jsp/warrantRecallConfirm.jsp" validate="true">
+			<forward name="next" path="/jsp/warrantRecallConfirm.jsp"/>
+			<forward name="success" path="/jsp/warrantRecallConfirm.jsp"/>
+			<forward name="cancel" path="displayGenericSearch.do?warrantTypeUI=recall"/>
+			<forward name="back" path="/jsp/warrantRecallSearchResults.jsp"/>
+		</action>
+		<!--***********END RECALL WARRANT ACTION MAPPINGS***************************-->
+		
+		<!--***********BEGIN VIEW WARRANT ACTION MAPPINGS***************************-->
+		<!-- Menu Item-Display View Search Form-->
+		<action name="juvenileWarrantForm" path="/displayWarrantViewSearch" scope="session" 
+				input="/jsp/warrantViewSearch.jsp" validate="false" type="ui.juvenilewarrant.action.DisplayWarrantViewSearchAction">
+			<forward name="success"  path="/jsp/warrantViewSearch.jsp"/>
+		</action>
+		<!-- Display View Search Results-->
+		<action name="juvenileWarrantForm" path="/displayWarrantViewSearchResults" scope="session" type="ui.juvenilewarrant.action.DisplayWarrantViewSearchResultsAction"  
+				input="/jsp/warrantViewSearchResults.jsp" validate="false" parameter="submitAction">
+			<forward name="listSuccess" path="/jsp/warrantViewSearchResults.jsp"/>
+			<forward name="success" path="/jsp/warrantViewDetails.jsp"/>
+			<forward name="searchFailure" path="/jsp/warrantViewSearch.jsp"/>
+			<forward name="back" path="/jsp/warrantViewSearch.jsp"/>
+			<forward name="refreshSuccess" path="/jsp/warrantViewSearch.jsp"/>
+		</action>
+		<!--***********END VIEW WARRANT ACTION MAPPINGS***************************-->
+
+		<!--***********BEGIN OIC WARRANT SIGNATURE &amp; UPDATE ACTION MAPPINGS***********-->
+		<!-- Begin Request OIC Signature Action Mappings -->
+		<!-- Display OIC Request Signature Search Results-->
+		<action name="juvenileWarrantForm" path="/displayWarrantOICSignatureSearchResults" scope="session" type="ui.juvenilewarrant.action.DisplayWarrantOICSignatureSearchResultsAction"
+			input="/jsp/warrantOICSignature.jsp" validate="false">
+			<forward name="success" path="/jsp/warrantOICSignature.jsp"/>
+			<forward name="listSuccess" path="/jsp/warrantOICSignatureSearchResults.jsp"/>
+			<forward name="cancel" path="/displayGenericSearch.do?warrantTypeUI=reqSigOIC"/>
+			<forward name="searchFailure" path="/displayGenericSearch.do?warrantTypeUI=reqSigOIC"/>
+		
+		</action>
+
+		<action name="juvenileWarrantForm" path="/displayWarrantOICSignatureSummary" scope="session" type="ui.juvenilewarrant.action.DisplayWarrantOICSignatureSummaryAction" 
+		     input="/jsp/warrantOICSignatureSummary.jsp" validate="true" parameter="submitAction">
+			<forward name="cancel" path="/displayGenericSearch.do?warrantTypeUI=reqSigOIC" />
+			<forward name="success" path="/jsp/warrantOICSignatureSummary.jsp"/>
+		
+		</action>		
+
+		<!-- Submit Warrant OIC Signature Confirm-->
+		<action name="juvenileWarrantForm" path="/submitWarrantOICSignature" scope="session" type="ui.juvenilewarrant.action.SubmitWarrantOICSignatureAction" 
+			input="/jsp/warrantOICSignatureSummary.jsp" validate="false" parameter="submitAction">
+			<forward name="success" path="/jsp/warrantOICSignatureSummary.jsp"/>
+			<forward name="back" path="/jsp/warrantOICSignature.jsp"/>
+			<forward name="cancel" path="/displayGenericSearch.do?warrantTypeUI=reqSigOIC"/>
+		
+		</action>
+		<!-- End Request OIC Signature Action Mappings -->
+
+		<!-- Begin Update OIC Action Mappings -->
+		<!-- Display OIC Update -->
+		<action name="juvenileWarrantForm" path="/displayWarrantOICUpdate" scope="session" type="ui.juvenilewarrant.action.DisplayWarrantOICUpdateAction"
+			input="/jsp/warrantOICUpdate.jsp" validate="false">
+			<forward name="success" path="/jsp/warrantOICUpdate.jsp"/>
+			<forward name="cancel" path="/displayGenericSearch.do?warrantTypeUI=updateOIC"/>
+			<forward name="searchFailure" path="/displayGenericSearch.do?warrantTypeUI=updateOIC"/>
+		
+		</action>
+
+		<!-- Display Warrant OIC Update Confirmation -->
+		<action name="juvenileWarrantForm" path="/displayWarrantOICUpdateConfirm" scope="session" type="ui.juvenilewarrant.action.DisplayWarrantOICUpdateConfirmAction" 
+			input="jsp/warrantOICUpdateConfirm.jsp" validate="true" parameter="submitAction">
+			<forward name="back" path="displayWarrantOICUpdate.jsp"/>
+			<forward name="finish" path="/jsp/warrantOICUpdateConfirm.jsp"/>
+			<forward name="next" path="/jsp/warrantOICUpdateConfirm.jsp"/>
+			<forward name="go" path="/jsp/warrantOICUpdate.jsp"/>
+		</action>
+		<!-- End OIC Update Action Mappings -->
+		<!--***********END OIC WARRANT SIGNATURE &amp; UPDATE ACTION MAPPINGS***********-->
+
+		<!--***********BEGIN MANAGE RELEASE ACTION MAPPINGS***********-->
+		<!-- Display Department Search Page-->
+		<action name="juvenileWarrantForm" path="/displayDepartmentSearch" scope="session" type="ui.juvenilewarrant.action.DisplayDepartmentSearchAction"
+			input="/jsp/juvenileWarrantDepartmentSearch.jsp" validate="false" >
+        	<forward name="searchDepartmentSuccess" path="/jsp/juvenileWarrantDepartmentSearch.jsp"/>
+        </action>
+
+		<!-- Display Department Search Results Page-->        	
+		<action name="juvenileWarrantForm" path="/displayDepartmentSearchResults" scope="session" type="ui.juvenilewarrant.action.DisplayDepartmentSearchResultsAction" 
+			input="/jsp/juvenileWarrantDepartmentSearch.jsp" validate="false" parameter="submitAction">
+			<forward name="selectCreateSuccess" path="/jsp/warrantJOTCreate.jsp"></forward>
+			<forward name="selectServiceSuccess" path="/jsp/warrantServiceStatusUpdate1.jsp"></forward>			
+			<forward name="selectTransferSuccess" path="/jsp/warrantReleaseToJP.jsp"></forward>
+			<forward name="success" path="/jsp/juvenileWarrantDepartmentSearch.jsp"></forward>
+			<forward name="reset" path="/jsp/juvenileWarrantDepartmentSearch.jsp"></forward>	
+		  	<forward name="cancelCreate" path="displayJOTSearch.do"></forward>
+		  	<forward name="cancelService" path="displayGenericSearch.do?warrantTypeUI=warrantService"></forward>		  	
+		  	<forward name="cancelTransfer" path="displayGenericSearch.do?warrantTypeUI=releaseToJP"></forward>
+		  	<forward name="backCreate" path="/jsp/warrantJOTCreate.jsp"></forward>
+		  	<forward name="backService" path="/jsp/warrantServiceStatusUpdate1.jsp"></forward>		  	
+		  	<forward name="backTransfer" path="/jsp/warrantReleaseToJP.jsp"></forward>
+		  	<forward name="failure" path="/jsp/juvenileWarrantDepartmentSearch.jsp"></forward>
+        </action>
+
+		<!-- Display Release Search Results-->
+		<action name="juvenileWarrantForm" path="/displayReleaseSearchResults" scope="session" type="ui.juvenilewarrant.action.DisplayReleaseSearchResultsAction"
+			input="/jsp/warrantReleaseDecision.jsp" validate="false">
+			<forward name="listSuccess" path="/jsp/warrantReleaseSearchResults.jsp"/>
+			<forward name="releaseDecisionSuccess" path="/jsp/warrantReleaseDecision.jsp"/>
+			<forward name="releaseToJPSuccess" path="/jsp/warrantReleaseToJP.jsp"/>
+			<forward name="releaseToPersonSuccess" path="/jsp/warrantReleaseToPerson.jsp"/>
+			<forward name="searchFailure" path="/jsp/warrantGenericSearch.jsp"/>		
+		</action>	
+
+		<!-- Display Release Decision Summary -->
+		<action name="juvenileWarrantForm" path="/displayReleaseDecisionSummary" scope="session" type="ui.juvenilewarrant.action.DisplayReleaseDecisionSummaryAction"
+			input="/jsp/warrantReleaseDecisionSummary.jsp" validate="true">
+			<forward name="success" path="/jsp/warrantReleaseDecisionSummary.jsp"/>
+			<forward name="cancel" path="displayGenericSearch.do?warrantTypeUI=releaseDecision"/>	
+		</action>
+
+		<!-- Submit Release Decision -->
+		<action name="juvenileWarrantForm" path="/submitWarrantReleaseDecision" scope="session" type="ui.juvenilewarrant.action.SubmitWarrantReleaseDecisionAction" 
+			input="/jsp/warrantReleaseDecisionSummary.jsp" validate="false" parameter="submitAction">
+			<forward name="success" path="/jsp/warrantReleaseDecisionSummary.jsp"/>
+			<forward name="cancel" path="displayGenericSearch.do?warrantTypeUI=releaseDecision"/>
+		
+		</action>
+
+		<!-- Display Release To JP -->
+		<action name="juvenileWarrantForm" path="/displayReleaseToJPSummary" scope="session" type="ui.juvenilewarrant.action.DisplayReleaseToJPSummaryAction" 
+			input="/jsp/warrantReleaseToJPSummary.jsp" validate="false" parameter="submitAction">
+			<forward name="success" path="/jsp/warrantReleaseToJPSummary.jsp"/>
+			<forward name="findSuccess" path="/jsp/warrantReleaseToJP.jsp"/>	
+			<forward name="failure" path="/jsp/warrantReleaseToJP.jsp"/>	
+			<forward name="lawEnforcementInfo" path="/jsp/warrantLawEnforcementInfo.jsp"/>
+			<forward name="cancel" path="displayGenericSearch.do?warrantTypeUI=releaseToJP"/>
+			<forward name="cancelJot" path="/jsp/warrantJOTSearch.jsp"/>
+			<forward name="cancelService" path="displayGenericSearch.do?warrantTypeUI=warrantService"/>
+			<forward name="validateDepartmentSuccess" path="/jsp/warrantReleaseToJP.jsp"/>
+			<forward name="validateJotDepartmentSuccess" path="/jsp/warrantJOTCreate.jsp"/>
+			<forward name="validateServiceDepartmentSuccess" path="/jsp/warrantServiceStatusUpdate1.jsp"/>	
+			<forward name="findDeptSuccess" path="/jsp/juvenileWarrantDepartmentSearch.jsp"/>							
+			<forward name="invalidLawEnforcement" path="/jsp/warrantReleaseToJP.jsp"/>
+			<forward name="back" path="/jsp/warrantReleaseToJP.jsp"/>
+			<forward name="backToJot" path="/jsp/warrantJOTCreate.jsp"/>
+			<forward name="backToService" path="/jsp/warrantServiceStatusUpdate1.jsp"/>
+		</action>
+
+		<!-- Submit Release To JP -->
+		<action name="juvenileWarrantForm" path="/submitReleaseToJP" scope="session" type="ui.juvenilewarrant.action.SubmitReleaseToJPAction" 
+			input="/jsp/warrantReleaseToJPSummary.jsp" validate="false" parameter="submitAction">
+			<forward name="success" path="/jsp/warrantReleaseToJPSummary.jsp"/>
+			<forward name="cancel" path="displayGenericSearch.do?warrantTypeUI=releaseToJP"/>
+		
+		</action>
+
+		<!-- Display Release To Person -->
+		<action name="juvenileWarrantForm" path="/displayReleaseToPersonSummary" scope="session" type="ui.juvenilewarrant.action.DisplayReleaseToPersonSummaryAction"
+			input="/jsp/warrantReleaseToPersonSummary.jsp" validate="false">
+			<forward name="success" path="/jsp/warrantReleaseToPersonSummary.jsp"/>
+			<forward name="cancel" path="displayGenericSearch.do?warrantTypeUI=releaseToPerson"/>
+			
+		</action>
+
+		<!-- Submit Release To Person -->
+		<action name="juvenileWarrantForm" path="/submitReleaseToPerson" scope="session" type="ui.juvenilewarrant.action.SubmitReleaseToPersonAction" 
+			input="/jsp/warrantReleaseToPersonSummary.jsp" validate="false" parameter="submitAction">
+			<forward name="success" path="/jsp/warrantReleaseToPersonSummary.jsp"/>
+			<forward name="cancel" path="displayGenericSearch.do?warrantTypeUI=releaseToPerson"/>
+			
+		</action>
+		<!--***********END MANAGE RELEASE ACTION MAPPINGS***********-->
+		
+		<!--*********** BEGIN SERVICE ACTION MAPPINGS ***********-->
+		<!-- **** BEGIN MANAGE WARRANT SERVICE MAPPINGS *****--> 
+		<!-- Warrant Service Status Search Results -->
+		<action name="juvenileWarrantForm" path="/displayWarrantServiceStatusSearchResults" scope="session" type="ui.juvenilewarrant.action.DisplayWarrantServiceStatusSearchResultsAction"
+			input="/jsp/warrantServiceStatusUpdate1.jsp" validate="false">
+			<forward name="listSuccess" path="/jsp/warrantServiceStatusSearchResults.jsp"/>
+			<forward name="success" path="/jsp/warrantServiceStatusUpdate1.jsp"/>
+			<forward name="searchFailure" path="/jsp/warrantGenericSearch.jsp"/>
+		
+		</action>
+
+		<!-- Warrant Service Status Update page 2 -->		
+		<action name="juvenileWarrantForm" path="/displayWarrantServiceStatusUpdate2" scope="session" type="ui.juvenilewarrant.action.DisplayWarrantServiceStatusUpdate2Action" 
+			input="/jsp/warrantServiceStatusUpdate2.jsp" validate="false" parameter="submitAction">
+			<forward name="success" path="/jsp/warrantServiceStatusUpdate2.jsp"/>
+			<forward name="lawEnforcementInfo" path="/jsp/warrantLawEnforcementInfo.jsp"/>
+			<forward name="cancel" path="displayGenericSearch.do?warrantTypeUI=warrantService"/>
+			<forward name="invalidLawEnforcement" path="/jsp/warrantServiceStatusUpdate1.jsp"/>
+			<forward name="findSuccess" path="/jsp/warrantServiceStatusUpdate1.jsp"/>
+			<forward name="failure" path="/jsp/warrantServiceStatusUpdate1.jsp"/>
+			<forward name="resetSuccess" path="/jsp/warrantServiceStatusUpdate1.jsp"/>
+			<forward name="validateDepartmentSuccess" path="/jsp/warrantServiceStatusUpdate1.jsp"/>
+		</action>
+
+		<!-- Display Warrant Service Status Summary -->
+		<action name="juvenileWarrantForm" path="/displayWarrantServiceStatusSummary" scope="session" type="ui.juvenilewarrant.action.DisplayWarrantServiceStatusSummaryAction" 
+			input="/jsp/warrantServiceStatusSummary.jsp" validate="false" parameter="submitAction">
+			<forward name="success" path="/jsp/warrantServiceStatusSummary.jsp"/>
+			<forward name="cancel" path="displayGenericSearch.do?warrantTypeUI=warrantService"/>
+			<forward name="back" path="/globalBack.do"/>			
+		</action>
+
+		<!-- Submit Warrant Service Status Updated -->
+		<action name="juvenileWarrantForm" path="/submitWarrantServiceStatusUpdate" scope="session" type="ui.juvenilewarrant.action.SubmitWarrantServiceStatusUpdateAction" 
+			input="/jsp/warrantServiceStatusSummary.jsp" validate="false" parameter="submitAction">
+			<forward name="success" path="/jsp/warrantServiceStatusSummary.jsp"/>
+			<forward name="back" path="/jsp/warrantServiceStatusUpdate2.jsp"/>	
+			<forward name="mainPage" path="/jsp/goToMainMenuPage.jsp"/>		
+		</action>
+		<!-- **** END MANAGE WARRANT SERVICE MAPPINGS *****--> 
+		
+  	    <!-- **** BEGIN PROCESS RETURN OF SERVICE MAPPINGS *****--> 
+		<!-- Warrant Process Return Of Service Search Results -->
+		<action name="juvenileWarrantForm" path="/displayWarrantProcessReturnOfServiceSearchResults" scope="session" type="ui.juvenilewarrant.action.DisplayWarrantProcessReturnOfServiceSearchResultsAction"
+			input="/jsp/warrantProcessReturnOfServiceSearchResults.jsp" validate="false">
+			<forward name="listSuccess" path="/jsp/warrantProcessReturnOfServiceSearchResults.jsp"/>
+			<forward name="success" path="/jsp/warrantProcessReturnOfService.jsp"/>
+			<forward name="searchFailure" path="displayGenericSearch.do?warrantTypeUI=processReturn"/>		
+		</action>
+
+		<!--  Warrant Process Return of Service Details -->
+		<action name="juvenileWarrantForm" path="/displayWarrantProcessReturnOfServiceDetails" scope="session" type="ui.juvenilewarrant.action.DisplayWarrantProcessReturnOfServiceDetailsAction"
+			input="/jsp/warrantProcessReturnOfService.jsp" validate="false">
+			<forward name="success" path="/jsp/warrantProcessReturnOfService.jsp"/>			
+			<forward name="cancel" path="displayGenericSearch.do?warrantTypeUI=processReturn"/>
+			
+		</action>
+		
+		<!-- Submit Process Return of Service -->
+		<action name="juvenileWarrantForm" path="/submitWarrantProcessReturnOfService" scope="session" type="ui.juvenilewarrant.action.SubmitWarrantProcessReturnOfServiceAction" 
+			input="/jsp/warrantProcessReturnOfServiceConfirm.jsp" validate="false" parameter="submitAction">
+			<forward name="success" path="/jsp/warrantProcessReturnOfServiceConfirm.jsp"/>
+		
+		</action>
+  	    <!-- **** END PROCESS RETURN OF SERVICE MAPPINGS *****--> 		
+
+  	    <!-- **** BEGIN RETURN OF SERVICE SIGNATURE MAPPINGS *****--> 
+		<!--  Warrant Return of Service Signature Search Results -->
+		<action name="juvenileWarrantForm" path="/displayWarrantReturnOfServiceSignatureSearchResults" scope="session" type="ui.juvenilewarrant.action.DisplayWarrantReturnOfServiceSignatureSearchResultsAction"
+			input="/jsp/warrantReturnOfServiceSignatureStatus.jsp" validate="false">
+			<forward name="listSuccess" path="/jsp/warrantReturnOfServiceSignatureSearchResults.jsp"/>
+			<forward name="success" path="/jsp/warrantReturnOfServiceSignatureStatus.jsp"/>			
+			<forward name="searchFailure" path="displayGenericSearch.do?warrantTypeUI=retSigStatus"/>
+		
+		</action>
+		
+		<!--  Warrant Return of Service Signature Details -->
+		<action name="juvenileWarrantForm" path="/displayWarrantReturnOfServiceSignatureDetails" scope="session" type="ui.juvenilewarrant.action.DisplayWarrantReturnOfServiceSignatureDetailsAction"
+			input="/jsp/warrantReturnOfServiceSignatureStatus.jsp" validate="false">
+			<forward name="success" path="/jsp/warrantReturnOfServiceSignatureStatus.jsp"/>			
+			<forward name="cancel" path="displayGenericSearch.do?warrantTypeUI=retSigStatus"/>
+		
+		</action>
+
+		<!-- Submit Return of Service Signature Status -->
+		<action name="juvenileWarrantForm" path="/submitWarrantReturnOfServiceSignatureStatus" scope="session" type="ui.juvenilewarrant.action.SubmitWarrantReturnOfServiceSignatureStatusAction" 
+			input="/jsp/warrantReturnOfServiceSignatureStatusConfirm.jsp" validate="false" parameter="submitAction">
+			<forward name="success" path="/jsp/warrantReturnOfServiceSignatureStatusConfirm.jsp"/>
+			<forward name="cancel" path="displayGenericSearch.do?warrantTypeUI=retSigStatus"/>
+			
+		</action>
+		
+		<!-- <action path="/displayWarrantAffidavitReport" type="ui.reporting.actions.WarrantAffidavitAction" name="warrantAffidavitForm" scope="session" /> -->
+  	    <!-- **** END RETURN OF SERVICE SIGNATURE MAPPINGS *****--> 
+		<!--***********END OF SERVICE ACTION MAPPINGS ***********-->
+		
+	</action-mappings>
+	<!-- **END ACTION MAPPINGS** -->
+
+	<!-- controller processorClass=&quot;jims2.refapp.utility.ui.RequestProcessor&quot; / -->
+
+	<!-- ========== Message Resources ============================= -->
+	<!--LDEEN 10/20/05<message-resources parameter="struts.resources.ApplicationResources"/>-->
+	<message-resources parameter="ApplicationResources_JuvWarrant"/>
+
+	<!-- ========== Plug Ins Configuration ======================== -->
+  <plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+    <set-property
+        property="pathnames"
+        value="/WEB-INF/validator-rules.xml,
+               /WEB-INF/validation.xml"/>
+  </plug-in>
+
+</struts-config>

@@ -1,0 +1,7 @@
+<CodeAudit>
+	
+	<check name="mojo.tools.code.audit.check.process.RequestEventPropertyCheck">		
+		<property name="srcDir" value="../../../app/src" />
+	</check>
+	
+</CodeAudit>

@@ -1,0 +1,26 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Mapping>
+  <EntityMappings>
+ 	<EntityMapping name="pd.supervision.csts.CSTSStatus" contextKey="pd.supervision.csts.CSTSStatus">
+	  <QueryCallbacks>
+		  <QueryCallback name="GetCSTSStatusEventQuery" mappingClassName="mojo.km.context.multidatasource.VsamMapping" mappingMethodName="retrieve" storedProcedureName="none" cicsProgramName="J2CICS17" subclassSequence="none" subclassRecord="none" tranId="JC17" connectionName="VSAMCTG" eventName="messaging.csts.GetCSTSStatusEvent" whereClause="none">
+		  <ParmMappings>
+		    <ParmMapping name="spn" dataItemName="SPN" parmIndex="1" format="none" position="1" cardPosition="0" appendFiller="0" padChar="none" length="8" text="none" propertyName="spn" propertyType="String" />
+		    <ParmMapping name="recordType" dataItemName="RECTYPE" parmIndex="2" format="padTrailing" position="9" cardPosition="0" appendFiller="0" padChar="space" length="2" text="none" propertyName="recordType" propertyType="String" />
+		    <!-- length of seqNum is set to 4 to compensate for status on the returned record -->
+		    <ParmMapping name="seqNum" dataItemName="SNU" parmIndex="3" format="padTrailing" position="11" cardPosition="0" appendFiller="0" padChar="space" length="4" text="none" propertyName="seqNum" propertyType="String" />
+		    <ParmMapping name="caseNum" dataItemName="CASE" parmIndex="4" format="padTrailing" position="15" cardPosition="0" appendFiller="0" padChar="space" length="12" text="none" propertyName="caseNum" propertyType="String" />
+		  </ParmMappings>
+		  <FieldMappings>
+		    <FieldMapping name="spn" associationType="none" dataItemName="SPN" parmIndex="0" format="none" position="1" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="8" text="none" propertyName="spn" propertyType="String" formatString="none" convertWilcard="n" />
+		    <FieldMapping name="recType" associationType="none" dataItemName="RECTYPE" parmIndex="0" format="padTrailing" position="9" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="2" text="none" propertyName="recType" propertyType="String" formatString="none" convertWilcard="n" />
+		    <FieldMapping name="seqNum" associationType="none" dataItemName="SNU" parmIndex="0" format="padTrailing" position="11" cardPosition="0" appendFiller="0" codeTableName="none" padChar="space" length="3" text="none" propertyName="seqNum" propertyType="String" formatString="none" convertWilcard="n" />
+		    <FieldMapping name="status" associationType="none" dataItemName="STATUS" parmIndex="0" format="padTrailing" position="14" cardPosition="0" appendFiller="0" codeTableName="none" padChar="space" length="1" text="none" propertyName="status" propertyType="String" formatString="none" convertWilcard="n" />
+		    <FieldMapping name="caseNum" associationType="none" dataItemName="CASE" parmIndex="0" format="padTrailing" position="15" cardPosition="0" appendFiller="0" codeTableName="none" padChar="space" length="12" text="none" propertyName="caseNum" propertyType="String" formatString="none" convertWilcard="n" />
+		  </FieldMappings>
+		</QueryCallback>
+	  </QueryCallbacks>
+  	</EntityMapping>
+  </EntityMappings>
+</Mapping>
+

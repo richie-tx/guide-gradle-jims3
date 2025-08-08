@@ -1,0 +1,714 @@
+<?xml version="1.0" encoding="US-ASCII"?>
+<document size="LETTER" margin-left="25" margin-right="25" margin-top="25" margin-bottom="25" rotate="true">
+<encryption allow-fillin="false" allow-modify-contents="false" allow-degraded-printing="true" allow-screen-readers="false" allow-copy="false"	allow-printing="false"/>
+<meta author="JIMS2, Harris County" creator="JIMS2, Harris County" title="Restricted Access (English)"/>
+
+	<module>
+		<color-def name="custom-brown" color-space="RGB" value="153,0,51"/>
+	
+		<font-def name="Kristen-ITC" family="Kristen-ITC" style="bold" size="10" color="custom-brown"/>
+		<font-def name="Kristen-ITC-18" family="Kristen-ITC" style="bold" size="18" color="custom-brown"/>
+		<font-def name="Kristen-ITC-13" family="Kristen-ITC" style="bold" size="13" color="custom-brown"/>
+		
+		<font-def name="Goudy-Old-Style-12" family="Goudy-Old-Style" style="bold" size="12" color="custom-brown"/>
+		<font-def name="Goudy-Old-Style-12b" family="Goudy-Old-Style" style="normal" size="12" color="black"/>
+		<font-def name="Goudy-Old-Style-11" family="Goudy-Old-Style" style="normal" size="11" color="custom-brown"/>
+		<font-def name="Arial-Rounded-MT-Bold-9w" family="Arial-Rounded-MT-Bold" style="normal" size="9" color="white"/>
+		
+		<font-def name="arial-9" family="arial" style="normal" size="9"/>
+		<font-def name="arial-10" family="arial" style="normal" size="10"/>
+		<font-def name="arial-12" family="arial" style="normal" size="12"/>
+		<font-def name="arial-7" family="arial" style="normal" size="7"/>
+		
+		<font-def name="Eras-Medium-ITC-10" family="Eras-Medium-ITC" style="normal" size="10"/>
+		<font-def name="Eras-Medium-ITC-12" family="Eras-Medium-ITC" style="bold" size="12"/>
+		<font-def name="Eras-Medium-ITC-18" family="Eras-Medium-ITC" style="bold" size="18"/>
+		<font-def name="Eras-Medium-ITC-18b" family="Eras-Medium-ITC" style="bold" size="18" color="custom-brown"/>
+		<font-def name="Eras-Medium-ITC-14" family="Eras-Medium-ITC" style="bold" size="14"/>
+		<font-def name="Symbol-10" family="Symbol" style="bold" size="10" color="custom-brown"/>
+	</module>
+	
+	
+	<table columns="3" widths="33,33,33" padding="10" border-style="none">
+		<cell halign="left" valign="top">
+			<paragraph font="Kristen-ITC" spacing-after="5">
+				How does the &quot;Restricted Access&quot; records system benefit my child?
+			</paragraph>
+			<table columns="2" widths="5,95" border-style="none" padding="0" spacing-after="5">
+				<table-row font="arial-9">
+					<cell fill-row="true">if a juvenile&apos;s records are placed on restricted access, the juvenile may:</cell>
+				</table-row>
+				<table-row font="arial-9">
+					<cell font="Symbol-10">&#183;</cell>
+					<cell>deny the existence of the juvenile record and</cell>
+				</table-row>
+				<table-row font="arial-9">
+					<cell font="Symbol-10">&#183;</cell>
+					<cell>deny the arrest, prosecution or adjudication ever happened.</cell>
+				</table-row>
+			</table>
+			<paragraph spacing-after="5" font="arial-9">
+				For example, once your juvenile records are on restricted access, you may legally answer, 
+				&quot;<i>No</i>&quot; when a job application, educational or occupational licensing application asks, 
+				&quot;Have you ever been arrested, convicted or adjudicated of a crime?&quot;
+			</paragraph>
+			<paragraph spacing-after="5" font="arial-9">
+				It is important to understand that if you commit a crime after turning age 17 and you are 
+				convicted of or placed on deferred adjudication for the offense in adult criminal court, your 
+				records are not eligible for Restricted Access.  You do not have the right to deny the existence 
+				of your juvenile record.  If you deny in this situation, you could be prosecuted for perjury 
+				(failing to tell the truth).
+			</paragraph>
+			<paragraph spacing-after="10" font="arial-9">
+				If you commit a crime after turning 21, your records will be removed from restricted access.  
+				You would then also lose your right to deny the existence of your juvenile record.
+			</paragraph>
+			<paragraph font="Kristen-ITC" spacing-after="10">
+				What should I do to make sure my records are placed on &quot;Restricted Access?&quot;
+			</paragraph>
+			<table columns="2" widths="5,95" border-style="none" padding="0" spacing-after="10">
+				<table-row font="arial-9">
+					<cell fill-row="true">To be sure your records are eligible for and placed on restricted access you must:</cell>
+				</table-row>
+				<table-row font="arial-9">
+					<cell font="Symbol-10">&#183;</cell>
+					<cell>successfully complete your period of probation or parole with no violations; and</cell>
+				</table-row>
+				<table-row font="arial-9">
+					<cell font="Symbol-10">&#183;</cell>
+					<cell>commit no criminal offense after becoming 17 years of age</cell>
+				</table-row>
+			</table>
+			
+			<paragraph spacing-after="10" font="arial-9">
+				The Restricted Access system truly gives juveniles the opportunity for rehabilitation and 
+				a fresh start if they do not commit any further criminal offenses.
+			</paragraph>
+			<paragraph font="Kristen-ITC" spacing-after="10">
+				When does this new system take effect?
+			</paragraph>
+			<paragraph spacing-after="10" font="arial-9">
+				The new law goes into effect September 1, 2001. It applies to all juvenile records created before, 
+				on or after September 1, 2001.  
+			</paragraph>
+
+		</cell>
+		<cell halign="left" valign="top">
+			<paragraph font="Kristen-ITC" spacing-after="10">
+				Should I still try to get my records sealed or destroyed?
+			</paragraph>
+			<paragraph spacing-after="20" font="arial-9" >
+				The sealing and destruction of juvenile records procedures do offer some additional benefits to 
+				a juvenile and may be the preferred course of action.  To have your record sealed, you must initiate 
+				a formal court proceeding and may need an attorney.  Also, if you have criminal records in a justice 
+				or municipal court, special expungement procedures apply.  If you have questions about any of these 
+				procedures, discuss them with your attorney or your probation or parole officer.
+			</paragraph>
+			
+			<table columns="1" width="80" border-style="top" border-width="4" border-color="custom-brown" halign="center" padding="0">
+				<table-row font="Goudy-Old-Style-12" halign="center" padding-bottom="5" padding-top="5">
+					<cell>Prepared by the</cell>
+				</table-row>
+				<table-row font="Goudy-Old-Style-12" halign="center" border-style="none">
+					<cell>Texas Juvenile Probation Commission</cell>
+				</table-row>
+				<table-row font="Goudy-Old-Style-11" halign="center" border-style="none" padding-bottom="10">
+					<cell>
+						4900 N. Lamar Boulevard<br/>
+						P.O. Box 13547, Austin, Texas 78711<br/>
+						Phone (512) 424-6700<br/>
+						TDD (512) 424-4000<br/>
+						www.tjpc.state.tx.us<br/>
+					</cell>
+				</table-row>
+				<table-row font="Goudy-Old-Style-12" halign="center" border-style="none">
+					<cell>Texas Youth Commission</cell>
+				</table-row>
+				<table-row font="Goudy-Old-Style-11" halign="center" border-style="none" padding-bottom="20">
+					<cell>
+						4900 N. Lamar Boulevard<br/>
+						P.O. Box 4260, Austin, Texas 78765<br/>
+						Phone (512) 424-6130<br/>
+						TDD (512) 424-4000<br/>
+						www.tyc.state.tx.us<br/>
+					</cell>
+				</table-row>
+			</table>
+			
+			<table columns="1" width="100" bgcolor="custom-brown" border-style="box" border-width="5" border-color="custom-brown">
+				<table-row padding-bottom="10" padding-top="10">
+					<cell font="Arial-Rounded-MT-Bold-9w" align="center">
+						For additional copies or if you have questions, please contact your local juvenile probation or parole office at:
+					</cell>
+				</table-row>
+				<table-row bgcolor="white" halign="center" font="arial-9" padding-bottom="10" padding-top="10">
+					<cell>
+						<b>${probationOfficer.fullNameFirst}</b><br/>
+						${locationUnitName}<br/>
+						${locationUnitAddress}<br/>
+						${officerPhone}<br/>
+					</cell>
+				</table-row>
+				<table-row bgcolor="white" font="arial-7" halign="right" padding-bottom="10" padding-top="10" border-style="none">
+					<cell valign="top">ADM-058</cell>
+				</table-row>
+			</table>
+		</cell>
+		<cell halign="center" valign="top">
+			<image source="MJCW/RA_Topline.jpg" width="220" scale-to-fit="true"/><br/><br/>
+			<paragraph font="Kristen-ITC-18" spacing-after="20" halign="center">
+				Texas<br/>
+				Juvenile Justice System Files and Records
+			</paragraph>
+			<paragraph font="Kristen-ITC-13" halign="center">
+				A Parent and Child&apos;s Guide to Understanding<br/>
+				Automatic Restriction of Access to Records
+			</paragraph>
+			
+			<image source="MJCW/RA_Filing_Cabinet.jpg" width="140" scale-to-fit="true"/>
+			<paragraph spacing-after="20" font="Goudy-Old-Style-12b" halign="center">
+				A Publication By The<br/>
+				<i>Texas Juvenile Probation Commission and the Texas Youth Commission</i><br/>
+				March 2003
+
+			</paragraph>
+			<image source="MJCW/RA_Bottomline.jpg" width="220" scale-to-fit="true"/>
+		</cell>
+	</table>
+
+	<new-page size="LETTER" margin-left="25" margin-right="25" margin-top="25" margin-bottom="25" rotate="true"/>
+
+	<table columns="3" widths="33,33,33" padding="10" border-style="none">
+		<cell halign="left" valign="top">
+			<image x="170" y="490" source="MJCW/RA_Policeman.jpg" width="100" scale-to-fit="true"/>
+			<table columns="1" width="100" border-style="none" spacing-after="20" padding="0">
+				<table-row font="Kristen-ITC" padding-bottom="10">
+					<cell>
+						Who has a &quot;Juvenile File<br/>
+						and Record&quot; in Texas?
+					</cell>
+				</table-row>
+				<table-row>				
+					<cell font="arial-9">
+						If you have been arrested,<br/> 
+						taken into custody or charged<br/>
+						with a criminal offense (Class<br/>
+						A or B misdemeanor or any <br/>
+						felony) that was committed when <br/>
+						you were at least 10 years old but younger than 17 years old, you probably have a juvenile file and record.  
+						You may also have a juvenile record if you were charged with some Class C misdemeanor offenses 
+						if the justice or municipal court transferred your case to a juvenile court.
+					</cell>
+				</table-row>	
+			</table>
+			<paragraph font="Kristen-ITC" spacing-after="10">
+				What are &quot;Juvenile Justice Files and Records&quot;?
+			</paragraph>
+			<paragraph font="arial-9" spacing-after="20">
+				Under the record keeping system for juvenile records in Texas, if a juvenile was 
+				adjudicated for delinquent conduct (Class A or B misdemeanor or any felony), 
+				the juvenile probably has a juvenile record with numerous entities including local law enforcement, 
+				the Texas Department of Public Safety (DPS) and the Federal Bureau of Investigation (FBI).  
+				That record is a permanent record that is not destroyed or erased unless the record is eligible 
+				for sealing and the child or the child's family hires a lawyer to file a petition in court to have 
+				the record sealed.  
+			</paragraph>
+			<image x="40" y="170" source="MJCW/RA_Folder.jpg" width="80" scale-to-fit="true" textwrap="true" underlying="false"/>
+			<paragraph font="Kristen-ITC" spacing-after="10">
+				Who usually has access to Juvenile Records?
+			</paragraph>
+			<table columns="2" widths="37,63" spacing-after="10" padding="0">
+				<table-row>
+					<cell></cell>
+					<cell font="arial-9">
+						While juvenile files and records are generally confidential, there are some important exceptions.  
+						A juvenile record can be accessed by police, sheriff's officers, prosecutors, probation officers, 
+						
+					</cell>
+				</table-row>
+				<table-row>
+					<cell font="arial-9" fill-row="true">
+						correctional officers, and other criminal and juvenile justice officials in this state and elsewhere.  
+						Also, the record may be available to employers, educational institutions, licensing agencies, and other 
+						organizations when the person applies for employment or educational programs.  Juvenile treatment records 
+						(counseling, placement, drug treatment, etc.) are confidential and accessible only to authorized users.
+					</cell>
+				</table-row>
+			</table>
+			
+		</cell>
+		
+		<cell halign="left" valign="top">
+			<paragraph font="Kristen-ITC" spacing-after="10">
+				What is the &quot;Automatic Restriction of Access to Records System&quot;?
+			</paragraph>
+			<paragraph font="arial-9" spacing-after="20">
+				In Texas there now exists a records system that is designed to limit access to your juvenile records 
+				after you reach 21 years of age <b><u>if</u></b> you do not commit criminal offenses after becoming 17 years of age.  
+				The system is called &quot;<b><i>Automatic Restriction of Access to Records.</i></b>&quot; This is in addition to your opportunity 
+				to have your records sealed and destroyed under other provisions of the Texas Family Code.  
+			</paragraph>	
+			<paragraph font="arial-9" spacing-after="20">
+				Under automatic restriction of access to records, your records are not destroyed or sealed.  
+				They remain in place, but under restricted access.  They are available only to criminal justice 
+				agencies for criminal justice purposes, such as investigating and prosecuting crimes. 
+				For all other inquiries--employment, education, etc.--the holder of the records is required to reply 
+				that the records &quot;do not exist&quot; and you are legally allowed to deny that you were ever arrested, prosecuted 
+				or adjudicated for a crime.
+			</paragraph>
+			
+			<paragraph font="Kristen-ITC" spacing-after="10">
+				How do a Juvenile&apos;s Records become eligible for &quot;Restricted Access&quot;?
+			</paragraph>			
+			<table columns="2" widths="5,95" border-style="none" padding="0" spacing-after="20">
+				<table-row font="arial-9">
+					<cell fill-row="true">For restricted access to take place, no action is required by the child or the child&apos;s family.  
+						You do not have to file a petition or hire a lawyer.  The process occurs automatically at age 21 if, 
+						since your 17th birthday, you have <u>not</u></cell>
+				</table-row>
+				<table-row font="arial-9">
+					<cell font="Symbol-10">&#183;</cell>
+					<cell>committed a felony or a Class A or B misdemeanor; or</cell>
+				</table-row>
+				<table-row font="arial-9">
+					<cell font="Symbol-10">&#183;</cell>
+					<cell>received deferred adjudication for or been convicted in adult court of a Class A or B misdemeanor or a felony.</cell>
+				</table-row>
+			</table>
+				
+			<paragraph font="arial-9" spacing-after="20">
+				If you meet the requirements set out above you will be given a fresh start when you reach age 21.  
+				This allows you to pursue various employment and educational opportunities without your past record in the juvenile system to harm you.  
+				But remember, this opportunity will only happen if you do not commit any criminal offenses.  
+				If you commit a crime after turning 21, your records will be removed from restricted access.
+			</paragraph>
+		</cell>
+		<cell halign="left" valign="top">
+			<paragraph font="Kristen-ITC" spacing-after="10">
+				What does it mean if records are placed on &quot;Restricted Access&quot;?
+			</paragraph>
+			<paragraph font="arial-9" spacing-after="20">
+				If a juvenile&apos;s record is placed on restricted access when the respondent becomes 21 years of age, 
+				access to the record will be denied to employers, educational institutions, and other persons who 
+				may want the information.  Only criminal justice agencies will have access to these records and only 
+				for a criminal justice purpose, which includes investigation of crimes and for the screening of persons 
+				who apply for employment in a criminal justice agency (police officers, etc).
+			</paragraph>
+			
+			<paragraph font="Kristen-ITC" spacing-after="10">
+				What records are not eligible for &quot;Restricted Access&quot;?
+			</paragraph>
+			<table columns="2" widths="5,95" border-style="none" padding="0" spacing-after="20">
+				<table-row font="arial-9">
+					<cell fill-row="true">The only juvenile records that are not eligible for automatic restricted access are cases that were:</cell>
+				</table-row>
+				<table-row font="arial-9">
+					<cell font="Symbol-10">&#183;</cell>
+					<cell>handled as determinate sentence cases by the juvenile court;</cell>
+				</table-row>
+				<table-row font="arial-9">
+					<cell font="Symbol-10">&#183;</cell>
+					<cell>certified (transferred) to adult criminal court to be handled in the same manner as adult cases; or</cell>
+				</table-row>
+				<table-row font="arial-9">
+					<cell font="Symbol-10">&#183;</cell>
+					<cell>prosecuted in justice or municipal court.</cell>
+				</table-row>
+			</table>
+			
+			<paragraph font="Kristen-ITC" spacing-after="10">
+				What about Gang Records?
+			</paragraph>
+			<paragraph font="arial-9" spacing-after="20">
+				Information about gang activity is maintained by DPS in gang book records as authorized by law.  
+				These records are exempt from the new system because the access to these records is already limited 
+				to criminal justice agencies for a criminal justice purpose.
+			</paragraph>
+
+			<paragraph font="Kristen-ITC" spacing-after="10">
+				What about Sex Offender Records?
+			</paragraph>
+			<paragraph font="arial-9" spacing-after="20">
+				Sex offender registration records are exempted from the Restricted Access system because 
+				the purpose of registration is to notify the public.  If you are a registered juvenile sex offender, 
+				you may have a right to have your records sealed once your obligation to register expires. 
+				Also, there are other legal proceedings that may allow reconsideration of your obligation to register.  
+				Talk to your probation or parole officer about these, or speak to a private attorney. 
+			</paragraph>
+		</cell>
+	</table>
+	
+	<new-page size="LEGAL" margin-left="25" margin-right="25" margin-top="25" margin-bottom="25" rotate="true"/>
+	
+	<table columns="4" widths="25,25,25,25" padding="5" border-style="none">
+		<cell halign="left" valign="top">
+			<paragraph font="Eras-Medium-ITC-12" spacing-after="5">
+				58.208 INFORMATION TO CHILD ON DISCHARGE
+			</paragraph>
+			<paragraph font="arial-10" spacing-after="5">
+				On the final discharge of a child from the juvenile system or on the last official action in the case, 
+				if there is no adjudication, the appropriate juvenile justice official shall provide to the child:
+			</paragraph>
+			<paragraph font="arial-10" spacing-after="5">
+				(1) a written explanation of how automatic restricted access under this subchapter works;
+			</paragraph>
+			<paragraph font="arial-10" spacing-after="5">
+				(2) a copy of this subchapter; and
+			</paragraph>
+			<paragraph font="arial-10" spacing-after="5">
+				(3) a statement that if the child wishes to receive notification of an action restricting access to the child&apos;s records under 
+			</paragraph>
+			<paragraph font="arial-10" spacing-after="5">
+				Section 58.207(a), the child must before the child&apos;s
+			</paragraph>
+			<paragraph font="arial-10" spacing-after="5">
+				21st birthday provide the juvenile probation department with a current address where the child can receive notification
+			</paragraph>
+			
+			<paragraph font="Eras-Medium-ITC-12" spacing-after="5">
+				58.209. INFORMATION TO CHILD BY PROBATION OFFICER OR TEXAS YOUTH COMMISSION 
+			</paragraph>
+			<paragraph font="arial-10" spacing-after="5">
+				(a) When a child is placed on probation for an offense that may be eligible for automatic restricted access at 
+				age 21 or when a child is received by the Texas Youth Commission on an indeterminate commitment, 
+				a probation officer or an official at the Texas Youth Commission reception center, as soon as practicable, 
+				shall explain the substance of the following information to the child: 
+			</paragraph>
+			<paragraph font="arial-10" spacing-after="5">
+				(1) if the child was adjudicated as having committed delinquent conduct for a felony or jailable misdemeanor, that the child 
+				probably has a juvenile record with the department and the Federal Bureau of Investigation. 
+			</paragraph>
+			<paragraph font="arial-10" spacing-after="5">
+				(2) that the child&apos;s juvenile record is a permanent record that is not destroyed or erased unless the record 
+				is eligible for sealing and the child or the child&apos;s family hires a lawyer and files a petition in court to have 
+				the record sealed.
+			</paragraph>
+		</cell>
+		<cell halign="left" valign="top">
+			<paragraph font="arial-10" spacing-after="5">
+				(3) that the child&apos;s juvenile record, other than treatment records made confidential by law, can be accessed by
+				police, sheriff&apos;s officers, prosecutors, probation officers, correctional officers, and other criminal and 
+				juvenile justice officials in this state and elsewhere.
+			</paragraph>
+			<paragraph font="arial-10" spacing-after="5">
+				(4) that the child&apos;s juvenile record, other than treatment records made confidential by law, can be accessed by employers, 
+				educational institutions, licensing agencies, and other organizations when the child applies for employment or educational 
+				programs: 
+			</paragraph>
+			<paragraph font="arial-10" spacing-after="5">
+				(5) if the child&apos;s juvenile record is placed on restricted access when the child becomes 21 years of age, 
+				that access will be denied to employers, educational institutions, and others except for criminal justice agencies:
+			</paragraph>
+			<paragraph font="arial-10" spacing-after="5">
+				(6) that to have the child&apos;s juvenile record placed on restricted access at age 21, the child must not: 
+			</paragraph>
+			<paragraph font="arial-10" spacing-after="5">
+				(A) commit a felony or jailable misdemeanor; and 
+			</paragraph>
+			<paragraph font="arial-10" spacing-after="5">
+				(B) receive deferred adjudication for or be convicted in adult court of a felony or jailable misdemeanor; and 
+			</paragraph>
+			<paragraph font="arial-10" spacing-after="5">
+				(7) that restricted access does not require any action by the child or the child&apos;s family, 
+				including the filing of a petition or hiring a lawyer, but occurs automatically at age 21 if 
+				the child does not commit a criminal offense in the future. 
+			</paragraph>
+			<paragraph font="arial-10" spacing-after="5">
+				(b) The probation officer of Texas Youth Commission official shall: 
+			</paragraph>
+			<paragraph font="arial-10" spacing-after="5">
+				(1) give the child a written copy of the explanation provided; and 
+			</paragraph>
+			<paragraph font="arial-10" spacing-after="5">
+				(2) communicate the same information to at least one of the child&apos;s parents or, if none can be found, 
+				to the child&apos;s guardian or custodian.
+			</paragraph>
+			<paragraph font="arial-10" spacing-after="5">
+				(c) The Texas Juvenile Probation Commission and the Texas Youth Commission shall adopt rules to 
+				implement this section and to facilitate the effective explanation of the information required to be 
+				communicated by this section.
+			</paragraph>
+		</cell>
+		<cell halign="left" valign="top">
+			
+			<paragraph font="Eras-Medium-ITC-12" spacing-after="5">
+				58.210. SEALING OR DESTRUCTION OF RECORDS NOT AFFECTED
+			</paragraph>
+			<paragraph font="arial-10" spacing-after="5">
+				(a)  This subchapter does not prevent or restrict the sealing or destruction of juvenile records a authorized by law.
+			</paragraph>
+			<paragraph font="arial-10" spacing-after="5">
+				(b) Restricted access provided under this subchapter is in addition to sealing or destruction of juvenile records.
+			</paragraph>
+			<paragraph font="arial-10" spacing-after="5">
+				(c)  A person who is the subject of records certified under this subchapter is entitled to access to the records 
+				for the purpose of preparing and presenting a motion to seal or destroy the records.
+			</paragraph>
+
+			<paragraph font="Eras-Medium-ITC-12" spacing-after="5">
+				58.211 RESCINDING RESTRICTED ACCESS
+			</paragraph>
+			<paragraph font="arial-10" spacing-after="5">
+				(a) If the department has notified a juvenile probation department that a record has been placed on restricted access 
+				and the department later receives information in the department&apos;s criminal history system that the subject of the record 
+				has been convicted of or placed on deferred adjudication for a felony or a misdemeanor punishable by confinement in jail 
+				for an offense committed after the person reached the age of 17, the person&apos;s juvenile records are no longer subject to 
+				restricted access.  The department shall notify the appropriate local juvenile probation departments in the manner 
+				described by Section 58.203 that the person&apos;s records are no longer subject to restricted access.
+			</paragraph>
+			<paragraph font="arial-10">
+				(b) On receipt of the notification described by Subsection (a), the juvenile probation department shall notify the 
+				agencies  that maintain the person&apos;s juvenile records under Section 58.207(b) that the person&apos;s records are no longer 
+				subject to restricted access. 
+			</paragraph>
+			<br/><br/><br/><br/><br/>
+			<font name="Eras-Medium-ITC-10">Rev. 9/2005</font>
+		</cell>
+		<cell halign="left" valign="top">
+			<table columns="1" width="80" border-style="top|bottom" border-width="4" border-color="custom-brown" halign="center" spacing-after="20">
+				<table-row>
+					<cell font="Eras-Medium-ITC-18b" padding-bottom="10">
+						<i>Harris County Juvenile Probation Department</i>
+					</cell>
+				</table-row>
+				<table-row>
+					<cell font="Eras-Medium-ITC-18b" border-style="none" padding-bottom="20">
+						<i>Statutes Relating To Access, Sealing and Destruction of Juvenile Records</i>
+					</cell>
+				</table-row>
+			</table>
+			
+			<table columns="1" width="80" border-style="box" border-width="4" border-color="custom-brown" 
+				halign="center" spacing-after="20" padding-top="20" padding-bottom="20">
+				<table-row>
+					<cell font="Eras-Medium-ITC-14">
+						The Information contained in this brochure is provided to youth on probation and their parents or guardian 
+						as required by the Texas Family Code, Section 58.
+					</cell>
+				</table-row>
+			</table>
+			
+			<table columns="1" width="80" border-style="none" halign="center">
+				<table-row>
+					<cell><image source="MJCW/RA_Topline.jpg" width="150" scale-to-fit="true" halign="center"/></cell>
+				</table-row>
+				<table-row>
+					<cell font="Eras-Medium-ITC-14">
+						1200 Congress<br/>
+						Houston Texas 77002<br/>
+						 Telephone: 713.222.4100<br/>
+						September 2005
+					</cell>
+				</table-row>
+				<table-row>
+					<cell><image source="MJCW/RA_Bottomline.jpg" width="150" scale-to-fit="true" halign="center"/></cell>
+				</table-row>
+			</table>
+		</cell>
+	</table>
+	
+	<new-page size="LEGAL" margin-left="25" margin-right="25" margin-top="25" margin-bottom="25" rotate="true"/>
+	
+	<table columns="4" widths="25,25,25,25" padding="5" border-style="none">
+		<cell halign="left" valign="top">
+			<paragraph font="arial-12" spacing-after="5">
+				<b>58.201. DEFINITION</b>
+			</paragraph>
+			<paragraph font="arial-10" spacing-after="5">
+				In this subchapter, &quot;department&quot; means the Department of Public Safety of the State of Texas.
+			</paragraph>
+			
+			<paragraph font="Eras-Medium-ITC-12" spacing-after="5">
+				58.202. EXEMPTED RECORDS
+			</paragraph>
+			<paragraph font="arial-10" spacing-after="5">
+				The following records are exempt from this subchapter.
+			</paragraph>
+			<paragraph font="arial-10" spacing-after="5">
+				(1) sex offender registration records maintained by the department or a local law enforcement 
+				agency under  Chapter 62, Code of Criminal Procedure; and
+			</paragraph>
+			<paragraph font="arial-10" spacing-after="5">
+				(2) records relating to a criminal combination or criminal street gang maintained by the 
+				department or a local law enforcement agency Chapter 61, Code of Criminal Procedure.
+			</paragraph>
+
+			<paragraph font="Eras-Medium-ITC-12" spacing-after="5">
+				58.203. CERTIFICATION 
+			</paragraph>
+			<paragraph font="arial-10" spacing-after="5">
+				(a) The department shall certify to the juvenile probation department to which a referral 
+				was made that resulted in information being submitted to the juvenile justice information 
+				system that the records relating to a person&apos;s juvenile case are  subject to automatic 
+				restriction of access if:
+			</paragraph>
+			<paragraph font="arial-10" spacing-after="5">
+				(1) the person is at least 21 years of age;
+			</paragraph>
+			<paragraph font="arial-10" spacing-after="5">
+				(2) the juvenile case did not include violent or habitual felony conduct resulting in 
+				proceedings in the juvenile court under Section 53.045; 
+			</paragraph>
+			<paragraph font="arial-10" spacing-after="5">
+				(3) the juvenile case was not certified for trial in criminal court under Section 54.02; and
+			</paragraph>
+			<paragraph font="arial-10" spacing-after="5">
+				(4) the department has not received a report in its criminal history system that the 
+				person was granted deferred adjudication  for or convicted of a felony or a
+				misdemeanor punishable by confinement in  a jail for an offense committed after the 
+				person became 17 years of age.
+			</paragraph>
+			<paragraph font="arial-10" spacing-after="5">
+				(b) If the department&apos;s records relate to a juvenile court with multicounty jurisdiction, 
+				the department shall issue the certification described by Subsection (a) to each juvenile 
+				probation department shall determine
+			</paragraph>
+ 
+		</cell>
+		
+		<cell halign="left" valign="top">
+			<paragraph font="arial-10" spacing-after="5">
+				whether it received the referral and, if it received the referral, take the restrictive 
+				action notification required by law. 
+			</paragraph>
+			<paragraph font="arial-10" spacing-after="5">
+				(c) The department may issue the certification described by Subsection (a) by electronic means, 
+				including by electronic mail. 
+			</paragraph>
+			
+			<paragraph spacing-after="20">
+				<font name="Eras-Medium-ITC-12">58.204 RESTRICTED ACCESS ON CERTIFICATION</font>
+				<font name="arial-10">(a) On certification of records in a case under Section 58.203, the department, except as provided by Subsection (b):</font>
+			</paragraph>
+			<paragraph font="arial-10" spacing-after="5">
+				(1)  may not disclose the existence of the records or any information from the records in response to an inquiry from:
+			</paragraph>
+			<paragraph font="arial-10" spacing-after="5">
+				(A) a law enforcement agency;
+			</paragraph>
+			<paragraph font="arial-10" spacing-after="5">
+				(B) a criminal or juvenile justice agency;
+			</paragraph>
+			<paragraph font="arial-10" spacing-after="5">
+				(C) a governmental or other agency given access to information under Chapter 411, Government Code; or
+			</paragraph>
+			<paragraph font="arial-10" spacing-after="5">
+				(D) any other person, agency, organization, or entity; and
+			</paragraph>
+			<paragraph font="arial-10" spacing-after="5">
+				(2) shall respond to a request for information about the records by stating that the records do not exist.
+			</paragraph>
+			<paragraph font="arial-10" spacing-after="5">
+				(b) On certification of records in a case under Section 58.203, the department may permit access to the 
+				information in the juvenile justice information system relating to the case of an individual only: 
+			</paragraph>
+			<paragraph font="arial-10" spacing-after="5">
+				(1) by a criminal justice agency for a criminal justice purpose, as those terms are defined by 
+				Section 411.082, Government Code; or 
+			</paragraph>
+			<paragraph font="arial-10" spacing-after="5">
+				(2) for research purposes, by the Texas Juvenile Probation Commission, the Texas Youth Commission or 
+				the Criminal Justice Policy Council.
+			</paragraph>
+		</cell>
+		
+		<cell halign="left" valign="top">
+			<paragraph font="Eras-Medium-ITC-12" spacing-after="5">
+				58.205. REQUEST TO THE FEDERAL BUREAU OF INVESTIGATION ON CERTIFICATION
+			</paragraph>
+			<paragraph font="arial-10" spacing-after="5">
+				On certification of records in a case under Section 58.203, the department shall request the Federal Bureau of Investigation to:
+			</paragraph>
+			<paragraph font="arial-10" spacing-after="5">
+				(1) place the information in its files on restricted status, with access only by a criminal justice agency for 
+				a criminal justice purpose, as those terms are defined by Section 411.082, Government Code; or  
+			</paragraph>
+			<paragraph font="arial-10" spacing-after="5">
+				(2) if the action described in Subdivision (1) is not feasible, delete all information in its database concerning the case.
+			</paragraph>
+
+			<paragraph font="Eras-Medium-ITC-12" spacing-after="5">
+				58.206. EFFECT OF CERTIFICATION IN RELATION TO THE PROTECTED PERSON
+			</paragraph>
+			<paragraph font="arial-10" spacing-after="5">
+				(a) On certification of records in a case under Section 58.203:
+			</paragraph>
+			<paragraph font="arial-10" spacing-after="5">
+				(1) the person who is the subject of the records is not required to state in any proceeding, 
+				except as otherwise authorized by law in a criminal proceeding in which the person is testifying 
+				as a defendant, or in any application for employment, licensing, or other public or private benefit 
+				that the person has been a respondent in a case under this title and may not be punished, 
+				by perjury prosecution or otherwise, for denying:
+			</paragraph>
+			<paragraph font="arial-10" spacing-after="5">
+				(A) the existence of the records; or 
+			</paragraph>
+			<paragraph font="arial-10" spacing-after="5">
+				(B) the person&apos;s participation in a juvenile proceeding related to the records; and
+			</paragraph>
+			<paragraph font="arial-10" spacing-after="5">
+				(2) information from the records may not be admitted against the person who is the subject of the records 
+				in a civil or criminal proceeding except a proceeding in which a juvenile adjudication was admitted under:
+			</paragraph>
+			<paragraph font="arial-10" spacing-after="5">
+				(A) Section 12.42, Penal Code;
+			</paragraph>
+			<paragraph font="arial-10" spacing-after="5">
+				(B) Article 37.07, Code of Criminal Procedure; or 
+			</paragraph>
+			<paragraph font="arial-10" spacing-after="5">
+				(C) as otherwise authorized by criminal procedural law.
+			</paragraph>
+
+		</cell>
+		
+		<cell halign="left" valign="top">
+			<paragraph font="arial-10" spacing-after="5">
+				(b) A person who is the subject of records certified under this subchapter may not waive the restricted 
+				status of the records or the consequences of the restricted status.
+			</paragraph>
+			
+			<paragraph font="Eras-Medium-ITC-12" spacing-after="5">
+				58.207. JUVENILE COURT ORDERS ON CERTIFICATION
+			</paragraph>
+			<paragraph font="arial-10" spacing-after="5">
+				(a) On certification of records in a case under Section 58.203, the juvenile court shall order: 
+			</paragraph>
+			<paragraph font="arial-10" spacing-after="5">
+				(1) that the following records relating to the case may be accessed only as provided by Section 58.204(b):
+			</paragraph>
+			<paragraph font="arial-10" spacing-after="5">
+				(A) if the respondent was committed to the Texas Youth Commission, records maintained by the commission;
+			</paragraph>
+			<paragraph font="arial-10" spacing-after="5">
+				(B) records maintained by the juvenile probation department;
+			</paragraph>
+			<paragraph font="arial-10" spacing-after="5">
+				(C) records maintained by the clerk of the court:    
+			</paragraph>
+			<paragraph font="arial-10" spacing-after="5">
+				(D) records maintained by the prosecutor&apos;s office; and 
+			</paragraph>
+			<paragraph font="arial-10" spacing-after="5">
+				(E) records maintained by the law enforcement agency; and
+			</paragraph>
+			<paragraph font="arial-10" spacing-after="5">
+				(2) the juvenile probation department to make a reasonable effort to notify the person who is the 
+				subject of records for which access has been restricted of the action restricting access and the legal 
+				significance of the action for the person, but only if the person has requested the notification 
+				in writing and has provided the juvenile probation department with a current address. 
+			</paragraph>
+			<paragraph font="arial-10" spacing-after="5">
+				(b) On receipt of an order under Subsection (a) (1), the agency maintaining the records:
+			</paragraph>
+			<paragraph font="arial-10" spacing-after="5">
+				(1) may allow access only as provided by Section 58.204(b): and 
+			</paragraph>
+			<paragraph font="arial-10" spacing-after="5">
+				(2) shall respond to a request for information about the records by stating that the record exists   
+			</paragraph>
+		</cell>
+	</table>
+	
+    
+</document>

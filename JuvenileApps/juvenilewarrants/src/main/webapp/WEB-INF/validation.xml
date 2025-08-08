@@ -1,0 +1,840 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE form-validation PUBLIC
+        "-//Apache Software Foundation//DTD Commons Validator Rules Configuration 1.3.0//EN"
+        "http://jakarta.apache.org/commons/dtds/validator_1_3_0.dtd">
+
+        
+<!--
+	Validation Rules for the Struts Example Web Application
+	$Id: validation.xml,v 1.4 2002/07/21 18:42:43 jholmes Exp $
+-->
+
+<form-validation>
+
+	<!-- ========== Default Language Form Definitions ===================== -->
+	<formset>
+
+		<form name="juvenileWarrantForm">
+
+<!--			<field property="juvenileName.lastName" depends="required,mask">
+				<arg key="prompt.lastName" />			
+				<msg name="mask" key="errors.alphabetic" />
+				
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[a-zA-Z '-.]*$</var-value>
+				</var>
+			</field>
+
+			<field property="juvenileName.firstName" depends="required,mask">
+				<arg key="prompt.firstName" />				
+				<msg name="mask" key="errors.alphabetic" />
+				
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[a-zA-Z '-.]*$</var-value>
+				</var>
+			</field>
+			
+			<field property="juvenileName.middleName" depends="mask">
+				<arg key="prompt.middleName" />
+				<msg name="mask" key="errors.alphabetic" />
+				
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[a-zA-Z '-.]*$</var-value>
+				</var>
+			</field>
+			
+			<field property="aliasName" depends="mask">
+				<arg key="prompt.aka" />
+				<msg name="mask" key="errors.alphabetic" />
+				
+				<var>
+					<var-name>mask</var-name>
+					<var-value>[^0-9]{1,20}$</var-value>
+				</var>
+			</field>
+			
+			<field property="dateOfBirth" depends="required,date">
+				<arg key="prompt.dateOfBirth" />
+				<var>
+					<var-name>datePattern</var-name>
+					<var-value>MM/dd/yyyy</var-value>
+				</var>
+			</field>	
+					
+			<field property="sexId" depends="required">
+				<arg key="prompt.sex" />				
+			</field>
+			
+			<field property="raceId" depends="required">
+				<arg key="prompt.race" />				
+			</field>  -->
+					
+	<!--		<field property="phoneNum.areaCode" depends="minlength,mask">
+				<arg key="prompt.phone1" />
+				<arg key="${var:minlength}" name="minlength" resource="false" />
+				<msg name="mask" key="errors.numeric" />
+				
+				<var>
+					<var-name>minlength</var-name>
+					<var-value>3</var-value>
+				</var>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[0-9]*$</var-value>
+				</var>
+			</field>
+			
+			<field property="phoneNum.prefix" depends="minlength,mask">
+				<arg key="prompt.phone2" />
+				<arg key="${var:minlength}" name="minlength" resource="false" />
+				<msg name="mask" key="errors.numeric" />
+				
+				<var>
+					<var-name>minlength</var-name>
+					<var-value>3</var-value>
+				</var>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[0-9]*$</var-value>
+				</var>
+			</field>
+			
+			<field property="phoneNum.4Digit" depends="minlength,mask">
+				<arg key="prompt.phone3" />
+				<arg key="${var:minlength}" name="minlength" resource="false" />				
+				<msg name="mask" key="errors.numeric" />
+				
+				<var>
+					<var-name>minlength</var-name>
+					<var-value>4</var-value>
+				</var>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[0-9]*$</var-value>
+				</var>
+			</field> -->
+			
+			<field property="heightFeet" depends="integer,range,mask">
+				<arg key="prompt.heightFeet" />			
+				<arg name="range" key="${var:min}" resource="false"/>
+    			<arg name="range" key="${var:max}" resource="false"/>
+        		<msg name="mask" key="errors.numeric" />				
+				<var>
+			        <var-name>min</var-name>
+			        <var-value>3</var-value>
+			    </var>
+			    <var>
+			        <var-name>max</var-name>
+			        <var-value>8</var-value>
+			    </var>
+			    <var>
+					<var-name>mask</var-name>
+					<var-value>^[0-9]*$</var-value>
+				</var>		
+			</field>
+			<field property="heightInch" depends="integer,range,mask">
+				<arg key="prompt.heightInch" />			
+				<arg name="range" key="${var:min}" resource="false"/>
+    			<arg name="range" key="${var:max}" resource="false"/>
+				<msg name="mask" key="errors.numeric" />
+				<var>
+			        <var-name>min</var-name>
+			        <var-value>0</var-value>
+			    </var>
+			    <var>
+			        <var-name>max</var-name>
+			        <var-value>11</var-value>
+			    </var>
+			    <var>
+					<var-name>mask</var-name>
+					<var-value>^[0-9]*$</var-value>
+				</var>		
+			</field>
+
+			<field property="weight" depends="mask,range">
+				<arg key="prompt.weight" />
+				<arg name="range" key="${var:min}" resource="false"/>
+    			<arg name="range" key="${var:max}" resource="false"/>	
+				<msg name="mask" key="errors.numeric" />
+				
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[0-9]*$</var-value>
+				</var>
+				<var>
+			        <var-name>min</var-name>
+			        <var-value>50</var-value>
+			    </var>
+			    <var>
+			        <var-name>max</var-name>
+			        <var-value>499</var-value>
+			    </var>
+			</field>
+			
+			
+			<!-- moved to warrantJOTCreate.js because JJS warrants do not have any officer information -->
+			<!--<field property="officerId" depends="required,mask">
+				<arg key="prompt.officerIdNumber" />			
+				<msg name="mask" key="errors.numeric" />
+				
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[0-9]*$</var-value>
+				</var>
+			</field>
+
+			<field property="officerIdTypeId" depends="required">
+				<arg key="prompt.officerIdType" />			
+			</field>
+
+			<field property="agencyId" depends="required">
+				<arg key="prompt.agency" />			
+			</field>
+
+			<field property="affidavitStatement" depends="required">
+				<arg key="prompt.affidavitStatement" />			
+			</field> -->
+			
+		</form>
+		
+		<form name="juvenileAssociateForm">
+		   <!-- JUVENILE ASSOCIATE INFORMATION -->
+			<field property="associateName.lastName" depends="required,mask">
+				<arg key="prompt.lastName" />			
+				<msg name="mask" key="errors.alphabetic" />
+				
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^([a-zA-Z']{2})([a-zA-Z '.-]*)([*]?)([a-zA-Z '.-]*)$</var-value>
+				</var>
+			</field>
+
+			<field property="associateName.firstName" depends="required,mask">
+				<arg key="prompt.firstName" />				
+				<msg name="mask" key="errors.alphabetic" />
+				
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[a-zA-Z '.-]*$</var-value>
+				</var>
+			</field>
+			
+			<field property="associateName.middleName" depends="mask">
+				<arg key="prompt.middleName" />
+				<msg name="mask" key="errors.alphabetic" />
+				
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[a-zA-Z '.-]*$</var-value>
+				</var>
+			</field>
+			
+			<field property="relationshipToJuvenileId" depends="required">
+				<arg key="prompt.relationshipToJuvenile" />				
+			</field>
+			
+			<field property="ssn.SSN1" depends="minlength,mask">
+				<arg key="prompt.ssn1" />
+				<arg key="${var:minlength}" name="minlength" resource="false" />
+				<msg name="mask" key="errors.invalid" />
+				<var>
+					<var-name>minlength</var-name>
+					<var-value>3</var-value>
+				</var>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^(?!000)([0-9]{3}$)</var-value>
+				</var>
+			</field>
+
+			<field property="ssn.SSN2" depends="minlength,mask">
+				<arg key="prompt.ssn2" />
+				<arg key="${var:minlength}" name="minlength" resource="false" />
+				<msg name="mask" key="errors.invalid" />
+				<var>
+					<var-name>minlength</var-name>
+					<var-value>2</var-value>
+				</var>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^([0-9]{2}$)</var-value>
+				</var>
+			</field>
+
+			<field property="ssn.SSN3" depends="minlength,mask">
+				<arg key="prompt.ssn3" />
+				<arg key="${var:minlength}" name="minlength" resource="false" />
+				<msg name="mask" key="errors.invalid" />
+				<var>
+					<var-name>minlength</var-name>
+					<var-value>4</var-value>
+				</var>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^([0-9]{4}$)</var-value>
+				</var>
+			</field>
+			
+			<field property="dateOfBirthString" depends="date">
+				<arg key="prompt.dateOfBirth" />
+				<var>
+					<var-name>datePattern</var-name>
+					<var-value>MM/dd/yyyy</var-value>
+				</var>
+			</field>	
+			
+			<!-- CONTACT INFORMATION -->					
+			<field property="homePhoneNum.areaCode" depends="minlength,mask">
+				<arg key="prompt.phone1" />
+				<arg key="${var:minlength}" name="minlength" resource="false" />
+				<msg name="mask" key="errors.numeric" />
+				
+				<var>
+					<var-name>minlength</var-name>
+					<var-value>3</var-value>
+				</var>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[0-9]*$</var-value>
+				</var>
+			</field>
+			
+			<field property="homePhoneNum.prefix" depends="minlength,mask">
+				<arg key="prompt.phone2" />
+				<arg key="${var:minlength}" name="minlength" resource="false" />
+				<msg name="mask" key="errors.numeric" />
+				
+				<var>
+					<var-name>minlength</var-name>
+					<var-value>3</var-value>
+				</var>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[0-9]*$</var-value>
+				</var>
+			</field>
+			
+			<field property="homePhoneNum.4Digit" depends="minlength,mask">
+				<arg key="prompt.phone3" />
+				<arg key="${var:minlength}" name="minlength" resource="false" />				
+				<msg name="mask" key="errors.numeric" />
+				
+				<var>
+					<var-name>minlength</var-name>
+					<var-value>4</var-value>
+				</var>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[0-9]*$</var-value>
+				</var>
+			</field>
+			
+			<field property="workPhoneNum.areaCode" depends="minlength,mask">
+				<arg key="prompt.phone1" />
+				<arg key="${var:minlength}" name="minlength" resource="false" />
+				<msg name="mask" key="errors.numeric" />
+				
+				<var>
+					<var-name>minlength</var-name>
+					<var-value>3</var-value>
+				</var>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[0-9]*$</var-value>
+				</var>
+			</field>
+			
+			<field property="workPhoneNum.prefix" depends="minlength,mask">
+				<arg key="prompt.phone2" />
+				<arg key="${var:minlength}" name="minlength" resource="false" />
+				<msg name="mask" key="errors.numeric" />
+				
+				<var>
+					<var-name>minlength</var-name>
+					<var-value>3</var-value>
+				</var>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[0-9]*$</var-value>
+				</var>
+			</field>
+			
+			<field property="workPhoneNum.4Digit" depends="minlength,mask">
+				<arg key="prompt.phone3" />
+				<arg key="${var:minlength}" name="minlength" resource="false" />				
+				<msg name="mask" key="errors.numeric" />
+				
+				<var>
+					<var-name>minlength</var-name>
+					<var-value>4</var-value>
+				</var>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[0-9]*$</var-value>
+				</var>
+			</field>
+			
+			<field property="cellPhoneNum.areaCode" depends="minlength,mask">
+				<arg key="prompt.phone1" />
+				<arg key="${var:minlength}" name="minlength" resource="false" />
+				<msg name="mask" key="errors.numeric" />
+				
+				<var>
+					<var-name>minlength</var-name>
+					<var-value>3</var-value>
+				</var>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[0-9]*$</var-value>
+				</var>
+			</field>
+			
+			<field property="cellPhoneNum.prefix" depends="minlength,mask">
+				<arg key="prompt.phone2" />
+				<arg key="${var:minlength}" name="minlength" resource="false" />
+				<msg name="mask" key="errors.numeric" />
+				
+				<var>
+					<var-name>minlength</var-name>
+					<var-value>3</var-value>
+				</var>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[0-9]*$</var-value>
+				</var>
+			</field>
+			
+			<field property="cellPhoneNum.4Digit" depends="minlength,mask">
+				<arg key="prompt.phone3" />
+				<arg key="${var:minlength}" name="minlength" resource="false" />				
+				<msg name="mask" key="errors.numeric" />
+				
+				<var>
+					<var-name>minlength</var-name>
+					<var-value>4</var-value>
+				</var>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[0-9]*$</var-value>
+				</var>
+			</field>
+			
+			<field property="pager.areaCode" depends="minlength,mask">
+				<arg key="prompt.phone1" />
+				<arg key="${var:minlength}" name="minlength" resource="false" />
+				<msg name="mask" key="errors.numeric" />
+				
+				<var>
+					<var-name>minlength</var-name>
+					<var-value>3</var-value>
+				</var>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[0-9]*$</var-value>
+				</var>
+			</field>
+			
+			<field property="pager.prefix" depends="minlength,mask">
+				<arg key="prompt.phone2" />
+				<arg key="${var:minlength}" name="minlength" resource="false" />
+				<msg name="mask" key="errors.numeric" />
+				
+				<var>
+					<var-name>minlength</var-name>
+					<var-value>3</var-value>
+				</var>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[0-9]*$</var-value>
+				</var>
+			</field>
+			
+			<field property="pager.4Digit" depends="minlength,mask">
+				<arg key="prompt.phone3" />
+				<arg key="${var:minlength}" name="minlength" resource="false" />				
+				<msg name="mask" key="errors.numeric" />
+				
+				<var>
+					<var-name>minlength</var-name>
+					<var-value>4</var-value>
+				</var>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[0-9]*$</var-value>
+				</var>
+			</field>
+			
+			<field property="faxNum.areaCode" depends="minlength,mask">
+				<arg key="prompt.phone1" />
+				<arg key="${var:minlength}" name="minlength" resource="false" />
+				<msg name="mask" key="errors.numeric" />
+				
+				<var>
+					<var-name>minlength</var-name>
+					<var-value>3</var-value>
+				</var>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[0-9]*$</var-value>
+				</var>
+			</field>
+			
+			<field property="faxNum.prefix" depends="minlength,mask">
+				<arg key="prompt.phone2" />
+				<arg key="${var:minlength}" name="minlength" resource="false" />
+				<msg name="mask" key="errors.numeric" />
+				
+				<var>
+					<var-name>minlength</var-name>
+					<var-value>3</var-value>
+				</var>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[0-9]*$</var-value>
+				</var>
+			</field>
+			
+			<field property="faxNum.4Digit" depends="minlength,mask">
+				<arg key="prompt.phone3" />
+				<arg key="${var:minlength}" name="minlength" resource="false" />				
+				<msg name="mask" key="errors.numeric" />
+				
+				<var>
+					<var-name>minlength</var-name>
+					<var-value>4</var-value>
+				</var>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[0-9]*$</var-value>
+				</var>
+			</field>
+			
+			<field property="faxLocation" depends="mask">
+				<arg key="prompt.faxLocation" />
+				<msg name="mask" key="errors.alphanumeric" />
+							
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[a-zA-Z0-9_ -.]*$</var-value>
+				</var>				
+			</field>
+			
+			<field property="email1" depends="mask">
+				<arg key="prompt.email1" />
+				<msg name="mask" key="errors.email1" />
+
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^([a-zA-Z0-9_\.\-]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$</var-value>
+				</var>
+			</field>
+			
+			<field property="email2" depends="mask">
+				<arg key="prompt.email2" />
+				<msg name="mask" key="errors.email1" />
+
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^([a-zA-Z0-9_\.\-]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$</var-value>
+				</var>
+			</field>
+			
+			<field property="email3" depends="mask">
+				<arg key="prompt.email3" />
+				<msg name="mask" key="errors.email1" />
+
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^([a-zA-Z0-9_\.\-]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$</var-value>
+				</var>
+			</field>
+			
+			<!-- ADDRESS INFORMATION -->
+			<field property="associateAddresses[0].streetNum" depends="minlength,mask,required">
+				<arg key="prompt.streetNumber" />
+				<arg key="${var:minlength}" name="minlength" resource="false" />				
+				<msg name="mask" key="errors.alphanumeric" />
+				<var>
+					<var-name>minlength</var-name>
+					<var-value>1</var-value>
+				</var>				
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[a-zA-Z0-9_\/-]*$</var-value>
+				</var>				
+			</field>
+	
+			<field property="associateAddresses[0].streetName" depends="minlength,mask,required">
+				<arg key="prompt.streetName" />
+				<arg key="${var:minlength}" name="minlength" resource="false" />				
+				<msg name="mask" key="errors.alphanumeric" />
+				<var>
+					<var-name>minlength</var-name>
+					<var-value>1</var-value>
+				</var>				
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[a-zA-Z0-9_ .-]*$</var-value>
+				</var>	
+			</field>			
+			
+			<field property="associateAddresses[0].aptNum" depends="minlength,mask">
+				<arg key="prompt.apartmentNumber" />
+				<arg key="${var:minlength}" name="minlength" resource="false" />				
+				<msg name="mask" key="errors.alphanumeric" />
+				<var>
+					<var-name>minlength</var-name>
+					<var-value>1</var-value>
+				</var>				
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[a-zA-Z0-9_ \.\-]*$</var-value>
+				</var>				
+			</field>			
+			
+			<field property="associateAddresses[0].city" depends="minlength,mask,required">
+				<arg key="prompt.city" />
+				<arg key="${var:minlength}" name="minlength" resource="false" />			
+				<msg name="mask" key="errors.alphanumeric" />
+				<var>
+					<var-name>minlength</var-name>
+					<var-value>2</var-value>
+				</var>				
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[a-zA-Z0-9_ .-]*$</var-value>
+				</var>	
+			</field>
+			
+			<field property="associateAddresses[0].stateId" depends="required">
+				<arg key="prompt.state" />
+			</field>
+						
+			<field property="associateAddresses[0].zipCode" depends="minlength,mask,required">
+				<arg key="prompt.zipCode" />
+				<arg key="${var:minlength}" name="minlength" resource="false" />				
+				<msg name="mask" key="errors.numeric" />
+				<var>
+					<var-name>minlength</var-name>
+					<var-value>5</var-value>
+				</var>				
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[0-9]*$</var-value>
+				</var>
+			</field>
+			
+			<field property="associateAddresses[0].additionalZipCode" depends="minlength,mask">
+				<arg key="prompt.zipCode" />
+				<arg key="${var:minlength}" name="minlength" resource="false" />				
+				<msg name="mask" key="errors.numeric" />
+				<var>
+					<var-name>minlength</var-name>
+					<var-value>4</var-value>
+				</var>				
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[0-9]*$</var-value>
+				</var>
+			</field>			
+		</form>
+		
+		<form name="lawEnforcementInfoForm">
+		     <field property="officerBadgeNumber" depends="minlength,mask">
+				<arg key="prompt.badgeNumber" />
+				<arg key="${var:minlength}" name="minlength" resource="false" />
+				<msg name="mask" key="errors.alphanumeric" />
+	  
+				<var>
+					<var-name>minlength</var-name>
+					<var-value>1</var-value>
+				</var>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[a-zA-Z0-9]*$</var-value>
+				</var>
+			</field>
+	
+			<field property="officerOtherIdNumber" depends="minlength,mask">
+				<arg key="prompt.otherIdNumber" />
+				<arg key="${var:minlength}" name="minlength" resource="false" />
+				<msg name="mask" key="errors.alphanumeric" />
+				<var>
+					<var-name>minlength</var-name>
+					<var-value>1</var-value>
+				</var>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[a-zA-Z0-9]*$</var-value>
+				</var>
+			</field>
+		    <field property="officerName.lastName" depends="required,mask">
+				<arg key="prompt.lastName" />			
+				<msg name="mask" key="errors.alphanumeric" />
+				
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^([a-zA-Z']{2})([a-zA-Z '.-]*)([*]?)([a-zA-Z '.-]*)$</var-value>
+				</var>
+			</field>
+			<field property="officerName.firstName" depends="required,mask">
+				<arg key="prompt.firstName" />				
+				<msg name="mask" key="errors.alphanumeric" />
+				
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[a-zA-Z0-9 '.-]*$</var-value>
+				</var>
+			</field>
+			<field property="officerName.middleName" depends="mask">
+				<arg key="prompt.middleName" />				
+				<msg name="mask" key="errors.alphanumeric" />
+				
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[a-zA-Z0-9 '.-]*$</var-value>
+				</var>
+			</field>
+			<field property="workPhone.areaCode" depends="required,minlength,mask">
+				<arg key="prompt.workPhone1" />
+				<arg key="${var:minlength}" name="minlength" resource="false" />
+				<msg name="mask" key="errors.numeric" />
+				
+				<var>
+					<var-name>minlength</var-name>
+					<var-value>3</var-value>
+				</var>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[0-9]*$</var-value>
+				</var>
+			</field>
+			<field property="workPhone.prefix" depends="required,minlength,mask">
+				<arg key="prompt.workPhone2" />
+				<arg key="${var:minlength}" name="minlength" resource="false" />
+				<msg name="mask" key="errors.numeric" />
+				
+				<var>
+					<var-name>minlength</var-name>
+					<var-value>3</var-value>
+				</var>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[0-9]*$</var-value>
+				</var>
+			</field>
+			<field property="workPhone.4Digit" depends="required,minlength,mask">
+				<arg key="prompt.workPhone3" />
+				<arg key="${var:minlength}" name="minlength" resource="false" />				
+				<msg name="mask" key="errors.numeric" />
+				
+				<var>
+					<var-name>minlength</var-name>
+					<var-value>4</var-value>
+				</var>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[0-9]*$</var-value>
+				</var>
+			</field>
+			<field property="cellPhone.areaCode" depends="minlength,mask">
+				<arg key="prompt.cellPhone1" />
+				<arg key="${var:minlength}" name="minlength" resource="false" />
+				<msg name="mask" key="errors.numeric" />
+				
+				<var>
+					<var-name>minlength</var-name>
+					<var-value>3</var-value>
+				</var>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[0-9]*$</var-value>
+				</var>
+			</field>
+			<field property="cellPhone.prefix" depends="minlength,mask">
+				<arg key="prompt.cellPhone2" />
+				<arg key="${var:minlength}" name="minlength" resource="false" />
+				<msg name="mask" key="errors.numeric" />
+				
+				<var>
+					<var-name>minlength</var-name>
+					<var-value>3</var-value>
+				</var>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[0-9]*$</var-value>
+				</var>
+			</field>
+			<field property="cellPhone.4Digit" depends="minlength,mask">
+				<arg key="prompt.cellPhone3" />
+				<arg key="${var:minlength}" name="minlength" resource="false" />				
+				<msg name="mask" key="errors.numeric" />
+				
+				<var>
+					<var-name>minlength</var-name>
+					<var-value>4</var-value>
+				</var>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[0-9]*$</var-value>
+				</var>
+			</field>
+			<field property="pager.areaCode" depends="minlength,mask">
+				<arg key="prompt.pager1" />
+				<arg key="${var:minlength}" name="minlength" resource="false" />
+				<msg name="mask" key="errors.numeric" />
+				
+				<var>
+					<var-name>minlength</var-name>
+					<var-value>3</var-value>
+				</var>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[0-9]*$</var-value>
+				</var>
+			</field>
+			<field property="pager.prefix" depends="minlength,mask">
+				<arg key="prompt.pager2" />
+				<arg key="${var:minlength}" name="minlength" resource="false" />
+				<msg name="mask" key="errors.numeric" />
+				
+				<var>
+					<var-name>minlength</var-name>
+					<var-value>3</var-value>
+				</var>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[0-9]*$</var-value>
+				</var>
+			</field>
+			<field property="pager.4Digit" depends="minlength,mask">
+				<arg key="prompt.pager3" />
+				<arg key="${var:minlength}" name="minlength" resource="false" />				
+				<msg name="mask" key="errors.numeric" />
+				
+				<var>
+					<var-name>minlength</var-name>
+					<var-value>4</var-value>
+				</var>
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^[0-9]*$</var-value>
+				</var>
+			</field>
+			<field property="email" depends="mask">
+				<arg key="prompt.email" />
+				<msg name="mask" key="errors.email" />
+
+				<var>
+					<var-name>mask</var-name>
+					<var-value>^([a-zA-Z0-9_\-\.]+)@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.)|(([a-zA-Z0-9\-]+\.)+))([a-zA-Z]{2,4}|[0-9]{1,3})(\]?)$</var-value>
+				</var>
+			</field>
+		</form>
+		
+	</formset>
+
+</form-validation>

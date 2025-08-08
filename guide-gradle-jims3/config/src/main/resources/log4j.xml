@@ -1,0 +1,27 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE log4j:configuration>
+
+<log4j:configuration xmlns:log4j="http://jakarta.apache.org/log4j/" debug="true">
+        
+
+
+
+  <appender name="Normal" class="org.apache.log4j.net.MulticastAppender">
+     <param name="Port" value="4449"/>
+     <param name="RemoteHost" value="224.1.1.1"/>
+     <param name="Encoding" value="US-ASCII"/>
+     <layout class="org.apache.log4j.xml.XMLLayout">
+     </layout>
+  </appender>
+
+
+  <logger name="GUIController" additivity="false">
+    <level value ="debug" />
+  </logger>
+
+  
+  
+
+
+
+</log4j:configuration>

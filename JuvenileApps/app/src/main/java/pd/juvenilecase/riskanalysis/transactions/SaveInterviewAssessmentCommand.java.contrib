@@ -1,0 +1,196 @@
+//Source file: C:\\views\\CommonSupervision\\app\\src\\pd\\juvenilecase\\transactions\\SaveInterviewAssessmentCommand.java
+
+package pd.juvenilecase.riskanalysis.transactions;
+
+import java.util.Collection;
+import java.util.Enumeration;
+import java.util.Iterator;
+
+import messaging.juvenilecase.reply.RiskRecommendationResponseEvent;
+import messaging.riskanalysis.RiskQuestionAnswerEvent;
+import messaging.riskanalysis.SaveInterviewAssessmentEvent;
+import mojo.km.context.ICommand;
+import mojo.km.dispatch.EventManager;
+import mojo.km.dispatch.IDispatch;
+import mojo.km.messaging.IEvent;
+import mojo.km.persistence.Home;
+import mojo.km.persistence.IHome;
+import naming.RiskAnalysisConstants;
+import pd.exception.ComputationValidationException;
+import pd.juvenilecase.JuvenileCasefile;
+import pd.juvenilecase.riskanalysis.PDRiskAnalysisHelper;
+import pd.juvenilecase.riskanalysis.RiskAnalysis;
+import pd.juvenilecase.riskanalysis.RiskAnalysisInterview;
+import pd.juvenilecase.riskanalysis.RiskFinalScore;
+import pd.juvenilecase.riskanalysis.RiskResponse;
+
+public class SaveInterviewAssessmentCommand implements ICommand 
+{
+   
+   /**
+    * @roseuid 4342C32E01E8
+    */
+   public SaveInterviewAssessmentCommand() 
+   {
+    
+   }
+   
+   /**
+    * @param event
+    * @roseuid 433C3D3D00DD
+    */
+   public void execute(IEvent event) throws ComputationValidationException
+   {
+    
+		SaveInterviewAssessmentEvent saveIntAssessEvent = (SaveInterviewAssessmentEvent)event;
+		
+		if ( saveIntAssessEvent.isUpdateOverRiddenStatus() ) {
+			   
+			   if ( (saveIntAssessEvent.getAssessmentID() != null) && (saveIntAssessEvent.getAssessmentID().length() > 0) ) {
+				   PDRiskAnalysisHelper.updateInterviewRiskAnalysisOverrideStatus(saveIntAssessEvent);
+			   }
+			   	   
+		} else {
+			
+		   if (saveIntAssessEvent.isUpdate()) {
+			   saveInterviewUpdate(saveIntAssessEvent);
+		   } else {
+			   saveInterview(saveIntAssessEvent);
+		   }
+		  
+	   }
+			
+
+   }
+   
+   /**
+     * This will be for updating existing interviews 
+	 * @param saveIntAssessEvent
+	 * @throws ComputationValidationException
+	 */
+	private void saveInterviewUpdate(SaveInterviewAssessmentEvent saveIntAssessEvent)
+			throws ComputationValidationException {
+		
+	}
+
+	/**
+	 * Saves new interviews
+	 * @param saveIntAssessEvent
+	 * @throws ComputationValidationException
+	 */
+	private void saveInterview(SaveInterviewAssessmentEvent saveIntAssessEvent)
+			throws ComputationValidationException {
+		
+		RiskAnalysis riskAnalysis = new RiskAnalysis();
+		RiskAnalysisInterview riskInterview = new RiskAnalysisInterview();
+		riskAnalysis.setAssessmentType(RiskAnalysisConstants.RISK_TYPE_INTERVIEW);
+		riskAnalysis.setJuvenileNum(saveIntAssessEvent.getJuvenileNum());
+		riskAnalysis.setCasefileID(Integer.parseInt(saveIntAssessEvent.getCasefileID()));
+		riskAnalysis.setEnteredDate(saveIntAssessEvent.getAssessmentDate());
+		IHome home=new Home();
+		home.bind(riskAnalysis);
+		riskInterview.setRiskAnalysis(riskAnalysis);
+		
+		//RiskAnalysis latestReferralRiskAnalysis = PDRiskAnalysisHelper.getLatestRiskAnalysis(saveIntAssessEvent.getJuvenileNum(),RiskAnalysisConstants.RISK_TYPE_REFERRAL);
+		RiskAnalysis latestReferralRiskAnalysis = PDRiskAnalysisHelper.getLatestRiskAnalysisByJuvenile(saveIntAssessEvent.getJuvenileNum(),RiskAnalysisConstants.RISK_TYPE_CUSTODY_REFERRAL);
+		
+		if (latestReferralRiskAnalysis == null) {
+			latestReferralRiskAnalysis = PDRiskAnalysisHelper.getLatestRiskAnalysisByJuvenile(saveIntAssessEvent.getJuvenileNum(),RiskAnalysisConstants.RISK_TYPE_NON_CUSTODY_REFERRAL);
+		} 
+		
+		if (latestReferralRiskAnalysis == null) {
+			latestReferralRiskAnalysis = PDRiskAnalysisHelper.getLatestRiskAnalysisByJuvenile(saveIntAssessEvent.getJuvenileNum(),RiskAnalysisConstants.RISK_TYPE_COURT_REFERRAL_MALE);
+		} 
+		
+		if (latestReferralRiskAnalysis == null) {
+			latestReferralRiskAnalysis = PDRiskAnalysisHelper.getLatestRiskAnalysisByJuvenile(saveIntAssessEvent.getJuvenileNum(),RiskAnalysisConstants.RISK_TYPE_COURT_REFERRAL_FEMALE);
+		} 
+		
+		
+		//TODO once risk computation is working, remove latestReferralRiskAnalysis as a paramter in setCalculatedScoresInterview
+		if(latestReferralRiskAnalysis.getAssessmentType().equalsIgnoreCase(RiskAnalysisConstants.RISK_TYPE_CUSTODY_REFERRAL) ) {
+				saveIntAssessEvent.setLatestReferralFinalScore(latestReferralRiskAnalysis.getFinalScore());
+		} else if (latestReferralRiskAnalysis.getAssessmentType().equalsIgnoreCase(RiskAnalysisConstants.RISK_TYPE_COURT_REFERRAL_MALE) ||
+				   latestReferralRiskAnalysis.getAssessmentType().equalsIgnoreCase(RiskAnalysisConstants.RISK_TYPE_COURT_REFERRAL_FEMALE) ) {
+			
+			Collection finalscores = latestReferralRiskAnalysis.getFinalScores();
+			Iterator<RiskFinalScore> iteFinalscores = finalscores.iterator();
+			while(iteFinalscores.hasNext()) 
+			{
+				RiskFinalScore riskFinalScore = iteFinalscores.next();
+				
+				if (riskFinalScore.getRiskResultGroup().getDescription().equalsIgnoreCase("risk")) {
+					saveIntAssessEvent.setLatestReferralFinalScore(riskFinalScore.getFinalScore());
+					break;
+				}
+				
+			}
+			
+		}
+		PDRiskAnalysisHelper.setCalculatedScoresInterview(riskInterview, saveIntAssessEvent, riskAnalysis);
+		boolean isCustody = false;
+		if(latestReferralRiskAnalysis.isCustody() && saveIntAssessEvent.isProbableCauseHearingSelected()){
+			isCustody = true;
+		}
+		PDRiskAnalysisHelper.setInterviewRiskAnalysisRecommendation(riskAnalysis, isCustody);
+		
+		riskInterview.setOnsetAge(saveIntAssessEvent.getOnsetAge());
+		riskInterview.setSexCd(saveIntAssessEvent.getSex());
+	
+			
+		Enumeration events = saveIntAssessEvent.getRequests();
+	
+		while (events.hasMoreElements())
+		{
+			Object obj = events.nextElement();
+			if( obj instanceof RiskQuestionAnswerEvent ) {	
+				RiskQuestionAnswerEvent riskReqEvent = (RiskQuestionAnswerEvent)obj;
+				
+				RiskResponse riskResponse =  new RiskResponse();
+				riskResponse.setRiskAnalysisId(riskAnalysis.getOID().toString());
+				riskResponse.setText(riskReqEvent.getText());
+				riskResponse.setWeightedResponseID(String.valueOf(riskReqEvent.getWeightedResponseID()));
+			}
+		}
+		
+		RiskRecommendationResponseEvent riskRecommendScore = new RiskRecommendationResponseEvent();
+		riskRecommendScore.setRiskAnalysisRecommendation(riskAnalysis.getRecommendation());
+		riskRecommendScore.setRiskAnalysisScore(riskAnalysis.getFinalScore());
+		riskRecommendScore.setRiskAnalysisId(riskAnalysis.getOID().toString());
+	
+		IDispatch dispatch = EventManager.getSharedInstance(EventManager.REPLY);		
+		dispatch.postEvent(riskRecommendScore);
+		JuvenileCasefile myCasefile=JuvenileCasefile.find(saveIntAssessEvent.getCasefileID());
+		if(myCasefile!=null){
+			myCasefile.setIsInterviewRiskNeeded(false);
+			PDRiskAnalysisHelper.turnRiskFlagOffOnAllCasefiles(riskAnalysis.getJuvenileNum(),riskAnalysis.getAssessmentType(),myCasefile.getSupervisionCategoryId());
+		}
+	}
+   
+   /**
+    * @param event
+    * @roseuid 433C3D3D00DF
+    */
+   public void onRegister(IEvent event) 
+   {
+    
+   }
+   
+   /**
+    * @param event
+    * @roseuid 433C3D3D00E1
+    */
+   public void onUnregister(IEvent event) 
+   {
+    
+   }
+   
+   /**
+    * @param anObject
+    * @roseuid 433C3D3D00E3
+    */
+   public void update(Object anObject) 
+   {
+    
+   }
+}

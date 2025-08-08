@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="US-ASCII"?>
+<document size="LETTER" margin-left="30" margin-right="30" margin-top="25" margin-bottom="25">
+
+	<encryption allow-fillin="false" allow-modify-contents="false" allow-degraded-printing="true" allow-screen-readers="false" allow-copy="false"	allow-printing="true"/>
+	<meta author="JIMS2, Harris County" creator="JIMS2, Harris County" title="Scheduled Events List"/>
+
+	<module>
+		<font-def name="title" family="Helvetica" style="bold" size="12"/>
+		<font-def name="header" family="Helvetica" style="bold" size="12"/>
+		<font-def name="label" family="Helvetica" style="bold" size="11"/>
+		<font-def name="text" family="Helvetica" style="normal" size="10"/>
+		<font-def name="text-large" family="Helvetica" style="normal" size="12"/>
+		<font-def name="text-small" family="Helvetica" style="normal" size="8"/>
+		<font-def name="text-italic" family="Helvetica" style="bold|italic" size="11"/>
+		<font-def name="letterheader" family="Helvetica" style="bold" size="16"/>
+		<font-def name="subheader" family="Helvetica" style="bold|underline" size="14"/>
+		
+		<custom-tag alias="std-title" tag="paragraph">
+			<attribute name="font" value="text-italic"/>
+		</custom-tag>
+		
+		<custom-tag alias="letterheader" tag="paragraph">
+			<attribute name="font" value="letterheader"/>
+		</custom-tag>
+		<custom-tag alias="subheader" tag="paragraph">
+			<attribute name="font" value="subheader"/>
+		</custom-tag>
+		<custom-tag alias="mainText" tag="paragraph">
+			<attribute name="font" value="text"/>
+		</custom-tag>
+	</module>
+
+    <new-page size="LETTER" margin-left="30" margin-right="30" margin-top="25" margin-bottom="25">
+    </new-page>
+	
+			<table columns="1" border-style="none" border-width="0"  padding="15" halign="center">
+				<table-row halign="center">
+			        <cell halign="center" border-style="none" border-width="2" border-color="gray" padding-bottom="5">
+						<letterheader halign="center">
+							Harris County Juvenile Probation
+						</letterheader> 	
+					</cell>
+				</table-row>	
+				<table-row halign="center">
+			        <cell halign="center" border-style="none" border-width="2" border-color="gray" padding-bottom="5">
+						<letterheader halign="center">
+							Scheduled Events
+							
+							_if_ (${serviceProvider})
+	 For  ${serviceProviderName}:
+	
+	_endif_
+						</letterheader> 	
+					</cell>
+				</table-row>		
+					
+								
+			</table>
+		<br/>
+		<br/>
+		<table columns="2" border-style="none" border-width="0"  padding="0" >
+				
+				<table-row>
+					<cell halign="left" valign="top" padding-top="10">
+						<mainText halign="left">
+							<b>Name:</b> ${juvenileName}
+						</mainText>
+					</cell>	
+					<cell halign="right" valign="top" padding-top="10">
+						<mainText halign="right">
+							  <b>Printed On Date:</b> ${todaysDate}   <b> Time:</b> ${todaysTime}
+						</mainText>
+					</cell>				
+				</table-row>		
+								
+			</table>
+			<br/>
+	
+	<mainText>
+	<b>You are scheduled to attend the following events: </b>
+	
+	</mainText>
+
+	<br/>
+	<table columns="3" border-style="none"  border-color="black" border-width="0" widths="20,55,25" padding="3" spacing-after="5" >
+    	_foreach_(eve ${allEvents} 'even' 'odd')
+	    	<table-row halign="left" >
+	    		<cell fill-row="true">
+		    		<table columns="3" border-style="none"  border-color="black" border-width="0" widths="23,52,25" padding="3" spacing-after="5" >
+						<table-row halign="left" >
+							<cell halign="left" fill-row="true"><b>
+							------------------------------------------------------------------------
+							${eve.eventsDate}
+							------------------------------------------------------------------------
+							</b></cell>
+						</table-row>
+				    	_foreach_(event ${eve.allEvents} 'even' 'odd')
+							_if_(${event.eventType != null && event.eventType != ""})
+								<table-row halign="left">
+									<cell halign="center" fill-row="true"><b>${event.eventType}</b></cell>
+								</table-row>
+								<table-row halign="left">
+									<cell halign="left" fill-row="true">Starts: ${event.startTime} \t \t \t \t \t \t \t 
+									\t \t \t \t \t \t \t \t \t \t \t \t \t \t \t \t \t \t \t \t \t \t \t \t \t \t
+									Ends: ${event.endTime}</cell>
+								</table-row>
+								_if_(${event.locationName != null && event.locationName != ""})
+									<table-row halign="left">
+										<cell halign="left" fill-row="true" padding-left="160">Location: ${event.locationName}</cell>
+									</table-row>
+								_endif_
+								<table-row halign="left">
+									<cell halign="left" fill-row="true" padding-left="203">${event.locationAddress1} </cell>
+								</table-row>
+								_if_(${event.serviceProNameNService != null && event.serviceProNameNService != ""})
+									<table-row halign="left">
+										<cell halign="left" fill-row="true" padding-left="125">Provider/Service: ${event.serviceProNameNService} </cell>
+									</table-row>
+								_endif_
+								_if_(${event.eventComments != null && event.eventComments != ""})
+									<table-row halign="left">
+										<cell halign="left" fill-row="true" padding-left="125">Event Comments: ${event.eventComments} </cell>
+									</table-row>
+								_endif_
+							_endif_
+							_if_(${event.docketType != null && event.docketType != ""})
+								<table-row halign="left">
+									<cell halign="center" fill-row="true"><b>${event.docketType}</b></cell>
+								</table-row>
+								<table-row halign="left">
+									<cell halign="left" fill-row="true" padding-left="160">Docket Time: ${event.courtTime}</cell>
+								</table-row>
+								<table-row halign="left">
+									<cell halign="left" fill-row="true" padding-left="190">Court: ${event.courtNum}</cell>
+								</table-row>
+								_if_(${event.petitionNum != null && event.petitionNum != ""})
+									<table-row halign="left">
+									<cell halign="left" fill-row="true" padding-left="173">Petition #: ${event.petitionNum}</cell>
+									</table-row>
+								_endif_
+								_if_(${event.locationName != null && event.locationName != ""})
+									<table-row halign="left">
+										<cell halign="left" fill-row="true" padding-left="176">Location: ${event.locationName}</cell>
+									</table-row>
+								_endif_
+								_if_(${event.hearingType != null && event.hearingType != ""})
+									<table-row halign="left">
+										<cell halign="left" fill-row="true" padding-left="154">Hearing Type: ${event.hearingType}</cell>
+									</table-row>
+								_endif_
+								_if_(${event.petitionAllegation != null && event.petitionAllegation != ""})
+									<table-row halign="left">
+										<cell halign="left" fill-row="true" padding-left="134">Petition Allegation: ${event.petitionAllegation}</cell>
+									</table-row>
+								_endif_
+							_endif_
+						_endfor_
+					</table>
+				</cell>
+			</table-row>
+		_endfor_
+	</table>
+							
+</document>

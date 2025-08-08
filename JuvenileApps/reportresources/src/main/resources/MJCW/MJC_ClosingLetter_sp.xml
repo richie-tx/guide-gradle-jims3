@@ -1,0 +1,166 @@
+<?xml version="1.0" encoding="US-ASCII"?>
+<document size="LETTER" margin-left="35" margin-right="35" margin-top="30" margin-bottom="30">
+
+	<encryption allow-fillin="false" allow-modify-contents="false" allow-degraded-printing="true" allow-screen-readers="false" allow-copy="false"	allow-printing="false"/>
+	<meta author="JIMS2, Harris County" creator="JIMS2, Harris County" title="Closing Letter"/>
+
+	<module>
+		<font-def name="title" family="Helvetica" style="bold" size="12"/>
+		<font-def name="header" family="Helvetica" style="bold|underline" size="12"/>
+		<font-def name="label" family="Helvetica" style="bold" size="11"/>
+		<font-def name="text" family="Helvetica" style="normal" size="11"/>
+		<font-def name="text-bold" family="Helvetica" style="bold" size="11"/>
+		<font-def name="text-large" family="Helvetica" style="normal" size="12"/>
+		<font-def name="text-small" family="Helvetica" style="normal" size="9"/>
+		<font-def name="text-italic" family="Helvetica" style="bold|italic" size="11"/>
+		<font-def name="letterheader" family="Helvetica" style="bold" size="12"/>
+		
+		<custom-tag alias="std-title" tag="paragraph">
+			<attribute name="font" value="text-italic"/>
+		</custom-tag>
+		
+		<custom-tag alias="letterheader" tag="paragraph">
+			<attribute name="font" value="letterheader"/>
+		</custom-tag>
+	</module>
+
+    <new-page size="LETTER" margin-left="35" margin-right="35" margin-top="30" margin-bottom="30">
+    </new-page>
+	
+	<table columns="2" border-style="none" border-width="0" widths="15,85" padding="0" >
+		<table-row halign="left">
+	        <cell halign="left" valign="top" >
+	            <paragraph>
+	                <image source="MJCW/HarrisCountySeal.jpg" width="75" height="75" scale-to-fit="true"/>
+	            </paragraph>
+	        </cell>
+	        <cell halign="left" valign="top">
+	        	<table columns="2" padding="3" border-width="0" >
+	        		<table-row>
+				        <cell colspan = "2" halign="left" border-style="bottom" border-width="2" border-color="gray" padding-bottom="5">
+							<letterheader>
+								HARRIS COUNTY
+							</letterheader> 	
+							<letterheader>
+								JUVENILE PROBATION DEPARTMENT
+							</letterheader> 
+						</cell>
+				    </table-row>	
+    	        	<table-row>
+    	        	   <cell halign="left" valign="top" >
+						  _if_( ${locationUnitName} notEmpty )
+						  	<paragraph font="text">
+						  		<b>${locationUnitName}</b>
+						  	</paragraph>
+						  _endif_
+						 _if_( ${locationAddress} isDefined)
+						   	<paragraph font="text">
+								${locationAddress.streetAddress}
+							</paragraph>
+							<paragraph font="text">									
+								${locationAddress.cityStateZip}
+						  	</paragraph>
+						  _endif_
+      				</cell>				
+      				<cell halign="right" valign="top">
+						<paragraph halign="right" font="text-small" align="top">
+							<b>OFFICER: ${managerFirstName} ${managerLastName}</b> 
+						</paragraph>
+						<paragraph halign="right" font="text-small" align="top">
+							Caseload Manager
+						</paragraph>
+						<paragraph halign="right" font="text-small" align="top">	
+							Office ${managerPhone}
+						</paragraph>	
+				    </cell>		  	
+		 		  </table-row>
+            	</table>    
+	        </cell>
+		</table-row>        
+	</table>
+	
+  
+  		
+	<paragraph font="text">
+  		${juvenile.fullNameFirst}
+  	</paragraph>	
+  	<paragraph font="text">	
+		c/o ${guardianName.fullNameFirst}
+	</paragraph>	
+	<paragraph font="text">	
+		${guardianAddress.streetAddress}
+	</paragraph>	
+	<paragraph font="text" spacing-after="20">	
+   		${guardianAddress.cityStateZip}
+  	</paragraph> 
+  			
+	<paragraph font="text" spacing-after="10">
+		Supervision#: ${casefileId}
+	</paragraph>
+	
+	<if cond="${source=="calendar"}">
+		<paragraph font="text" spacing-after="20" spacing-before="20">    				
+	   		Fecha: <u>${supervisionEndDate} </u>
+	  	</paragraph> 
+	</if>
+	<else>
+		<paragraph font="text" spacing-after="20" spacing-before="20">    				
+	   		Fecha: <u>${currentDate}</u>
+	  	</paragraph> 
+  	</else>
+	
+	<paragraph font="text" spacing-after="10">
+		${juvenile.fullNameFirst}, esta carta es para reconocer que usted ha completado su per&#237;odo de supervisi&#243;n de
+		libertad condicional o Ajuste Informal asignado a usted, bajo la supervisi&#243;n del Departamento Juvenil de
+		Libertad Condicional del Condado de Harris.  Su historial con el Departamento Juvenil de Libertad Condicional
+		del Condado de Harris ahora esta cerrado.
+	</paragraph>
+	<paragraph font="text" spacing-after="10">
+		Por lo general sus registros de tribunal de menores son confidenciales; sin embargo, esta regla no aplica a
+		todos ni a todas las situaciones.  El Estado de Tejas tiene leyes que aparecen dentro del C&#243;digo Familiar de
+		Tejas (es decir, las secciones 58.003 y 58.208) que explican la confidencialidad de registros de tribunal de
+		menores y a quien aplica.  Estas secciones del C&#243;digo Familiar de Tejas tambi&#233;n proporcionan los
+		procedimientos para Sellar Registros de Tribunal de Menores y Acceso Restringido Autom&#225;tico.
+	</paragraph>
+	<paragraph font="text" spacing-after="10">
+		El sellado de registros es un procedimiento por el cual usted pide que el Tribunal instruya a cualquiera que
+	    tenga registros relacionados a un caso de un menor, los env&#237;en al Tribunal donde ser&#225;n sellados. Con lo cual,
+	    registros de Tribunal del joven s&#243;lo pueden ser hechos disponibles para revisi&#243;n por un mandato Judicial.  El
+	    acceso restringido autom&#225;tico es un procedimiento en el que el Departamento de Seguridad P&#250;blica de Tejas
+	    certificar&#225; que el caso del joven califica para el acceso restringido. Sobre la certificaci&#243;n, las personas o
+	    agencias en posesi&#243;n de registros de Tribunal de un joven no pueden revelar la existencia de los registros de
+	    Tribunal a nadie no autorizado por estatuto o ley.
+	</paragraph>
+	
+	<if cond="${courtNum == "313" || courtNum == "315"}"> 
+		<paragraph font="text" spacing-after="10">
+			Las leyes con respecto al sellado de registros, y acceso restringido autom&#225;tico son muy espec&#237;ficos asi
+			que lea cuidadosamente el material adjudicado.  Si tiene qualquier otra pregunta, favor de llamar a su abogado.
+		</paragraph>
+
+		<paragraph font="text-bold" spacing-after="40">
+			Si usted recibi&#243; sentencia diferida o libertad condicional formal por un delito menor, no violento, usted
+			puede ser elegible para aplicar para sellar su record juvenil a ning&#250;n costo en un programa que es
+			posible a trav&#233;s de el Houston Bar Association (asociaci&#243;n de abogados de Houston) y abogados
+			voluntarios de las empresas locales. Tambi&#233;n debe cumplir con ciertas gu&#237;as financieras establecidas
+			por el Houston Bar Association para ser elegibles.  Para m&#225;s informaci&#243;n contacte a Kay Sim o Annie
+			Houston de el Houston Bar Association.  El n&#250;mero de contacto es (713) 759-1133.
+		</paragraph>
+	</if>
+	<else>
+		<paragraph font="text" spacing-after="40">
+			Las leyes con respecto al sellado de registros, y acceso restringido autom&#225;tico son muy espec&#237;ficos asi
+			que lea cuidadosamente el material adjudicado.  Si tiene qualquier otra pregunta, favor de llamar a su abogado.
+		</paragraph>
+	</else>	
+   	<table columns="2" widths="60,40" keep-together="true">
+		<table-row>
+			<cell></cell>
+			<cell>${officerFirstName} ${officerLastName}</cell>
+		</table-row>
+		<table-row>
+			<cell></cell>
+			<cell>Oficial de Probacion Juvenil</cell>
+		</table-row>
+	</table>
+</document>

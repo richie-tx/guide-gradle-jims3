@@ -1,0 +1,1616 @@
+<?xml version="1.0" encoding="US-ASCII"?>
+<document size="LETTER" margin-left="25" margin-right="25" margin-top="70" margin-bottom="50">
+
+	<encryption allow-fillin="false" allow-modify-contents="false" allow-degraded-printing="true" allow-screen-readers="false" allow-copy="false"	allow-printing="false"/>
+	<meta author="JIMS2, Harris County" creator="JIMS2, Harris County" title="Common Application for Placement of Children"/>
+
+	<module>
+		<color-def name="custom-gray" color-space="RGB" value="223,223,223"/>
+	
+		<font-def name="arial-7" family="arial" style="normal" size="7"/>
+		<font-def name="arial-8" family="arial" style="normal" size="8"/>
+		<font-def name="arial-8-bold" family="arial" style="bold" size="8"/>
+		<font-def name="arial-9" family="arial" style="normal" size="9"/>
+		<font-def name="arial-9-bold" family="arial" style="bold" size="9"/>
+		<font-def name="arial-10" family="arial" style="normal" size="10"/>
+		<font-def name="arial-10-bold" family="arial" style="bold" size="10"/>
+		<font-def name="arial-11" family="arial" style="normal" size="11"/>
+		<font-def name="arial-11-bold" family="arial" style="bold" size="11"/>
+		<font-def name="arial-12-bold" family="arial" style="bold" size="12"/>
+		
+		<font-def name="pre-filled-answers" family="times new roman" style="italic" size="9"/>
+		
+		
+		<header padding-bottom="20">
+			<header-part halign="center" width="500">
+				<table columns="1" border-style="none">
+					<table-row halign="center" font="arial-11">
+						<cell halign="center"><b>COMMON APPLICATION FOR PLACEMENT OF CHILDREN</b></cell>
+					</table-row>
+					<table-row halign="center" font="arial-11" padding-bottom="10">
+						<cell halign="center"><b>INTERAGENCY APPLICATION FOR PLACEMENT (IAP)</b></cell>
+					</table-row>
+				</table>
+			</header-part>
+		</header>
+		<footer padding-top="10">
+			<footer-part halign="center" width="500" font="arial-9">
+				<table columns="2" widths="55,45" halign="right">
+					<cell>Page : ${pageNumber , nointrprt} of ${pageCount , nointrprt}</cell>
+					<cell>TJPC-AGE-06-04</cell>
+				</table>
+			</footer-part>
+			
+		</footer>
+
+	</module>
+	
+	
+	<paragraph font="arial-11" halign="center">
+		<b>LEVEL OF CARE ASSESSMENT</b>
+	</paragraph>
+    <paragraph font="arial-10" halign="center" spacing-after="10">
+		<b>A. Screening Profile</b>
+	</paragraph>
+	
+	<table columns="5" widths="30,20,15,10,25" border-style="box" font="arial-8" padding-bottom="5" padding-left="5">
+		<table-row halign="left" valign="top" padding-bottom="20">
+			<cell>Child's Name<br/><font name="pre-filled-answers">${juvName}</font></cell>
+			<cell>State Identification #:<br/><font name="pre-filled-answers">${stateID}</font></cell>
+			<cell>Date of Birth<br/><font name="pre-filled-answers">${juvDOB}</font></cell>
+			<cell>Age<br/><font name="pre-filled-answers">${juvAge}</font></cell>
+			<cell>Social Security Number<br/><font name="pre-filled-answers">${juvSSN}</font></cell>
+		</table-row>
+	</table>
+	<table columns="5" widths="10,10,10,50,20" border-style="box" font="arial-8" padding-bottom="5" padding-left="5" spacing-after="20" >
+		<table-row halign="left" valign="top" padding-bottom="20">
+			<cell>Sex<br/><font name="pre-filled-answers">${juvSex}</font></cell>
+			<cell>Ethnicity<br/><font name="pre-filled-answers">${juvEthnicity}</font></cell>
+			<cell>Primary Language<br/><font name="pre-filled-answers">${juvPrimaryLanguage}</font></cell>
+			<!--Bug fix :11237 added state and county for printing  -->
+			<cell>Place of Birth (city, state, county)<br/><font name="pre-filled-answers">${juvBirthCity},${juvBirthState},${juvBirthCounty}</font></cell>
+			<cell>Child's Agency ID Number<br/><font name="pre-filled-answers">${juvAgencyID}</font></cell>
+		</table-row>
+		<table-row halign="left" valign="top" padding-bottom="20">
+			<cell>Height<br/><font name="pre-filled-answers">${juvHeight}</font></cell>
+			<cell>Weight<br/><font name="pre-filled-answers">${juvWeight}</font></cell>
+			<cell>Religious Preference<br/><font name="pre-filled-answers">${juvReligiousPreference}</font></cell>
+			<cell>Child's Current Location or Placement<br/><font name="pre-filled-answers">${answer36}</font></cell>
+			<cell>Country of Citizenship<br/><font name="pre-filled-answers">${juvCountryOfCitizenship}</font></cell>
+		</table-row>
+	</table>
+	
+	<table columns="2" widths="3,97" border-style="none" spacing-after="10">
+		<table-row font="arial-10-bold" padding-bottom="10">
+			<cell>1.</cell>
+			<cell>Briefly describe your impressions of the child including present problems:</cell>
+		</table-row>
+		<table-row font="arial-10-bold" padding-bottom="10">
+			<cell></cell>
+			<cell><font name="pre-filled-answers">${answer1}</font></cell>
+		</table-row>
+		<table-row font="arial-10-bold" padding-bottom="10">
+			<cell></cell>
+			<cell>Briefly describe the child's strengths:</cell>
+		</table-row>
+		<table-row font="arial-10-bold" padding-bottom="10">
+			<cell></cell>
+			<cell><font name="pre-filled-answers">${answer2}</font></cell>
+		</table-row>
+		<table-row font="arial-10-bold" padding-bottom="3">
+			<cell>2.</cell>
+			<cell>Special Needs, Programs and Behaviors:</cell>
+		</table-row>
+		<table-row>
+			<cell fill-row="true">
+				<table columns="4" widths="25,27,23,25" border-style="box" padding-left="5" padding-bottom="5" spacing-after="10">
+					<table-row font="arial-8" halign="left" valign="top">
+						<cell height="30">Is child considered a danger to self?<br/><font name="pre-filled-answers">${childConsideredDangerToSelf}</font></cell>
+						<cell height="30">Is child considered a danger to others?<br/><font name="pre-filled-answers">${childConsideredDangerToOthers}</font></cell>
+						<cell height="30">Number runaways from home:<br/><font name="pre-filled-answers">${noRunawaysFromHome}</font></cell>
+						<cell height="30">Number runaways from placement:<br/><font name="pre-filled-answers">${answer33}</font></cell>
+					</table-row>
+					<table-row font="arial-8" halign="left" valign="top">
+						<cell height="30">Any History of setting fires?<br/><font name="pre-filled-answers">${historyOfSettingFires}</font></cell>
+						<!--bug fix: 11244 & 32220 starts-->
+						<cell height="30">Special Program Needs?<br/><font name="pre-filled-answers">${specialNeedsOthers}</font></cell>
+						<cell colspan="2">Specify:<br/>
+						_foreach_(eachSpecialNeed ${specialNeedsSpecify} 'even' 'odd')
+							<font name="pre-filled-answers">${eachSpecialNeed}<br/></font>
+						_endfor_
+						</cell>
+						<!--bug fix: 11244 & 32220 ends-->
+					</table-row>
+					<table-row font="arial-8" height="30" halign="left" valign="top">
+						<cell fill-row="true">Other Significant Problems or Behaviors:<br/><font name="pre-filled-answers">${answer21}</font>
+							<font name="pre-filled-answers"></font>
+						</cell>
+					</table-row>
+				</table>
+			</cell>
+		</table-row>
+	</table>
+	<table columns="2" widths="3,97" border-style="none" spacing-after="10">
+		<table-row font="arial-10-bold" padding-bottom="3">
+			<cell>3.</cell>
+			<cell>Juvenile Justice History</cell>
+		</table-row>
+		<table-row font="arial-9" padding-bottom="3">
+			<cell></cell>
+			<!-- ANSWER IS ALWAYS YES, PER REQUIREMENT-->
+			<cell>Does the child have a history of involvement with the Juvenile Justice System? <font name="pre-filled-answers">YES</font></cell>
+		</table-row>
+		<table-row font="arial-9" padding-bottom="10">
+			<cell></cell>
+			<cell fill-row="true">If Yes:</cell>
+		</table-row>
+		<table-row padding-bottom="10">
+			<cell fill-row="true">
+				<table columns="4" widths="25,25,25,25" border-style="box" padding-left="5" padding-bottom="5" spacing-after="10">
+					<table-row halign="left" valign="top">
+						<cell font="arial-8">Number of referrals to juvenile authorities:<br/>
+							<font name="pre-filled-answers">${countReferrals}</font></cell>
+						<cell font="arial-8">Number of adjudications for delinquent acts:<br/>
+							<font name="pre-filled-answers">${countAdjudicationsTotal}</font></cell>
+						<cell font="arial-8">Number of adjudication of CINS offenses:<br/>
+							<font name="pre-filled-answers">${countCINSAdjudication}</font></cell>
+						<cell font="arial-8">Current Offense:<br/>
+							<font name="pre-filled-answers">${currentOffense}</font></cell>
+					</table-row>
+				</table>
+			</cell>
+		</table-row>
+	</table>
+	
+	<table columns="2" widths="3,97" border-style="none" spacing-after="10" keep-together="true">
+		<table-row font="arial-10-bold" padding-bottom="3">
+			<cell>4.</cell>
+			<cell>Placement History</cell>
+		</table-row>
+		<table-row font="arial-9" padding-bottom="3">
+			<cell></cell>
+			<cell>Has the child been placed away from home before?
+				<font name="pre-filled-answers">
+				_if_(${averageNumberOfChildCareDays} > 0) 
+					YES
+				_else_
+					NO
+				_endif_
+				</font>
+			</cell>
+		</table-row>
+		<table-row font="arial-9" padding-bottom="5">
+			<cell></cell>
+			<cell>Do not include stopover placements such as emergency shelters, detention, 
+					TYC Reception Center, informal placements with relatives, or return(s) to home
+			</cell>
+		</table-row>
+		<table-row padding-bottom="10">
+			<cell fill-row="true">
+				<table columns="3" widths="33,33,34" border-style="box" padding-left="5" padding-bottom="5" spacing-after="10">
+					<table-row padding-bottom="20" halign="left" valign="top">
+						<cell font="arial-8">If Yes: Number of previous out-of-home placements:<br/>
+							_if_(${outofHomePlacements} > 0) 
+								<font name="pre-filled-answers">${outofHomePlacements}</font>
+							_endif_
+						</cell>
+						<cell font="arial-8">Number of failed adoption placements:<br/><font name="pre-filled-answers">${numberOfFailedAdoptionPlacement}</font></cell>
+						<cell font="arial-8">LOC of current/most recent out-of-home placement:${locCurrentOutofHomePlacement}</cell>
+					</table-row>
+					<table-row halign="left" valign="top">
+						<cell colspan="2" font="arial-8">Date of discharge from most recent out-of-home placement:${recentOutOfHomeDischargeDate}</cell>
+						<cell border-style="left|top"></cell>
+					</table-row>
+				</table>
+			</cell>
+		</table-row>
+		<table-row padding-bottom="10" font="arial-9">
+			<cell fill-row="true">
+				Reason for Discharge:${dischargeReason}
+			</cell>
+		</table-row>
+	</table>	
+	
+	<table columns="2" widths="3,97" border-style="none">	
+		<table-row font="arial-10-bold">
+			<cell>5.</cell>
+			<cell>Substance Abuse History</cell>
+		</table-row>
+		<table-row font="arial-9">
+			<cell></cell>
+			<cell>Does the child have a history of substance abuse?	<font name="pre-filled-answers">${substanceAbuseHistoryStr}</font>
+			</cell>
+		</table-row>
+		_if_(${substanceAbuseHistory})
+			<table-row font="arial-9" padding-bottom="5">
+				<cell></cell>
+				<cell>If yes, indicate degree of substance abuse:</cell>
+			</table-row>
+			_foreach_(eachSubstanceAbuse ${drugTypeAndDegree} 'even' 'odd')
+				<table-row font="arial-9" padding-bottom="3">
+					<cell></cell>
+					<cell fill-row="true">
+						<font name="pre-filled-answers">
+							- ${eachSubstanceAbuse}
+						</font>
+					</cell>
+				</table-row>
+			_endfor_
+			<table-row><cell><br/></cell></table-row>
+		_endif_
+		
+		<table-row halign="left" valign="top" padding-bottom="20">
+			<cell></cell>
+			<cell font="arial-9" fill-row="true">Is specialized Program Required? <font name="pre-filled-answers">${specializedProgramReqStr}</font><br/>
+				_if_(${specializedProgramReq})
+					If yes, specify: <font name="pre-filled-answers">${specializedProgramSpecify}</font>
+				_endif_	
+			</cell>
+
+		</table-row>
+	</table>
+	
+	<table columns="2" widths="3,97" border-style="none" keep-together="true" spacing-after="10">	
+		<table-row font="arial-10-bold" padding-bottom="10">
+			<cell>6.</cell>
+			<cell>History of Abuse/Neglect of Referred Child</cell>
+		</table-row>
+		<table-row font="arial-9" padding-bottom="10">
+			<cell></cell>
+			<cell>Does the child have a history of abuse or neglect? <font name="pre-filled-answers">${abuseNeglectHistoryStr}</font>
+			</cell>
+		</table-row>
+		_if_(${abuseNeglectHistory})
+			<table-row font="arial-9" padding-bottom="3">
+				<cell></cell>
+				<cell>If yes, indicate degree of abuse/neglect:<br/>
+					<font name="pre-filled-answers">
+						_foreach_(eachAbuseTypeAndDegree ${abuseTypeAndDegree} 'even' 'odd')
+							- ${eachAbuseTypeAndDegree}<br/>
+						_endfor_
+					</font>
+				</cell>
+			</table-row>
+		_endif_
+
+
+		<table-row font="arial-9" padding-bottom="3">
+			<cell></cell>
+			<cell>Abandonment? <font name="pre-filled-answers">${abandonment}</font></cell>
+		</table-row>
+	</table>
+	
+	<table columns="2" widths="5,95" border-style="none" keep-together="true" spacing-after="10">	
+		<table-row font="arial-10-bold" padding-bottom="10">
+			<cell>7-8.</cell>
+			<cell>Family/Parental Involvement</cell>
+		</table-row>
+		<table-row padding-bottom="10">
+			<cell fill-row="true">
+				<table columns="3" widths="40,30,30" border-style="box" padding-left="5" padding-bottom="5">
+					<table-row halign="left" valign="top">
+						<cell font="arial-8">Managing Conservator<br/><font name="pre-filled-answers">${managingConservator}</font></cell>
+						<cell font="arial-8">Mother's Parental Rights Terminated<br/><font name="pre-filled-answers">${motherParentalRightsTerminatedStr}</font></cell>
+						<cell font="arial-8">Father's Parental Rights Terminated<br/><font name="pre-filled-answers">${fatherParentalRightsTerminatedStr}</font></cell>
+					</table-row>
+				</table>
+				<table columns="2" widths="50,50" border-style="box" padding-left="5" padding-bottom="5" spacing-after="10">
+					<table-row halign="left" valign="top">
+						<cell font="arial-8">Will family/others participate in treatment or cooperate with others?<br/><font name="pre-filled-answers">${answer3}</font></cell>
+						<cell font="arial-8">Can child return home?<br/><font name="pre-filled-answers">${answer32}</font></cell>
+					</table-row>
+				</table>
+			</cell>
+		</table-row>
+	</table>
+	
+	<table columns="3" widths="33,33,34" border-style="box" padding-left="5" padding-bottom="5">
+		<table-row font="arial-10-bold" padding-bottom="10" padding-left="0" border-style="none">
+			<cell fill-row="true">9. Education</cell>
+		</table-row>
+		<table-row halign="left" valign="top">
+			<cell font="arial-8" height="30">Highest Grade Completed<br/><font name="pre-filled-answers">${currentGradeLevel}</font></cell>
+			<cell font="arial-8" height="30">Currently Enrolled in School?<br/><font name="pre-filled-answers">${currentlyAttendingStr}</font></cell>
+			<cell font="arial-8" height="30">Educational Needs<br/><font name="pre-filled-answers">${programAttending}</font></cell>
+		</table-row>
+		<table-row halign="left" valign="top">
+			<cell font="arial-8" fill-row="true" height="30">History of Truancy?<br/><font name="pre-filled-answers">${trauncyHistoryStr}</font></cell>
+		</table-row>
+	</table>
+	<table columns="3" widths="50,25,25" border-style="box" padding-left="5" padding-bottom="5" spacing-after="10">
+		<table-row halign="left" valign="top" padding-bottom="20">
+			<cell font="arial-8">IQ Score<br/>
+				_if_(${checkIQScore})
+					Full Score: <font name="pre-filled-answers">${fullScore}</font><br/>
+					Verbal: <font name="pre-filled-answers">${verbalScore}</font><br/>
+					Performance: <font name="pre-filled-answers">${performanceScore}</font><br/>
+				_endif_
+			</cell>
+			<cell font="arial-8">Date of Most Recent IQ Test<br/><font name="pre-filled-answers">${testDate}</font></cell>
+			<cell font="arial-8" border-style="top|right|bottom">Name of Test<br/><font name="pre-filled-answers">${testName}</font></cell>
+		</table-row>
+	</table>
+	
+	
+	<table columns="2" widths="3,97" border-style="none" keep-together="true" spacing-after="10">	
+		<table-row font="arial-10-bold" padding-bottom="10">
+			<cell>10.</cell>
+			<cell>Physical Health/Disabilities</cell>
+		</table-row>
+		<table-row font="arial-9" padding-bottom="3">
+			<cell></cell>
+			<cell>Does the child have a diagnosed or suspected health condition or disability?<font name="pre-filled-answers">_if_(${hasMedicalIssue}) YES _else_ NO _endif_ </font></cell>
+		</table-row>
+		<table-row font="arial-9" padding-bottom="3">
+			<cell></cell>
+			<cell>If yes, describe the condition and treatment required, if any:
+			<font name="pre-filled-answers">${answer6}</font></cell>
+		</table-row>
+	</table>	
+	<table columns="3" widths="33,33,34" border-style="box">
+		<table-row halign="left" valign="top" padding-bottom="3">
+			<cell font="arial-8"><u>Issue</u></cell>
+			<cell font="arial-8"><u>Condition</u></cell>
+			<cell font="arial-8"><u>Severity</u></cell>
+		</table-row>
+		_foreach_(eachHealthIssue ${healthIssues} 'even' 'odd')
+			<table-row halign="left" valign="top">
+				<cell font="arial-8"><font name="pre-filled-answers">${eachHealthIssue.issueDesc}</font><space/></cell>
+				<cell font="arial-8"><font name="pre-filled-answers">${eachHealthIssue.conditionLevelDesc}</font><space/></cell>
+				<cell font="arial-8"><font name="pre-filled-answers">${eachHealthIssue.conditionSeverityDesc}</font><space/></cell>
+			</table-row>
+		_endfor_
+		
+		<table-row halign="left" valign="top" padding="5">
+			<cell font="arial-8" fill-row="true">Required Specialized Treatment <font name="pre-filled-answers">${answer7}</font></cell>
+		</table-row>
+		
+		<table-row halign="left" valign="top" padding-bottom="10">
+			<cell font="arial-8" fill-row="true">List Current  Medications<br/>
+				_foreach_(medication ${medications} 'even' 'odd')
+					<font name="pre-filled-answers">${medication}<br/></font>
+				_endfor_
+			</cell>
+		</table-row>
+	</table>		
+	
+	<table columns="2" widths="3,97" border-style="none" keep-together="true" spacing-after="10">	
+		<table-row font="arial-10-bold" padding-bottom="10">
+			<cell>11.</cell>
+			<cell>Mental Health</cell>
+		</table-row>
+		<table-row font="arial-9" padding-bottom="3">
+			<cell></cell>
+			<cell>Does the child have mental health needs requiring treatment<br/>
+				<font name="pre-filled-answers">${answer8}</font></cell>
+		</table-row>
+		<table-row font="arial-9" padding-bottom="3">
+			<cell></cell>
+			<cell>Date of most recent psychologial/psychiatric evaluation: <font name="pre-filled-answers">${testingSessionDate}</font></cell>
+		</table-row>
+		<table-row font="arial-9" padding-bottom="3">
+			<cell></cell>
+			<cell>DSM Diagnosis:</cell> 
+		</table-row>
+		<table-row padding-bottom="10">
+			<cell fill-row="true">
+				<table columns="1" border-style="box" padding="5">
+					<table-row>
+						<cell>
+							<table columns="3" widths="33,33,34" border-style="none">
+								<table-row halign="left" valign="top">
+									<cell font="arial-8"><u>DSM Diagnosis</u></cell>
+									<cell font="arial-8"><u>Condition</u></cell>
+									<cell font="arial-8"><u>Severity</u></cell>
+								</table-row>
+								_foreach_(eachDSMResult ${dsmResults} 'even' 'odd')
+									<table-row halign="left" valign="top">
+										<cell font="arial-8"><font name="pre-filled-answers">${eachDSMResult.diagnosis}</font></cell>
+										<cell font="arial-8"><font name="pre-filled-answers">${eachDSMResult.condition}</font></cell>
+										<cell font="arial-8"><font name="pre-filled-answers">${eachDSMResult.severity}</font></cell>
+									</table-row>
+								_endfor_
+							</table>
+						</cell>
+					</table-row>
+					<table-row halign="left" valign="top" border-style="box" padding="5">
+						<cell font="arial-8">Required Specialized Treatment<br/><font name="pre-filled-answers">${answer8}</font></cell>
+					</table-row>
+					<table-row halign="left" valign="top" padding-bottom="20">	
+						<cell fill-row="true" font="arial-8">Psychotropic Medications Prescribed? \t See list of Current Medications in 10. Physical Health/Disabilities.</cell>
+					</table-row>
+				</table>	
+			</cell>
+		</table-row>
+		
+		<table-row padding-bottom="40">
+			<cell fill-row="true">
+				<table columns="3" widths="33,33,34" border-style="box" padding-left="5" padding-bottom="5">
+					<table-row halign="left" valign="top">
+						<cell font="arial-8">Referring Agency/Organization<br/><font name="pre-filled-answers">Harris County Juvenile Probation</font></cell>
+						<cell font="arial-8">Agency Contact Person<br/><font name="pre-filled-answers">Henry Gonzales</font></cell>
+						<!--Bug Fix : 31301 change of telephone no.-->
+						<cell font="arial-8">Telephone No. (Inc. A/C)<br/><font name="pre-filled-answers">713-222-4100</font></cell>
+					</table-row>
+					<table-row halign="left" valign="top">	
+						<cell fill-row="true" font="arial-8">Agency Address: <font name="pre-filled-answers">1200 Congress Houston, Texas 77002</font></cell>
+					</table-row>
+					<table-row halign="left" valign="top">
+						<cell font="arial-8">Name of Person Completing Form<br/><font name="pre-filled-answers">${userCompletingCommonAppFormName}</font></cell>
+						<cell font="arial-8">Title<br/><font name="pre-filled-answers">Juvenile Probation Officer</font></cell>
+						<cell font="arial-8">Date Completed <font name="pre-filled-answers">${currentDate}</font></cell>
+					</table-row>
+					<table-row halign="left" valign="top" padding-bottom="20">	
+						<cell fill-row="true" font="arial-8">Where Placed?Facility Name and Location: <font name="pre-filled-answers">Texas Juvenile Justice Department</font></cell>
+					</table-row>
+				</table>
+			</cell>
+		</table-row>
+	</table>
+	
+	<table columns="2" widths="3,97" border-style="none" padding-bottom="10">
+		<table-row font="arial-10-bold" padding-bottom="10">
+			<cell>B.</cell>
+			<cell>Recommended Level of Care</cell>
+		</table-row>
+		<table-row font="arial-10" padding-bottom="10">
+			<cell></cell>
+			<cell>List the key elements, in order of importance, that led you to the recommended Level of Care:</cell>
+		</table-row>
+		<table-row font="arial-10" padding-bottom="3">
+			<cell></cell>
+			<cell>
+				<table columns="1" border-style="none" keep-together="true" spacing-after="10">
+					<table-row font="arial-10-bold">
+						<cell>1.<space/>Most important:</cell>
+					</table-row>
+					<table-row font="arial-8">
+						<cell><font name="pre-filled-answers">${answer11}</font></cell>
+					</table-row>
+					<table-row font="arial-10-bold">
+						<cell>2.<space/>Next most important:</cell>
+					</table-row>
+					<table-row font="arial-8">
+						<cell><font name="pre-filled-answers">${answer12}</font></cell>
+					</table-row>
+					<table-row font="arial-10-bold">
+						<cell>3.<space/>Third most important:</cell>
+					</table-row>
+					<table-row font="arial-8">
+						<cell><font name="pre-filled-answers">${answer13}</font></cell>
+					</table-row>					
+				</table>
+			</cell>
+		</table-row>
+		<table-row font="arial-10" padding-bottom="30">
+			<cell></cell>
+			<cell>Other considerations or comments, if any:<br/><font name="pre-filled-answers">${answer40}</font></cell>
+		</table-row>
+	<!-- Er changes 11005 
+	<table-row font="arial-10-bold" padding-bottom="10">
+			<cell>B.</cell>
+			<cell>Billing Level of Care</cell>
+		</table-row>
+		<table-row font="arial-10-bold" padding-bottom="10">
+			<cell></cell>
+			<cell>If the billing level of care is different from the recommended level of care, explain:<br/>
+			</cell>
+		</table-row>  -->
+	</table>
+	
+	
+	<!--********************************* NEW PAGE ******************************************************************-->
+	<new-page size="LETTER" margin-left="25" margin-right="25" margin-top="70" margin-bottom="50"/>
+	<!--**************************************************************************************************************-->
+	<table columns="2" widths="3,97" border-style="none" spacing-after="10">
+		<table-row font="arial-10-bold" padding-bottom="10">
+			<cell>C.</cell>
+			<cell>Referral/Admissions Packet:</cell>
+		</table-row>
+	</table>
+	
+	<table columns="3" widths="40,30,30" border-style="box" padding="2" spacing-after="10" font="arial-8-bold">
+		<table-row>
+			<cell>SECTION 1-Social And Developmental Assessments</cell>
+			<cell>SECTION 5-Substance Abuse History</cell>
+			<cell>SECTION 9-Education</cell>
+		</table-row>
+		<table-row>
+			<cell>SECTION 2-Special Needs, Problems, and Behaviors </cell>
+			<cell>SECTION 6-History of Abuse/Neglect</cell>
+			<cell>SECTION 10-Physical Health/Disabilities</cell>
+		</table-row>
+		<table-row>
+			<cell>SECTION 3-Juvenile Justice History</cell>
+			<cell>SECTION 7-Family History</cell>
+			<cell>SECTION 11-Mental Health</cell>
+		</table-row>
+		<table-row>
+			<cell>SECTION 4-Placement History</cell>
+			<cell>SECTION 8-Financial Information</cell>
+			<cell>SECTION 12-Other Attachments</cell>
+		</table-row>
+	</table>
+	
+	<paragraph font="arial-10-bold" spacing-after="10">
+		SECTION 1-Social and Developmental Assessment
+	</paragraph>
+	
+	<paragraph font="arial-9" spacing-after="10">
+		Describe the child's general social and developmental history.  Feel free to expand the description of your impressions of the child.<br/>
+		Be certain that you include all of the following:
+	</paragraph>
+	
+	<table columns="2" widths="3,97" border-style="none" padding-bottom="10">
+		<table-row font="arial-10" padding-bottom="30">
+			<cell>A.</cell>
+			<cell>A description of the circumstances that led to the child's referral:</cell>
+		</table-row>
+		<table-row font="arial-10" padding-bottom="30">
+			<cell></cell>
+			<cell><font name="pre-filled-answers">${answer39}</font></cell>
+		</table-row>
+		<table-row font="arial-10" padding-bottom="30">
+			<cell>B.</cell>
+			<cell>The immediate and long range goals of placement:</cell>
+		</table-row>
+		<table-row font="arial-10" padding-bottom="30">
+			<cell></cell>
+			<cell><font name="pre-filled-answers">${answer14}</font></cell>
+		</table-row>
+		<table-row font="arial-10" padding-bottom="30">
+			<cell>C.</cell>
+			<cell>A description of the child's relationship with other significant adults and children:</cell>
+		</table-row>
+		<table-row font="arial-10" padding-bottom="30">
+			<cell></cell>
+			<cell><font name="pre-filled-answers">Delinquent Peer/Sibling/Associations:  ${answer16}</font></cell>
+		</table-row>
+		<table-row font="arial-10" padding-bottom="30">
+			<cell></cell>
+			<cell><font name="pre-filled-answers">Adults and children in the family:  ${answer29}</font></cell>
+		</table-row>
+		<table-row font="arial-10" padding-bottom="30">
+			<cell>D.</cell>
+			<cell>A description of the child's behavior including both appropriate and inappropriate behavior</cell>
+		</table-row>
+		<table-row font="arial-10" padding-bottom="30">
+			<cell></cell>
+			<cell><font name="pre-filled-answers">${answer15}</font></cell>
+		</table-row>
+		<table-row font="arial-10" padding-bottom="30">
+			<cell>E.</cell>
+			<cell>The child's developmental history and current level of functioning</cell>
+		</table-row>
+		<table-row font="arial-10" padding-bottom="30">
+			<cell></cell>
+			<cell><font name="pre-filled-answers">${answer17}</font></cell>
+		</table-row>
+	</table>
+	
+	<!--********************************* NEW PAGE ******************************************************************-->
+	<new-page size="LETTER" margin-left="25" margin-right="25" margin-top="70" margin-bottom="50"/>
+	<!--**************************************************************************************************************-->
+	<paragraph font="arial-10-bold" spacing-after="10">
+		SECTION 2-Special Need, Problems and Behaviors 
+	</paragraph>
+	
+	<paragraph font="arial-9" spacing-after="10">
+		Describe in detail the special needs, problems, or behaviors identified in Section 2 of the Screening Profile.
+	</paragraph>
+	
+	<paragraph font="arial-10" spacing-after="10">
+		A. Suicide History. Describe in detail suicide attempts and suicidal gestures. Include the number of suicide attempts, 
+			and the date of the last known suicide attempt.
+		<br/><font name="pre-filled-answers">${answer20}</font>
+	</paragraph>
+	
+	<paragraph font="arial-10" spacing-after="10">
+		_foreach_(eachSuicideHistoryTraitsInfo ${suicideHistoryTraitsInfo} 'even' 'odd')
+			<font name="pre-filled-answers">${eachSuicideHistoryTraitsInfo}</font><br/>
+		_endfor_
+	</paragraph>
+		
+	<paragraph font="arial-10" spacing-after="10">
+		B. History of Child's assaultive behavior.
+		<br/><font name="pre-filled-answers">${answer26}</font>
+	</paragraph>
+	
+	<paragraph font="arial-10" spacing-after="10">
+		_foreach_(eachAssaultiveBehaviorTraitsInfo ${assaultiveBehaviorTraitsInfo} 'even' 'odd')
+			<font name="pre-filled-answers">${eachAssaultiveBehaviorTraitsInfo}</font><br/>
+		_endfor_
+	</paragraph>
+
+	<paragraph font="arial-10" spacing-after="10">
+		C. Runaway history.
+		<br/><font name="pre-filled-answers">${answer38}</font>
+	</paragraph>
+	
+	<paragraph font="arial-10" spacing-after="10">
+		_foreach_(eachRunawayHistoryTraitsInfo ${runawayHistoryTraitsInfo} 'even' 'odd')
+			<font name="pre-filled-answers">${eachRunawayHistoryTraitsInfo}</font><br/>
+		_endfor_
+	</paragraph>
+
+	<paragraph font="arial-10" spacing-after="40">
+		D. Other significant needs, problems and behaviors (including setting fires, maternity, etc.).
+		<br/><font name="pre-filled-answers">${answer21}</font>
+	</paragraph>
+	
+	<!--********************************* NEW PAGE ******************************************************************-->
+	<new-page size="LETTER" margin-left="25" margin-right="25" margin-top="70" margin-bottom="50" rotate="true"/>
+	<!--**************************************************************************************************************-->
+	<paragraph font="arial-11-bold" spacing-after="10" halign="center">
+		SECTION 3-Juvenile Justice History
+	</paragraph>
+	
+				
+	<table columns="2" widths="5,95" padding-top="0" border-style="none" spacing-after="5">
+		_foreach_(referral ${referrals} 'even' 'odd')
+			_if_(${referral.offenses} notEmpty)
+			<table-row valign="top">
+				<cell></cell>
+				<cell font="arial-9" halign="left" padding-bottom="2" fill-row="true">
+					<table columns="5" widths="50,25,25,0,0" keep-together="true">
+						<table-row valign="top">
+							<cell font="arial-9-bold" padding-bottom="2" fill-row="true" halign="left">
+								<u>Referral Date:</u><space/><font name="pre-filled-answers">${referral.referralDate}<space/><space/><space/><space/> ${referral.referralId}</font>
+							</cell>
+						</table-row>
+						<table-row><cell halign="left" padding-bottom="2" font="arial-9-bold">List of Offenses:</cell></table-row>
+							<table-header valign="middle">
+								<cell font="arial-9" halign="left" padding-bottom="2"><u>Offense</u></cell>
+								<cell font="arial-9" halign="left" padding-bottom="2"><u>Level</u></cell>
+								<cell font="arial-9" halign="left" padding-bottom="2"><u>Penal Code</u></cell>
+								<cell></cell>
+								<cell></cell>
+							</table-header>
+						_foreach_(offense ${referral.offenses} 'even' 'odd')
+							<table-row>
+								<cell font="arial-9" halign="left" padding-bottom="2">
+									<font name="pre-filled-answers">${offense.offenseDescription}</font>
+								</cell>
+								<cell font="arial-9" halign="left" padding-bottom="2" >
+									<font name="pre-filled-answers">
+										_if_(${offense.catagory} == "CF"|| ${offense.catagory} == "JF"|| ${offense.catagory} == "F1" || ${offense.catagory} == "F2" || ${offense.catagory} == "F3")
+											FL
+										_endif_
+										_if_(${offense.catagory} == "MA"|| ${offense.catagory} == "MB")
+											MI
+										_endif_
+										_if_(${offense.catagory} == "SO"|| ${offense.catagory} == "MC")
+											FC
+										_endif_
+									</font></cell>
+								<cell font="arial-9" halign="left" padding-bottom="2" >
+									<font name="pre-filled-answers">${offense.citationSource} ${offense.citationCode}</font></cell>	
+							</table-row>
+						_endfor_
+					</table>
+					_if_(${referral.dispositions} notEmpty)
+					<table columns="5" widths="5,15,30,25,25" keep-together="true">
+							<table-row><cell fill-row="true" padding-bottom="2"  halign="left" font="arial-9-bold">List of Dispositions:</cell></table-row>
+							<table-header valign="middle">
+								<cell font="arial-9" halign="left" padding-bottom="2"><u>Type</u></cell>
+								<cell font="arial-9" halign="left" padding-bottom="2"><u>Disposition Date</u></cell>
+								<cell font="arial-9" halign="left" padding-bottom="2"><u>Offense</u></cell>
+								<cell font="arial-9" halign="left" padding-bottom="2"><u>Level</u></cell>
+								<cell font="arial-9" halign="left" padding-bottom="2"><u>Penal Code</u></cell>
+							</table-header>
+							_foreach_(offense ${referral.dispositions} 'even' 'odd')
+								<table-row>
+									<cell font="arial-9" halign="left" padding-bottom="2">
+										<font name="pre-filled-answers">${offense.dispositionCode}</font>
+									</cell>
+									
+									<cell font="arial-9" halign="left" padding-bottom="2">
+										<font name="pre-filled-answers">${offense.dispositionDate}</font>
+									</cell>
+									
+									<cell font="arial-9" halign="left" padding-bottom="2">
+										<font name="pre-filled-answers">${offense.offenseDescription}</font>
+									</cell>
+									<cell font="arial-9" halign="left" padding-bottom="2" >
+										<font name="pre-filled-answers">
+											_if_(${offense.catagory} == "CF"|| ${offense.catagory} == "JF"|| ${offense.catagory} == "F1" || ${offense.catagory} == "F2" || ${offense.catagory} == "F3")
+												FL
+											_endif_
+											_if_(${offense.catagory} == "MA"|| ${offense.catagory} == "MB")
+												MI
+											_endif_
+											_if_(${offense.catagory} == "SO"|| ${offense.catagory} == "MC")
+												FC
+											_endif_
+										</font></cell>
+									<cell font="arial-9" halign="left" padding-bottom="2" >
+										<font name="pre-filled-answers">${offense.citationSource} ${offense.citationCode}</font></cell>	
+								</table-row>
+							_endfor_
+						</table>
+				_endif_
+				</cell>
+			</table-row>
+			<table-row><cell fill-row="true" padding-bottom="10"></cell></table-row>
+		_endif_
+	_endfor_
+	</table>	
+		
+	
+	<paragraph font="arial-9" halign="center" spacing-after="3">
+		* LEVEL OF OFFENSE CODES: \t\t\t **TYPE OF DISPOSITION CODES:
+	</paragraph>
+	
+	<table columns="4" border-style="box" width="80" widths="25,25,25,25" border-width="1">
+		<table-row padding-bottom="5" padding-left="5" halign="left" valign="top">
+			<cell font="arial-8">
+				Total Number of Referrals<br/><font name="pre-filled-answers">${countReferrals}</font>
+			</cell>
+			<cell font="arial-8">
+				FL = Felony<br/>
+				MI = Misdemeanor<br/>
+				FC = Family Code
+			</cell>
+			<cell font="arial-8" border-style="top|left|bottom">
+				CR = Counseled and Released <br/>
+				IA  = Informal Adjustment<br/>
+				AP = Adjudicated to Probation<br/>
+				PT = Proven by TYC Hearing
+			</cell>
+			<cell font="arial-8" border-style="top|right|bottom">
+				RD = Refused/Dismissed<br/>
+				AT = Adjudicated to TYC<br/>
+				CA = Certified as Adult<br/>
+			</cell>
+		</table-row>
+		<table-row padding-bottom="5" padding-left="5" halign="left" valign="top">
+			<cell font="arial-8">
+				Total Number of Adjudications/<br/>
+				Certifications (AP, AT, PT, or CA):<br/><font name="pre-filled-answers">${totalNumberOfAdjudications}</font>
+			</cell>
+			<cell border-style="left|top" fill-row="true"></cell>
+		</table-row>
+	</table>
+	
+	<!--********************************* NEW PAGE ******************************************************************-->
+	<new-page size="LETTER" margin-left="25" margin-right="25" margin-top="70" margin-bottom="50"/>
+	<!--**************************************************************************************************************-->
+	
+	<paragraph font="arial-10" spacing-after="40">
+		Briefly describe the child's history of delinquency.  
+		Include a description of contributing factors, and any delinquency patterns you detect. Indicate whether the child is a follower or a leader.<br/>
+		<font name="pre-filled-answers">${answer18}</font>
+	</paragraph>
+	
+	<paragraph font="arial-10" spacing-after="40">
+		Describe the child's most recent criminal episode, contributing factors, the child's actions or role in the episode, 
+		and how this episode fits into the child's history of delinquency.<br/>
+		<font name="pre-filled-answers">${answer19}</font>
+	</paragraph>
+	<!-- //added for task#34434 ,#27104-->
+	<paragraph font="arial-10" spacing-after="10">
+		Does the child have gang affiliation? <font name="pre-filled-answers">${answer41}</font><br/> 
+		_if_(${answer41} == "Yes") 
+			If yes, gang name: <font name="pre-filled-answers">${answer42}</font><br/>
+		_endif_	
+	</paragraph>
+		<!-- //added for task#34434 ,#27104-->
+	<paragraph font="arial-10" spacing-after="10">
+		Does the child admit gang affiliation? <font name="pre-filled-answers">${answer43}</font><br/>
+		_if_(${answer43} == "Yes") 
+			If yes, gang name: <font name="pre-filled-answers">${answer44}</font><br/>
+		_endif_	
+	</paragraph>
+	
+	<paragraph font="arial-10" spacing-after="10">
+		Do any family members or relatives have gang affiliation? <font name="pre-filled-answers">${anyFamilyMemberHaveGangAffiliationStr}</font><br/>  
+		_if_(${anyFamilyMemberHaveGangAffiliation})
+			If yes, gang name(s):<br/>
+			_foreach_(eachFamilyMemberGangInfo ${familyMemberGangInfo} 'even' 'odd')
+				<font name="pre-filled-answers">${eachFamilyMemberGangInfo}</font><br/>
+			_endfor_
+		_endif_		
+	</paragraph>
+	
+
+	<table columns="4" width="90" halign="left" widths="25,25,25,25" border-style="box" keep-together="true" spacing-after="10" padding-left="5" padding-bottom="5">
+		<table-header border-style="none" padding-bottom="5">
+			<cell fill-row="true" font="arial-10-bold">TYC COMMITMENT</cell>
+		</table-header>
+		<table-row font="arial-7" halign="left" valign="top">
+			<cell height="30">County<br/><font name="pre-filled-answers">HARRIS</font></cell>
+			<cell height="30">Commitment Date<br/><font name="pre-filled-answers">${courtOrder.commitmentDate}</font></cell>
+			<cell height="30">Judge's Last Name<br/><font name="pre-filled-answers">${courtOrder.judgeName}</font></cell>
+			<cell height="30">Court Name<br/><font name="pre-filled-answers">${courtOrder.courtName}</font></cell>
+		</table-row>
+		<table-row font="arial-7" halign="left" valign="top">
+			<cell height="30">Cause No.<br/><font name="pre-filled-answers">${courtOrder.causeNumber}</font></cell>
+			<cell height="30">Prosecuting Attorney's Name<br/><font name="pre-filled-answers">${courtOrder.prosecutingAttorneyName}</font></cell>
+			<cell height="30">Probation I.D. No.<br/><font name="pre-filled-answers">${juvenileNumber}</font></cell>
+			<cell height="30">SID/TRN Number<br/><font name="pre-filled-answers">${sidNumber}</font></cell>
+		</table-row>
+	</table>
+	
+	
+	<paragraph font="arial-10-bold" spacing-after="10">
+		TYPE OF COMMITMENT: <font name="pre-filled-answers">${courtOrder.typeOfCommitment}</font>
+	</paragraph>
+	
+	<table columns="4" width="100" widths="20,20,40,20" border-style="box" keep-together="true" padding-left="5" padding-bottom="5" spacing-after="10">
+		<table-row halign="left" valign="top" font="arial-7">
+			<cell height="30">Probation Failure <br/><font name="pre-filled-answers">_if_(${courtOrder.probationFailure})YES _else_ NO _endif_</font></cell>
+			<cell height="30" colspan="2">If Yes, describe most serious offense for which on probation:<br/><font name="pre-filled-answers">${courtOrder.mostSeriousOffense}</font></cell>
+			<cell height="30">Offense Code<br/><font name="pre-filled-answers">${courtOrder.offenseCode}</font></cell>
+		</table-row>
+		<table-row halign="left" valign="top" font="arial-7">
+			<cell fill-row="true" height="30">Reason for Failure<br/><font name="pre-filled-answers">${courtOrder.failureReason}</font></cell>
+		</table-row>
+		<table-row halign="left" valign="top" font="arial-7">
+			<cell colspan="3" height="30">Description of Current Offense<br/><font name="pre-filled-answers">${courtOrder.currentOffense}</font></cell>
+			<cell height="30">Offense Code<br/><font name="pre-filled-answers">${courtOrder.offenseCode}</font></cell>
+		</table-row>
+		<table-row halign="left" valign="top" font="arial-7">
+			<cell colspan="3" height="30">Weapon Used<br/><font name="pre-filled-answers">${courtOrder.weaponUsed}</font></cell>
+			<cell height="30">Gang Related<br/><font name="pre-filled-answers">${courtOrder.gangRelated}</font></cell>
+		</table-row>
+		<table-row halign="left" valign="top" font="arial-10-bold">
+			<cell fill-row="true" height="30">OFFENSE LEVEL<br/><font name="pre-filled-answers">${courtOrder.offenseLevel}</font></cell>
+		</table-row>
+		<table-row halign="left" valign="top" font="arial-7">
+			<cell height="30">Determinate Sentence<br/><font name="pre-filled-answers">_if_(${courtOrder.determinateSentence})YES _else_ NO _endif_</font></cell>
+			<cell height="30">Time (yrs/mo)<br/><font name="pre-filled-answers">${courtOrder.timeStr}</font></cell>
+			<cell height="30" colspan="2" valign="middle" font="arial-9">Time in Detention in Connection with This Offense: <font name="pre-filled-answers">${courtOrder.detentionTime}</font></cell>
+		</table-row>
+		<table-row halign="left" valign="middle" font="arial-7">
+			<cell fill-row="true">
+				Date of Prior TYC Commitment:<font name="pre-filled-answers"> ${courtOrder.priorTJJDCommitmentDate}</font><br/>
+				Offense Code:<font name="pre-filled-answers"> ${courtOrder.offenseCode}</font><br/>
+				Description of Offense:<font name="pre-filled-answers"> ${courtOrder.currentOffense}</font><br/>
+				<b>See Section 3: Juvenile Justice History</b>
+			</cell>
+		</table-row>
+	</table>
+	
+	<paragraph font="arial-11-bold" halign="center">
+		ATTACH ALL COURT ORDERS INVOLVING THE JUVENILE JUSTICE SYSTEM
+	</paragraph>
+	
+	<!--********************************* NEW PAGE ******************************************************************-->
+	<new-page size="LETTER" margin-left="25" margin-right="25" margin-top="70" margin-bottom="50"/>
+	<!--**************************************************************************************************************-->
+	<paragraph font="arial-12-bold" spacing-after="10">
+		SECTION 4-Placement History
+	</paragraph>
+	
+	<paragraph font="arial-10" spacing-after="10">
+		Start with the child's first out-of-home placement:
+	</paragraph>
+	
+	_if_(${placements} isEmpty)
+		<table width="100" columns="1" border-style="box" border-width="2" padding="0">
+			<cell>
+				<!-- Fixed height cell, since the data will come in as 1 string, not a collection of strings (so that the cell need to expand) -->
+				<table columns="3" widths="20,60,20" border-style="box" padding-left="5" border-width="1">
+					<table-row halign="left" valign="top" font="arial-7">
+						<cell height="25">Date Placed</cell>
+						<cell height="25">Name of Living Arrangement</cell>
+						<cell height="25">License Type</cell>
+					</table-row>
+				</table>
+				<table columns="3" widths="50,30,20" border-style="box">
+					<table-row halign="left" valign="top" font="arial-7" padding-left="5" border-width="1">
+						<cell height="25">Address</cell>
+						<cell height="25">Contact Person</cell>
+						<cell height="25">Telephone No.</cell>
+					</table-row>
+				</table>
+				<table columns="2" widths="25,75" border-style="box">
+					<table-row halign="left" valign="top" font="arial-7" padding-left="5" border-width="1">
+						<cell height="25">Date Placement Ended</cell>
+						<cell height="25">Reason Placement Ended</cell>
+					</table-row>
+				</table>
+				<table columns="2" widths="60,40" border-style="box">
+					<table-row halign="left" valign="top" font="arial-7" padding-left="5" border-width="1">
+						<cell height="25">LOC and Dates Assigned</cell>
+						<cell height="25">Continued Contact of Child with Placement Recommended</cell>
+					</table-row>
+				</table>
+			</cell>
+		</table>
+		<br/>
+	_else_
+		_foreach_(eachPlacement ${placements} 'even' 'odd')
+			<table width="100" columns="1" border-style="box" border-width="2" padding="0">
+				<cell>
+					<!-- Fixed height cell, since the data will come in as 1 string, not a collection of strings (so that the cell need to expand) -->
+					<table columns="3" widths="20,60,20" border-style="box" padding-left="5" border-width="1">
+						<table-row halign="left" valign="top" font="arial-7">
+							<cell height="25">Date Placed<br/><font name="pre-filled-answers">${eachPlacement.admitDate}</font></cell>
+							<cell height="25">Name of Living Arrangement<br/><font name="pre-filled-answers">${eachPlacement.facilityName}</font></cell>
+							<cell height="25">License Type<br/><font name="pre-filled-answers"></font></cell>
+						</table-row>
+					</table>
+					<table columns="3" widths="50,30,20" border-style="box">
+						<table-row halign="left" valign="top" font="arial-7" padding-left="5" border-width="1">
+							<cell height="25">Address<br/><font name="pre-filled-answers">${eachPlacement.facilityInfo.address}</font></cell>
+							<cell height="25">Contact Person<br/><font name="pre-filled-answers">${eachPlacement.facilityInfo.contactPerson}</font></cell>
+							<cell height="25">Telephone No.<br/><font name="pre-filled-answers">${eachPlacement.facilityInfo.facilityPhone}</font></cell>
+						</table-row>
+					</table>
+					<table columns="2" widths="25,75" border-style="box">
+						<table-row halign="left" valign="top" font="arial-7" padding-left="5" border-width="1">
+							<cell height="25">Date Placement Ended<br/><font name="pre-filled-answers">${eachPlacement.releaseDate}</font></cell>
+							<cell height="25">Reason Placement Ended<br/><font name="pre-filled-answers">${eachPlacement.admitReason}</font></cell>
+						</table-row>
+					</table>
+					<table columns="2" widths="60,40" border-style="box">
+						<table-row halign="left" valign="top" font="arial-7" padding-left="5" border-width="1">
+							<cell height="25">LOC and Dates Assigned<br/><font name="pre-filled-answers">${eachPlacement.facilityInfo.levelOfCare}</font></cell>
+							<cell height="25">Continued Contact of Child with Placement Recommended<br/><font name="pre-filled-answers">
+							_if_(${eachPlacement.continuedStay}) 
+								YES
+							_else_
+								NO
+							_endif_</font></cell>
+						</table-row>
+					</table>
+				</cell>
+			</table>
+			<br/>
+		_endfor_
+	_endif_
+	
+	<!--********************************* NEW PAGE ******************************************************************-->
+	<new-page size="LETTER" margin-left="25" margin-right="25" margin-top="70" margin-bottom="50"/>
+	<!--**************************************************************************************************************-->
+	<paragraph font="arial-12-bold" spacing-after="10">
+		SECTION 5-Substance Abuse History
+	</paragraph>
+	
+	<paragraph font="arial-10" spacing-after="10">
+		A.	Describe the child's history of substance use, abuse, manufacture, possession, and/or delivery.<br/>
+		<font name="pre-filled-answers">${answer22}</font>
+	</paragraph>
+	
+	<paragraph font="arial-10" spacing-after="10">
+		B.  Describe the child's family history of substance use, abuse, manufacture, possession, and/or delivery.  
+		Include not only parents and siblings, but also extended family members, (such as grandparents, aunts, uncles) 
+		, even if they do not live in the same household as the child.<br/>
+		<font name="pre-filled-answers">${answer23}</font>
+	</paragraph>
+
+	<paragraph font="arial-10" spacing-after="10">
+		C.	Describe any treatment the child has received for substance abuse and the success or failure of this treatment.  
+		Include the lengths and dates of treatment, whether the program was residential or outpatient, 
+		whether the child completed the program, whether the family was included in the treatment and so on.<br/>
+		<font name="pre-filled-answers">${answer24}</font>
+	</paragraph>
+	
+	
+	<!--********************************* NEW PAGE ******************************************************************-->
+	<new-page size="LETTER" margin-left="25" margin-right="25" margin-top="70" margin-bottom="50"/>
+	<!--**************************************************************************************************************-->
+	<paragraph font="arial-12-bold" spacing-after="10">
+		SECTION 6-History of Abuse/Neglect of Referred Child
+	</paragraph>
+	
+	<table columns="1" border-style="box" padding="5">
+		_if_(${juvenileAbuseResponseEvent} isEmpty)
+			<table-row>
+				<cell>
+					<paragraph font="arial-10" spacing-after="10">
+					A. Type of Abuse/Neglect
+					</paragraph>
+					<paragraph font="arial-10" spacing-after="20">
+						Abuse Type: <br/>
+						Entry Date: <br/>
+						Information Basis:  <br/>
+						Perpetrator Name:   <br/>
+						Relationship to Juvenile:   
+					</paragraph>
+					<paragraph font="arial-10" spacing-after="20">
+						B.	What did the parent/perpetrator do?   Summarize the role of each parent/perpetrator.<br/>	
+					</paragraph>
+					<paragraph font="arial-10" spacing-after="50">
+						C.	What happened to the child?  Summarize the extent of harm (or the substantial risk of harm) to the child.<br/>
+					</paragraph>
+				</cell>
+			</table-row>
+		_else_
+			_foreach_(eachJuvenileAbuse ${juvenileAbuseResponseEvent} 'even' 'odd')
+				<table-row>
+					<cell>
+						<paragraph font="arial-10" spacing-after="10">
+						A. Type of Abuse/Neglect
+						</paragraph>
+						<paragraph font="arial-10" spacing-after="20">
+							Abuse Type: <font name="pre-filled-answers">${eachJuvenileAbuse.traitTypeName}</font><br/>
+							Entry Date: <font name="pre-filled-answers">${eachJuvenileAbuse.entryDate}</font><br/>
+							Information Basis:  <font name="pre-filled-answers">${eachJuvenileAbuse.abuseInformationBasisDescription}</font><br/>
+							Perpetrator Name:   <font name="pre-filled-answers">${eachJuvenileAbuse.lastName} ${eachJuvenileAbuse.firstName}</font><br/>
+							Relationship to Juvenile: <font name="pre-filled-answers">${eachJuvenileAbuse.relationshipToJuvenileDescription}</font>    
+						</paragraph>
+						<paragraph font="arial-10" spacing-after="20">
+							B.	What did the parent/perpetrator do?   Summarize the role of each parent/perpetrator.<br/>
+							<font name="pre-filled-answers">${eachJuvenileAbuse.abuseEvent}</font>
+						</paragraph>
+						<paragraph font="arial-10" spacing-after="50">
+							C.	What happened to the child?  Summarize the extent of harm (or the substantial risk of harm) to the child.<br/>
+							<font name="pre-filled-answers">${eachJuvenileAbuse.abuseDetails}</font>
+						</paragraph>
+					</cell>
+				</table-row>
+			_endfor_
+		_endif_
+	</table>	
+	
+	
+	<!--********************************* NEW PAGE ******************************************************************-->
+	<new-page size="LETTER" margin-left="25" margin-right="25" margin-top="70" margin-bottom="50"/>
+	<!--**************************************************************************************************************-->
+	<paragraph font="arial-12-bold" spacing-after="5">
+		SECTION 7-Family History
+	</paragraph>
+	
+	<!-- Fixed height cell, since the data will come in as 1 string, not a collection of strings (so that the cell need to expand) -->
+	<table columns="2" widths="80,20" border-style="box" padding-left="5" spacing-after="10">
+		<table-row halign="left" valign="top" font="arial-7">
+			<cell height="25">Home Address (Street, City, State, County, ZIP)<br/>
+				<font name="pre-filled-answers">
+					_if_(${familyAddress isDefined})
+						${familyAddress.streetAddress}
+						_if_(${familyAddress.streetAddress notEmpty})
+							, ${familyAddress.cityStateZip}
+						_endif_
+					_endif_
+				</font>
+			</cell>
+			<cell height="25">Telephone No. (inc. Area Code)<br/><font name="pre-filled-answers">
+				_if_(${familyPhone} isDefined)
+					${familyPhone.contactPhoneNumber.formattedPhoneNumber}
+				_endif_
+				</font></cell>
+		</table-row>
+		<table-row halign="left" valign="top" font="arial-7">
+			<cell fill-row="true" height="25">Marital Status of Birth Parents<br/><font name="pre-filled-answers">${birthParentsMaritalStatus}</font></cell>
+		</table-row>
+		<table-row halign="left" valign="top" font="arial-7">
+			<cell fill-row="true" height="25">Deaths In immediate family (list names, relationships, and 
+				age of referred child at the time of death):<br/><font name="pre-filled-answers">
+				_foreach_(deceasedFamilyMember ${deceasedFamilyMembers} 'even' 'odd')
+					${deceasedFamilyMember.deceasedMemberName.formattedName} _if_(${deceasedFamilyMember.relationshipToJuvenile notEmpty}) _endif_ (${deceasedFamilyMember.relationshipToJuvenile}) _if_(${deceasedFamilyMember.juvenileAgeAtDeath notEmpty})(${deceasedFamilyMember.juvenileAgeAtDeath}) _endif_
+				_endfor_
+				</font></cell>
+		</table-row>
+		<table-row halign="left" valign="top" font="arial-7">
+			<cell fill-row="true" height="25">If adopted, what does the child know about his or her birth parents?
+				<br/><font name="pre-filled-answers">${adoptionComments}</font></cell>
+		</table-row>
+		<table-row halign="left" valign="top" font="arial-7">
+			<cell fill-row="true" height="25">Marital Status of Adoptive Parents<br/>${adoptedParentsMaritalStatus}<font name="pre-filled-answers"></font></cell>
+		</table-row>
+	</table>
+	
+	_if_(${personsInHome} notEmpty)
+		<paragraph font="arial-12-bold" spacing-after="5">
+			Persons in Home
+		</paragraph>
+	
+		<table columns="4" widths="40,10,25,25" border-style="box" padding-left="5">
+			<table-header halign="left" valign="top" font="arial-7">
+				<cell height="25">Name</cell>
+				<cell height="25">Date of Birth*</cell>
+				<cell height="25">Relationship Type</cell>
+				<cell height="25">Social Security No.</cell>
+			</table-header>
+			
+			_foreach_(eachPersonsInHome ${personsInHome} 'even' 'odd')
+				<table-row halign="left" valign="top" font="arial-7">
+					<cell height="25"><font name="pre-filled-answers">_if_(${eachPersonsInHome.nameOfPerson} isDefined) ${eachPersonsInHome.nameOfPerson.formattedName} _endif_</font></cell>
+					<cell height="25"><font name="pre-filled-answers">${eachPersonsInHome.dateofBirth}</font></cell>
+					<cell height="25"><font name="pre-filled-answers">${eachPersonsInHome.relationshipType}</font></cell>
+					<cell height="25"><font name="pre-filled-answers">${eachPersonsInHome.SSN}</font></cell>
+				</table-row>
+			_endfor_
+		</table>
+	
+		<paragraph font="arial-8" spacing-after="20">
+			*<space/><space/>Give approximate age if date of birth is not known
+		</paragraph>
+	_endif_
+	
+	_if_(${personsOutHome} notEmpty)
+		<paragraph font="arial-12-bold" spacing-after="5">
+			Significant Persons Out of Home
+		</paragraph>
+		
+		<!-- Fixed height cell, since the data will come in as 1 string, not a collection of strings (so that the cell need to expand) -->
+		_foreach_(eachPersonsOutHome ${personsOutHome} 'even' 'odd')
+			<paragraph  font="arial-9" spacing-after="10">
+			Name: <font name="pre-filled-answers">_if_(${eachPersonsOutHome.nameOfPerson} isDefined) ${eachPersonsOutHome.nameOfPerson.formattedName} _endif_</font><br/>
+			<!-- Date of Birth*: <font name="pre-filled-answers">${eachPersonsOutHome.dateofBirth}</font><br/> -->
+			Relationship Type: <font name="pre-filled-answers">${eachPersonsOutHome.relationshipType}</font><br/>
+			<!-- Social Security No.: <font name="pre-filled-answers">${eachPersonsOutHome.SSN}</font><br/> -->
+			Address: <font name="pre-filled-answers">_if_(${eachPersonsOutHome.personAddress} isDefined) ${eachPersonsOutHome.personAddress.formattedAddress} _endif_</font><br/>
+			Telephone No. (Inc. A/C): <font name="pre-filled-answers">_if_(${eachPersonsOutHome.personPhone} isDefined) ${eachPersonsOutHome.personPhone.formattedPhoneNumber} _endif_</font><br/>
+			Currently Involved with Child: <font name="pre-filled-answers">${eachPersonsOutHome.involvementLevel}</font>
+			</paragraph>
+		_endfor_
+		<paragraph font="arial-8" spacing-after="20">
+			*<space/><space/>Give approximate age if date of birth is not known
+		</paragraph>
+	_endif_
+	
+	_if_(${familyMembersTraits} notEmpty) 
+		<paragraph spacing-after="5">
+			Characteristics of Individual Family Member with Whom child has Lived:
+		</paragraph>
+	_endif_
+	
+	<table columns="3" widths="30,40,30" padding-left="5" padding-bottom="5" border-style="box" font="arial-10" spacing-after="20">
+		<table-header bgcolor="custom-gray" halign="center" valign="top">
+			<cell>Family Member Name</cell>
+			<cell>Characteristics</cell>
+			<cell>Relationship</cell>
+		</table-header>
+		_foreach_(eachFamilyMembersTrait ${familyMembersTraits} 'even' 'odd')
+			<table-row>
+				<cell>${eachFamilyMembersTrait.familyMemberName.formattedName}</cell>
+				<cell>
+					_foreach_(trait ${eachFamilyMembersTrait.traits} 'event' 'odd')
+						${trait}<br/>
+					_endfor_
+				</cell>
+				<!-- ER changes 11119 -->
+				<cell>${eachFamilyMembersTrait.relationship}</cell>  
+			</table-row>
+		_endfor_
+	</table>
+		
+	<table columns="2" widths="50,50" padding-left="5" padding-bottom="5" border-style="box" font="arial-10" spacing-after="20">
+		<table-header bgcolor="custom-gray" halign="center" valign="top">
+			<cell>Characteristics of the Family as a Whole with Whom the Child has Lived:</cell>
+			<cell>Family Dynamic</cell>	
+		</table-header>	
+		_foreach_(familyDynamicTrait ${familyDynamicTraits} 'even' 'odd')
+			<table-row>
+				<cell>${familyDynamicTrait.traitDesc}</cell>
+				<cell>
+					${familyDynamicTrait.traitLevel}
+				</cell>
+			</table-row>
+		_endfor_
+		
+	</table>
+	
+	
+	<!--********************************* NEW PAGE ******************************************************************-->
+	<new-page size="LETTER" margin-left="25" margin-right="25" margin-top="70" margin-bottom="50"/>
+	<!--**************************************************************************************************************-->
+	<paragraph font="arial-10" spacing-after="40">
+		Briefly describe the child's relationships with family members and significant others, 
+		both in and out of the home.  Address both strengths and weaknesses.<br/>
+		<font name="pre-filled-answers">${answer28}</font>
+	</paragraph>
+	
+	<paragraph font="arial-10" spacing-after="40">
+		Briefly describe the overall family situation, highlighting the positive and negative 
+		aspects of the child's family environment including all the 'Family Characteristics' 
+		checked affirmatively on the previous page.<br/>
+		<font name="pre-filled-answers">${answer27}</font>		
+	</paragraph>
+	
+	<paragraph font="arial-10">
+		Other significant information:<br/>
+		<font name="pre-filled-answers">${familyMemberComments}</font>
+	</paragraph>
+	
+	
+	<!--********************************* NEW PAGE ******************************************************************-->
+	<new-page size="LETTER" margin-left="25" margin-right="25" margin-top="70" margin-bottom="50"/>
+	<!--**************************************************************************************************************-->
+	<paragraph font="arial-12-bold" spacing-after="10">
+		SECTION 8-Financial Information
+	</paragraph>
+	
+	<paragraph font="arial-12-bold" spacing-after="3">
+		Attach:  A copy of client's Medicaid card, if any.
+	</paragraph>
+		
+	_foreach_(guardian ${guardianFinancialInfo} 'even' 'odd')
+	<!-- Fixed height cell, since the data will come in as 1 string, not a collection of strings (so that the cell need to expand) -->
+	<table columns="3" widths="50,50" border-style="box" padding="5" padding-top="0" spacing-after="10">
+		<table-row halign="left" valign="top" font="arial-7">
+			<cell fill-row="true">Name of Responsible Guardian<br/><font name="pre-filled-answers">${guardian.guardian}</font></cell>
+		</table-row>
+		_if_(${guardian.employmentHistory} isEmpty)
+			<table-row halign="left" valign="top" font="arial-7">
+				<cell>Occupation<br/><font name="pre-filled-answers"><br/></font></cell>
+				<cell>Salary<br/><font name="pre-filled-answers"><br/></font></cell>
+			</table-row>
+			<table-row halign="left" valign="top" font="arial-7">
+				<cell>Place Employed<br/><font name="pre-filled-answers"><br/></font></cell>
+				<cell>Employment Status<br/><font name="pre-filled-answers"><br/></font></cell>
+			</table-row>
+		_endif_
+		_foreach_(eachEmploymentHistory ${guardian.employmentHistory} 'even' 'odd')
+			_if_(${eachEmploymentHistory.included})
+				<table-row halign="left" valign="top" font="arial-7">
+					<cell>Occupation<br/><font name="pre-filled-answers">${eachEmploymentHistory.jobDescription}</font></cell>
+					<cell>Salary<br/><font name="pre-filled-answers">$ ${eachEmploymentHistory.annualGrossIncome}</font></cell>
+				</table-row>
+				<table-row halign="left" valign="top" font="arial-7">
+					<cell>Place Employed<br/><font name="pre-filled-answers">${eachEmploymentHistory.placeEmployed}</font></cell>
+					<cell>Employment Status<br/><font name="pre-filled-answers">${eachEmploymentHistory.employmentStatus}</font></cell>
+				</table-row>
+			_endif_
+		_endfor_
+	</table>
+	_endfor_
+	
+	<paragraph font="arial-10" spacing-after="10">
+		Is the family eligible for Medicaid? <font name="pre-filled-answers">${eligibleForMedicaidStr}</font>
+	</paragraph>
+	
+	<paragraph font="arial-10" spacing-after="10">
+		Is the family currently receiving Medicaid? <font name="pre-filled-answers">${receivingMedicaidStr}</font>
+	</paragraph>
+	
+	<table columns="1" width="100" border-style="box" spacing-after="10">
+		<table-header border-style="none" font="arial-10" padding-bottom="3">
+			<cell>Funds Applicable to Child</cell>
+		</table-header>
+		<table-row padding="5" font="arial-10">
+			<cell>
+				_foreach_(guardian ${guardianFinancialInfo} 'even' 'odd')
+					<b>Guardian ${guardianIdx+1}</b><br/>
+					Foodstamps: <font name="pre-filled-answers">$ ${guardian.foodStamps}</font><br/>
+					Intangible property: <font name="pre-filled-answers">$ ${guardian.intangibleValue}</font><br/>
+					Life Insurance: <font name="pre-filled-answers">$ ${guardian.lifeInsurancePremium}</font><br/>
+					Other Income: <font name="pre-filled-answers">$ ${guardian.otherIncome}</font><br/>
+					Property Value: <font name="pre-filled-answers">$ ${guardian.propertyValue}</font><br/>
+					TANF: <font name="pre-filled-answers">$ ${guardian.TANFAssistance}</font><br/><br/>
+				_endfor_
+			</cell>
+		</table-row>
+	</table>
+	
+	<table columns="1" width="100" border-style="box">
+		<table-header border-style="none" font="arial-10" padding-bottom="3">
+			<cell>Insurance Applicable to Child:</cell>
+		</table-header>
+		<table-row padding="5">
+			<cell>
+					_foreach_(insurance ${insuranceApplicableToChild} 'even' 'odd')
+						Insurance Type: <font name="pre-filled-answers">${insurance.insuranceType}</font><br/>
+						Insurance Carrier: <font name="pre-filled-answers">${insurance.insuranceCarrier}</font><br/>
+						Policy #: <font name="pre-filled-answers">${insurance.policyNumber}</font><br/><br/>
+					_endfor_
+			</cell>
+		</table-row>
+	</table>
+	
+	
+	<!--********************************* NEW PAGE ******************************************************************-->
+	<new-page size="LETTER" margin-left="25" margin-right="25" margin-top="70" margin-bottom="50"/>
+	<!--**************************************************************************************************************-->
+	<paragraph font="arial-12-bold" spacing-after="10">
+		SECTION 9-Education
+	</paragraph>
+	
+	<table columns="2" widths="7,93" spacing-after="10">
+		<table-row font="arial-10">
+			<cell>Attach:</cell>
+			<cell>A. Current IEP(Individualized Education Plan)</cell>
+		</table-row>
+		<table-row font="arial-10">
+			<cell></cell>
+			<cell>B. Most Recent ARD Committee Report (if any) </cell>
+		</table-row>
+		<table-row font="arial-10">
+			<cell></cell>
+			<cell>C. Transcript</cell>
+		</table-row>
+		<table-row font="arial-10">
+			<cell></cell>
+			<cell>D.  Adaptive Behavior Level Information (if any)</cell>
+		</table-row>
+	</table>
+	
+	<table columns="2" widths="60,40" border-style="box" spacing-after="10" padding-left="5">
+		<table-row halign="left" valign="top" font="arial-7">
+			<cell height="25">Name of Most Recent School Attended<br/><font name="pre-filled-answers">${schoolName}</font></cell>
+			<cell height="25">School District<br/><font name="pre-filled-answers">${schoolDistrict}</font></cell>
+		</table-row>
+		<table-row halign="left" valign="top" font="arial-7">
+		<!--Bug Fix : 11239 added font data-->
+			<cell fill-row="true" height="25">Address (fill in city and state at least, and street address if known)<br/><font name="pre-filled-answers">${schoolAddress},${schoolCity},${schoolState},${schoolZip}</font></cell>
+		</table-row>
+	</table>
+	<!--  changes for ER 11502 starts -->
+	<table columns="1" width="100" border-style="box">
+		<table-header border-style="none" font="arial-10" padding-bottom="3">
+			<cell>School behaviour in the last 12 months:</cell>
+		</table-header>
+		<table-row padding="5">
+			<cell>
+				Number of documented school disruptive incidents: <font name="pre-filled-answers">${answer5}</font><br/>
+				Number of school suspensions:<font name="pre-filled-answers">${answer37}</font><br/>
+				Number of school expulsions: <font name="pre-filled-answers">${answer35}</font><br/><br/>
+			</cell>
+		</table-row>
+	</table>
+	<!--  changes for ER 11502 ends -->
+
+	<paragraph font="arial-10" spacing-after="10">
+		Describe any educational problems, needs, or behaviors not otherwise documented.  
+		Add any additional information you feel is important.<br/>
+		<font name="pre-filled-answers">${answer34}</font>
+	</paragraph>
+	
+	
+	<!--********************************* NEW PAGE ******************************************************************-->
+	<new-page size="LETTER" margin-left="25" margin-right="25" margin-top="70" margin-bottom="50"/>
+	<!--**************************************************************************************************************-->
+	<paragraph font="arial-12-bold" spacing-after="10">
+		SECTION 10-Physical Health/Disabilities
+	</paragraph>
+	
+	<table columns="2" widths="7,93" spacing-after="10">
+		<table-row font="arial-10">
+			<cell>Attach:</cell>
+			<cell>A. Medical Records<br/>
+					(1) Physical Examination<br/>
+					(2) Immunization Records
+			</cell>
+		</table-row>
+		<table-row font="arial-10">
+			<cell></cell>
+			<cell>B. Dental Records </cell>
+		</table-row>
+	</table>
+	
+	<paragraph font="arial-10" spacing-after="10">
+		Describe any physical health problems or disability not otherwise documented.  
+		Add any additional information you feel is important.<br/>
+		<font name="pre-filled-answers">${answer6}</font>
+	</paragraph>
+	
+	<!--********************************* NEW PAGE ******************************************************************-->
+	<new-page size="LETTER" margin-left="25" margin-right="25" margin-top="70" margin-bottom="50"/>
+	<!--**************************************************************************************************************-->
+	<paragraph font="arial-12-bold" spacing-after="10">
+		SECTION 11-Mental Health
+	</paragraph>
+	
+	<table columns="2" widths="7,93" spacing-after="10">
+		<table-row font="arial-10">
+			<cell fill-row="true">Attach (as appropriate):</cell>
+		</table-row>
+		<table-row font="arial-10">
+			<cell></cell>
+			<cell>A. Physchological Report(s)</cell>
+		</table-row>
+		<table-row font="arial-10">
+			<cell></cell>
+			<cell>B. Phychatric Report(s) </cell>
+		</table-row>
+	</table>
+	
+	<paragraph font="arial-10" spacing-after="10">
+		Describe any mental health problems not other wise documented.  
+		Add any additional information you feel is important.<br/>
+		<font name="pre-filled-answers">${answer9}</font>
+	</paragraph>
+	
+	
+	<!--********************************* NEW PAGE ******************************************************************-->
+	<new-page size="LETTER" margin-left="25" margin-right="25" margin-top="70" margin-bottom="50"/>
+	<!--**************************************************************************************************************-->
+	<paragraph font="arial-12-bold" spacing-after="10">
+		SECTION 12-Other Attachments
+	</paragraph>
+	
+	<table columns="2" widths="7,93" spacing-after="10">
+		<table-row font="arial-10">
+			<cell>Attach:</cell>
+			<cell>A. Birth Certificate or Other Birth Verification<br/>
+			</cell>
+		</table-row>
+		<table-row font="arial-10">
+			<cell></cell>
+			<cell>B. Legal Records (if any)</cell>
+		</table-row>
+		<table-row font="arial-10">
+			<cell></cell>
+			<cell>C. Authorization Forms</cell>
+		</table-row>
+	</table>
+	
+	<paragraph font="arial-12-bold" spacing-after="3">
+		ATTACHMENT CHECKLIST
+	</paragraph>
+	<table columns="2" border-style="box" widths="80,20" spacing-after="10">
+		<cell halign="left" valign="top" font="arial-8" height="30" padding-left="5" padding-bottom="3">Child's Name<br/><font name="pre-filled-answers">${juvName}</font></cell>
+		<cell halign="left" valign="top" font="arial-8" height="30" padding-left="5" padding-bottom="3">Date Completed<br/><font name="pre-filled-answers">${currentDate}</font></cell>
+	</table>
+	
+	<table columns="5" border-style="box" widths="30,10,10,10,40">
+		<table-header halign="center" valign="top" padding-bottom="3" padding-top="1">
+			<cell font="arial-10-bold">DOCUMENT</cell>
+			<cell font="arial-7">ATTACHED</cell>
+			<cell font="arial-7">FORTH- COMING</cell>
+			<cell font="arial-7">NOT RELEVANT</cell>
+			<cell font="arial-10-bold">NOT AVAILABLE BECAUSE</cell>
+		</table-header>
+		<table-row halign="left" valign="top">
+			<cell padding-left="5" padding-bottom="3" font="arial-10-bold" border-style="left|right|top">Birth Verification</cell>
+			<cell></cell>
+			<cell></cell>
+			<cell></cell>
+		</table-row>
+		<table-row >
+			<cell padding-left="30" font="arial-10" border-style="left|right|bottom" padding-bottom="20">Birth Certificate</cell>
+			<cell></cell>
+			<cell></cell>
+			<cell></cell>
+		</table-row>
+		<table-row>
+			<cell></cell>
+			<cell></cell>
+			<cell></cell>
+			<cell></cell>
+		</table-row>
+		<table-row halign="left" valign="top">
+			<cell padding-left="5" padding-bottom="3" font="arial-10-bold" border-style="left|right">Legal records</cell>
+			<cell></cell>
+			<cell></cell>
+			<cell></cell>
+		</table-row>
+		<table-row >
+			<cell padding-left="30" padding-bottom="3" font="arial-10" border-style="left|right">Commitment Order</cell>
+			<cell></cell>
+			<cell></cell>
+			<cell></cell>
+		</table-row>
+		<table-row >
+			<cell padding-left="30" padding-bottom="3" font="arial-10" border-style="left|right">Other Court Orders</cell>
+			<cell></cell>
+			<cell></cell>
+			<cell></cell>
+		</table-row>
+		<table-row >
+			<cell padding-left="30" padding-bottom="3" font="arial-10" border-style="left|right">Police Records</cell>
+			<cell></cell>
+			<cell></cell>
+			<cell></cell>
+		</table-row>
+		<table-row >
+			<cell padding-left="30" padding-bottom="3" font="arial-10" border-style="left|right">Divorce Decree</cell>
+			<cell></cell>
+			<cell></cell>
+			<cell></cell>
+		</table-row>
+		<table-row >
+			<cell padding-left="30" font="arial-10" border-style="left|right|bottom" padding-bottom="20">Custody Order</cell>
+			<cell></cell>
+			<cell></cell>
+			<cell></cell>
+		</table-row>
+		<table-row halign="left" valign="top">
+			<cell padding-left="5" padding-bottom="3" font="arial-10-bold" border-style="left|right">Education</cell>
+			<cell></cell>
+			<cell></cell>
+			<cell></cell>
+		</table-row>
+		<table-row >
+			<cell padding-left="30" padding-bottom="3" font="arial-10" border-style="left|right">Individual Education Plan (IEP)</cell>
+			<cell></cell>
+			<cell></cell>
+			<cell></cell>
+		</table-row>
+		<table-row >
+			<cell padding-left="30" padding-bottom="3" font="arial-10" border-style="left|right">Admission, Review, Dismissal (ARD) Report</cell>
+			<cell></cell>
+			<cell></cell>
+			<cell></cell>
+		</table-row>
+		<table-row >
+			<cell padding-left="30" padding-bottom="3" font="arial-10" border-style="left|right">Transcript</cell>
+			<cell></cell>
+			<cell></cell>
+			<cell></cell>
+		</table-row>
+		<table-row >
+			<cell padding-left="30" font="arial-10" border-style="left|right|bottom" padding-bottom="20">Adaptive Behavior Level</cell>
+			<cell></cell>
+			<cell></cell>
+			<cell></cell>
+		</table-row>
+		<table-row>
+			<cell border-style="box"><space/></cell>
+			<cell></cell>
+			<cell></cell>
+			<cell></cell>
+		</table-row>
+		<table-row halign="left" valign="top">
+			<cell padding-left="5" padding-bottom="3" font="arial-10-bold" border-style="left|right">Physical Health/Disabilities</cell>
+			<cell></cell>
+			<cell></cell>
+			<cell></cell>
+		</table-row>
+		<table-row >
+			<cell padding-left="30" padding-bottom="3" font="arial-10" border-style="left|right">Physical Examination</cell>
+			<cell></cell>
+			<cell></cell>
+			<cell></cell>
+		</table-row>
+		<table-row >
+			<cell padding-left="30" padding-bottom="3" font="arial-10" border-style="left|right">Immunization Record</cell>
+			<cell></cell>
+			<cell></cell>
+			<cell></cell>
+		</table-row>
+		<table-row >
+			<cell padding-left="30" font="arial-10" border-style="left|right|bottom" padding-bottom="20">Dental Record</cell>
+			<cell></cell>
+			<cell></cell>
+			<cell></cell>
+		</table-row>
+		<table-row>
+			<cell border-style="box"><space/></cell>
+			<cell></cell>
+			<cell></cell>
+			<cell></cell>
+		</table-row>
+		<table-row halign="left" valign="top">
+			<cell padding-left="5" padding-bottom="3" font="arial-10-bold" border-style="left|right">Mental Health</cell>
+			<cell></cell>
+			<cell></cell>
+			<cell></cell>
+		</table-row>
+		<table-row >
+			<cell padding-left="30" padding-bottom="3" font="arial-10" border-style="left|right">Psychological Report(s)</cell>
+			<cell></cell>
+			<cell></cell>
+			<cell></cell>
+		</table-row>
+		<table-row >
+			<cell padding-left="30" font="arial-10" border-style="left|right|bottom" padding-bottom="20">Psychiatric Report(s)</cell>
+			<cell></cell>
+			<cell></cell>
+			<cell></cell>
+		</table-row>
+		<table-row>
+			<cell border-style="box"><space/></cell>
+			<cell></cell>
+			<cell></cell>
+			<cell></cell>
+		</table-row>
+		<table-row halign="left" valign="top">
+			<cell padding-left="5" padding-bottom="3" font="arial-10-bold" border-style="left|right">Other</cell>
+			<cell></cell>
+			<cell></cell>
+			<cell></cell>
+		</table-row>
+		<table-row >
+			<cell padding-left="30" padding-bottom="3" font="arial-10" border-style="left|right">Medicaid Approval/Application</cell>
+			<cell></cell>
+			<cell></cell>
+			<cell></cell>
+		</table-row>
+		<table-row >
+			<cell padding-left="30" padding-bottom="3" font="arial-10" border-style="left|right">Medicaid Card</cell>
+			<cell></cell>
+			<cell></cell>
+			<cell></cell>
+		</table-row>
+		<table-row >
+			<cell padding-left="30" font="arial-10" border-style="left|right|bottom" padding-bottom="40">Social Security Card</cell>
+			<cell></cell>
+			<cell></cell>
+			<cell></cell>
+		</table-row>
+	</table>
+</document>

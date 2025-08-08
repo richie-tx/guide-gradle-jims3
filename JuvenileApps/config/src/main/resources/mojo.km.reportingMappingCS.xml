@@ -1,0 +1,588 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!-- REPORT MAPPING FOR COMMON SUPERVISION SUBSYSTEM  -->
+
+<Mapping>
+  <EntityMappings>
+  
+  	<!-- Report mappings for Common Supervision  -->   
+    
+    <!--  Administer Casenotes Print Template Mapping  --> 
+    
+    <EntityMapping name="CommonSupervision/AdministerCasenotes/casenote.xml" contextKey="REPORTING::CASENOTE" >
+    	<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping> 
+	
+	<!--  End Administer Casenote Print Template Mapping  -->
+	<EntityMapping name="CommonSupervision/AdministerCasenotes/casenoteCSEvent.xml" contextKey="REPORTING::CASENOTE_CSEVENT" >
+    	<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>     
+    <!--  Post Trial Administer Field Visit Print Template Mapping  -->
+    
+    <EntityMapping name="CommonSupervision/AdministerFieldVisit/ChronologicalFieldVisitReport.xml" contextKey="REPORTING::CHRONOLOGICAL FIELDVISIT REPORT" >
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>
+	
+	<!--  End Post Trial Administer Field Visit Print Template Mapping  -->
+	 
+	<!--  Post Trial Administer Supervision Plan Print Template Mapping  -->
+	
+	<EntityMapping name="CommonSupervision/AdministerSupervisionPlan/SupervisionPlanReport.xml" contextKey="REPORTING::SUPERVISION PLAN" >    
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>  
+	
+	<!--  END Post Trial Administer SUPERVISION PLAN Print Template Mapping  -->
+	
+	<!--  Post Trial Assessments Print Template Mapping  -->
+	
+	<EntityMapping name="CommonSupervision/Assessments/AssessmentsReport.xml" contextKey="REPORTING::ASSESSMENTS REPORT" >    
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>  
+	
+	<EntityMapping name="CommonSupervision/Assessments/Force_Field_Analysis.xml" contextKey="REPORTING::FORCE FIELD ANALYSIS" >    
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>
+	
+	<!--  End Post Trial Assessments Print Template Mapping  -->
+	
+	<!--  Post Trial Process Non-Compliance Response Print Template Mapping  -->
+	
+	<EntityMapping name="CommonSupervision/ProcessNonCompliance/CaseSummaryReport.xml" contextKey="REPORTING::CASE SUMMARY REPORT" >
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>
+
+	<EntityMapping name="CommonSupervision/ProcessNonCompliance/ViolationReport.xml" contextKey="REPORTING::VIOLATION REPORT" >    
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>  
+	
+   	<!--  End Post Trial Process Non-Compliance Response Print Template Mapping  -->
+	
+	<!--  PASO Felony Template mappings--> 
+       	
+     <EntityMapping name="CommonSupervision/PASO/Basic_Felony.xml" contextKey="REPORTING::CR/BASIC FELONY" >
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>
+	
+	<EntityMapping name="CommonSupervision/PASO/Basic_Reduced_Misdemeanor.xml" contextKey="REPORTING::CR/BASIC REDUCED MISDEMEANOR" >
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>
+	
+    <EntityMapping name="CommonSupervision/PASO/Deferred_Section5.xml" contextKey="REPORTING::CR/DEFERRED - SECTION 5" >
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>
+	
+	<EntityMapping name="CommonSupervision/PASO/DeferredReducedMisdemeanor_Section5.xml" contextKey="REPORTING::CR/DEFERRED REDUCED MISDEMEANOR - SECTION 5" >
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>
+	
+    <EntityMapping name="CommonSupervision/PASO/DeferredReducedSJF_Section5.xml" contextKey="REPORTING::CR/DEFERRED REDUCED SJF - SECTION 5" >
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>    
+	
+    <EntityMapping name="CommonSupervision/PASO/Determinate_Sentencing_Non-Sex_Offender.xml" contextKey="REPORTING::CR/DETERMINATE SENTENCING NON-SEX OFFENDER" >
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>
+    
+    <EntityMapping name="CommonSupervision/PASO/Determinate_Sentencing_Sex_Offender.xml" contextKey="REPORTING::CR/DETERMINATE SENTENCING SEX OFFENDER" >
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>
+	
+	<EntityMapping name="CommonSupervision/PASO/Felony_Pretrial.xml" contextKey="REPORTING::CR/FELONY PRETRIAL" >
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>
+	
+    <EntityMapping name="CommonSupervision/PASO/MISD_Deferred_Section 5.xml" contextKey="REPORTING::CR/MISD DEFERRED - SECTION 5" >
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>
+	
+	<EntityMapping name="CommonSupervision/PASO/MISDStraight_Section3.xml" contextKey="REPORTING::CR/MISD STRAIGHT - SECTION 3" >
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>
+	
+	<EntityMapping name="CommonSupervision/PASO/MISDStraightByJury_Section4.xml" contextKey="REPORTING::CR/MISD STRAIGHT BY JURY - SECTION 4" >
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>
+	
+	<EntityMapping name="CommonSupervision/PASO/Modified.xml" contextKey="REPORTING::CR/MODIFIED" >
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>    
+	
+    <EntityMapping name="CommonSupervision/PASO/OccupationalDriverLicense.xml" contextKey="REPORTING::CR/OCCUPATIONAL DRIVERS LICENSE" >
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>
+	
+	<EntityMapping name="CommonSupervision/PASO/PretrialBond.xml" contextKey="REPORTING::CR/PRETRIAL BOND" >
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>   
+	
+	<EntityMapping name="CommonSupervision/PASO/SignaturePage.xml" contextKey="REPORTING::SIGNATURE PAGE" >
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>
+	
+	<EntityMapping name="CommonSupervision/PASO/SJFDeferred_Section5.xml" contextKey="REPORTING::CR/SJF DEFERRED - SECTION 5" >
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>   
+	
+	<EntityMapping name="CommonSupervision/PASO/SJFStraight_Section15.xml" contextKey="REPORTING::CR/SJF STRAIGHT - SECTION 15" >
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>   
+	 
+	<EntityMapping name="CommonSupervision/PASO/SJFStraightByJury_Section4.xml" contextKey="REPORTING::CR/SJF STRAIGHT BY JURY - SECTION 4" >
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>   
+	
+	<EntityMapping name="CommonSupervision/PASO/SJFStraightEnhanceTDC_Section15.xml" contextKey="REPORTING::CR/SJF STRAIGHT ENHANCE TDC - SECTION 15" >
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping> 
+	
+	<EntityMapping name="CommonSupervision/PASO/Straight_Section3.xml" contextKey="REPORTING::CR/STRAIGHT - SECTION 3" >
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>   
+	 
+    <EntityMapping name="CommonSupervision/PASO/StraightByJury_Section4.xml" contextKey="REPORTING::CR/STRAIGHT BY JURY - SECTION 4" >
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>
+	
+	<EntityMapping name="CommonSupervision/PASO/StraightByJuryReducedMisdemeanor_Section4.xml" contextKey="REPORTING::CR/STRAIGHT BY JURY REDUCED MISDEMEANOR - SECTION 4" >
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>   
+	
+    <EntityMapping name="CommonSupervision/PASO/StraightReducedMisdemeanor_Section3.xml" contextKey="REPORTING::CR/STRAIGHT REDUCED MISDEMEANOR - SECTION 3" >
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>    
+	
+    <EntityMapping name="CommonSupervision/PASO/StraightReducedSJF_Section3.xml" contextKey="REPORTING::CR/STRAIGHT REDUCED SJF - SECTION 3" >
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>   
+	
+    <EntityMapping name="CommonSupervision/PASO/TDCBootCampProbation_Section8.xml" contextKey="REPORTING::CR/TDC BOOT CAMP PROBATION - SECTION 8" >
+			<QueryCallbacks>
+				<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+			</QueryCallbacks>
+	</EntityMapping>    
+	
+    <EntityMapping name="CommonSupervision/PASO/TDCShockProbation_Section6.xml" contextKey="REPORTING::CR/TDC SHOCK PROBATION - SECTION 6" >
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping> 
+	
+	<!--  END PASO Felony Template mappings-->
+		   
+    <!--  PASO Misdemeanor Template mappings-->
+    
+    <EntityMapping name="CommonSupervision/MISD/Deferred_Section5.xml" contextKey="REPORTING::CC/DEFERRED - SECTION 5" >
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>    
+	
+    <EntityMapping name="CommonSupervision/MISD/DWI_Divert.xml" contextKey="REPORTING::CC/DWI DIVERT" >
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>
+	
+	<EntityMapping name="CommonSupervision/MISD/HCJShock_Section7.xml" contextKey="REPORTING::CC/HCJ SHOCK - SECTION 7" >
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>
+
+	<EntityMapping name="CommonSupervision/MISD/Misdemeanor_Pretrial.xml" contextKey="REPORTING::CC/MISDEMEANOR PRETRIAL" >
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>
+	
+	<EntityMapping name="CommonSupervision/MISD/Modified.xml" contextKey="REPORTING::CC/MODIFIED" >
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>
+		
+    <EntityMapping name="CommonSupervision/MISD/SignaturePage.xml" contextKey="REPORTING::CC/SIGNATURE PAGE" >
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>  
+	
+	<EntityMapping name="CommonSupervision/MISD/OccupationalDriverLicense.xml" contextKey="REPORTING::CC/OCCUPATIONAL DRIVERS LICENSE" >
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>
+	
+	<EntityMapping name="CommonSupervision/MISD/PretrialBond.xml" contextKey="REPORTING::CC/PRETRIAL BOND" >
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>
+		
+    <EntityMapping name="CommonSupervision/MISD/Straight_Section3.xml" contextKey="REPORTING::CC/STRAIGHT - SECTION 3" >
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>
+	
+    <EntityMapping name="CommonSupervision/MISD/StraightByJury_Section4.xml" contextKey="REPORTING::CC/STRAIGHT BY JURY - SECTION 4" >
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>  
+
+	<!--  End PASO Misdemeanor Template mappings--> 
+    
+	<!--  Administer Program Referral Forms Template mappings-->
+   	
+   	<EntityMapping name="CSCDReferrals/CSCD_DWI.xml" contextKey="REPORTING::CSCD DWI" >
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>
+	
+	<EntityMapping name="CSCDReferrals/CSCD_EDU.xml" contextKey="REPORTING::CSCD EDU" >
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>
+	
+	<EntityMapping name="CSCDReferrals/CSCD_General_Form.xml" contextKey="REPORTING::CSCD General Form" >
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>
+	
+	<EntityMapping name="CSCDReferrals/CSCD_TAIP.xml" contextKey="REPORTING::CSCD TAIP" >
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>
+	
+	<EntityMapping name="CSCDReferrals/CSCD_TDOEP.xml" contextKey="REPORTING::CSCD TDOEP" >
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>
+	
+	<EntityMapping name="CSCDReferrals/CSCD_VIP_Spanish.xml" contextKey="REPORTING::CSCD VIP Spanish" >
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>
+	
+	<EntityMapping name="CSCDReferrals/CSCD_VIP.xml" contextKey="REPORTING::CSCD VIP" >
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>
+	
+	<EntityMapping name="CSCDReferrals/DWI.xml" contextKey="REPORTING::DWI" >
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>
+	
+	<EntityMapping name="CSCDReferrals/General.xml" contextKey="REPORTING::General Form" >
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>
+	
+	<EntityMapping name="CSCDReferrals/Generic_Polygraph.xml" contextKey="REPORTING::Generic Polygraph" >
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>
+	
+	<EntityMapping name="CSCDReferrals/New_START.xml" contextKey="REPORTING::New START" >
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>
+   	
+   	<EntityMapping name="CSCDReferrals/Non_TAIP_Treatment_Referral_Form.xml" contextKey="REPORTING::Non TAIP Outpatient/Residential" >
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>
+	
+	<EntityMapping name="CSCDReferrals/Sex_Offender_Polygraph.xml" contextKey="REPORTING::Sex Offender Polygraph" >
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>
+	
+	<EntityMapping name="CSCDReferrals/Sex_Offender_Treatment.xml" contextKey="REPORTING::Sex Offender Treatment" >
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>
+	
+	<EntityMapping name="CSCDReferrals/TAIP_Outpatient.xml" contextKey="REPORTING::TAIP Outpatient" >
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>
+	
+	<EntityMapping name="CSCDReferrals/TAIP_Residential.xml" contextKey="REPORTING::TAIP Residential" >
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>
+	
+	<EntityMapping name="CSCDReferrals/TDOEP.xml" contextKey="REPORTING::TDOEP" >
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>
+	
+	<!--  End Administer Program Referral Forms Template mappings-->
+	
+	<!--  Out of County Template mappings-->     
+
+   <EntityMapping name="CommonSupervision/OOC/OOC_SupervisionOrder.xml" contextKey="REPORTING::OC/OOC SUPERVISION ORDER" >    
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>     
+	
+	<EntityMapping name="CommonSupervision/OOC/InterstateSupervisionOrder.xml" contextKey="REPORTING::OC/INTERSTATE SUPERVISION ORDER" >    
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>     
+
+	<EntityMapping name="CommonSupervision/OOC/IntrastateSupervisionOrder.xml" contextKey="REPORTING::OC/INTRASTATE SUPERVISION ORDER" >    
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>     
+	
+	<EntityMapping name="CommonSupervision/OOC/CSRPGuidelines.xml" contextKey="REPORTING::OC/CSRP GUIDELINES" >    
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>     
+
+	<!--  End Out of County Template mappings--> 
+		
+	<!--  PTR Template mappings--> 
+
+    <EntityMapping name="CommonSupervision/PTR/AmendedOrder_SpecialCondDE.xml" contextKey="REPORTING::OC/AMENDED ORDER" >
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>		
+	</EntityMapping>
+	
+    <EntityMapping name="CommonSupervision/PTR/AmendedOrder_SpecialCondDE.xml" contextKey="REPORTING::CR/AMENDED ORDER" >
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>    
+    <EntityMapping name="CommonSupervision/PTR/AmendedOrder_SpecialCondDE.xml" contextKey="REPORTING::CC/AMENDED ORDER" >
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>        
+    <EntityMapping name="CommonSupervision/PTR/ModifiedOrder_SpecialCondDE.xml" contextKey="REPORTING::OC/MODIFIED ORDER" >
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>
+    <EntityMapping name="CommonSupervision/PTR/ModifiedOrder_SpecialCondDE.xml" contextKey="REPORTING::CC/MODIFIED ORDER" >
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>
+    <EntityMapping name="CommonSupervision/PTR/ModifiedOrder_SpecialCondDE.xml" contextKey="REPORTING::CR/MODIFIED ORDER" >
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>    
+    
+    <EntityMapping name="CommonSupervision/PTR/ModSentBasicsDE.xml" contextKey="REPORTING::OC/MODIFIED SENTENCE" >
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>    
+    <EntityMapping name="CommonSupervision/PTR/ModSentBasicsDE.xml" contextKey="REPORTING::CR/MODIFIED SENTENCE" >
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>
+    <EntityMapping name="CommonSupervision/PTR/ModSentBasicsDE.xml" contextKey="REPORTING::CC/MODIFIED SENTENCE" >
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>    
+    
+    <EntityMapping name="CommonSupervision/PTR/ModSent_TreatmentFacilityDE.xml" contextKey="REPORTING::OC/MODIFIED SENTENCE - TREATMENT FACILITY" >
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>    
+    <EntityMapping name="CommonSupervision/PTR/ModSent_TreatmentFacilityDE.xml" contextKey="REPORTING::CR/MODIFIED SENTENCE - TREATMENT FACILITY" >
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>
+    <EntityMapping name="CommonSupervision/PTR/ModSent_TreatmentFacilityDE.xml" contextKey="REPORTING::CC/MODIFIED SENTENCE - TREATMENT FACILITY" >
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>    
+    
+    <EntityMapping name="CommonSupervision/PTR/OrderNonStandard_ConditionsEnglishDE.xml" contextKey="REPORTING::OC/SUPERVISION ORDER PERSONAL BOND" >
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>    
+    <EntityMapping name="CommonSupervision/PTR/OrderNonStandard_ConditionsEnglishDE.xml" contextKey="REPORTING::CR/SUPERVISION ORDER PERSONAL BOND" >
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>
+    <EntityMapping name="CommonSupervision/PTR/OrderNonStandard_ConditionsEnglishDE.xml" contextKey="REPORTING::CC/SUPERVISION ORDER PERSONAL BOND" >
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>    
+    
+    <EntityMapping name="CommonSupervision/PTR/OrderNonStandard_ConditionsEnglishDE.xml" contextKey="REPORTING::OC/SUPERVISION ORDER FINANCIAL BOND" >
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>    
+    <EntityMapping name="CommonSupervision/PTR/OrderNonStandard_ConditionsEnglishDE.xml" contextKey="REPORTING::CR/SUPERVISION ORDER FINANCIAL BOND" >
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>
+	
+    <EntityMapping name="CommonSupervision/PTR/OrderNonStandard_ConditionsEnglishDE.xml" contextKey="REPORTING::CC/SUPERVISION ORDER FINANCIAL BOND" >
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>
+		
+   
+    <EntityMapping name="CommonSupervision/PTR/OrderNonStandard_ConditionsEnglishDE.xml" contextKey="REPORTING::OC/SUPERVISION ORDER CASH BOND" >
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>    
+    <EntityMapping name="CommonSupervision/PTR/OrderNonStandard_ConditionsEnglishDE.xml" contextKey="REPORTING::CR/SUPERVISION ORDER CASH BOND" >
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>
+    <EntityMapping name="CommonSupervision/PTR/OrderNonStandard_ConditionsEnglishDE.xml" contextKey="REPORTING::CC/SUPERVISION ORDER CASH BOND" >
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>        
+        
+    
+    <EntityMapping name="CommonSupervision/PTR/InstrEnglishDE.xml" contextKey="REPORTING::OC/PERSONAL BOND INSTRUCTION" >
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>
+    <EntityMapping name="CommonSupervision/PTR/InstrEnglishDE.xml" contextKey="REPORTING::CR/PERSONAL BOND INSTRUCTION" >
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>    
+    <EntityMapping name="CommonSupervision/PTR/InstrEnglishDE.xml" contextKey="REPORTING::CC/PERSONAL BOND INSTRUCTION" >
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>    
+
+    <EntityMapping name="CommonSupervision/PTR/InstrEnglishDE.xml" contextKey="REPORTING::OC/FINANCIAL BOND INSTRUCTION" >
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>
+	
+    <EntityMapping name="CommonSupervision/PTR/InstrEnglishDE.xml" contextKey="REPORTING::CR/FINANCIAL BOND INSTRUCTION" >
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>   
+	 
+    <EntityMapping name="CommonSupervision/PTR/InstrEnglishDE.xml" contextKey="REPORTING::CC/FINANCIAL BOND INSTRUCTION" >
+		<QueryCallbacks>
+			<QueryCallback name="None" mappingClassName="pd.report.transactions.PDFReporting" mappingMethodName="None" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="None" connectionName="None" eventName="None" source="None" whereClause="none"/>
+		</QueryCallbacks>
+	</EntityMapping>    
+   	<!--  End PTR Template mappings--> 
+  	   	          
+    <!--  End Report mappings for Common Supervision PASO -->  
+
+  </EntityMappings>
+</Mapping>

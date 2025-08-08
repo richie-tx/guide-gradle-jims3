@@ -1,0 +1,335 @@
+package pd.juvenilecase.riskanalysis.riskanalysiscomputation;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import pd.exception.ComputationValidationException;
+import pd.juvenilecase.riskanalysis.RiskAnalysisProgress;
+import pd.juvenilecase.riskanalysis.RiskFinalScore;
+import pd.juvenilecase.riskanalysis.RiskResultGroup;
+import messaging.riskanalysis.SaveProgressAssessmentEvent;
+import messaging.riskanalysis.reply.RiskComputationReponseEvent;
+import messaging.riskanalysis.reply.ProgressRiskComputationReponseEvent;
+import mojo.km.messaging.IEvent;
+import mojo.km.persistence.Home;
+import mojo.km.persistence.IHome;
+import pd.juvenilecase.riskanalysis.riskanalysiscomputation.RiskComputationUtil;
+/** 
+ * @deprecated
+ * @author PAlcocer
+ * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+ */
+public class ProgressRiskComputation extends RiskComputation {
+	
+	private ProgressRiskComputationReponseEvent progressRiskCompRespEvent;  
+	private SaveProgressAssessmentEvent saveProgressAssessEvent;
+	
+	//Questions which will be used in formula(s)
+	private int question1Weight;
+	private int question2Weight;
+	private int question3Weight;
+	private int question4Weight;
+	private int question5Weight;
+	private int question6Weight;
+	private int question7Weight;
+	private int question8Weight;
+	private int question9Weight;
+	private int question10Weight;
+	private int question11Weight;
+	private int question12Weight;
+	private int question13Weight;
+	private int question14Weight;
+	private int question15Weight;
+	private int question16Weight;
+	private int question17Weight;
+	private int question18Weight;
+	private int question19Weight;
+	private int question20Weight;
+	private int question21Weight;
+		
+	public ProgressRiskComputation (SaveProgressAssessmentEvent saveProgressAssessEvent) {
+		this.saveProgressAssessEvent = saveProgressAssessEvent; 
+		setWeightOfQuestions();
+	}
+	private RiskFinalScore riskAssessmentScore() {
+		RiskFinalScore riskFinalScore = new RiskFinalScore();
+		RiskResultGroup riskResultGroup = null;
+		
+		Iterator<RiskResultGroup> riskResultGroups = RiskResultGroup.findAllByAttributeName("description", "ProgressRisk");
+		
+		while ( riskResultGroups.hasNext() ){
+			riskResultGroup = riskResultGroups.next();
+		}
+		
+		if (riskResultGroup != null) {
+			riskFinalScore.setRiskResultGroup(riskResultGroup);
+		}
+		
+		riskFinalScore.setRiskAnalysisId(Integer.parseInt(saveProgressAssessEvent.getRiskAnalysisId()));
+		riskFinalScore.setFinalScore(finalScore());
+		//Explicitly bind to database so that a Risk Final Score OID is generated
+		IHome home=new Home();
+		home.bind(riskFinalScore);
+
+		return riskFinalScore;
+	}	
+	/** 
+	 * (non-Javadoc)
+	 * @see RiskComputation#compute()
+	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	 */
+	public RiskComputationReponseEvent compute() throws ComputationValidationException {
+		
+		validate(saveProgressAssessEvent);
+		progressRiskCompRespEvent = new ProgressRiskComputationReponseEvent();
+		progressRiskCompRespEvent.setTotalCurrentAttitude(calculateTotalCurrentAttitude());
+		progressRiskCompRespEvent.setTotalFamilyRelationship(calculateTotalFamilyRelationship());
+		progressRiskCompRespEvent.setTotalSchoolAttendance(calculateTotalSchoolAttendance());
+		progressRiskCompRespEvent.setTotalSchoolBehavior(calculateTotalSchoolBehavior());
+		progressRiskCompRespEvent.setSupervisionLevel(getSupervisionLevel());
+		progressRiskCompRespEvent.setTotalSupervision(calculateTotalSupervision());
+		progressRiskCompRespEvent.setTotalSupervisionRules(calculateTotalSupervisionRules());
+		progressRiskCompRespEvent.setTotalScores(finalScores());
+		
+		return progressRiskCompRespEvent;
+	}
+
+	/** 
+	 * (non-Javadoc)
+	 * @see RiskComputation#validate(IEvent event)
+	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	 */
+	protected void validate(IEvent event) throws ComputationValidationException {
+		
+		boolean failed = false;
+		
+		if (failed) {
+			throw new ComputationValidationException("ProgressRiskComputation failed validation.");
+		}
+		
+	}
+	
+	/* (non-Javadoc)
+	 * @see pd.juvenilecase.riskanalysis.riskanalysiscomputation.RiskComputation#finalScore()
+	 */
+	protected int finalScore() {
+		int total = 0;
+		total = calculateTotalCurrentAttitude() + calculateTotalFamilyRelationship() + calculateTotalSchoolAttendance()
+				+ calculateTotalSchoolBehavior() + calculateTotalSupervision() + calculateTotalSupervisionRules();
+		return total;
+	}
+	
+	protected List finalScores() {
+		List finalScores = new ArrayList();
+		finalScores.add(riskAssessmentScore());
+		
+		return finalScores;
+	}
+	
+	/* (non-Javadoc)
+	 * @see pd.juvenilecase.riskanalysis.riskanalysiscomputation.RiskComputation#setWeightOfQuestions()
+	 */
+	protected void setWeightOfQuestions() {
+		Enumeration riskQuestionAnswerEvents = saveProgressAssessEvent.getRequests();
+		
+		RiskComputationUtil riskComputationUtil = new RiskComputationUtil();
+		HashMap hmQuestionWeights = riskComputationUtil.getQuestionWeights(riskQuestionAnswerEvents);
+				
+		Set entries = hmQuestionWeights.entrySet();
+		Iterator it = entries.iterator();
+        while (it.hasNext()) {
+        	Map.Entry entry = (Map.Entry) it.next();
+            //System.out.println( "Key: " +  entry.getKey() +  " Value: " + entry.getValue());
+            int questionNumber = (Integer)entry.getKey();
+            int weight = (Integer)entry.getValue();
+            switch(questionNumber) {
+				case 1: {
+					question1Weight = weight;
+					break;
+				} case 2: {
+					question2Weight = weight;
+					break;
+				} case 3: {
+					question3Weight = weight;
+					break;
+				} case 4: {
+					question4Weight = weight;
+					break;
+				} case 5: {
+					question5Weight = weight;
+					break;
+				} case 6: {
+					question6Weight = weight;
+					break;
+				} case 7: {
+					question7Weight = weight;
+					break;
+				} case 8: {
+					question8Weight = weight;
+					break;
+				} case 9: {
+					question9Weight = weight;
+					break;
+				} case 10: {
+					question10Weight = weight;
+					break;
+				} case 11: {
+					question11Weight = weight;
+					break;
+				} case 12: {
+					question12Weight = weight;
+					break;
+				} case 13: {
+					question13Weight = weight;
+					break;
+				} case 14: {
+					question14Weight = weight;
+					break;
+				} case 15: {
+					question15Weight = weight;
+					break;
+				} case 16: {
+					question16Weight = weight;
+					break;
+				} case 17: {
+					question17Weight = weight;
+					break;
+				} case 18: {
+					question18Weight = weight;
+					break;
+				} case 19: {
+					question19Weight = weight;
+					break;
+				} case 20: {
+					question20Weight = weight;
+					break;
+				} case 21: {
+					question21Weight = weight;
+					break;
+				} 
+            }
+        }
+        int i = 0;
+	}
+	
+	
+	/**
+	 * @return int total
+	 */
+	private int calculateTotalCurrentAttitude() {
+		int total = 0;
+		//For Progress
+		// TotalCurrentAttitude= Current Attitude + PeerAssociates + Marijuana Alcohol Use + Other Drug Use
+		
+		//Question numbers changed on create of supervision months and supervision level questions.
+		//total = question10Weight + question13Weight + question14Weight + question15Weight;
+		
+		total = question8Weight + question11Weight + question12Weight + question13Weight;
+		return total;
+	}
+	
+	/**
+	 * @return int total
+	 */
+	private int calculateTotalFamilyRelationship() {
+		int total = 0;
+		// TotalFamilyRelationship = FamilyDynamic + FamilyAttitutude
+		
+		//Question numbers changed on create of supervision months and supervision level questions.
+		//total = question11Weight + question12Weight;
+		
+		total = question9Weight + question10Weight;
+		return total;
+	}
+	
+	/**
+	 * @return int total
+	 */
+	private int calculateTotalSchoolAttendance() {
+		int total = 0;
+		// TotalSchoolAttendance = NumberFailingClasses + SchoolAttendance
+		
+/*		Question numbers changed on move of supervision months and supervision level to questions 20 and 21.
+ *		if (question20Weight > 15) {
+			total = 15 + question16Weight;
+		} else {
+			total = question20Weight + question16Weight;
+		}*/
+		if (question18Weight > 15) {
+			total = 15 + question14Weight;
+		} else {
+			total = question18Weight + question14Weight;
+		}
+		return total;
+	}
+	
+	/**
+	 * @return int total
+	 */
+	private int calculateTotalSchoolBehavior() {
+		int total = 0;
+		//TotalSchoolBehavior= SchoolStatus+PassingClasses + school Behaviour
+		//6/10/11 - removed historical school behavior from calculation - is not relevant on current assessment.
+		
+		/* Question numbers changed on move of supervision months and supervision level to questions 20 and 21.
+		total =  question17Weight + question19Weight + question18Weight;
+		*/
+		
+		total =    question14Weight + question17Weight + question15Weight;
+		return total;
+	}
+	
+	/**
+	 * @return int total
+	 */
+	/* private int getSupervisionLevel() {
+		int total = 0;
+		// returns the supervision Level in int format
+		if( !saveProgressAssessEvent.getSupervisionLevelPoints().equals("") ) {
+			try {
+				total =Integer.parseInt(saveProgressAssessEvent.getSupervisionLevelPoints());
+			} catch( NumberFormatException nfe ) {
+				total = 0;
+			}
+		} else {
+			total = 0;
+		}
+		return total;
+	}*/
+	private int getSupervisionLevel(){
+
+		return question21Weight;		
+	}
+	/**
+	 * @return int total
+	 */
+	private int calculateTotalSupervision() {
+		int total = 0;
+		// TotalSupervision = CurrentlyPlacement+ Home Visit + Furlough + Disciplinary Actions + Supervision Level 
+		
+		/* Question numbers changed on move of supervision months and supervision level to questions 20 and 21.
+		total = question3Weight + question7Weight + question8Weight + question9Weight + getSupervisionLevel();
+		*/
+		total = question1Weight + question3Weight + question6Weight + question7Weight + question21Weight;
+		return total;
+	}
+	
+	/**
+	 * @return
+	 */
+	public int calculateTotalSupervisionRules() {
+		int total = 0;
+		// This attribute calculates the number of supervision rules which have a 
+		//JUVENILE_SUPERVISION_RULES.CompletedStatus = Non-compliant by juvenile number and supervision number. 
+		//Each non-compliant completion status recieves 4 points.
+		total = RiskAnalysisProgress.getSupervisionRulesTotal(saveProgressAssessEvent.getCasefileID());
+		return total;
+	}
+	
+}

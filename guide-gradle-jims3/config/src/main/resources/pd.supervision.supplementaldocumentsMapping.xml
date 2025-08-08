@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Mapping>
+  <EntityMappings>
+     <EntityMapping name="pd.supervision.supplementaldocuments.SupplementalDocuments" contextKey="pd.supervision.supplementaldocuments.SupplementalDocuments">
+      <QueryCallbacks>
+        <QueryCallback name="OIDQuery" mappingClassName="mojo.km.context.multidatasource.JDBCSQLMapping" mappingMethodName="retrieve" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="GLFORMCAT" connectionName="JDBCMSSQL" eventName="mojo.km.persistence.OIDEvent" source="GLFORMCAT" whereClause="WEBFOCUSCAT_ID = ?">
+          <ParmMappings>
+            <ParmMapping name="OID" dataItemName="WEBFOCUSCAT_ID" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="OID" propertyType="Numeric" formatString="none" convertWilcard="n" />
+          </ParmMappings>
+		  <FieldMappings>
+            <FieldMapping name="OID" associationType="none" dataItemName="FORMCAT_ID" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" padChar="none" length="0" text="none" propertyName="OID" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="formCatId" associationType="none" dataItemName="FORMCAT_ID" parmIndex="2" format="none" position="0" cardPosition="0" appendFiller="0" padChar="none" length="0" text="none" propertyName="formCatId" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="formGroup" associationType="none" dataItemName="FORMGROUP" parmIndex="3" format="none" position="0" cardPosition="0" appendFiller="0" padChar="none" length="0" text="none" propertyName="formGroup" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="formTitle" associationType="none" dataItemName="FORMTITLE" parmIndex="4" format="none" position="0" cardPosition="0" appendFiller="0" padChar="none" length="0" text="none" propertyName="formTitle" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="url" associationType="none" dataItemName="URL" parmIndex="5" format="none" position="0" cardPosition="0" appendFiller="0" padChar="none" length="0" text="none" propertyName="url" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="userParm" associationType="none" dataItemName="USERPARM" parmIndex="6" format="none" position="0" cardPosition="0" appendFiller="0" padChar="none" length="0" text="none" propertyName="userParm" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="passWordParm" associationType="none" dataItemName="PASSWORDPARM" parmIndex="7" format="none" position="0" cardPosition="0" appendFiller="0" padChar="none" length="0" text="none" propertyName="passWordParm" propertyType="String" formatString="none" convertWilcard="n" />
+          </FieldMappings>
+        </QueryCallback>
+        <QueryCallback name="AttributeQuery" mappingClassName="mojo.km.context.multidatasource.JDBCSQLMapping" mappingMethodName="retrieve" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="GLFORMCAT" connectionName="JDBCMSSQL" eventName="mojo.km.persistence.AttributeEvent" source="GLFORMCAT" whereClause="none">          
+          <FieldMappings>
+            <FieldMapping name="OID" associationType="none" dataItemName="FORMCAT_ID" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" padChar="none" length="0" text="none" propertyName="OID" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="formCatId" associationType="none" dataItemName="FORMCAT_ID" parmIndex="2" format="none" position="0" cardPosition="0" appendFiller="0" padChar="none" length="0" text="none" propertyName="formCatId" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="formGroup" associationType="none" dataItemName="FORMGROUP" parmIndex="3" format="none" position="0" cardPosition="0" appendFiller="0" padChar="none" length="0" text="none" propertyName="formGroup" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="formTitle" associationType="none" dataItemName="FORMTITLE" parmIndex="4" format="none" position="0" cardPosition="0" appendFiller="0" padChar="none" length="0" text="none" propertyName="formTitle" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="url" associationType="none" dataItemName="URL" parmIndex="5" format="none" position="0" cardPosition="0" appendFiller="0" padChar="none" length="0" text="none" propertyName="url" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="userParm" associationType="none" dataItemName="USERPARM" parmIndex="6" format="none" position="0" cardPosition="0" appendFiller="0" padChar="none" length="0" text="none" propertyName="userParm" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="passWordParm" associationType="none" dataItemName="PASSWORDPARM" parmIndex="7" format="none" position="0" cardPosition="0" appendFiller="0" padChar="none" length="0" text="none" propertyName="passWordParm" propertyType="String" formatString="none" convertWilcard="n" />
+          </FieldMappings>
+        </QueryCallback>
+        <QueryCallback name="AllQuery" mappingClassName="mojo.km.context.multidatasource.JDBCSQLMapping" mappingMethodName="retrieve" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="GLFORMCAT" connectionName="JDBCMSSQL" eventName="mojo.km.persistence.AllQueryEvent" source="GLFORMCAT" whereClause="none">
+           <FieldMappings>
+           	<FieldMapping name="OID" associationType="none" dataItemName="FORMCAT_ID" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" padChar="none" length="0" text="none" propertyName="OID" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="formCatId" associationType="none" dataItemName="FORMCAT_ID" parmIndex="2" format="none" position="0" cardPosition="0" appendFiller="0" padChar="none" length="0" text="none" propertyName="formCatId" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="formGroup" associationType="none" dataItemName="FORMGROUP" parmIndex="3" format="none" position="0" cardPosition="0" appendFiller="0" padChar="none" length="0" text="none" propertyName="formGroup" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="formTitle" associationType="none" dataItemName="FORMTITLE" parmIndex="4" format="none" position="0" cardPosition="0" appendFiller="0" padChar="none" length="0" text="none" propertyName="formTitle" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="url" associationType="none" dataItemName="URL" parmIndex="5" format="none" position="0" cardPosition="0" appendFiller="0" padChar="none" length="0" text="none" propertyName="url" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="userParm" associationType="none" dataItemName="USERPARM" parmIndex="6" format="none" position="0" cardPosition="0" appendFiller="0" padChar="none" length="0" text="none" propertyName="userParm" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="passWordParm" associationType="none" dataItemName="PASSWORDPARM" parmIndex="7" format="none" position="0" cardPosition="0" appendFiller="0" padChar="none" length="0" text="none" propertyName="passWordParm" propertyType="String" formatString="none" convertWilcard="n" />
+          </FieldMappings>
+        </QueryCallback>
+      </QueryCallbacks>
+    </EntityMapping>
+  </EntityMappings>
+</Mapping>

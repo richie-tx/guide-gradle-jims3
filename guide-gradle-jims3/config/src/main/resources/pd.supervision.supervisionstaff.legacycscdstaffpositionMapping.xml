@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Mapping>
+  <EntityMappings>
+    <EntityMapping name="pd.supervision.supervisionstaff.legacycscdstaff.LegacySupervisionStaff" contextKey="pd.supervision.supervisionstaff.legacycscdstaff.LegacySupervisionStaff">
+     <QueryCallbacks>
+        <QueryCallback name="OIDQuery" mappingClassName="mojo.km.context.multidatasource.M204Mapping" mappingMethodName="retrieve" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="J2CRMCD" connectionName="M204" eventName="mojo.km.persistence.OIDEvent" source="PROB.OFFICER" whereClause="">
+          <ParmMappings>
+            <ParmMapping name="Function" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="R3" propertyName="Function" propertyType="0" formatString="none" convertWilcard="none" />
+            <ParmMapping name="OID" dataItemName="CD.OID.DERIVED" parmIndex="2" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="OID" propertyType="String" formatString="none" convertWilcard="n" />
+          </ParmMappings>
+          <FieldMappings>
+            <FieldMapping name="probationOfficerInd" associationType="none" dataItemName="CD.PROB.OFFICER.IND" parmIndex="0" format="none" position="6" cardPosition="0" appendFiller="0" padChar="none" length="0" text="none" propertyName="probationOfficerInd" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="courtNum" associationType="none" dataItemName="CD.COURT.NUM" parmIndex="0" format="none" position="9" cardPosition="0" appendFiller="0" padChar="none" length="0" text="none" propertyName="courtNum" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="unit" associationType="none" dataItemName="CD.UNIT" parmIndex="0" format="none" position="8" cardPosition="0" appendFiller="0" padChar="none" length="0" text="none" propertyName="unit" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="fullName" associationType="none" dataItemName="CD.NAME" parmIndex="0" format="none" position="4" cardPosition="0" appendFiller="0" padChar="none" length="0" text="none" propertyName="fullName" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="phoneNum" associationType="none" dataItemName="CD.PHONE" parmIndex="0" format="none" position="5" cardPosition="0" appendFiller="0" padChar="none" length="0" text="none" propertyName="phoneNum" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="cjadNum" associationType="none" dataItemName="CD.CJAD.NUM" parmIndex="0" format="none" position="13" cardPosition="0" appendFiller="0" padChar="none" length="0" text="none" propertyName="cjadNum" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="location" associationType="none" dataItemName="CD.LOCATION" parmIndex="0" format="none" position="14" cardPosition="0" appendFiller="0" padChar="none" length="0" text="none" propertyName="location" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="effectiveDate" associationType="none" dataItemName="CD.EFFECTIVE.DATE" parmIndex="0" format="none" position="1" cardPosition="0" appendFiller="0" padChar="none" length="0" text="none" propertyName="effectiveDate" propertyType="Date" formatString="none" convertWilcard="n" />
+            <FieldMapping name="OID" associationType="none" dataItemName="CD.OID.DERIVED" parmIndex="0" format="none" position="500" cardPosition="0" appendFiller="0" padChar="none" length="0" text="none" propertyName="OID" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="lastName" associationType="none" dataItemName="CD.LNAME" parmIndex="0" format="none" position="10" cardPosition="0" appendFiller="0" padChar="none" length="0" text="none" propertyName="lastName" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="firstName" associationType="none" dataItemName="CD.FNAME" parmIndex="0" format="none" position="11" cardPosition="0" appendFiller="0" padChar="none" length="0" text="none" propertyName="firstName" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="middleName" associationType="none" dataItemName="CD.MNAME" parmIndex="0" format="none" position="12" cardPosition="0" appendFiller="0" padChar="none" length="0" text="none" propertyName="middleName" propertyType="String" formatString="none" convertWilcard="n" />
+		  </FieldMappings>
+        </QueryCallback>
+      </QueryCallbacks>      
+	  <SaveCallbacks>
+        <SaveCallback name="Save" mappingClassName="mojo.km.context.multidatasource.M204Mapping" mappingMethodName="save" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="J2CRMCD" connectionName="M204" whereClause="none" source="PROB.OFFICER">
+          <ParmMappings>
+            <ParmMapping name="OID" dataItemName="CD.OID.DERIVED" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="OID" propertyType="java.lang.String" formatString="none" convertWilcard="n" />
+          </ParmMappings> 
+          <FieldMappings>
+            <FieldMapping name="probationOfficerInd" associationType="none" dataItemName="CD.PROB.OFFICER.IND" parmIndex="0" format="none" position="6" cardPosition="0" appendFiller="0" padChar="none" length="0" text="none" propertyName="probationOfficerInd" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="courtNum" associationType="none" dataItemName="CD.COURT.NUM" parmIndex="0" format="none" position="9" cardPosition="0" appendFiller="0" padChar="none" length="0" text="none" propertyName="courtNum" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="unit" associationType="none" dataItemName="CD.UNIT" parmIndex="0" format="none" position="8" cardPosition="0" appendFiller="0" padChar="none" length="0" text="none" propertyName="unit" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="fullName" associationType="none" dataItemName="CD.NAME" parmIndex="0" format="none" position="4" cardPosition="0" appendFiller="0" padChar="none" length="0" text="none" propertyName="fullName" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="phoneNum" associationType="none" dataItemName="CD.PHONE" parmIndex="0" format="none" position="5" cardPosition="0" appendFiller="0" padChar="none" length="0" text="none" propertyName="phoneNum" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="cjadNum" associationType="none" dataItemName="CD.CJAD.NUM" parmIndex="0" format="none" position="13" cardPosition="0" appendFiller="0" padChar="none" length="0" text="none" propertyName="cjadNum" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="location" associationType="none" dataItemName="CD.LOCATION" parmIndex="0" format="none" position="14" cardPosition="0" appendFiller="0" padChar="none" length="0" text="none" propertyName="location" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="effectiveDate" associationType="none" dataItemName="CD.EFFECTIVE.DATE" parmIndex="0" format="none" position="1" cardPosition="0" appendFiller="0" padChar="none" length="0" text="none" propertyName="effectiveDate" propertyType="Date" formatString="none" convertWilcard="n" />
+           </FieldMappings>
+        </SaveCallback>
+      </SaveCallbacks>
+    </EntityMapping>
+  </EntityMappings>
+</Mapping>

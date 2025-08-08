@@ -1,0 +1,158 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Mojo import="Mapping.xml">
+	<Security>
+		<Property name="EnforceSecurity" value="true"/>
+		<Property name="SecurityManagerImpl" value="mojo.km.security.SecurityAdapter"/>
+		<Property name="AuthenticatorImpl" value="mojo.km.security.SecurityManagerAuthenticator"/><!-- 79250 U.S -->
+		<Property name="LoginPageURL" value="/appshell/jsp/login.jsp"/>
+		<Property name="AccessDeniedPageURL" value="/appshell/jsp/login.jsp"/>
+		<Property name="UserProfileClass" value="pd.contact.user.UserProfile"/>
+		<Property name="UserProfileSessionKey" value="UserProfile"/>
+		<FullAccessUserTypes>
+			<UserType>MA</UserType>
+		</FullAccessUserTypes>
+		<URLResources>
+			<Resource url="/security.war/displaySARoleSearch.do" requiredUserTypes="MA"></Resource>
+			<Resource url="/security.war/displaySAUserSearch.do" requiredUserTypes="MA"/>
+			<Resource url="/security.war/displayAssignRolesSearch.do" requiredUserTypes="MA,SA,ASA"/>
+			<Resource url="/security.war/displayRoleSearch.do" requiredUserTypes="MA,SA"/>
+			<Resource url="/security.war/displayUserGroupSearch.do" requiredUserTypes="MA,SA,ASA"/>
+			<Resource prefix="/security.war/test/" requiredUserTypes="MA,SA"/>			
+			
+			<!-- ***** BEGIN Juvenile Warrants ***** -->
+			
+			<!-- Inactivate -->
+			<Resource url="/JuvenileWarrants/displayGenericSearch.do" requiredFeatures="JW-INACTIVATE">
+					<QueryParam name="warrantTypeUI" value="inactivate"/>					
+			</Resource>
+			
+			<!-- Arrest  -->
+			<Resource url="/JuvenileWarrants/displayJOTSearch.do" requiredFeatures="JW-ARR-INIT">
+					<QueryParam name="warrantTypeUI" value="arr"/>
+			</Resource>
+			<Resource url="/JuvenileWarrants/displayGenericSearch.do" requiredFeatures="JW-ARR-REQACT">
+					<QueryParam name="warrantTypeUI" value="actARR"/>
+			</Resource>
+			
+			<!-- Directive to Apprehend -->
+			<Resource url="/JuvenileWarrants/displayJOTSearch.do" requiredFeatures="JW-DTA-INIT">
+					<QueryParam name="warrantTypeUI" value="dta"/>
+			</Resource>
+			<Resource url="/JuvenileWarrants/displayGenericSearch.do" requiredFeatures="JW-DTA-REQACK">
+					<QueryParam name="warrantTypeUI" value="reqAckDTA"/>
+			</Resource>
+			<Resource url="/JuvenileWarrants/displayGenericSearch.do" requiredFeatures="JW-DTA-REQACT">
+					<QueryParam name="warrantTypeUI" value="actDTA"/>
+			</Resource>			
+			
+			<!-- Probable Cause -->
+			<Resource url="/JuvenileWarrants/displayJOTSearch.do" requiredFeatures="JW-PC-INIT">
+					<QueryParam name="warrantTypeUI" value="pc"/>
+			</Resource>
+			
+			<!-- Order of Immediate Custody -->
+			<Resource url="/JuvenileWarrants/displayJJSSearch.do" requiredFeatures="JW-OIC-INIT">
+					<QueryParam name="warrantTypeUI" value="oic"/>
+			</Resource>
+			<Resource url="/JuvenileWarrants/displayGenericSearch.do" requiredFeatures="JW-OIC-REQSIG">
+					<QueryParam name="warrantTypeUI" value="reqSigOIC"/>
+			</Resource>
+			<Resource url="/JuvenileWarrants/displayGenericSearch.do" requiredFeatures="JW-OIC-UPDATE">
+					<QueryParam name="warrantTypeUI" value="updateOIC"/>
+			</Resource>
+			
+			<!-- Violation of Probation -->
+			<Resource url="/JuvenileWarrants/displayJJSSearch.do" requiredFeatures="JW-VOP-INIT">
+					<QueryParam name="warrantTypeUI" value="vop"/>
+			</Resource>			
+			<Resource url="/JuvenileWarrants/displayGenericSearch.do" requiredFeatures="JW-VOP-REQACT">
+					<QueryParam name="warrantTypeUI" value="actVOP"/>
+			</Resource>						
+			<Resource url="/JuvenileWarrants/displayGenericSearch.do" requiredFeatures="JW-VOP-UPDATE">
+					<QueryParam name="warrantTypeUI" value="updateVOP"/>
+			</Resource>			
+
+			<!-- Recall -->
+			<Resource url="/JuvenileWarrants/displayGenericSearch.do" requiredFeatures="JW-RECALL">
+					<QueryParam name="warrantTypeUI" value="recall"/>
+			</Resource>
+			
+			<!-- Release Juvenile -->
+			<Resource url="/JuvenileWarrants/displayGenericSearch.do" requiredFeatures="JW-REL-DECISION">
+					<QueryParam name="warrantTypeUI" value="releaseDecision"/>					
+			</Resource>
+			<Resource url="/JuvenileWarrants/displayGenericSearch.do" requiredFeatures="JW-REL-TO-JP">
+					<QueryParam name="warrantTypeUI" value="releaseToJP"/>					
+			</Resource>			
+			<Resource url="/JuvenileWarrants/displayGenericSearch.do" requiredFeatures="JW-REL-TO-PER">
+					<QueryParam name="warrantTypeUI" value="releaseToPerson"/>					
+			</Resource>
+			
+			<!-- Manage Juvenile Warrant Service -->
+			<Resource url="/JuvenileWarrants/displayGenericSearch.do" requiredFeatures="JW-WARRANT-SRVC">
+					<QueryParam name="warrantTypeUI" value="warrantService"/>
+			</Resource>			
+			<Resource url="/JuvenileWarrants/displayGenericSearch.do" requiredFeatures="JW-PROCESS-RTRN">
+					<QueryParam name="warrantTypeUI" value="processReturn"/>
+			</Resource>			
+			<Resource url="/JuvenileWarrants/displayGenericSearch.do" requiredFeatures="JW-REQ-RTRN">
+					<QueryParam name="warrantTypeUI" value="retSigStatus"/>
+			</Resource>
+			
+			<!-- ***** END Juvenile Warrants ***** -->			
+			
+		</URLResources>
+		<UnprotectedResources>
+		    <UnprotectedExtension extension=".jpg"/>
+		    <UnprotectedExtension extension=".gif"/>
+		    <UnprotectedExtension extension=".css"/>
+		    <UnprotectedExtension extension=".js"/>
+		    <UnprotectedExtension extension=".htm"/>
+		    <UnprotectedExtension extension=".pdf"/>
+			<Unprotected url="/appshell/jsp/help_allowPopups.jsp"/>
+			<Unprotected url="/appshell/jsp/aboutjims2.html"/>
+			<Unprotected url="/appshell/jsp/help_clearCache.jsp"/>
+			<Unprotected url="/appshell/jsp/help_wordViewer.jsp"/>
+			<Unprotected url="/appshell/jsp/help_removeSecurityInfoWarning.jsp"/>	
+			<Unprotected url="/appshell/handleValidateUserAction.do"/>
+			<Unprotected url="/appshell/handleValidateUserAction"/>
+			<Unprotected url="/appshell/handleValidateOfficerAction.do"/>
+			<Unprotected url="/appshell/handleValidateOfficerAction"/>
+			<Unprotected url="/appshell/displayCreateOfficerProfileAction.do"/>
+			<Unprotected url="/appshell/displayCreateOfficerProfileAction"/>
+			<Unprotected url="/appshell/displayCreateOfficerProfileSummaryAction.do"/>
+			<Unprotected url="/appshell/displayCreateOfficerProfileSummaryAction"/>
+			<Unprotected url="/appshell/submitCreateOfficerProfileAction.do"/>
+			<Unprotected url="/appshell/submitCreateOfficerProfileAction"/>
+			<Unprotected url="/appshell/displayCreateJIMS2AccountSummaryAction.do"/>
+			<Unprotected url="/appshell/displayCreateJIMS2AccountSummaryAction"/>
+			<Unprotected url="/appshell/submitCreateJIMS2AccountAction.do"/>
+			<Unprotected url="/appshell/submitCreateJIMS2AccountAction"/>	
+			<Unprotected url="/appshell/displayUpdatePassword.do"/>
+			<Unprotected url="/appshell/displayUpdatePassword"/>
+			<Unprotected url="/appshell/displayValidateServiceProviderAction.do"/>
+			<Unprotected url="/appshell/displayValidateServiceProviderAction"/>
+			<Unprotected url="/appshell/jsp/loginHelp.jsp"/>
+			<Unprotected url="/appshell/jsp/login.jsp"/>
+			<Unprotected url="/appshell/submitLogin.do"/>
+			<Unprotected url="/appshell/submitLogin"/>
+			<Unprotected url="/appshell/displayLogout.do"/>
+			<!-- Unprotected url="/appshell/displayLogout.do#"/ -->
+			<Unprotected url="/appshell/jsp/maintenance.jsp"/>
+			<Unprotected url="loginHelp.jsp"/>
+			<Unprotected url="/appshell/jsp/calendar.jsp"/>
+			<Unprotected url="/appshell/submitUpdatePasswordAction.do"/>
+			<Unprotected url="/appshell/submitUpdatePasswordAction"/>
+			<Unprotected url="/appshell/jsp/manuals.htm"/>
+			<Unprotected url="/appshell/jsp/demos.htm"/>
+		</UnprotectedResources>
+		<!-- <ConstraintMappings> 87191
+			<ConstraintType type="AGENCY" className="pd.contact.agency.Agency"/>		
+			<ConstraintType type="DEPARTMENT" className="pd.contact.agency.Department"/>
+			<ConstraintType type="ROLE" className="mojo.km.security.Role"/>
+			<ConstraintType type="USER" className="mojo.km.security.User"/>
+			<ConstraintType type="USERGROUP" className="mojo.km.security.UserGroup"/>
+			<ConstraintType type="FEATURE" className="mojo.km.security.Feature"/>
+		</ConstraintMappings> -->
+	</Security>
+</Mojo>	

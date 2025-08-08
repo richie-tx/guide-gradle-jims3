@@ -1,0 +1,1262 @@
+//Source file: C:\\views\\CommonSupervision\\app\\src\\ui\\juvenilecase\\action\\DisplayRiskAssessmentDetailsAction.java
+
+package ui.juvenilecase.action;
+
+import java.util.ArrayList;
+import java.util.Calendar;
+import java.util.Collection;
+import java.util.Collections;
+import java.util.Date;
+import java.util.Iterator;
+import java.util.List;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import messaging.codetable.reply.CodeResponseEvent;
+import messaging.juvenilecase.reply.CommunityAssessmentEvent;
+import messaging.juvenilecase.reply.CourtReferralAssessmentEvent;
+import messaging.juvenilecase.reply.InterviewAssessmentEvent;
+import messaging.juvenilecase.reply.ProgressAssessmentEvent;
+import messaging.juvenilecase.reply.ReferralAssessmentEvent;
+import messaging.juvenilecase.reply.ResidentialAssessmentEvent;
+import messaging.juvenilecase.reply.RiskAnswerResponseEvent;
+import messaging.juvenilecase.reply.RiskSuggestedCasePlanDomainResponseEvent;
+import messaging.juvenilecase.reply.TestingAssessmentEvent;
+import messaging.riskanalysis.GetRiskAssessmentDetailsEvent;
+import mojo.km.messaging.EventFactory;
+import mojo.km.messaging.Composite.CompositeResponse;
+import mojo.km.utilities.MessageUtil;
+import naming.JuvenileRiskAnalysisControllerServiceNames;
+import naming.PDCodeTableConstants;
+import naming.RiskAnalysisConstants;
+import naming.UIConstants;
+
+import org.apache.struts.action.Action;
+import org.apache.struts.action.ActionForm;
+import org.apache.struts.action.ActionForward;
+import org.apache.struts.action.ActionMapping;
+
+import ui.common.CodeHelper;
+import ui.juvenilecase.form.riskanalysis.RiskAnalysisForm;
+import ui.juvenilecase.form.riskanalysis.RiskAssessmentCommunityForm;
+import ui.juvenilecase.form.riskanalysis.RiskAssessmentCourtReferralForm;
+import ui.juvenilecase.form.riskanalysis.RiskAssessmentInterviewForm;
+import ui.juvenilecase.form.riskanalysis.RiskAssessmentProgressForm;
+import ui.juvenilecase.form.riskanalysis.RiskAssessmentReferralForm;
+import ui.juvenilecase.form.riskanalysis.RiskAssessmentResidentialForm;
+import ui.juvenilecase.form.riskanalysis.RiskAssessmentTestingForm;
+
+import org.apache.commons.collections.comparators.ComparatorChain;
+import org.apache.commons.collections.comparators.ReverseComparator;
+import org.apache.commons.lang.StringUtils;
+import org.ujac.util.BeanComparator;
+
+public class DisplayRiskAssessmentDetailsAction extends Action
+{
+	/**
+	 * @roseuid 433D8A0701B5
+	 */
+	public DisplayRiskAssessmentDetailsAction()
+	{
+	}
+
+	/**
+	 * @param aMapping
+	 * @param aForm
+	 * @param aRequest
+	 * @param aResponse
+	 * @return ActionForward
+	 * @roseuid 433C3D3E00CA
+	 */
+	public ActionForward execute(ActionMapping aMapping, ActionForm aForm, HttpServletRequest aRequest, HttpServletResponse aResponse)
+	{
+		RiskAnalysisForm riskForm = (RiskAnalysisForm)aForm;
+		//Takes user back a page
+		if( (riskForm.getAction() != null) && (riskForm.getAction().equals(UIConstants.BACK)) )
+		{
+			riskForm.setAction("");
+			return back(aMapping);
+		}
+		//Cancels and goes back to a preset page 
+		else if( (riskForm.getAction() != null) && (riskForm.getAction().equals(UIConstants.CANCEL)) )
+		{
+			riskForm.setAction("");
+			return cancel(aMapping);
+		}
+
+		ActionForward forward = null;
+
+		String assessmentId = aRequest.getParameter("assessmentId");
+		String assessmentType = aRequest.getParameter(RiskAnalysisConstants.RISK_ASSESSMENT_TYPE);
+
+		GetRiskAssessmentDetailsEvent event = (GetRiskAssessmentDetailsEvent)EventFactory.getInstance(JuvenileRiskAnalysisControllerServiceNames.GETRISKASSESSMENTDETAILS);
+
+		if( assessmentId == null )
+		{
+			assessmentId = riskForm.getAssessmentId();
+		}
+		if( assessmentType == null )
+		{
+			assessmentType = riskForm.getAssessmentType();
+		}
+
+		event.setAssessmentID(assessmentId);
+		event.setAssessmentType(assessmentType);
+
+		CompositeResponse composite = MessageUtil.postRequest(event);
+		//Gets the actual reponses to questions from the composite response and places them in a collection for the UI to display
+		Collection riskAssessmentDetails = MessageUtil.compositeToCollection(composite, RiskAnswerResponseEvent.class);
+		riskForm.setAssessmentDetailsResponseList(riskAssessmentDetails);
+		
+		//Three UI list for three different types of override reasons are created
+		List releaseOverrideReasons = new ArrayList();
+		List detentionOverrideReasons = new ArrayList();
+		List overrideOtherReasons = new ArrayList();
+
+		//Get the overridden reasons from the code table to place in the UI List
+		List overRiddenReasons = CodeHelper.getCodes(PDCodeTableConstants.OVERRIDDENREASON, true);
+		
+		//Sort Overridden Reasons
+		ArrayList sortFields = new ArrayList();
+		sortFields.add(new BeanComparator("code"));
+		ComparatorChain multiSort = new ComparatorChain(sortFields);
+		Collections.sort(overRiddenReasons, multiSort);
+		
+		//Places the overRiddenReasons from the code table in the UI list
+		Iterator<CodeResponseEvent> overRiddenReasonsIter = overRiddenReasons.iterator();
+		while( overRiddenReasonsIter.hasNext() )
+		{
+			CodeResponseEvent overRiddenReasonResponse = overRiddenReasonsIter.next();
+
+			char overRiddenReasonFirstChar = overRiddenReasonResponse.getCode().charAt(0);
+			
+			
+			if( overRiddenReasonFirstChar == RiskAnalysisConstants.OVERRIDE_TYPE_RELEASE_CODE_FIRST_CHAR )
+			{
+				releaseOverrideReasons.add(overRiddenReasonResponse);
+			}
+			else if( overRiddenReasonFirstChar == RiskAnalysisConstants.OVERRIDE_TYPE_DETENTION_CODE_FIRST_CHAR )
+			{
+				detentionOverrideReasons.add(overRiddenReasonResponse);
+			}
+			
+		}
+
+		//Set the UI overidden list
+		riskForm.setReleaseOverrideReasons(releaseOverrideReasons);
+		riskForm.setDetentionOverrideReasons(detentionOverrideReasons);
+		riskForm.setOverrideOtherReasons(overrideOtherReasons);
+
+		if( assessmentType.equals(RiskAnalysisConstants.RISK_TYPE_CUSTODY_REFERRAL) )
+		{
+			forward = custodyNavigateSetInfoAndCheckOverride(aMapping, aForm, aRequest, aResponse, riskForm,
+					assessmentType, composite);
+		}
+		else if( assessmentType.equals(RiskAnalysisConstants.RISK_TYPE_NON_CUSTODY_REFERRAL) )
+		{
+			forward = nonCustodyNavigateSetInfoAndCheckOverride(aMapping, aForm, aRequest, aResponse, riskForm,
+					assessmentType, composite);
+		}
+		else if( assessmentType.equals(RiskAnalysisConstants.RISK_TYPE_INTERVIEW) )
+		{
+			forward = interviewNavigateSetInfoAndCheckOverride(aMapping, aForm, aRequest, aResponse, riskForm,
+					assessmentType, composite);
+
+		}
+		else if( assessmentType.equals(RiskAnalysisConstants.RISK_TYPE_RESIDENTIAL) )
+		{
+			
+			forward = residentialNavigateSetInfoAndCheckOverride(aMapping, aForm, aRequest, aResponse, riskForm,
+					assessmentType, composite);
+			
+		}
+		else if( assessmentType.equals(RiskAnalysisConstants.RISK_TYPE_COMMUNITY) )
+		{
+			
+			forward = communityNavigateSetInfoAndCheckOverride(aMapping, aForm, aRequest, aResponse, riskForm,
+					assessmentType, composite);
+			
+		}
+		else if( assessmentType.equals(RiskAnalysisConstants.RISK_TYPE_PROGRESS) )
+		{
+			
+			forward = progressNavigateSetInfoAndCheckOverride(aMapping, aForm, aRequest, aResponse, riskForm,
+					assessmentType, composite);
+			
+		}
+		else if( assessmentType.equals(RiskAnalysisConstants.RISK_TYPE_TESTING) )
+		{
+			forward = testingNavigateSetInfoAndCheckOverride(aMapping, aForm, aRequest, aResponse, riskForm,
+					assessmentType, composite);
+		}
+		else if( assessmentType.equals(RiskAnalysisConstants.RISK_TYPE_COURT_REFERRAL_MALE) 
+				|| assessmentType.equals(RiskAnalysisConstants.RISK_TYPE_COURT_REFERRAL_FEMALE) )
+		{
+			forward = courtReferralNavigateSetInfoAndCheckOverride(aMapping, aForm, aRequest, aResponse, riskForm,
+					assessmentType, composite);
+		}
+
+		return forward;
+	}
+	
+	/**
+	 * @param aMapping
+	 * @param riskForm
+	 * @param assessmentType
+	 * @param composite
+	 * @return
+	 */
+	private ActionForward communityNavigateSetInfoAndCheckOverride(
+			ActionMapping aMapping, ActionForm aForm,
+			HttpServletRequest aRequest, HttpServletResponse aResponse,
+			RiskAnalysisForm riskForm, String assessmentType,
+			CompositeResponse composite) {
+		
+		ActionForward forward;
+		//Creates new form for the risk type
+		RiskAssessmentCommunityForm commForm = new RiskAssessmentCommunityForm();
+		
+		//Sends user to success page after over ridding a recommendation
+		if( (riskForm.getAction() != null) && (riskForm.getAction().equals(UIConstants.CONFIRM)) )
+		{
+			riskForm.setAction(UIConstants.CONFIRM);
+			//needs fixing!!!
+			SubmitCommunityAssessmentAction submitCommunityAssessmentAction = new SubmitCommunityAssessmentAction();
+			submitCommunityAssessmentAction.updateCommunityRiskAnalysisOverrideStatus(aMapping, aForm, aRequest, aResponse);
+			//above needs fixing!!
+			commForm = (RiskAssessmentCommunityForm)aRequest.getSession().getAttribute("riskCommunityForm");
+			commForm.setAction(UIConstants.SUCCESS);
+			riskForm.setAction(UIConstants.SUCCESS);
+			aRequest.getSession().setAttribute("riskCommunityForm", commForm);
+			return aMapping.findForward("communitySuccess");
+		}
+
+		//Shows user summary info before confirmation of over riding
+		boolean showSummary = false;
+		if( (riskForm.getAction() != null) && (riskForm.getAction().equals(UIConstants.SUMMARY)) )
+		{
+			showSummary = true;
+		}
+
+		if( showSummary )
+		{
+			commForm.setAction(UIConstants.SUMMARY);
+			riskForm.setAction("");
+		}
+		else
+		{
+			commForm.setAction(UIConstants.EDIT);
+			riskForm.clear() ;
+		}
+		
+		//Sets the Assessment Type
+		commForm.setAssessmentType(RiskAnalysisConstants.RISK_TYPE_COMMUNITY);
+		//Gets the Referral Assement Details from composite
+		CommunityAssessmentEvent progAssessEvent = (CommunityAssessmentEvent)MessageUtil.filterComposite(composite, CommunityAssessmentEvent.class);
+
+		if( progAssessEvent != null )
+		{
+			riskForm.setCommunityAssessEvent(progAssessEvent);
+			riskForm.setRiskAssessmentType(assessmentType);
+			riskForm.setFinalScore(String.valueOf(progAssessEvent.getFinalScore()));
+			//For Updating, currently only specific to Custody Refferal but will have to added to all types in the future
+			//refForm.setModReason(refAssessEvent.getModReason());
+			
+			commForm.setRecommendation(progAssessEvent.getRecommendation());
+
+			/* if we already have one of the two reason types stored,
+			 * then obviously we have already overridden the recommendation,
+			 * so set the form values appropriately
+			 */
+			if( notNullNotEmptyString( progAssessEvent.getOverRiddenReasonCd() )  || 
+					notNullNotEmptyString( progAssessEvent.getOverRiddenReasonOther()) )
+			{
+				if( commForm.getAction().equals( UIConstants.EDIT) )
+				{
+					riskForm.setRecommendationOverridden(progAssessEvent.isRecommendationOverridden());
+					riskForm.setOverRiddenReasonCd(progAssessEvent.getOverRiddenReasonCd());
+					
+					String overiddenReasonFirstTwo = progAssessEvent.getOverRiddenReasonCd().substring(0, 2);
+					if( StringUtils.equals(overiddenReasonFirstTwo, RiskAnalysisConstants.OVERRIDE_TYPE_OTHER_FIRST_TWO_RO)) 
+					{
+						riskForm.setOverRiddenReasonOther(progAssessEvent.getOverRiddenReasonOther());
+						riskForm.setOverRiddenReasonDetentionOther(null);
+					} 
+					else if (StringUtils.equals(overiddenReasonFirstTwo, RiskAnalysisConstants.OVERRIDE_TYPE_OTHER_FIRST_TWO_DO))
+					{
+						riskForm.setOverRiddenReasonDetentionOther(progAssessEvent.getOverRiddenReasonOther());
+						riskForm.setOverRiddenReasonOther(null);
+					}
+
+				}
+			}
+
+			String overRiddenReasonDesc = CodeHelper.getCodeDescription(PDCodeTableConstants.OVERRIDDENREASON, riskForm.getOverRiddenReasonCd());
+			riskForm.setOverRiddenReasonDesc(overRiddenReasonDesc);
+
+			String overRiddenReasonCd = riskForm.getOverRiddenReasonCd();
+
+			if( overRiddenReasonCd != null && overRiddenReasonCd.length() > 0 )
+			{
+				char overRiddenReasonFirstChar = overRiddenReasonCd.charAt(0);
+
+				if( overRiddenReasonFirstChar == RiskAnalysisConstants.OVERRIDE_TYPE_RELEASE_CODE_FIRST_CHAR )
+				{
+					riskForm.setOverRideType(RiskAnalysisConstants.OVERRIDE_TYPE_RELEASE);
+				}
+				else if( overRiddenReasonFirstChar == RiskAnalysisConstants.OVERRIDE_TYPE_DETENTION_CODE_FIRST_CHAR )
+				{
+					riskForm.setOverRideType(RiskAnalysisConstants.OVERRIDE_TYPE_DETENTION);
+				}
+				
+			}
+			
+		}
+		
+		aRequest.getSession().setAttribute("riskCommunityForm", commForm);
+		forward = aMapping.findForward("communitySuccess");
+		return forward;
+		
+	}
+	
+	/**
+	 * @param aMapping
+	 * @param riskForm
+	 * @param assessmentType
+	 * @param composite
+	 * @return
+	 */
+	private ActionForward progressNavigateSetInfoAndCheckOverride(
+			ActionMapping aMapping, ActionForm aForm,
+			HttpServletRequest aRequest, HttpServletResponse aResponse,
+			RiskAnalysisForm riskForm, String assessmentType,
+			CompositeResponse composite) {
+		
+		ActionForward forward;
+		//Creates new form for the risk type
+		RiskAssessmentProgressForm progForm = new RiskAssessmentProgressForm();
+		
+		//Sends user to success page after over ridding a recommendation
+		if( (riskForm.getAction() != null) && (riskForm.getAction().equals(UIConstants.CONFIRM)) )
+		{
+			riskForm.setAction(UIConstants.CONFIRM);
+			//needs fixing!!!
+			SubmitProgressAssessmentAction submitProgressAssessmentAction = new SubmitProgressAssessmentAction();
+			submitProgressAssessmentAction.updateProgressRiskAnalysisOverrideStatus(aMapping, aForm, aRequest, aResponse);
+			//above needs fixing!!
+			progForm = (RiskAssessmentProgressForm)aRequest.getSession().getAttribute("riskProgressForm");
+			progForm.setAction(UIConstants.SUCCESS);
+			riskForm.setAction(UIConstants.SUCCESS);
+			aRequest.getSession().setAttribute("riskProgressForm", progForm);
+			return aMapping.findForward("progressSuccess");
+		}
+
+		//Shows user summary info before confirmation of over riding
+		boolean showSummary = false;
+		if( (riskForm.getAction() != null) && (riskForm.getAction().equals(UIConstants.SUMMARY)) )
+		{
+			showSummary = true;
+		}
+
+		if( showSummary )
+		{
+			progForm.setAction(UIConstants.SUMMARY);
+			riskForm.setAction("");
+		}
+		else
+		{
+			progForm.setAction(UIConstants.EDIT);
+			riskForm.clear() ;
+		}
+		
+		//Sets the Assessment Type
+		progForm.setAssessmentType(RiskAnalysisConstants.RISK_TYPE_PROGRESS);
+		//Gets the Referral Assement Details from composite
+		ProgressAssessmentEvent progAssessEvent = (ProgressAssessmentEvent)MessageUtil.filterComposite(composite, ProgressAssessmentEvent.class);
+
+		if( progAssessEvent != null )
+		{
+			riskForm.setProgressAssessEvent(progAssessEvent);
+			riskForm.setRiskAssessmentType(assessmentType);
+			riskForm.setFinalScore(String.valueOf(progAssessEvent.getFinalScore()));
+			//For Updating, currently only specific to Custody Refferal but will have to added to all types in the future
+			//refForm.setModReason(refAssessEvent.getModReason());
+			
+			progForm.setRecommendation(progAssessEvent.getRecommendation());
+
+			/* if we already have one of the two reason types stored,
+			 * then obviously we have already overridden the recommendation,
+			 * so set the form values appropriately
+			 */
+			if( notNullNotEmptyString( progAssessEvent.getOverRiddenReasonCd() )  || 
+					notNullNotEmptyString( progAssessEvent.getOverRiddenReasonOther()) )
+			{
+				if( progForm.getAction().equals( UIConstants.EDIT) )
+				{
+					riskForm.setRecommendationOverridden(progAssessEvent.isRecommendationOverridden());
+					riskForm.setOverRiddenReasonCd(progAssessEvent.getOverRiddenReasonCd());
+
+					String overiddenReasonFirstTwo = progAssessEvent.getOverRiddenReasonCd().substring(0, 2);
+					if( StringUtils.equals(overiddenReasonFirstTwo, RiskAnalysisConstants.OVERRIDE_TYPE_OTHER_FIRST_TWO_RO)) 
+					{
+						riskForm.setOverRiddenReasonOther(progAssessEvent.getOverRiddenReasonOther());
+						riskForm.setOverRiddenReasonDetentionOther(null);
+					} 
+					else if (StringUtils.equals(overiddenReasonFirstTwo, RiskAnalysisConstants.OVERRIDE_TYPE_OTHER_FIRST_TWO_DO))
+					{
+						riskForm.setOverRiddenReasonDetentionOther(progAssessEvent.getOverRiddenReasonOther());
+						riskForm.setOverRiddenReasonOther(null);
+					}
+
+				}
+			}
+
+			String overRiddenReasonDesc = CodeHelper.getCodeDescription(PDCodeTableConstants.OVERRIDDENREASON, riskForm.getOverRiddenReasonCd());
+			riskForm.setOverRiddenReasonDesc(overRiddenReasonDesc);
+
+			String overRiddenReasonCd = riskForm.getOverRiddenReasonCd();
+
+			if( overRiddenReasonCd != null && overRiddenReasonCd.length() > 0 )
+			{
+				char overRiddenReasonFirstChar = overRiddenReasonCd.charAt(0);
+
+				if( overRiddenReasonFirstChar == RiskAnalysisConstants.OVERRIDE_TYPE_RELEASE_CODE_FIRST_CHAR )
+				{
+					riskForm.setOverRideType(RiskAnalysisConstants.OVERRIDE_TYPE_RELEASE);
+				}
+				else if( overRiddenReasonFirstChar == RiskAnalysisConstants.OVERRIDE_TYPE_DETENTION_CODE_FIRST_CHAR )
+				{
+					riskForm.setOverRideType(RiskAnalysisConstants.OVERRIDE_TYPE_DETENTION);
+				}
+				else if( overRiddenReasonFirstChar == RiskAnalysisConstants.OVERRIDE_TYPE_OTHER_CODE_FIRST_CHAR )
+				{
+					riskForm.setOverRideType(RiskAnalysisConstants.OVERRIDE_TYPE_OTHER);
+				}
+			}
+			
+		}
+		
+		aRequest.getSession().setAttribute("riskProgressForm", progForm);
+		forward = aMapping.findForward("progressSuccess");
+		return forward;
+		
+	}
+	
+	/**
+	 * @param aMapping
+	 * @param riskForm
+	 * @param assessmentType
+	 * @param composite
+	 * @return
+	 */
+	private ActionForward testingNavigateSetInfoAndCheckOverride(
+			ActionMapping aMapping, ActionForm aForm,
+			HttpServletRequest aRequest, HttpServletResponse aResponse,
+			RiskAnalysisForm riskForm, String assessmentType,
+			CompositeResponse composite) {
+		
+		ActionForward forward;
+		//Creates new form for the risk type
+		RiskAssessmentTestingForm testForm = new RiskAssessmentTestingForm();
+		
+		//Sends user to success page after over ridding a recommendation
+		if( (riskForm.getAction() != null) && (riskForm.getAction().equals(UIConstants.CONFIRM)) )
+		{
+			riskForm.setAction(UIConstants.CONFIRM);
+			//needs fixing!!!
+			SubmitTestingAssessmentAction submitTestingAssessmentAction = new SubmitTestingAssessmentAction();
+			submitTestingAssessmentAction.updateTestingRiskAnalysisOverrideStatus(aMapping, aForm, aRequest, aResponse);
+			//above needs fixing!!
+			testForm = (RiskAssessmentTestingForm)aRequest.getSession().getAttribute("riskTestingForm");
+			testForm.setAction(UIConstants.SUCCESS);
+			riskForm.setAction(UIConstants.SUCCESS);
+			aRequest.getSession().setAttribute("riskTestingForm", testForm);
+			return aMapping.findForward("testingSuccess");
+		}
+
+		//Shows user summary info before confirmation of over riding
+		boolean showSummary = false;
+		if( (riskForm.getAction() != null) && (riskForm.getAction().equals(UIConstants.SUMMARY)) )
+		{
+			showSummary = true;
+		}
+
+		if( showSummary )
+		{
+			testForm.setAction(UIConstants.SUMMARY);
+			riskForm.setAction("");
+		}
+		else
+		{
+			testForm.setAction(UIConstants.EDIT);
+			riskForm.clear() ;
+		}
+		
+		//Sets the Assessment Type
+		testForm.setAssessmentType(RiskAnalysisConstants.RISK_TYPE_TESTING);
+		//Gets the Referral Assement Details from composite
+		TestingAssessmentEvent testAssessEvent = (TestingAssessmentEvent)MessageUtil.filterComposite(composite, TestingAssessmentEvent.class);
+
+		if( testAssessEvent != null )
+		{
+			riskForm.setTestingAssessEvent(testAssessEvent);
+			riskForm.setRiskAssessmentType(assessmentType);
+			riskForm.setFinalScore(String.valueOf(testAssessEvent.getFinalScore()));
+			//For Updating, currently only specific to Custody Refferal but will have to added to all types in the future
+			//refForm.setModReason(refAssessEvent.getModReason());
+			
+			testForm.setRecommendation(testAssessEvent.getRecommendation());
+
+			/* if we already have one of the two reason types stored,
+			 * then obviously we have already overridden the recommendation,
+			 * so set the form values appropriately
+			 */
+			if( notNullNotEmptyString( testAssessEvent.getOverRiddenReasonCd() )  || 
+					notNullNotEmptyString( testAssessEvent.getOverRiddenReasonOther()) )
+			{
+				if( testForm.getAction().equals( UIConstants.EDIT) )
+				{
+					riskForm.setRecommendationOverridden(testAssessEvent.isRecommendationOverridden());
+					riskForm.setOverRiddenReasonCd(testAssessEvent.getOverRiddenReasonCd());
+
+					String overiddenReasonFirstTwo = testAssessEvent.getOverRiddenReasonCd().substring(0, 2);
+					if( StringUtils.equals(overiddenReasonFirstTwo, RiskAnalysisConstants.OVERRIDE_TYPE_OTHER_FIRST_TWO_RO)) 
+					{
+						riskForm.setOverRiddenReasonOther(testAssessEvent.getOverRiddenReasonOther());
+						riskForm.setOverRiddenReasonDetentionOther(null);
+					} 
+					else if (StringUtils.equals(overiddenReasonFirstTwo, RiskAnalysisConstants.OVERRIDE_TYPE_OTHER_FIRST_TWO_DO))
+					{
+						riskForm.setOverRiddenReasonDetentionOther(testAssessEvent.getOverRiddenReasonOther());
+						riskForm.setOverRiddenReasonOther(null);
+					}
+
+				}
+			}
+
+			String overRiddenReasonDesc = CodeHelper.getCodeDescription(PDCodeTableConstants.OVERRIDDENREASON, riskForm.getOverRiddenReasonCd());
+			riskForm.setOverRiddenReasonDesc(overRiddenReasonDesc);
+
+			String overRiddenReasonCd = riskForm.getOverRiddenReasonCd();
+
+			if( overRiddenReasonCd != null && overRiddenReasonCd.length() > 0 )
+			{
+				char overRiddenReasonFirstChar = overRiddenReasonCd.charAt(0);
+
+				if( overRiddenReasonFirstChar == RiskAnalysisConstants.OVERRIDE_TYPE_RELEASE_CODE_FIRST_CHAR )
+				{
+					riskForm.setOverRideType(RiskAnalysisConstants.OVERRIDE_TYPE_RELEASE);
+				}
+				else if( overRiddenReasonFirstChar == RiskAnalysisConstants.OVERRIDE_TYPE_DETENTION_CODE_FIRST_CHAR )
+				{
+					riskForm.setOverRideType(RiskAnalysisConstants.OVERRIDE_TYPE_DETENTION);
+				}
+			}
+			
+		}
+		
+		aRequest.getSession().setAttribute("riskTestingForm", testForm);
+		forward = aMapping.findForward("testingSuccess");
+		return forward;
+		
+	}
+	
+	/**
+	 * @param aMapping
+	 * @param riskForm
+	 * @param assessmentType
+	 * @param composite
+	 * @return
+	 */
+	private ActionForward residentialNavigateSetInfoAndCheckOverride(
+			ActionMapping aMapping, ActionForm aForm,
+			HttpServletRequest aRequest, HttpServletResponse aResponse,
+			RiskAnalysisForm riskForm, String assessmentType,
+			CompositeResponse composite) {
+		
+		ActionForward forward;
+		//Creates new form for the risk type
+		RiskAssessmentResidentialForm resForm = new RiskAssessmentResidentialForm();
+		
+		//Sends user to success page after over ridding a recommendation
+		if( (riskForm.getAction() != null) && (riskForm.getAction().equals(UIConstants.CONFIRM)) )
+		{
+			riskForm.setAction(UIConstants.CONFIRM);
+			//needs fixing!!!
+			SubmitResidentialAssessmentAction submitResidentialAssessmentAction = new SubmitResidentialAssessmentAction();
+			submitResidentialAssessmentAction.updateResidentialRiskAnalysisOverrideStatus(aMapping, aForm, aRequest, aResponse);
+			//above needs fixing!!
+			resForm = (RiskAssessmentResidentialForm)aRequest.getSession().getAttribute("riskResidentialForm");
+			resForm.setAction(UIConstants.SUCCESS);
+			riskForm.setAction(UIConstants.SUCCESS);
+			aRequest.getSession().setAttribute("riskResidentialForm", resForm);
+			return aMapping.findForward("residentialSuccess");
+		}
+
+		//Shows user summary info before confirmation of over riding
+		boolean showSummary = false;
+		if( (riskForm.getAction() != null) && (riskForm.getAction().equals(UIConstants.SUMMARY)) )
+		{
+			showSummary = true;
+		}
+
+		if( showSummary )
+		{
+			resForm.setAction(UIConstants.SUMMARY);
+			riskForm.setAction("");
+		}
+		else
+		{
+			resForm.setAction(UIConstants.EDIT);
+			riskForm.clear() ;
+		}
+		
+		//Sets the Assessment Type
+		resForm.setAssessmentType(RiskAnalysisConstants.RISK_TYPE_RESIDENTIAL);
+		//Gets the Referral Assement Details from composite
+		ResidentialAssessmentEvent resAssessEvent = (ResidentialAssessmentEvent)MessageUtil.filterComposite(composite, ResidentialAssessmentEvent.class);
+
+		if( resAssessEvent != null )
+		{
+			riskForm.setResidentialAssessEvent(resAssessEvent);
+			riskForm.setRiskAssessmentType(assessmentType);
+			riskForm.setFinalScore(String.valueOf(resAssessEvent.getFinalScore()));
+			//For Updating, currently only specific to Custody Refferal but will have to added to all types in the future
+			//refForm.setModReason(refAssessEvent.getModReason());
+			
+			resForm.setRecommendation(resAssessEvent.getRecommendation());
+
+			/* if we already have one of the two reason types stored,
+			 * then obviously we have already overridden the recommendation,
+			 * so set the form values appropriately
+			 */
+			if( notNullNotEmptyString( resAssessEvent.getOverRiddenReasonCd() )  || 
+					notNullNotEmptyString( resAssessEvent.getOverRiddenReasonOther()) )
+			{
+				if( resForm.getAction().equals( UIConstants.EDIT) )
+				{
+					riskForm.setRecommendationOverridden(resAssessEvent.isRecommendationOverridden());
+					riskForm.setOverRiddenReasonCd(resAssessEvent.getOverRiddenReasonCd());
+
+					String overiddenReasonFirstTwo = resAssessEvent.getOverRiddenReasonCd().substring(0, 2);
+					if( StringUtils.equals(overiddenReasonFirstTwo, RiskAnalysisConstants.OVERRIDE_TYPE_OTHER_FIRST_TWO_RO)) 
+					{
+						riskForm.setOverRiddenReasonOther(resAssessEvent.getOverRiddenReasonOther());
+						riskForm.setOverRiddenReasonDetentionOther(null);
+					} 
+					else if (StringUtils.equals(overiddenReasonFirstTwo, RiskAnalysisConstants.OVERRIDE_TYPE_OTHER_FIRST_TWO_DO))
+					{
+						riskForm.setOverRiddenReasonDetentionOther(resAssessEvent.getOverRiddenReasonOther());
+						riskForm.setOverRiddenReasonOther(null);
+					}
+
+					
+				}
+			}
+
+			String overRiddenReasonDesc = CodeHelper.getCodeDescription(PDCodeTableConstants.OVERRIDDENREASON, riskForm.getOverRiddenReasonCd());
+			riskForm.setOverRiddenReasonDesc(overRiddenReasonDesc);
+
+			String overRiddenReasonCd = riskForm.getOverRiddenReasonCd();
+
+			if( overRiddenReasonCd != null && overRiddenReasonCd.length() > 0 )
+			{
+				char overRiddenReasonFirstChar = overRiddenReasonCd.charAt(0);
+
+				if( overRiddenReasonFirstChar == RiskAnalysisConstants.OVERRIDE_TYPE_RELEASE_CODE_FIRST_CHAR )
+				{
+					riskForm.setOverRideType(RiskAnalysisConstants.OVERRIDE_TYPE_RELEASE);
+				}
+				else if( overRiddenReasonFirstChar == RiskAnalysisConstants.OVERRIDE_TYPE_DETENTION_CODE_FIRST_CHAR )
+				{
+					riskForm.setOverRideType(RiskAnalysisConstants.OVERRIDE_TYPE_DETENTION);
+				}
+			}
+			
+		}
+		
+		aRequest.getSession().setAttribute("riskResidentialForm", resForm);
+		forward = aMapping.findForward("residentialSuccess");
+		return forward;
+		
+	}
+	
+	/**
+	 * @param aMapping
+	 * @param riskForm
+	 * @param assessmentType
+	 * @param composite
+	 * @return
+	 */
+	private ActionForward interviewNavigateSetInfoAndCheckOverride(
+			ActionMapping aMapping, ActionForm aForm,
+			HttpServletRequest aRequest, HttpServletResponse aResponse,
+			RiskAnalysisForm riskForm, String assessmentType,
+			CompositeResponse composite) {
+		
+		ActionForward forward;
+		//Creates new form for the risk type
+		RiskAssessmentInterviewForm intForm = new RiskAssessmentInterviewForm();
+		
+		//Sends user to success page after over ridding a recommendation
+		if( (riskForm.getAction() != null) && (riskForm.getAction().equals(UIConstants.CONFIRM)) )
+		{
+			riskForm.setAction(UIConstants.CONFIRM);
+			//needs fixing!!!
+			SubmitInterviewAssessmentAction submitInterviewAssessmentAction = new SubmitInterviewAssessmentAction();
+			submitInterviewAssessmentAction.updateInterviewRiskAnalysisOverrideStatus(aMapping, aForm, aRequest, aResponse);
+			//above needs fixing!!
+			intForm = (RiskAssessmentInterviewForm)aRequest.getSession().getAttribute("riskInterviewForm");
+			intForm.setAction(UIConstants.SUCCESS);
+			riskForm.setAction(UIConstants.SUCCESS);
+			aRequest.getSession().setAttribute("riskInterviewForm", intForm);
+			return aMapping.findForward("interviewSuccess");
+		}
+
+		//Shows user summary info before confirmation of over riding
+		boolean showSummary = false;
+		if( (riskForm.getAction() != null) && (riskForm.getAction().equals(UIConstants.SUMMARY)) )
+		{
+			showSummary = true;
+		}
+
+		if( showSummary )
+		{
+			intForm.setAction(UIConstants.SUMMARY);
+			riskForm.setAction("");
+		}
+		else
+		{
+			intForm.setAction(UIConstants.EDIT);
+			riskForm.clear() ;
+		}
+		
+		//Sets the Assessment Type
+		intForm.setAssessmentType(RiskAnalysisConstants.RISK_TYPE_INTERVIEW);
+		//Gets the Referral Assement Details from composite
+		InterviewAssessmentEvent intAssessEvent = (InterviewAssessmentEvent)MessageUtil.filterComposite(composite, InterviewAssessmentEvent.class);
+
+		if( intAssessEvent != null )
+		{
+			riskForm.setInterviewAssessEvent(intAssessEvent);
+			riskForm.setRiskAssessmentType(assessmentType);
+			riskForm.setFinalScore(String.valueOf(intAssessEvent.getFinalScore()));
+			//For Updating, currently only specific to Custody Refferal but will have to added to all types in the future
+			//refForm.setModReason(refAssessEvent.getModReason());
+			
+			intForm.setRecommendation(intAssessEvent.getRecommendation());
+
+			/* if we already have one of the two reason types stored,
+			 * then obviously we have already overridden the recommendation,
+			 * so set the form values appropriately
+			 */
+			if( notNullNotEmptyString( intAssessEvent.getOverRiddenReasonCd() )  || 
+					notNullNotEmptyString( intAssessEvent.getOverRiddenReasonOther()) )
+			{
+				if( intForm.getAction().equals( UIConstants.EDIT) )
+				{
+					riskForm.setRecommendationOverridden(intAssessEvent.isRecommendationOverridden());
+					riskForm.setOverRiddenReasonCd(intAssessEvent.getOverRiddenReasonCd());
+					
+					String overiddenReasonFirstTwo = intAssessEvent.getOverRiddenReasonCd().substring(0, 2);
+					if( StringUtils.equals(overiddenReasonFirstTwo, RiskAnalysisConstants.OVERRIDE_TYPE_OTHER_FIRST_TWO_RO)) 
+					{
+						riskForm.setOverRiddenReasonOther(intAssessEvent.getOverRiddenReasonOther());
+						riskForm.setOverRiddenReasonDetentionOther(null);
+					} 
+					else if (StringUtils.equals(overiddenReasonFirstTwo, RiskAnalysisConstants.OVERRIDE_TYPE_OTHER_FIRST_TWO_DO))
+					{
+						riskForm.setOverRiddenReasonDetentionOther(intAssessEvent.getOverRiddenReasonOther());
+						riskForm.setOverRiddenReasonOther(null);
+					}
+
+				}
+			}
+
+			String overRiddenReasonDesc = CodeHelper.getCodeDescription(PDCodeTableConstants.OVERRIDDENREASON, riskForm.getOverRiddenReasonCd());
+			riskForm.setOverRiddenReasonDesc(overRiddenReasonDesc);
+
+			String overRiddenReasonCd = riskForm.getOverRiddenReasonCd();
+
+			if( overRiddenReasonCd != null && overRiddenReasonCd.length() > 0 )
+			{
+				char overRiddenReasonFirstChar = overRiddenReasonCd.charAt(0);
+
+				if( overRiddenReasonFirstChar == RiskAnalysisConstants.OVERRIDE_TYPE_RELEASE_CODE_FIRST_CHAR )
+				{
+					riskForm.setOverRideType(RiskAnalysisConstants.OVERRIDE_TYPE_RELEASE);
+				}
+				else if( overRiddenReasonFirstChar == RiskAnalysisConstants.OVERRIDE_TYPE_DETENTION_CODE_FIRST_CHAR )
+				{
+					riskForm.setOverRideType(RiskAnalysisConstants.OVERRIDE_TYPE_DETENTION);
+				}
+			}
+			
+		}
+		
+		aRequest.getSession().setAttribute("riskInterviewForm", intForm);
+		forward = aMapping.findForward("interviewSuccess");
+		return forward;
+		
+	}
+
+	/**
+	 * @param aMapping
+	 * @param riskForm
+	 * @param assessmentType
+	 * @param composite
+	 * @return
+	 */
+	private ActionForward nonCustodyNavigateSetInfoAndCheckOverride(
+			ActionMapping aMapping, ActionForm aForm,
+			HttpServletRequest aRequest, HttpServletResponse aResponse,
+			RiskAnalysisForm riskForm, String assessmentType,
+			CompositeResponse composite) {
+		
+		ActionForward forward;
+		//Creates new form for the risk type
+		RiskAssessmentReferralForm refForm = new RiskAssessmentReferralForm();
+		
+		//Sends user to success page after over ridding a recommendation
+		if( (riskForm.getAction() != null) && (riskForm.getAction().equals(UIConstants.CONFIRM)) )
+		{
+			riskForm.setAction(UIConstants.CONFIRM);
+			SubmitReferralAssessmentAction submitReferralAssessmentAction = new SubmitReferralAssessmentAction();
+			submitReferralAssessmentAction.updateReferralRiskAnalysisOverrideStatus(aMapping, aForm, aRequest, aResponse);
+
+			refForm = (RiskAssessmentReferralForm)aRequest.getSession().getAttribute("riskReferralForm");
+			refForm.setAction(UIConstants.SUCCESS);
+			riskForm.setAction(UIConstants.SUCCESS);
+			aRequest.getSession().setAttribute("riskReferralForm", refForm);
+			return aMapping.findForward("referralSuccess");
+		}
+
+		//Shows user summary info before confirmation of over riding
+		boolean showSummary = false;
+		if( (riskForm.getAction() != null) && (riskForm.getAction().equals(UIConstants.SUMMARY)) )
+		{
+			showSummary = true;
+		}
+
+		if( showSummary )
+		{
+			refForm.setAction(UIConstants.SUMMARY);
+			riskForm.setAction("");
+		}
+		else
+		{
+			refForm.setAction(UIConstants.EDIT);
+			riskForm.clear() ;
+		}
+		
+		//Sets the Assessment Type
+		refForm.setAssessmentType(RiskAnalysisConstants.RISK_TYPE_NON_CUSTODY_REFERRAL);
+		//Gets the Referral Assement Details from composite
+		ReferralAssessmentEvent refAssessEvent = (ReferralAssessmentEvent)MessageUtil.filterComposite(composite, ReferralAssessmentEvent.class);
+
+		if( refAssessEvent != null )
+		{
+			riskForm.setReferralAssessEvent(refAssessEvent);
+			riskForm.setRiskAssessmentType(assessmentType);
+			riskForm.setFinalScore(String.valueOf(refAssessEvent.getFinalScore()));
+			//For Updating, currently only specific to Custody Refferal but will have to added to all types in the future
+			//refForm.setModReason(refAssessEvent.getModReason());
+			
+			refForm.setRecommendation(refAssessEvent.getRecommendation());
+
+			/* if we already have one of the two reason types stored,
+			 * then obviously we have already overridden the recommendation,
+			 * so set the form values appropriately
+			 */
+			if( notNullNotEmptyString( refAssessEvent.getOverRiddenReasonCd() )  || 
+					notNullNotEmptyString( refAssessEvent.getOverRiddenReasonOther()) )
+			{
+				if( refForm.getAction().equals( UIConstants.EDIT) )
+				{
+					riskForm.setRecommendationOverridden(refAssessEvent.isRecommendationOverridden());
+					riskForm.setOverRiddenReasonCd(refAssessEvent.getOverRiddenReasonCd());
+
+					String overiddenReasonFirstTwo = refAssessEvent.getOverRiddenReasonCd().substring(0, 2);
+					if( StringUtils.equals(overiddenReasonFirstTwo, RiskAnalysisConstants.OVERRIDE_TYPE_OTHER_FIRST_TWO_RO)) 
+					{
+						riskForm.setOverRiddenReasonOther(refAssessEvent.getOverRiddenReasonOther());
+						riskForm.setOverRiddenReasonDetentionOther(null);
+					} 
+					else if (StringUtils.equals(overiddenReasonFirstTwo, RiskAnalysisConstants.OVERRIDE_TYPE_OTHER_FIRST_TWO_DO))
+					{
+						riskForm.setOverRiddenReasonDetentionOther(refAssessEvent.getOverRiddenReasonOther());
+						riskForm.setOverRiddenReasonOther(null);
+					}
+
+				}
+			}
+
+			String overRiddenReasonDesc = CodeHelper.getCodeDescription(PDCodeTableConstants.OVERRIDDENREASON, riskForm.getOverRiddenReasonCd());
+			riskForm.setOverRiddenReasonDesc(overRiddenReasonDesc);
+
+			String overRiddenReasonCd = riskForm.getOverRiddenReasonCd();
+
+			if( overRiddenReasonCd != null && overRiddenReasonCd.length() > 0 )
+			{
+				char overRiddenReasonFirstChar = overRiddenReasonCd.charAt(0);
+
+				if( overRiddenReasonFirstChar == RiskAnalysisConstants.OVERRIDE_TYPE_RELEASE_CODE_FIRST_CHAR )
+				{
+					riskForm.setOverRideType(RiskAnalysisConstants.OVERRIDE_TYPE_RELEASE);
+				}
+				else if( overRiddenReasonFirstChar == RiskAnalysisConstants.OVERRIDE_TYPE_DETENTION_CODE_FIRST_CHAR )
+				{
+					riskForm.setOverRideType(RiskAnalysisConstants.OVERRIDE_TYPE_DETENTION);
+				}
+				
+			}
+			
+		}
+		
+		aRequest.getSession().setAttribute("riskReferralForm", refForm);
+		forward = aMapping.findForward("referralSuccess");
+		return forward;
+		
+	}
+
+	/**
+	 * @param aMapping
+	 * @param aForm
+	 * @param aRequest
+	 * @param aResponse
+	 * @param riskForm
+	 * @param assessmentType
+	 * @param composite
+	 * @return
+	 */
+	private ActionForward custodyNavigateSetInfoAndCheckOverride(ActionMapping aMapping, ActionForm aForm,
+			HttpServletRequest aRequest, HttpServletResponse aResponse,
+			RiskAnalysisForm riskForm, String assessmentType,
+			CompositeResponse composite) {
+		
+		ActionForward forward;
+		//Creates new form for the risk type
+		RiskAssessmentReferralForm refForm = new RiskAssessmentReferralForm();
+		
+		//Sends user to success page after over ridding a recommendation
+		if( (riskForm.getAction() != null) && (riskForm.getAction().equals(UIConstants.CONFIRM)) )
+		{
+			riskForm.setAction(UIConstants.CONFIRM);
+			SubmitReferralAssessmentAction submitReferralAssessmentAction = new SubmitReferralAssessmentAction();
+			submitReferralAssessmentAction.updateReferralRiskAnalysisOverrideStatus(aMapping, aForm, aRequest, aResponse);
+
+			refForm = (RiskAssessmentReferralForm)aRequest.getSession().getAttribute("riskReferralForm");
+			refForm.setAction(UIConstants.SUCCESS);
+			riskForm.setAction(UIConstants.SUCCESS);
+			aRequest.getSession().setAttribute("riskReferralForm", refForm);
+			return aMapping.findForward("newReferralSuccess");
+		}
+
+		//Shows user summary info before confirmation of over riding
+		boolean showSummary = false;
+		if( (riskForm.getAction() != null) && (riskForm.getAction().equals(UIConstants.SUMMARY)) )
+		{
+			showSummary = true;
+		}
+
+		if( showSummary )
+		{
+			refForm.setAction(UIConstants.SUMMARY);
+			riskForm.setAction("");
+		}
+		else
+		{
+			refForm.setAction(UIConstants.EDIT);
+			riskForm.clear() ;
+		}
+		
+		//Sets the Assessment Type
+		refForm.setAssessmentType(RiskAnalysisConstants.RISK_TYPE_CUSTODY_REFERRAL);
+		//Gets the Referral Assement Details from composite
+		ReferralAssessmentEvent refAssessEvent = (ReferralAssessmentEvent)MessageUtil.filterComposite(composite, ReferralAssessmentEvent.class);
+
+		if( refAssessEvent != null )
+		{
+			riskForm.setReferralAssessEvent(refAssessEvent);
+			riskForm.setRiskAssessmentType(assessmentType);
+			riskForm.setFinalScore(String.valueOf(refAssessEvent.getFinalScore()));
+			refForm.setRecommendationScore(String.valueOf(refAssessEvent.getFinalScore()));
+			//For Updating, currently only specific to Custody Refferal but will have to added to all types in the future
+			refForm.setModReason(refAssessEvent.getModReason());
+			
+			//Check to see if entered date is passed 90 days, if it is, an update will not be allowed
+			Date now = new Date();
+			Date enteredDate = refAssessEvent.getEnteredDate();
+			
+			Calendar c1 = Calendar.getInstance(); 
+			c1.setTime(enteredDate);
+			
+			Calendar c2 = Calendar.getInstance(); 
+			c2.setTime(now);
+			c2.add(Calendar.DATE, -90);
+			Date threeMonthsAgo = c2.getTime();
+		    c2.setTime(threeMonthsAgo);
+		    
+		    if(c1.after(c2)) {
+				riskForm.setOverNinetyDays(UIConstants.YES_FULL_TEXT); 
+			} else {
+				riskForm.setOverNinetyDays(UIConstants.NO_FULL_TEXT);
+			}
+			//End date over 90 days check
+			
+		    //The following if is specific 
+			if (refAssessEvent.isMoreThanOneFailure()) {
+				refForm.setMoreThanOneFailureString(UIConstants.YES_FULL_TEXT);
+			} else {
+				refForm.setMoreThanOneFailureString(UIConstants.NO_FULL_TEXT);
+			}
+
+			{ String riskMandatoryDetentionDesc = CodeHelper.getCodeDescription(PDCodeTableConstants.RISK_MANDATORY_DETENTION, refAssessEvent.getRiskMandatoryDetentionCd());
+			  refForm.setRiskMandatoryDetentionDesc(riskMandatoryDetentionDesc);
+			}
+			refForm.setRecommendation(refAssessEvent.getRecommendation());
+
+			/* if we already have one of the two reason types stored,
+			 * then obviously we have already overridden the recommendation,
+			 * so set the form values appropriately
+			 */
+			if( notNullNotEmptyString( refAssessEvent.getOverRiddenReasonCd() )  || 
+					notNullNotEmptyString( refAssessEvent.getOverRiddenReasonOther()) )
+			{
+				if( refForm.getAction().equals( UIConstants.EDIT) )
+				{
+					riskForm.setRecommendationOverridden(refAssessEvent.isRecommendationOverridden());
+					riskForm.setOverRiddenReasonCd(refAssessEvent.getOverRiddenReasonCd());
+
+					String overiddenReasonFirstTwo = refAssessEvent.getOverRiddenReasonCd().substring(0, 2);
+					if( StringUtils.equals(overiddenReasonFirstTwo, RiskAnalysisConstants.OVERRIDE_TYPE_OTHER_FIRST_TWO_RO)) 
+					{
+						riskForm.setOverRiddenReasonOther(refAssessEvent.getOverRiddenReasonOther());
+						riskForm.setOverRiddenReasonDetentionOther(null);
+					} 
+					else if (StringUtils.equals(overiddenReasonFirstTwo, RiskAnalysisConstants.OVERRIDE_TYPE_OTHER_FIRST_TWO_DO))
+					{
+						riskForm.setOverRiddenReasonDetentionOther(refAssessEvent.getOverRiddenReasonOther());
+						riskForm.setOverRiddenReasonOther(null);
+					}
+
+				}
+			}
+
+			String overRiddenReasonDesc = CodeHelper.getCodeDescription(PDCodeTableConstants.OVERRIDDENREASON, riskForm.getOverRiddenReasonCd());
+			riskForm.setOverRiddenReasonDesc(overRiddenReasonDesc);
+
+			String overRiddenReasonCd = riskForm.getOverRiddenReasonCd();
+
+			if( overRiddenReasonCd != null && overRiddenReasonCd.length() > 0 )
+			{
+				char overRiddenReasonFirstChar = overRiddenReasonCd.charAt(0);
+
+				if( overRiddenReasonFirstChar == RiskAnalysisConstants.OVERRIDE_TYPE_RELEASE_CODE_FIRST_CHAR )
+				{
+					riskForm.setOverRideType(RiskAnalysisConstants.OVERRIDE_TYPE_RELEASE);
+				}
+				else if( overRiddenReasonFirstChar == RiskAnalysisConstants.OVERRIDE_TYPE_DETENTION_CODE_FIRST_CHAR )
+				{
+					riskForm.setOverRideType(RiskAnalysisConstants.OVERRIDE_TYPE_DETENTION);
+				}
+				
+			}
+			
+		}
+		
+		aRequest.getSession().setAttribute("riskReferralForm", refForm);
+		forward = aMapping.findForward("newReferralSuccess");
+		return forward;
+	}
+	
+	/**
+	 * @param aMapping
+	 * @param aForm
+	 * @param aRequest
+	 * @param aResponse
+	 * @param riskForm
+	 * @param assessmentType
+	 * @param composite
+	 * @return
+	 */
+	private ActionForward courtReferralNavigateSetInfoAndCheckOverride(ActionMapping aMapping, ActionForm aForm,
+			HttpServletRequest aRequest, HttpServletResponse aResponse,
+			RiskAnalysisForm riskForm, String assessmentType,
+			CompositeResponse composite) {
+		
+		ActionForward forward;
+		//Creates new form for the risk type
+		RiskAssessmentCourtReferralForm refForm = new RiskAssessmentCourtReferralForm();
+		
+		//Sends user to success page after over ridding a recommendation
+		if( (riskForm.getAction() != null) && (riskForm.getAction().equals(UIConstants.CONFIRM)) )
+		{
+			riskForm.setAction(UIConstants.CONFIRM);
+			SubmitReferralAssessmentAction submitReferralAssessmentAction = new SubmitReferralAssessmentAction();
+			submitReferralAssessmentAction.updateReferralRiskAnalysisOverrideStatus(aMapping, aForm, aRequest, aResponse);
+
+			refForm = (RiskAssessmentCourtReferralForm)aRequest.getSession().getAttribute("riskCourtReferralForm");
+			refForm.setAction(UIConstants.SUCCESS);
+			riskForm.setAction(UIConstants.SUCCESS);
+			aRequest.getSession().setAttribute("riskCourtReferralForm", refForm);
+			return aMapping.findForward("courtReferralSuccess");
+		}
+
+		//Shows user summary info before confirmation of over riding
+		boolean showSummary = false;
+		if( (riskForm.getAction() != null) && (riskForm.getAction().equals(UIConstants.SUMMARY)) )
+		{
+			showSummary = true;
+		}
+
+		if( showSummary )
+		{
+			refForm.setAction(UIConstants.SUMMARY);
+			riskForm.setAction("");
+		}
+		else
+		{
+			refForm.setAction(UIConstants.EDIT);
+			riskForm.clear() ;
+		}
+		
+		//Sets the Assessment Type
+		
+		refForm.setAssessmentType(assessmentType); // RiskAnalysisConstants.RISK_TYPE_COURT_REFERRAL_MALE or RiskAnalysisConstants.RISK_TYPE_COURT_REFERRAL_FEMALE
+		
+		//Gets the Referral Assement Details from composite
+		CourtReferralAssessmentEvent refAssessEvent = (CourtReferralAssessmentEvent)MessageUtil.filterComposite(composite, CourtReferralAssessmentEvent.class);
+
+		if( refAssessEvent != null )
+		{
+			riskForm.setCourtReferralAssessmentEvent(refAssessEvent);
+			riskForm.setRiskAssessmentType(assessmentType);
+			//For Updating, currently only specific to Custody Refferal but will have to added to all types in the future
+			refForm.setModReason(refAssessEvent.getModReason());
+			
+			//Check to see if entered date is passed 90 days, if it is, an update will not be allowed
+			/*
+			Date now = new Date();
+			Date enteredDate = refAssessEvent.getEnteredDate();
+			
+			Calendar c1 = Calendar.getInstance(); 
+			c1.setTime(enteredDate);
+			
+			Calendar c2 = Calendar.getInstance(); 
+			c2.setTime(now);
+			c2.add(Calendar.DATE, -90);
+			Date threeMonthsAgo = c2.getTime();
+		    c2.setTime(threeMonthsAgo);
+		    
+		    if(c1.after(c2)) {
+				riskForm.setOverNinetyDays(UIConstants.YES_FULL_TEXT); 
+			} else {
+				riskForm.setOverNinetyDays(UIConstants.NO_FULL_TEXT);
+			}
+			//End date over 90 days check
+			*/
+		    
+			refForm.setRecommendations(refAssessEvent.getRecommendations());
+
+			/* if we already have one of the two reason types stored,
+			 * then obviously we have already overridden the recommendation,
+			 * so set the form values appropriately
+			 */
+			if( notNullNotEmptyString( refAssessEvent.getOverRiddenReasonCd() )  || 
+					notNullNotEmptyString( refAssessEvent.getOverRiddenReasonOther()) )
+			{
+				if( refForm.getAction().equals( UIConstants.EDIT) )
+				{
+					riskForm.setRecommendationOverridden(refAssessEvent.isRecommendationOverridden());
+					riskForm.setOverRiddenReasonCd(refAssessEvent.getOverRiddenReasonCd());
+
+					String overiddenReasonFirstTwo = refAssessEvent.getOverRiddenReasonCd().substring(0, 2);
+					if( StringUtils.equals(overiddenReasonFirstTwo, RiskAnalysisConstants.OVERRIDE_TYPE_OTHER_FIRST_TWO_RO)) 
+					{
+						riskForm.setOverRiddenReasonOther(refAssessEvent.getOverRiddenReasonOther());
+						riskForm.setOverRiddenReasonDetentionOther(null);
+					} 
+					else if (StringUtils.equals(overiddenReasonFirstTwo, RiskAnalysisConstants.OVERRIDE_TYPE_OTHER_FIRST_TWO_DO))
+					{
+						riskForm.setOverRiddenReasonDetentionOther(refAssessEvent.getOverRiddenReasonOther());
+						riskForm.setOverRiddenReasonOther(null);
+					}
+
+				}
+			}
+
+			String overRiddenReasonDesc = CodeHelper.getCodeDescription(PDCodeTableConstants.OVERRIDDENREASON, riskForm.getOverRiddenReasonCd());
+			riskForm.setOverRiddenReasonDesc(overRiddenReasonDesc);
+
+			String overRiddenReasonCd = riskForm.getOverRiddenReasonCd();
+
+			if( overRiddenReasonCd != null && overRiddenReasonCd.length() > 0 )
+			{
+				char overRiddenReasonFirstChar = overRiddenReasonCd.charAt(0);
+
+				if( overRiddenReasonFirstChar == RiskAnalysisConstants.OVERRIDE_TYPE_RELEASE_CODE_FIRST_CHAR )
+				{
+					riskForm.setOverRideType(RiskAnalysisConstants.OVERRIDE_TYPE_RELEASE);
+				}
+				else if( overRiddenReasonFirstChar == RiskAnalysisConstants.OVERRIDE_TYPE_DETENTION_CODE_FIRST_CHAR )
+				{
+					riskForm.setOverRideType(RiskAnalysisConstants.OVERRIDE_TYPE_DETENTION);
+				}
+				
+			}
+			
+			RiskSuggestedCasePlanDomainResponseEvent riskSuggestedCasePlanDomainResponseEvent 
+    			= (RiskSuggestedCasePlanDomainResponseEvent) MessageUtil.filterComposite(composite, RiskSuggestedCasePlanDomainResponseEvent.class);
+    
+		    if (riskSuggestedCasePlanDomainResponseEvent != null) {
+		    	refForm.setSuggestedCasePlanDomains(riskSuggestedCasePlanDomainResponseEvent.getSuggestedCasePlanDomainNames());
+		    }
+		    
+			//Completed Information
+		    if (refAssessEvent.isCompleted() == true)
+		    {
+		    	refForm.setCompleted(true);
+				refForm.setCollateralVisits(refAssessEvent.getCollateralVisits());
+				refForm.setFace2FaceVisits(refAssessEvent.getFace2FaceVisits());
+				refForm.setCourtDispositionTJPC(refAssessEvent.getCourtDispositionTJPC());
+				refForm.setJjsCourtDecision(refAssessEvent.getJjsCourtDecision()); 
+				refForm.setJjsCourtDisposition(refAssessEvent.getJjsCourtDisposition());
+		    }
+		    else
+		    {
+		    	refForm.setCompleted(false);
+		    }
+			
+		}
+		
+		aRequest.getSession().setAttribute("riskCourtReferralForm", refForm);
+		forward = aMapping.findForward("courtReferralSuccess");
+		return forward;
+	}
+
+	/* given a String, return true if it's not null and not empty
+	 * 
+	 */
+	private boolean notNullNotEmptyString( String str )
+	{
+		return( str != null  &&  (str.length() > 0) ) ;
+	}
+	
+	/*
+	 * 
+	 */
+	private ActionForward back(ActionMapping aMapping)
+	{
+		return aMapping.findForward("back");
+	}
+
+	/*
+	 * 
+	 */
+	private ActionForward cancel(ActionMapping aMapping)
+	{
+		return aMapping.findForward("cancel");
+	}
+}

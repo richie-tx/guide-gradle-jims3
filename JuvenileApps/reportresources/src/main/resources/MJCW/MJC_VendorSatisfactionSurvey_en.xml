@@ -1,0 +1,91 @@
+<?xml version="1.0" encoding="US-ASCII"?>
+<document size="LETTER" margin-left="30" margin-right="30" margin-top="50" margin-bottom="25">
+
+	<encryption allow-fillin="false" allow-modify-contents="false" allow-degraded-printing="true" allow-screen-readers="false" allow-copy="false"	allow-printing="false"/>
+	<meta author="JIMS2, Harris County" creator="JIMS2, Harris County" title="Vendor Satisfaction Survey"/>
+
+	<module>
+		
+		<font-def name="times new roman-16" family="times new roman" style="normal" size="16"/>
+		<font-def name="arial-18" family="arial" style="normal" size="18"/>
+		<font-def name="arial-14" family="arial" style="normal" size="14"/>
+		<font-def name="times new roman-14" family="times new roman" style="normal" size="14"/>
+		<font-def name="title" family="arial" style="bold" size="15"/>
+		<font-def name="text-small" family="times new roman" style="normal" size="9"/>
+		
+		<color-def name="custom-gray" color-space="RGB" value="153,153,153"/>
+		<color-def name="custom-blue" color-space="RGB" value="51,102,255"/>
+		<color-def name="custom-light-gray" color-space="RGB" value="217,217,217"/>
+		
+	</module>
+
+	<footer >
+		<footer-part width="500">
+			<table columns="1" width="100" halign="center" padding-bottom="20">
+				<cell halign="left">
+					${currentDate} ${casefileId}
+				</cell>
+			</table>
+		</footer-part>
+	</footer>
+	
+	_foreach_(sp ${serviceProviderName} 'even' 'odd')
+	    <new-page size="LETTER" margin-left="30" margin-right="30" margin-top="50" margin-bottom="25">
+	    </new-page>
+		
+		<table columns="2" border-style="none" border-width="0" widths="5,95" padding="0" spacing-after="10">
+			<cell halign="left" valign="top" leading="1" padding-top="0" line-spacing="1">
+			<paragraph>
+				<image source="MJCW/HarrisCountySeal.jpg" width="75" height="75" scale-to-fit="true"/>
+			</paragraph>
+			</cell>
+			<cell font="title" valign="top" halign="center"><b>HARRIS COUNTY<br/>JUVENILE PROBATION DEPARTMENT</b></cell>
+		</table>
+		
+		<paragraph spacing-after="25" halign="center">
+			<font name="arial-18">Vendor Satisfaction Survey</font>
+		</paragraph>
+				
+		<table columns="4" padding="3" border-width="0" widths="40,40,10,10">
+			<table-header bgcolor="custom-blue" halign="center" valign="top" font="times new roman-16">
+				<cell border-style="box">Overall Satisfaction</cell>
+				<cell fill-row="true" border-style="box">${sp}</cell>
+			</table-header>
+			<table-row bgcolor="custom-gray" border-style="box" font="arial-14">
+				<cell colspan="2">Please select the appropriate answer</cell>
+				<cell>Yes</cell>
+				<cell>No</cell>
+			</table-row>
+			<table-row border-style="box" font="times new roman-14" bgcolor="custom-light-gray">
+				<cell colspan="2">Was this service helpful?</cell>
+				<cell></cell>
+				<cell></cell>
+			</table-row>
+			<table-row border-style="box" font="times new roman-14" bgcolor="custom-light-gray">
+				<cell colspan="2">Was the program easy to get to?</cell>
+				<cell></cell>
+				<cell></cell>
+			</table-row>
+			<table-row border-style="box" font="times new roman-14" bgcolor="custom-light-gray">
+				<cell colspan="2">Are you interested in continuing the program?</cell>
+				<cell></cell>
+				<cell></cell>
+			</table-row>
+			<table-row border-style="box" font="times new roman-14" bgcolor="custom-light-gray">
+				<cell colspan="2">Did you enjoy the program?</cell>
+				<cell></cell>
+				<cell></cell>
+			</table-row>
+			<table-row border-style="box" font="times new roman-14" bgcolor="custom-light-gray">
+				<cell colspan="2">Are there things you would change about the program?</cell>
+				<cell></cell>
+				<cell></cell>
+			</table-row>
+			<table-row bgcolor="custom-gray" border-style="box" font="arial-14" halign="center">
+				<cell fill-row="true">Please enter any additional comments or concerns below:</cell>
+			</table-row>
+			<table-row border-style="box"><cell fill-row="true" height="300"></cell></table-row>
+		</table>
+	_endfor_
+    
+</document>

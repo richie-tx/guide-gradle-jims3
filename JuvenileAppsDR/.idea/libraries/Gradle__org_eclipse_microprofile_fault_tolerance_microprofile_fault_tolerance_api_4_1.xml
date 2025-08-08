@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="Gradle: org.eclipse.microprofile.fault-tolerance:microprofile-fault-tolerance-api:4.1" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="org.eclipse.microprofile.fault-tolerance" artifactId="microprofile-fault-tolerance-api" version="4.1" baseVersion="4.1" />
+    <CLASSES>
+      <root url="jar://$MAVEN_REPOSITORY$/org/eclipse/microprofile/fault-tolerance/microprofile-fault-tolerance-api/4.1/microprofile-fault-tolerance-api-4.1.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

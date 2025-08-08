@@ -1,0 +1,120 @@
+<?xml version="1.0" encoding="US-ASCII"?>
+<document size="LETTER" margin-left="50" margin-right="50" margin-top="50" margin-bottom="60">
+<encryption allow-fillin="false" allow-modify-contents="false" allow-degraded-printing="true" allow-screen-readers="false" allow-copy="false"	allow-printing="true"/>
+<meta author="JIMS2, Harris County" creator="JIMS2, Harris County" title="DTA Warrant"/>
+<viewer-preferences page-mode="NoThumbs" zoom="1"/>
+<module>
+<custom-tag alias="strong" tag="b">
+<attribute name="body" value="${body}"/>
+</custom-tag>
+
+<custom-tag alias="em" tag="i">
+<attribute name="body" value="${body}"/>
+</custom-tag>
+
+<custom-tag alias="ul" tag="list">
+<attribute name="body" value="${body}"/>
+</custom-tag>
+
+<custom-tag alias="ol" tag="ul">
+<attribute name="body" value="${body}"/>
+<attribute name="numbered" value="true"/>
+</custom-tag>
+ 
+<custom-tag alias="li" tag="list-item">
+<attribute name="body" value="${body}"/>
+</custom-tag>
+
+</module>
+
+	<font-def name="helvetica" family="Helvetica" style="normal" size="12"/>
+	<font-def name="geneva" family="georgia" style="normal" size="12"/>
+	<font-def name="arial" family="arial" style="normal" size="12"/>
+	<font-def name="arial_10" family="arial" style="normal" size="10"/>
+	<font-def name="arial_8" family="arial" style="normal" size="8"/>
+	<font-def name="times" family="Times" style="normal" size="12"/>
+	<font-def name="times_10" family="Times" style="normal" size="10"/>
+
+	<header>
+			<font name="times" size="12" style="normal">
+			<table columns="3" widths="30,35,30" spacing-before="30" border-style="none" keep-together="true" halign="center">
+				<table-row halign="center">
+					<cell halign="right"><b>The State Of Texas</b></cell>
+					<cell halign="center" ><b>&#167;</b></cell>
+					<cell halign="left"><b>Directive To Apprehend</b></cell>
+				</table-row>
+				<table-row halign="center">
+					<cell halign="right"><b>County Of Harris</b></cell>
+					<cell halign="center"><b>&#167;</b></cell>
+					<cell halign="left"><b>Warrant Number: ${warrantNum}</b></cell>
+				</table-row>
+			</table>	
+			</font>
+	</header>
+	
+	<footer padding-top="0">
+		<footer-part padding-top="0" halign="center" width="500">
+			<table columns="1" border-style="none">
+				<table-row>
+					<font name="arial_10" size="10" style="normal">
+						<cell valign="top" padding-top="15" halign="center">****NOT VALID WITHOUT COURT SEAL****</cell>
+					</font>
+				</table-row>
+	     	</table>
+		</footer-part>
+	</footer>	
+		
+	<paragraph halign="left" line-spacing="1.25" spacing-before="50" spacing-after="10">
+		<font name="arial_10" size="10" style="normal"><b>To The Sheriff Or Any Peace Officer Of Harris County, Texas</b>
+		</font>	
+	</paragraph>
+	
+	<paragraph halign="left" line-spacing="1.25" spacing-before="20" spacing-after="10">
+		<font name="arial_10" size="10" style="normal"><b>Greetings:</b>
+		</font>	
+	</paragraph>
+	
+	<paragraph halign="left" line-spacing="1.25" spacing-before="20" spacing-after="10">
+		<font name="arial_10" size="10" style="normal">WHEREAS, Complaint, in writing and under oath, has been made before me by ${officerName} - ${officerAgencyName}, which complaint is attached hereto and expressly made a part hereof for all purposes and said complaint having stated facts and information in my opinion sufficient to establish probable cause to believe ${firstName} ${middleName} ${lastName} ${suffix} engaged in Delinquent Conduct and for the issuance of this Directive to Apprehend;
+		</font>	
+	</paragraph>
+	
+	<paragraph halign="left" line-spacing="1.25" spacing-before="10" spacing-after="10">
+		<font name="arial_10" size="10" style="normal">You are therefore commanded to forthwith take custody of ${firstName} ${middleName} ${lastName} ${suffix}, for the ${offenseLevel} ${offenseDegree} offense of ${chargeDescription} committed on or about ${offenseDateAsString}, and said juvenile to the Harris County Juvenile Detention Center where juvenile shall be detained. 
+		</font>	
+	</paragraph>
+	
+	<table columns="1" width="92" halign="left" spacing-before="50">
+		<table-row>
+			<cell halign="left">
+				<font name="arial_10">HEREIN FAIL NOT and due return make hereof.</font>
+			</cell>
+		</table-row>
+		<table-row>
+			<cell halign="left" padding-top="10">
+				<font name="arial_10">Signed on this the _____ day of ___________________________, _______ at____o'clock _____.m.</font>
+			</cell>
+		</table-row>
+	</table>
+	
+		<table columns="1" width="50" halign="right" spacing-before="50">
+		<table-row>
+			<cell halign="right">
+				<font name="arial_10">___________________________________________</font>
+			</cell>
+		</table-row>
+		<table-row>
+			<cell halign="center">
+				<font name="arial_10">Magistrate
+				</font>
+			</cell>
+		</table-row>
+		<table-row>
+			<cell halign="center">
+				<font name="arial_10">Harris County, Texas 			
+				</font>
+			</cell>
+		</table-row>
+	</table>					
+					
+</document>

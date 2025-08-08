@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<survey xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  type="CommonAppExitReport" name="2014_24_11_commonappexitreportscreeningprofile.xml">
+	<questionGroup id="1">
+		<question id="2005_14_12_COMMONAPPEXITREPORT_Q1" text="Briefly describe your impressions of the child including present problems." validationDescription="Describe impressions with the child" rowSequence="1" responseUIControlType="TEXTBOX" isRequired="true" isResponseNewLine="true" uiControlSize="4" textLength="1000"> </question>
+	
+		<question id="2005_14_12_COMMONAPPEXITREPORT_Q2" text="Describe the child's strengths." rowSequence="2" responseUIControlType="TEXTBOX" isRequired="false" isResponseNewLine="true" uiControlSize="4" textLength="1000"></question>
+		<question id="2005_14_12_COMMONAPPEXITREPORT_Q3" text="Will family/others participate in treatment or cooperate with 
+				others?" rowSequence="3" responseUIControlType="RADIO" isRequired="true" isResponseNewLine="false" validationDescription="Will family participate in treatment">
+						<response displayText="Yes" id="2005_14_12_COMMONAPPEXITREPORT_Q3_R1" responseValue="true" IsDefault="false"></response>
+						<response displayText="No" id="2005_14_12_COMMONAPPEXITREPORT_Q3_R2" responseValue="false" IsDefault="false"></response>
+		</question>
+		<question id="2005_14_12_COMMONAPPEXITREPORT_Q4" text="if yes, specify:"  validationDescription="Answering YES to will the family participate in treatment means a reason"
+					rowSequence="4" responseUIControlType="TEXTBOX" isRequired="false" isResponseNewLine="true" uiControlSize="4" textLength="1000">
+			<responseDependancy selectedResponseId="2005_14_12_COMMONAPPEXITREPORT_Q3_R1" questionId="2005_14_12_COMMONAPPEXITREPORT_Q3"></responseDependancy>
+		</question>
+		<!-- ER changes 11454  
+		<question id="2005_14_12_COMMONAPPEXITREPORT_Q5" text="Does 
+					the youth have a diagnosed or suspected health condition or disability?" rowSequence="5" responseUIControlType="RADIO" isRequired="true" isResponseNewLine="false" validationDescription="Special Health  Condition or Disability">
+			<response displayText="Yes" id="2005_14_12_COMMONAPPEXITREPORT_Q5_R1" responseValue="true" IsDefault="false"></response>
+			<response displayText="No" id="2005_14_12_COMMONAPPEXITREPORT_Q5_R2" responseValue="false" IsDefault="false"></response>
+		</question> -->
+		<question id="2005_14_12_COMMONAPPEXITREPORT_Q6" text="Describe any physical health problems or disability not otherwise 
+					documented." rowSequence="6" responseUIControlType="TEXTBOX" isRequired="false" isResponseNewLine="true" uiControlSize="4" textLength="1000">
+		</question>
+		<question id="2005_14_12_COMMONAPPEXITREPORT_Q7" text="Does the physical condition require specialized treatment?" rowSequence="7" responseUIControlType="RADIO" isRequired="true" isResponseNewLine="false" validationDescription="Physical Condition require specialized 
+					treatment">
+			<response displayText="Yes" id="2005_14_12_COMMONAPPEXITREPORT_Q7_R1" responseValue="true" IsDefault="false"></response>
+			<response displayText="No" id="2005_14_12_COMMONAPPEXITREPORT_Q7_R2" responseValue="false" IsDefault="false"></response>
+		</question>
+			<question id="2005_14_12_COMMONAPPEXITREPORT_Q10" text="Date of last physical by a licensed physician" rowSequence="10" responseUIControlType="TEXT" isRequired="false" isResponseNewLine="false" responseDataType="DATE"  FormatKey="mm/dd/yyyy" uiControlSize="10" validationDescription="Date of last 
+				Physical">
+		</question>
+		<question id="2005_14_12_COMMONAPPEXITREPORT_Q8" text="Does the child have mental health needs requiring treatment?" rowSequence="8" responseUIControlType="RADIO" isRequired="true" isResponseNewLine="false" validationDescription="Child have mental health needs">
+			<response displayText="Yes" id="2005_14_12_COMMONAPPEXITREPORT_Q8_R1" responseValue="true" IsDefault="false"></response>
+			<response displayText="No" id="2005_14_12_COMMONAPPEXITREPORT_Q8_R2" responseValue="false" IsDefault="false"></response>
+		</question>
+		
+		<question id="2005_14_12_COMMONAPPEXITREPORT_Q9" text="Describe any mental health problems not otherwise documented." rowSequence="9" responseUIControlType="TEXTBOX" isRequired="false" isResponseNewLine="true" uiControlSize="4" textLength="1000"></question>
+			
+		<question id="2005_14_12_COMMONAPPEXITREPORT_Q32" text="Can youth return home?" rowSequence="32" responseUIControlType="RADIO" isRequired="false" isResponseNewLine="false">
+			<response displayText="Yes" id="2005_14_12_COMMONAPPEXITREPORT_Q32_R1" responseValue="true" IsDefault="false"></response>
+			<response displayText="No" id="2005_14_12_COMMONAPPEXITREPORT_Q32_R2" responseValue="false" IsDefault="false"></response>
+			<response displayText="Unknown" id="2005_14_12_COMMONAPPEXITREPORT_Q32_R3" responseValue="Unknown" IsDefault="false"></response>
+			<response displayText="For Visits Only" id="2005_14_12_COMMONAPPEXITREPORT_Q32_R4" responseValue="For Visits Only" IsDefault="false"></response>
+		</question>
+		<question id="2005_14_12_COMMONAPPEXITREPORT_Q33" text="Number of runaways by youth from placements." rowSequence="33" responseUIControlType="TEXT" isRequired="false" isResponseNewLine="false" uiControlSize="3" validationDescription="Number of runaways" responseDataType="integer"></question>
+		<!--  changes for ER 11502 starts -->
+		<question id="2005_14_12_COMMONAPPEXITREPORT_Q5" text="Number of documented school disruptive incidents." rowSequence="5" responseUIControlType="TEXT" isRequired="false" isResponseNewLine="false" uiControlSize="3" validationDescription="Number of documented school disruptive incidents" responseDataType="integer"></question>
+		<question id="2005_14_12_COMMONAPPEXITREPORT_Q37" text="Number of school suspensions." rowSequence="37" responseUIControlType="TEXT" isRequired="false" isResponseNewLine="false" uiControlSize="3" validationDescription="Number of school suspensions" responseDataType="integer"></question>
+		<question id="2005_14_12_COMMONAPPEXITREPORT_Q35" text="Number of school expulsions." rowSequence="35" responseUIControlType="TEXT" isRequired="false" isResponseNewLine="false" uiControlSize="3" validationDescription="NNumber of school expulsions" responseDataType="integer"></question>
+		<!--  changes for ER 11502 ends -->
+		<question id="2005_14_12_COMMONAPPEXITREPORT_Q34" text="Describe any educational problems, needs or behaviors not otherwise 
+documented." rowSequence="34" responseUIControlType="TEXTBOX" isRequired="false" isResponseNewLine="true" uiControlSize="4" textLength="1000">
+		</question>
+	</questionGroup>
+</survey>

@@ -1,0 +1,265 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Mapping>   
+  <EntityMappings>
+    <EntityMapping name="pd.supervision.suggestedorder.SuggestedOrder" contextKey="pd.supervision.suggestedorder.SuggestedOrder">
+      <QueryCallbacks>
+        <QueryCallback name="OIDQuery" mappingClassName="mojo.km.context.multidatasource.JDBCSQLMapping" mappingMethodName="retrieve" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="CSSUGORDER" connectionName="JDBCMSSQL" eventName="mojo.km.persistence.OIDEvent" source="CSSUGORDER" whereClause="SUGORDER_ID = ?">
+	      <ParmMappings>
+            <ParmMapping name="OID" dataItemName="SUGORDER_ID" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="4" text="" propertyName="OID" propertyType="Numeric" formatString="none" convertWilcard="none" />
+          </ParmMappings>
+          <FieldMappings>
+            <FieldMapping name="orderName" associationType="none" dataItemName="NAME" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="orderName" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="OID" associationType="none" dataItemName="SUGORDER_ID" parmIndex="2" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="OID" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="suggestedOrderId" associationType="none" dataItemName="SUGORDER_ID" parmIndex="3" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="suggestedOrderId" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="includedConditionsId" associationType="none" dataItemName="INCLUDEDCOND_ID" parmIndex="4" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="includedConditionsId" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="orderDescription" associationType="none" dataItemName="DESCRIPTION" parmIndex="5" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="orderDescription" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="agencyId" associationType="none" dataItemName="AGENCY_ID" parmIndex="6" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="agencyId" propertyType="String" formatString="none" convertWilcard="n" />
+          </FieldMappings>
+        </QueryCallback>
+        <QueryCallback name="AttributeQuery" mappingClassName="mojo.km.context.multidatasource.JDBCSQLMapping" mappingMethodName="retrieve" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="CSSUGORDER" connectionName="JDBCMSSQL" eventName="mojo.km.persistence.AttributeEvent" source="CSSUGORDER" whereClause="none">
+          <FieldMappings>
+            <FieldMapping name="orderName" associationType="none" dataItemName="NAME" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="orderName" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="OID" associationType="none" dataItemName="SUGORDER_ID" parmIndex="2" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="OID" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="suggestedOrderId" associationType="none" dataItemName="SUGORDER_ID" parmIndex="3" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="suggestedOrderId" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="includedConditionsId" associationType="none" dataItemName="INCLUDEDCOND_ID" parmIndex="4" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="includedConditionsId" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="orderDescription" associationType="none" dataItemName="DESCRIPTION" parmIndex="5" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="orderDescription" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="agencyId" associationType="none" dataItemName="AGENCY_ID" parmIndex="6" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="agencyId" propertyType="String" formatString="none" convertWilcard="n" />
+          </FieldMappings>
+        </QueryCallback>
+        <QueryCallback name="AllQuery" mappingClassName="mojo.km.context.multidatasource.JDBCSQLMapping" mappingMethodName="retrieve" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="CSSUGORDER" connectionName="JDBCMSSQL" eventName="mojo.km.persistence.AllQueryEvent" source="CSSUGORDER" whereClause="none">
+          <FieldMappings>
+            <FieldMapping name="orderName" associationType="none" dataItemName="NAME" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="orderName" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="OID" associationType="none" dataItemName="SUGORDER_ID" parmIndex="2" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="OID" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="suggestedOrderId" associationType="none" dataItemName="SUGORDER_ID" parmIndex="3" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="suggestedOrderId" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="includedConditionsId" associationType="none" dataItemName="INCLUDEDCOND_ID" parmIndex="4" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="includedConditionsId" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="orderDescription" associationType="none" dataItemName="DESCRIPTION" parmIndex="5" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="orderDescription" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="agencyId" associationType="none" dataItemName="AGENCY_ID" parmIndex="6" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="agencyId" propertyType="String" formatString="none" convertWilcard="n" />
+          </FieldMappings>
+        </QueryCallback>
+        <QueryCallback name="GetSuggestedOrdersByNameDescEventQuery" mappingClassName="mojo.km.context.multidatasource.JDBCSQLMapping" mappingMethodName="retrieve" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="CSSUGORDER" connectionName="JDBCMSSQL" eventName="messaging.suggestedorder.GetSuggestedOrdersByNameDescEvent" source="CSSUGORDER" whereClause="NAME like ? and DESCRIPTION like ? and AGENCY_ID = ?">
+          <ParmMappings>
+			<ParmMapping name="suggestedOrderName" dataItemName="NAME" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="" propertyName="suggestedOrderName" propertyType="String" formatString="% if Blank"  convertWilcard="Convert * to %" />
+			<ParmMapping name="suggestedOrderDescription" dataItemName="DESCRIPTION" parmIndex="2" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="" propertyName="suggestedOrderDescription" propertyType="String" formatString="% if Blank"  convertWilcard="Convert * to %" />
+			<ParmMapping name="agencyId" dataItemName="AGENCY_ID" parmIndex="3" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="" propertyName="agencyId" propertyType="String" formatString="% if Blank"  convertWilcard="Convert * to %" />
+		  </ParmMappings> 
+          <FieldMappings>
+            <FieldMapping name="orderName" associationType="none" dataItemName="NAME" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="orderName" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="OID" associationType="none" dataItemName="SUGORDER_ID" parmIndex="2" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="OID" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="suggestedOrderId" associationType="none" dataItemName="SUGORDER_ID" parmIndex="3" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="suggestedOrderId" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="includedConditionsId" associationType="none" dataItemName="INCLUDEDCOND_ID" parmIndex="4" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="includedConditionsId" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="orderDescription" associationType="none" dataItemName="DESCRIPTION" parmIndex="5" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="orderDescription" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="agencyId" associationType="none" dataItemName="AGENCY_ID" parmIndex="6" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="agencyId" propertyType="String" formatString="none" convertWilcard="n" />
+          </FieldMappings>
+        </QueryCallback>
+        <QueryCallback name="GetSuggestedOrderByNameEventQuery" mappingClassName="mojo.km.context.multidatasource.JDBCSQLMapping" mappingMethodName="retrieve" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="CSSUGORDER" connectionName="JDBCMSSQL" eventName="messaging.suggestedorder.GetSuggestedOrderByNameEvent" source="CSSUGORDER" whereClause="NAME = ? AND AGENCY_ID = ?">
+          <ParmMappings>
+			<ParmMapping name="suggestedOrderName" dataItemName="NAME" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="" propertyName="suggestedOrderName" propertyType="String" formatString="none"  convertWilcard="n" />
+			<ParmMapping name="agencyId" dataItemName="AGENCY_ID" parmIndex="2" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="" propertyName="agencyId" propertyType="String" formatString="none"  convertWilcard="n" />
+		  </ParmMappings> 
+          <FieldMappings>
+            <FieldMapping name="orderName" associationType="none" dataItemName="NAME" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="orderName" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="OID" associationType="none" dataItemName="SUGORDER_ID" parmIndex="2" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="OID" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="suggestedOrderId" associationType="none" dataItemName="SUGORDER_ID" parmIndex="3" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="suggestedOrderId" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="includedConditionsId" associationType="none" dataItemName="INCLUDEDCOND_ID" parmIndex="4" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="includedConditionsId" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="orderDescription" associationType="none" dataItemName="DESCRIPTION" parmIndex="5" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="orderDescription" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="agencyId" associationType="none" dataItemName="AGENCY_ID" parmIndex="6" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="agencyId" propertyType="String" formatString="none" convertWilcard="n" />
+          </FieldMappings>
+        </QueryCallback>
+        <QueryCallback name="GetSuggestedOrdersForCourtCategory" mappingClassName="mojo.km.context.multidatasource.JDBCSQLMapping" mappingMethodName="retrieve" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="CSSOSUGORDERCOURT" connectionName="JDBCMSSQL" eventName="messaging.suggestedorder.GetSuggestedOrdersForCourtCategoryEvent" source="CSSORDNOFFSOCRT" whereClause="AGENCY_ID = ? AND COURT_ID LIKE ?">
+          <ParmMappings>
+			<ParmMapping name="agencyId" dataItemName="AGENCY_ID" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="" propertyName="agencyId" propertyType="String" formatString="none" convertWilcard="none" />
+			<ParmMapping name="courtCategory" dataItemName="COURT_ID" parmIndex="2" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="" propertyName="courtCategory" propertyType="String" formatString="% Always" convertWilcard="Convert * to %" />
+		  </ParmMappings> 
+          <FieldMappings>
+            <FieldMapping name="orderName" associationType="none" dataItemName="NAME" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="orderName" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="OID" associationType="none" dataItemName="SUGORDER_ID" parmIndex="2" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="OID" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="suggestedOrderId" associationType="none" dataItemName="SUGORDER_ID" parmIndex="3" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="suggestedOrderId" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="orderDescription" associationType="none" dataItemName="DESCRIPTION" parmIndex="4" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="orderDescription" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="agencyId" associationType="none" dataItemName="AGENCY_ID" parmIndex="5" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="agencyId" propertyType="String" formatString="none" convertWilcard="n" />
+          </FieldMappings>
+        </QueryCallback>
+      </QueryCallbacks>
+      <SaveCallbacks>
+        <SaveCallback name="Save" mappingClassName="mojo.km.context.multidatasource.JDBCSQLMapping" mappingMethodName="save" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="CSSUGORDER" connectionName="JDBCMSSQL" whereClause="SUGORDER_ID = ?" source="CSSUGORDER">
+          <ParmMappings>
+			<ParmMapping name="OID" dataItemName="SUGORDER_ID" parmIndex="7" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="4" text="" propertyName="OID" propertyType="Numeric" formatString="none" convertWilcard="none" />
+		  </ParmMappings> 
+		  <FieldMappings>
+            <FieldMapping name="orderName" associationType="none" dataItemName="NAME" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="orderName" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="includedConditionsId" associationType="none" dataItemName="INCLUDEDCOND_ID" parmIndex="2" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="includedConditionsId" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="orderDescription" associationType="none" dataItemName="DESCRIPTION" parmIndex="3" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="orderDescription" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="createUserID" associationType="none" dataItemName="CREATEUSER" parmIndex="4" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="createUserID" propertyType="user" formatString="none" />
+            <FieldMapping name="agencyId" associationType="none" dataItemName="AGENCY_ID" parmIndex="5" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="agencyId" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="createJIMS2UserID" associationType="none" dataItemName="CREATEJIMS2USER" parmIndex="6" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="createJIMS2UserID" propertyType="JIMS2User" formatString="none" />
+          </FieldMappings>
+        </SaveCallback>
+      </SaveCallbacks>
+    </EntityMapping>
+    <EntityMapping name="pd.supervision.suggestedorder.SuggestedOrderCondition" contextKey="pd.supervision.suggestedorder.SuggestedOrderCondition">
+      <QueryCallbacks>
+        <QueryCallback name="OIDQuery" mappingClassName="mojo.km.context.multidatasource.JDBCSQLMapping" mappingMethodName="retrieve" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="CSSUGORDERCOND" connectionName="JDBCMSSQL" eventName="mojo.km.persistence.OIDEvent" source="CSSUGORDERCOND" whereClause="SUGORDERCOND_ID = ?">
+          <ParmMappings>
+			<ParmMapping name="OID" dataItemName="SUGORDERCOND_ID" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="4" text="" propertyName="OID" propertyType="Numeric" formatString="none" convertWilcard="none" />
+		  </ParmMappings> 
+ 		  <FieldMappings>
+            <FieldMapping name="OID" associationType="none" dataItemName="SUGORDERCOND_ID" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="OID" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="suggestedOrderId" associationType="none" dataItemName="SUGORDER_ID" parmIndex="2" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="suggestedOrderId" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="suggestedOrderConditionId" associationType="none" dataItemName="SUGORDERCOND_ID" parmIndex="3" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="suggestedOrderConditionId" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="conditionId" associationType="none" dataItemName="CONDITION_ID" parmIndex="4" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="conditionId" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="seqNum" associationType="none" dataItemName="SEQNUM" parmIndex="5" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="seqNum" propertyType="String" formatString="String" convertWilcard="n" />
+          </FieldMappings>
+        </QueryCallback>
+        <QueryCallback name="AttributeQuery" mappingClassName="mojo.km.context.multidatasource.JDBCSQLMapping" mappingMethodName="retrieve" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="CSSUGORDERCOND" connectionName="JDBCMSSQL" eventName="mojo.km.persistence.AttributeEvent" source="CSSUGORDERCOND" whereClause="none">
+          <FieldMappings>
+            <FieldMapping name="OID" associationType="none" dataItemName="SUGORDERCOND_ID" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="OID" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="suggestedOrderId" associationType="none" dataItemName="SUGORDER_ID" parmIndex="2" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="suggestedOrderId" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="suggestedOrderConditionId" associationType="none" dataItemName="SUGORDERCOND_ID" parmIndex="3" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="suggestedOrderConditionId" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="conditionId" associationType="none" dataItemName="CONDITION_ID" parmIndex="4" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="conditionId" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="seqNum" associationType="none" dataItemName="SEQNUM" parmIndex="5" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="seqNum" propertyType="String" formatString="none" convertWilcard="n" />
+          </FieldMappings>
+        </QueryCallback>
+        <QueryCallback name="AllQuery" mappingClassName="mojo.km.context.multidatasource.JDBCSQLMapping" mappingMethodName="retrieve" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="CSSUGORDERCOND" connectionName="JDBCMSSQL" eventName="mojo.km.persistence.AllQueryEvent" source="CSSUGORDERCOND" whereClause="">
+          <FieldMappings>
+            <FieldMapping name="OID" associationType="none" dataItemName="SUGORDERCOND_ID" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="OID" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="suggestedOrderId" associationType="none" dataItemName="SUGORDER_ID" parmIndex="2" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="suggestedOrderId" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="suggestedOrderConditionId" associationType="none" dataItemName="SUGORDERCOND_ID" parmIndex="3" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="suggestedOrderConditionId" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="conditionId" associationType="none" dataItemName="CONDITION_ID" parmIndex="4" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="conditionId" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="seqNum" associationType="none" dataItemName="SEQNUM" parmIndex="5" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="seqNum" propertyType="String" formatString="none" convertWilcard="n" />
+          </FieldMappings>
+        </QueryCallback>
+      </QueryCallbacks>
+      <SaveCallbacks>
+        <SaveCallback name="Save" mappingClassName="mojo.km.context.multidatasource.JDBCSQLMapping" mappingMethodName="save" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="CSSUGORDERCOND" connectionName="JDBCMSSQL" whereClause="SUGORDERCOND_ID = ?" source="CSSUGORDERCOND">
+          <ParmMappings>
+			<ParmMapping name="OID" dataItemName="SUGORDERCOND_ID" parmIndex="6" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="4" text="" propertyName="OID" propertyType="Numeric" formatString="none" convertWilcard="none" />
+		  </ParmMappings> 
+		  <FieldMappings>
+            <FieldMapping name="suggestedOrderId" associationType="none" dataItemName="SUGORDER_ID" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="suggestedOrderId" propertyType="Numeric" formatString="none" convertWilcard="n" />
+            <FieldMapping name="conditionId" associationType="none" dataItemName="CONDITION_ID" parmIndex="2" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="conditionId" propertyType="Numeric" formatString="none" convertWilcard="n" />
+            <FieldMapping name="seqNum" associationType="none" dataItemName="SEQNUM" parmIndex="3" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="seqNum" propertyType="int" formatString="none" convertWilcard="n" />
+            <FieldMapping name="createUserID" associationType="none" dataItemName="CREATEUSER" parmIndex="4" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="createUserID" propertyType="user" formatString="none" />
+            <FieldMapping name="createJIMS2UserID" associationType="none" dataItemName="CREATEJIMS2USER" parmIndex="5" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="createJIMS2UserID" propertyType="JIMS2User" formatString="none" />
+          </FieldMappings>
+        </SaveCallback>
+      </SaveCallbacks>
+    </EntityMapping>  
+    <EntityMapping name="pd.supervision.suggestedorder.SuggestedOrderCourt" contextKey="pd.supervision.suggestedorder.SuggestedOrderCourt">
+      <QueryCallbacks>
+        <QueryCallback name="OIDQuery" mappingClassName="mojo.km.context.multidatasource.JDBCSQLMapping" mappingMethodName="retrieve" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="CSSUGORDERCOURT" connectionName="JDBCMSSQL" eventName="mojo.km.persistence.OIDEvent" source="CSSUGORDERCOURT" whereClause="SUGORDERCOURT_ID = ?">
+          <ParmMappings>
+			<ParmMapping name="OID" dataItemName="SUGORDERCOURT_ID" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="4" text="" propertyName="OID" propertyType="Numeric" formatString="none" convertWilcard="none" />
+		  </ParmMappings> 
+		  <FieldMappings>
+            <FieldMapping name="courtId" associationType="none" dataItemName="COURT_ID" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="courtId" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="OID" associationType="none" dataItemName="SUGORDERCOURT_ID" parmIndex="2" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="OID" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="suggestedOrderId" associationType="none" dataItemName="SUGORDER_ID" parmIndex="3" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="suggestedOrderId" propertyType="String" formatString="none" convertWilcard="n" />
+          </FieldMappings>
+        </QueryCallback>
+        <QueryCallback name="AttributeQuery" mappingClassName="mojo.km.context.multidatasource.JDBCSQLMapping" mappingMethodName="retrieve" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="CSSUGORDERCOURT" connectionName="JDBCMSSQL" eventName="mojo.km.persistence.AttributeEvent" source="CSSUGORDERCOURT" whereClause="none">
+          <FieldMappings>
+            <FieldMapping name="courtId" associationType="none" dataItemName="COURT_ID" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="courtId" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="OID" associationType="none" dataItemName="SUGORDERCOURT_ID" parmIndex="2" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="OID" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="suggestedOrderId" associationType="none" dataItemName="SUGORDER_ID" parmIndex="3" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="suggestedOrderId" propertyType="String" formatString="none" convertWilcard="n" />
+          </FieldMappings>
+        </QueryCallback>
+        <QueryCallback name="AllQuery" mappingClassName="mojo.km.context.multidatasource.JDBCSQLMapping" mappingMethodName="retrieve" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="CSSUGORDERCOURT" connectionName="JDBCMSSQL" eventName="mojo.km.persistence.AllQueryEvent" source="CSSUGORDERCOURT" whereClause="none">
+          <FieldMappings>
+            <FieldMapping name="courtId" associationType="none" dataItemName="COURT_ID" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="courtId" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="OID" associationType="none" dataItemName="SUGORDERCOURT_ID" parmIndex="2" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="OID" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="suggestedOrderId" associationType="none" dataItemName="SUGORDER_ID" parmIndex="3" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="suggestedOrderId" propertyType="String" formatString="none" convertWilcard="n" />
+          </FieldMappings>
+        </QueryCallback>
+      </QueryCallbacks>
+      <SaveCallbacks>
+        <SaveCallback name="Save" mappingClassName="mojo.km.context.multidatasource.JDBCSQLMapping" mappingMethodName="save" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="CSSUGORDERCOURT" connectionName="JDBCMSSQL" whereClause="SUGORDERCOURT_ID = ?" source="CSSUGORDERCOURT">
+          <ParmMappings>
+			<ParmMapping name="OID" dataItemName="SUGORDERCOURT_ID" parmIndex="5" format="none" position="1" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="4" text="" propertyName="OID" propertyType="Numeric" formatString="none" convertWilcard="none" />
+		  </ParmMappings> 
+		  <FieldMappings>
+            <FieldMapping name="courtId" associationType="none" dataItemName="COURT_ID" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="courtId" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="suggestedOrderId" associationType="none" dataItemName="SUGORDER_ID" parmIndex="2" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="suggestedOrderId" propertyType="Numeric" formatString="none" convertWilcard="n" />
+            <FieldMapping name="createUserID" associationType="none" dataItemName="CREATEUSER" parmIndex="3" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="createUserID" propertyType="user" formatString="none" />
+            <FieldMapping name="createJIMS2UserID" associationType="none" dataItemName="CREATEJIMS2USER" parmIndex="4" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="createJIMS2UserID" propertyType="JIMS2User" formatString="none" />
+          </FieldMappings>
+        </SaveCallback>
+      </SaveCallbacks>
+    </EntityMapping>
+    <EntityMapping name="pd.supervision.suggestedorder.SuggestedOrderOffense" contextKey="pd.supervision.suggestedorder.SuggestedOrderOffense">
+      <QueryCallbacks>
+        <QueryCallback name="OIDQuery" mappingClassName="mojo.km.context.multidatasource.JDBCSQLMapping" mappingMethodName="retrieve" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="CSSUGORDEROFF" connectionName="JDBCMSSQL" eventName="mojo.km.persistence.OIDEvent" source="CSSUGORDEROFF" whereClause="none">
+          <ParmMappings>
+			<ParmMapping name="OID" dataItemName="SUGORDEROFF_ID" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="4" text="" propertyName="OID" propertyType="Numeric" formatString="none" convertWilcard="none" />
+		  </ParmMappings> 
+		  <FieldMappings>
+            <FieldMapping name="OID" associationType="none" dataItemName="SUGORDEROFF_ID" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="OID" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="suggestedOrderId" associationType="none" dataItemName="SUGORDER_ID" parmIndex="2" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="suggestedOrderId" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="offenseId" associationType="none" dataItemName="OFFENSE_ID" parmIndex="3" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="offenseId" propertyType="String" formatString="none" convertWilcard="n" />
+          </FieldMappings>
+        </QueryCallback>
+        <QueryCallback name="AttributeQuery" mappingClassName="mojo.km.context.multidatasource.JDBCSQLMapping" mappingMethodName="retrieve" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="CSSUGORDEROFF" connectionName="JDBCMSSQL" eventName="mojo.km.persistence.AttributeEvent" source="CSSUGORDEROFF" whereClause="none">
+          <FieldMappings>
+            <FieldMapping name="OID" associationType="none" dataItemName="SUGORDEROFF_ID" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="OID" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="suggestedOrderId" associationType="none" dataItemName="SUGORDER_ID" parmIndex="2" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="suggestedOrderId" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="offenseId" associationType="none" dataItemName="OFFENSE_ID" parmIndex="3" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="offenseId" propertyType="String" formatString="none" convertWilcard="n" />
+          </FieldMappings>
+        </QueryCallback>
+        <QueryCallback name="AllQuery" mappingClassName="mojo.km.context.multidatasource.JDBCSQLMapping" mappingMethodName="retrieve" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="CSSUGORDEROFF" connectionName="JDBCMSSQL" eventName="mojo.km.persistence.AllQueryEvent" source="CSSUGORDEROFF" whereClause="none">
+          <FieldMappings>
+            <FieldMapping name="OID" associationType="none" dataItemName="SUGORDEROFF_ID" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="OID" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="suggestedOrderId" associationType="none" dataItemName="SUGORDER_ID" parmIndex="2" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="suggestedOrderId" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="offenseId" associationType="none" dataItemName="OFFENSE_ID" parmIndex="3" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="offenseId" propertyType="String" formatString="none" convertWilcard="n" />
+          </FieldMappings>
+        </QueryCallback>
+     </QueryCallbacks>
+      <SaveCallbacks>
+        <SaveCallback name="Save" mappingClassName="mojo.km.context.multidatasource.JDBCSQLMapping" mappingMethodName="save" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="CSSUGORDEROFF" connectionName="JDBCMSSQL" whereClause="SUGORDEROFF_ID = ?" source="CSSUGORDEROFF">
+          <ParmMappings>
+			<ParmMapping name="OID" dataItemName="SUGORDEROFF_ID" parmIndex="5" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="4" text="" propertyName="OID" propertyType="Numeric" formatString="none" convertWilcard="none" />
+		  </ParmMappings> 
+		  <FieldMappings>
+            <FieldMapping name="suggestedOrderId" associationType="none" dataItemName="SUGORDER_ID" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="suggestedOrderId" propertyType="Numeric" formatString="none" convertWilcard="n" />
+            <FieldMapping name="offenseId" associationType="none" dataItemName="OFFENSE_ID" parmIndex="2" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="offenseId" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="createUserID" associationType="none" dataItemName="CREATEUSER" parmIndex="3" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="createUserID" propertyType="user" formatString="none" />
+            <FieldMapping name="createJIMS2UserID" associationType="none" dataItemName="CREATEJIMS2USER" parmIndex="4" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="createJIMS2UserID" propertyType="JIMS2User" formatString="none" />
+          </FieldMappings>
+        </SaveCallback>
+      </SaveCallbacks>
+    </EntityMapping>
+	<EntityMapping name="pd.supervision.suggestedorder.SuggestedOrderSOOffenseSOCourt" contextKey="pd.supervision.suggestedorder.SuggestedOrderSOOffenseSOCourt">
+      <QueryCallbacks>
+        <QueryCallback name="GetSuggestedOrdersForCourtQuery" mappingClassName="mojo.km.context.multidatasource.JDBCSQLMapping" mappingMethodName="retrieve" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="CSSORDSOFFSOCRT" connectionName="JDBCMSSQL" eventName="messaging.suggestedorder.GetSuggestedOrdersForCourtEvent" source="CSSORDSOFFSOCRT" whereClause="AGENCY_ID = ? AND COURT_ID = ? AND OFFENSE_ID = ?">
+          <ParmMappings>
+			<ParmMapping name="agencyId" dataItemName="AGENCY_ID" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="" propertyName="agencyId" propertyType="String" formatString="none" convertWilcard="none" />
+			<ParmMapping name="courtId" dataItemName="COURT_ID" parmIndex="2" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="" propertyName="courtId" propertyType="String" formatString="none" convertWilcard="none" />
+			<ParmMapping name="offenseId" dataItemName="OFFENSE_ID" parmIndex="3" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="" propertyName="offenseId" propertyType="String" formatString="none" convertWilcard="none" />
+		  </ParmMappings> 
+          <FieldMappings>
+            <FieldMapping name="offenseId" associationType="none" dataItemName="OFFENSE_ID" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="offenseId" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="courtId" associationType="none" dataItemName="COURT_ID" parmIndex="2" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="courtId" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="agencyId" associationType="none" dataItemName="AGENCY_ID" parmIndex="3" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="agencyId" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="OID" associationType="none" dataItemName="SUGORDER_ID" parmIndex="4" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="OID" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="name" associationType="none" dataItemName="NAME" parmIndex="5" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="name" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="description" associationType="none" dataItemName="DESCRIPTION" parmIndex="6" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="description" propertyType="String" formatString="none" convertWilcard="n" />
+          </FieldMappings>
+        </QueryCallback>
+      </QueryCallbacks>
+    </EntityMapping>
+	<EntityMapping name="pd.supervision.suggestedorder.SuggestedOrderSOCourt" contextKey="pd.supervision.suggestedorder.SuggestedOrderSOCourt">
+      <QueryCallbacks>
+         <QueryCallback name="GetDefaultSuggestedOrdersForCourtQuery" mappingClassName="mojo.km.context.multidatasource.JDBCSQLMapping" mappingMethodName="retrieve" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="CSSORDNOFFSOCRT" connectionName="JDBCMSSQL" eventName="messaging.suggestedorder.GetSuggestedOrdersForCourtEvent" source="CSSORDNOFFSOCRT" whereClause="AGENCY_ID = ? AND COURT_ID = ?">
+          <ParmMappings>
+			<ParmMapping name="agencyId" dataItemName="AGENCY_ID" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="" propertyName="agencyId" propertyType="String" formatString="none" convertWilcard="none" />
+			<ParmMapping name="courtId" dataItemName="COURT_ID" parmIndex="2" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="" propertyName="courtId" propertyType="String" formatString="none" convertWilcard="none" />
+		  </ParmMappings> 
+          <FieldMappings>
+            <FieldMapping name="courtId" associationType="none" dataItemName="COURT_ID" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="courtId" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="agencyId" associationType="none" dataItemName="AGENCY_ID" parmIndex="2" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="agencyId" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="OID" associationType="none" dataItemName="SUGORDER_ID" parmIndex="3" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="OID" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="name" associationType="none" dataItemName="NAME" parmIndex="4" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="name" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="description" associationType="none" dataItemName="DESCRIPTION" parmIndex="5" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="description" propertyType="String" formatString="none" convertWilcard="n" />
+          </FieldMappings>
+        </QueryCallback>
+      </QueryCallbacks>
+     </EntityMapping>
+  </EntityMappings>
+</Mapping>

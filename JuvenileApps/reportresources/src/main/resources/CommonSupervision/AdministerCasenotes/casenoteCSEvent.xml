@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="US-ASCII"?>
+<document size="A4" margin-left="40" margin-right="40" margin-top="45"  margin-bottom="82">
+<encryption allow-fillin="false" allow-modify-contents="false" allow-degraded-printing="true" allow-screen-readers="false" allow-copy="false"	allow-printing="false"/>
+<meta author="JIMS2, Harris County" creator="JIMS2, Harris County" title="${orderTitle}"/>
+<viewer-preferences page-mode="NoThumbs" zoom="1"/>
+
+	<font-def name="times_14" family="Times" style="normal" size="14"/>
+	<font-def name="times_12" family="Times" style="normal" size="12"/>
+	<font-def name="arial_10" family="arial" style="normal" size="10"/>
+	
+	_foreach_(eachEvent ${events} 'even' 'odd')	
+	
+	<footer padding-top="20">
+		<font name="times_12">
+			<footer-part padding-top="25" halign="center" width="550">
+				<table columns="2" widths="50, 50">
+					<table-row>
+					<cell colspan="2" halign="left">
+						${eachEvent.superviseeName}
+					</cell>
+					</table-row>
+					<table-row>
+					<cell halign="left">
+						<if cond="${eachEvent.probationOfficerId != null && eachEvent.probationOfficerId != ""}"><font name="arial_10">${eachEvent.probationOfficerId}</font><space/></if>
+						<if cond="${eachEvent.officerPosition != null && eachEvent.officerPosition != ""}"><font name="arial_10">${eachEvent.officerPosition}</font>,<space/></if>
+						<if cond="${eachEvent.officerName != null && eachEvent.officerName != ""}"><font name="arial_10">${eachEvent.officerName}</font></if>
+					</cell>
+					<cell halign="right">
+						Page ${pageNumber , nointrprt} of ${pageCount , nointrprt}
+					</cell>
+					</table-row>
+				</table>		
+			</footer-part>
+		</font>
+	</footer>
+	
+	<table columns="1" border-style="none" keep-together="true">
+		<table-row halign="center">
+			<font name="times_14">
+				<cell halign="center" padding-bottom="10"><b><u>CASENOTES</u></b></cell>
+			</font>
+		</table-row>
+	</table>
+	
+	<table width="100" columns="6" border-style="box" widths="10,15,10,20,15,30" padding-bottom="2" padding-right="2" padding-left="2" spacing-after="10">
+		<table-row bgcolor="#CCCCCC">
+			<cell colspan="6" halign="left">\t\t<b>Supervisee Information</b></cell>
+		</table-row>
+		<table-row>
+			<cell bgcolor="#EEEEEE" halign="right" line-spacing="1.5"><b>Name</b></cell>
+			<cell colspan="5">${eachEvent.superviseeName}</cell>
+		</table-row>
+		<table-row valign="top">
+			<cell bgcolor="#EEEEEE" halign="right"><b>Officer</b></cell>
+			<cell colspan="5">${eachEvent.officerName}</cell>
+		</table-row>
+		<table-row valign="top">
+			<cell bgcolor="#EEEEEE" halign="right"><b>SPN</b></cell>
+			<cell>${eachEvent.defendantId}</cell>
+			<cell bgcolor="#EEEEEE" halign="right"><b>CON</b></cell>
+			<cell>${eachEvent.connectionCd}</cell>
+			<cell bgcolor="#EEEEEE" halign="right"><b>DOB</b></cell>
+			<cell>${eachEvent.dateOfBirth format "MM/dd/yyyy"}</cell>
+		</table-row>
+		<table-row valign="top">
+			<cell bgcolor="#EEEEEE" halign="right"><b>Race</b></cell>
+			<cell>${eachEvent.race}</cell>
+			<cell bgcolor="#EEEEEE" halign="right"><b>Sex</b></cell>
+			<cell>${eachEvent.sex}</cell>
+			<cell bgcolor="#EEEEEE" halign="right"><b>Program Unit</b></cell>
+			<cell>${eachEvent.programUnit}</cell>
+		</table-row>
+		<table-row valign="top">
+			<cell bgcolor="#EEEEEE" halign="right"><b>Next Contact</b></cell>
+			<cell>${eachEvent.nextContactDate format "MM/dd/yyyy"}  ${eachEvent.nextContactTime format "hh:mm a"}</cell>
+			<cell bgcolor="#EEEEEE" halign="right"><b>Contact</b></cell>
+			<cell>${eachEvent.contactMethod}</cell>
+			<cell bgcolor="#EEEEEE" halign="right"></cell>
+			<cell bgcolor="#EEEEEE"></cell>
+		</table-row>
+		<table-row valign="top">
+			<cell colspan="2" bgcolor="#EEEEEE" halign="left"><b>Case Number</b></cell>
+			<cell bgcolor="#EEEEEE" halign="left"><b>Court</b></cell>
+			<cell colspan="2" bgcolor="#EEEEEE" halign="left"><b>Supervisee Name</b></cell>
+			<cell  bgcolor="#EEEEEE" halign="left"><b>Case Begin/End Date</b></cell>
+		</table-row>
+		_foreach_(case ${eachEvent.cases} 'even' 'odd')		
+			<table-row>
+				<cell colspan="2">${case.caseNum}</cell>
+				<cell>${case.court}</cell>
+				<cell colspan="2">${case.superviseeName}</cell>
+				<cell>${case.caseSupPeriodBeginDate format "MM/dd/yyyy"}-${case.caseSupPeriodEndDate format "MM/dd/yyyy"}</cell>
+			</table-row>
+		_endfor_
+	</table>
+		_foreach_(casenote ${eachEvent.casenoteResults} 'even' 'odd')
+			<table width="100" columns="4" widths="12,40,28,20" keep-together ="true" padding-bottom="2" padding-right="2" padding-left="2">
+				<table-row bgcolor="#DDDDDD">
+					<font name="times_12">	
+					<cell border-style="top|bottom|left">Date</cell>	
+					<cell border-style="top|bottom">Subject</cell>		
+					<cell border-style="top|bottom">Contact Method</cell>	
+					<cell border-style="top|bottom|right">Author</cell>		
+					</font>
+				</table-row>
+				<table-row valign="top">
+					<cell>${casenote.casenoteDate format "MM/dd/yyyy"}</cell>	
+					<cell>${casenote.subjects}</cell>		
+					<cell>${casenote.contactMethod}</cell>	
+					<cell>${casenote.createdByName}</cell>		
+				</table-row>
+			</table>
+			<paragraph>${casenote.collateralInfo} ${casenote.casenoteText}</paragraph><br/>
+		_endfor_
+		
+	 <new-page   margin-left="50" margin-right="50" margin-top="30" margin-bottom="50" height="100"></new-page>		
+	_endfor_
+</document>

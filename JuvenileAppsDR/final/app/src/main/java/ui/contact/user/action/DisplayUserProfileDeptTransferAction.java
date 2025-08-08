@@ -1,0 +1,78 @@
+//Source file: C:\\views\\MSA\\app\\src\\ui\\contact\\user\\action\\DisplayUserProfileDeptTransferAction.java
+
+package ui.contact.user.action;
+
+import java.util.HashMap;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import naming.PDCodeTableConstants;
+import naming.UIConstants;
+
+import org.apache.struts.action.ActionForm;
+import org.apache.struts.action.ActionForward;
+import org.apache.struts.action.ActionMapping;
+import org.apache.struts.actions.LookupDispatchAction;
+
+import ui.common.CodeHelper;
+import ui.contact.user.form.UserProfileForm;
+
+public class DisplayUserProfileDeptTransferAction extends LookupDispatchAction
+{
+
+	/**
+	 * @roseuid 43F4FC3F02D8
+	 */
+	public DisplayUserProfileDeptTransferAction()
+	{
+
+	}
+
+	/**
+	 * @param aMapping
+	 * @param aForm
+	 * @param aRequest
+	 * @param aResponse
+	 * @return ActionForward
+	 * @roseuid 43F4EE2E02FA
+	 */
+	public ActionForward execute(
+		ActionMapping aMapping,
+		ActionForm aForm,
+		HttpServletRequest aRequest,
+		HttpServletResponse aResponse)
+	{
+		UserProfileForm userProfileForm = (UserProfileForm) aForm;
+
+		userProfileForm.setWorkDays(CodeHelper.getCodes(PDCodeTableConstants.WORK_DAY));
+	
+		return aMapping.findForward(UIConstants.TRANSFER_SUCCESS);
+	}
+	/* (non-Javadoc)
+	 * @see org.apache.struts.actions.LookupDispatchAction#getKeyMethodMap()
+	 */
+	protected Map getKeyMethodMap()
+	{
+		Map buttonMap = new HashMap();
+		buttonMap.put("button.back", "back");
+		return buttonMap;
+	}
+
+	/**
+	 * @param aMapping
+	 * @param aForm
+	 * @param aRequest
+	 * @param aResponse
+	 * @return ActionForward
+	 */
+	public ActionForward back(
+		ActionMapping aMapping,
+		ActionForm aForm,
+		HttpServletRequest aRequest,
+		HttpServletResponse aResponse)
+	{
+		return aMapping.findForward(UIConstants.BACK);
+	}
+}

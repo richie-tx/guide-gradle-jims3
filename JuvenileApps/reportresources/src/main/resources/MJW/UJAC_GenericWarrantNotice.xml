@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="US-ASCII"?>
+<document size="LETTER" margin-left="50" margin-right="50" margin-top="50" margin-bottom="60">
+<encryption allow-fillin="false" allow-modify-contents="false" allow-degraded-printing="true" allow-screen-readers="false" allow-copy="false"	allow-printing="true"/>
+<meta author="JIMS2, Harris County" creator="JIMS2, Harris County" title="${orderTitle}"/>
+<viewer-preferences page-mode="NoThumbs" zoom="1"/>
+<module>
+<custom-tag alias="strong" tag="b">
+<attribute name="body" value="${body}"/>
+</custom-tag>
+
+<custom-tag alias="em" tag="i">
+<attribute name="body" value="${body}"/>
+</custom-tag>
+
+<custom-tag alias="ul" tag="list">
+<attribute name="body" value="${body}"/>
+</custom-tag>
+
+<custom-tag alias="ol" tag="ul">
+<attribute name="body" value="${body}"/>
+<attribute name="numbered" value="true"/>
+</custom-tag>
+ 
+<custom-tag alias="li" tag="list-item">
+<attribute name="body" value="${body}"/>
+</custom-tag>
+
+</module>
+
+	<font-def name="helvetica" family="Helvetica" style="normal" size="12"/>
+	<font-def name="geneva" family="georgia" style="normal" size="12"/>
+	<font-def name="arial" family="arial" style="normal" size="12"/>
+	<font-def name="arial_10" family="arial" style="normal" size="10"/>
+	<font-def name="arial_8" family="arial" style="normal" size="8"/>
+	<font-def name="times" family="Times" style="normal" size="12"/>
+	<font-def name="times_10" family="Times" style="normal" size="10"/>
+
+	<header>
+		<font name="times" size="12" style="normal">
+		<table columns="1" border-style="none" keep-together="true">
+			<table-row halign="center">
+				<cell halign="center"><b>Harris County</b></cell>
+			</table-row>
+			<table-row halign="center">
+				<cell halign="center"><b>Warrant Number: ${warrantNum}</b></cell>
+			</table-row>
+			<table-row halign="center">
+					<cell halign="center"><b>${warrantType}</b></cell>
+			</table-row>
+			<table-row halign="center">
+					<cell halign="center"><b>${warrantActivationDate}</b></cell>
+			</table-row>
+		</table>	
+		</font>
+	</header>	
+	
+	<footer padding-top="0">
+		<footer-part padding-top="0" halign="left" width="500">
+			<table columns="1" border-style="none">
+				<table-row>
+						<font name="arial_10" size="10" style="normal">
+							<cell valign="top" padding-top="15" halign="left">
+							All service attempts and executions should be entered in the Harris County Juvenile Warrant System using the aforementioned warrant number.
+							</cell>
+						</font>
+				</table-row>
+	     	</table>
+		</footer-part>
+	</footer>
+	
+	_if_ (${photos , nointrprt} != "" )	
+		<paragraph halign="center" spacing-before="10">
+					<image source="${photos , nointrprt}" width="100" height="85" scale-to-fit="false"/>
+	    </paragraph>
+    	_else_
+		    <paragraph halign="center" spacing-before="10">
+						<image source="${photos}" width="100" height="85" scale-to-fit="false"/>
+		    </paragraph>
+    _endif_
+           	
+	<paragraph halign="left" line-spacing="1.25" spacing-before="10" spacing-after="10">
+		<font name="arial_10" size="10" style="normal"><u>${nameFirstMiddleLastSuffix}</u> is actively wanted pursuant the <u>${warrantType}</u> Warrant Number <u>${warrantNum}</u>.  The juvenile is:
+		</font>	
+	</paragraph>
+
+	
+	<table columns="3" widths="30,30,40" spacing-before="15" border-style="none" keep-together="true">
+		<font name="arial_10" size="10" style="normal">
+			<table-row halign="center">
+				<cell halign="left" padding-top="5"><b>Race:</b> ${race}</cell>
+				<cell halign="left"><b>Sex:</b> ${sexId}</cell>
+				<cell halign="left"><b>Skin tone:</b> ${complexionId}</cell>
+			</table-row>
+			<table-row halign="center">
+				<cell halign="left" padding-top="5"><b>Height:</b> ${height}</cell>
+				<cell halign="left"><b>Weight:</b> ${weight}</cell>
+				<cell halign="left"><b>Age:</b> ${juvenileAge}</cell>
+			</table-row>
+			<table-row halign="center">
+				<cell halign="left" padding-top="5"><b>Eyes:</b> ${eyeColor}</cell>
+				<cell halign="left"><b>Hair:</b> ${hairColor}</cell>
+				<cell halign="left"></cell>
+			</table-row>
+		</font>
+	</table>	
+
+	<table width="100" widths="100" padding-bottom="6" spacing-before="10">
+		<font name="arial_10">
+			<table-row>
+				<cell halign="left" valign="top" colspan="1"><b>Scars/Marks:</b> ${scars}</cell>
+			</table-row>
+		</font>
+	</table>
+	
+	<table width="100" widths="100" padding-bottom="6" spacing-before="10">
+		<font name="arial_10">
+			<table-row>
+				<cell halign="left" valign="top" colspan="1"><b>Tattoos:</b> ${tattoos}</cell>
+			</table-row>
+		</font>
+	</table>
+	
+	<paragraph halign="left" line-spacing="1.25" spacing-before="10" spacing-after="10">
+		<font name="arial_10" size="10" style="normal">The following addresses are considered possible locations: (list all associate addresses)
+		</font>	
+	</paragraph>
+	
+	<table width="100" widths="100" padding-bottom="6" spacing-before="10">
+		<font name="arial_10">
+			<table-row>
+				<cell halign="left" valign="top" colspan="1" padding-left="10"> ${associateAddresses}</cell>
+			</table-row>
+		</font>
+	</table>
+	
+	<table width="100" widths="100" padding-bottom="6" spacing-before="10">
+		<font name="arial_10">
+			<table-row>
+				<cell halign="left" valign="top" colspan="1"><b> Please Note: </b> ${cautionsSelected}</cell>
+			</table-row>
+		</font>
+	</table>
+	
+	<table width="100" widths="100" padding-bottom="6" spacing-before="10">
+		<font name="arial_10">
+		<table-row>
+				<cell halign="left" valign="top" colspan="1"><b> Other Caution Comments: </b>${cautionComments}</cell>
+			</table-row>
+		</font>
+	</table>					
+					
+</document>

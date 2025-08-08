@@ -1,0 +1,469 @@
+/*
+ * Created on Oct 4, 2005
+ *
+ * To change the template for this generated file go to
+ * Window&gt;Preferences&gt;Java&gt;Code Generation&gt;Code and Comments
+ */
+package messaging.juvenilecase.reply;
+
+import java.util.Date;
+import java.util.List;
+
+import mojo.km.messaging.ResponseEvent;
+
+/**
+ * @author kmurthy
+ *
+ * To change the template for this generated type comment go to
+ * Window&gt;Preferences&gt;Java&gt;Code Generation&gt;Code and Comments
+ */
+public class ReferralAssessmentEvent extends ResponseEvent
+{
+
+	private Date enteredDate = null;
+	private String custodyStatus = "";
+	private String assessmentType = "";
+	private int finalScore;
+	//private String recommendation = "";
+	private List recommendations;
+	private String ageFirstReferred="";
+	private String totalFelony1= "";
+	private String totalFelony2= "";
+	private String totalFelony3= "";
+	private String totalLevel= "";
+	private String totalClassC= "";
+	private String totalClassAB= "";
+	private String totalCapitalFelony = "";
+	private String seriousnessIndex="";
+	private String totalOffenses= "";
+	private String totalReferralsHistory= "";
+	private String totalStateJailFelony= "";
+	private String totalStatusCO= "";	
+	private boolean newReferral;
+	private String riskMandatoryDetentionCd;
+	
+	private boolean recommendationOverridden;
+	private String overRiddenReasonCd;
+	private String overRiddenReasonOther;
+	private boolean moreThanOneFailure;
+	
+	//Add new attributes
+	
+	private String pendingCourt;
+	private String currentlyOnProbation;
+	private String pendingCourtVOP;
+	private String numberOfCharges;
+	
+	private String modReason;
+	
+	private String casefileId;
+	
+	public ReferralAssessmentEvent()
+	{
+	}
+	
+	/**
+	 * @return
+	 */
+	public Date getEnteredDate()
+	{
+		return enteredDate;
+	}
+
+	/**
+	 * @return
+	 */
+//	public String getRecommendation()
+//	{
+//		return recommendation;
+//	}
+
+	/**
+	 * @return
+	 */
+	public String getCustodyStatus()
+	{
+		return custodyStatus;
+	}
+
+	/**
+	 * @return
+	 */
+	public String getAssessmentType()
+	{
+		return assessmentType;
+	}
+
+	/**
+	 * @return
+	 */
+	public int getFinalScore()
+	{
+		return finalScore;
+	}
+
+	/**
+	 * @param date
+	 */
+	public void setEnteredDate(final Date date)
+	{
+		enteredDate = date;
+	}
+
+	/**
+	 * @param string
+	 */
+//	public void setRecommendation(final String string)
+//	{
+//		recommendation = string;
+//	}
+
+	/**
+	 * @param string
+	 */
+	public void setCustodyStatus(final String string)
+	{
+		custodyStatus = string;
+	}
+
+	/**
+	 * @param string
+	 */
+	public void setAssessmentType(final String string)
+	{
+		assessmentType = string;
+	}
+
+	/**
+	 * @param string
+	 */
+	public void setFinalScore(final int score)
+	{
+		finalScore = score;
+	}
+
+	/**
+	 * @return Returns the ageFirstReferred.
+	 */
+	public String getAgeFirstReferred() {
+		return ageFirstReferred;
+	}
+	/**
+	 * @param ageFirstReferred The ageFirstReferred to set.
+	 */
+	public void setAgeFirstReferred(String ageFirstReferred) {
+		this.ageFirstReferred = ageFirstReferred;
+	}
+	/**
+	 * @return Returns the seriousnessIndex.
+	 */
+	public String getSeriousnessIndex() {
+		return seriousnessIndex;
+	}
+	/**
+	 * @param seriousnessIndex The seriousnessIndex to set.
+	 */
+	public void setSeriousnessIndex(String seriousnessIndex) {
+		this.seriousnessIndex = seriousnessIndex;
+	}
+	/**
+	 * @return Returns the totalCapitalFelony.
+	 */
+	public String getTotalCapitalFelony() {
+		return totalCapitalFelony;
+	}
+	/**
+	 * @param totalCapitalFelony The totalCapitalFelony to set.
+	 */
+	public void setTotalCapitalFelony(String totalCapitalFelony) {
+		this.totalCapitalFelony = totalCapitalFelony;
+	}
+	/**
+	 * @return Returns the totalClassAB.
+	 */
+	public String getTotalClassAB() {
+		return totalClassAB;
+	}
+	/**
+	 * @param totalClassAB The totalClassAB to set.
+	 */
+	public void setTotalClassAB(String totalClassAB) {
+		this.totalClassAB = totalClassAB;
+	}
+	/**
+	 * @return Returns the totalClassC.
+	 */
+	public String getTotalClassC() {
+		return totalClassC;
+	}
+	/**
+	 * @param totalClassC The totalClassC to set.
+	 */
+	public void setTotalClassC(String totalClassC) {
+		this.totalClassC = totalClassC;
+	}
+	/**
+	 * @return Returns the totalFelony1.
+	 */
+	public String getTotalFelony1() {
+		return totalFelony1;
+	}
+	/**
+	 * @param totalFelony1 The totalFelony1 to set.
+	 */
+	public void setTotalFelony1(String totalFelony1) {
+		this.totalFelony1 = totalFelony1;
+	}
+	/**
+	 * @return Returns the totalFelony2.
+	 */
+	public String getTotalFelony2() {
+		return totalFelony2;
+	}
+	/**
+	 * @param totalFelony2 The totalFelony2 to set.
+	 */
+	public void setTotalFelony2(String totalFelony2) {
+		this.totalFelony2 = totalFelony2;
+	}
+	/**
+	 * @return Returns the totalFelony3.
+	 */
+	public String getTotalFelony3() {
+		return totalFelony3;
+	}
+	/**
+	 * @param totalFelony3 The totalFelony3 to set.
+	 */
+	public void setTotalFelony3(String totalFelony3) {
+		this.totalFelony3 = totalFelony3;
+	}
+	/**
+	 * @return Returns the totalLevel.
+	 */
+	public String getTotalLevel() {
+		return totalLevel;
+	}
+	/**
+	 * @param totalLevel The totalLevel to set.
+	 */
+	public void setTotalLevel(String totalLevel) {
+		this.totalLevel = totalLevel;
+	}
+	/**
+	 * @return Returns the totalOffenses.
+	 */
+	public String getTotalOffenses() {
+		return totalOffenses;
+	}
+	/**
+	 * @param totalOffenses The totalOffenses to set.
+	 */
+	public void setTotalOffenses(String totalOffenses) {
+		this.totalOffenses = totalOffenses;
+	}
+	/**
+	 * @return Returns the totalReferralsHistory.
+	 */
+	public String getTotalReferralsHistory() {
+		return totalReferralsHistory;
+	}
+	/**
+	 * @param totalReferralsHistory The totalReferralsHistory to set.
+	 */
+	public void setTotalReferralsHistory(String totalReferralsHistory) {
+		this.totalReferralsHistory = totalReferralsHistory;
+	}
+	/**
+	 * @return Returns the totalStateJailFelony.
+	 */
+	public String getTotalStateJailFelony() {
+		return totalStateJailFelony;
+	}
+	/**
+	 * @param totalStateJailFelony The totalStateJailFelony to set.
+	 */
+	public void setTotalStateJailFelony(String totalStateJailFelony) {
+		this.totalStateJailFelony = totalStateJailFelony;
+	}
+	/**
+	 * @return Returns the totalStatusCO.
+	 */
+	public String getTotalStatusCO() {
+		return totalStatusCO;
+	}
+	/**
+	 * @param totalStatusCO The totalStatusCO to set.
+	 */
+	public void setTotalStatusCO(String totalStatusCO) {
+		this.totalStatusCO = totalStatusCO;
+	}
+
+	/**
+	 * @return newReferral
+	 */
+	public boolean isNewReferral() {
+		return newReferral;
+	}
+
+	/**
+	 * @param newReferral
+	 */
+	public void setNewReferral(boolean newReferral) {
+		this.newReferral = newReferral;
+	}
+
+	/**
+	 * @return riskMandatoryDetentionCd
+	 */
+	public String getRiskMandatoryDetentionCd() {
+		return riskMandatoryDetentionCd;
+	}
+
+	/**
+	 * @param riskMandatoryDetentionCd
+	 */
+	public void setRiskMandatoryDetentionCd(String riskMandatoryDetentionCd) {
+		this.riskMandatoryDetentionCd = riskMandatoryDetentionCd;
+	}
+
+	/**
+	 * @return recommendationOverridden
+	 */
+	public boolean isRecommendationOverridden() {
+		return recommendationOverridden;
+	}
+
+	/**
+	 * @param recommendationOverridden
+	 */
+	public void setRecommendationOverridden(boolean recommendationOverridden) {
+		this.recommendationOverridden = recommendationOverridden;
+	}
+
+	/**
+	 * @return overRiddenReasonCd
+	 */
+	public String getOverRiddenReasonCd() {
+		return overRiddenReasonCd;
+	}
+
+	/**
+	 * @param overRiddenReasonCd
+	 */
+	public void setOverRiddenReasonCd(String overRiddenReasonCd) {
+		this.overRiddenReasonCd = overRiddenReasonCd;
+	}
+
+	/**
+	 * @return overRiddenReasonOther
+	 */
+	public String getOverRiddenReasonOther() {
+		return overRiddenReasonOther;
+	}
+
+	/**
+	 * @param overRiddenReasonOther
+	 */
+	public void setOverRiddenReasonOther(String overRiddenReasonOther) {
+		this.overRiddenReasonOther = overRiddenReasonOther;
+	}
+	
+	/**
+	 * @return moreThanOneFailure
+	 */
+	public boolean isMoreThanOneFailure() {
+		return moreThanOneFailure;
+	}
+
+	/**
+	 * @param moreThanOneFailure
+	 */
+	public void setMoreThanOneFailure(boolean moreThanOneFailure) {
+		this.moreThanOneFailure = moreThanOneFailure;
+	}
+	
+	/**
+	 * @return
+	 */
+	public String getPendingCourt() {
+		return pendingCourt;
+	}
+
+	/**
+	 * @param pendingCourt
+	 */
+	public void setPendingCourt(String pendingCourt) {
+		this.pendingCourt = pendingCourt;
+	}
+
+	/**
+	 * @return
+	 */
+	public String getCurrentlyOnProbation() {
+		return currentlyOnProbation;
+	}
+
+	/**
+	 * @param currentlyOnProbation
+	 */
+	public void setCurrentlyOnProbation(String currentlyOnProbation) {
+		this.currentlyOnProbation = currentlyOnProbation;
+	}
+
+	/**
+	 * @return
+	 */
+	public String getPendingCourtVOP() {
+		return pendingCourtVOP;
+	}
+
+	public void setPendingCourtVOP(String pendingCourtVOP) {
+		this.pendingCourtVOP = pendingCourtVOP;
+	}
+
+	/**
+	 * @return
+	 */
+	public String getNumberOfCharges() {
+		return numberOfCharges;
+	}
+
+	/**
+	 * @param numberOfCharges
+	 */
+	public void setNumberOfCharges(String numberOfCharges) {
+		this.numberOfCharges = numberOfCharges;
+	}
+	
+	/**
+	 * @param modreason
+	 */
+	public void setModReason(String modReason) {
+		this.modReason = modReason;
+	}
+
+	/**
+	 * @return
+	 */
+	public String getModReason() {
+		return modReason;
+	}
+	
+	public void setCasefileId(String casefileId) {
+		this.casefileId = casefileId;
+	}
+
+	public String getCasefileId() {
+		return casefileId;
+	}
+
+	public void setRecommendations(List recommendations) {
+		this.recommendations = recommendations;
+	}
+
+	public List getRecommendations() {
+		return recommendations;
+	}
+	
+}

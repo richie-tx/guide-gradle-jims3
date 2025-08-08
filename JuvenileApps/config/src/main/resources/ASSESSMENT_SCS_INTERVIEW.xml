@@ -1,0 +1,113 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Survey type="" name="SCSINTERVIEW" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="C:\Views\CommonSupervision\Arch\build\configuration\dev\SurveyV2.xsd">
+	<questionGroup id="SCS_INTERVIEW_G1" name="SCS_INTERVIEW_GROUP1" sequence="1">
+		<question responseUIControlType="SPELLCHECK" id="SCS_INTERVIEW_1" text="1. Let's start with the offense for which you are serving community supervision. Would you tell me how you got involved in this offense?" rowSequence="1" summaryRowSeq="1" isRequired="false" responseDataType="ALPHA_NUMERIC_WTH_SYMBOLS" uiControlSize="7" textLength="100" isResponseNewLine="true">
+		</question>
+		<question responseUIControlType="SPELLCHECK" id="SCS_INTERVIEW_1A" text="&#160;&#160;&#160;&#160;A. What were the circumstances which led up to the offense?" rowSequence="2" summaryRowSeq="2" isRequired="false" responseDataType="ALPHA_NUMERIC_WTH_SYMBOLS" uiControlSize="7" textLength="100" isResponseNewLine="true">
+		</question>
+		<question responseUIControlType="SPELLCHECK" id="SCS_INTERVIEW_1B" text="&#160;&#160;&#160;&#160;B. Looking back, how do you feel about the offense?" rowSequence="3" summaryRowSeq="3" isRequired="false" responseDataType="ALPHA_NUMERIC_WTH_SYMBOLS" uiControlSize="7" textLength="100" isResponseNewLine="true">
+		</question>
+		<question responseUIControlType="SPELLCHECK" id="SCS_INTERVIEW_2" text="2. Have you been in trouble before? What about as a juvenile?" rowSequence="4" summaryRowSeq="4" isRequired="false" responseDataType="ALPHA_NUMERIC_WTH_SYMBOLS" uiControlSize="7" textLength="100" isResponseNewLine="true">
+		</question>
+		<question responseUIControlType="SPELLCHECK" id="SCS_INTERVIEW_2A" text="&#160;&#160;&#160;&#160;A. What other things have you been arrested for?" rowSequence="5" summaryRowSeq="5" isRequired="false" responseDataType="ALPHA_NUMERIC_WTH_SYMBOLS" uiControlSize="7" textLength="100" isResponseNewLine="true">
+		</question>
+		<question responseUIControlType="SPELLCHECK" id="SCS_INTERVIEW_2B" text="&#160;&#160;&#160;&#160;B. Have you ever hurt anyone? Threatened to hurt anyone?" rowSequence="6" summaryRowSeq="6" isRequired="false" responseDataType="ALPHA_NUMERIC_WTH_SYMBOLS" uiControlSize="7" textLength="100" isResponseNewLine="true">
+		</question>
+		<question responseUIControlType="SPELLCHECK" id="SCS_INTERVIEW_2C" text="&#160;&#160;&#160;&#160;C. How did you get involved in (the most recent prior)?&#60;br&#62;(Repeat question regarding other recent priors until pattern is understood.)" rowSequence="7" summaryRowSeq="7" isRequired="false" responseDataType="ALPHA_NUMERIC_WTH_SYMBOLS" uiControlSize="7" textLength="100" isResponseNewLine="true">
+		</question>
+		<question responseUIControlType="SPELLCHECK" id="SCS_INTERVIEW_2D" text="&#160;&#160;&#160;&#160;D. Were you using alcohol or drugs when you got involved in any of these offenses?&#60;br&#62; (If so) Which ones?" rowSequence="8" summaryRowSeq="8" isRequired="false" responseDataType="ALPHA_NUMERIC_WTH_SYMBOLS" uiControlSize="7" textLength="100" isResponseNewLine="true">
+		</question>
+		<question responseUIControlType="SPELLCHECK" id="SCS_INTERVIEW_2E" text="&#160;&#160;&#160;&#160;E. Were you alone or with others when you committed these offenses?" rowSequence="9" summaryRowSeq="9" isRequired="false" responseDataType="ALPHA_NUMERIC_WTH_SYMBOLS" uiControlSize="7" textLength="100" isResponseNewLine="true">
+		</question>
+	</questionGroup>
+	<questionGroup id="SCS_INTERVIEW_G2" name="SCS_INTERVIEW_GROUP2" sequence="2">
+		<question responseUIControlType="SPELLCHECK" id="SCS_INTERVIEW_3" text="3.	Now I'd like to ask you about your background. Why don't you start with your childhood? What was it like?" rowSequence="1" summaryRowSeq="10" isRequired="false" responseDataType="ALPHA_NUMERIC_WTH_SYMBOLS" uiControlSize="7" textLength="100" isResponseNewLine="true">
+		</question>
+		<question responseUIControlType="SPELLCHECK" id="SCS_INTERVIEW_3A" text="&#160;&#160;&#160;&#160;A. How did you get along with your parents? Brothers and sisters?" rowSequence="2" summaryRowSeq="11" isRequired="false" responseDataType="ALPHA_NUMERIC_WTH_SYMBOLS" uiControlSize="7" textLength="100" isResponseNewLine="true">
+		</question>
+		<question responseUIControlType="SPELLCHECK" id="SCS_INTERVIEW_3B" text="&#160;&#160;&#160;&#160;B. How did your parents discipline you?" rowSequence="3" summaryRowSeq="12" isRequired="false" responseDataType="ALPHA_NUMERIC_WTH_SYMBOLS" uiControlSize="7" textLength="100" isResponseNewLine="true">
+		</question>
+		<question responseUIControlType="SPELLCHECK" id="SCS_INTERVIEW_3C" text="&#160;&#160;&#160;&#160;C. Were you ever abused as a child?" rowSequence="4" summaryRowSeq="13" isRequired="false" responseDataType="ALPHA_NUMERIC_WTH_SYMBOLS" uiControlSize="7" textLength="100" isResponseNewLine="true">
+		</question>
+		<question responseUIControlType="SPELLCHECK" id="SCS_INTERVIEW_3D" text="&#160;&#160;&#160;&#160;D. How would your parents describe you as a child?" rowSequence="5" summaryRowSeq="14" isRequired="false" responseDataType="ALPHA_NUMERIC_WTH_SYMBOLS" uiControlSize="7" textLength="100" isResponseNewLine="true">
+		</question>
+		<question responseUIControlType="SPELLCHECK" id="SCS_INTERVIEW_3E" text="&#160;&#160;&#160;&#160;E. If you could change anything about your childhood, what would you change?" rowSequence="6" summaryRowSeq="15" isRequired="false" responseDataType="ALPHA_NUMERIC_WTH_SYMBOLS" uiControlSize="7" textLength="100" isResponseNewLine="true">
+		</question>
+		<question responseUIControlType="SPELLCHECK" id="SCS_INTERVIEW_4" text="4. Now, I'd like to ask you about school. How did you like school?" rowSequence="7" summaryRowSeq="16" isRequired="false" responseDataType="ALPHA_NUMERIC_WTH_SYMBOLS" uiControlSize="7" textLength="100" isResponseNewLine="true">
+		</question>
+		<question responseUIControlType="SPELLCHECK" id="SCS_INTERVIEW_4A" text="&#160;&#160;&#160;&#160;A. How did you do in school?" rowSequence="8" summaryRowSeq="17" isRequired="false" responseDataType="ALPHA_NUMERIC_WTH_SYMBOLS" uiControlSize="7" textLength="100" isResponseNewLine="true">
+		</question>
+		<question responseUIControlType="SPELLCHECK" id="SCS_INTERVIEW_4B" text="&#160;&#160;&#160;&#160;B. How far did you go in school?" rowSequence="9" summaryRowSeq="18" isRequired="false" responseDataType="ALPHA_NUMERIC_WTH_SYMBOLS" uiControlSize="7" textLength="100" isResponseNewLine="true">
+		</question>
+		<question responseUIControlType="SPELLCHECK" id="SCS_INTERVIEW_4C" text="&#160;&#160;&#160;&#160;C. Did you have any problems learning or were you in any Special Education or Resource classes?" rowSequence="10" summaryRowSeq="19" isRequired="false" responseDataType="ALPHA_NUMERIC_WTH_SYMBOLS" uiControlSize="7" textLength="100" isResponseNewLine="true">
+		</question>
+	</questionGroup>
+	<questionGroup id="SCS_INTERVIEW_G3" name="SCS_INTERVIEW_GROUP3" sequence="3">
+		<question responseUIControlType="SPELLCHECK" id="SCS_INTERVIEW_5" text="5.	Tell me about your employment. Are you working now? How long have you worked there?" rowSequence="1" summaryRowSeq="20" isRequired="false" responseDataType="ALPHA_NUMERIC_WTH_SYMBOLS" uiControlSize="7" textLength="100" isResponseNewLine="true">
+		</question>
+		<question responseUIControlType="SPELLCHECK" id="SCS_INTERVIEW_5A" text="&#160;&#160;&#160;&#160;A. How do you like your job?" rowSequence="2" summaryRowSeq="21" isRequired="false" responseDataType="ALPHA_NUMERIC_WTH_SYMBOLS" uiControlSize="7" textLength="100" isResponseNewLine="true">
+		</question>
+		<question responseUIControlType="SPELLCHECK" id="SCS_INTERVIEW_5B" text="&#160;&#160;&#160;&#160;B. If I asked your boss what kind of employee you are, what would s/he say?" rowSequence="3" summaryRowSeq="22" isRequired="false" responseDataType="ALPHA_NUMERIC_WTH_SYMBOLS" uiControlSize="7" textLength="100" isResponseNewLine="true">
+		</question>
+		<question responseUIControlType="SPELLCHECK" id="SCS_INTERVIEW_5C" text="&#160;&#160;&#160;&#160;C. What was your job before that? How long were you there? Why did you leave? (Repeat questions in C until the offender's employment pattern is clear.)" rowSequence="4" summaryRowSeq="23" isRequired="false" responseDataType="ALPHA_NUMERIC_WTH_SYMBOLS" uiControlSize="7" textLength="100" isResponseNewLine="true">
+		</question>
+		<question responseUIControlType="SPELLCHECK" id="SCS_INTERVIEW_5D" text="&#160;&#160;&#160;&#160;D. Have you had any trouble getting jobs?" rowSequence="5" summaryRowSeq="24" isRequired="false" responseDataType="ALPHA_NUMERIC_WTH_SYMBOLS" uiControlSize="7" textLength="100" isResponseNewLine="true">
+		</question>
+		<question responseUIControlType="SPELLCHECK" id="SCS_INTERVIEW_5E" text="&#160;&#160;&#160;&#160;E. How much of the time have you been unemployed during the last year? The last 5 years?" rowSequence="6" summaryRowSeq="25" isRequired="false" responseDataType="ALPHA_NUMERIC_WTH_SYMBOLS" uiControlSize="7" textLength="100" isResponseNewLine="true">
+		</question>
+		<question responseUIControlType="SPELLCHECK" id="SCS_INTERVIEW_6" text="6. How is your financial situation?" rowSequence="7" summaryRowSeq="26" isRequired="false" responseDataType="ALPHA_NUMERIC_WTH_SYMBOLS" uiControlSize="7" textLength="100" isResponseNewLine="true">
+		</question>
+		<question responseUIControlType="SPELLCHECK" id="SCS_INTERVIEW_6A" text="&#160;&#160;&#160;&#160;A. Have you ever had trouble supporting yourself or been on welfare?" rowSequence="8" summaryRowSeq="27" isRequired="false" responseDataType="ALPHA_NUMERIC_WTH_SYMBOLS" uiControlSize="7" textLength="100" isResponseNewLine="true">
+		</question>
+		<question responseUIControlType="SPELLCHECK" id="SCS_INTERVIEW_6B" text="&#160;&#160;&#160;&#160;B. Have you ever been in trouble (such as bad checks) because of financial problems?" rowSequence="9" summaryRowSeq="28" isRequired="false" responseDataType="ALPHA_NUMERIC_WTH_SYMBOLS" uiControlSize="7" textLength="100" isResponseNewLine="true">
+		</question>
+	</questionGroup>
+	<questionGroup id="SCS_INTERVIEW_G4" name="SCS_INTERVIEW_GROUP4" sequence="4">
+		<question responseUIControlType="SPELLCHECK" id="SCS_INTERVIEW_7" text="7.	Tell me about the places where you've lived. Where do you live now?" rowSequence="1" summaryRowSeq="29" isRequired="false" responseDataType="ALPHA_NUMERIC_WTH_SYMBOLS" uiControlSize="7" textLength="100" isResponseNewLine="true">
+		</question>
+		<question responseUIControlType="SPELLCHECK" id="SCS_INTERVIEW_7A" text="&#160;&#160;&#160;&#160;A. Do you live alone or with others?" rowSequence="2" summaryRowSeq="30" isRequired="false" responseDataType="ALPHA_NUMERIC_WTH_SYMBOLS" uiControlSize="7" textLength="100" isResponseNewLine="true">
+		</question>
+		<question responseUIControlType="SPELLCHECK" id="SCS_INTERVIEW_7B" text="&#160;&#160;&#160;&#160;B. Where have you lived during the last year? The last five years?" rowSequence="3" summaryRowSeq="31" isRequired="false" responseDataType="ALPHA_NUMERIC_WTH_SYMBOLS" uiControlSize="7" textLength="100" isResponseNewLine="true">
+		</question>
+		<question responseUIControlType="SPELLCHECK" id="SCS_INTERVIEW_8" text="8. What about your friends-do you have a lot of friends? What are they like?" rowSequence="4" summaryRowSeq="32" isRequired="false" responseDataType="ALPHA_NUMERIC_WTH_SYMBOLS" uiControlSize="7" textLength="100" isResponseNewLine="true">
+		</question>
+		<question responseUIControlType="SPELLCHECK" id="SCS_INTERVIEW_8A" text="&#160;&#160;&#160;&#160;A. Have any of your friends been in trouble with the law?" rowSequence="5" summaryRowSeq="33" isRequired="false" responseDataType="ALPHA_NUMERIC_WTH_SYMBOLS" uiControlSize="7" textLength="100" isResponseNewLine="true">
+		</question>
+		<question responseUIControlType="SPELLCHECK" id="SCS_INTERVIEW_8B" text="&#160;&#160;&#160;&#160;B. Do you have a closest friend? What do you like best about him/her?" rowSequence="6" summaryRowSeq="34" isRequired="false" responseDataType="ALPHA_NUMERIC_WTH_SYMBOLS" uiControlSize="7" textLength="100" isResponseNewLine="true">
+		</question>
+		<question responseUIControlType="SPELLCHECK" id="SCS_INTERVIEW_8C" text="&#160;&#160;&#160;&#160;C. How do you get along with people in general? How do people generally act toward you?" rowSequence="7" summaryRowSeq="35" isRequired="false" responseDataType="ALPHA_NUMERIC_WTH_SYMBOLS" uiControlSize="7" textLength="100" isResponseNewLine="true">
+		</question>
+	</questionGroup>
+	<questionGroup id="SCS_INTERVIEW_G5" name="SCS_INTERVIEW_GROUP5" sequence="5">
+		<question responseUIControlType="SPELLCHECK" id="SCS_INTERVIEW_9" text="9.	What is your relationship with women (men, if offender is a woman) like?" rowSequence="1" summaryRowSeq="36" isRequired="false" responseDataType="ALPHA_NUMERIC_WTH_SYMBOLS" uiControlSize="7" textLength="100" isResponseNewLine="true">
+		</question>
+		<question responseUIControlType="SPELLCHECK" id="SCS_INTERVIEW_9A" text="&#160;&#160;&#160;&#160;A. Are you married? Have you ever been married? How do you get along with your wife/girlfriend (husband/boyfriend)?" rowSequence="2" summaryRowSeq="37" isRequired="false" responseDataType="ALPHA_NUMERIC_WTH_SYMBOLS" uiControlSize="7" textLength="100" isResponseNewLine="true">
+		</question>
+		<question responseUIControlType="SPELLCHECK" id="SCS_INTERVIEW_10" text="10. Can you tell me about your feelings? Have you had any problems handling your feelings?" rowSequence="3" summaryRowSeq="38" isRequired="false" responseDataType="ALPHA_NUMERIC_WTH_SYMBOLS" uiControlSize="7" textLength="100" isResponseNewLine="true">
+		</question>
+		<question responseUIControlType="SPELLCHECK" id="SCS_INTERVIEW_10A" text="&#160;&#160;&#160;&#160;A. Are you a nervous person? Do you worry a lot?" rowSequence="4" summaryRowSeq="39" isRequired="false" responseDataType="ALPHA_NUMERIC_WTH_SYMBOLS" uiControlSize="7" textLength="100" isResponseNewLine="true">
+		</question>
+		<question responseUIControlType="SPELLCHECK" id="SCS_INTERVIEW_10B" text="&#160;&#160;&#160;&#160;B. What kinds of things get you depressed? What do you do when you get depressed? Have you ever thought of, or tried, suicide?" rowSequence="5" summaryRowSeq="40" isRequired="false" responseDataType="ALPHA_NUMERIC_WTH_SYMBOLS" uiControlSize="7" textLength="100" isResponseNewLine="true">
+		</question>
+		<question responseUIControlType="SPELLCHECK" id="SCS_INTERVIEW_10C" text="&#160;&#160;&#160;&#160;C. Have you ever had a serious head injury? Ever been on tranquilizers? Mood altering drugs?" rowSequence="6" summaryRowSeq="41" isRequired="false" responseDataType="ALPHA_NUMERIC_WTH_SYMBOLS" uiControlSize="7" textLength="100" isResponseNewLine="true">
+		</question>
+		<question responseUIControlType="SPELLCHECK" id="SCS_INTERVIEW_10D" text="&#160;&#160;&#160;&#160;D. What kinds of things get you angry with people? What do you do when you are angry? Have you ever hurt anybody?" rowSequence="7" summaryRowSeq="42" isRequired="false" responseDataType="ALPHA_NUMERIC_WTH_SYMBOLS" uiControlSize="7" textLength="100" isResponseNewLine="true">
+		</question>
+		<question responseUIControlType="SPELLCHECK" id="SCS_INTERVIEW_10E" text="&#160;&#160;&#160;&#160;E. How would you describe your personality? What do you like or dislike about yourself?" rowSequence="8" summaryRowSeq="43" isRequired="false" responseDataType="ALPHA_NUMERIC_WTH_SYMBOLS" uiControlSize="7" textLength="100" isResponseNewLine="true">
+		</question>
+	</questionGroup>
+	<questionGroup id="SCS_INTERVIEW_G6" name="SCS_INTERVIEW_GROUP6" sequence="6">
+		<question responseUIControlType="SPELLCHECK" id="SCS_INTERVIEW_11" text="11. Have you ever had any serious medical problems? (If so) What kind?" rowSequence="1" summaryRowSeq="44" isRequired="false" responseDataType="ALPHA_NUMERIC_WTH_SYMBOLS" uiControlSize="7" textLength="100" isResponseNewLine="true">
+		</question>
+		<question responseUIControlType="SPELLCHECK" id="SCS_INTERVIEW_12" text="12. Aside from your legal problems, what would you say is the biggest problem in your life right now?" rowSequence="2" summaryRowSeq="45" isRequired="false" responseDataType="ALPHA_NUMERIC_WTH_SYMBOLS" uiControlSize="7" textLength="100" isResponseNewLine="true">
+		</question>
+		<question responseUIControlType="SPELLCHECK" id="SCS_INTERVIEW_12A" text="&#160;&#160;&#160;&#160;A. How do you expect this problem to work out?" rowSequence="3" summaryRowSeq="46" isRequired="false" responseDataType="ALPHA_NUMERIC_WTH_SYMBOLS" uiControlSize="7" textLength="100" isResponseNewLine="true">
+		</question>
+		<question responseUIControlType="SPELLCHECK" id="SCS_INTERVIEW_12B" text="&#160;&#160;&#160;&#160;B. What goals do you have for the future?" rowSequence="4" summaryRowSeq="47" isRequired="false" responseDataType="ALPHA_NUMERIC_WTH_SYMBOLS" uiControlSize="7" textLength="100" isResponseNewLine="true">
+		</question>
+		<question responseUIControlType="SPELLCHECK" id="SCS_INTERVIEW_12C" text="&#160;&#160;&#160;&#160;C. How do you think community supervision will affect your life? What do you expect to get from being on community supervision?" rowSequence="5" summaryRowSeq="48" isRequired="false" responseDataType="ALPHA_NUMERIC_WTH_SYMBOLS" uiControlSize="7" textLength="100" isResponseNewLine="true">
+		</question>
+		<question responseUIControlType="SPELLCHECK" id="SCS_INTERVIEW_12D" text="O.K., that's about all of the questions I have. Is there anything that we didn't talk about that you would like to add?" rowSequence="6" summaryRowSeq="49" isRequired="false" responseDataType="ALPHA_NUMERIC_WTH_SYMBOLS" uiControlSize="7" textLength="100" isResponseNewLine="true">
+		</question>
+	</questionGroup>
+</Survey>

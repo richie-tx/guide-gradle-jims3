@@ -1,0 +1,632 @@
+<document size="LETTER" margin-left="25" margin-right="25" margin-top="50" margin-bottom="40">
+<encryption allow-fillin="false" allow-modify-contents="false" allow-degraded-printing="true" allow-screen-readers="false" allow-copy="false"	allow-printing="true"/>
+<meta author="JIMS2, Harris County" creator="JIMS2, Harris County" title="${orderTitle}"/>
+<viewer-preferences page-mode="NoThumbs" zoom="1"/>
+
+	<font-def name="times_10" family="Times" style="normal" size="10"/>
+	<font-def name="times_8" family="Times" style="normal" size="8"/>
+	
+	<header>
+		<header-part halign="left"  width="510">
+			<font name="times_10">
+				<table width="510" columns="4" widths="10,60,15,15">
+					<table-row>
+						<cell colspan="3" halign="left">~CASE SUMMARY REPORT  Page ${pageNumber , nointrprt} of ${pageCount , nointrprt}</cell>
+						<cell></cell>
+					</table-row>
+					<table-row>
+						<cell halign="left"> ~Court: <u> ~${court}</u></cell>
+						<cell halign="left"> ~Defendant: <u> ~${partyName}</u></cell>
+						<cell halign="left" no-wrap="true"> ~SPN#: <u> ~${superviseeId}</u></cell>
+						<cell halign="left" no-wrap="true"> ~Cause#: <u> ~${cause}</u></cell>
+					</table-row>
+				</table>
+			</font>				
+		</header-part>
+	</header>
+	
+	<table columns="1" border-style="none" keep-together="true">		
+		<table-row halign="center">
+			<font name="times_10">
+				<cell halign="center"><b>CASE SUMMARY REPORT </b></cell>
+			</font>
+		</table-row>
+	</table>		
+
+	<table columns="5" border-style="none" keep-together="true" spacing-before="10" line-spacing="1" padding="0" width="100" widths="20,30,10,15,25">
+		<font name="times_10">
+			<table-row halign="left" valign="top">
+				<cell halign="left"><b>Date:</b><space/>
+					<if cond="${fileDateStr != null && fileDateStr != ""}"><u>${fileDateStr}</u></if>
+					<else>______________</else>
+				</cell>
+				<cell halign="left"><b>Court:</b><space/>
+					<if cond="${court != null && court != ""}"><u>${court}</u></if>
+					<else>______________</else>
+				</cell>
+				<cell halign="left" colspan="3"><b>Defendant:</b><space/><u>${partyName}</u></cell>
+			</table-row>
+			<table-row halign="left" valign="top">
+				<cell halign="left" colspan="2"><b>To Name:</b><space/>
+					<if cond="${cloName != null && cloName != ""}">______________________________________________</if>
+					<else>______________________________________________</else>
+				</cell>
+				<cell halign="left" colspan="3" no-wrap="true"><b>To Program Unit:</b><space/>
+					<if cond="${cloPOI != null && cloPOI != ""}">________________________________________</if>
+					<else>________________________________________</else>
+				</cell>
+			</table-row>
+			<table-row halign="left" valign="top">
+				<cell halign="left" colspan="2"><b>From Name:</b><space/>
+					<if cond="${csoName != null && csoName != ""}"><u>${csoName}</u></if>
+					<else>______________________________________</else>
+				</cell>
+				<cell halign="left" colspan="3" no-wrap="true"><b>From Program Unit:</b><space/>
+					<if cond="${divisionName != null && divisionName != ""}"><u>${divisionName}</u></if>
+					<else>____________________________________________</else>
+				</cell>
+			</table-row>
+			<table-row halign="left" valign="top">
+				<cell halign="left"><b>SPN#:</b><space/><u>${superviseeId}</u></cell>
+				<cell halign="left"><b>Cause#:</b><space/><u>${cause}</u></cell>
+				<cell halign="left"><b>Sex:</b><space/>
+					<if cond="${sexCd != null && sexCd != ""}"><u>${sexCd}</u></if>
+					<else>__________</else>
+				</cell>
+				<cell halign="left"><b>DOB:</b><space/>
+					<if cond="${dateOfBirth != null && dateOfBirth != ""}"><u>${dateOfBirth}</u></if>
+					<else>____________</else>
+				</cell>
+				<cell halign="left" no-wrap="false"><b>LOS:</b><space/>
+					<if cond="${levelOfSupervision != null && levelOfSupervision != ""}"><u>${levelOfSupervision}</u></if>
+					<else>________________________________</else>	
+				</cell>
+			</table-row>
+		</font>
+	</table>
+	
+	<table columns="1" border-width="1"  border-style="box" border-color="black"  keep-together="true" spacing-before="10" line-spacing="1" padding="0">
+		<font name="times_10">
+			<table-row halign="left" valign="top">
+				<cell halign="left">
+					<table columns="3" border-style="none" keep-together="true" line-spacing="1"  spacing-after="6" padding-left="2" width="100" widths="50,20,30">
+						<table-row halign="left" valign="top">
+							<cell halign="left"><b>Supervision Offense:</b><space/>
+								<if cond="${offense != null && offense != ""}"><u>${offense}</u></if>
+								<else>______________________________________</else>
+							</cell>
+							<cell halign="left"><b>DOCS:</b><space/>
+								<if cond="${supervisionBeginDate != null && supervisionBeginDate != ""}"><u>${supervisionBeginDate format "MM/dd/yyyy"}</u></if>
+								<else>___________</else>
+							</cell>
+							<cell halign="left">\t<b>Term:</b><space/>
+								<if cond="${supervisionLengthNum != null && supervisionLengthNum != ""}"><u>${supervisionLengthNum}</u></if>
+								<else>_______________________</else>
+							</cell>
+						</table-row>
+						<table-row halign="left" valign="top">
+							<cell halign="left"><b>Type of Supervision:</b><space/>
+								<if cond="${typeOfDisposition != null && typeOfDisposition != ""}"><u>${typeOfDisposition}</u></if>
+								<else>________________________________________</else>
+							</cell>
+							<cell halign="left"><b>End Date:</b><space/>
+								<if cond="${supervisionEndDate != null && supervisionEndDate != ""}"><u>${supervisionEndDate format "MM/dd/yyyy"}</u></if>
+								<else>___________</else>
+							</cell>
+							<cell halign="left">\t<b>Extended:</b><space/>
+								<if cond="${isExtended != null && isExtended == "YES"}"><u>Y</u></if>
+								<else><u>N</u></else>
+							</cell>
+						</table-row>
+						<table-row halign="left" valign="top">
+							<cell halign="left"><b>Offense Level:</b><space/>
+								<if cond="${offenseLevel != null && offenseLevel != ""}"><u>${offenseLevel}</u></if>
+								<else>________________________________________</else>
+							</cell>
+							<cell halign="left" colspan="2" no-wrap="true"><b>Next Report Date:</b><space/>
+								<if cond="${nextOfficeVisitDate != null && nextOfficeVisitDate != ""}"><u>${nextOfficeVisitDate format "MM/dd/yyyy"}</u></if>
+								<else>__________________</else><space/>@<space/><if cond="${nextOfficeVisitTime != null && nextOfficeVisitTime != ""}"><u>${nextOfficeVisitTime format "hh:mm a"}</u></if>
+								<else>_______________</else>
+							</cell>	
+						</table-row>
+					</table>
+				</cell>
+			</table-row>
+		</font>
+	</table>
+	
+	<table columns="1" border-style="none" keep-together="true" line-spacing="1.25" padding="0">
+		<font name="times_10">
+			<table-row halign="left" valign="top" padding-bottom="5" padding-left="2">
+				<cell halign="left" no-wrap="false"><b>Reason For Transfer:</b><space/>
+					_foreach_(reasons ${reasonForTransfer} 'even' 'odd')
+						 <u>${reasons.description}, </u>
+					_endfor_
+			    </cell>
+		    </table-row>
+		</font>
+	</table>
+	
+	_if_ (${mentalHealthDiagnosis} notEmpty)
+		<font name="times_10">
+			<paragraph line-spacing="1.5"><b>Mental Health Diagnosis:</b><space/><font name="times_10"><u>${mentalHealthDiagnosis}</u></font></paragraph>
+		</font>
+	_endif_
+	
+	_if_ (${mentalHealthComments} notEmpty)
+		<font name="times_10">
+			<paragraph line-spacing="1.5"><b>Mental Health Comments:</b><space/><font name="times_10"><u>${mentalHealthComments}</u></font></paragraph>
+		</font>
+	_endif_
+	
+	<table columns="7" width="100" widths="3,14,7,15,40,18,3" border-style="none"  keep-together="true" line-spacing="1" spacing-before="5">
+		<font name="times_10">
+		<table-row>
+			<cell><b>A.</b></cell>
+			<cell colspan="5"><b>LAW VIOLATIONS:</b></cell>
+			<cell></cell>
+		</table-row>
+		
+			_if_ (${lawViolations} notEmpty)
+				<table-row halign="left" valign="top" padding-bottom="3">
+					<cell></cell>
+					<cell halign="left"><b><u>Case#</u></b></cell>
+					<cell halign="left"><b><u>Court</u></b></cell>
+					<cell halign="left"><b><u>Offense Date</u></b></cell>
+					<cell halign="left"><b><u>Offense Literal</u></b></cell>
+					<cell halign="left"><b><u>Level/Degree</u></b></cell>
+					<cell></cell>
+				</table-row>
+				_foreach_(violations ${lawViolations} 'even' 'odd')
+					<table-row valign="top">
+						<cell></cell>
+						<cell>${violations.caseId}</cell>
+						<cell>${violations.courtId}</cell>
+						<cell>${violations.offenseDate}</cell>
+						<cell no-wrap="true">${violations.offenseLitrel}</cell>
+						<cell><if cond="${violations.offenseLevel != null && violations.offenseLevel == 'F'}">FELONY/</if><if cond="${violations.offenseLevel != null && violations.offenseLevel == 'M'}">MISDEMEANOR</if> ${violations.offenseDegree}</cell>
+						<cell></cell>
+					</table-row>
+				_endfor_
+			_endif_
+		</font>
+	</table>
+	
+	_if_ (${lawViolationComments} notEmpty)
+		<font name="times_10">
+			<paragraph line-spacing="1.5"><b>Law Violation Comments:</b><space/><font name="times_10"><u>${lawViolationComments}</u></font></paragraph>
+		</font>
+	_endif_
+
+	<table columns="5" width="100" widths="3,11,33,50,3" border-style="none"  keep-together="true" spacing-before="5" line-spacing="1" padding="0">
+		<font name="times_10">
+			<table-row>
+				<cell><b>B.</b></cell>
+				<cell colspan="4"><b>REPORTING HISTORY:</b></cell>
+			</table-row>
+			_if_ (${reportingHistory} notEmpty)
+					<table-row halign="left" valign="top" padding-bottom="3">
+						<cell></cell>
+						<cell halign="left"><b><u>Event Date</u></b></cell>
+						<cell halign="left"><b><u>Outcome</u></b></cell>
+						<cell halign="left"><b><u>Details</u></b></cell>
+					</table-row>
+				_foreach_(reporting ${reportingHistory} 'even' 'odd')
+					<table-row halign="left" valign="top" padding-bottom="3">
+						<cell></cell>
+						<cell>${reporting.dateTime format "MM/dd/yyyy"}</cell>
+						<cell>${reporting.eventTypes}</cell>
+						<cell>${reporting.details}</cell>
+					</table-row>
+				_endfor_
+			_endif_
+		</font>
+	</table>
+	
+	_if_ (${reportingHistoryComments} notEmpty)
+		<font name="times_10">
+			<paragraph><b>Reporting History Comments:</b><space/><font name="times_10"><u>${reportingHistoryComments}</u></font></paragraph>
+		</font>
+	_endif_
+	
+	<table columns="3" width="100" widths="12,55,33" border-style="none"  keep-together="true" line-spacing="1.25" padding-left="15" padding-bottom="3">
+		<font name="times_10">
+			<table-row>
+				<cell colspan="3"><b>Last Contact Date:</b><space/>
+					<if cond="${lastContactDate != null && lastContactDate != ""}"><u>${lastContactDate format "MM/dd/yyyy"}</u></if>
+					<else>__________________</else>
+				</cell>
+			</table-row>
+		</font>
+	</table>
+	
+	<table columns="5"  width="100" widths="3,31, 32, 31,3" border-style="none"  keep-together="true" spacing-before="5" line-spacing="1" padding="0">
+		<font name="times_10">
+			<table-row>
+				<cell><b>C.</b></cell>
+				<cell colspan="3"><b>EMPLOYMENT HISTORY:</b></cell>
+				<cell></cell>
+			</table-row>
+			_if_ (${employmentHistory} notEmpty)
+				<table-row halign="left" valign="top" padding-bottom="3">
+					<cell></cell>
+					<cell halign="left"><b><u>Employer Name</u></b></cell>
+					<cell halign="left"><b><u>Job Title</u></b></cell>
+					<cell halign="left"><b><u>Status</u></b></cell>
+					<cell></cell>
+				</table-row>
+				_foreach_(employment ${employmentHistory} 'even' 'odd')
+					<table-row valign="top">
+						<cell></cell>
+						<cell>${employment.employerName}</cell>
+						<cell>${employment.jobTitle}</cell>	
+						<cell>${employment.statusDesc}</cell>
+						<cell></cell>
+					</table-row>
+				_endfor_
+			_endif_
+		</font>
+	</table>
+		
+	_if_ (${employmentHistoryComments} notEmpty)
+		<font name="times_10">
+			<paragraph><b>Employment History Comments:</b><space/><font name="times_10"><u>${employmentHistoryComments}</u></font></paragraph>
+		</font>
+	_endif_
+	
+	<table columns="5"  border-style="none"  keep-together="true" widths="3,11,42,41,3" spacing-before="5" line-spacing="1.25" padding="0">
+		<font name="times_10">
+			<table-row>
+				<cell><b>D.</b></cell>
+				<cell colspan="4"><b>PREVIOUS COURT ACTIVITY</b></cell>
+			</table-row>
+	 		_if_ (${preCourtActivity} notEmpty)
+				<table-row halign="left" valign="top" padding-bottom="3">
+					<cell></cell>
+					<cell halign="left"><b><u>Date</u></b></cell>
+					<cell halign="left"><b><u>Type of Court Action (Comments)</u></b></cell>
+					<cell halign="left"><b><u>Dispositions / Court Actions</u></b></cell>
+					<cell></cell>
+				</table-row>
+				_foreach_(courtActivity ${preCourtActivity} 'even' 'odd')
+					<table-row valign="top">
+						<cell></cell>
+						<cell>${courtActivity.occurenceDate format "MM/dd/yyyy"}</cell>
+						<cell>${courtActivity.typeOfCourtActionComment}</cell>
+						<cell>
+							<if cond="${courtActivity.disposition != null && courtActivity.disposition != ""}">${courtActivity.disposition}  / </if>
+							${courtActivity.summaryOfCourtAction}</cell>
+						<cell></cell>
+					</table-row>
+					<table-row>
+	     				<cell><space/></cell>
+	     				<cell><space/></cell>
+	     				<cell><space/></cell>
+	     				<cell><space/></cell>
+	     			</table-row>
+				_endfor_
+			_endif_
+		</font>
+	</table>
+	
+	<table columns="7"  width="100" widths="3,21,23,14,22,14,3" border-style="none"  keep-together="false" spacing-before="5" line-spacing="1" padding="0">
+		<font name="times_10">
+			<table-row>
+				<cell><b>E.</b></cell>
+				<cell colspan="5"><b>TREATMENT ISSUES: ( Include need areas/programs used/participation dates/reasons for discharge ):</b></cell>
+				<cell></cell>
+			</table-row>
+			_if_ (${treatmentIssues} notEmpty)
+				<table-row halign="left" valign="top" padding-bottom="3">
+					<cell></cell>
+					<cell halign="left"><b><u>Referral Type</u></b></cell>
+					<cell halign="left"><b><u>Agency Name</u></b></cell>
+					<cell halign="left"><b><u>Begin Date</u></b></cell>
+					<cell halign="left"><b><u>Discharge Reason</u></b></cell>
+					<cell halign="left"><b><u>Exit Date</u></b></cell>
+					<cell></cell>
+				</table-row>
+				_foreach_(treatment ${treatmentIssues} 'even' 'odd')
+					<table-row valign="top">
+						<cell></cell>
+						<cell>${treatment.referralTypeDesc}</cell>
+						<cell>${treatment.newServiceProviderName}</cell>
+						<cell>${treatment.programBeginDate format "MM/dd/yyyy"}</cell>
+						<cell>${treatment.dischargeReason}</cell>
+						<cell>${treatment.programEndDate format "MM/dd/yyyy"}</cell>
+						<cell></cell>
+	     			</table-row>
+	     			<table-row>
+	     				<cell><space/></cell>
+	     				<cell><space/></cell>
+	     				<cell><space/></cell>
+	     				<cell><space/></cell>
+	     				<cell><space/></cell>
+	     				<cell><space/></cell>
+	     				<cell><space/></cell>
+	     			</table-row>
+				_endfor_
+			_endif_
+		</font>
+	</table>
+	
+	_if_ (${treatmentIssuesComments} notEmpty)
+		<font name="times_10">
+			<paragraph><b>Treatment Issues Comments:</b><space/><font name="times_10"><u>${treatmentIssuesComments}</u></font></paragraph>
+		</font>
+	_endif_
+	
+	<table columns="6" width="100" widths="3,49,15,15,15,3"  border-style="none"  keep-together="true" spacing-before="5" line-spacing="1" padding="0">
+		<font name="times_10">
+			<table-row halign="left" valign="top" padding-bottom="3">
+				<cell><b>F.</b></cell>
+				<cell><b>FEE HISTORY</b></cell>
+				<cell halign="right"><b><u>Amt Ordered</u></b></cell>
+				<cell halign="right"><b><u>Paid To Date</u></b></cell>
+				<cell halign="right"><b><u>Delinquent Amt</u></b></cell>
+				<cell></cell>
+			</table-row>
+			_if_ (${feeHistory} notEmpty)
+				_foreach_(fees ${feeHistory} 'even' 'odd')
+					<table-row>
+						<cell></cell>
+						<cell>${fees.payType}</cell>
+						<cell halign="right"><b>$</b>
+							<if cond="${fees.amountOrdered != null && fees.amountOrdered != ""}">${fees.amountOrdered}</if>
+							<else>_____________</else>
+						</cell>
+						<cell halign="right"><b>$</b>
+							<if cond="${fees.paidToDate != null && fees.paidToDate != ""}">${fees.paidToDate}</if>
+							<else>_____________</else>
+						</cell>
+						<cell halign="right"><b>$</b><if cond="${fees.delinquentAmount != null && fees.delinquentAmount != ""}">${fees.delinquentAmount}</if>
+							<else>_____________</else>
+						</cell>
+						<cell></cell>
+					</table-row>
+				_endfor_
+			_endif_
+		</font>
+	</table>
+	
+	_if_ (${feeHistoryComments} notEmpty)
+		<font name="times_10">
+			<paragraph><b>Fee History Comments:</b><space/><font name="times_10"><u>${feeHistoryComments}</u></font></paragraph>
+		</font>
+	_endif_
+	
+	<table columns="5"   keep-together="true" width="100" widths="3,25,32,31,3" border-style="none" spacing-before="5" line-spacing="1" padding="0">
+		<font name="times_10">
+			<table-row halign="left" valign="bottom">
+				<cell><b>G.</b></cell>
+				<cell halign="left"><b>COMMUNITY SERVICE:</b></cell>
+				<cell halign="left"><b>Number Of Hours Ordered:</b><space/>
+					<if cond="${hoursOrdered != null && hoursOrdered != ""}"><u>${hoursOrdered}</u></if>
+					<else>_________</else>
+				</cell>
+				<cell halign="left"><b>Number of Hours Completed:</b><space/>
+					<if cond="${hoursCompleted != null && hoursCompleted != ""}"><u>${hoursCompleted}</u></if>
+					<else>_________</else>
+				</cell>
+				<cell></cell>
+			</table-row>
+		</font>
+	</table>
+	
+	_if_ (${communityServiceComments} notEmpty)
+		<font name="times_10">
+			<paragraph><b>Community Service Comments:</b><space/><font name="times_10"><u>${communityServiceComments}</u></font></paragraph>
+		</font>
+	_endif_
+	
+	<table columns="4" width="100" widths="3,24,70,3" border-style="none"  keep-together="true" spacing-before="5" line-spacing="1" padding="0">
+		<font name="times_10">
+			<table-row padding-bottom="5">
+				<cell><b>H.</b></cell>
+				<cell colspan="2"><b>ALCOHOL/DRUG TESTING: ( Note the date and substance detected in all positive samples )</b></cell>
+				<cell></cell>
+			</table-row>
+			_if_ (${specimenTotal} notEmpty)
+				<table-row  padding-bottom="5" padding-left="5" halign="left" valign="top">
+					<cell></cell>
+					<cell halign="left" border-style="box" border-width="1"><b>Total Specimens Analyzed:</b><space/><u>${specimenTotal}</u></cell>
+					<cell></cell>
+					<cell></cell>
+				</table-row>
+			_endif_
+			_if_ (${posUrinalysis} notEmpty)
+				<table-row halign="left" padding-bottom="3">>
+					<cell></cell>
+					<cell halign="left"><b><u>Date</u></b></cell>
+					<cell halign="left"><b><u>Substance</u></b></cell>
+					<cell></cell>
+				</table-row>
+				_foreach_(urinalysis ${posUrinalysis} 'even' 'odd')
+					<table-row valign="top">
+						<cell></cell>
+						<cell>${urinalysis.dateTime format "MM/dd/yyyy"}</cell>
+						<cell>${urinalysis.details}</cell>
+						<cell></cell>
+	     			</table-row>
+				_endfor_
+			_endif_
+		</font>
+	</table>
+	
+	_if_ (${posUrinalysisComments} notEmpty)
+		<font name="times_10">
+			<paragraph><b>Alcohol/Drug Comments:</b><space/><font name="times_10"><u>${posUrinalysisComments}</u></font></paragraph>
+		</font>
+	_endif_
+	
+	<font name="times_10">
+		<paragraph><b>I.<space/><space/><space/>SUGGESTED COURT ACTIONS:</b><space/>
+			_if_ (${sugCourtActions} notEmpty)
+				<font name="times_10">
+					_foreach_(court_actions ${sugCourtActions} 'even' 'odd')
+						 <u>${court_actions.description}, </u> 
+					_endfor_
+				</font>
+			_endif_
+		</paragraph>
+	</font>
+	
+	<font name="times_10">
+		<paragraph><b>J.<space/><space/><space/>STATUS/COMMENTS AND RECOMMENDATIONS:</b><space/>
+			_if_ (${recommendations} notEmpty)
+				<font name="times_10"><u>${recommendations}</u></font>
+			_endif_
+		</paragraph>
+	</font>
+	
+	<table columns="4" width="100" widths="38,12,38,12" border-style="none" keep-together="true" spacing-before="15" line-spacing="1.15" padding="1">
+		<font name="times_10">
+			<table-row halign="left" valign="top">
+				<cell halign="left">______________________________________</cell>
+				<cell halign="left">
+					<if cond="${csoPhone != null && csoPhone != ""}"><u>${csoPhone}</u></if><else>_____________</else>
+				</cell>
+				<cell halign="left">______________________________________</cell>
+				<cell halign="left">
+					<if cond="${mgApprovePhone != null && mgApprovePhone != ""}"><u>${mgApprovePhone}</u></if><else>_____________</else>
+				</cell>
+			</table-row>
+			<table-row halign="left" valign="top">
+				<cell halign="left">Officer<space/>${csoName}</cell>
+				<cell halign="left">Telephone</cell>
+				<cell halign="left">Supervisor<space/>${mgApproveName}</cell>
+				<cell halign="left">Telephone</cell>
+			</table-row>
+		</font>
+	</table>
+	
+	<table columns="1" border-style="none" keep-together="true" line-spacing="1" padding="1" width="100">
+		<font name="times_10">
+			<table-row padding-top="5">
+				<cell>
+					<table columns="1" border-width="2"  border-style="box" border-color="black"  keep-together="true" spacing-before="15" line-spacing="1" padding="4">
+						<font name="times_10">
+					 		<table-row halign="left" valign="top">
+								<cell halign="left">
+									<paragraph halign="center" spacing-before="5">
+										<font name="times_10"><b><u>JUDGE'S COMMENTS/ACTIONS DIRECTED BY THE COURT:</u></b>
+										</font>
+									</paragraph>
+									<table columns="5"  border-style="none"  keep-together="true" spacing-before="5" spacing-after="5" line-spacing="1.25" padding="1">
+										<table-row halign="left" valign="top">
+											<cell halign="left" no-wrap="true">		_______Submit Motion to Rev/Adj</cell>
+											<cell halign="left"></cell>
+											<cell halign="left" no-wrap="true">		_______Mod/Amend COCS</cell>
+											<cell halign="left"></cell>
+											<cell halign="left" no-wrap="true">		_______ET Granted</cell>
+										</table-row>
+										<table-row halign="left" valign="top">
+											<cell halign="left" no-wrap="true">	_______Hold Pending</cell>
+											<cell halign="left"></cell>
+											<cell halign="left" no-wrap="true">	_______No Action Required</cell>
+											<cell halign="left"></cell>
+											<cell halign="left" no-wrap="true">	_______ET Denied</cell>
+										</table-row>
+										<table-row halign="left" valign="top">
+											<cell halign="left" no-wrap="true">	_______Court Admonishment</cell>
+											<cell halign="left"></cell>
+											<cell halign="left" no-wrap="true">	_______Unsatisfactory Term</cell>
+											<cell halign="left"></cell>
+											<cell halign="left" no-wrap="true">	_______Other</cell>
+										</table-row>
+										<table-row halign="left" valign="top">
+											<cell colspan="5" halign="left">Court Comments: <if cond="${courtComments != null && courtComments != ""}"><u>${courtComments}</u></if>
+												<else>________________________________________________________________________________________________</else>
+											</cell>
+										</table-row>
+										<table-row halign="left" valign="top">
+											<cell colspan="5" halign="left">_______________________________________________________________________________________________________________
+											</cell>
+										</table-row>
+										<table-row halign="left" valign="top">
+											<cell colspan="5" halign="left">_______________________________________________________________________________________________________________
+											</cell>
+										</table-row>
+										<table-row halign="left" valign="top">
+											<cell colspan="5" halign="left">_______________________________________________________________________________________________________________
+											</cell>
+										</table-row>
+										<table-row halign="left" valign="top">
+											<cell colspan="5" halign="left">_______________________________________________________________________________________________________________
+											</cell>
+										</table-row>
+										<table-row halign="left" valign="bottom">
+											<cell halign="left" no-wrap="true">_______________________________________</cell>
+											<cell halign="left"></cell>
+											<cell halign="left" no-wrap="true">___________________________</cell>
+										</table-row>
+										<table-row halign="left" valign="top">
+											<cell halign="left" no-wrap="true">AUTHORIZED SIGNATURE</cell>
+											<cell halign="left"></cell>
+											<cell halign="left" no-wrap="true">DATE</cell>							
+										</table-row>
+										<table-row halign="left" valign="top">
+											<cell colspan="5" halign="left" no-wrap="false"><b>Court Actions:</b><space/>
+												_if_ (${courtActions} notEmpty)
+													<font name="times_10">
+														_foreach_(courtAction ${courtActions} 'even' 'odd')
+														 <u>${courtAction.description}, </u>
+														_endfor_
+													</font>
+												_else_
+													<font name="times_10">
+													_________________________________________________________________________________________________
+													</font>
+												_endif_
+										    </cell>
+										</table-row>
+										<table-row halign="left" valign="top">
+											<cell colspan="5" halign="left"><b>Summary Of Court Actions:</b><space/>
+												<if cond="${summaryOfCourtActions != null && summaryOfCourtActions != ""}"><u>${summaryOfCourtActions}</u></if>
+												<else>_____________________________________________________________________________________</else>
+											</cell>
+										</table-row>
+										<table-row halign="left" valign="top">
+											<cell halign="left" no-wrap="true"></cell>
+										</table-row>
+									</table>
+								</cell>
+							</table-row>
+						</font>
+					</table>
+				</cell>
+			</table-row>
+			<table-row>
+				<cell>
+					<table columns="4" border-style="none" widths="38,12,38,12" keep-together="true" line-spacing="1" padding="1" width="100">
+						<font name="times_8" style="normal">
+							<table-row>
+								<cell halign="left" colspan="4">Date:<space/>________________________
+								</cell>
+							</table-row>
+							<table-row halign="left" valign="top">
+								<cell halign="left" colspan="2">To Name:<space/>_____________________________________________________________
+								</cell>
+								<cell halign="left" colspan="2">Program Unit:<space/>_________________________________________________________
+								</cell>
+							</table-row>
+							<table-row halign="left" valign="top" padding-top="5">
+								<cell halign="left" colspan="4">From Name:</cell>
+							</table-row>
+							<table-row halign="left" valign="top" padding-top="5">
+								<cell halign="left" colspan="2" valign="bottom">_____________________________________________________________________</cell>
+								<cell halign="left" colspan="2" valign="bottom">______________________________________________________________________</cell>
+							</table-row>
+							<table-row halign="left" valign="top">
+								<cell halign="left">Officer</cell>
+								<cell halign="left"></cell>
+								<cell halign="left">Supervisor</cell>
+								<cell halign="left"></cell>
+							</table-row>
+						</font>
+					</table>
+				</cell>
+			</table-row>
+		</font>
+	</table>
+</document>

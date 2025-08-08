@@ -1,0 +1,214 @@
+<?xml version="1.0" encoding="US-ASCII"?>
+<document size="A4" margin-left="25" margin-right="25" margin-top="30" margin-bottom="25">
+<encryption allow-fillin="false" allow-modify-contents="false" allow-degraded-printing="true" allow-screen-readers="false" allow-copy="false"	allow-printing="true"/>
+<meta author="JIMS2, Harris County" creator="JIMS2, Harris County" title="${orderTitle}"/>
+<viewer-preferences page-mode="UseThumbs"/>
+<module>
+<custom-tag alias="strong" tag="b">
+<attribute name="body" value="${body}"/>
+</custom-tag>
+
+<custom-tag alias="em" tag="i">
+<attribute name="body" value="${body}"/>
+</custom-tag>
+
+<custom-tag alias="ul" tag="list">
+<attribute name="body" value="${body}"/>
+</custom-tag>
+
+<custom-tag alias="ol" tag="ul">
+<attribute name="body" value="${body}"/>
+<attribute name="numbered" value="true"/>
+</custom-tag>
+ 
+<custom-tag alias="li" tag="list-item">
+<attribute name="body" value="${body}"/>
+</custom-tag>
+
+</module>
+
+	<font-def name="helvetica" family="Helvetica" style="normal" size="12"/>
+	<font-def name="geneva" family="georgia" style="normal" size="12"/>
+	<font-def name="arial" family="arial" style="normal" size="12"/>
+	<font-def name="times" family="Times" style="normal" size="12"/>
+
+
+
+	<header>
+		<font name="times" size="12" style="normal">
+		<table columns="1" border-style="none" padding="2">
+		<table-row>
+		<cell halign="center" valign="middle">HARRIS COUNTY PRETRIAL SERVICES</cell>
+		</table-row>
+		<table-row>
+		<cell halign="center" valign="middle">1201 Franklin, 12th Floor</cell>
+		</table-row>
+		<table-row>
+		<cell halign="center" valign="middle">Houston, Texas 77002</cell>
+		</table-row>				
+		</table>
+		</font>
+	</header>	
+	<footer>
+		<font name="arial" size="10" color="pink">
+		<footer-part padding-top="10" halign="left" width="500">
+		<table columns="1" width="50" border-style="none" keep-together="true">
+			<cell>
+				Page : <b>${pageNumber , nointrprt}</b> of <b>${pageCount , nointrprt}</b>\t CONDITIONS OF COMMUNITY SUPERVISION
+			</cell>
+			<cell>
+				<if cond="${supOrderRevisionDate != null}">
+				Rev :  ${supOrderRevisionDate}
+				</if>
+				<else>
+				Rev :  ____________________
+				</else>
+			</cell>
+		</table>		
+		</footer-part>
+		</font>
+	</footer>
+	<table columns="1" border-style="none" keep-together="true" spacing-before="10">
+	<cell halign="center">	${orderTitle}</cell>
+	</table>>
+		<table columns="2" border-style="none" keep-together="true" spacing-before="20">
+		<font name="arial" size="10" style="normal">
+		<table-row halign="center">
+		<cell halign="left">THE STATE OF TEXAS </cell>
+		<cell halign="right">CAUSE NUMBER <if cond="${cause != null}"><b><u>${cause}</u></b></if><else>__________________</else></cell>
+		</table-row>
+		<table-row halign="center">
+		<cell colspan="2" halign="center">KNOW ALL MEN BY THESE PRESENTS</cell>
+		</table-row>
+		<table-row halign="center">
+		<cell halign="left">HARRIS COUNTY, TEXAS</cell>
+		<cell halign="right">SPN <b><u>${spn}</u></b></cell>
+		</table-row>
+		</font>
+		</table>
+
+	<paragraph halign="justify" line-spacing="1.5" spacing-before="15" spacing-after="10">
+	<font name="times" size="10" style="normal">
+THAT I, <if cond="${name != null}"><u><b>${name}</b></u></if><else>_________________________________</else> convicted of the offense of <if cond="${offense != null}"><u><b>${offense}</b></u></if><else>__________________</else><if cond="${offenseLevel != null}"><u><b>${offenseLevel}</b></u></if><else>__________________</else>
+am held and firmly bound unto the State of Texas in the penal sum stated below for the payment of which sum well and truly to be made, and in addition all necessary and reasonable fees and expenses that may be incurred by peace officers in re-arresting me in the event the conditions of this bond are violated, I do bind myself, my heirs, executors and administrators, jointly and severally by these presents.
+	</font>	
+	</paragraph>
+
+	<paragraph halign="justify" line-spacing="1.5" spacing-before="10" spacing-after="10">
+	<font name="times" size="10" style="normal">
+I swear that I will discharge my sentence of confinement by submitting to the electronic monitoring of my physical location and comply with the rules and regulations of the Harris County Pretrial Services Agency, Electronic Monitoring Program beginning on the $ {Supervision Begin Day {NumberSuffix} day of $ {Supervision Begin Month, $ {Supervision Begin Year and ending on the $ {Supervision End Day {NumberSuffix} day of $ {Supervision End Month, $ {Supervision End Year during which time I shall remain at my place of residence located at $ {Text, during the following hours:
+	</font>	
+	</paragraph>
+
+	<paragraph halign="justify" line-spacing="1.5" spacing-before="10" spacing-after="10">
+	<font name="times" size="10" style="normal">
+	$ {CurBeginTime $ {CurBeginTimeMeridiem until  $ {CurEndTime $ {CurEndTimeMeridiem weekdays.
+$ {CurBeginTimeWeekend $ {CurBeginTimeWeekendMeridiem until $ {CurEndTimeWeekend $ {CurEndTimeWeekendMeridiem weekends.
+	</font>	
+	</paragraph>	
+
+	<paragraph halign="justify" line-spacing="1.5" spacing-before="10" spacing-after="10">
+	<font name="times" size="10" style="normal">	
+Submit to drug screen(s) by Pretrial Services:  [one will be selected from conditions] <br/>
+Report to Pretrial $ {UATestNumber time(s) per $ {UATestTimePeriod for mandatory testing.
+Call Pretrial $ {UATestNumber  time(s) per $ {UATestTimePeriod for random testing.
+Rapid Drug Test.
+	</font>	
+	</paragraph>		
+
+	<paragraph halign="justify" line-spacing="1.5" spacing-before="10" spacing-after="10">
+	<font name="times" size="10" style="normal">		
+	I will be responsible for all drug screen costs plus all necessary and reasonable expenses incurred in any arrest for failure to appear.
+I further swear that I will appear before any court or magistrate before whom this cause may hereinafter be pending at any time and place as may be required.
+Now if I shall well and truly make said appearance before said Court, and there remain from day to day and term to term of said Court, until discharged by due course of law, then and there to answer said accusation against me, and further shall well and truly make my personal appearance in any and all subsequent proceedings that may be had relative to said charge in the course of the criminal action based on said charge, this obligation shall become void; Otherwise to remain in full force and effect.
+	</font>	
+	</paragraph>			
+	
+		<new-page size="A4" margin-left="25" margin-right="25" margin-top="50" margin-bottom="25"/>
+		
+		<table columns="3" border-style="none" keep-together="false" spacing-before="25" >
+		<font name="times" encoding="Cp1252" size="9" style="normal">
+		<table-row halign="center">
+		<cell halign="left">Fee=$ $ {PB Fee </cell>
+		<cell halign="center"> Waived _____________________</cell>
+		<cell halign="right"> ______________________________</cell>
+		</table-row>
+		<table-row halign="center">
+		<cell halign="left" colspan="2"> Drug Screen Fee Waived __________</cell>
+		<cell halign="right"><if cond="${name != null}">${name}</if><else>_________________________________</else>, Defendant</cell>
+		</table-row>				
+		<table-row halign="center">
+		<cell halign="left" >Special Conditions of bond in effect:   YES   /   NO</cell>
+		<cell halign="right" colspan="2">SWORN TO AND SUBSCRIBED BEFORE ME,</cell>
+		</table-row>
+		<table-row halign="center">
+		<cell halign="left" >APPROVED</cell>
+		<cell halign="right" colspan="2">this ______ day of _________________________, 20____.</cell>
+		</table-row>						
+		<table-row halign="center">
+		<cell halign="left" >__________________________________________</cell>
+		<cell halign="right" colspan="2">___________________________________</cell>
+		</table-row>		
+		<table-row halign="center">
+		<cell halign="left" >JUDGE</cell>
+		<cell halign="right" colspan="2">PERSONAL BOND OFFICE EMPLOYEE</cell>
+		</table-row>		
+		<table-row halign="center">
+		<cell halign="right" colspan="3">HARRIS COUNTY, TEXAS</cell>
+		</table-row>								
+		</font>
+		</table>	
+		
+		<table columns="3" border-style="none" keep-together="true" widths="30,30,40" spacing-before="25">
+		<font name="times" encoding="Cp1252" size="9" style="normal">
+		<table-row halign="center">
+		<cell halign="center" colspan="3">############################################################################################</cell>
+		</table-row>
+		<table-row halign="center">
+		<cell halign="left">Date of Birth: $ {DateOfBirth</cell>
+		<cell halign="center">Place of Birth $ {PlaceOfBirth</cell>
+		<cell halign="left">Driver's License # $ {DriversLicense# \n  $ {DriversLicenseState   </cell>
+		</table-row>
+		<table-row halign="center">
+		<cell halign="left"> Height $ {Height  </cell>
+		<cell halign="center">Weight $ {Weight </cell>		
+		<cell halign="left">Hair Color $ {ColorOfHair Eye Color $ {ColorOfEye</cell>
+		</table-row>				
+		<table-row halign="center">
+		<cell halign="left">DEFENDANT </cell>
+		<cell colspan="2" halign="center">	Street Address</cell>
+		</table-row>				
+		<table-row halign="center">
+		<cell halign="left">MAILING	ADDRESS</cell>		
+		<cell halign="center" colspan="2">$ {AddressCity, $ {AddressState $ {AddressZip $ {DefendantPhoneNumber</cell>				
+		</table-row>				
+		</font>
+		</table>	
+
+	<table columns="2" border-style="none" keep-together="true" spacing-before="25" width="100" widths="50,50">
+		<table-row halign="center">
+		<cell halign="center">NEAREST RELATIVE</cell>
+		<cell halign="center">DEFENDANT EMPLOYMENT INFORMATION</cell>
+		</table-row>
+		<table-row halign="center">		
+		<cell halign="center">Name ___________________________________________</cell>
+		<cell halign="center">Name $ {Employer</cell>
+		</table-row>
+		<table-row halign="center">		
+		<cell halign="center">Street ___________________________________________</cell>
+		<cell halign="left" padding-left="10" padding-right="10" >Address $ {EmployerStreet# $ {EmployerAddressStreet, \n $ {EmployerAddressCity, $ {EmployeState, $ {EmployerZip</cell>
+		</table-row>
+		<table-row halign="center">		
+		<cell halign="center">City/State ________________________________________</cell>
+		<cell halign="center">Phone  $ {EmployerPhone</cell>
+		</table-row>
+		<table-row halign="center">
+		<cell halign="center" colspan="2">############################################################################################</cell>
+		</table-row>
+	</table>	
+
+	<paragraph halign="justify" line-spacing="1.5" spacing-before="20" spacing-after="20">
+	Filed with _________________ on _________________ at ___________ A.M./P.M. by: ______________________ <br/>
+	Defendant Notified ________________________   HPD _____________   HCJ _____________   Non-Arrest ____________
+	</paragraph>
+</document>

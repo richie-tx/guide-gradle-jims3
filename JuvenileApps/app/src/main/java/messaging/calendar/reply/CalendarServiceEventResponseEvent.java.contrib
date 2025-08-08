@@ -1,0 +1,1130 @@
+/*
+ * Create on May 24, 2006
+ */
+
+package messaging.calendar.reply;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Date;
+
+import messaging.calendar.reply.CalendarEventResponse;
+import mojo.km.utilities.DateUtil;
+
+public class CalendarServiceEventResponseEvent extends CalendarEventResponse implements Comparable
+{
+	private String eventId;
+	private Date eventDate;
+
+	private String eventTime;
+	private String eventSessionLength;
+	private String eventSessionLengthDesc;
+
+	private String eventStatusCode;
+	private String eventStatus;
+
+	private String eventTypeCode;
+	private String eventType;
+	private String eventTypeCategory;
+
+	private int serviceProviderId;
+	private String probationOfficerId;
+	private String probationOfficerLogonId;
+	private int instructorId;
+	private String instructorName;
+
+	private String serviceLocationId;
+	private String locationId;
+	private String locationUnitId;
+	private String serviceLocationName;
+	private String serviceProviderName;
+
+	private String programId;
+	private String programName;
+	private String serviceId;
+	private String serviceName;
+
+	private String phone;
+	private String fax;
+	private String adminUserProfileId;
+
+	private String eventComments;
+
+	private String currentEnrollment;
+	private String maxAttendance;
+	private String minAttendance;
+	private String interviewId;
+
+	private boolean conflictingEvent;
+	private boolean addConflictingEvent = true;
+
+	private String juvUnitCd;
+	private boolean calendarAssociatedCasefile;
+
+	private String finalName;
+	private String finalLocation;
+
+	private String juvenileNum;
+	public String juvenileFullName;
+	private String juvenileFirstName;
+	private String juvenileMiddleName;
+	private String juvenileLastName;
+	
+	private String juvenileAttendanceStatus;
+	private boolean preScheduledSelected = false;
+
+	private List interviewPersons;
+	private String interviewType;
+	private String interviewStatusCd;
+	private String interviewSummaryNotes;
+	private String interviewStatusDescription;
+
+	private String casefileId;
+
+	private String schoolDistrictName;
+	private String schoolName;
+	private String facilityCd;
+	private String familyLocation;
+
+	private List associatedContexts;
+	private String locationName;
+	private String hasProgramReferral;
+
+	// added for Journal
+	private String progressNotes;
+	private String serviceEventId;
+
+	public CalendarServiceEventResponseEvent()
+	{
+		super();
+		this.associatedContexts = new ArrayList();
+	}
+
+	/**
+	 * @return
+	 */
+	public Date getEventDate()
+	{
+		return eventDate;
+	}
+
+	public String getEventTimeFormatted()
+	{
+		if (eventDate != null)
+		{
+			try
+			{
+				return DateUtil.dateToString(eventDate, "hh:mm a");
+			}
+			catch (Exception e)
+			{
+			}
+		}
+		return "";
+	}
+
+	/**
+	 * @return
+	 */
+	public String getEventSessionLength()
+	{
+		return eventSessionLength;
+	}
+
+	/**
+	 * @return
+	 */
+	public String getEventStatus()
+	{
+		return eventStatus;
+	}
+
+	/**
+	 * @return
+	 */
+	public String getEventTime()
+	{
+		return eventTime;
+	}
+
+	/**
+	 * @return
+	 */
+	public String getEventType()
+	{
+		return eventType;
+	}
+
+	/**
+	 * @param date
+	 */
+	public void setEventDate(Date eventDate)
+	{
+		this.eventDate = eventDate;
+	}
+
+	/**
+	 * @param string
+	 */
+	public void setEventSessionLength(String eventSessionLength)
+	{
+		this.eventSessionLength = eventSessionLength;
+		this.eventSessionLengthDesc = "";
+	}
+
+	/**
+	 * @param string
+	 */
+	public void setEventStatus(String eventStatus)
+	{
+		this.eventStatus = eventStatus;
+	}
+
+	/**
+	 * @param string
+	 */
+	public void setEventTime(String eventTime)
+	{
+		this.eventTime = eventTime;
+	}
+
+	/**
+	 * @param string
+	 */
+	public void setEventType(String eventType)
+	{
+		this.eventType = eventType;
+	}
+
+	/**
+	 * @return
+	 */
+	public String getServiceLocationName()
+	{
+		return serviceLocationName;
+	}
+
+	/**
+	 * @return
+	 */
+	public String getServiceProviderName()
+	{
+		return serviceProviderName;
+	}
+
+	/**
+	 * @param string
+	 */
+	public void setServiceLocationName(String serviceLocationName)
+	{
+		this.serviceLocationName = serviceLocationName;
+	}
+
+	/**
+	 * @param string
+	 */
+	public void setServiceProviderName(String serviceProviderName)
+	{
+		this.serviceProviderName = serviceProviderName;
+	}
+
+	/**
+	 * @return
+	 */
+	public String getEventComments()
+	{
+		return eventComments;
+	}
+
+	/**
+	 * @param string
+	 */
+	public void setEventComments(String eventComments)
+	{
+		this.eventComments = eventComments;
+	}
+
+	/**
+	 * @return
+	 */
+	public String getEventId()
+	{
+		return eventId;
+	}
+
+	/**
+	 * @param string
+	 */
+	public void setEventId(String string)
+	{
+		eventId = string;
+	}
+
+	/**
+	 * @return
+	 */
+	public int getInstructorId()
+	{
+		return instructorId;
+	}
+
+	/**
+	 * @return
+	 */
+	public String getInstructorName()
+	{
+		return instructorName;
+	}
+
+	/**
+	 * @return
+	 */
+	public int getServiceProviderId()
+	{
+		return serviceProviderId;
+	}
+
+	/**
+	 * @param i
+	 */
+	public void setInstructorId(int i)
+	{
+		instructorId = i;
+	}
+
+	/**
+	 * @param string
+	 */
+	public void setInstructorName(String string)
+	{
+		instructorName = string;
+	}
+
+	/**
+	 * @param i
+	 */
+	public void setServiceProviderId(int i)
+	{
+		serviceProviderId = i;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see java.lang.Comparable#compareTo(java.lang.Object)
+	 */
+	public int compareTo(Object obj)
+	{
+		if (obj == null)
+			return -1;
+
+		CalendarServiceEventResponseEvent evt = (CalendarServiceEventResponseEvent) obj;
+		int result = 0;
+
+		try
+		{
+			if (this.getEventDate() != null || evt.getEventDate() != null)
+			{
+				if (this.getEventDate() == null)
+				{ /*
+					 * this makes any null objects go to the bottom. change this to 1 if you want
+					 * the top of the list
+					 */
+					return -1;
+				}
+
+				if (evt.getEventDate() == null)
+				{ /*
+					 * this makes any null objects go to the bottom. change this to -1 if you want
+					 * the top of the list
+					 */
+					return 1;
+				}
+				result = this.getEventDate().compareTo(evt.getEventDate());
+				// backwards in order to get list to show up most recent first
+				//result = evt.getEventDate().compareTo(getEventDate());
+			}
+
+		}
+		catch (NumberFormatException e)
+		{
+			result = 0;
+		}
+
+		return result;
+	}
+
+	/**
+	 * @return Returns the programName.
+	 */
+	public String getProgramName()
+	{
+		return programName;
+	}
+
+	/**
+	 * @param programName
+	 *            The programName to set.
+	 */
+	public void setProgramName(String programName)
+	{
+		this.programName = programName;
+	}
+
+	/**
+	 * @return Returns the serviceName.
+	 */
+	public String getServiceName()
+	{
+		return serviceName;
+	}
+
+	/**
+	 * @param serviceName
+	 *            The serviceName to set.
+	 */
+	public void setServiceName(String serviceName)
+	{
+		this.serviceName = serviceName;
+	}
+
+	/**
+	 * @return Returns the fax.
+	 */
+	public String getFax()
+	{
+		return fax;
+	}
+
+	/**
+	 * @param fax
+	 *            The fax to set.
+	 */
+	public void setFax(String fax)
+	{
+		this.fax = fax;
+	}
+
+	/**
+	 * @return Returns the adminUserProfileId.
+	 */
+	public String getAdminUserProfileId()
+	{
+		return adminUserProfileId;
+	}
+
+	/**
+	 * @param adminUserProfileId
+	 *            The adminUserProfileId to set.
+	 */
+	public void setAdminUserProfileId(String adminUserProfileId)
+	{
+		this.adminUserProfileId = adminUserProfileId;
+	}
+
+	/**
+	 * @return Returns the conflictingEvent.
+	 */
+	public boolean isConflictingEvent()
+	{
+		return conflictingEvent;
+	}
+
+	/**
+	 * @param conflictingEvent
+	 *            The conflictingEvent to set.
+	 */
+	public void setConflictingEvent(boolean conflictingEvent)
+	{
+		this.conflictingEvent = conflictingEvent;
+	}
+
+	/**
+	 * @return Returns the addConflictingEvent.
+	 */
+	public boolean isAddConflictingEvent()
+	{
+		return addConflictingEvent;
+	}
+
+	/**
+	 * @param addConflictingEvent
+	 *            The addConflictingEvent to set.
+	 */
+	public void setAddConflictingEvent(boolean addConflictingEvent)
+	{
+		this.addConflictingEvent = addConflictingEvent;
+	}
+
+	/**
+	 * @return Returns the interviewPersons.
+	 */
+	public List getInterviewPersons()
+	{
+		return interviewPersons;
+	}
+
+	/**
+	 * @param interviewPersons
+	 *            The interviewPersons to set.
+	 */
+	public void setInterviewPersons(List interviewPersons)
+	{
+		this.interviewPersons = interviewPersons;
+	}
+
+	/**
+	 * @return Returns the interviewType.
+	 */
+	public String getInterviewType()
+	{
+		return interviewType;
+	}
+
+	/**
+	 * @param interviewType
+	 *            The interviewType to set.
+	 */
+	public void setInterviewType(String interviewType)
+	{
+		this.interviewType = interviewType;
+	}
+
+	/**
+	 * @return Returns the schoolName.
+	 */
+	public String getSchoolName()
+	{
+		return schoolName;
+	}
+
+	/**
+	 * @param schoolName
+	 *            The schoolName to set.
+	 */
+	public void setSchoolName(String schoolName)
+	{
+		this.schoolName = schoolName;
+	}
+
+	/**
+	 * @return Returns the schoolDistrictName.
+	 */
+	public String getSchoolDistrictName()
+	{
+		return schoolDistrictName;
+	}
+
+	/**
+	 * @param schoolDistrictName
+	 *            The schoolDistrictName to set.
+	 */
+	public void setSchoolDistrictName(String schoolDistrictName)
+	{
+		this.schoolDistrictName = schoolDistrictName;
+	}
+
+	/**
+	 * @return Returns the familyLocation.
+	 */
+	public String getFamilyLocation()
+	{
+		return familyLocation;
+	}
+
+	/**
+	 * @param familyLocation
+	 *            The familyLocation to set.
+	 */
+	public void setFamilyLocation(String familyLocation)
+	{
+		this.familyLocation = familyLocation;
+	}
+
+	/**
+	 * @return Returns the maxAttendance.
+	 */
+	public String getMaxAttendance()
+	{
+		return maxAttendance;
+	}
+
+	/**
+	 * @param maxAttendance
+	 *            The maxAttendance to set.
+	 */
+	public void setMaxAttendance(String maxAttendance)
+	{
+		this.maxAttendance = maxAttendance;
+	}
+
+	/**
+	 * @return Returns the preScheduledSelected.
+	 */
+	public boolean isPreScheduledSelected()
+	{
+		return preScheduledSelected;
+	}
+
+	/**
+	 * @param preScheduledSelected
+	 *            The preScheduledSelected to set.
+	 */
+	public void setPreScheduledSelected(boolean preScheduledSelected)
+	{
+		this.preScheduledSelected = preScheduledSelected;
+	}
+
+	/**
+	 * @return Returns the currentEnrollment.
+	 */
+	public String getCurrentEnrollment()
+	{
+		return currentEnrollment;
+	}
+
+	/**
+	 * @param currentEnrollment
+	 *            The currentEnrollment to set.
+	 */
+	public void setCurrentEnrollment(String currentEnrollment)
+	{ 
+		int ceIN ;
+		
+		// ensure we don't get a bogus value
+		try
+		{
+			ceIN = Integer.parseInt( currentEnrollment.trim() ) ;
+			if( ceIN < 0 )
+			{
+				ceIN = 0 ;
+			}
+		}
+		catch( NumberFormatException nfe )
+		{
+			ceIN = 0 ;
+		}
+
+		currentEnrollment = ceIN + "" ;
+		
+		this.currentEnrollment = currentEnrollment;
+	}
+
+	/**
+	 * @return Returns the eventTypeCategory.
+	 */
+	public String getEventTypeCategory()
+	{
+		return eventTypeCategory;
+	}
+
+	/**
+	 * @param eventTypeCategory
+	 *            The eventTypeCategory to set.
+	 */
+	public void setEventTypeCategory(String eventTypeCategory)
+	{
+		this.eventTypeCategory = eventTypeCategory;
+	}
+
+	/**
+	 * @return Returns the eventTypeId.
+	 */
+	public String getEventTypeCode()
+	{
+		return eventTypeCode;
+	}
+
+	/**
+	 * @param eventTypeId
+	 *            The eventTypeId to set.
+	 */
+	public void setEventTypeCode(String eventTypeCode)
+	{
+		this.eventTypeCode = eventTypeCode;
+	}
+
+	/**
+	 * @return Returns the minAttendance.
+	 */
+	public String getMinAttendance()
+	{
+		return minAttendance;
+	}
+
+	/**
+	 * @param minAttendance
+	 *            The minAttendance to set.
+	 */
+	public void setMinAttendance(String minAttendance)
+	{
+		this.minAttendance = minAttendance;
+	}
+
+	/**
+	 * @return Returns the serviceId.
+	 */
+	public String getServiceId()
+	{
+		return serviceId;
+	}
+
+	/**
+	 * @param serviceId
+	 *            The serviceId to set.
+	 */
+	public void setServiceId(String serviceId)
+	{
+		this.serviceId = serviceId;
+	}
+
+	/**
+	 * @return Returns the interviewId.
+	 */
+	public String getInterviewId()
+	{
+		return interviewId;
+	}
+
+	/**
+	 * @param interviewId
+	 *            The interviewId to set.
+	 */
+	public void setInterviewId(String interviewId)
+	{
+		this.interviewId = interviewId;
+	}
+
+	/**
+	 * @return Returns the eventStatusCode.
+	 */
+	public String getEventStatusCode()
+	{
+		return eventStatusCode;
+	}
+
+	/**
+	 * @param eventStatusCode
+	 *            The eventStatusCode to set.
+	 */
+	public void setEventStatusCode(String eventStatusCode)
+	{
+		this.eventStatusCode = eventStatusCode;
+	}
+
+	/**
+	 * @return Returns the associatedContexts.
+	 */
+	public List getAssociatedContexts()
+	{
+		return associatedContexts;
+	}
+
+	/**
+	 * @param associatedContexts
+	 *            The associatedContexts to set.
+	 */
+	public void setAssociatedContexts(List associatedContexts)
+	{
+		this.associatedContexts = associatedContexts;
+	}
+
+	/**
+	 * @return Returns the serviceLocationId.
+	 */
+	public String getServiceLocationId()
+	{
+		return serviceLocationId;
+	}
+
+	/**
+	 * @param serviceLocationId
+	 *            The serviceLocationId to set.
+	 */
+	public void setServiceLocationId(String serviceLocationId)
+	{
+		this.serviceLocationId = serviceLocationId;
+	}
+
+	/**
+	 * @return Returns the locationId.
+	 */
+	public String getLocationId()
+	{
+		return locationId;
+	}
+
+	/**
+	 * @param locationId
+	 *            The locationId to set.
+	 */
+	public void setLocationId(String locationId)
+	{
+		this.locationId = locationId;
+	}
+
+	/**
+	 * @return Returns the programId.
+	 */
+	public String getProgramId()
+	{
+		return programId;
+	}
+
+	/**
+	 * @param programId
+	 *            The programId to set.
+	 */
+	public void setProgramId(String programId)
+	{
+		this.programId = programId;
+	}
+
+	/**
+	 * @return Returns the interviewStatusCd.
+	 */
+	public String getInterviewStatusCd()
+	{
+		return interviewStatusCd;
+	}
+
+	/**
+	 * @param interviewStatusCd
+	 *            The interviewStatusCd to set.
+	 */
+	public void setInterviewStatusCd(String interviewStatusCd)
+	{
+		this.interviewStatusCd = interviewStatusCd;
+	}
+
+	/**
+	 * @return Returns the interviewStatusDescription.
+	 */
+	public String getInterviewStatusDescription()
+	{
+		return interviewStatusDescription;
+	}
+
+	/**
+	 * @param interviewStatusDescription
+	 *            The interviewStatusDescription to set.
+	 */
+	public void setInterviewStatusDescription(String interviewStatusDescription)
+	{
+		this.interviewStatusDescription = interviewStatusDescription;
+	}
+
+	/**
+	 * @return Returns the casefileId.
+	 */
+	public String getCasefileId()
+	{
+		return casefileId;
+	}
+
+	/**
+	 * @param casefileId
+	 *            The casefileId to set.
+	 */
+	public void setCasefileId(String casefileId)
+	{
+		this.casefileId = casefileId;
+	}
+
+	/**
+	 * @return Returns the locationName.
+	 */
+	public String getLocationName()
+	{
+		return locationName;
+	}
+
+	/**
+	 * @param locationName
+	 *            The locationName to set.
+	 */
+	public void setLocationName(String locationName)
+	{
+		this.locationName = locationName;
+	}
+
+	/**
+	 * @return Returns the phone.
+	 */
+	public String getPhone()
+	{
+		return phone;
+	}
+
+	/**
+	 * @param phone
+	 *            The phone to set.
+	 */
+	public void setPhone(String phone)
+	{
+		this.phone = phone;
+	}
+
+	/**
+	 * @return Returns the locationUnitId.
+	 */
+	public String getLocationUnitId()
+	{
+		return locationUnitId;
+	}
+
+	/**
+	 * @param locationUnitId
+	 *            The locationUnitId to set.
+	 */
+	public void setLocationUnitId(String locationUnitId)
+	{
+		this.locationUnitId = locationUnitId;
+	}
+
+	/**
+	 * @return Returns the eventSessionLengthDesc.
+	 */
+	public String getEventSessionLengthDesc()
+	{
+		return eventSessionLengthDesc;
+	}
+
+	/**
+	 * @param eventSessionLengthDesc
+	 *            The eventSessionLengthDesc to set.
+	 */
+	public void setEventSessionLengthDesc(String eventSessionLengthDesc)
+	{
+		this.eventSessionLengthDesc = eventSessionLengthDesc;
+	}
+
+	/**
+	 * @return Returns the juvUnitCd.
+	 */
+	public String getJuvUnitCd()
+	{
+		return juvUnitCd;
+	}
+
+	/**
+	 * @param juvUnitCd
+	 *            The juvUnitCd to set.
+	 */
+	public void setJuvUnitCd(String juvUnitCd)
+	{
+		this.juvUnitCd = juvUnitCd;
+	}
+
+	/**
+	 * @return Returns the juvenileFirstName.
+	 */
+	public String getJuvenileFirstName()
+	{
+		return juvenileFirstName;
+	}
+
+	/**
+	 * @param juvenileFirstName
+	 *            The juvenileFirstName to set.
+	 */
+	public void setJuvenileFirstName(String juvenileFirstName)
+	{
+		this.juvenileFirstName = juvenileFirstName;
+	}
+
+	/**
+	 * @return Returns the juvenileLastName.
+	 */
+	public String getJuvenileLastName()
+	{
+		return juvenileLastName;
+	}
+
+	/**
+	 * @param juvenileLastName
+	 *            The juvenileLastName to set.
+	 */
+	public void setJuvenileLastName(String juvenileLastName)
+	{
+		this.juvenileLastName = juvenileLastName;
+	}
+
+	/**
+	 * @return Returns the juvenileMiddleName.
+	 */
+	public String getJuvenileMiddleName()
+	{
+		return juvenileMiddleName;
+	}
+
+	/**
+	 * @param juvenileMiddleName
+	 *            The juvenileMiddleName to set.
+	 */
+	public void setJuvenileMiddleName(String juvenileMiddleName)
+	{
+		this.juvenileMiddleName = juvenileMiddleName;
+	}
+
+	/**
+	 * @return Returns the juvenileNum.
+	 */
+	public String getJuvenileNum()
+	{
+		return juvenileNum;
+	}
+
+	/**
+	 * @param juvenileNum
+	 *            The juvenileNum to set.
+	 */
+	public void setJuvenileNum(String juvenileNum)
+	{
+		this.juvenileNum = juvenileNum;
+	}
+
+	/**
+	 * @return Returns the calendarAssociatedCasefile.
+	 */
+	public boolean isCalendarAssociatedCasefile()
+	{
+		return calendarAssociatedCasefile;
+	}
+
+	/**
+	 * @param calendarAssociatedCasefile
+	 *            The calendarAssociatedCasefile to set.
+	 */
+	public void setCalendarAssociatedCasefile(boolean calendarAssociatedCasefile)
+	{
+		this.calendarAssociatedCasefile = calendarAssociatedCasefile;
+	}
+
+	/**
+	 * @return Returns the finalName.
+	 */
+	public String getFinalName()
+	{
+		return finalName;
+	}
+
+	/**
+	 * @param finalName
+	 *            The finalName to set.
+	 */
+	public void setFinalName(String finalName)
+	{
+		this.finalName = finalName;
+	}
+
+	/**
+	 * @return Returns the juvenileFullName.
+	 */
+	public String getJuvenileFullName()
+	{
+		return juvenileFullName;
+	}
+
+	/**
+	 * @param juvenileFullName
+	 *            The juvenileFullName to set.
+	 */
+	public void setJuvenileFullName(String juvenileFullName)
+	{
+		this.juvenileFullName = juvenileFullName;
+	}
+
+	/**
+	 * @return Returns the finalLocation.
+	 */
+	public String getFinalLocation()
+	{
+		return finalLocation;
+	}
+
+	/**
+	 * @param finalLocation
+	 *            The finalLocation to set.
+	 */
+	public void setFinalLocation(String finalLocation)
+	{
+		this.finalLocation = finalLocation;
+	}
+
+	public String getHasProgramReferral()
+	{
+		return hasProgramReferral;
+	}
+
+	public void setHasProgramReferral(String hasProgramReferral)
+	{
+		this.hasProgramReferral = hasProgramReferral;
+	}
+
+	public String getInterviewSummaryNotes()
+	{
+		return interviewSummaryNotes;
+	}
+
+	public void setInterviewSummaryNotes(String interviewSummaryNotes)
+	{
+		this.interviewSummaryNotes = interviewSummaryNotes;
+	}
+
+	public String getProgressNotes()
+	{
+		return progressNotes;
+	}
+
+	public void setProgressNotes(String progressNotes)
+	{
+		this.progressNotes = progressNotes;
+	}
+
+	public String getFacilityCd()
+	{
+		return facilityCd;
+	}
+
+	public void setFacilityCd(String facilityCd)
+	{
+		this.facilityCd = facilityCd;
+	}
+
+	public String getServiceEventId()
+	{
+		return (serviceEventId);
+	}
+
+	public void setServiceEventId(String serviceEventId)
+	{
+		this.serviceEventId = serviceEventId;
+	}
+
+	public String getProbationOfficerId()
+	{
+		return probationOfficerId;
+	}
+
+	public void setProbationOfficerId(String probationOfficerId)
+	{
+		this.probationOfficerId = probationOfficerId;
+	}
+	public String getJuvenileAttendanceStatus() {
+		return juvenileAttendanceStatus;
+	}
+
+	public void setJuvenileAttendanceStatus(String juvenileAttendanceStatus) {
+		this.juvenileAttendanceStatus = juvenileAttendanceStatus;
+	}
+
+	public String getProbationOfficerLogonId() {
+		return probationOfficerLogonId;
+	}
+
+	public void setProbationOfficerLogonId(String probationOfficerLogonId) {
+		this.probationOfficerLogonId = probationOfficerLogonId;
+	}
+
+}

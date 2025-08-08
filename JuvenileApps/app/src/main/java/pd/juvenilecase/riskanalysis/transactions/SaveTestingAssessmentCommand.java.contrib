@@ -1,0 +1,162 @@
+//Source file: C:\\views\\CommonSupervision\\app\\src\\pd\\juvenilecase\\transactions\\SaveReferralAssessmentCommand.java
+
+package pd.juvenilecase.riskanalysis.transactions;
+
+import java.util.Enumeration;
+
+import messaging.juvenilecase.reply.RiskRecommendationResponseEvent;
+import messaging.riskanalysis.RiskQuestionAnswerEvent;
+import messaging.riskanalysis.SaveInterviewAssessmentEvent;
+import messaging.riskanalysis.SaveTestingAssessmentEvent;
+import mojo.km.context.ICommand;
+import mojo.km.dispatch.EventManager;
+import mojo.km.dispatch.IDispatch;
+import mojo.km.messaging.IEvent;
+import mojo.km.persistence.Home;
+import mojo.km.persistence.IHome;
+import naming.RiskAnalysisConstants;
+import pd.exception.ComputationValidationException;
+import pd.juvenilecase.JuvenileCasefile;
+import pd.juvenilecase.riskanalysis.PDRiskAnalysisHelper;
+import pd.juvenilecase.riskanalysis.RiskAnalysis;
+import pd.juvenilecase.riskanalysis.RiskAnalysisTest;
+import pd.juvenilecase.riskanalysis.RiskResponse;
+
+public class SaveTestingAssessmentCommand implements ICommand 
+{
+   
+   /**
+    * @roseuid 4342C33D0081
+    */
+   public SaveTestingAssessmentCommand() 
+   {
+    
+   }
+   
+   /**
+    * @param event
+    * @roseuid 433C3D3D0335
+    */
+   public void execute(IEvent event) throws ComputationValidationException 
+   {
+		
+	   SaveTestingAssessmentEvent saveTestAssessEvent = (SaveTestingAssessmentEvent)event;
+		
+		if ( saveTestAssessEvent.isUpdateOverRiddenStatus() ) {
+			   
+		   if ( (saveTestAssessEvent.getAssessmentID() != null) && (saveTestAssessEvent.getAssessmentID().length() > 0) ) {
+			   PDRiskAnalysisHelper.updateTestingRiskAnalysisOverrideStatus(saveTestAssessEvent);
+		   }
+			   	   
+	   } else {
+		
+		   if (saveTestAssessEvent.isUpdate()) {
+			   saveTestingUpdate(saveTestAssessEvent);
+		   } else {
+			   saveTesting(saveTestAssessEvent);
+		   }
+		  
+	   }
+			
+   }
+   
+   /**
+    * This will be for updating existing interviews 
+	 * @param saveIntAssessEvent
+	 * @throws ComputationValidationException
+	 */
+	private void saveTestingUpdate(SaveTestingAssessmentEvent saveTestAssessEvent)
+			throws ComputationValidationException {
+		
+	}
+
+	/**
+	 * @param event
+	 * @throws ComputationValidationException
+	 */
+	private void saveTesting(IEvent event) throws ComputationValidationException {
+		SaveTestingAssessmentEvent saveTestAssessEvent = (SaveTestingAssessmentEvent)event;
+		
+		RiskAnalysis riskAnalysis = new RiskAnalysis();
+		RiskAnalysisTest riskTesting = new RiskAnalysisTest();
+		riskAnalysis.setAssessmentType(RiskAnalysisConstants.RISK_TYPE_TESTING);
+		riskAnalysis.setJuvenileNum(saveTestAssessEvent.getJuvenileNum());
+		riskAnalysis.setCasefileID(Integer.parseInt(saveTestAssessEvent.getCasefileID()));
+		riskAnalysis.setEnteredDate(saveTestAssessEvent.getAssessmentDate());
+		riskTesting.setEnteredDate(saveTestAssessEvent.getAssessmentDate());
+		IHome home=new Home();
+		home.bind(riskAnalysis);
+		PDRiskAnalysisHelper.setCalculatedScoresTesting(riskTesting, saveTestAssessEvent, riskAnalysis);
+	
+		PDRiskAnalysisHelper.setRiskAnalysisRecommendation(riskAnalysis, RiskAnalysisConstants.RISK_TYPE_TESTING);
+		
+		riskTesting.setRiskAnalysis(riskAnalysis);
+		
+		Enumeration events = saveTestAssessEvent.getRequests();
+	
+		while (events.hasMoreElements())
+		{
+			Object obj = events.nextElement();
+			if( obj instanceof RiskQuestionAnswerEvent ) {	
+				RiskQuestionAnswerEvent riskReqEvent = (RiskQuestionAnswerEvent)obj;
+				
+				RiskResponse riskResponse =  new RiskResponse();
+				riskResponse.setRiskAnalysisId(riskAnalysis.getOID().toString());
+				riskResponse.setText(riskReqEvent.getText());
+				riskResponse.setWeightedResponseID(String.valueOf(riskReqEvent.getWeightedResponseID()));
+			}
+		}
+	
+		/*There will be one indicator (boolean) per type of Risk Assessment on the casefile 
+		 * (These are new attributes that need to be added to the casefile table). Whenever a particular 
+		 * type of Risk Assessment is done, you go in and set the indicator to denote that the assessment is done...
+		 *  example, we will have a RiskReferralCompleted boolean field on casefile. Whenever a new RiskReferralAssessment 
+		 * is done, this flag will be set to true on the casefile that we chose
+		 */
+		 
+		 //TBD.. Need to add columns for all the assessments in JuvenileCaseFile table and then modify this entity
+		//JuvenileCasefile juvCaseFile = JuvenileCasefile.find(saveRefAssessEvent.getCasefileID());
+		//juvCaseFile.setRiskAssessmentReferral(true);
+		
+		RiskRecommendationResponseEvent riskRecommendScore = new RiskRecommendationResponseEvent();
+		riskRecommendScore.setRiskAnalysisRecommendation(riskAnalysis.getRecommendation());
+		riskRecommendScore.setRiskAnalysisScore(riskAnalysis.getFinalScore());
+		riskRecommendScore.setRiskAnalysisId(riskAnalysis.getOID().toString());
+	
+		IDispatch dispatch = EventManager.getSharedInstance(EventManager.REPLY);		
+		dispatch.postEvent(riskRecommendScore);
+		JuvenileCasefile myCasefile=JuvenileCasefile.find(saveTestAssessEvent.getCasefileID());
+		if(myCasefile!=null){
+			myCasefile.setIsTestingRiskNeeded(false);
+			PDRiskAnalysisHelper.turnRiskFlagOffOnAllCasefiles(riskAnalysis.getJuvenileNum(),riskAnalysis.getAssessmentType(),myCasefile.getSupervisionCategoryId());
+		}
+	}
+   
+   /**
+    * @param event
+    * @roseuid 433C3D3D033E
+    */
+   public void onRegister(IEvent event) 
+   {
+    
+   }
+   
+   /**
+    * @param event
+    * @roseuid 433C3D3D0340
+    */
+   public void onUnregister(IEvent event) 
+   {
+    
+   }
+   
+   /**
+    * @param anObject
+    * @roseuid 433C3D3D0342
+    */
+   public void update(Object anObject) 
+   {
+    
+   }
+
+}

@@ -1,0 +1,30 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<survey xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  type="CommonAppExitReport" name="2014_24_11_commonappexitreportdelinquencyhistory.xml">
+	<questionGroup id="1">
+		<question id="2005_14_12_COMMONAPPEXITREPORT_Q18" text="
+				Briefly describe the child's history of delinquency. Include a description of 
+contributing factors, and any patterns of delinquency you detect. Indicate 
+whether the child is a follower or a leader." rowSequence="18" responseUIControlType="TEXTBOX" isRequired="false" isResponseNewLine="true" uiControlSize="4" textLength="1000">
+		</question>
+		<question id="2005_14_12_COMMONAPPEXITREPORT_Q19" text="Describe the child's most recent criminal episode, contributing 
+factors, the child's actions or role in the episode, and how this episode fits 
+into the child's history of delinquency." rowSequence="19" responseUIControlType="TEXTBOX" isRequired="false" isResponseNewLine="true" uiControlSize="4" textLength="1000">
+		</question>
+		<!-- //added for task#34434 ,#27104-->
+		<question id="2005_14_12_COMMONAPPEXITREPORT_Q41" text="Do any family members or relatives have gang affiliation?" rowSequence="41" responseUIControlType="RADIO" isRequired="true" isResponseNewLine="false" validationDescription="Do any family members or relatives have gang affiliation?">
+			<response displayText="Yes" id="2005_14_12_COMMONAPPEXITREPORT_Q41_R1" responseValue="true" IsDefault="false"></response>
+			<response displayText="No" id="2005_14_12_COMMONAPPEXITREPORT_Q41_R2" responseValue="false" IsDefault="false"></response>
+		</question>
+		<question id="2005_14_12_COMMONAPPEXITREPORT_Q42" text="if yes, Gang Name" rowSequence="42" responseUIControlType="TEXT" isRequired="false" isResponseNewLine="false" responseDataType="Text"  uiControlSize="30" validationDescription="Answering YES to Do any family members or relatives have gang affiliation means Gang Name">
+			<responseDependancy selectedResponseId="2005_14_12_COMMONAPPEXITREPORT_Q41_R1" questionId="2005_14_12_COMMONAPPEXITREPORT_Q41"></responseDependancy>
+		</question>
+		<question id="2005_14_12_COMMONAPPEXITREPORT_Q43" text="Does the child admit to a gang affiliation?" rowSequence="43" responseUIControlType="RADIO" isRequired="true" isResponseNewLine="false" validationDescription="Does the child admit to a gang affiliation?">
+			<response displayText="Yes" id="2005_14_12_COMMONAPPEXITREPORT_Q43_R1" responseValue="true" IsDefault="false"></response>
+			<response displayText="No" id="2005_14_12_COMMONAPPEXITREPORT_Q43_R2" responseValue="false" IsDefault="false"></response>
+		</question>
+		<question id="2005_14_12_COMMONAPPEXITREPORT_Q44" text="if yes, Gang Name" rowSequence="44" responseUIControlType="TEXT" isRequired="false" isResponseNewLine="false" responseDataType="Text"  uiControlSize="30" validationDescription="Answering YES to Does the child admit to a gang affiliation means Gang Name">
+			<responseDependancy selectedResponseId="2005_14_12_COMMONAPPEXITREPORT_Q43_R1" questionId="2005_14_12_COMMONAPPEXITREPORT_Q43"></responseDependancy>
+		</question>
+		<!-- //added for task#34434 ,#27104-->
+	</questionGroup>
+</survey>

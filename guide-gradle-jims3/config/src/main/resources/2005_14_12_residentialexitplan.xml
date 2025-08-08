@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<survey xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"  type="ResidentialExitPlan" name="2005_14_12_residentialexitplan.xml">
+	<questionGroup id="1" sequence="1">
+		<question  id="2005_14_12_RESIDENTIALEXITPLAN_Q1" text="Will the JPO maintain contact with child and family on weekly basis?" validationDescription="Will the JPO maintain contact" rowSequence="1" responseUIControlType="RADIO" isRequired="true" isResponseNewLine="false">
+			<response  displayText="YES" id="2005_14_12_RESIDENTIALEXITPLAN_Q1_R1" responseValue="true" isDefault="false"/>
+			<response displayText="NO" id="2005_14_12_RESIDENTIALEXITPLAN_Q1_R2" responseValue="false" isDefault="false"/>
+		</question>
+		<question   id="2005_14_12_RESIDENTIALEXITPLAN_Q2" text="If no, please enter reason below." validationDescription="Answering NO to will the JPO maintain contact means a reason" rowSequence="2" responseUIControlType="TEXTBOX"  isResponseNewLine="true" uiControlSize="4" textLength="255">
+		<responseDependancy selectedResponseId="2005_14_12_RESIDENTIALEXITPLAN_Q1_R2" questionId="2005_14_12_RESIDENTIALEXITPLAN_Q1" />
+		</question>
+		<question  id="2005_14_12_RESIDENTIALEXITPLAN_Q3" text="Do the parent(s) agree to comply with the plan for parent/child contact?" rowSequence="3" responseUIControlType="RADIO" isRequired="true" isResponseNewLine="false" validationDescription="Do the parents agree to comply">
+			<response  displayText="YES" id="2005_14_12_RESIDENTIALEXITPLAN_Q3_R1" responseValue="true" isDefault="false"/>
+			<response displayText="NO" id="2005_14_12_RESIDENTIALEXITPLAN_Q3_R2" responseValue="false" isDefault="false"/>
+		</question>
+		<question   id="2005_14_12_RESIDENTIALEXITPLAN_Q4" text="If no, please enter reason below." rowSequence="4" responseUIControlType="TEXTBOX"  isResponseNewLine="true" uiControlSize="4" validationDescription="Answering NO to do the parents agree to comply means a reason" textLength="255">
+		<responseDependancy selectedResponseId="2005_14_12_RESIDENTIALEXITPLAN_Q3_R2" questionId="2005_14_12_RESIDENTIALEXITPLAN_Q3"/>
+		</question>
+	</questionGroup>
+</survey>

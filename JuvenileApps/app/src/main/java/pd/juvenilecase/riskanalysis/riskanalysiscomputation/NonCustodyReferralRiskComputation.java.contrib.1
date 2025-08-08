@@ -1,0 +1,315 @@
+package pd.juvenilecase.riskanalysis.riskanalysiscomputation;
+
+import java.util.ArrayList;
+import java.util.Collection;
+import java.util.Enumeration;
+import java.util.HashMap;
+import java.util.Iterator;
+import java.util.Map;
+import java.util.Set;
+
+import naming.RiskAnalysisConstants;
+
+import pd.exception.ComputationValidationException;
+import pd.juvenilecase.riskanalysis.JuvenileDelinquencyHistory;
+import messaging.riskanalysis.RiskQuestionAnswerEvent;
+import messaging.riskanalysis.SaveReferralAssessmentEvent;
+import messaging.riskanalysis.reply.RiskComputationReponseEvent;
+import messaging.riskanalysis.reply.NonCustodyReferralComputationResponseEvent;
+import mojo.km.messaging.IEvent;
+/** 
+ * @author PAlcocer
+ * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+ */
+public class NonCustodyReferralRiskComputation extends RiskComputation  {
+	
+	private NonCustodyReferralComputationResponseEvent nonCustodyRefRiskCompRespEvent;
+	private SaveReferralAssessmentEvent saveRefAssessEvent;
+	private JuvenileDelinquencyHistory juvenileDelinquencyHistory;
+	
+	//Questions which will be used in formula(s)
+	private int question1Weight; // Juvenile Delinquency History -  QUESTIONHEADER - No Question Text/0
+	private int question2Weight; // Capital Felony Total -  Auto-Set - Based on PresetValue
+	private int question3Weight; // Misdemeanor Class A,B Total -  Auto-Set - Based on PresetValue
+	private int question4Weight; // Misdemeanor Class C Total -  Auto-Set - Based on PresetValue
+	private int question5Weight; // Felony 1 Total -  Auto-Set - Based on PresetValue
+	private int question6Weight; // Felony 2 Total -  Auto-Set - Based on PresetValue
+	private int question7Weight; // Felony 3 Total -  Auto-Set - Based on PresetValue
+	private int question8Weight; // Level Total -  Auto-Set - Based on PresetValue
+	private int question9Weight; // Referral History Total -  Auto-Set - Based on PresetValue
+	private int question10Weight; // Total Offenses  -  Auto-Set - Based on PresetValue
+	private int question11Weight; // Status and City Ordinance Offenses Total -  Auto-Set - Based on PresetValue
+	private int question12Weight; // State Jail Felony Total -  Auto-Set - Based on PresetValue
+	private int question13Weight; // Referral Information -  QUESTIONHEADER - No Question Text/0
+	private int question14Weight; // Is the youth currently pending court in this jurisdiction or another jurisdiction? -   RADIO - Yes/3 - No/0
+	private int question15Weight; // Currently on probation in this jurisdiction or another jurisdiction? -   RADIO - Yes/3 - No/0
+	private int question16Weight; // Is the youth pending court on a violation of probation? -   RADIO - Yes/3 - No/0
+	private int question17Weight; // Number of charges currently under supervision (Additional Charges) -  Auto-Set - Non-Custody/0
+	
+	
+	
+	private int question18Weight; // Type of Assessment -  Auto-Set - Non-Custody/0
+	private int question19Weight; // Is the juvenile a TYC Parolee? - RADIO - Yes/3 - No/0
+	private int question20Weight; // Is the current offense above a misdemeanor B? - RADIO - Yes/3 - No/0
+	private int question21Weight; // Was a weapon involved in the offense? - RADIO - Yes/1 - No/0
+	private int question22Weight; // Was the victim injured? - RADIO - Yes/3 - No/0
+	private int question23Weight; // Does the victim fear reprisal or retaliation? - RADIO - Yes/3 - No/0
+	private int question24Weight; // Family violence associated with this offense? - RADIO - Yes/3 - No/0
+	private int question25Weight; // Was the youth cooperative during the interview? - RADIO - Yes/-5 - No/3
+	private int question26Weight; // Was the youth physically assaultive during the interview? - RADIO - Yes/10 - No/0
+	private int question27Weight; // Did the juvenile appear intoxicated during the interview? - RADIO - Yes/2 - No/0
+	private int question28Weight; // Was the juvenile argumentative or hostile during the interview? - RADIO - Yes/2 - No/0
+	private int question29Weight; // Was the youth verbally abusive during the interview? - RADIO - Yes/5 - No/0
+	private int question30Weight; // Was the youth brought in on an active warrant? - RADIO - Yes/3 - No/0
+	private int question31Weight; // Does the youth history involve JP referrals? - RADIO - Yes/2 - No/0
+
+	//Is the youth currently pending court in this jurisdiction or another jurisdiction? true/3 - false/0 
+	//Currently on probation in this jurisdiction or another?  true/3 - false/0 
+	//Is the youth pending court on a violation of probation? true/3 - false/0
+	//Number of charges currently under supervision? Numerical Number assigned by preFillEvent
+    //Assigned to saveRefAssessEvent.getAdditionalCharges() 
+
+	
+	public NonCustodyReferralRiskComputation(SaveReferralAssessmentEvent saveReferralAssessmentEvent) {
+		this.saveRefAssessEvent = saveReferralAssessmentEvent; 		
+		this.juvenileDelinquencyHistory = 
+			JuvenileDelinquencyHistory.findbyRiskAnalysisId(saveRefAssessEvent.getRiskAnalysisId());
+		setWeightOfQuestions();
+	}
+	
+	/** 
+	 * (non-Javadoc)
+	 * @see RiskComputation#compute()
+	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	 */
+	public RiskComputationReponseEvent compute() throws ComputationValidationException {
+		
+		validate(saveRefAssessEvent);
+		nonCustodyRefRiskCompRespEvent = new NonCustodyReferralComputationResponseEvent();
+		
+		nonCustodyRefRiskCompRespEvent.setCustodyStatus(RiskAnalysisConstants.NON_CUSTODY); //used in calculation
+		nonCustodyRefRiskCompRespEvent.setTotalAttitude(calculateTotalAttitudeScore()); //used in calculation 
+		nonCustodyRefRiskCompRespEvent.setOnProbation(Boolean.parseBoolean(saveRefAssessEvent.getProbationStatus())); //used in calculation
+		nonCustodyRefRiskCompRespEvent.setPendingCourt(Boolean.parseBoolean(saveRefAssessEvent.getPendingCourt())); //used in calculation
+		nonCustodyRefRiskCompRespEvent.setVOPPendingCourt(Boolean.parseBoolean(saveRefAssessEvent.getVopPendingCourt())); //used in calculation
+		nonCustodyRefRiskCompRespEvent.setTotalCapitalFelony(juvenileDelinquencyHistory.getCapFelonyTotal()); //used in calculation
+		nonCustodyRefRiskCompRespEvent.setTotalClassC(juvenileDelinquencyHistory.getMisdCTotal()); //used in calculation
+		nonCustodyRefRiskCompRespEvent.setTotalClassABScore(juvenileDelinquencyHistory.getMisdABTotal()); //used in calculation
+		nonCustodyRefRiskCompRespEvent.setTotalCurrentStatus(calculateCurrentStatusTotal()); //used in calculation with Questions (question1Weight + question2Weight + question13Weight)
+		nonCustodyRefRiskCompRespEvent.setTotalFelony1(juvenileDelinquencyHistory.getFelony1Total()); //used in calculation
+		nonCustodyRefRiskCompRespEvent.setTotalFelony2(juvenileDelinquencyHistory.getFelony2Total()); //used in calculation
+		nonCustodyRefRiskCompRespEvent.setTotalFelony3(juvenileDelinquencyHistory.getFelony3Total()); //used in calculation
+		nonCustodyRefRiskCompRespEvent.setTotalLevel(question8Weight); //used in calculation
+		nonCustodyRefRiskCompRespEvent.setTotalOffenses(calculateTotalOffensesScore()); //used in calculation
+		nonCustodyRefRiskCompRespEvent.setTotalOffenseNature(calculateTotalOffenseNatureScore()); //used in calculation
+		nonCustodyRefRiskCompRespEvent.setTotalReferralsHistory(question9Weight); //used in calculation
+		nonCustodyRefRiskCompRespEvent.setTotalStateJailFelony(juvenileDelinquencyHistory.getJailFelonyTotal()); //used in calculation
+		nonCustodyRefRiskCompRespEvent.setTotalStatusCO(juvenileDelinquencyHistory.getScoOffensesTotal()); //used in calculation
+		nonCustodyRefRiskCompRespEvent.setTotalSupervision(calculateTotalSupervisionScore()); //used in calculation
+		nonCustodyRefRiskCompRespEvent.setAdditionalCharges(saveRefAssessEvent.getAdditionalCharges()); //used in calculation
+		nonCustodyRefRiskCompRespEvent.setSeriousnessIndex(juvenileDelinquencyHistory.getSeriousnessIndex()); //used in calculation
+		nonCustodyRefRiskCompRespEvent.setTotalScore(finalScore()); //used in calculation
+		
+		return (RiskComputationReponseEvent)nonCustodyRefRiskCompRespEvent;
+	}
+
+	/** 
+	 * (non-Javadoc)
+	 * @see RiskComputation#validate(IEvent event)
+	 * @generated "UML to Java (com.ibm.xtools.transform.uml2.java5.internal.UML2JavaTransform)"
+	 */
+	protected void validate(IEvent event) throws ComputationValidationException {
+		
+		boolean failed = false;
+		
+		if (failed) {
+			throw new ComputationValidationException("NonCustodyReferralRiskComputation failed validation.");
+		}
+		
+	}
+	
+	/* (non-Javadoc)
+	 * @see pd.juvenilecase.riskanalysis.riskanalysiscomputation.RiskComputation#finalScore()
+	 */
+	protected int finalScore() {
+		int total = 0;
+		//supervision total + Level Total + Offenses Total + Attitude Total + Referral History total + Nature total + current History total
+		total = calculateTotalSupervisionScore() + question8Weight + calculateTotalOffensesScore()
+		 		+ calculateTotalAttitudeScore() + question9Weight + calculateTotalOffenseNatureScore() + 
+		 		calculateCurrentStatusTotal();
+		return total;
+	}
+	
+	protected Collection finalScores() {
+		
+		return new ArrayList();
+	}
+	
+	/* (non-Javadoc)
+	 * @see pd.juvenilecase.riskanalysis.riskanalysiscomputation.RiskComputation#setWeightOfQuestions()
+	 */
+	protected void setWeightOfQuestions() {
+		Enumeration riskQuestionAnswerEvents = saveRefAssessEvent.getRequests();
+		
+		RiskComputationUtil riskComputationUtil = new RiskComputationUtil();
+		HashMap hmQuestionWeights = riskComputationUtil.getQuestionWeights(riskQuestionAnswerEvents);
+				
+		Set entries = hmQuestionWeights.entrySet();
+		Iterator it = entries.iterator();
+        while (it.hasNext()) {
+        	Map.Entry entry = (Map.Entry) it.next();
+            //System.out.println( "Key: " +  entry.getKey() +  " Value: " + entry.getValue());
+            int questionNumber = (Integer)entry.getKey();
+            int weight = (Integer)entry.getValue();
+            switch(questionNumber) {
+            	case 1:{
+            		question1Weight = weight;
+            		break;
+            	} case 2: {
+            		question2Weight = weight;
+            		break;
+            	} case 3: {
+            		question3Weight = weight;
+            		break;
+            	} case 4: {
+            		question4Weight = weight;
+            		break;
+            	} case 5: {
+            		question5Weight = weight;
+            		break;
+            	} case 6: {
+            		question6Weight = weight;
+            		break;
+            	} case 7: {
+            		question7Weight = weight;
+            		break;
+            	} case 8: {
+            		question8Weight = weight;
+            		break;
+            	} case 9: {
+            		question9Weight = weight;
+            		break;
+            	} case 10: {
+            		question10Weight = weight;
+            		break;
+            	} case 11: {
+            		question11Weight = weight;
+            		break;
+            	} case 12: {
+            		question12Weight = weight;
+            		break;
+            	} case 13: {
+            		question13Weight = weight;
+            		break;
+            	} case 14: {
+            		question14Weight = weight;
+            		break;
+            	} case 15: {
+            		question15Weight = weight;
+            		break;
+            	} case 16: {
+            		question16Weight = weight;
+            		break;
+            	} case 17: {
+            		question17Weight = weight;
+            		break;
+            	} case 18: {
+					question18Weight = weight;
+					break;
+		   		} case 19: {
+					question19Weight = weight;
+					break;
+				} case 20: {
+					question20Weight = weight;
+					break;
+				} case 21: {
+					question21Weight = weight;
+					break;
+				} case 22: {
+					question22Weight = weight;
+					break;
+				} case 23: {
+					question23Weight = weight;
+					break;
+				} case 24: {
+					question24Weight = weight;
+					break;
+				} case 25: {
+					question25Weight = weight;
+					break;
+				} case 26: {
+					question26Weight = weight;
+					break;
+				} case 27: {
+					question27Weight = weight;
+					break;
+				} case 28: {
+					question28Weight = weight;
+					break;
+				} case 29: {
+					question29Weight = weight;
+					break;
+				} case 30: {
+					question30Weight = weight;
+					break;
+				} case 31: {
+					question31Weight = weight;
+					break;
+				}
+		   	}
+		}
+	}
+
+	
+	/**
+	 * @return int total
+	 */
+	private int calculateTotalSupervisionScore() {
+		int total = 0;
+		//PendingCourt + OnProbation
+		total = question14Weight + question15Weight;
+		return total;
+	}
+		
+	/**
+	 * @return int total
+	 */
+	private int calculateTotalAttitudeScore() {
+		int total = 0;
+	   	//Cooperative + Appeared Intoxicated + ArgumentativeHostile + VerballyAssaultive + PhysicallyAssaultive.
+		total = question25Weight + question26Weight + question27Weight + question28Weight + question29Weight;
+		return total;
+	}
+	
+	/**
+	 * @return int total
+	 */
+	private int calculateTotalOffenseNatureScore() {
+		int total = 0;
+	   	//FirearmOffense + FamilyViolence + VictimInjured + FamilyFearsReprisal
+		total = question21Weight + question22Weight + question23Weight + question24Weight;
+		return total;
+	}
+	
+	/**
+	 * @return int total
+	 */
+	private int calculateTotalOffensesScore() {
+		int total = 0;
+		// JPReferral + AboveMisdB + VOPPendingCourt
+		total =  question20Weight +  question31Weight + question16Weight;
+		return total;
+	}  
+	
+	/**
+	 * @return int total
+	 */
+	private int calculateCurrentStatusTotal() {
+		int total = 0;
+		//CustodyStatus +  TYCParolee + Warrant
+		total = (question18Weight + question19Weight + question30Weight);
+		return total;
+	}
+	
+	
+}

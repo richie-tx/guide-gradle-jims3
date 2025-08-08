@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="Gradle: org.eclipse.microprofile.telemetry:microprofile-telemetry-api:pom:2.0" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="org.eclipse.microprofile.telemetry" artifactId="microprofile-telemetry-api" version="2.0" baseVersion="2.0" />
+    <CLASSES>
+      <root url="file://$MAVEN_REPOSITORY$/org/eclipse/microprofile/telemetry/microprofile-telemetry-api/2.0/microprofile-telemetry-api-2.0.pom" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

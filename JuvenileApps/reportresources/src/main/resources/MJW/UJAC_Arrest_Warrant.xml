@@ -1,0 +1,204 @@
+<?xml version="1.0" encoding="US-ASCII"?>
+<document size="LETTER" margin-left="50" margin-right="50" margin-top="110" margin-bottom="20">
+<encryption allow-fillin="false" allow-modify-contents="false" allow-degraded-printing="true" allow-screen-readers="false" allow-copy="false"	allow-printing="true"/>
+<meta author="JIMS2, Harris County" creator="JIMS2, Harris County" title="ARREST WARRANT"/>
+<viewer-preferences page-mode="NoThumbs" zoom="1"/>
+<module>
+<custom-tag alias="strong" tag="b">
+<attribute name="body" value="${body}"/>
+</custom-tag>
+
+<custom-tag alias="em" tag="i">
+<attribute name="body" value="${body}"/>
+</custom-tag>
+
+<custom-tag alias="ul" tag="list">
+<attribute name="body" value="${body}"/>
+</custom-tag>
+
+<custom-tag alias="ol" tag="ul">
+<attribute name="body" value="${body}"/>
+<attribute name="numbered" value="true"/>
+</custom-tag>
+ 
+<custom-tag alias="li" tag="list-item">
+<attribute name="body" value="${body}"/>
+</custom-tag>
+
+</module>
+
+	<font-def name="helvetica" family="Helvetica" style="normal" size="12"/>
+	<font-def name="geneva" family="georgia" style="normal" size="12"/>
+	<font-def name="arial" family="arial" style="normal" size="12"/>
+	<font-def name="arial_10" family="arial" style="normal" size="10"/>
+	<font-def name="arial_8" family="arial" style="normal" size="8"/>
+	<font-def name="times" family="Times" style="normal" size="12"/>
+	<font-def name="times_10" family="Times" style="normal" size="10"/>
+
+	<header>
+		<header-part halign="center"  width="510" padding-bottom="30">
+			<font name="times" size="12" style="normal">
+			<table columns="3" widths="30,35,30" spacing-before="30" border-style="none" keep-together="true" halign="center">
+				<table-row halign="center">
+					<cell halign="right"><b>The State Of Texas</b></cell>
+					<cell halign="center" ><b>&#167;</b></cell>
+					<cell halign="left"><b>Arrest Warrant</b></cell>
+				</table-row>
+				<table-row halign="center">
+					<cell halign="right"><b>County Of Harris</b></cell>
+					<cell halign="center"><b>&#167;</b></cell>
+					<cell halign="left"><b>Warrant Number: ${warrantNum}</b></cell>
+				</table-row>
+			</table>	
+			</font>
+		</header-part>
+	</header>	
+		
+	<paragraph halign="left" line-spacing="1.25" spacing-before="20" spacing-after="10">
+		<font name="arial_10" size="10" style="normal">TO THE SHERIFF OR ANY PEACE OFFICER OF HARRIS COUNTY, TEXAS
+		</font>	
+	</paragraph>
+	
+	<paragraph halign="left" line-spacing="1.25" spacing-before="20" spacing-after="10">
+		<font name="arial_10" size="10" style="normal">GREETINGS:
+		</font>	
+	</paragraph>
+	
+	<paragraph halign="left" line-spacing="1.25" spacing-before="20" spacing-after="10">
+		<font name="arial_10" size="10" style="normal">WHEREAS, Complaint in writing, under oath, has been made before me by  ${officerName},  a peace officer employed by the ${officerAgencyName}, which complaint is attached hereto and expressly made a part hereof, stating facts and information in my opinion sufficient to establish probable cause for the issuance of this warrant.
+		</font>	
+	</paragraph>
+	
+	<paragraph halign="left" line-spacing="1.25" spacing-before="10" spacing-after="10">
+		<font name="arial_10" size="10" style="normal">NOW THEREFORE, you are commanded to arrest ${firstName} ${middleName} ${lastName} ${suffix}, hereinafter the Respondent, date of birth ${dateOfBirthString}, described and accused in said affidavit for the  ${offenseLevel} ${offenseDegree} offense of ${chargeDescription} committed on or about ${offenseDateAsString}. 
+		</font>	
+	</paragraph>
+	
+	<table columns="1" width="92" halign="left" spacing-before="50">
+		<table-row>
+			<cell halign="left">
+				<font name="arial_10">HEREIN FAIL NOT and due return make hereof.</font>
+			</cell>
+		</table-row>
+		<table-row>
+			<cell halign="left" padding-top="10">
+				<font name="arial_10">WITNESS MY SIGNATURE on this the _____ day of ___________________________, _______ at____o'clock _____.M.</font>
+			</cell>
+		</table-row>
+	</table>
+	
+		<table columns="1" width="50" halign="right" spacing-before="50">
+		<table-row>
+			<cell halign="right">
+				<font name="arial_10">___________________________________________</font>
+			</cell>
+		</table-row>
+		<table-row>
+			<cell halign="center">
+				<font name="arial_10">MAGISTRATE
+				</font>
+			</cell>
+		</table-row>
+		<table-row>
+			<cell halign="center">
+				<font name="arial_10">HARRIS COUNTY. TEXAS 			
+				</font>
+			</cell>
+		</table-row>
+	</table>
+	
+	<new-page size="LETTER" margin-left="50" margin-right="50" margin-top="110" margin-bottom="20">
+		<header>
+			<header-part halign="center"  width="510" padding-bottom="30">
+				<font name="times" size="12" style="normal">
+					<table columns="3" widths="30,35,30" spacing-before="30" border-style="none" keep-together="true" halign="center">
+						<table-row halign="center">
+							<cell halign="right"><b>The State Of Texas</b></cell>
+							<cell halign="center" ><b>&#167;</b></cell>
+							<cell halign="left"><b>Arrest Warrant Affidavit</b></cell>
+						</table-row>
+						<table-row halign="center">
+							<cell halign="right"><b>County Of Harris</b></cell>
+							<cell halign="center"><b>&#167;</b></cell>
+							<cell halign="left"><b>Warrant Number: ${warrantNum}</b></cell>
+						</table-row>
+					</table>	
+				</font>
+			</header-part>
+		</header>
+	
+	</new-page>
+	
+	<paragraph halign="center" line-spacing="1.25" spacing-before="50" spacing-after="10">
+		<font name="arial_10" size="10" style="normal">AFFIDAVIT FOR ARREST WARRANT
+		</font>	
+	</paragraph>
+	
+	<paragraph halign="left" line-spacing="1.25" spacing-before="20" spacing-after="10">
+		<font name="arial_10" size="10" style="normal">I, ${officerName} , employed as a peace officer with ${officerAgencyName}, do solemnly swear that I have reason to believe and do believe that ${firstName} ${middleName} ${lastName} ${suffix}, hereinafter the Respondent, date of birth ${dateOfBirthString}, did, in Harris County, Texas, on or about ${offenseDateAsString}, commit the ${offenseLevel} ${offenseDegree} offense of ${chargeDescription}.
+		</font>	
+	</paragraph>
+	
+	<table columns="1" width="92" halign="left" spacing-before="30">
+		<table-row>
+			<cell halign="left">
+				<font name="arial_10">MY BELIEF IS BASED UPON THE FOLLOWING FACTS:</font>
+			</cell>
+		</table-row>
+		<table-row>
+			<cell halign="left" padding-top="10">
+				<font name="arial_10">${affidavitStatement}</font>
+			</cell>
+		</table-row>
+	</table>
+	
+	<paragraph halign="left" line-spacing="1.25" spacing-before="30" spacing-after="10">
+		<font name="arial_10" size="10" style="normal">WHEREFORE PREMISES CONSIDERED, affiant respectfully requests that a warrant issue for the arrest of ${firstName} ${middleName} ${lastName} ${suffix} for the ${offenseLevel} ${offenseDegree}, offense of ${chargeDescription}.
+		</font>	
+	</paragraph>
+	
+	<paragraph halign="left" line-spacing="1.25" spacing-before="50" spacing-after="10">
+		<font name="arial_10" size="10" style="normal">AGAINST THE PEACE AND DIGNITY OF THE STATE
+		</font>	
+	</paragraph>
+	
+	<table columns="1" width="50" halign="right" spacing-before="50">
+		<table-row>
+			<cell halign="left">
+				<font name="arial_10">________________________________________</font>
+			</cell>
+		</table-row>
+		<table-row>
+			<cell halign="left">
+				<font name="arial_10">AFFIANT
+				</font>
+			</cell>
+		</table-row>
+	</table>
+	
+	<paragraph halign="left" line-spacing="1.25" spacing-before="50" spacing-after="10">
+		<font name="arial_10" size="10" style="normal">WITNESS MY SIGNATURE on this the _____ day of ___________________________, _______ at____o'clock _____.M.
+		</font>	
+	</paragraph>
+	
+	<table columns="1" width="50" halign="right" spacing-before="50">
+		<table-row>
+			<cell halign="left">
+				<font name="arial_10">________________________________________</font>
+			</cell>
+		</table-row>
+		<table-row>
+			<cell halign="left">
+				<font name="arial_10">MAGISTRATE
+				</font>
+			</cell>
+		</table-row>
+		<table-row>
+			<cell halign="left">
+				<font name="arial_10">Harris County, Texas 			
+				</font>
+			</cell>
+		</table-row>
+	</table>
+	
+</document>

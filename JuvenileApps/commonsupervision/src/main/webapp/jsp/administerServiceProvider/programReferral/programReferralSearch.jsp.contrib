@@ -1,0 +1,421 @@
+<!DOCTYPE HTML>
+<%-- ----------------MODIFICATIONS -------------------------- --%>
+<%-- 03/12/2010	DWilliamson		create jsp --%>
+<%-- RCapestani 10/13/2015  Task #30717 MJCW: IE11 conversion of HCJPD link on UILeftNav (UI - Service Provider-Juvenile link) --%>
+
+<%--TAG LIBRARIES NEEDED FOR STRUTS --%>
+<%@ taglib uri="/WEB-INF/struts-html.tld" prefix="html" %>
+<%@ taglib uri="/WEB-INF/struts-bean.tld" prefix="bean" %>
+<%@ taglib uri="/WEB-INF/struts-logic.tld" prefix="logic" %>
+<%@ taglib uri="/WEB-INF/struts-tiles.tld" prefix="tiles" %>
+<%@ taglib uri="/WEB-INF/struts-nested.tld" prefix="nested" %>
+<%@ taglib uri="/WEB-INF/pager-taglib.tld" prefix="pg" %>
+<%@ taglib uri="/WEB-INF/jims2-presentation.tld" prefix="jims" %>
+
+<%--TAG LIBRARIES NEEDED FOR MOJO --%>
+<%@ taglib uri="/WEB-INF/msp.tld" prefix="msp" %>
+<%@ page import="naming.UIConstants" %>
+<%@ page import="naming.PDJuvenileCaseConstants" %>
+<%@ page import="ui.common.UIUtil" %>
+<%@ page import="naming.PDCalendarConstants" %>
+<%--LOCALE USED FOR INTERNATIONALIZATION-NOT USED YET --%>
+<html:html locale="true">
+<html:base />
+
+<%--BEGIN HEADER TAG--%>
+<head>
+<msp:nocache />
+<meta http-equiv="Content-Language" content="en-us">
+<%@ page language="java" contentType="text/html; charset=ISO-8859-1" pageEncoding="ISO-8859-1" %>
+<META name="GENERATOR" content="IBM WebSphere Studio">
+<META http-equiv="Content-Style-Type" content="text/css">
+<meta http-equiv="x-ua-compatible" content="IE=edge,chrome=1"/>
+<title><bean:message key="title.heading"/>&nbsp;<bean:message key="title.serviceProvider"/>&nbsp;- programReferralSearch.jsp</title>
+
+<link rel="stylesheet" type="text/css" href="/<msp:webapp/>/css/commonsupervision.css" />
+
+<script language="JavaScript" src="/<msp:webapp/>js/app.js"></script>
+<script type="text/javascript" src="/<msp:webapp/>js/common_supervision_util.js"></script>
+<script type="text/javascript" src="/<msp:webapp/>js/CalendarPopup.js"></script>
+<script type="text/javascript" src="/<msp:webapp/>js/customStrutsBasedValidation.js"></script>
+ <script type="text/javascript" ID="js1">
+	  var cal1 = new CalendarPopup();
+	  cal1.showYearNavigation();
+</script>
+
+<script type="text/javascript">
+
+var JPO_RADIO = "<%=PDCalendarConstants.JPO_NAME_SEARCH%>" ;		
+var JUVENILE_RADIO = "<%=PDCalendarConstants.JUVENILE_NAME_SEARCH%>" ;		
+
+/* 
+*/
+function validateForm(tForm)
+{
+	var errMsg = "" ;
+
+
+	//Validate Program Referral Date Range
+	var startDateStr = document.getElementById('anchor1').value ;
+	if( startDateStr.length > 1 )
+	{
+		if( ! isDate( startDateStr, "MM/dd/yyyy" ) )
+		{
+			errMsg += "\nStart date is an invalid date or invalid date format (mm/dd/yyyy). \n" ;
+			alert( errMsg ) ;
+			document.getElementById('anchor1').focus();
+			return( false ) ;
+		}
+
+		var endDateStr = document.getElementById('anchor2').value ;
+		if( endDateStr.length < 1 )
+		{
+			if( ! isDate( endDateStr, "MM/dd/yyyy" ) )
+			{
+				errMsg += "\nEnd date is an invalid date or invalid date format (mm/dd/yyyy). \n" ;
+				alert( errMsg ) ;
+				document.getElementById('anchor1').focus();
+				return( false ) ;
+			}
+		}
+		
+	}
+		
+	if( document.getElementById('anchor2').value.length > 1 )
+	{
+
+		if( startDateStr.length < 1 )
+		{
+			if( ! isDate( startDateStr, "MM/dd/yyyy" ) )
+			{
+				errMsg += "\nStart date is an invalid date or invalid date format (mm/dd/yyyy). \n" ;
+				alert( errMsg ) ;
+				document.getElementById('anchor1').focus();
+				return( false ) ;
+			}
+		}
+		
+		var endDateStr = document.getElementById('anchor2').value ;
+	  	if( ! isDate( endDateStr, "MM/dd/yyyy" ) )
+	  	{
+			errMsg += "\nEnd date is an invalid date or invalid date format (mm/dd/yyyy)." ;
+			alert( errMsg ) ;
+			document.getElementById('anchor2').focus();
+			return( false ) ;
+	  	}
+	} 		
+
+	//Juvenile Number
+	var juvNum =  document.getElementById('juvNum').value ;
+
+	if (juvNum != null && juvNum.length < 1) 
+	{
+
+ 		var firstName =  document.getElementById('fName').value ;
+ 		var middleName =  document.getElementById('mName').value ;
+ 		var lastName =  document.getElementById('lName').value ;
+
+ 		//Validate Juvenile Probation Officer Name or Juvenile Name
+		var jpojuvT = document.getElementsByName('jpoJuvenileNameInd');
+
+		var jpojuvTChecked = false;
+		for (i=0; i<jpojuvT.length; i++)   {
+			if (jpojuvT[i].checked) {
+				jpojuvTChecked = true;
+			} 
+		}
+
+ 		if (firstName.length > 0 || middleName.length > 0) 
+ 	 	{
+ 			if (lastName.length < 1 ) {
+ 				errMsg += "\nLast name is required" ;
+ 				alert( errMsg ) ;
+ 				document.getElementById('lName').focus();
+ 				return( false ) ;
+ 	 	 	}
+
+ 			if (!jpojuvTChecked )
+ 			{
+ 				errMsg += "Please select one of 'Name search is of type' radio buttons." ;
+ 				alert( errMsg ) ;
+ 				return( false ) ;
+ 			} 
+ 	 	 	
+ 	 	}
+
+ 		if (lastName.length > 0 ) {
+	 		if (!jpojuvTChecked )
+			{
+	 			errMsg += "Please select one of 'Name search is of type' radio buttons." ;
+ 				alert( errMsg ) ;
+ 				return( false ) ;
+			}
+ 		}
+
+ 		if (jpojuvTChecked )
+		{
+ 			if (lastName.length < 1 ) 
+ 	 		{
+ 				errMsg += "\nLast name is required." ;
+ 				alert( errMsg ) ;
+ 				document.getElementById('lName').focus();
+ 				return( false ) ;
+ 	 	 	} 
+		}
+ 		
+	}
+
+	if (juvNum != null && juvNum.length > 0) 
+	{
+
+		var firstName =  document.getElementById('fName').value ;
+ 		var middleName =  document.getElementById('mName').value ;
+ 		var lastName =  document.getElementById('lName').value ;
+
+ 		//Validate Juvenile Probation Officer Name or Juvenile Name
+		var jpojuvT = document.getElementsByName('jpoJuvenileNameInd');
+
+		var isJPOSearch = false;
+		var jpojuvTChecked = false;
+		for (i=0; i<jpojuvT.length; i++)   
+		{
+			if (jpojuvT[i].checked) 
+			{
+				jpojuvTChecked = true;
+				if (jpojuvT[i].value == 'jpoNameSearchType') {
+					isJPOSearch = true;
+				}
+			} 
+		}
+
+		if (isJPOSearch) {
+			var firstName =  document.getElementById('fName').value ;
+	 		var middleName =  document.getElementById('mName').value ;
+	 		var lastName =  document.getElementById('lName').value ; 
+
+	 		if (firstName.length > 0 || middleName.length > 0) 
+	 	 	{
+	 			if (lastName.length < 1 ) {
+	 				errMsg += "\nLast name is required." ;
+	 				alert( errMsg ) ;
+	 				document.getElementById('lName').focus();
+	 				return( false ) ;
+	 	 	 	} 
+
+	 			if (!jpojuvTChecked )
+	 			{
+	 				errMsg += "Please select one of 'Name search is of type' radio buttons." ;
+	 				alert( errMsg ) ;
+	 				return( false ) ;
+	 			} 
+	 	 	 	
+	 	 	}
+
+	 		if (lastName.length > 0 ) {
+		 		if (!jpojuvTChecked )
+				{
+		 			errMsg += "Please select one of 'Name search is of type' radio buttons." ;
+	 				alert( errMsg ) ;
+	 				return( false ) ;
+				}
+	 		}
+
+	 		if (jpojuvTChecked )
+			{
+	 			if (lastName.length < 1 ) {
+	 				errMsg += "\nLast name is required." ;
+	 				alert( errMsg ) ;
+	 				document.getElementById('lName').focus();
+	 				return( false ) ;
+	 	 	 	}
+			}
+	 		
+		}
+
+	}
+
+	var forwardURL = "/<msp:webapp/>displayProgramReferralList.do?submitAction=Link" ;
+	document.forms[0].action = forwardURL;
+	document.forms[0].submit();
+
+}
+
+</script>
+
+</head>
+<body topmargin="0" leftmargin="0" onKeyDown="return checkEnterKeyAndSubmit(event,true)">
+<html:form action="/displayProgramReferralList" target="content">
+<input type="hidden" name="helpFile" value="commonsupervision/asp_Program Referral/Service_Provider_Program_Referral.htm#|">
+
+<div align="center">
+	
+<!-- BEGIN HEADING TABLE -->
+<div class='spacer'></div>
+<table width='100%'>
+    <tr>
+        <td align="center" class="header"><bean:message key="title.serviceProvider" />&nbsp;-&nbsp;<bean:message key="prompt.programReferral" />&nbsp;<bean:message key="prompt.search" /></td>
+    </tr>
+</table>
+<table width="100%">
+  <tr>
+  	<td align="center" class="errorAlert"><html:errors></html:errors></td>
+  </tr>
+</table>
+<!-- END HEADING TABLE -->
+
+<!-- BEGIN INSTRUCTION TABLE -->
+<table width="98%" border="0">
+    <tr>
+        <td>
+            <ul>										
+                <li>Enter one or more fields then click Submit to see results.</li>
+            </ul>
+        </td>
+    </tr>
+</table>
+
+<!-- BEGIN  TABLE -->
+<br>
+<span id="spSearch">
+<table width="98%" cellpadding="0" cellspacing="0">
+    <tr>
+        <td class="required" colspan="2"><bean:message key="prompt.3.diamond" /></span>&nbsp;At Least 1 Field Required</td>
+    </tr>
+    <tr>
+		<td class="required">+ indicates Last Name is required to use this search field.</td>
+   </tr>
+   <tr>
+		<td class="required">*All date fields must be in the format of mm/dd/yyyy.</td>
+   </tr>
+</table>
+
+<table width="98%" cellpadding="2" cellspacing="0" class="borderTableBlue">
+    <tr class="detailHead">
+        <td><bean:message key="prompt.programReferral" />&nbsp;<bean:message key="prompt.search" /></td>
+    </tr>
+    <tr>
+        <td>
+            <table align="center" width='100%' border="0" cellpadding="2" cellspacing="1">
+            <!-- 
+                <tr>
+                    <td class="formDeLabel" width="1%" nowrap="nowrap"><bean:message key="prompt.serviceProviderName" /></td>
+                    <td class="formDe" colspan="3"><html:text styleId="servProvName" name="programReferralSearchForm" property="serviceProviderName" size="60" maxlength="100" /></td>
+                </tr>
+                <tr><td><img src="/<msp:webapp/>images/spacer.gif" height="5"></td></tr>
+            -->
+                <tr>
+                    <td class="detailHead" colspan="4"><bean:message key="prompt.programReferral" /></td>   
+                </tr>
+                <tr>
+                    <td class="formDeLabel" nowrap="nowrap" width="1%"><bean:message key="prompt.programReferral" /> Status</td>
+                    <td class="formDe" colspan="3">
+                        <html:select name="programReferralSearchForm"  property="referralStatusDescription">
+					    	<html:option value=""><bean:message key="select.generic" /></html:option>  			            	  	
+					   		<html:optionsCollection property="programsReferralStatus" value="code" label="description"  name="programReferralSearchForm"/>
+					 	</html:select>
+                    </td>
+                </tr>                
+                <tr>
+                    <td class="formDeLabel" nowrap="nowrap" width="1%"><bean:message key="prompt.programName" /></td>
+                    <td class="formDe" colspan="3">
+                    
+                        <!--<html:text name="programReferralSearchForm"  property="providerProgramName" size="60" maxlength="100" />-->
+                       
+                        <html:select name="programReferralSearchForm"  property="providerProgramName">
+					    	<html:option value=""><bean:message key="select.generic" /></html:option>  			            	  	
+					   		<html:optionsCollection property="programs" value="providerProgramId" label="programName"  name="programReferralSearchForm"/>
+					 	</html:select>
+                      
+                    </td>
+                </tr>
+                <tr><td><img src="/<msp:webapp/>images/spacer.gif" height="5"></td></tr>
+                <tr>
+                    <td class="detailHead" colspan="4"><bean:message key="prompt.programReferral" />&nbsp;<bean:message key="prompt.beginDate" /></td>   
+                </tr>
+                <tr>
+                    <td class="formDeLabel" width="1%" nowrap="nowrap"><bean:message key="prompt.from" /></td>
+                    <td class="formDe" width="1%" nowrap="nowrap">
+						<html:text name="programReferralSearchForm" property="fromBeginDate" size="10" maxlength="10" styleId="anchor1" />
+						<A HREF="#" onClick="cal1.select(document.getElementById('anchor1'),'anchor1','MM/dd/yyyy'); return false;" NAME="anchor1" ID="anchor1">
+							<img border="0" src="/<msp:webapp/>images/calendar2.gif" title="(mm/dd/yyyy)"/>
+						</a>
+                    </td>   
+                     
+                    <td class="formDeLabel" width="1%"><bean:message key="prompt.to" /></td>
+                    <td class="formDe">
+                        <html:text name="programReferralSearchForm" property="toBeginDate" size="10" maxlength="10" styleId="anchor2" />
+						<A HREF="#" onClick="cal1.select(document.getElementById('anchor2'),'anchor2','MM/dd/yyyy'); return false;" NAME="anchor2" ID="anchor2">
+							<img border="0" src="/<msp:webapp/>images/calendar2.gif" title="(mm/dd/yyyy)"/>
+						</a>
+                    </td>
+                </tr>
+                
+                <tr><td><img src="/<msp:webapp/>images/spacer.gif" height="5"></td></tr>
+                <tr>
+                    <td class="detailHead" colspan="4">Juvenile Number</td>   
+                </tr>              
+                <tr>
+                    <td class="formDeLabel" nowrap="nowrap" width="1%"><bean:message key="prompt.juvenileNumber" /></td>
+                    <td class="formDe" colspan="3">
+                        <html:text styleId="juvNum" name="programReferralSearchForm"  property="juvenileNum" size="8" maxlength="8" />
+                    </td>
+                </tr>
+                <tr><td><img src="/<msp:webapp/>images/spacer.gif" height="5"></td></tr>
+                <tr>
+                    <td class="detailHead" nowrap="nowrap" colspan="4"><bean:message key="prompt.jpo"/>&nbsp;<bean:message key="prompt.name"/>&nbsp;or&nbsp;<bean:message key="prompt.juvenileName"/></td>                   
+                </tr>
+                <tr>
+                    <td class="formDeLabel" nowrap="nowrap">Name search is of type</td>
+                    <td colspan="3" class="formDe" nowrap="nowrap">
+                    
+                    	<bean:message key="prompt.JPO"/>&nbsp;<bean:message key="prompt.name"/>&nbsp;<html:radio styleId="jpojuvNameType" name="programReferralSearchForm" property="jpoJuvenileNameInd" value="<%=PDCalendarConstants.JPO_NAME_SEARCH%>" />
+						<bean:message key="prompt.juvenileName"/><html:radio styleId="jpojuvNameType" name="programReferralSearchForm" property="jpoJuvenileNameInd" value="<%=PDCalendarConstants.JUVENILE_NAME_SEARCH%>" />
+                    
+                    </td>                   
+                </tr>
+                <tr>
+                    <td class="formDeLabel" nowrap="nowrap"><bean:message key="prompt.3.diamond" />&nbsp;<bean:message key="prompt.lastName" /></td>
+                    <td class="formDe" colspan="3"><html:text name="programReferralSearchForm" styleId="lName" property="lastName" size="60" maxlength="75" /></td>
+                </tr>
+                <tr>
+                    <td class="formDeLabel" nowrap="nowrap">+<bean:message key="prompt.firstName" /></td>
+                    <td class="formDe" colspan="3"><html:text name="programReferralSearchForm" styleId="fName" property="firstName" size="50" maxlength="50" /></td>
+                </tr>
+                <tr>
+                    <td class="formDeLabel" nowrap="nowrap">+<bean:message key="prompt.middleName" /></td>
+                    <td class="formDe" colspan="3"><html:text name="programReferralSearchForm" styleId="mName" property="middleName" size="50" maxlength="50" /></td>
+                </tr>                											
+            </table>
+        </td>
+    </tr>
+                       
+<!-- SEARCH END-->
+</table>
+</span>
+<br>
+<!-- BEGIN BUTTON TABLE -->
+<table border="0" width="100%">
+    <tr>
+        <td align="center">
+        
+        	<input type='button' value='Submit' onclick="validateForm(this.form);">
+        
+           <!--  <input type="reset"  value="Refresh" name="reset" onClick="reloadPage();"> -->
+            <html:submit property="submitAction"><bean:message key="button.refresh"></bean:message></html:submit>
+            <html:submit property="submitAction">
+					<bean:message key="button.cancel" />
+			</html:submit>						
+        </td>
+    </tr>
+</table>
+<!-- END BUTTON TABLE -->
+<br>
+
+</div>
+
+</html:form>
+<div align="center"><script type="text/javascript">renderBackToTop()</script></div>
+</body>
+
+</html:html>
+

@@ -1,0 +1,190 @@
+//Source file: C:\\views\\dev\\app\\src\\messaging\\juvenile\\SaveJuvenilePhysicalAttributesEvent.java
+
+package messaging.juvenile;
+
+import java.util.Date;
+
+import mojo.km.messaging.Composite.CompositeRequest;
+
+public class SaveJuvenilePhysicalAttributesEvent extends CompositeRequest 
+{
+   private String build;
+   private Date entryDate;
+   private String eyeColor;
+   private String hairColor;
+   private String heightFeet;
+   private String heightInch;
+   private String juvenileNum;
+//   private String tattoos;
+   private String weight;
+//   private String otherTattooComments;
+   
+   /**
+    * @roseuid 42B1968D001F
+    */
+   public SaveJuvenilePhysicalAttributesEvent() 
+   {
+    
+   }
+   
+	/**
+	 * @return
+	 */
+	public String getBuild()
+	{
+		return build;
+	}
+	
+	/**
+	 * @return
+	 */
+	public Date getEntryDate()
+	{
+		return entryDate;
+	}
+	
+	/**
+	 * @return
+	 */
+	public String getEyeColor()
+	{
+		return eyeColor;
+	}
+	
+	/**
+	 * @return
+	 */
+	public String getHairColor()
+	{
+		return hairColor;
+	}
+	
+	/**
+	 * @return
+	 */
+	public String getHeightFeet()
+	{
+		return heightFeet;
+	}
+	
+	/**
+	 * @return
+	 */
+	public String getHeightInch()
+	{
+		return heightInch;
+	}
+	
+	/**
+	 * @return
+	 */
+	public String getJuvenileNum()
+	{
+		return juvenileNum;
+	}
+	
+	/**
+	 * @return
+	 */
+//	public String getTattoos()
+//	{
+//		return tattoos;
+//	}
+	
+	/**
+	 * @return
+	 */
+	public String getWeight()
+	{
+		return weight;
+	}
+	
+	/**
+	 * @param string
+	 */
+	public void setBuild(String string)
+	{
+		build = string;
+	}
+	
+	/**
+	 * @param date
+	 */
+	public void setEntryDate(Date date)
+	{
+		entryDate = date;
+	}
+	
+	/**
+	 * @param string
+	 */
+	public void setEyeColor(String string)
+	{
+		eyeColor = string;
+	}
+	
+	/**
+	 * @param string
+	 */
+	public void setHairColor(String string)
+	{
+		hairColor = string;
+	}
+	
+	/**
+	 * @param string
+	 */
+	public void setHeightFeet(String string)
+	{
+		heightFeet = string;
+	}
+	
+	/**
+	 * @param string
+	 */
+	public void setHeightInch(String string)
+	{
+		heightInch = string;
+	}
+	
+	/**
+	 * @param string
+	 */
+	public void setJuvenileNum(String string)
+	{
+		juvenileNum = string;
+	}
+	
+	/**
+	 * @param string
+	 */
+//	public void setTattoos(String string)
+//	{
+//		tattoos = string;
+//	}
+	
+	/**
+	 * @param string
+	 */
+	public void setWeight(String string)
+	{
+		weight = string;
+	}
+
+	/**
+	 * @return
+	 */
+//	public String getOtherTattooComments()
+//	{
+//		return otherTattooComments;
+//	}
+//	
+//	/**
+//	 * @param string
+//	 */
+//	public void setOtherTattooComments(String string)
+//	{
+//		otherTattooComments = string;
+//	}
+
+}

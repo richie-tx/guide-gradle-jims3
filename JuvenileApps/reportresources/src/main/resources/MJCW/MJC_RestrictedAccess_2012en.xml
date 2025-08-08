@@ -1,0 +1,345 @@
+<?xml version="1.0" encoding="US-ASCII"?>
+<document size="LETTER" margin-left="5" margin-right="5" margin-top="5" margin-bottom="0" rotate="true">
+<encryption allow-fillin="false" allow-modify-contents="false" allow-degraded-printing="true" allow-screen-readers="false" allow-copy="false"	allow-printing="false"/>
+<meta author="JIMS2, Harris County" creator="JIMS2, Harris County" title="Restricted Access (English)"/>
+
+	<module>
+		<color-def name="custom-blue" color-space="RGB" value="51,102,153"/>
+		<color-def name="custom-drkblue" color-space="RGB" value="0,51,102"/>
+		<color-def name="custom-bluegray" color-space="RGB" value="103,153,204"/>
+		<color-def name="custom-green" color-space="RGB" value="153,153,51"/>
+		
+		<font-def name="Arial-8" family="arial" style="normal" size="8"/>
+		<font-def name="Arial-9" family="arial" style="normal" size="9"/>
+		<font-def name="Arial-10" family="arial" style="normal" size="10"/>
+		<font-def name="Arial-11" family="arial" style="normal" size="11"/>
+		<font-def name="Arial-14" family="arial" style="normal" size="14"/>
+		
+		<font-def name="Times9" family="times" style="normal" size="9"/>
+		<font-def name="Times12" family="times" style="normal" size="12"/>
+		<font-def name="Times14" family="times" style="normal" size="14"/>
+				
+		<font-def name="Arial-9blue" family="arial" style="normal" size="9" color="custom-blue"/>
+		<font-def name="Arial-11blue" family="arial" style="bold" size="11" color="custom-blue"/>
+		<font-def name="Arial-12blue" family="arial" style="bold" size="12" color="custom-blue"/>
+		<font-def name="Arial-Rounded-MT-Bold-9w" family="Arial-Rounded-MT-Bold" style="normal" size="9" color="white"/>
+		
+		<font-def name="Symbol-10" family="Symbol" style="bold" size="10"/>
+	</module>
+	
+	
+	<table columns="3" widths="33,33,33" padding="10" border-style="none">
+		<cell halign="left" valign="top">
+			<paragraph font="Arial-11blue" spacing-after="10">
+				What about Gang Records?
+			</paragraph>
+			<paragraph font="Arial-10" spacing-after="0">
+				Restricted access does not apply to gang records. However, access is limited to federal,
+				state, and local criminal justice agencies for a criminal justice purpose. This means that
+				employers and schools cannot access the gang records.
+			</paragraph>
+
+			<paragraph halign="center" spacing-after="5">
+				<image source="MJCW/RA_GangPhoto.jpg" width="140" scale-to-fit="true"/>
+			</paragraph>
+
+			<paragraph font="Arial-11blue" spacing-after="10">
+				How does restricted access benefit me?
+			</paragraph>
+			
+ 			<paragraph font="Arial-10" spacing-after="10">
+				If your juvenile records are placed on restricted access, you are allowed to:
+			</paragraph>
+			
+			<image x="160" y="250" source="MJCW/RA_OneManLineUp.jpg" width="85" scale-to-fit="true"/>			
+			<table columns="3" widths="15,45,40" border-style="none" padding="0" >
+				<table-row font="Arial-10">
+					<cell font="Symbol-10" halign="center" valign="top">&#183;</cell>
+					<cell>deny the existence of the records; and</cell>
+				</table-row>
+				<table-row font="Arial-10">
+					<cell font="Symbol-10" halign="center" valign="top">&#183;</cell>
+					<cell>deny the arrest, prosecution, or adjudication ever happened.</cell>
+				</table-row>
+			</table>
+		
+			<paragraph font="Arial-10" spacing-after="10" spacing-before="15">
+				For example, once the records are on restricted access, you may legally answer
+				"No" when a job, school, or occupational licensing application asks, "Have you
+				ever been arrested for or convicted or adjudicated of a crime?" If you are unsure about how to answer, get advice.
+				the law also permits you to see a court order to get access to your own juvenile records. Under certain circumstances,
+				 you may also sign a release or seek a court order to allow other agencies and entities, including military personnel, to obtain your juvenile records.
+				</paragraph>
+			
+			<paragraph font="Arial-11blue" spacing-after="10">
+				What is Sealing of Records?
+			</paragraph>
+			
+ 			<paragraph font="Arial-10" spacing-after="10">
+				Sealing of records is a process that allows you to have juvenile records "sealed"
+				so that no one can access them.  Records that are sealed are treated as though
+				they never existed.  You are allowed to legally
+			</paragraph>
+		</cell>
+		<cell halign="left" valign="top" >
+		<paragraph>
+		deny that you were ever involved 
+				in the juvenile system.  Records can be "unsealed" for very limited purposes.
+				Typically, getting your records sealed requires you to initiate a formal court 
+				proceeding and you may need an attorney.
+				</paragraph>
+			<paragraph font="Arial-11blue" spacing-before="5" spacing-after="10">
+				What is expunction of records?
+			</paragraph>
+			<paragraph  font="Arial-10" spacing-after="10">
+				If you are of juvenile age, Class C misdemeanors in justice
+				or municipal court are considered confidential and may not be disclosed to the public.
+				if you have only one conviction prior to your
+				17th birthday, you may be able to have that offense
+				"expunged" or removed from your record.
+			</paragraph>
+			<paragraph font="Arial-11blue" spacing-after="5">
+				Where can I get additional information?
+			</paragraph>
+			<paragraph font="Times9" halign="center" >
+				<i>Expunction:</i>
+			</paragraph>
+			<paragraph  font="Arial-9" halign="center" spacing-after="5" >
+				Code of Criminal Procedure &#167;&#167;45.0216 and 45.055
+			</paragraph>
+			<paragraph font="Times9" halign="center">
+				<i>Restricted Access:</i>
+			</paragraph>
+			<paragraph  font="Arial-9" halign="center" spacing-after="5">
+				Texas Family Code &#167;&#167;58.201 - 58.211
+			</paragraph>
+			<paragraph font="Times9" halign="center" >
+				<i>Sealing:</i>
+			</paragraph>
+			<paragraph  font="Arial-9" halign="center" spacing-after="5">
+				Texas Family Code &#167;58.003
+			</paragraph>
+			<paragraph  font="Arial-9" halign="center">
+				You can access Texas laws online at<br/>
+			</paragraph>
+			<paragraph  font="Arial-9blue" spacing-after="30"  halign="center" >
+				<u>www.statutes.legis.state.tx.us</u>
+			</paragraph>
+			<table columns="1" width="90" border-style="top" border-width="4" border-color="custom-blue" halign="center" padding="0">
+				<table-row font="Arial-8" halign="center" padding-bottom="10" padding-top="10">
+					<cell>Prepared by the</cell>
+				</table-row>
+				<table-row font="Arial-11blue" halign="center" border-style="none">
+					<cell>Texas Juvenile Justice Department</cell>
+				</table-row>
+				<table-row font="Arial-9" halign="center" border-style="none" padding-bottom="5">
+					<cell>
+						11209 Metric Boulevard - Bldg.H<br/>
+						P.O. Box 12757, Austin, Texas 78711<br/>
+						Phone (512) 424-6700<br/>
+						<paragraph  font="Arial-9blue" spacing-after="15" halign="center">
+						<u>www.tjjd.texas.gov</u>
+						</paragraph>
+						
+					</cell>
+				</table-row>
+			</table>
+			<table columns="1" width="100" bgcolor="custom-blue" border-style="box" border-width="5" border-color="custom-blue">
+				<table-row padding-bottom="10" padding-top="10">
+					<cell font="Arial-Rounded-MT-Bold-9w" align="left" padding-left="15">
+						For additional copies or if you have questions, please contact your local juvenile probation or parole office at:
+					</cell>
+				</table-row>
+				<table-row bgcolor="white" halign="center" font="Arial-9" padding-bottom="5" padding-top="5">
+					<cell>
+					 <b>${probationOfficer.fullNameFirst}</b><br/>
+						${locationUnitName}<br/>
+						${locationUnitAddress}<br/>
+						${officerPhone}<br/><br/>
+					</cell>
+				</table-row>
+			</table>
+		</cell>
+		<cell halign="center" valign="top" border-width="1">
+			<table columns="1" width="100" border-style="none" border-width="1">
+				<table-row padding-top="40" padding-bottom="35" >
+					<cell bgcolor="custom-bluegray">
+						<paragraph font="Arial-14" spacing-after="14" halign="left">
+							<font family="arial" size="18">T</font>EXAS <font family="arial" size="18">J</font>UVENILE <font family="arial" size="18">J</font>USTICE<br/>
+							<font family="arial" size="18">S</font>YSTEM <font family="arial" size="18">F</font>ILES AND <font family="arial" size="18">R</font>ECORDS
+						</paragraph>
+						<paragraph font="Times12" spacing-after="16" halign="left" >
+							<i>A Juvenile's Guide to Understanding
+							Automatic Restriction of Access to Records</i>
+						</paragraph>
+					</cell>
+				</table-row>
+				<table-row padding-top="217">
+					<cell>.</cell>
+				</table-row>
+				<table-row padding-top="40" padding-bottom="45">
+					<cell bgcolor="custom-bluegray" >
+						<paragraph font="Arial-9" halign="center">
+							A Publication By the<br/>
+						</paragraph>
+						<paragraph spacing-after="20" font="Times14" halign="center">	
+							<i>Texas Juvenile Justice Department</i>
+						</paragraph>
+						<paragraph font="Arial-9" halign="center">	
+							March 2014
+						</paragraph>
+					</cell>
+				</table-row>
+			</table>
+		</cell>
+	</table>
+	<graphics line-width="1.5" stroke-color="custom-green">
+		<draw-line x1="285" y1="281" x2="506" y2="281"></draw-line>
+	</graphics>
+	<image x="536.5" y="178" width="240.5" source="MJCW/RA_FileFolderSearch.jpg" scale-to-fit="true" draw-foreground="true"/>
+	<graphics line-width="1.5" stroke-color="custom-drkblue">
+		<draw-line x1="636.5" y1="419" x2="777" y2="419"></draw-line>
+		<draw-line x1="636.5" y1="178" x2="777" y2="178"></draw-line>
+	</graphics>
+<!--  BEGIN PAGE 2 -->
+	<new-page size="LETTER" margin-left="5" margin-right="5" margin-top="5" margin-bottom="5" rotate="true"/>
+	<image x="17" y="440" source="MJCW/RA_Jailbars.jpg" width="234" scale-to-fit="true"/>
+	<image x="170" y="146" source="MJCW/RA_Fingerprinting.jpg" width="80" scale-to-fit="true" textwrap="true" underlying="false"/>
+<!--  	<image x="409" y="411" source="MJCW/RA_BackgroundCheck.jpg" width="105" scale-to-fit="true"/> -->
+	<table columns="3" widths="33,33,33" padding="10" border-style="none">
+		<cell halign="left" valign="top">
+			<table columns="1" width="100" border-style="none" spacing-after="20" padding="0">
+				<table-row font="Arial-11blue" padding-top="170" >
+					<cell>
+						Who has a Juvenile record in Texas?
+					</cell>
+				</table-row>
+				<table-row padding-top="10">				
+					<cell font="Arial-10">
+				  		Anyone who was taken into custody or referred to court for delinquent conduct,
+						which is generally Class A or B misdemeanor or felony offenses, or conduct
+						indicating a need for supervision (CINS), which is generally a class C misdemeanor,
+						conduct that would not be against the law if committed by an adult (like drinking
+						or running away), or certain specific offenses such as prostitution and &quot;sexting&quot;,
+						has a juvenile record. 
+					</cell>
+				</table-row>	
+			</table>
+
+			<paragraph font="Arial-11blue" spacing-after="10">
+				How are juvenile Records kept in Texas?
+			</paragraph>
+			<table columns="1" spacing-after="10" padding="0">
+				<table-row>
+					<cell font="Arial-10">
+						There are two ways that<br/>
+						juvenile records are kept in<br/>
+						Texas.  The first is records of a<br/>
+						court and probation<br/>
+						department, which include<br/>
+						records of both CINS and<br/>
+						delinquent conduct.  The<br/>
+						second is the records in the<br/>
+						Juvenile Justice Information<br/>
+						System (JJIS), the database maintained by the Texas Department of Public
+						Safety.  Records related to arrests, prosecutions, adjudications, and dispositions for
+						delinquent conduct are included in the JJIS. 
+					</cell>
+				</table-row>
+			</table>
+		</cell>
+		
+		<cell halign="left" valign="top">
+			<paragraph font="Arial-11blue" spacing-after="10">
+				Who can access juvenile records?
+			</paragraph>			
+				
+	  		<paragraph font="Arial-10" spacing-after="1">
+				While juvenile records are generally confidential, there are certain exceptions that allow police,
+				prosecutors, probation officers,heatlth and human services agencies, education entities, and other criminal and juvenile justice officials in Texas and 
+				elsewhere to have access.  The records may also be available to employers, educational institutions,
+				licensing agencies, and other organizations when you apply for employment or educational programs. Treatment records (counseling, placement,
+				drug treatment, etc.) are confidential and access to them is much more limited.
+			</paragraph>  
+		<!--    	<table columns="2" widths="50,50" border-style="none" padding="0">
+				<table-row>
+					<cell font="Arial-10">
+					employment or educational programs. Treatment records (counseling, placement,
+					drug treatment, etc.) are confidential and access to them is much more limited.
+					</cell>
+				</table-row>	
+			</table>  -->
+			<paragraph font="Arial-11blue" spacing-after="10" spacing-before="10">
+				What is automatic restriction of access to records?
+			</paragraph>
+			<paragraph font="Arial-10" spacing-after="10">
+				Texas has a system in place that restricts the access to juvenile records once a person turns 17 
+				years of age.  This is in addition to your opportunity to have your records sealed or destroyed
+				under other provisions in the Texas Family Code.  
+			</paragraph>	
+			<paragraph font="Arial-10">
+				Under automatic restriction of access, the records are not destroyed or sealed; they still exist
+				but can only be accessed by federal or state criminal justice agencies for a criminal justice
+				purpose, such as investigation of a crime or screening applicants for employment with the criminal
+				justice agency.  For anyone else who asks about the records, including employers, schools, and 
+				licensing bodies, the entity in possession of the records is required to respond, &quot;No records
+				exist for that person.&quot; Additionally, once your records have been restricted, you are allowed
+				to &quot;legally deny&quot; your history and say you were never arrested, prosecuted, or adjudicated
+				for an offense. 
+			</paragraph>
+			
+		</cell>
+		
+		<cell halign="left" valign="top">
+			<paragraph font="Arial-11blue" spacing-after="10">
+				What do I have to do to get access to my records restricted?
+			</paragraph>
+			<paragraph font="Arial-10" spacing-after="20">
+				While getting records sealed or destroyed generally requires you to hire an attorney and file a request
+				with the juvenile court, getting your records restricted does not require any action on your part.
+				Prior to 2011, Records are automatically restricted when you turn 17. However, your records may be adjudications that occur after age 17.
+				 If this happens, your delinquency history may once again become available to certain agencies and organizations that conduct background checks.
+			</paragraph>
+			
+			<paragraph font="Arial-11blue" spacing-after="10">
+				What records are not eligible for restricted access?
+			</paragraph>
+			<table columns="2" widths="5,95" border-style="none" padding="0" spacing-after="20">
+				<table-row font="Arial-10">
+					<cell fill-row="true">
+						The only juvenile records that are not eligible for automatic restricted access are cases that were:</cell>
+				</table-row>
+				<table-row font="Arial-10">
+					<cell font="Symbol-10">&#183;</cell>
+					<cell>Handled as determinate sentence cases by the juvenile court;</cell>
+				</table-row>
+				<table-row font="Arial-10">
+					<cell font="Symbol-10">&#183;</cell>
+					<cell>Certified (transferred) to adult criminal court; or</cell>
+				</table-row>
+				<table-row font="Arial-10">
+					<cell font="Symbol-10">&#183;</cell>
+					<cell>prosecuted in a justice or municipal court.</cell>
+				</table-row>
+			</table>
+			
+			<paragraph font="Arial-11blue" spacing-after="10">
+				What about Sex Offender Records?
+			</paragraph>
+			<paragraph font="Arial-10" spacing-after="20">
+				Restricted access does not apply to sex offender registration records because the purpose of sex 
+				offender registration is to notify the public.  If you are required to register as a sex offender
+				for an offense committed as a juvenile, you may have the right to have your records sealed after
+				your obligation to register expires.  There are also legal proceedings available that may allow 
+				for reconsideration of your duty to register. 
+			</paragraph>
+		</cell>
+	</table>
+	<graphics line-width="20" stroke-color="custom-bluegray">
+		<draw-line x1="0" y1="30" x2="800" y2="30"></draw-line>
+	</graphics>
+		<graphics line-width="1.5" stroke-color="custom-drkblue">
+		<draw-line x1="0" y1="40" x2="800" y2="40"></draw-line>
+	</graphics>
+	
+</document>

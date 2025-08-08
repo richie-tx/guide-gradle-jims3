@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="US-ASCII"?>
+<document size="LETTER" margin-left="25" margin-right="25" margin-top="5" margin-bottom="25">
+
+	<encryption allow-fillin="false" allow-modify-contents="false" allow-degraded-printing="true" allow-screen-readers="false" allow-copy="false"	allow-printing="false"/>
+	<meta author="JIMS2, Harris County" creator="JIMS2, Harris County" title="Identification Information"/>
+
+	<module>
+		<font-def name="title" family="Helvetica" style="bold" size="12"/>
+		<font-def name="header" family="Helvetica" style="bold|underline" size="12"/>
+		<font-def name="label" family="Helvetica" style="bold" size="11"/>
+		<font-def name="text" family="Helvetica" style="normal" size="10"/>
+		<font-def name="text-large" family="Helvetica" style="normal" size="12"/>
+		<font-def name="text-small" family="Helvetica" style="normal" size="8"/>
+		<font-def name="text-italic" family="Helvetica" style="bold|italic" size="11"/>
+		<font-def name="letterheader" family="Helvetica" style="bold" size="12"/>
+		
+		<custom-tag alias="std-title" tag="paragraph">
+			<attribute name="font" value="text-italic"/>
+		</custom-tag>
+		
+		<custom-tag alias="letterheader" tag="paragraph">
+			<attribute name="font" value="letterheader"/>
+		</custom-tag>
+	</module>
+
+    <new-page size="LETTER" margin-left="25" margin-right="25" margin-top="5" margin-bottom="25">
+    </new-page>
+	
+	<table columns="2" widths="15,85">
+		<cell>
+			<image source="MJCW/HarrisCountySeal.jpg" width="75" height="75" scale-to-fit="true"/>
+		</cell>
+		<cell>
+			<table columns="2" border-style="none" border-width="0" widths="60,40" padding="0" >
+				<table-row>
+			        <cell halign="left" border-style="bottom" border-width="2" border-color="gray" padding-bottom="5">
+						<letterheader>
+							HARRIS COUNTY<br/>
+							JUVENILE PROBATION DEPARTMENT
+						</letterheader> 	
+					</cell>
+					<cell halign="right" border-style="bottom" border-width="2" border-color="gray" padding-bottom="5">
+						<font name="text-small" encoding="Cp1252">
+						</font>	
+					</cell>
+				</table-row>		
+				<table-row>
+				   <cell halign="left" valign="top" >
+					  _if_( ${locationUnitName} notEmpty )
+						<paragraph font="text">
+							<b>${locationUnitName}</b>
+						</paragraph>
+					  _endif_
+					  
+						<paragraph font="text">
+							${locationUnitAddress.streetAddress}<br/>
+							${locationUnitAddress.cityStateZip}
+						</paragraph>
+      				</cell>				
+      				<cell halign="right">
+						<paragraph halign="right" font="text-small">
+							<br/>
+							<b>${managerFirstName} ${managerLastName}</b> <br/>
+							Administrator<br/>
+							Office ${managerPhone}
+						</paragraph>	
+				    </cell>		  	
+		 		  </table-row>	
+			</table>
+		</cell>
+	</table>
+	
+	<table columns="1" border-style="none" border-width="0" padding="0">
+		<table-row>
+    		<cell halign="left" padding-left="25">
+    			<font name="text" encoding="Cp1252">
+	    			${memberRelationShip} <br/>
+	    			${guardianFirstName} ${guardianLastName} <br/>
+	    		  _if_( ${guardianStreetName} notEmpty )
+	    			${guardianStreetNo} ${guardianStreetName} ${guardianStreetType}<br/>
+	    			${guardianCity}, ${guardianState}, ${guardianZip}- ${guardianAdditionalZip}<br/>
+	    		  _endif_
+    			</font>    			
+    		</cell>
+    	</table-row>        				
+	</table>
+	
+	<table columns="1" border-style="none" border-width="0" width="100" padding="0" spacing-after="25">
+		<table-row halign="left" >
+    		<cell halign="left" valign="top" padding-left="25">
+    			<br/>
+    			<br/>
+    			<br/>
+    			<paragraph font="text">    				
+	    			${currentDate}
+    			</paragraph>   
+    			<br/>
+				
+    			<paragraph font="text">
+    				Identification Information:
+    			</paragraph>    			
+				
+				<br/> 
+				<table columns="4" widths="20,15,30,35" border-style="none" border-width="0" padding="0" spacing-after="25">
+					<table-row halign="left">
+						<cell halign="left" valign="top" colspan="4">${juvenileFirstName} ${juvenileMiddleName} ${juvenileLastName}</cell>
+    				</table-row>
+					<table-row halign="left">
+						<cell halign="left">Race: ${race}</cell>
+						<cell halign="left">Sex: ${sex}</cell>
+						<cell halign="left">Date of Birth: ${dateOfBirth}</cell>
+						<cell halign="left">Primary Language: ${primaryLanguage}</cell>
+					</table-row>
+					<table-row halign="left">
+						<cell halign="left" colspan="2">Birth City: ${birthCity}</cell>
+						<cell halign="left">Birth County: ${birthCounty}</cell>
+						<cell halign="left">Birth Country: ${birthCountry}</cell>
+					</table-row>
+					<table-row halign="left">
+						<cell halign="left" colspan="2">Is a US Citizen: ${citizenship}</cell>
+						<cell halign="left" colspan="2">Nationality: ${nationality}</cell>
+					</table-row>
+					<table-row halign="left">
+						<cell halign="left" colspan="4">Alien Number: ${alienNumber}</cell>
+					</table-row>
+    			</table>
+				<br/><br/>
+				
+				_foreach_(guardian ${guardians} 'even' 'odd')
+				<table columns="2" widths="30,70" border-style="none" border-width="0" padding="0" spacing-after="25">
+					<table-row>
+						<cell halign="left" valign="top" colspan="2">${guardian.name.completeFullNameFirst} (Guardian)</cell>
+					</table-row>
+					<table-row>
+						<cell halign="left">Date of Birth: ${guardian.dateOfBirth}</cell>
+						<cell halign="left">SSN: ${guardian.ssn.formattedSsn}</cell>
+					</table-row>
+					<table-row>
+						<cell halign="left" colspan="2">Address: ${guardian.address.formattedAddress}</cell>
+					</table-row>
+					<table-row>
+						<cell halign="left" colspan="2">Phone: ${guardian.phoneNumber.formattedPhoneNumber}</cell>
+					</table-row>
+				</table>
+				_endfor_
+				
+  			
+    		</cell>
+    	</table-row>        				
+
+    	<table-row halign="right" >
+    		<cell halign="right" valign="top" >
+				<table columns="2" widths="70,30">
+					<table-row>
+						<cell></cell>
+						<cell>
+			    			<br/>
+			    			<paragraph font="text">    				
+			    				Sincerely,
+			    				<br/><br/><br/>
+				    			${officerFirstName} ${officerLastName}
+				    			<br/>
+				    			Juvenile Probation Officer
+			    			</paragraph>   
+			    			<br/>
+						</cell>
+					</table-row>
+				</table>
+			</cell>
+    	</table-row>  
+	</table>
+	
+	<footer>
+		<footer-part halign="center">
+				<image source="MJCW/JuvenileJustice_Footer.gif" width="500"  scale-to-fit="true"/>
+		</footer-part>
+	</footer>
+    
+</document>

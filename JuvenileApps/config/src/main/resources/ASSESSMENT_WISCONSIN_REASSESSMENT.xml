@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Survey type="" name="WISCONSIN_REASSESSMENT" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="C:\Views\CommonSupervision\Arch\build\configuration\dev\SurveyV2.xsd">
+	<questionGroup id="WISCREAS_G1" name="WISCONSIN_REASSESSMENT_RISK" sequence="1">
+		<question responseUIControlType="SELECT" id="WISCREAS_RISK_Q1" text="Number of address changes in the Last 12 months" rowSequence="1" isResponseNewLine="true" isRequired="true" >
+			<response id="WISCREAS_RISK_Q1_R1" displayText="Please Select" responseValue="" isDefault="true" />
+			<response id="WISCREAS_RISK_Q1_R2" displayText="None" responseValue="0" />
+			<response id="WISCREAS_RISK_Q1_R3" displayText="One" responseValue="2" />
+			<response id="WISCREAS_RISK_Q1_R4" displayText="Two or More" responseValue="3" />
+		</question>
+		<question responseUIControlType="SELECT" id="WISCREAS_RISK_Q2" text="Age at First Adjudication of Guilt&#60;br&#62;(Adult or Juvenile - include deferred)" rowSequence="2" isRequired="true" isResponseNewLine="true">
+			<response id="WISCREAS_RISK_Q2_R1" displayText="Please Select" responseValue="" isDefault="true"></response>
+			<response id="WISCREAS_RISK_Q2_R2" displayText="24 or older" responseValue="0"></response>
+			<response id="WISCREAS_RISK_Q2_R3" displayText="20-23" responseValue="1"></response>
+			<response id="WISCREAS_RISK_Q2_R4" displayText="19 or younger" responseValue="2"></response>
+		</question>
+		
+		<question responseUIControlType="SELECT" id="WISCREAS_RISK_Q3" text="Number of Prior Probation/Parole Revocations&#60;br&#62;(Adult or Juvenile)" rowSequence="3" isRequired="true" isResponseNewLine="true">
+			<response id="WISCREAS_RISK_Q3_R1" displayText="Please Select" responseValue="" isDefault="true"></response>
+			<response id="WISCREAS_RISK_Q3_R2" displayText="None" responseValue="0"></response>
+			<response id="WISCREAS_RISK_Q3_R3" displayText="One or More" responseValue="2"></response>
+		</question><question responseUIControlType="SELECT" id="WISCREAS_RISK_Q4" text="Number of Prior Felony Adjudications of Guilt&#60;br&#62;(or Juvenile Commitments - include deferred)" rowSequence="4" isRequired="true" isResponseNewLine="true">
+			<response id="WISCREAS_RISK_Q4_R1" displayText="Please Select" responseValue="" isDefault="true"></response>
+			<response id="WISCREAS_RISK_Q4_R2" displayText="None" responseValue="0"></response>
+			<response id="WISCREAS_RISK_Q4_R3" displayText="One" responseValue="1"></response>
+			<response id="WISCREAS_RISK_Q4_R4" displayText="Two or More" responseValue="3"></response>
+		</question>
+		<question responseUIControlType="RADIO" id="WISCREAS_RISK_Q5A" text="Adult or Juvenile Adjudication for burglary, theft, auto theft, or robbery" rowSequence="5" isRequired="true" isResponseNewLine="true" >
+			<response id="WISCREAS_RISK_Q5A_R1" displayText="Yes" responseValue="1" isDefault="false"></response>
+			<response id="WISCREAS_RISK_Q5A_R2" displayText="No" responseValue="0" isDefault="false"></response>
+		</question>
+		<question responseUIControlType="RADIO" id="WISCREAS_RISK_Q5B" text="Adult or Juvenile Adjudication for worthless checks or forgery" rowSequence="6" isRequired="true" isResponseNewLine="true" >
+			<response id="WISCREAS_RISK_Q5B_R1" displayText="Yes" responseValue="2" isDefault="false"></response>
+			<response id="WISCREAS_RISK_Q5B_R2" displayText="No" responseValue="0" isDefault="false"></response>
+		</question>	
+		<question responseUIControlType="HIDDEN"  id="WISCREAS_RISK_Q6A" text="RATE THE FOLLOWING BASED ON PERIOD SINCE LAST CLASSIFICATION:" displayTextAlign="CENTER" rowSequence="7">
+		</question>
+		<question responseUIControlType="SELECT" id="WISCREAS_RISK_Q6" text="Percentage of Time Employed in the Last 12 months" rowSequence="8" isResponseNewLine="true"  isRequired="true">
+			<response id="WISCREAS_RISK_Q6_R1" displayText="Please Select" responseValue="" isDefault="true"></response>
+			<response id="WISCREAS_RISK_Q6_R2" displayText="60% or More" responseValue="0" ></response>
+			<response id="WISCREAS_RISK_Q6_R3" displayText="40%-59%" responseValue="1" ></response>
+			<response id="WISCREAS_RISK_Q6_R4" displayText="Under 40%" responseValue="2" ></response>
+			<response id="WISCREAS_RISK_Q6_R5" displayText="Not Applicable" responseValue="0" ></response>
+		</question>
+		<question responseUIControlType="SELECT" id="WISCREAS_RISK_Q7" text="Alcohol Usage" rowSequence="9" isResponseNewLine="true" isRequired="true" >
+			<response id="WISCREAS_RISK_Q7_R1" displayText="Please Select" responseValue="" isDefault="true"></response>
+			<response id="WISCREAS_RISK_Q7_R2" displayText="No apparent difficulties" responseValue="0"></response>
+			<response id="WISCREAS_RISK_Q7_R3" displayText="Moderate difficulties" responseValue="1"></response>
+			<response id="WISCREAS_RISK_Q7_R4" displayText="Serious difficulties" responseValue="3"></response>
+		</question>
+		<question responseUIControlType="SELECT" id="WISCREAS_RISK_Q8" text="Other Drug Usage" rowSequence="10" isResponseNewLine="true" isRequired="true">
+			<response id="WISCREAS_RISK_Q8_R1" displayText="Please Select" responseValue="" isDefault="true"></response>
+			<response id="WISCREAS_RISK_Q8_R2" displayText="No apparent difficulties" responseValue="0"></response>
+			<response id="WISCREAS_RISK_Q8_R3" displayText="Moderate difficulties" responseValue="1"></response>
+			<response id="WISCREAS_RISK_Q8_R4" displayText="Serious difficulties" responseValue="3"></response>
+		</question>
+		<question responseUIControlType="SELECT" id="WISCREAS_RISK_Q9" text="Problems in Interpersonal Relationships&#60;br&#62;(Living/Working Situation)" rowSequence="11" isResponseNewLine="true" isRequired="true">
+			<response id="WISCREAS_RISK_Q9_R1" displayText="Please Select" responseValue="" isDefault="true"></response>
+			<response id="WISCREAS_RISK_Q9_R2" displayText="None" responseValue="0"></response>
+			<response id="WISCREAS_RISK_Q9_R3" displayText="Few" responseValue="1"></response>
+			<response id="WISCREAS_RISK_Q9_R4" displayText="Moderate" responseValue="3"></response>
+			<response id="WISCREAS_RISK_Q9_R5" displayText="Severe" responseValue="5"></response>
+		</question>
+		<question responseUIControlType="SELECT" id="WISCREAS_RISK_Q10" text="Social Identification" rowSequence="12" isResponseNewLine="true" isRequired="true">
+			<response id="WISCREAS_RISK_Q10_R1" displayText="Please Select" responseValue="" isDefault="true"></response>			
+			<response id="WISCREAS_RISK_Q10_R2" displayText="Mainly with positive individuals" responseValue="0"></response>
+			<response id="WISCREAS_RISK_Q10_R3" displayText="Mainly with delinquent individuals" responseValue="3"></response>
+		</question>
+		<question responseUIControlType="SELECT" id="WISCREAS_RISK_Q11" text="Response to Court Imposed Conditions" rowSequence="13" isResponseNewLine="true" isRequired="true">
+			<response id="WISCREAS_RISK_Q11_R1" displayText="Please Select" responseValue="" isDefault="true"></response>
+			<response id="WISCREAS_RISK_Q11_R2" displayText="No problems of consequence" responseValue="0"></response>
+			<response id="WISCREAS_RISK_Q11_R3" displayText="Moderate compliance problems" responseValue="3"></response>
+			<response id="WISCREAS_RISK_Q11_R4" displayText="Has been unwilling to comply" responseValue="5"></response>
+		</question>
+		<question responseUIControlType="SELECT" id="WISCREAS_RISK_Q12" text="Use of Community Resources" rowSequence="14" isResponseNewLine="true" isRequired="true">
+			<response id="WISCREAS_RISK_Q12_R1" displayText="Please Select" responseValue="" isDefault="true"></response>
+			<response id="WISCREAS_RISK_Q12_R2" displayText="Not needed" responseValue="0"></response>
+			<response id="WISCREAS_RISK_Q12_R3" displayText="Productively utilized" responseValue="0"></response>
+			<response id="WISCREAS_RISK_Q12_R4" displayText="Needed but not available" responseValue="2"></response>
+			<response id="WISCREAS_RISK_Q12_R5" displayText="Utilized but not beneficial" responseValue="3"></response>
+			<response id="WISCREAS_RISK_Q12_R6" displayText="Available but rejected" responseValue="4"></response>
+		</question>
+		<question responseUIControlType="RADIO" id="WISCREAS_RISK_Q13" text="Adult or Juvenile Adjudications for Assaultive Offense within the Last TWO Years&lt;br&gt;(An offense which is defined as Assaultive, or one which involves the use of a weapon,&lt;br&gt;physical force, or the threat of force)" rowSequence="15" isResponseNewLine="true" isRequired="true" >
+			<response id="WISCREAS_RISK_Q13_R1" displayText="Yes" responseValue="4" isDefault="false"></response>
+			<response id="WISCREAS_RISK_Q13_R2" displayText="No" responseValue="0"></response>
+		</question>
+	</questionGroup>
+	<questionGroup id="WISCREAS_G2" name="WISCONSIN_REASSESSMENT_NEEDS" sequence="2">
+		<question responseUIControlType="RADIO" id="WISCREAS_NEED_Q1" text="ACADEMIC/VOCATIONAL SKILLS" rowSequence="1" isResponseNewLine="true" isRequired="true" isEachResponseNewLine="true" >
+			<response id="WISCREAS_NEED_Q1_R1" displayText="High School or above skill level" responseValue="-1" isDefault="false"></response>		
+			<response id="WISCREAS_NEED_Q1_R2" displayText="Adequate skills, able to handle everyday requirements" responseValue="0" isDefault="false"></response>		
+			<response id="WISCREAS_NEED_Q1_R3" displayText="Low skill level causing minor adjustment problems" responseValue="2" isDefault="false"></response>	
+			<response id="WISCREAS_NEED_Q1_R4" displayText="Minimal skill level causing serious adjustment problems" responseValue="4" isDefault="false"></response>		
+		</question>
+		<question responseUIControlType="RADIO" id="WISCREAS_NEED_Q2" text="EMPLOYMENT" rowSequence="2" isRequired="true" isResponseNewLine="true" isEachResponseNewLine="true" >
+			<response id="WISCREAS_NEED_Q2_R1" displayText="Satisfactory employment for one year or longer" responseValue="-1" isDefault="false"></response>		
+			<response id="WISCREAS_NEED_Q2_R2" displayText="Secure employment; no difficulties reported; or homemaker, student, or retired" responseValue="0" isDefault="false"></response>		
+			<response id="WISCREAS_NEED_Q2_R3" displayText="Unsatisfactory employment or  unemployed but has adequate job skills" responseValue="3" isDefault="false"></response>	
+			<response id="WISCREAS_NEED_Q2_R4" displayText="Unemployed and virtually unemployable; needs training" responseValue="6" isDefault="false"></response>		
+		</question>
+		<question responseUIControlType="RADIO" id="WISCREAS_NEED_Q3" text="FINANCIAL MANAGEMENT" rowSequence="3" isRequired="true" isResponseNewLine="true" isEachResponseNewLine="true" >
+			<response id="WISCREAS_NEED_Q3_R1" displayText="Long-standing pattern of selfsufficiency;e.g., good credit" responseValue="-1" isDefault="false"></response>		
+			<response id="WISCREAS_NEED_Q3_R2" displayText="No current difficulties" responseValue="0" isDefault="false"></response>		
+			<response id="WISCREAS_NEED_Q3_R3" displayText="Situational or minor difficulties" responseValue="3" isDefault="false"></response>	
+			<response id="WISCREAS_NEED_Q3_R4" displayText="Severe difficulties; may include overdrafts, bad checks or bankruptcy" responseValue="5" isDefault="false"></response>		
+		</question>
+		<question responseUIControlType="RADIO" id="WISCREAS_NEED_Q4" text="MARITAL/FAMILY RELATIONSHIPS" rowSequence="4" isRequired="true" isResponseNewLine="true" isEachResponseNewLine="true" >
+			<response id="WISCREAS_NEED_Q4_R1" displayText="Relationships and support exceptionally strong" responseValue="-1" isDefault="false"></response>		
+			<response id="WISCREAS_NEED_Q4_R2" displayText="Relatively stable relationships" responseValue="0" isDefault="false"></response>		
+			<response id="WISCREAS_NEED_Q4_R3" displayText="Some disorganization or stress but potential for improvement" responseValue="3" isDefault="false"></response>	
+			<response id="WISCREAS_NEED_Q4_R4" displayText="Major disorganization or stress" responseValue="5" isDefault="false"></response>		
+		</question>
+		<question responseUIControlType="SELECT" id="WISCREAS_NEED_Q5" text="COMPANIONS" rowSequence="5" isRequired="true" isResponseNewLine="true">
+			<response id="WISCREAS_NEED_Q5_R1" displayText="Please Select" responseValue="" isDefault="true"></response>		
+			<response id="WISCREAS_NEED_Q5_R2" displayText="Good support and influence" responseValue="-1" isDefault="false"></response>		
+			<response id="WISCREAS_NEED_Q5_R3" displayText="No adverse relationships" responseValue="0" isDefault="false"></response>	
+			<response id="WISCREAS_NEED_Q5_R4" displayText="Associations with occasional negative results" responseValue="2" isDefault="false"></response>	
+			<response id="WISCREAS_NEED_Q5_R5" displayText="Associations almost completely negative" responseValue="4" isDefault="false"></response>		
+		</question>	
+		<question responseUIControlType="RADIO" id="WISCREAS_NEED_Q6" text="EMOTIONAL STABILITY" rowSequence="6" isRequired="true" isResponseNewLine="true" isEachResponseNewLine="true" >
+			<response id="WISCREAS_NEED_Q6_R1" displayText="Exceptionally well adjusted; accepts responsibility for actions" responseValue="-2" isDefault="false"></response>		
+			<response id="WISCREAS_NEED_Q6_R2" displayText="No symptoms of emotional instability; appropriate emotional responses" responseValue="0" isDefault="false"></response>		
+			<response id="WISCREAS_NEED_Q6_R3" displayText="Symptoms limit but do not prohibit adequate functioning;e.g., excessive anxiety" responseValue="4" isDefault="false"></response>	
+			<response id="WISCREAS_NEED_Q6_R4" displayText="Symptoms prohibit adequate functioning; e.g., lashes out or retreats into self" responseValue="7" isDefault="false"></response>		
+		</question>
+		<question responseUIControlType="RADIO" id="WISCREAS_NEED_Q7" text="ALCOHOL USAGE PROBLEMS" rowSequence="7" isRequired="true" isResponseNewLine="true" isEachResponseNewLine="true" >
+			<response id="WISCREAS_NEED_Q7_R1" displayText="No use; use with no abuse; no disruption of functioning" responseValue="0" isDefault="false"></response>		
+			<response id="WISCREAS_NEED_Q7_R2" displayText="Occasional abuse; some disruption of functioning" responseValue="3" isDefault="false"></response>		
+			<response id="WISCREAS_NEED_Q7_R3" displayText="Frequent abuse; serious disruption of functioning" responseValue="6" isDefault="false"></response>	
+		</question>
+		<question responseUIControlType="SELECT" id="WISCREAS_NEED_Q8" text="OTHER DRUG USAGE PROBLEMS" rowSequence="8" isRequired="true" isResponseNewLine="true">
+			<response id="WISCREAS_NEED_Q8_R1" displayText="Please Selct" responseValue="" isDefault="true"></response>		
+			<response id="WISCREAS_NEED_Q8_R2" displayText="No disruption of functioning" responseValue="0" isDefault="false"></response>		
+			<response id="WISCREAS_NEED_Q8_R3" displayText="Occasional abuse; some disruption of functioning" responseValue="3" isDefault="false"></response>	
+			<response id="WISCREAS_NEED_Q8_R4" displayText="Frequent abuse;  Serious disruption of functioning" responseValue="5" isDefault="false"></response>		
+		</question>
+		<question responseUIControlType="RADIO" id="WISCREAS_NEED_Q9" text="MENTAL ABILITY" rowSequence="9" isRequired="true" isResponseNewLine="true" isEachResponseNewLine="true" >
+			<response id="WISCREAS_NEED_Q9_R1" displayText="Able to function independently" responseValue="0" isDefault="false"></response>		
+			<response id="WISCREAS_NEED_Q9_R2" displayText="Some need for assistance; potential for adequate adjustment; possible retardation" responseValue="3" isDefault="false"></response>		
+			<response id="WISCREAS_NEED_Q9_R3" displayText="Deficiencies severely limit independent functioning; possible retardation" responseValue="6" isDefault="false"></response>	
+		</question>
+		<question responseUIControlType="RADIO" id="WISCREAS_NEED_Q10" text="HEALTH" rowSequence="10" isRequired="true" isResponseNewLine="true" isEachResponseNewLine="true" >
+			<response id="WISCREAS_NEED_Q10_R1" displayText="Sound physical health; seldom ill" responseValue="0" isDefault="false"></response>		
+			<response id="WISCREAS_NEED_Q10_R2" displayText="Handicap or illness interferes with functioning on a recurring basis" responseValue="1" isDefault="false"></response>		
+			<response id="WISCREAS_NEED_Q10_R3" displayText="Serious handicap or chronic illness; needs frequent medical care" responseValue="2" isDefault="false"></response>	
+		</question>	
+		<question responseUIControlType="SELECT" id="WISCREAS_NEED_Q11" text="SEXUAL BEHAVIOR" rowSequence="11" isRequired="true" isResponseNewLine="true">
+			<response id="WISCREAS_NEED_Q11_R1" displayText="Please Select" responseValue="" isDefault="true"></response>		
+			<response id="WISCREAS_NEED_Q11_R2" displayText="No apparent dysfunction" responseValue="0" isDefault="false"></response>		
+			<response id="WISCREAS_NEED_Q11_R3" displayText="Real or perceived situational or minor problems" responseValue="3" isDefault="false"></response>	
+			<response id="WISCREAS_NEED_Q11_R4" displayText="Real or perceived chronic or severe problems" responseValue="5" isDefault="false"></response>	
+		</question>
+		<question responseUIControlType="SELECT" id="WISCREAS_NEED_Q12" text="C.S.O.'S IMPRESSIONS OF DEFENDANT'S NEEDS" rowSequence="12" isRequired="true" isResponseNewLine="true">
+			<response id="WISCREAS_NEED_Q12_R1" displayText="Please Select" responseValue="" isDefault="true"></response>		
+			<response id="WISCREAS_NEED_Q12_R2" displayText="Well Adjusted" responseValue="-1" isDefault="false"></response>		
+			<response id="WISCREAS_NEED_Q12_R3" displayText="No Needs" responseValue="0" isDefault="false"></response>	
+			<response id="WISCREAS_NEED_Q12_R4" displayText="Moderate Needs" responseValue="3" isDefault="false"></response>
+			<response id="WISCREAS_NEED_Q12_R5" displayText="High Needs" responseValue="5" isDefault="false"></response>	
+		</question>
+	</questionGroup>
+</Survey>
+

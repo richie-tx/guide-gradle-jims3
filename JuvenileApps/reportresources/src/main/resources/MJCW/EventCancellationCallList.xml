@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="US-ASCII"?>
+<document size="LETTER" margin-left="25" margin-right="25" margin-top="25" margin-bottom="25">
+
+	<encryption allow-fillin="false" allow-modify-contents="false" allow-degraded-printing="true" allow-screen-readers="false" allow-copy="false"	allow-printing="false"/>
+	<meta author="JIMS2, Harris County" creator="JIMS2, Harris County" title="Cancellation Call List"/>
+
+	<module>
+		<font-def name="title" family="Helvetica" style="bold" size="12"/>
+		<font-def name="header" family="Helvetica" style="bold|underline" size="12"/>
+		<font-def name="label" family="Helvetica" style="bold" size="11"/>
+		<font-def name="text" family="Helvetica" style="normal" size="10"/>
+		<font-def name="text-large" family="Helvetica" style="normal" size="12"/>
+		<font-def name="text-small" family="Helvetica" style="normal" size="8"/>
+		<font-def name="text-italic" family="Helvetica" style="bold|italic" size="11"/>
+		<font-def name="tableheader" family="Helvetica" style="bold" size="10"/>
+		
+		<custom-tag alias="std-title" tag="paragraph">
+			<attribute name="font" value="text-italic"/>
+		</custom-tag>
+		
+		<custom-tag alias="tableheader" tag="paragraph">
+			<attribute name="font" value="tableheader"/>
+		</custom-tag>
+	</module>
+
+    <new-page size="LETTER" margin-left="25" margin-right="25" margin-top="25" margin-bottom="25">
+    </new-page>
+	
+	<std-title halign="left">       
+		Date: ${currentDate}
+		<br/>
+        The following event has been cancelled
+        <br/>
+        Event Id: ${eventId}
+	</std-title>
+	<br/>
+		
+	<table width="100" columns="4" >
+		<table-header>
+			<cell halign="left" valign="top"><tableheader>Juvenile Number</tableheader></cell>
+			<cell halign="left" valign="top"><tableheader>Juvenile Name</tableheader></cell>
+			<cell halign="right" valign="top"><tableheader>Contact Name</tableheader></cell>
+			<cell halign="right" valign="top"><tableheader>Contact Number (Type) </tableheader></cell>
+		</table-header>
+		_foreach_(cancellationJuv ${cancellationList} 'even' 'odd')
+
+			<table-row padding="5">
+				<cell halign="left" valign="top"> ${cancellationJuv.juvenileId} </cell>
+				<cell halign="left" valign="top"> ${cancellationJuv.juvenileName} </cell>
+			</table-row>
+			_foreach_(guardian ${cancellationJuv.guardianResponseEvents} 'even' 'odd')
+			<table-row>
+				<cell halign="left" valign="top"></cell>
+				<cell halign="left" valign="top"></cell>
+				<cell halign="left" valign="top"> ${guardian.lastName},${guardian.firstName} </cell>				
+				<cell halign="left" valign="top">
+					<table width="100" columns="1">
+	  					_if_( ${guardian.homePhoneNumber} notEmpty )
+						<table-row>
+							<cell halign="left" valign="top"> ${guardian.homePhoneNumber} (home)</cell>
+						</table-row>						
+				        _endif_
+	  					_if_( ${guardian.workPhoneNumber} notEmpty )
+						<table-row>
+							<cell halign="left" valign="top"> ${guardian.workPhoneNumber}(work) </cell>
+						</table-row>						
+				        _endif_
+	  					_if_( ${guardian.mobilePhoneNumber} notEmpty )
+						<table-row>
+							<cell halign="left" valign="top"> ${guardian.mobilePhoneNumber} (cell)</cell>	
+						</table-row>						
+				        _endif_
+					</table>
+				</cell>
+			</table-row>				
+			_endfor_
+		_endfor_
+	</table>
+	<br/>
+
+    
+</document>

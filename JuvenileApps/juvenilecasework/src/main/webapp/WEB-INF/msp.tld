@@ -1,0 +1,95 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE taglib
+        PUBLIC "-//Sun Microsystems, Inc.//DTD JSP Tag Library 1.1//EN"
+	"http://java.sun.com/j2ee/dtds/web-jsptaglibrary_1_1.dtd">
+
+<!-- a tab library descriptor -->
+
+<taglib>
+	<tlibversion>1.0</tlibversion>
+	<jspversion>1.1</jspversion>
+	<shortname>msp</shortname>
+	<uri></uri>
+	<info>A tag library for moJo.</info>
+
+  <tag>
+    <name>widget</name>
+    <tagclass>mojo.struts.taglib.Widget</tagclass>
+    <bodycontent>JSP</bodycontent>
+    <info>A tag whose body is executed once for every event of the given type in the response events.  If the alias parameter is not set, the event can be referenced as 'root'.</info>
+    <attribute>
+      <name>bean</name>
+      <required>true</required>
+      <rtexprvalue>false</rtexprvalue>
+    </attribute>
+    <attribute>
+      <name>name</name>
+      <required>false</required>
+      <rtexprvalue>false</rtexprvalue>
+    </attribute>
+  </tag>
+
+  <tag>
+    <name>webapp</name>
+    <tagclass>mojo.struts.taglib.WebApp</tagclass>
+    <bodycontent>empty</bodycontent>
+    <info>A substitution tag for the web app name</info>
+  </tag>
+
+  <tag>
+    <name>nocache</name>
+    <tagclass>mojo.struts.taglib.NoCache</tagclass>
+    <bodycontent>empty</bodycontent>
+    <info>A tag to keep this page from being cached</info>
+  </tag>
+
+	<tag>
+		<name>errorpopup</name>
+		<tagclass>ui.utility.taglibrary.ErrorPopup</tagclass>
+		<bodycontent>empty</bodycontent>
+		<info>A tag to place errors in a JavaScript alert popup.</info>
+	</tag>
+
+	<tag>
+		<name>login</name>
+		<tagclass>ui.utility.taglibrary.Login</tagclass>
+		<bodycontent>empty</bodycontent>
+		<info>A tag to check and see if a user is logged in.  If not logged in, send them to login screen.</info>
+	</tag>
+	
+	<tag>
+		<name>formatter</name>
+		<tagclass>ui.taglib.FormatTag</tagclass>
+		<bodycontent>JSP</bodycontent>
+		<attribute>
+			<name>name</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>property</name>
+			<required>true</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>format</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>formatKey</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>notAvailable</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+		</attribute>
+		<attribute>
+			<name>notAvailableKey</name>
+			<required>false</required>
+			<rtexprvalue>true</rtexprvalue>
+	    </attribute>                
+	</tag>
+</taglib>

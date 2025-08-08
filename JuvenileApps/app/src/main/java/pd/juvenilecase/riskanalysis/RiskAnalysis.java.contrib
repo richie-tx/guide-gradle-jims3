@@ -1,0 +1,327 @@
+package pd.juvenilecase.riskanalysis;
+
+import mojo.km.messaging.IEvent;
+import mojo.km.persistence.Home;
+import mojo.km.persistence.IHome;
+import mojo.km.persistence.PersistentObject;
+import naming.RiskAnalysisConstants;
+
+import java.util.Collection;
+import java.util.Date;
+import java.util.Iterator;
+
+/**
+* @roseuid 433D86B40189
+*/
+public class RiskAnalysis extends PersistentObject {
+	private int finalScore;
+	private String assessmentType;
+	private String juvenileNum;
+	private String jpoUserID;
+	private int casefileID;
+	private boolean custody;
+	/**
+	* Properties for riskResponses
+	* @referencedType pd.juvenilecase.RiskResponse
+	* @detailerDoNotGenerate false
+	*/
+	private Collection riskResponses = null;
+	private Date enteredDate;
+	private String recommendation;
+	private boolean recommendationOveridden;
+	private String overiddenReasonCd;
+	private String overiddenReasonOther;
+	
+	private String modReason;
+	
+	/**
+	* @roseuid 433D86B40189
+	*/
+	public RiskAnalysis() {
+	}
+	/**
+	* @roseuid 433C3D3E00AA
+	*/
+	public static Iterator findAllByJuvenileNum(String juvenileNum) {
+		IHome home = new Home();
+		Iterator riskAnalysisIter = home.findAll("juvenileNum", juvenileNum, RiskAnalysis.class);
+		return riskAnalysisIter;		
+
+	}
+
+	/**
+	* @roseuid 433C3D3E00AA
+	*/
+	public static Iterator findAllByCasefileID(String caseFileId) {
+		IHome home = new Home();
+		Iterator riskAnalysisIter = home.findAll("casefileID", Integer.valueOf(caseFileId), RiskAnalysis.class);
+		return riskAnalysisIter;		
+
+	}
+	
+	/**
+	* @roseuid 433C3D3E00AA
+	*/
+	public static Iterator findAllByJuvenileNum(Object juvenileNum) {
+		IHome home = new Home();
+		Iterator riskAnalysisIter = home.findAll("juvenileNum",juvenileNum,RiskAnalysis.class);
+		return riskAnalysisIter;		
+	}
+
+	/**
+	* @roseuid 433C3D3E00AA
+	*/
+	public static RiskAnalysis findByJuvenileNumAssessmentAge(String juvenileNum) {
+		IHome home = new Home();
+		
+		return (RiskAnalysis)home.find("juvenileNum", juvenileNum, RiskAnalysis.class);		
+
+	}
+	
+	
+	/**
+	* @roseuid 433C3D3E00AA
+	*/
+	public static RiskAnalysis find(String riskAnalysisId) {
+		IHome home = new Home();
+
+		return (RiskAnalysis) home.find(riskAnalysisId, RiskAnalysis.class);		
+
+	}	
+	
+	/**
+	* @return 
+	* @param event
+	*/
+	static public Iterator findAll(IEvent event)
+	{
+		IHome home = new Home();
+		return home.findAll(event, RiskAnalysis.class);
+	}
+		
+	/**
+	* @return 
+	*/
+	public String getAssessmentType() {
+		fetch();
+		return assessmentType;
+	}
+	/**
+	* @return 
+	*/
+	public int getCasefileID() {
+		fetch();
+		return casefileID;
+	}
+	/**
+	* @return 
+	*/
+	public Date getEnteredDate() {
+		fetch();
+		return enteredDate;
+	}
+	/**
+	* @return 
+	*/
+	public int getFinalScore() {
+		fetch();
+		return finalScore;
+	}
+	/**
+	* @return 
+	*/
+	public String getJpoUserID() {
+		fetch();
+		return jpoUserID;
+	}
+	/**
+	* @return 
+	*/
+	public String getJuvenileNum() {
+		fetch();
+		return juvenileNum;
+	}
+	/**
+	* @return 
+	*/
+	public String getRecommendation() {
+		fetch();
+		return recommendation;
+	}
+	/**
+	* @param string
+	*/
+	public void setAssessmentType(String string) {
+		if (this.assessmentType == null || !this.assessmentType.equals(string)) {
+			markModified();
+		}
+		assessmentType = string;
+	}
+	/**
+	* @param i
+	*/
+	public void setCasefileID(int i) {
+		if (this.casefileID != i) {
+			markModified();
+		}
+		casefileID = i;
+	}
+	/**
+	* @param date
+	*/
+	public void setEnteredDate(Date date) {
+		if (this.enteredDate == null || !this.enteredDate.equals(date)) {
+			markModified();
+		}
+		enteredDate = date;
+	}
+	/**
+	* @param i
+	*/
+	public void setFinalScore(int i) {
+		if (this.finalScore != i) {
+			markModified();
+		}
+		finalScore = i;
+	}
+	/**
+	* @param string
+	*/
+	public void setJpoUserID(String string) {
+		if (this.jpoUserID == null || !this.jpoUserID.equals(string)) {
+			markModified();
+		}
+		jpoUserID = string;
+	}
+	/**
+	* @param string
+	*/
+	public void setJuvenileNum(String string) {
+		if (this.juvenileNum == null || !this.juvenileNum.equals(string)) {
+			markModified();
+		}
+		juvenileNum = string;
+	}
+	/**
+	* @param string
+	*/
+	public void setRecommendation(String string) {
+		if (this.recommendation == null || !this.recommendation.equals(string)) {
+			markModified();
+		}
+		recommendation = string;
+	}
+	/**
+	* Initialize class relationship implementation for pd.juvenilecase.RiskResponse
+	*/
+	private void initRiskResponses() {
+		if (riskResponses == null) {
+			if (this.getOID() == null) {
+				new mojo.km.persistence.Home().bind(this);
+			}
+			riskResponses = new mojo.km.persistence.ArrayList(pd.juvenilecase.riskanalysis.RiskResponse.class, RiskAnalysisConstants.RISK_ANALYSIS_ID, "" + getOID());
+		}
+	}
+	/**
+	* returns a collection of pd.juvenilecase.RiskResponse
+	*/
+	public java.util.Collection getRiskResponses() {
+		initRiskResponses();
+		return riskResponses;
+	}
+	/**
+	* insert a pd.juvenilecase.RiskResponse into class relationship collection.
+	*/
+	public void insertRiskResponses(pd.juvenilecase.riskanalysis.RiskResponse anObject) {
+		initRiskResponses();
+		riskResponses.add(anObject);
+	}
+	/**
+	* Removes a pd.juvenilecase.RiskResponse from class relationship collection.
+	*/
+	public void removeRiskResponses(pd.juvenilecase.riskanalysis.RiskResponse anObject) {
+		initRiskResponses();
+		riskResponses.remove(anObject);
+	}
+	/**
+	* Clears all pd.juvenilecase.RiskResponse from class relationship collection.
+	*/
+	public void clearRiskResponses() {
+		initRiskResponses();
+		riskResponses.clear();
+	}
+	
+	/**
+	 * @return
+	 */
+	public boolean isCustody()
+	{
+		fetch();
+		return custody;
+	}
+	
+	/**
+	 * @param b
+	 */
+	public void setCustody(boolean b)
+	{
+		if (this.custody != b) {
+			markModified();
+		}
+		custody = b;
+	}
+	
+	/**
+	 * @return isRecommendationOveridden
+	 */
+	public boolean isRecommendationOveridden() {
+		return recommendationOveridden;
+	}
+	/**
+	 * @param isRecommendationOveridden
+	 */
+	public void setRecommendationOveridden(boolean recommendationOveridden) {
+		this.recommendationOveridden = recommendationOveridden;
+	}
+	/**
+	 * @return overiddenReasonCd
+	 */
+	public String getOveriddenReasonCd() {
+		return overiddenReasonCd;
+	}
+	/**
+	 * @param overiddenReasonCd
+	 */
+	public void setOveriddenReasonCd(String overiddenReasonCd) {
+		this.overiddenReasonCd = overiddenReasonCd;
+	}
+	
+	/**
+	 * @return overiddenReasonOther
+	 */
+	public String getOveriddenReasonOther() {
+		return overiddenReasonOther;
+	}
+	
+	/**
+	 * @param overiddenReasonOther
+	 */
+	public void setOveriddenReasonOther(String overiddenReasonOther) {
+		this.overiddenReasonOther = overiddenReasonOther;
+	}
+
+	/**
+	 * @param modreason
+	 */
+	public void setModReason(String modReason) {
+		this.modReason = modReason;
+	}
+
+	/**
+	 * @return
+	 */
+	public String getModReason() {
+		return modReason;
+	}
+	
+}

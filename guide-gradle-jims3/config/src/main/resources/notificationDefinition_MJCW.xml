@@ -1,0 +1,656 @@
+<NotificationDefinitions>
+<Notification topic="MJCW.PROGRAM.REFERRAL.TRANSFER" defaultSeverity="M">
+		<Source value="jims2notification@itc.hctx.net"/>
+		<Destination transportType="notice" bean="messaging.notification.SendProgramReferralNotificationEvent" property="identity" context="respEvent"/>
+		<Template>
+			#{messaging.notification.SendProgramReferralNotificationEvent.notificationMessage}				
+		</Template>		
+	</Notification>	
+
+	<Notification topic="MJCW.SP.PROGRAM.REFERRAL.COMMENT.ALERT" defaultSeverity="M">
+		<Source value="jims2notification@itc.hctx.net"/>
+		<Destination transportType="notice" bean="messaging.notification.SendProgramReferralNotificationEvent" property="identity" context="respEvent"/>
+		<Template>
+			#{messaging.notification.SendProgramReferralNotificationEvent.notificationMessage}				
+		</Template>		
+	</Notification>	
+
+	<Notification topic="JC.CASEFILE.CLOSING" defaultSeverity="M">
+         <Source value="jims2notification@itc.hctx.net"/>
+         <Destination transportType="notice" bean="messaging.casefile.reply.CasefileClosingResponseEvent" property="identity" context="juvenileProbationOfficer"/>
+         <Template>
+            #{messaging.casefile.reply.CasefileClosingResponseEvent.notificationMessage}                                                 
+         </Template>              
+    </Notification>
+	
+    <Notification topic="JC.INTERVIEW.SEND" defaultSeverity="M">
+        <Source value="jims2notification@itc.hctx.net"/>
+        <Destination transportType="email" context="originator" bean="pd.juvenilecase.interviewinfo.EmailInterviewReportEvent" property="toAddress"/>
+        <Template>
+            A Social History report is attached.
+        </Template>
+    </Notification>
+    
+   	<Notification topic="JC.EVENT.OFFICER.CANCELLATION" defaultSeverity="M">
+		<Source value="jims2notification@itc.hctx.net"/>
+		<Destination transportType="notice" bean="messaging.administerlocation.reply.LocationNotificationResponseEvent" property="identity" context="respEvent"/>
+		<Template>
+			Please be advised that the #{messaging.administerlocation.reply.LocationNotificationResponseEvent.serviceType} for 
+			#{messaging.administerlocation.reply.LocationNotificationResponseEvent.serviceName} which had a session scheduled for 
+			#{messaging.administerlocation.reply.LocationNotificationResponseEvent.sessionDate} at 
+			#{messaging.administerlocation.reply.LocationNotificationResponseEvent.sessionTime} has been cancelled. The following people were 
+			scheduled to attend this event:
+			
+			#{messaging.administerlocation.reply.LocationNotificationResponseEvent.notificationMessage}
+		</Template>		
+	</Notification>
+	
+   	<Notification topic="JC.EVENT.PROVIDER.CANCELLATION" defaultSeverity="M">
+		<Source value="jims2notification@itc.hctx.net"/>
+		<Destination transportType="notice" bean="messaging.administerlocation.reply.LocationNotificationResponseEvent" property="identity" context="respEvent"/>
+		<Template>
+			Please be advised that the #{messaging.administerlocation.reply.LocationNotificationResponseEvent.serviceType} for 
+			#{messaging.administerlocation.reply.LocationNotificationResponseEvent.serviceName} which had a session scheduled for 
+			#{messaging.administerlocation.reply.LocationNotificationResponseEvent.sessionDate} at 
+			#{messaging.administerlocation.reply.LocationNotificationResponseEvent.sessionTime} has been cancelled by 
+			#{messaging.administerlocation.reply.LocationNotificationResponseEvent.userName}					
+		</Template>		
+	</Notification>
+
+	<Notification topic="JC.EVENT.GUARDIAN.CANCELLATION" defaultSeverity="M">
+		<Source transportType="email" value="jims2notification@itc.hctx.net"/>
+		<Destination transportType="email" bean="messaging.administerlocation.reply.LocationNotificationResponseEvent" property="guardianEmail" context="respEvent"/>
+		<Template>
+			Please be advised that the #{messaging.administerlocation.reply.LocationNotificationResponseEvent.serviceType} for 
+			#{messaging.administerlocation.reply.LocationNotificationResponseEvent.serviceName} which had a session scheduled for 
+			#{messaging.administerlocation.reply.LocationNotificationResponseEvent.sessionDate} at 
+			#{messaging.administerlocation.reply.LocationNotificationResponseEvent.sessionTime} has been cancelled. If you have questions please contact your assigned Probation Officer 
+			#{messaging.administerlocation.reply.LocationNotificationResponseEvent.probationOfficerName} 
+		</Template>
+	</Notification>
+	
+   	<Notification topic="JC.EVENT.OFFICER.ATTENDANCE" defaultSeverity="M">
+		<Source value="jims2notification@itc.hctx.net"/>
+		<Destination transportType="notice" bean="messaging.administerlocation.reply.LocationNotificationResponseEvent" property="identity" context="respEvent"/>
+		<Template>
+			Please be advised that #{messaging.administerlocation.reply.LocationNotificationResponseEvent.juvenileName}; 
+			#{messaging.administerlocation.reply.LocationNotificationResponseEvent.juvenileNum} did not attend his/her 
+			#{messaging.administerlocation.reply.LocationNotificationResponseEvent.serviceType} with 
+			#{messaging.administerlocation.reply.LocationNotificationResponseEvent.serviceProviderName} on
+			
+									
+			#{messaging.administerlocation.reply.LocationNotificationResponseEvent.sessionDate};
+			#{messaging.administerlocation.reply.LocationNotificationResponseEvent.sessionTime} 
+		</Template>		
+	</Notification>
+	
+	<Notification topic="JC.SERVICE.INACTIVATION" defaultSeverity="M">
+		<Source value="jims2notification@itc.hctx.net"/>
+		<Destination transportType="notice" bean="messaging.administerlocation.reply.LocationNotificationResponseEvent" property="identity" context="respEvent"/>
+		<Template>
+		TO: #{messaging.administerlocation.reply.LocationNotificationResponseEvent.serviceProviderName} #{messaging.administerlocation.reply.LocationNotificationResponseEvent.serviceProviderFax} 
+		
+			Please be advised that #{messaging.administerlocation.reply.LocationNotificationResponseEvent.serviceName} will no longer be provided and future service events have been cancelled.
+			
+			
+			#{messaging.administerlocation.reply.LocationNotificationResponseEvent.notificationMessage}.
+		</Template>		
+	</Notification>
+	<Notification topic="JC.SERVICE.LOCATION.REMOVAL" defaultSeverity="M">
+		<Source value="jims2notification@itc.hctx.net"/>
+		<Destination transportType="notice" bean="messaging.administerlocation.reply.LocationNotificationResponseEvent" property="identity" context="respEvent"/>
+		<Template>
+		TO: #{messaging.administerlocation.reply.LocationNotificationResponseEvent.serviceProviderName} #{messaging.administerlocation.reply.LocationNotificationResponseEvent.serviceProviderFax} 
+		
+			Please be advised that #{messaging.administerlocation.reply.LocationNotificationResponseEvent.serviceName} will no longer be provided at #{messaging.administerlocation.reply.LocationNotificationResponseEvent.locationAddress}.
+			
+			
+			#{messaging.administerlocation.reply.LocationNotificationResponseEvent.notificationMessage}.
+		</Template>		
+	</Notification>
+	
+   	<Notification topic="JC.APPROVE.CASEFILE.CLOSING.REQUEST" defaultSeverity="M">
+		<Source value="jims2notification@itc.hctx.net"/>
+		<Destination transportType="notice" bean="messaging.casefile.reply.CasefileClosingResponseEvent" property="identity" context="juvenileProbationOfficer"/>
+		<Template>
+			The supervision casefile #{messaging.casefile.reply.CasefileClosingResponseEvent.notificationMessage}					
+		</Template>		
+	</Notification>	
+	
+   	<Notification topic="JC.REJECT.CASEFILE.CLOSING.REQUEST" defaultSeverity="M">
+		<Source value="jims2notification@itc.hctx.net"/>
+		<Destination transportType="notice" bean="messaging.casefile.reply.CasefileClosingResponseEvent" property="identity" context="juvenileProbationOfficer"/>
+		<Template>
+			The supervision casefile #{messaging.casefile.reply.CasefileClosingResponseEvent.notificationMessage}					
+		</Template>		
+	</Notification>	
+	
+	<Notification topic="JC.PROGRAM.REFERRAL.ACTION" defaultSeverity="M">
+		<Source value="jims2notification@itc.hctx.net"/>
+		<Destination transportType="notice" bean="messaging.administerlocation.reply.LocationNotificationResponseEvent" property="identity" context="respEvent"/>
+		<Template>			
+			#{messaging.administerlocation.reply.LocationNotificationResponseEvent.notificationMessage}.
+		</Template>		
+	</Notification>
+	
+   	<Notification topic="JC.PROCESS.CASEPLAN.GOALS.NEEDED" defaultSeverity="M">
+		<Source value="jims2notification@itc.hctx.net"/>
+		<Destination transportType="notice" bean="messaging.caseplan.reply.CaseplanDetailsResponseEvent" property="identity" context="respEvent"/>
+		<Template>
+			#{messaging.caseplan.reply.CaseplanDetailsResponseEvent.notificationMessage}				
+		</Template>		
+	</Notification>	
+	
+	<Notification topic="JC.COPY.CASEPLAN.REVIEW.NEEDED" defaultSeverity="M">
+		<Source value="jims2notification@itc.hctx.net"/>
+		<Destination transportType="notice" bean="messaging.caseplan.reply.CaseplanDetailsResponseEvent" property="identity" context="respEvent"/>
+		<Template>
+			#{messaging.caseplan.reply.CaseplanDetailsResponseEvent.notificationMessage}				
+		</Template>		
+	</Notification>	
+
+   	<Notification topic="JC.JPO.SERVICE.LOCATION.REMOVAL" defaultSeverity="M">
+		<Source value="jims2notification@itc.hctx.net"/>
+		<Destination transportType="notice" bean="messaging.administerlocation.reply.LocationNotificationResponseEvent" property="identity" context="respEvent"/>
+		<Template>
+			#{messaging.administerlocation.reply.LocationNotificationResponseEvent.notificationMessage}				
+		</Template>		
+	</Notification>	
+
+   	<Notification topic="JC.JPO.SERVICE.LOCATION.UNIT.REMOVAL" defaultSeverity="M">
+		<Source value="jims2notification@itc.hctx.net"/>
+		<Destination transportType="notice" bean="messaging.administerlocation.reply.LocationNotificationResponseEvent" property="identity" context="respEvent"/>
+		<Template>
+			#{messaging.administerlocation.reply.LocationNotificationResponseEvent.notificationMessage}				
+		</Template>		
+	</Notification>
+	
+	<Notification topic="MJCW.JPO.CONDUCTMAYSI" defaultSeverity="M">
+		<Source value="jims2notification@itc.hctx.net"/>
+		<Destination transportType="notice" bean="messaging.juvenilecase.JuvenileCasefileNotificationEvent" property="identity" context="respEvent"/>
+		<Template>
+			#{messaging.juvenilecase.JuvenileCasefileNotificationEvent.notificationMessage}				
+		</Template>		
+	</Notification>
+	
+	<Notification topic="MJCW.JPO.NEWCASEFILEGENERATION" defaultSeverity="M">
+		<Source value="jims2notification@itc.hctx.net"/>
+		<Destination transportType="notice" bean="messaging.juvenilecase.JuvenileCasefileNotificationEvent" property="identity" context="respEvent"/>
+		<Template>
+			#{messaging.juvenilecase.JuvenileCasefileNotificationEvent.notificationMessage}				
+		</Template>		
+	</Notification>
+	
+	<Notification topic="MJCW.JPO.MISSINGCONSTELLATION" defaultSeverity="M">
+		<Source value="jims2notification@itc.hctx.net"/>
+		<Destination transportType="notice" bean="messaging.juvenilecase.JuvenileCasefileNotificationEvent" property="identity" context="respEvent"/>
+		<Template>
+			#{messaging.juvenilecase.JuvenileCasefileNotificationEvent.notificationMessage}				
+		</Template>		
+	</Notification>
+	
+	<Notification topic="MJCW.JPO.UPDATECASEFILE" defaultSeverity="M">
+		<Source value="jims2notification@itc.hctx.net"/>
+		<Destination transportType="notice" bean="messaging.juvenilecase.JuvenileCasefileNotificationEvent" property="identity" context="respEvent"/>
+		<Template>
+			#{messaging.juvenilecase.JuvenileCasefileNotificationEvent.notificationMessage}				
+		</Template>		
+	</Notification>
+	<Notification topic="MJCW.CASEFILE.GENERATIONFAILURE" defaultSeverity="M">
+		<Source value="jims2notification@itc.hctx.net"/>
+		<Destination transportType="notice" bean="messaging.juvenilecase.JuvenileCasefileNotificationEvent" property="identity" context="respEvent"/>
+		<Template>
+			#{messaging.juvenilecase.JuvenileCasefileNotificationEvent.notificationMessage}				
+		</Template>		
+	</Notification>
+	
+	<Notification topic="MJCW.SP.PROGRAM.REFERRAL.ACTION.ALERT" defaultSeverity="M">
+		<Source value="jims2notification@itc.hctx.net"/>
+		<Destination transportType="notice" bean="messaging.notification.SendProgramReferralNotificationEvent" property="identity" context="respEvent"/>
+		<Template>
+			#{messaging.notification.SendProgramReferralNotificationEvent.notificationMessage}				
+		</Template>		
+	</Notification>	
+	
+	<Notification topic="MJCW.CLM.OVERDUEINTERVIEWNOTIFICATION" defaultSeverity="M">
+		<Source value="jims2notification@itc.hctx.net"/>
+		<Destination transportType="notice" bean="messaging.notification.SendOverdueInterviewNotificationEvent" property="identity" context="respEvent"/>
+		<Template>
+			#{messaging.notification.SendOverdueInterviewNotificationEvent.notificationMessage}				
+		</Template>		
+	</Notification>	
+	
+	<Notification topic="MJCW.JPO.OVERDUE.MAYSI.14DAYSNOTIFICATION" defaultSeverity="M">
+		<Source value="jims2notification@itc.hctx.net"/>
+		<Destination transportType="notice" bean="messaging.notification.SendOverdueAssessmentNotificationEvent" property="identity" context="respEvent"/>
+		<Template>
+			#{messaging.notification.SendOverdueAssessmentNotificationEvent.notificationMessage}				
+		</Template>		
+	</Notification>	
+	
+	<Notification topic="MJCW.JPO.OVERDUE.MAYSI.29DAYSNOTIFICATION" defaultSeverity="M">
+		<Source value="jims2notification@itc.hctx.net"/>
+		<Destination transportType="notice" bean="messaging.notification.SendOverdueAssessmentNotificationEvent" property="identity" context="respEvent"/>
+		<Template>
+			#{messaging.notification.SendOverdueAssessmentNotificationEvent.notificationMessage}				
+		</Template>		
+	</Notification>	
+	
+	<Notification topic="MJCW.JPO.OVERDUE.ASSESSMENT.NOTIFICATION" defaultSeverity="M">
+		<Source value="jims2notification@itc.hctx.net"/>
+		<Destination transportType="notice" bean="messaging.notification.SendOverdueAssessmentNotificationEvent" property="identity" context="respEvent"/>
+		<Template>
+			#{messaging.notification.SendOverdueAssessmentNotificationEvent.notificationMessage}				
+		</Template>		
+	</Notification>	
+	
+	<!-- Added -->
+	
+	<Notification topic="MJCW.JPO.MAYSI14DAYS.OVERDUE.NOTIFICATION" defaultSeverity="M">
+		<Source value="jims2notification@itc.hctx.net"/>
+		<Destination transportType="notice" bean="messaging.notification.SendOverdueAssessmentNotificationEvent" property="identity" context="respEvent"/>
+		<Template>
+			#{messaging.notification.SendOverdueAssessmentNotificationEvent.notificationMessage}				
+		</Template>		
+	</Notification>	
+	
+	<Notification topic="MJCW.JPO.MAYSI29DAYS.OVERDUE.NOTIFICATION" defaultSeverity="M">
+		<Source value="jims2notification@itc.hctx.net"/>
+		<Destination transportType="notice" bean="messaging.notification.SendOverdueAssessmentNotificationEvent" property="identity" context="respEvent"/>
+		<Template>
+			#{messaging.notification.SendOverdueAssessmentNotificationEvent.notificationMessage}				
+		</Template>		
+	</Notification>	
+	
+	<Notification topic="MJCW.JPO.RISK14DAYS.OVERDUE.NOTIFICATION" defaultSeverity="M">
+		<Source value="jims2notification@itc.hctx.net"/>
+		<Destination transportType="notice" bean="messaging.notification.SendOverdueAssessmentNotificationEvent" property="identity" context="respEvent"/>
+		<Template>
+			#{messaging.notification.SendOverdueAssessmentNotificationEvent.notificationMessage}				
+		</Template>		
+	</Notification>	
+	
+	<Notification topic="MJCW.JPO.RISK29DAYS.OVERDUE.NOTIFICATION" defaultSeverity="M">
+		<Source value="jims2notification@itc.hctx.net"/>
+		<Destination transportType="notice" bean="messaging.notification.SendOverdueAssessmentNotificationEvent" property="identity" context="respEvent"/>
+		<Template>
+			#{messaging.notification.SendOverdueAssessmentNotificationEvent.notificationMessage}				
+		</Template>		
+	</Notification>	
+	
+	<Notification topic="MJCW.JPO.TITLEIVEASSESS.OVERDUE.NOTIFICATION" defaultSeverity="M">
+		<Source value="jims2notification@itc.hctx.net"/>
+		<Destination transportType="notice" bean="messaging.notification.SendOverdueAssessmentNotificationEvent" property="identity" context="respEvent"/>
+		<Template>
+			#{messaging.notification.SendOverdueAssessmentNotificationEvent.notificationMessage}				
+		</Template>		
+	</Notification>	
+	
+	<!-- End -->
+	
+	<Notification topic="MJCW.JPO.PENDING.APPOINTMENT.NOTIFICATION" defaultSeverity="M">
+		<Source value="jims2notification@itc.hctx.net"/>
+		<Destination transportType="notice" bean="messaging.notification.SendPendingAppointmentNotificationEvent" property="identity" context="respEvent"/>
+		<Template>
+			#{messaging.notification.SendPendingAppointmentNotificationEvent.notificationMessage}				
+		</Template>		
+	</Notification>	
+	
+	<Notification topic="MJCW.JPO.SUPERVISION.DUE.NOTIFICATION" defaultSeverity="M">
+		<Source value="jims2notification@itc.hctx.net"/>
+		<Destination transportType="notice" bean="messaging.notification.SendCasefileClosingNotificationEvent" property="identity" context="respEvent"/>
+		<Template>
+			#{messaging.notification.SendCasefileClosingNotificationEvent.notificationMessage}				
+		</Template>		
+	</Notification>	
+	
+	<Notification topic="MJCW.JPO.SUPERVISION.DUE30.NOTIFICATION" defaultSeverity="M">
+		<Source value="jims2notification@itc.hctx.net"/>
+		<Destination transportType="notice" bean="messaging.notification.SendCasefileClosingNotificationEvent" property="identity" context="respEvent"/>
+		<Template>
+			#{messaging.notification.SendCasefileClosingNotificationEvent.notificationMessage}				
+		</Template>		
+	</Notification>	
+	
+	<Notification topic="MJCW.JPO.SUPERVISION.DUE60.NOTIFICATION" defaultSeverity="M">
+		<Source value="jims2notification@itc.hctx.net"/>
+		<Destination transportType="notice" bean="messaging.notification.SendCasefileClosingNotificationEvent" property="identity" context="respEvent"/>
+		<Template>
+			#{messaging.notification.SendCasefileClosingNotificationEvent.notificationMessage}				
+		</Template>		
+	</Notification>	
+	
+	<Notification topic="MJCW.CLM.SUPERVISION.DUE.NOTIFICATION" defaultSeverity="M">
+		<Source value="jims2notification@itc.hctx.net"/>
+		<Destination transportType="notice" bean="messaging.notification.SendCasefileClosingNotificationEvent" property="identity" context="respEvent"/>
+		<Template>
+			#{messaging.notification.SendCasefileClosingNotificationEvent.notificationMessage}				
+		</Template>		
+	</Notification>	
+	
+		<Notification topic="MJCW.JPO.SUPERVISION.OVERDUE.NOTIFICATION" defaultSeverity="M">
+		<Source value="jims2notification@itc.hctx.net"/>
+		<Destination transportType="notice" bean="messaging.notification.SendCasefileClosingNotificationEvent" property="identity" context="respEvent"/>
+		<Template>
+			#{messaging.notification.SendCasefileClosingNotificationEvent.notificationMessage}				
+		</Template>		
+	</Notification>	
+	
+	
+	<Notification topic="MJCW.CLM.SUPERVISION.OVERDUE.NOTIFICATION" defaultSeverity="M">
+		<Source value="jims2notification@itc.hctx.net"/>
+		<Destination transportType="notice" bean="messaging.notification.SendCasefileClosingNotificationEvent" property="identity" context="respEvent"/>
+		<Template>
+			#{messaging.notification.SendCasefileClosingNotificationEvent.notificationMessage}				
+		</Template>		
+	</Notification>	
+	
+	<!-- Not used -->
+	<Notification topic="MJCW.M204.CASEFILE.CLOSING.NOTIFICATION" defaultSeverity="M">
+		<Source value="jims2notification@itc.hctx.net"/>
+		<Destination transportType="notice" bean="messaging.notification.SendCasefileClosingNotificationEvent" property="identity" context="respEvent"/>
+		<Template>
+			#{messaging.notification.SendCasefileClosingNotificationEvent.notificationMessage}				
+		</Template>		
+	</Notification>	
+	<!-- End -->
+	<Notification topic="MJCW.M204.JPO.CASEFILE.CLOSING.NOTIFICATION" defaultSeverity="M">
+		<Source value="jims2notification@itc.hctx.net"/>
+		<Destination transportType="notice" bean="messaging.notification.SendCasefileClosingNotificationEvent" property="identity" context="respEvent"/>
+		<Template>
+			#{messaging.notification.SendCasefileClosingNotificationEvent.notificationMessage}				
+		</Template>		
+	</Notification>	
+	
+	<Notification topic="MJCW.M204.CLM.CASEFILE.CLOSING.NOTIFICATION" defaultSeverity="M">
+		<Source value="jims2notification@itc.hctx.net"/>
+		<Destination transportType="notice" bean="messaging.notification.SendCasefileClosingNotificationEvent" property="identity" context="respEvent"/>
+		<Template>
+			#{messaging.notification.SendCasefileClosingNotificationEvent.notificationMessage}				
+		</Template>		
+	</Notification>	
+	
+	
+	<Notification topic="MJCW.M204.JPO.RELEASECANCELLED.NOTIFICATION" defaultSeverity="M">
+		<Source value="jims2notification@itc.hctx.net"/>
+		<Destination transportType="notice" bean="messaging.notification.SendCasefileClosingNotificationEvent" property="identity" context="respEvent"/>
+		<Template>
+			#{messaging.notification.SendCasefileClosingNotificationEvent.notificationMessage}				
+		</Template>		
+	</Notification>	
+	
+	<Notification topic="MJCW.M204.CLM.RELEASECANCELLED.NOTIFICATION" defaultSeverity="M">
+		<Source value="jims2notification@itc.hctx.net"/>
+		<Destination transportType="notice" bean="messaging.notification.SendCasefileClosingNotificationEvent" property="identity" context="respEvent"/>
+		<Template>
+			#{messaging.notification.SendCasefileClosingNotificationEvent.notificationMessage}				
+		</Template>		
+	</Notification>	
+	
+	
+	<Notification topic="MJCW.M204.JPO.CASEFILE.CLOSING.7DAYS.NOTIFICATION" defaultSeverity="M">
+		<Source value="jims2notification@itc.hctx.net"/>
+		<Destination transportType="notice" bean="messaging.notification.SendCasefileClosingNotificationEvent" property="identity" context="respEvent"/>
+		<Template>
+			#{messaging.notification.SendCasefileClosingNotificationEvent.notificationMessage}				
+		</Template>		
+	</Notification>	
+	
+	<Notification topic="MJCW.M204.CLM.CASEFILE.CLOSING.7DAYS.NOTIFICATION" defaultSeverity="M">
+		<Source value="jims2notification@itc.hctx.net"/>
+		<Destination transportType="notice" bean="messaging.notification.SendCasefileClosingNotificationEvent" property="identity" context="respEvent"/>
+		<Template>
+			#{messaging.notification.SendCasefileClosingNotificationEvent.notificationMessage}				
+		</Template>		
+	</Notification>	
+	
+	<Notification topic="MJCW.M204.CASEFILE.ASSIGNMENT.NOTIFICATION" defaultSeverity="M">
+		<Source value="jims2notification@itc.hctx.net"/>
+		<Destination transportType="notice" bean="messaging.notification.SendCasefileClosingNotificationEvent" property="identity" context="respEvent"/>
+		<Template>
+			#{messaging.notification.SendCasefileClosingNotificationEvent.notificationMessage}				
+		</Template>		
+	</Notification>	
+	
+	<Notification topic="MJCW.JPO.PENDING.CASEPLAN.NOTIFICATION" defaultSeverity="M">
+		<Source value="jims2notification@itc.hctx.net"/>
+		<Destination transportType="notice" bean="messaging.notification.SendCaseplanNotificationEventEvent" property="identity" context="respEvent"/>
+		<Template>
+			#{messaging.notification.SendCaseplanNotificationEventEvent.notificationMessage}				
+		</Template>		
+	</Notification>	
+	
+	<Notification topic="MJCW.JPO.OVERDUE20DAYS.CASEPLAN.NOTIFICATION" defaultSeverity="M">
+		<Source value="jims2notification@itc.hctx.net"/>
+		<Destination transportType="notice" bean="messaging.notification.SendCaseplanNotificationEventEvent" property="identity" context="respEvent"/>
+		<Template>
+			#{messaging.notification.SendCaseplanNotificationEventEvent.notificationMessage}				
+		</Template>		
+	</Notification>	
+	
+	
+	<Notification topic="MJCW.JPO.POSTCOURT.INTERVIEWNOTIFICATION" defaultSeverity="M">
+		<Source value="jims2notification@itc.hctx.net"/>
+		<Destination transportType="notice" bean="messaging.notification.SendOverdueInterviewNotificationEvent" property="identity" context="respEvent"/>
+		<Template>
+			#{messaging.notification.SendOverdueInterviewNotificationEvent.notificationMessage}				
+		</Template>		
+	</Notification>
+	
+	<Notification topic="MJCW.JPO.PRECOURT.INTERVIEWNOTIFICATION" defaultSeverity="M">
+		<Source value="jims2notification@itc.hctx.net"/>
+		<Destination transportType="notice" bean="messaging.notification.SendOverdueInterviewNotificationEvent" property="identity" context="respEvent"/>
+		<Template>
+			#{messaging.notification.SendOverdueInterviewNotificationEvent.notificationMessage}				
+		</Template>		
+	</Notification>	
+	
+	<Notification topic="MJCW.JPO.MAYSISUBSEQ20DAYS.NOTIFICATION" defaultSeverity="M">
+		<Source value="jims2notification@itc.hctx.net"/>
+		<Destination transportType="notice" bean="messaging.notification.SendMentalHealthNotificationEvent" property="identity" context="respEvent"/>
+		<Template>
+			#{messaging.notification.SendMentalHealthNotificationEvent.notificationMessage}				
+		</Template>		
+	</Notification>
+	<Notification topic="MJCW.JPO.MAYSISUBSEQ30DAYS.NOTIFICATION" defaultSeverity="M">
+		<Source value="jims2notification@itc.hctx.net"/>
+		<Destination transportType="notice" bean="messaging.notification.SendMentalHealthNotificationEvent" property="identity" context="respEvent"/>
+		<Template>
+			#{messaging.notification.SendMentalHealthNotificationEvent.notificationMessage}				
+		</Template>		
+	</Notification>
+	<Notification topic="MJCW.JPO.ALL.FUTURE.EVENTS.CANCELLATION.FOR.A.PROGRAMREFERRAL.NOTIFICATION" defaultSeverity="M">
+		<Source value="jims2notification@itc.hctx.net"/>
+		<Destination transportType="notice" bean="messaging.notification.NotificationMessage" property="identity" context="respEvent"/>
+		<Template>
+			#{messaging.notification.NotificationMessage.notificationMessage}				
+		</Template>		
+	</Notification>	
+	<Notification topic="MJCW.JPO.SERVICEEVENT.CANCELLATION.NOTIFICATION" defaultSeverity="M">
+		<Source value="jims2notification@itc.hctx.net"/>
+		<Destination transportType="notice" bean="messaging.notification.NotificationMessage" property="identity" context="respEvent"/>
+		<Template>
+			#{messaging.notification.NotificationMessage.notificationMessage}				
+		</Template>		
+	</Notification>	
+	<Notification topic="MJCW.SP.SERVICEEVENT.CANCELLATION.NOTIFICATION" defaultSeverity="M">
+		<Source value="jims2notification@itc.hctx.net"/>
+		<Destination transportType="notice" bean="messaging.notification.NotificationMessage" property="identity" context="respEvent"/>
+		<Template>
+			#{messaging.notification.NotificationMessage.notificationMessage}				
+		</Template>		
+	</Notification>	
+
+   	<Notification topic="JC.SP.CLM.NOTIFICATION" defaultSeverity="M">
+		<Source value="jims2notification@itc.hctx.net"/>
+		<Destination transportType="notice" bean="messaging.notification.NotificationMessage" property="identity" context="respEvent"/>
+		<Template>
+			#{messaging.notification.NotificationMessage.notificationMessage}
+		</Template>		
+	</Notification>
+	
+	<Notification topic="FAMILYMEMBER.PRIMARYINFO.UPDATED" defaultSeverity="M">
+		<Source value="jims2notification@itc.hctx.net"/>
+		<Destination transportType="notice" bean="messaging.juvenilecase.reply.JPOsForFamilyMemberResponseEvent" property="identity" context="juvenileProbationOfficer"/>
+		<Template>
+             #{messaging.juvenilecase.reply.JPOsForFamilyMemberResponseEvent.notificationMessage}                                                            
+        </Template>                     
+    </Notification>
+
+	<Notification topic="MJCW.JPO.OVERDUE.NONCOMPLIANCE.SANCTION.COMPLETE.NOTIFICATION" defaultSeverity="M">
+		<Source value="jims2notification@itc.hctx.net"/>
+		<Destination transportType="notice" bean="messaging.notification.SendNonComplianceSanctionDateExpiredNotificationEvent" property="identity" context="respEvent"/>
+		<Template>
+			#{messaging.notification.SendNonComplianceSanctionDateExpiredNotificationEvent.notificationMessage}				
+		</Template>		
+	</Notification>	
+
+	<Notification topic="MJCW.JPO.SUBSEQUENT.REFERRAL" defaultSeverity="M">
+		<Source value="jims2notification@itc.hctx.net"/>
+		<Destination transportType="notice" bean="messaging.juvenilecase.JuvenileCasefileNotificationEvent" property="identity" context="respEvent"/>
+		<Template>
+			#{messaging.juvenilecase.JuvenileCasefileNotificationEvent.notificationMessage}				
+		</Template>		
+	</Notification>
+	
+	<Notification topic="JC.GANG.ASSESSMENT.SUBMITTED" defaultSeverity="M">
+         <Source value="jims2notification@itc.hctx.net"/>
+         <Destination transportType="notice" bean="messaging.casefile.reply.AssessmentReferralResponseEvent" property="identity" context="respEvent"/>
+         <Template>
+            #{messaging.casefile.reply.AssessmentReferralResponseEvent.notificationMessage}                                                 
+         </Template>              
+    </Notification>
+    
+    <Notification topic="JC.GANG.ASSESSMENT.COMPLETED" defaultSeverity="M">
+         <Source value="jims2notification@itc.hctx.net"/>
+         <Destination transportType="notice" bean="messaging.casefile.reply.AssessmentReferralResponseEvent" property="identity" context="respEvent"/>
+         <Template>
+            #{messaging.casefile.reply.AssessmentReferralResponseEvent.notificationMessage}                                                 
+         </Template>              
+    </Notification>
+	<Notification topic="JC.JPO.FACILITY.ADMIT" defaultSeverity="M">
+		<Source value="jims2notification@itc.hctx.net"/>
+		<Destination transportType="notice" bean="messaging.facility.reply.JuvenileFacilityDetailsResponseEvent" property="identity" context="respEvent"/>
+		<Template>
+			#{messaging.facility.reply.JuvenileFacilityDetailsResponseEvent.notificationMessage}				
+		</Template>		
+	</Notification>	
+	
+	<Notification topic="JC.DETENTION.COURT.DELETE" defaultSeverity="M">
+		<Source value="jims2notification@itc.hctx.net"/>
+		<Destination transportType="notice" bean="messaging.facility.reply.JuvenileFacilityDetailsResponseEvent" property="identity" context="respEvent"/>
+		<Template>
+			#{messaging.facility.reply.JuvenileFacilityDetailsResponseEvent.notificationMessage}				
+		</Template>		
+	</Notification>	
+	
+	<!-- Added for modify admit -->
+	<Notification topic="JC.FACILITY.ADMIT.REASON.CHANGE.NOTIFICATION" defaultSeverity="M">
+		<Source value="jims2notification@itc.hctx.net"/>
+		<Destination transportType="notice" bean="messaging.facility.reply.JuvenileFacilityDetailsResponseEvent" property="identity" context="respEvent"/>
+		<Template>
+			#{messaging.facility.reply.JuvenileFacilityDetailsResponseEvent.notificationMessage}				
+		</Template>		
+	</Notification>	
+	<!-- Added for modify admit -->
+	<!-- Added for Escape -->
+	<Notification topic="JC.FACILITY.ESCAPE.NOTIFICATION" defaultSeverity="M">
+		<Source value="jims2notification@itc.hctx.net"/>
+		<Destination transportType="notice" bean="messaging.facility.reply.JuvenileFacilityDetailsResponseEvent" property="identity" context="respEvent"/>
+		<Template>
+			#{messaging.facility.reply.JuvenileFacilityDetailsResponseEvent.notificationMessage}				
+		</Template>		
+	</Notification>	
+	<!-- Added for Escape-->
+	<!-- Added for release -->
+	<Notification topic="JC.FACILITY.RELEASE.NOTIFICATION" defaultSeverity="M">
+		<Source value="jims2notification@itc.hctx.net"/>
+		<Destination transportType="notice" bean="messaging.facility.reply.JuvenileFacilityDetailsResponseEvent" property="identity" context="respEvent"/>
+		<Template>
+			#{messaging.facility.reply.JuvenileFacilityDetailsResponseEvent.notificationMessage}				
+		</Template>		
+	</Notification>	
+	<!-- Added for release-->
+	<!-- Added for TEMP RELEASE -->
+	<Notification topic="JC.FACILITY.TEMPRELEASE.NOTIFICATION" defaultSeverity="M">
+		<Source value="jims2notification@itc.hctx.net"/>
+		<Destination transportType="notice" bean="messaging.facility.reply.JuvenileFacilityDetailsResponseEvent" property="identity" context="respEvent"/>
+		<Template>
+			#{messaging.facility.reply.JuvenileFacilityDetailsResponseEvent.notificationMessage}				
+		</Template>		
+	</Notification>	
+	<!-- Added for TRANSFER --> 
+	<Notification topic="JC.FACILITY.TRANSFER.NOTIFICATION" defaultSeverity="M">
+		<Source value="jims2notification@itc.hctx.net"/>
+		<Destination transportType="notice" bean="messaging.facility.reply.JuvenileFacilityDetailsResponseEvent" property="identity" context="respEvent"/>
+		<Template>
+			#{messaging.facility.reply.JuvenileFacilityDetailsResponseEvent.notificationMessage}				
+		</Template>		
+	</Notification>	
+	<!-- Added for casefile closure. -->
+	<Notification topic="JC.FACILITY.CASEFILE.CLOSURE.NOTIFICATION" defaultSeverity="M">
+		<Source value="jims2notification@itc.hctx.net"/>
+		<Destination transportType="notice" bean="messaging.facility.reply.JuvenileFacilityDetailsResponseEvent" property="identity" context="respEvent"/>
+		<Template>
+			#{messaging.facility.reply.JuvenileFacilityDetailsResponseEvent.notificationMessage}				
+		</Template>		
+	</Notification>	
+	<!-- Added for Detention Court Action. -->
+	<Notification topic="JC.DETENTION.JPO.DETAINED" defaultSeverity="M">
+		<Source value="jims2notification@itc.hctx.net"/>
+		<Destination transportType="notice" bean="messaging.detentionCourtHearings.reply.JuvenileDetentionNotificationResponseEvent" property="identity" context="respEvent"/>
+		<Template>
+      #{messaging.detentionCourtHearings.reply.JuvenileDetentionNotificationResponseEvent.notificationMessage}
+    </Template>		
+	</Notification>	
+	
+		<Notification topic="JC.DETENTION.CLM.DETAINED" defaultSeverity="M">
+		<Source value="jims2notification@itc.hctx.net"/>
+		<Destination transportType="notice" bean="messaging.detentionCourtHearings.reply.JuvenileDetentionNotificationResponseEvent" property="identity" context="respEvent"/>
+		<Template>
+      #{messaging.detentionCourtHearings.reply.JuvenileDetentionNotificationResponseEvent.notificationMessage}
+    </Template>		
+	</Notification>	
+	
+	<Notification topic="JC.DETENTION.JPO.RELEASED" defaultSeverity="M">
+		<Source value="jims2notification@itc.hctx.net"/>
+		<Destination transportType="notice" bean="messaging.detentionCourtHearings.reply.JuvenileDetentionNotificationResponseEvent" property="identity" context="respEvent"/>
+		<Template>
+      #{messaging.detentionCourtHearings.reply.JuvenileDetentionNotificationResponseEvent.notificationMessage}
+    </Template>		
+	</Notification>	
+	
+		<Notification topic="JC.DETENTION.CLM.RELEASED" defaultSeverity="M">
+		<Source value="jims2notification@itc.hctx.net"/>
+		<Destination transportType="notice" bean="messaging.detentionCourtHearings.reply.JuvenileDetentionNotificationResponseEvent" property="identity" context="respEvent"/>
+		<Template>
+      #{messaging.detentionCourtHearings.reply.JuvenileDetentionNotificationResponseEvent.notificationMessage}
+    </Template>		
+	</Notification>	
+	
+	<Notification topic="JC.DISTRICT.COURT.FINAL.DISPOSITION.NOTIFICATION" defaultSeverity="M">
+		<Source value="jims2notification@itc.hctx.net"/>
+		<Destination transportType="notice" bean="messaging.districtCourtHearings.reply.JuvenileDistrictCourtNotificationResponseEvent" property="identity" context="respEvent"/>
+		<Template>
+      #{messaging.districtCourtHearings.reply.JuvenileDistrictCourtNotificationResponseEvent.notificationMessage}
+    </Template>		
+	</Notification>
+	
+	<Notification topic="JC.DISTRICT.COURT.DEFERRED.ADJUDICATION.NOTIFICATION" defaultSeverity="M">
+		<Source value="jims2notification@itc.hctx.net"/>
+		<Destination transportType="notice" bean="messaging.districtCourtHearings.reply.JuvenileDistrictCourtNotificationResponseEvent" property="identity" context="respEvent"/>
+		<Template>
+      #{messaging.districtCourtHearings.reply.JuvenileDistrictCourtNotificationResponseEvent.notificationMessage}
+    </Template>		
+	</Notification>
+	
+	<!-- Added for facility admit to specialty court-->
+	<Notification topic="JC.FACILITY.ADMIT.SPECIALTY.COURT.NOTIFICATION" defaultSeverity="M">
+		<Source value="jims2notification@itc.hctx.net"/>
+		<Destination transportType="notice" bean="messaging.facility.reply.JuvenileFacilityDetailsResponseEvent" property="identity" context="respEvent"/>
+		<Template>
+			#{messaging.facility.reply.JuvenileFacilityDetailsResponseEvent.notificationMessage}				
+		</Template>		
+	</Notification>	
+	
+</NotificationDefinitions>

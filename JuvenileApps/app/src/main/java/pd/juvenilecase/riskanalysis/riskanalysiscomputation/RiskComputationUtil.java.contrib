@@ -1,0 +1,58 @@
+package pd.juvenilecase.riskanalysis.riskanalysiscomputation;
+
+import java.util.Enumeration;
+import java.util.HashMap;
+
+import messaging.riskanalysis.RiskQuestionAnswerEvent;
+
+public class RiskComputationUtil {
+	
+	public HashMap getQuestionWeights(Enumeration riskQuestionAnswerEvents) {
+		int questionNumberPlaceHolder = -1;		
+		HashMap hmQuestionWeights = new HashMap ( ) ; 
+		
+		while( riskQuestionAnswerEvents.hasMoreElements() ) {
+			Object obj = riskQuestionAnswerEvents.nextElement();
+			if( obj instanceof RiskQuestionAnswerEvent ) {	
+				RiskQuestionAnswerEvent riskReqEvent = (RiskQuestionAnswerEvent)obj;
+				if (questionNumberPlaceHolder == riskReqEvent.getQuestionNumber()) {
+					Integer priorQuestionNumberWeight = (Integer) hmQuestionWeights.get(questionNumberPlaceHolder);
+					int newQuestionNumberWeight = 0;
+					//The logic below finds out if the answerText has been used to store a weight
+					//This is for preset values set in the UI
+					if ( (riskReqEvent.getControlCode() != null && riskReqEvent.getControlCode().length() > 0)
+							&& (riskReqEvent.getUiControlType().equalsIgnoreCase("TEXTBOX"))) {
+						int tempNewQuestionNumberWeight = 0;
+						if (riskReqEvent.getAnswerText() != null && riskReqEvent.getAnswerText().length() > 0) {
+							tempNewQuestionNumberWeight = Integer.parseInt(riskReqEvent.getAnswerText());
+						} 
+						newQuestionNumberWeight = priorQuestionNumberWeight.intValue() + tempNewQuestionNumberWeight;
+					} else {
+						newQuestionNumberWeight = priorQuestionNumberWeight.intValue() + riskReqEvent.getWeight();
+					}
+					
+					hmQuestionWeights.put(questionNumberPlaceHolder, newQuestionNumberWeight);
+					questionNumberPlaceHolder = riskReqEvent.getQuestionNumber();
+				} else {
+					//hmQuestionWeights.put(riskReqEvent.getQuestionNumber(), riskReqEvent.getWeight());					
+					//The logic below finds out if the answerText has been used to store a weight
+					//This is for preset values set in the UI
+					if ( (riskReqEvent.getControlCode() != null && riskReqEvent.getControlCode().length() > 0)
+							&& (riskReqEvent.getUiControlType().equalsIgnoreCase("TEXTBOX"))) {
+						int tempNewQuestionNumberWeight = 0;
+						if (riskReqEvent.getAnswerText() != null && riskReqEvent.getAnswerText().length() > 0) {
+							tempNewQuestionNumberWeight = Integer.parseInt(riskReqEvent.getAnswerText());
+						} 
+						hmQuestionWeights.put(riskReqEvent.getQuestionNumber(), tempNewQuestionNumberWeight);
+					} else {
+						hmQuestionWeights.put(riskReqEvent.getQuestionNumber(), riskReqEvent.getWeight());
+					}
+					questionNumberPlaceHolder = riskReqEvent.getQuestionNumber();
+					
+				}
+			}
+		}
+		return hmQuestionWeights;
+	}
+
+}

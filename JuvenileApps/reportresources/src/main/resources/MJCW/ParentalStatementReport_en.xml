@@ -1,0 +1,609 @@
+<?xml version="1.0" encoding="US-ASCII"?>
+<document size="LETTER" margin-left="25" margin-right="25" margin-top="20" margin-bottom="20">
+<encryption allow-fillin="false" allow-modify-contents="false" allow-degraded-printing="true" allow-screen-readers="false" allow-copy="false"	allow-printing="false"/>
+<meta author="JIMS2, Harris County" creator="JIMS2, Harris County" title="Hire Attorney Report"/>
+
+<module>
+	<font-def name="text" family="Helvetica" style="normal" size="10"/>
+	<font-def name="title" family="Helvetica" style="bold" size="11"/>
+	<font-def name="header" family="Helvetica" style="bold|underline" size="11"/>
+    
+	<custom-tag alias="std-paragraph" tag="paragraph">
+		<attribute name="font" value="text"/>
+		<attribute name="spacing-after" value="5"/>
+	</custom-tag>
+	
+	<custom-tag alias="std-title" tag="paragraph">
+		<attribute name="font" value="title"/>
+		<attribute name="spacing-after" value="8"/>
+	</custom-tag>
+	
+	<custom-tag alias="std-header" tag="paragraph">
+		<attribute name="font" value="header"/>
+		<attribute name="spacing-after" value="8"/>
+	</custom-tag>
+	
+	<custom-tag alias="shr-label" tag="phrase">
+			<attribute name="font" value="label"/>
+		</custom-tag>
+		
+	<custom-tag alias="shr-text" tag="paragraph">
+		<attribute name="font" value="text"/>
+	</custom-tag>
+	
+	<custom-tag alias="shr-tableheader" tag="phrase">
+		<attribute name="font" value="tableheader"/>
+	</custom-tag>
+</module>
+        
+		<font-def name="label" family="Helvetica" style="bold" size="11"/>
+		<font-def name="text-large" family="Helvetica" style="normal" size="12"/>
+		<font-def name="tableheader" family="Helvetica" style="bold|underline" size="10"/>
+		<font-def name="Symbol-10" family="Symbol" style="bold" size="10" />
+		
+		<footer padding-top="10">
+			<font size="10" color="black">
+				<footer-part padding-top="5" halign="left" width="500">
+					<table columns="2" width="100" halign="center">
+						<table-row halign="left">
+							<cell halign="left">
+								
+								Parental Written Statement - Page ${pageNumber,  nointrprt} of ${pageCount,  nointrprt}
+							
+							</cell>
+							<cell halign="right">
+								TJPC-AGE-10-04
+							</cell>
+						</table-row>
+						<table-row halign="left"><cell><br/></cell>
+						</table-row>
+					</table>
+				</footer-part>
+			</font>
+		</footer>
+	
+
+	
+    <!--  =============================================================================================================
+        Page 1 - Cover Sheet
+    -->
+
+	<table columns="1" border-style="none" border-width="0" widths="1" padding="2">
+        <cell halign="center" valign="top" leading="1" padding-top="0" line-spacing="1">
+            <paragraph>
+                <image source="MJCW/TexasJuvenileProbationCommisionSeal.jpg" width="75" height="75" scale-to-fit="true"/>
+            </paragraph>
+        </cell>
+	</table>
+    
+	<std-title halign="center">
+		Texas Juvenile Justice Department<br/>
+        <font size="12">INSTRUCTIONS FOR PROBATION DEPARTMENTS REGARDING<br/>
+        PARENTAL WRITTEN STATEMENTS</font>
+	</std-title>
+    <br/>
+    
+	<std-paragraph>
+        Effective September 1, 2003, Section 61.104 of the Texas Family Code requires that a 
+        parent be given the opportunity to submit a written statement to the juvenile court 
+        judge concerning the disposition of their child&apos;s case.  The statute reads as follows:     
+	</std-paragraph>
+
+    <br/>
+	<std-paragraph>
+        <b>&#167; 61.104.  PARENTAL WRITTEN STATEMENT</b>
+	</std-paragraph>
+    
+	<table columns="2" border-style="none" border-width="0" widths="1,10" padding="2">
+        <table-row>
+            <cell halign="center" valign="top" leading="1" padding-top="0" line-spacing="1">
+            	<std-paragraph>
+                    (a)
+            	</std-paragraph>
+            </cell>
+            <cell halign="left" valign="top" leading="1" padding-top="0" line-spacing="1">
+            	<std-paragraph>
+                    When a petition for adjudication, a motion or petition to modify disposition, or a 
+                    motion or petition for discretionary transfer to criminal court is served on a parent 
+                    of the child, the parent must be provided with a form prescribed by the Texas Juvenile 
+                    Justice Department on which the parent can make a written statement about the needs of 
+                    the child or family or any other matter relevant to disposition of the case.
+            	</std-paragraph>
+            </cell>
+        </table-row>
+        <table-row>
+            <cell halign="center" valign="top" leading="1" padding-top="0" line-spacing="1">
+            	<std-paragraph>
+                    (b)
+            	</std-paragraph>
+            </cell>
+            <cell halign="left" valign="top" leading="1" padding-top="0" line-spacing="1">
+            	<std-paragraph>
+                    The parent shall return the statement to the juvenile probation department, which 
+                    shall transmit the statement to the court along with the discretionary transfer report 
+                    authorized by Section 54.02(e), the disposition report authorized by Section 54.04(b), 
+                    or the modification of disposition report authorized by Section 54.05(e), as applicable.  
+                    The statement shall be disclosed to the parties as appropriate and may be considered by 
+                    the court at the disposition, modification, or discretionary transfer hearing.    
+            	</std-paragraph>
+            </cell>
+        </table-row>
+	</table>
+    <br/>
+
+    
+	<std-paragraph>
+        A parental written statement form shall be given to every parent who is summoned in a 
+        juvenile case and any other person the juvenile court feels should be given an opportunity 
+        to provide a parental written statement to the court.  This may include the child&apos;s guardian, 
+        custodian, guardian ad-litem or any other person the court determines is a necessary party 
+        to the juvenile&apos;s case. 	
+    </std-paragraph>
+    
+	<std-paragraph>
+        Upon request by a parent, the parent must be provided with the Spanish version of the parental 
+        written statement form.  The Spanish version of the form is available from the Texas Juvenile 
+        Justice Department and may be obtained and downloaded from the Department&apos;s website 
+        at: <u>www.tjjd.texas.gov.</u>
+    </std-paragraph>
+    
+	<std-paragraph>
+        The juvenile board, juvenile court, prosecutor&apos;s office and/or the juvenile probation department 
+        should jointly develop local policies and procedures that address the following steps related 
+        to the parental written statement.
+	</std-paragraph>
+
+    <list numbered="false" lettered="false" symbol-indent="15">
+        <list-symbol>&#183;</list-symbol>
+        <list-item spacing-after="10">Provision of the parental written statement form to a parent or other 
+            person.  Local policy should address who in the probation department provides the form, 
+            when the form is provided and how (i.e., mail, with the summons, etc.).</list-item>
+        <list-item spacing-after="10">Completion of the heading of the parental written statement containing 
+            the cause number and other case identifying information.  Local policy should address 
+            who is responsible for completing the form&apos;s header information, if used.</list-item>
+        <list-item spacing-after="10">Provision of instructions for completion of the parental written 
+            statement, deadline for the return of the completed statement and delivery of the completed 
+            parental written statement to the proper juvenile probation department official.  
+            Local policy should address who will provide assistance and instructions to parents 
+            regarding the use of the form.</list-item>
+        <list-item spacing-after="10">Provision of copies of the completed parental written statement to 
+            the prosecutor, defense attorney and any other parties as determined appropriate by the juvenile 
+            court. Local policy should address who is responsible for ensuring all appropriate parties 
+            receive a copy of the completed statement in a timely manner.</list-item>
+        <list-item spacing-after="10">Submittal of the completed parental written statement to the juvenile 
+            court judge along with any social history or other dispositional report.  Local policy should 
+            address who is responsible for providing the court a copy of the completed statement.</list-item>
+    </list>
+
+    
+    <!--  =============================================================================================================
+        Page 2  
+    -->
+    
+	<new-page size="LETTER" margin-left="10" margin-right="10" margin-top="10" margin-bottom="10">
+	</new-page>
+
+	<table columns="2" border-style="none" border-width="0" widths="4,2" padding="1" keep-together="true">
+    
+        <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+            Left side of page 2.  
+        -->
+        
+        <cell halign="left" valign="top" leading="1" padding="8" line-spacing="1">
+
+            <std-title halign="center">
+                <font size="12">Instructions for Making a Parental Written Statement</font>
+        	</std-title>
+    
+            <std-header halign="center">
+                PARA RECIBIR ESTAS INSTRUCCIONES Y LA FORMA<br/>
+                EN ESPANOL PONGASE EN CONTACTO CON<br/>
+                EL DEPARTAMENTO JUVENIL NOMBRADO ABAJO 
+        	</std-header>
+            <br/>
+        
+            <std-paragraph>
+                Texas Family Code Section 61.104 requires that the parent of a child who is accused of 
+                breaking the law and who will appear before a Texas juvenile court must be given the 
+                opportunity to give a parental written statement to the court.     
+        	</std-paragraph>
+
+            <std-paragraph>
+                A parental written statement is your opportunity to tell the court information about 
+                your child&apos;s and family&apos;s needs, strengths or other important information related to 
+                your child&apos;s case.   The judge may consider this statement when making a final decision 
+                in your child&apos;s case.  
+        	</std-paragraph>
+
+            <std-paragraph>
+                A parental written statement may be submitted when any of the following legal documents 
+                have been filed in the juvenile court regarding your child:
+        	</std-paragraph>
+
+            <list numbered="false" lettered="false" symbol-indent="15">
+                <list-symbol>-</list-symbol>
+                <list-item>A petition for an adjudication hearing;</list-item>
+                <list-item>A motion or petition for a modification hearing to change your child&apos;s 
+                    probation conditions; or </list-item>
+                <list-item>A motion or petition for a discretionary transfer hearing for possible 
+                    transfer of your child to a criminal court where he or she will be tried as an adult.</list-item>
+            </list>
+
+            <std-paragraph>
+                Any information you provide will NOT be used in the adjudication hearing which is a 
+                hearing to determine whether or not your child committed the offense.  It may be used 
+                in the disposition hearing which may assist the court in making a final disposition 
+                decision about your child&apos;s case that may include the following actions:    
+        	</std-paragraph>
+
+           	<list numbered="false" lettered="false" symbol-indent="15">
+                <list-symbol>-</list-symbol>
+                <list-item>Placing your child on probation in your home;</list-item>
+                <list-item>Placing your child on probation outside your home with relatives or other persons;</list-item>
+                <list-item>Placing your child on probation in a secure facility or non-secure residential 
+                    facility for juveniles; or </list-item>
+                <list-item>Commitment of your child to the Texas Juvenile Justice Department.</list-item>
+            </list>
+
+            <std-paragraph>
+                If both parents reside together in the home with your child, only one parental written 
+                statement per family may be submitted.  If you are divorced or separated, then both 
+                parents will be allowed to submit their own separate statements.  
+        	</std-paragraph>
+
+            <std-paragraph>
+                <u>A parental written statement is completely voluntary and you may choose not to make 
+                a statement in connection with your child&apos;s case.</u> You may choose to respond 
+                to any or all of the sections on this form.  Although examples are provided, you are not 
+                limited to those examples.  Your entire statement will be shared with the judge, the juvenile 
+                probation department, your child&apos;s defense attorney, the prosecutor and any other person 
+                the juvenile court determines should be provided with a copy.  Any information you submit 
+                to the court may be used against your child; therefore, you may want to consult with an 
+                attorney about the consequences of providing a statement to the juvenile court.  If you 
+                choose to provide a statement, you may submit it on your own paper and use any form you 
+                choose.  You may also attach sheets of paper to this form if you need additional space.  
+                When your statement is completed, please return it to the juvenile probation department 
+                at the address below.  If you return your statement to the juvenile probation department, 
+                the juvenile probation department will provide your statement to the juvenile court.      
+        	</std-paragraph>
+
+            <std-paragraph>
+                For any questions regarding the completion of the written parental statement you may 
+                contact the juvenile probation department listed below.  Upon completion of the written 
+                parental statement, please mail or hand-deliver this form on or before the deadline on 
+                the front page of the form to:
+        	</std-paragraph>
+
+            <std-paragraph halign="center" spacing-after="20">
+                ${locationUnitName}<br/>
+                ${locationAddress.streetNum} ${locationAddress.streetName} ${locationAddress.streetTypeCode} ${locationAddress.aptNum}<br/>
+                ${locationAddress.city}
+				_if_(${locationAddress.city} isDefined), _endif_
+				${locationAddress.stateCode} ${locationAddress.zipCode}<br/>
+                ${locationUnitPhone.formattedPhoneNumber}
+        	</std-paragraph>
+            
+            <std-paragraph>
+                <i>If you need an additional copy of these instructions or written parental statement, 
+                you may request it from the juvenile probation department.  This form is also available 
+                from the Texas Juvenile Justice Department on the Internet and may be downloaded at 
+                <u>www.tjjd.texas.gov.</u></i>
+        	</std-paragraph>
+    
+        </cell>
+        
+        <!-- - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - - -
+            Right side of page 2.  
+        -->
+        
+        <cell valign="top" halign="left" leading="1" padding="8" line-spacing="1" border-style="box" border-width="2">
+        
+            <br/>
+            <std-title halign="center">
+                Common Terms Used in the
+                Texas Juvenile Justice System
+        	</std-title>
+            <br/>
+            
+            <std-paragraph>
+                <b>Adjudication Hearing</b> - A hearing where the judge or jury determines 
+                whether your child committed the alleged offense or is innocent of the charge.            
+        	</std-paragraph>
+            <br/>
+        
+            <std-paragraph>
+                <b>Defense Attorney</b> - A lawyer who represents your child and makes 
+                sure that your child&apos;s rights are protected.  The juvenile court must appoint an attorney to 
+                represent your child if the court finds that you cannot afford to hire an attorney.
+        	</std-paragraph>
+            <br/>
+        
+            <std-paragraph>
+                <b>Discretionary Transfer Hearing</b> - A hearing where the judge decides 
+                whether to transfer your child&apos;s case to a criminal court where your child will be prosecuted 
+                as an adult.            
+        	</std-paragraph>
+            <br/>
+        
+            <std-paragraph>
+                <b>Disposition Hearing</b> - A separate hearing that occurs after the 
+                adjudication hearing when the final decision or result of your child&apos;s case is made by the 
+                judge or jury and where your child may be placed on probation or committed to the Texas 
+                Juvenile Justice Department.            
+        	</std-paragraph>
+            <br/>
+        
+            <std-paragraph>
+                <b>Modification Hearing</b> - A hearing to change the previous conditions 
+                of your child&apos;s probation or to revoke his probation when your child is accused of violating 
+                the conditions of probation.              
+        	</std-paragraph>
+            <br/>
+        
+            <std-paragraph>
+                <b>Petition/Motion</b> - A written legal document filed by the prosecutor 
+                that informs you and your child of the offense your child is alleged to have committed and 
+                provides the date, time and place of any future court dates.  You and your child must be given 
+                a copy of this document.            
+        	</std-paragraph>
+            <br/>
+            
+            <std-paragraph>
+                <b>Prosecutor</b> - Lawyers who work for county, district or criminal district 
+                attorneys&apos; offices who handle juvenile cases.  The persons are usually referred to as District 
+                Attorney, D.A., Assistant District Attorney, County Attorney or Assistant County Attorney.             
+        	</std-paragraph>
+            <br/>
+            
+            <std-paragraph>
+                <b>Texas Juvenile Justice Department</b> - A state agency that operates secure correctional 
+                facilities for juveniles committed there by the juvenile court.            
+        	</std-paragraph>
+            
+        </cell>
+	</table>
+
+    
+    <!--  =============================================================================================================
+        Page 3  
+    -->
+    
+	<new-page size="LETTER" margin-left="20" margin-right="20" margin-top="20" margin-bottom="20">
+	</new-page>
+
+    <std-title>
+        PLEASE COMPLETE AND RETURN THIS FORM TO THE JUVENILE PROBATION DEPARTMENT ON OR BEFORE  ${courtDate}.
+    </std-title>
+    
+    <std-title halign="center">
+        CAUSE NO. ${petitionNumber}
+    </std-title>
+
+	<table columns="3" border-style="none" border-width="0" widths="8,1,8" padding="2">
+        <table-row>
+            <cell halign="left" valign="top" leading="1" padding-top="0" line-spacing="1">
+            	<std-title>
+                    IN THE INTEREST OF: <br/>
+                    <br/>
+                    ${juvenileName}<br/>
+                    <br/>
+                    A JUVENILE<br/>
+            	</std-title>
+            </cell>
+            <cell halign="left" valign="top" leading="1" padding-top="0" line-spacing="1">
+            	<std-title>
+                    .<br/>
+                    .<br/>
+                    .<br/>
+                    .<br/>
+                    .<br/>
+                </std-title>
+            </cell>
+            <cell halign="left" valign="top" leading="1" padding-top="0" line-spacing="1">
+            	<std-title>
+                    IN THE ${courtName} DISTRICT COURT<br/>
+                    HARRIS COUNTY, TEXAS
+            	</std-title>
+            </cell>
+        </table-row>
+	</table>
+	<br/>
+
+    <std-title halign="center">
+        PARENTAL WRITTEN STATEMENT 
+    </std-title>
+	<br/>
+
+    <std-paragraph>
+        I, ________________________________________________________________________, a parent or other person responsible 
+        for the above named juvenile, submit this written statement as authorized under Texas Family Code Section 61.104.  
+        I would like to provide the following information so that the court can have my input for a better understanding 
+        of the needs and strengths of my child, our family and any other information important to the disposition of this case:
+    </std-paragraph>
+    <br/>
+    
+    <std-paragraph>
+        1.	<b>Background.</b>  The court should know the following information about my child&apos;s background.  (Use this space to 
+        describe information such as important events, drug problems or hardships that you believe have contributed to the 
+        circumstances your child is currently facing.)<br/>
+        <br/>
+        ___________________________________________________________________________________________________<br/>
+        <br/>
+        ___________________________________________________________________________________________________<br/>
+        <br/>
+        ___________________________________________________________________________________________________<br/>
+        <br/>
+        ___________________________________________________________________________________________________<br/>
+        <br/>
+        ___________________________________________________________________________________________________<br/>
+        <br/>
+        ___________________________________________________________________________________________________<br/>
+    </std-paragraph>
+
+    <std-paragraph>
+        2.	<b>Medical and Psychological.</b>  The court should know the following medical and psychological history about my child.  
+        (Use this space to describe any medical conditions, illnesses, physical disabilities, medication needs, psychological 
+        history, psychological treatment or counseling, suicidal history, etc.)<br/>
+        <br/>
+        ___________________________________________________________________________________________________<br/>
+        <br/>
+        ___________________________________________________________________________________________________<br/>
+        <br/>
+        ___________________________________________________________________________________________________<br/>
+        <br/>
+        ___________________________________________________________________________________________________<br/>
+        <br/>
+        ___________________________________________________________________________________________________<br/>
+        <br/>
+        ___________________________________________________________________________________________________<br/>
+    </std-paragraph>
+
+    <!--  =============================================================================================================
+        Page 4 
+    -->
+    
+	<new-page size="LETTER" margin-left="20" margin-right="20" margin-top="20" margin-bottom="20">
+	</new-page>
+    
+    <std-paragraph>
+        3.	<b>Education.</b>   The court should know the following information about my child&apos;s school history. (Use this space 
+        to describe information such as any achievements or problems your child may have experienced in school including 
+        attendance, grades, special education, disciplinary problems, conflicts, extra-curricular activities, awards, 
+        sports, special skills and work, etc.)<br/>
+        <br/>
+        ___________________________________________________________________________________________________<br/>
+        <br/>
+        ___________________________________________________________________________________________________<br/>
+        <br/>
+        ___________________________________________________________________________________________________<br/>
+        <br/>
+        ___________________________________________________________________________________________________<br/>
+        <br/>
+        ___________________________________________________________________________________________________<br/>
+        <br/>
+        ___________________________________________________________________________________________________<br/>
+    </std-paragraph>
+
+    <std-paragraph>
+        4.	<b>Home Environment.</b>  My child&apos;s home environment and family situation can best be described as: (Use this space 
+        to tell the court about your child&apos;s home life and environment such as information about how your child gets along 
+        with you, his or her brothers and sisters or any other person living at home, your child&apos;s willingness to perform 
+        chores and other work around the house, behavior and discipline issues, whether your child has a job that adds to 
+        the household income, positive or negative neighborhood influences, etc.)<br/>
+        <br/>
+        ___________________________________________________________________________________________________<br/>
+        <br/>
+        ___________________________________________________________________________________________________<br/>
+        <br/>
+        ___________________________________________________________________________________________________<br/>
+        <br/>
+        ___________________________________________________________________________________________________<br/>
+        <br/>
+        ___________________________________________________________________________________________________<br/>
+        <br/>
+        ___________________________________________________________________________________________________<br/>
+    </std-paragraph>
+    
+    <std-paragraph>
+        5.	<b>Supervision.</b>  If the court places my child under my supervision, I plan to help my child stay out of trouble 
+        while on probation by:  (Use this space to tell the court information such as your ability to supervise your child, 
+        any additional supportive adults who are available to assist you, problems you may have providing supervision, your 
+        plan to assist the probation department in making sure that your child will attend school and do everything the 
+        probation office requires, etc.)<br/>
+        <br/>
+        ___________________________________________________________________________________________________<br/>
+        <br/>
+        ___________________________________________________________________________________________________<br/>
+        <br/>
+        ___________________________________________________________________________________________________<br/>
+        <br/>
+        ___________________________________________________________________________________________________<br/>
+        <br/>
+        ___________________________________________________________________________________________________<br/>
+        <br/>
+        ___________________________________________________________________________________________________<br/>
+    </std-paragraph>
+    
+    <!--  =============================================================================================================
+        Page 5 
+    -->
+    
+	<new-page size="LETTER" margin-left="20" margin-right="20" margin-top="20" margin-bottom="20">
+	</new-page>
+    
+    <std-paragraph>
+        6.	<b>Child&apos;s Positive Traits.</b>  The court should know the following good things about my child. (Use this space to tell 
+        the judge information such as any special achievements, character traits, volunteer work, past jobs, clubs, organizations, 
+        community or church activities in which your child participates.)<br/>
+        <br/>
+        ___________________________________________________________________________________________________<br/>
+        <br/>
+        ___________________________________________________________________________________________________<br/>
+        <br/>
+        ___________________________________________________________________________________________________<br/>
+        <br/>
+        ___________________________________________________________________________________________________<br/>
+        <br/>
+        ___________________________________________________________________________________________________<br/>
+    </std-paragraph>
+    
+    <std-paragraph>
+        7.	<b>Recommended Outcome.</b>  When the court considers the final outcome of my child&apos;s case, I recommend that the judge order 
+        the following:  (Use this space to tell the judge what you think should happen to your child in this case.  What you feel 
+        your child&apos;s needs are.  You may also want to discuss what will happen to your family if your child is removed from your 
+        custody and placed outside your home.)<br/>
+        <br/>
+        ___________________________________________________________________________________________________<br/>
+        <br/>
+        ___________________________________________________________________________________________________<br/>
+        <br/>
+        ___________________________________________________________________________________________________<br/>
+        <br/>
+        ___________________________________________________________________________________________________<br/>
+        <br/>
+        ___________________________________________________________________________________________________<br/>
+    </std-paragraph>
+    
+    <std-paragraph>
+        8.	<b>Additional Information.</b> The court should know the following important information that would be helpful to the court 
+        in making a final decision.  (Use this space to provide the judge with any information that you feel may influence the 
+        judge when making a final decision.)<br/>
+        <br/>
+        ___________________________________________________________________________________________________<br/>
+        <br/>
+        ___________________________________________________________________________________________________<br/>
+        <br/>
+        ___________________________________________________________________________________________________<br/>
+        <br/>
+        ___________________________________________________________________________________________________<br/>
+        <br/>
+        ___________________________________________________________________________________________________<br/>
+    </std-paragraph>
+
+    <std-paragraph>
+        All the information I have provided to the court in this Parental Written Statement is true and correct to the best of 
+        my knowledge and belief.
+    </std-paragraph>
+    <br/>
+    
+	<table columns="2" border-style="none" border-width="0" widths="1,1" padding="0">
+        <table-row>
+            <cell halign="left" valign="top" leading="1" padding-top="0" line-spacing="1">
+            	<std-paragraph>
+                    ___________________________________________ <br/>
+                    Signature of Parent or Other Person<br/>
+                    <br/>
+                    ___________________________________________<br/>
+                    Printed Name of Parent or Other Person
+            	</std-paragraph>
+            </cell>
+            <cell halign="right" valign="top" leading="1" padding-top="0" line-spacing="1">
+            	<std-paragraph>
+                    Date Signed: ______________________________
+            	</std-paragraph>
+            </cell>
+        </table-row>
+	</table>
+
+    
+</document>

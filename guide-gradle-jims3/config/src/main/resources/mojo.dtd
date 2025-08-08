@@ -1,0 +1,700 @@
+<!-- edited with XML Spy v4.3 U (http://www.xmlspy.com) by Saleem Shafi (The 401k Company) -->
+<!ELEMENT Mojo (Application?, Build?, Folder?, Services?, StateMachine?, Versionable?, Servers?)>
+<!ATTLIST Mojo
+	import CDATA #IMPLIED
+>
+<!--
+The Application elements is served by the mojo.km.configuration.AppProperties 
+class and contains properties defined at the application level.  Each application 
+may define its own set of attributes in this section of the configuration.  Some 
+of these values may also be overridden at other levels of the configuration.
+-->
+<!ELEMENT Application (BuildTOPLinkDescriptor?, GroupMembership?, LOGGROUP?, LogConfigurationFile?, LogFilterCode?, LoggerAdapter?, MultiServerClient?, MultiServerServer?, RoleMapping?, SecurityAdmin?, SecurityDefaultPassword?, SecurityDefaultUserName?, SecurityPassword?, SecurityURL?, TestEventPath?, TUXMCHOST?, UseLogging?, UseOIDService?, WebLogicProviderURL?, WSNADDR?, deploymentPackages?, enableCache?, loggingHOST?, loggingHost?, profileName?, IdleAuditTimeout?)>
+<!--
+This is the URL used for client connections in a TCP multiserver environment.  
+This value can be overridden at the server-session level.
+-->
+<!ELEMENT MultiServerClient EMPTY>
+<!ATTLIST MultiServerClient
+	value CDATA #REQUIRED
+>
+<!--
+This is the URL used for server connections in a TCP multiserver environment.  
+This value can be overridden at the server-session level.
+-->
+<!ELEMENT MultiServerServer EMPTY>
+<!ATTLIST MultiServerServer
+	value CDATA #REQUIRED
+>
+<!--
+This is the URL to the WebLogic instance used by this application.
+-->
+<!ELEMENT WebLogicProviderURL EMPTY>
+<!ATTLIST WebLogicProviderURL
+	value CDATA #REQUIRED
+>
+<!--
+This is the URL of the logging server.  Datagram connections are made to this 
+server in order to post logging messages.
+-->
+<!ELEMENT loggingHost EMPTY>
+<!ATTLIST loggingHost
+	value CDATA #REQUIRED
+>
+<!--
+Defines whether or not to use mojo logging.  If true is specified, output streams
+will be redirected to use mojo logging mechanisms.  If false, the streams will
+maintain their normal JDK behavior.
+-->
+<!ELEMENT UseLogging EMPTY>
+<!ATTLIST UseLogging
+	value (true | false) #REQUIRED
+>
+<!--
+This elements specifies the locations of the configuration file to be used by
+the logging mechanism.
+-->
+<!ELEMENT LogConfigurationFile EMPTY>
+<!ATTLIST LogConfigurationFile
+	value NMTOKEN #REQUIRED
+>
+<!--
+Defines whether or not to use a distributed OID generation service.  By using this
+service, OIDs will be cached and allocated in a distributable manner so as to 
+avoid the bottleneck of accessing the perstistent store.
+-->
+<!ELEMENT UseOIDService EMPTY>
+<!ATTLIST UseOIDService
+	value (true | false) #REQUIRED
+>
+<!--
+The path that JUnit should use when running test scripts.
+-->
+<!ELEMENT TestEventPath EMPTY>
+<!ATTLIST TestEventPath
+	value CDATA #REQUIRED
+>
+<!--
+-->
+<!ELEMENT SecurityAdmin EMPTY>
+<!ATTLIST SecurityAdmin
+	value CDATA #REQUIRED
+>
+<!--
+Used in conjuction with SecurityDefaultUserName to avoid having to authenticate
+a user before using the application.  If this value is not provided or invalid,
+the user will need to login.
+-->
+<!ELEMENT SecurityDefaultPassword EMPTY>
+<!ATTLIST SecurityDefaultPassword
+	value CDATA #REQUIRED
+>
+<!--
+Used in conjuction with SecurityDefaultPassword to avoid having to authenticate
+a user before using the application.  If this value is not provided or invalid,
+the user will need to login.
+-->
+<!ELEMENT SecurityDefaultUserName EMPTY>
+<!ATTLIST SecurityDefaultUserName
+	value CDATA #REQUIRED
+>
+<!--
+-->
+<!ELEMENT SecurityPassword EMPTY>
+<!ATTLIST SecurityPassword
+	value CDATA #REQUIRED
+>
+<!--
+This is the URL to the LDAP server providing authentication services.
+-->
+<!ELEMENT SecurityURL EMPTY>
+<!ATTLIST SecurityURL
+	value CDATA #REQUIRED
+>
+<!--
+Defines the type of authentication to use.  If ldap is specified, the LDAP server
+at the location specified by SecurityURL will be used to authenticate a user.  If 
+file is specified, a file is used to provide authentication.
+-->
+<!ELEMENT GroupMembership EMPTY>
+<!ATTLIST GroupMembership
+	value (ldap | file) #REQUIRED
+>
+<!--
+Defines the role of the user logging in.  mojo should be specified if LDAP
+services are being used, otherwise use file.
+-->
+<!ELEMENT RoleMapping EMPTY>
+<!ATTLIST RoleMapping
+	value (mojo | file) #REQUIRED
+>
+<!--
+This defines the host used by the multicast dispatch strategy.
+-->
+<!ELEMENT MCHOST EMPTY>
+<!ATTLIST MCHOST
+	value CDATA #REQUIRED
+>
+<!--
+This defines the host used by the Tuxedo multicast dispatch strategy.
+-->
+<!ELEMENT TUXMCHOST EMPTY>
+<!ATTLIST TUXMCHOST
+	value CDATA #REQUIRED
+>
+<!--
+This defines the name of the profile that is active for the current configuration.
+-->
+<!ELEMENT profileName EMPTY>
+<!ATTLIST profileName
+	value NMTOKEN #REQUIRED
+>
+
+<!--
+This defines the idle audit timout for the swing client.
+-->
+<!ELEMENT IdleAuditTimeout EMPTY>
+<!ATTLIST IdleAuditTimeout 
+	value CDATA #REQUIRED
+>
+
+<!--
+This defines the Tuxedo client connection URLs.  Multiple values may be specified
+for roll-over purposes.  Each URL should be semi-colon delimited.
+-->
+<!ELEMENT WSNADDR EMPTY>
+<!ATTLIST WSNADDR
+	value CDATA #REQUIRED
+>
+<!--
+This defines the list of first-level packages that may contain controllers with
+deployment configurations.  Multiple packages may be specified and should be 
+comma-delimited.
+-->
+<!ELEMENT deploymentPackages EMPTY>
+<!ATTLIST deploymentPackages
+	value CDATA #REQUIRED
+>
+<!--
+This defines whether or not we want to enable caching at the persistence layer.
+-->
+<!ELEMENT enableCache EMPTY>
+<!ATTLIST enableCache
+	value (true | false) #REQUIRED
+>
+<!--
+This element defines whether or not we want to generate TOPLink descriptors during
+code-generation.  This should probably be deprecated once we refactor the code-
+generation process.
+-->
+<!ELEMENT BuildTOPLinkDescriptor EMPTY>
+<!ATTLIST BuildTOPLinkDescriptor
+	value CDATA #REQUIRED
+>
+<!--
+This element specifies the Multi-cast URL used to change the logging filter levels
+at runtime.
+-->
+<!ELEMENT LOGGROUP EMPTY>
+<!ATTLIST LOGGROUP
+	value CDATA #REQUIRED
+>
+<!--
+This is the initial, default filter level defined as a numeric value.
+-->
+<!ELEMENT LogFilterCode EMPTY>
+<!ATTLIST LogFilterCode
+	value NMTOKEN #REQUIRED
+>
+<!--
+DEPRECATED
+-->
+<!ELEMENT loggingHOST EMPTY>
+<!ATTLIST loggingHOST
+	value CDATA #REQUIRED
+>
+<!--
+The elements in this section are managed by mojo.km.configuration.BuildProperties
+and they help define the locations of the source code and build destinations.
+These values may not be needed any longer depending on how the code-generation 
+processes and build/CM processes are adjusted.
+-->
+<!ELEMENT Build (AlternateSourcePaths?, BuildPath?, MojoBuildPath?, SourcePath?, ContextManagerList?, RequestDispatchList?, ReplyDispatchList?, TOPLinkMapList?)>
+<!--
+The root directory of the source code for this application.
+-->
+<!ELEMENT SourcePath EMPTY>
+<!ATTLIST SourcePath
+	value CDATA #REQUIRED
+>
+<!--
+A set of alternate source path roots.
+-->
+<!ELEMENT AlternateSourcePaths EMPTY>
+<!ATTLIST AlternateSourcePaths
+	value CDATA #REQUIRED
+>
+<!--
+The root directory where the application code should be built to.
+-->
+<!ELEMENT BuildPath EMPTY>
+<!ATTLIST BuildPath
+	value CDATA #REQUIRED
+>
+<!--
+The root directory where the mojo code should be built to.
+-->
+<!ELEMENT MojoBuildPath EMPTY>
+<!ATTLIST MojoBuildPath
+	value CDATA #REQUIRED
+>
+<!--
+The list of valid context managers
+-->
+<!ELEMENT ContextManagerList (Item*)>
+<!--
+The list of valid request dispatches
+-->
+<!ELEMENT RequestDispatchList (Item*)>
+<!--
+The list of valid reply dispatches
+-->
+<!ELEMENT ReplyDispatchList (Item*)>
+<!--
+The list of valid toplink maps
+-->
+<!ELEMENT TOPLinkMapList (Item*)>
+<!ELEMENT Item EMPTY>
+<!ATTLIST Item
+	className NMTOKEN #REQUIRED
+>
+<!--
+These properties are used by the mojo AppShell to help define which folders are
+available at runtime.
+-->
+<!ELEMENT Folder (Property+)>
+<!--
+This section of elements is used in the A&D process and helps define the
+interaction between Together and RequisitePro.  The scripts that use these values
+synchronize the diagrams created in Together with requirements defined in
+RequisitePro.
+-->
+<!ELEMENT Servers (defaultServer?, Server*)>
+<!--
+Defines the configuration of a particular named server.  A context manager class
+must also be defined for each server.  Other properties that are defined at this
+level include event manager, logging managers, registered services and persistence
+configurations.
+-->
+<!ELEMENT defaultServer (EventManager?, LogManager?, Session?)>
+<!ATTLIST defaultServer
+	contextClassName (mojo.km.context.Default.DefaultContextManager | mojo.km.context.oracletoplink.GenericContextManager | mojo.km.context.oracletoplink.TestContextManager | mojo.km.context.oracletoplink.TransactionalContextManager | mojo.km.context.InternalQueueContext.InternalQueueContextManager | mojo.km.dispatch.Jolt.QueueContext) #IMPLIED
+>
+<!--
+Defines the configuration of a particular named server.  A context manager class
+must also be defined for each server.  Other properties that are defined at this
+level include event manager, logging managers, registered services and persistence
+configurations.
+-->
+<!ELEMENT Server (EventManager?, LogManager?, Session?, ServiceReferences?)>
+<!ATTLIST Server
+	name NMTOKEN #REQUIRED
+	contextClassName (mojo.km.context.Default.DefaultContextManager | mojo.km.context.oracletoplink.GenericContextManager | mojo.km.context.oracletoplink.TestContextManager | mojo.km.context.oracletoplink.TransactionalContextManager | mojo.km.context.InternalQueueContext.InternalQueueContextManager | mojo.km.dispatch.Jolt.QueueContext) #IMPLIED
+>
+<!--
+This element contains a list of logical event managers and their mappings to 
+concrete implementations.  Each child element represents a logical dispatch method
+and the value of each represents the fully-qualified Java class name of the
+implementation for that method in this server.
+-->
+<!ELEMENT EventManager (Async?, ClientPubSub?, Context?, PubSub?, Queue?, Reply?, Request?, RequestReply?, logging?)>
+<!ELEMENT Async EMPTY>
+<!ATTLIST Async
+	value (mojo.km.dispatch.CurrentContext.CurrentContextStrategy | mojo.km.dispatch.Jolt.JoltAsyncStrategy | mojo.km.dispatch.Jolt.QueueStrategy | mojo.km.dispatch.TUXEDO.RPCStrategy | mojo.km.dispatch.tcpmultiserver.AsyncRequestStrategy) #REQUIRED
+>
+<!ELEMENT ClientPubSub EMPTY>
+<!ATTLIST ClientPubSub
+	value (mojo.km.dispatch.CurrentContext.CurrentContextStrategy | mojo.km.dispatch.Multicast.MCPubSubStrategy) #REQUIRED
+>
+<!ELEMENT Context EMPTY>
+<!ATTLIST Context
+	value (mojo.km.dispatch.CurrentContext.CurrentContextStrategy) #REQUIRED
+>
+<!ELEMENT PubSub EMPTY>
+<!ATTLIST PubSub
+	value (mojo.km.dispatch.CurrentContext.CurrentContextStrategy | mojo.km.dispatch.Multicast.MCPubSubStrategy | mojo.km.dispatch.TUXEDO.TUXPubSubStrategy) #REQUIRED
+>
+<!ELEMENT Queue EMPTY>
+<!ATTLIST Queue
+	value (mojo.km.dispatch.CurrentContext.CurrentContextStrategy | mojo.km.dispatch.Jolt.JoltAsyncStrategy | mojo.km.dispatch.tcpmultiserver.RequestDispatch | mojo.km.dispatch.Jolt.QueueStrategy | mojo.km.dispatch.TUXEDO.QueueStrategy | mojo.km.dispatch.tcpmultiserver.AsyncRequestStrategy) #REQUIRED
+>
+<!ELEMENT Reply EMPTY>
+<!ATTLIST Reply
+	value (mojo.km.dispatch.CurrentContext.CurrentContextStrategy | mojo.km.dispatch.TUXEDO.ReplyStrategy | mojo.km.dispatch.tcpmultiserver.ReplyDispatch | mojo.km.dispatch.TUXEDO.TUXPubSubStrategy | mojo.km.dispatch.j2ee.PubSubDispatch | mojo.km.dispatch.tcpmultiserver.ReplyDispatch | mojo.km.dispatch.oracleobject.Reply) #REQUIRED
+>
+<!ELEMENT Request EMPTY>
+<!ATTLIST Request
+	value (mojo.km.dispatch.CurrentContext.CurrentContextStrategy | mojo.km.dispatch.oracleobject.Request | mojo.km.dispatch.tcpmultiserver.RequestDispatch | mojo.km.dispatch.Jolt.JoltAsyncStrategy | mojo.km.dispatch.Jolt.QueueStrategy | mojo.km.dispatch.TUXEDO.RequestStrategy | mojo.km.dispatch.j2ee.QueueDispatch | mojo.km.dispatch.tcpmultiserver.AsyncRequestStrategy | mojo.km.dispatch.tcpmultiserver.RequestDispatch) #REQUIRED
+>
+<!ELEMENT RequestReply EMPTY>
+<!ATTLIST RequestReply
+	value (mojo.km.dispatch.CurrentContext.CurrentContextStrategy | mojo.km.dispatch.j2ee.QueueDispatch | mojo.km.dispatch.tcpmultiserver.RequestDispatch) #REQUIRED
+>
+<!ELEMENT logging EMPTY>
+<!ATTLIST logging
+	value (mojo.km.dispatch.logging.LoggingMessageStrategy) #REQUIRED
+>
+<!--
+This element defines a list of logical logging situations and their mapping to 
+their respective log levels.  The log levels are specific to the LoggerAdapter
+that is also defined here.
+-->
+<!ELEMENT LogManager (APPEXCEPTION?, ERROR?, ERRSTREAM?, EXCEPTION?, LoggerAdapter?, OUTSTREAM?, RUNTIMEEXCEPTION?, STACKTRACE?)>
+<!--
+The Java class that serves as the log adapter for this server.
+-->
+<!ELEMENT LoggerAdapter EMPTY>
+<!ATTLIST LoggerAdapter
+	value (mojo.km.logging.log4j.MojoLogStream) #REQUIRED
+>
+<!--
+This element specifies which logging level is associationed with application
+exceptions.
+-->
+<!ELEMENT APPEXCEPTION EMPTY>
+<!ATTLIST APPEXCEPTION
+	value (ERROR | WARNING | INFO | DEBUG) #REQUIRED
+>
+<!--
+This element specifies which logging level is associationed with an error
+-->
+<!ELEMENT ERROR EMPTY>
+<!ATTLIST ERROR
+	value (ERROR | WARNING | INFO | DEBUG) #REQUIRED
+>
+<!--
+This element specifies which logging level is associationed with the error stream
+-->
+<!ELEMENT ERRSTREAM EMPTY>
+<!ATTLIST ERRSTREAM
+	value (ERROR | WARNING | INFO | DEBUG) #REQUIRED
+>
+<!--
+This element specifies which logging level is associationed with an exception
+-->
+<!ELEMENT EXCEPTION EMPTY>
+<!ATTLIST EXCEPTION
+	value (ERROR | WARNING | INFO | DEBUG) #REQUIRED
+>
+<!--
+This element specifies which logging level is associationed with the output stream
+-->
+<!ELEMENT OUTSTREAM EMPTY>
+<!ATTLIST OUTSTREAM
+	value (ERROR | WARNING | INFO | DEBUG) #REQUIRED
+>
+<!--
+This element specifies which logging level is associationed with a runtime 
+exception.
+-->
+<!ELEMENT RUNTIMEEXCEPTION EMPTY>
+<!ATTLIST RUNTIMEEXCEPTION
+	value (ERROR | WARNING | INFO | DEBUG) #REQUIRED
+>
+<!--
+This element specifies which logging level is associationed with a stack trace.
+-->
+<!ELEMENT STACKTRACE EMPTY>
+<!ATTLIST STACKTRACE
+	value (ERROR | WARNING | INFO | DEBUG) #REQUIRED
+>
+<!--
+Container element for all of the services defined in this server.
+-->
+<!ELEMENT ServiceReferences (ServiceRef+)>
+<!--
+This elements serves as a reference to a service defined elsewhere.  The service
+is reference through the name attribute.  The dispatch attribute, if defined, 
+overrides the dispatch defined in the client code.
+-->
+<!ELEMENT ServiceRef EMPTY>
+<!ATTLIST ServiceRef
+	name NMTOKEN #REQUIRED
+	dispatch NMTOKEN #IMPLIED
+>
+<!--
+Container element for general server-specific values.  Database, persistence, and
+connection information is commonly defined here.
+-->
+<!ELEMENT Session (BuildServerConfig?, BuildTUXEDOConfig?, ClusterStrategy?, ConnectionPool?, DataSource?, DbPassword?, DbURL?, DbUserID?, DebugMode?, DirtyNotifyMethod?, DriverClass?, HttpURL?, LastAccessed?, LicensePath?, LoginCallback?, MaxServers?, MinServers?, ProjectClass?, ProjectPath?, ServerPassword?, ServerURL?, ServerUserID?, TransactionGroups?, WorkflowEnabled?, XADataSourceClassName?)>
+<!--
+Specifies the Objectivity class used for container management
+-->
+<!ELEMENT ClusterStrategy EMPTY>
+<!ATTLIST ClusterStrategy
+	value NMTOKEN #REQUIRED
+>
+<!--
+Database URL connection string
+-->
+<!ELEMENT DbURL EMPTY>
+<!ATTLIST DbURL
+	value CDATA #REQUIRED
+>
+<!--
+Defines a JDBC driver class to use to override the default.
+-->
+<!ELEMENT DriverClass EMPTY>
+<!ATTLIST DriverClass
+	value NMTOKEN #REQUIRED
+>
+<!--
+UserID needed to log into the database used by this server.
+-->
+<!ELEMENT DbUserID EMPTY>
+<!ATTLIST DbUserID
+	value NMTOKEN #REQUIRED
+>
+<!--
+Password needed to log into the database used by this server.
+-->
+<!ELEMENT DbPassword EMPTY>
+<!ATTLIST DbPassword
+	value NMTOKEN #REQUIRED
+>
+<!--
+Indicates whether or not TOPLink should provide debugging information.
+-->
+<!ELEMENT DebugMode EMPTY>
+<!ATTLIST DebugMode
+	value (false | true) #REQUIRED
+>
+<!--
+This element can probably be deprecated.  It was originally used with TOPLink's
+update event.
+-->
+<!ELEMENT LastAccessed EMPTY>
+<!ATTLIST LastAccessed
+	value NMTOKEN #REQUIRED
+>
+<!--
+????
+-->
+<!ELEMENT LoginCallback EMPTY>
+<!ATTLIST LoginCallback
+	value NMTOKEN #REQUIRED
+>
+<!--
+Defines the class representing the TOPLink descriptors.  This attribute is
+mutually-exclusive with ProjectPath.
+-->
+<!ELEMENT ProjectClass EMPTY>
+<!ATTLIST ProjectClass
+	value NMTOKEN #REQUIRED
+>
+<!--
+Defines the path to the TOPLink project containing the descriptors.  This 
+attribute is mutually-exclusive with ProjectClass.
+-->
+<!ELEMENT ProjectPath EMPTY>
+<!ATTLIST ProjectPath
+	value CDATA #REQUIRED
+>
+<!--
+Defines the client connection URL used by this server and overrides the value
+specified by App-MultiServerClient.
+-->
+<!ELEMENT HttpURL EMPTY>
+<!ATTLIST HttpURL
+	value CDATA #REQUIRED
+>
+<!--
+Defines the server connection URL used by this server and overrides the value
+specified by App-MultiServerServer.
+-->
+<!ELEMENT ServerURL EMPTY>
+<!ATTLIST ServerURL
+	value CDATA #REQUIRED
+>
+<!--
+Defines the userID needed to log into this server.  This is used for inter-process
+communications.
+-->
+<!ELEMENT ServerUserID EMPTY>
+<!ATTLIST ServerUserID
+	value NMTOKEN #REQUIRED
+>
+<!--
+Defines the password needed to log into this server.  This is used for inter-
+process communications.
+-->
+<!ELEMENT ServerPassword EMPTY>
+<!ATTLIST ServerPassword
+	value NMTOKEN #REQUIRED
+>
+<!--
+Flags whether or not to use workflow management for this server.
+-->
+<!ELEMENT WorkflowEnabled EMPTY>
+<!ATTLIST WorkflowEnabled
+	value (true | false) #REQUIRED
+>
+<!--
+Defines whether or not to use connection pooling, which is needed for two-phase
+commits.
+-->
+<!ELEMENT ConnectionPool EMPTY>
+<!ATTLIST ConnectionPool
+	value (true | false) #REQUIRED
+>
+<!--
+Class name for the XA adaptor.
+-->
+<!ELEMENT XADataSourceClassName EMPTY>
+<!ATTLIST XADataSourceClassName
+	value NMTOKEN #REQUIRED
+>
+<!--
+Defines the data source name for this server.  Data source names are used in
+conjunction with connection pooling and XA resources to help manage global 
+transactions.
+-->
+<!ELEMENT DataSource EMPTY>
+<!ATTLIST DataSource
+	value CDATA #REQUIRED
+>
+<!--
+Defines the name(s) of the Weblogics/TUX transaction groups that this server
+participates in.  The list of group names should be comma-delimited.
+-->
+<!ELEMENT TransactionGroups EMPTY>
+<!ATTLIST TransactionGroups
+	value CDATA #REQUIRED
+>
+<!--
+The path to the TopLink license file.
+-->
+<!ELEMENT LicensePath EMPTY>
+<!ATTLIST LicensePath
+	value CDATA #REQUIRED
+>
+<!--
+The method to use for distributed caching.
+-->
+<!ELEMENT DirtyNotifyMethod EMPTY>
+<!ATTLIST DirtyNotifyMethod
+	value (multicast | tuxedo) #REQUIRED
+>
+<!--
+Defines the maximum number of servers that Tuxedo or TCP MultiServer will create
+for this server.
+-->
+<!ELEMENT MaxServers EMPTY>
+<!ATTLIST MaxServers
+	value NMTOKEN #REQUIRED
+>
+<!--
+Defines the minimum number of servers that Tuxedo of TCP Multiserver will create
+for this server.
+-->
+<!ELEMENT MinServers EMPTY>
+<!ATTLIST MinServers
+	value NMTOKEN #REQUIRED
+>
+<!--
+Determines whether or not to generate MultiServer configuration properties when
+generating code.  This can probably be deprecated based on the code-gen changes.
+-->
+<!ELEMENT BuildServerConfig EMPTY>
+<!ATTLIST BuildServerConfig
+	value (true | false) #REQUIRED
+>
+<!--
+Determines whether or not to generate Tuxedo configuration properties when
+generating code.  This can probably be deprecated based on the code-gen changes.
+-->
+<!ELEMENT BuildTUXEDOConfig EMPTY>
+<!ATTLIST BuildTUXEDOConfig
+	value (true | false) #REQUIRED
+>
+<!--
+This element contains all of the service definitions for this application.  These
+services are registered to a server via a server's ServiceRef elements.
+-->
+<!ELEMENT Services (Service+)>
+<!--
+This element defines the attributes of a particular service.  Each service must 
+define a unique name, an event that is associated with the service and a list of
+commands that are to be invoked by this service.
+-->
+<!ELEMENT Service (Command*)>
+<!ATTLIST Service
+	name NMTOKEN #REQUIRED
+	event NMTOKEN #IMPLIED
+>
+<!--
+This element defines a command, which is simply identified by its name, or 
+the fully-qualified Java class of the command.
+-->
+<!ELEMENT Command EMPTY>
+<!ATTLIST Command
+	name NMTOKEN #REQUIRED
+>
+<!--
+This element defines mojo state machines, which validate transitions from one
+state to another.
+-->
+<!ELEMENT StateMachine (Machines)>
+<!--
+This is a container element for a list of machines.
+-->
+<!ELEMENT Machines (Machine+)>
+<!--
+Each machine is defined simply by a list of its states.  It also contains meta-
+data about the machine including the default start state, the property name on the
+object and the class of the object owning this machine.
+-->
+<!ELEMENT Machine (States?)>
+<!ATTLIST Machine
+	DefaultStartState NMTOKEN #REQUIRED
+	StateField (currentState | status) #REQUIRED
+	class ID #REQUIRED
+>
+<!--
+This is a container element for a list of states.
+-->
+<!ELEMENT States (State+)>
+<!--
+A state is defined by the name of the state and the list of valid transitions out
+of the state.
+-->
+<!ELEMENT State (Transitions?)>
+<!ATTLIST State
+	name NMTOKEN #REQUIRED
+>
+<!--
+This is a container element for a list of transitions.
+-->
+<!ELEMENT Transitions (Transition*)>
+<!--
+Defines the state that this transition transitions to.
+-->
+<!ELEMENT Transition EMPTY>
+<!ATTLIST Transition
+	toState NMTOKEN #REQUIRED
+>
+<!--
+This element defines a series of properties used by the versioning mechanism. Each
+of the properties defines an operation on a particular object property and the
+name of the method that performs that operation.  This is needed because the
+naming conventions around list property methods is not easily defined.
+-->
+<!ELEMENT Versionable (Property+)>
+<!--
+This is a generic element used to represent an loosely-defined property.
+-->
+<!ELEMENT Property EMPTY>
+<!ATTLIST Property
+	name CDATA #REQUIRED
+	value CDATA #REQUIRED
+>

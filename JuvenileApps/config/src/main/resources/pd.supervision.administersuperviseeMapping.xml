@@ -1,0 +1,83 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Mapping>
+  <EntityMappings>
+    <EntityMapping name="pd.supervision.administersupervisee.EducationAssessment" contextKey="pd.supervision.administersupervisee.EducationAssessment">
+		<QueryCallbacks>
+			<QueryCallback name="OIDQueryEvent" mappingClassName="mojo.km.context.multidatasource.M204Mapping" mappingMethodName="retrieve" storedProcedureName="none" cicsProgramName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="J2EDUED" connectionName="M204" eventName="mojo.km.persistence.OIDEvent" source="EDUCATION.ASSESSMENT" whereClause="none">
+				<ParmMappings>
+		            <ParmMapping name="OID" dataItemName="ED.SPN" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="OID" propertyType="none" formatString="none" convertWilcard="n" />
+				</ParmMappings>
+				<FieldMappings>
+					<FieldMapping name="intakeDate" associationType="none" dataItemName="ED.ENTRY.DATE" parmIndex="0" format="none" position="8" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="intakeDate" propertyType="Date" formatString="none" />				
+					<FieldMapping name="assessmentDate" associationType="none" dataItemName="ED.ASSESS.DATE" parmIndex="0" format="none" position="2" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="assessmentDate" propertyType="Date" formatString="none" />
+					<FieldMapping name="assessedLevel" associationType="none" dataItemName="ED.ACHIEVMENT.LEVEL" parmIndex="0" format="none" position="1" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="assessedLevel" propertyType="String" formatString="none" />
+					<FieldMapping name="gedVerifiedInd" associationType="none" dataItemName="ED.GED.VERIFIED" parmIndex="0" format="none" position="16" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="gedVerifiedInd" propertyType="String" formatString="none" />
+					<FieldMapping name="gedDate" associationType="none" dataItemName="ED.GED.DATEP" parmIndex="0" format="none" position="14" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="gedDate" propertyType="Date" formatString="none" />
+					<FieldMapping name="highSchoolDiplomaVerifiedInd" associationType="none" dataItemName="ED.DIPLOMA.VERIFIED" parmIndex="0" format="none" position="7" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="highSchoolDiplomaVerifiedInd" propertyType="String" formatString="none" />
+					<FieldMapping name="highSchoolDiplomaDate" associationType="none" dataItemName="ED.DIPLOMA.DATE" parmIndex="0" format="none" position="6" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="highSchoolDiplomaDate" propertyType="Date" formatString="none" />
+					<FieldMapping name="reportedLevelId" associationType="none" dataItemName="ED.REPORTED.LEVEL" parmIndex="0" format="none" position="22" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="reportedLevelId" propertyType="String" formatString="none" />
+					<FieldMapping name="assessmentMethod" associationType="none" dataItemName="ED.METHOD" parmIndex="0" format="none" position="20" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="assessmentMethod" propertyType="String" formatString="none" />					
+					<FieldMapping name="defendantId" associationType="none" dataItemName="ED.SPN" parmIndex="0" format="none" position="23" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="defendantId" propertyType="String" formatString="none" convertWilcard="n" />					
+				</FieldMappings>
+			</QueryCallback>
+		</QueryCallbacks>	
+    </EntityMapping>
+    <EntityMapping name="pd.supervision.administersupervisee.ReportedEducation" contextKey="pd.supervision.administersupervisee.ReportedEducation">
+		<QueryCallbacks>
+			<QueryCallback name="OIDQueryEvent" mappingClassName="mojo.km.context.multidatasource.M204Mapping" mappingMethodName="retrieve" storedProcedureName="none" cicsProgramName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="J2EDUED" connectionName="M204" eventName="mojo.km.persistence.OIDEvent" source="REPORTED.EDUCATION" whereClause="none">
+				<ParmMappings>
+		            <ParmMapping name="OID" dataItemName="ED.SPN" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="OID" propertyType="none" formatString="none" convertWilcard="n" />
+				</ParmMappings>
+				<FieldMappings>
+					<FieldMapping name="intakeDate" associationType="none" dataItemName="ED.INTAKE.DATE" parmIndex="0" format="none" position="8" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="intakeDate" propertyType="Date" formatString="none" />				
+					<FieldMapping name="advancedDegree" associationType="none" dataItemName="ED.GRADE" parmIndex="0" format="none" position="1" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="advancedDegree" propertyType="String" formatString="none" />
+					<FieldMapping name="highSchoolDiplomaInd" associationType="none" dataItemName="ED.HS.DIPLOMA" parmIndex="0" format="none" position="7" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="highSchoolDiplomaInd" propertyType="String" formatString="none" />
+					<FieldMapping name="gedInd" associationType="none" dataItemName="ED.GED" parmIndex="0" format="none" position="5" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="gedInd" propertyType="String" formatString="none" />
+					<FieldMapping name="educationLevel" associationType="none" dataItemName="ED.EDUC.LEVEL" parmIndex="0" format="none" position="6" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="educationLevel" propertyType="String" formatString="none" />
+				</FieldMappings>
+			</QueryCallback>
+		</QueryCallbacks>	
+    </EntityMapping> 
+
+       <EntityMapping name="pd.supervision.administercaseload.SuperviseePhoto" contextKey="pd.supervision.administercaseload.SuperviseePhoto">
+		<QueryCallbacks>
+			<QueryCallback name="OIDQuery" mappingClassName="mojo.km.context.multidatasource.JDBCSQLMapping" mappingMethodName="retrieve" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="CSOFFENDERS" connectionName="JDBCMSSQL" eventName="mojo.km.persistence.OIDEvent" source="CSOFFENDERS" whereClause="AF_SPN = ?">
+				<ParmMappings>
+					<ParmMapping name="OID" associationType="none" dataItemName="AF_SPN" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="OID" propertyType="String" formatString="none" convertWilcard="n" />
+				</ParmMappings>
+				<FieldMappings>
+					<FieldMapping name="OID" associationType="none" dataItemName="AF_SPN" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="OID" propertyType="String" formatString="none" convertWilcard="n" />
+					<FieldMapping name="spn" associationType="none" dataItemName="AF_SPN" parmIndex="2" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="spn" propertyType="String" formatString="none" convertWilcard="n" />
+					<FieldMapping name="firstName" associationType="none" dataItemName="AF_FIRSTNAME" parmIndex="3" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="firstName" propertyType="String" formatString="none" />
+					<FieldMapping name="lastName" associationType="none" dataItemName="AF_LASTNAME" parmIndex="4" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="lastName" propertyType="String" formatString="none" />					
+					<FieldMapping name="superviseePhoto" associationType="none" dataItemName="AF_IMAGE" parmIndex="5" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="superviseePhoto" propertyType="blob" formatString="none" convertWilcard="n" />
+					<FieldMapping name="superviseeThumbnail" associationType="none" dataItemName="AF_THUMBNAIL" parmIndex="6" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="superviseeThumbnail" propertyType="blob" formatString="none" convertWilcard="n" />
+					<FieldMapping name="datePrinted" associationType="none" dataItemName="AF_DATE_PRINTED" parmIndex="7" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="datePrinted" propertyType="Date" formatString="none" convertWilcard="n" />
+					<FieldMapping name="dateModified" associationType="none" dataItemName="AF_DATE_MODIFIED" parmIndex="8" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="dateModified" propertyType="Date" formatString="none" convertWilcard="n" />					
+					<FieldMapping name="dateCreated" associationType="none" dataItemName="AF_DATE_CREATED" parmIndex="9" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="dateCreated" propertyType="Date" formatString="none" convertWilcard="n" />					
+					<FieldMapping name="dateIssued" associationType="none" dataItemName="AF_ISSUEDATE" parmIndex="10" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="dateIssued" propertyType="Date" formatString="none" convertWilcard="n" />
+					<FieldMapping name="dateReplaced" associationType="none" dataItemName="AF_REPLACEDATE" parmIndex="11" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="dateReplaced" propertyType="String" formatString="none" convertWilcard="n" />
+				</FieldMappings>
+			</QueryCallback>
+			<QueryCallback name="AttributeQuery" mappingClassName="mojo.km.context.multidatasource.JDBCSQLMapping" mappingMethodName="retrieve" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="JCPICTURES" connectionName="JDBCMSSQL" eventName="mojo.km.persistence.AttributeEvent" source="CSOFFENDERS" whereClause="none">
+				<FieldMappings>
+					<FieldMapping name="OID" associationType="none" dataItemName="AF_SPN" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="OID" propertyType="String" formatString="none" convertWilcard="n" />
+					<FieldMapping name="spn" associationType="none" dataItemName="AF_SPN" parmIndex="2" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="spn" propertyType="String" formatString="none" convertWilcard="n" />
+					<FieldMapping name="firstName" associationType="none" dataItemName="AF_FIRSTNAME" parmIndex="3" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="firstName" propertyType="String" formatString="none" />
+					<FieldMapping name="lastName" associationType="none" dataItemName="AF_LASTNAME" parmIndex="4" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="lastName" propertyType="String" formatString="none" />					
+					<FieldMapping name="superviseePhoto" associationType="none" dataItemName="AF_IMAGE" parmIndex="5" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="superviseePhoto" propertyType="blob" formatString="none" convertWilcard="n" />
+					<FieldMapping name="superviseeThumbnail" associationType="none" dataItemName="AF_THUMBNAIL" parmIndex="6" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="superviseeThumbnail" propertyType="blob" formatString="none" convertWilcard="n" />
+					<FieldMapping name="datePrinted" associationType="none" dataItemName="AF_DATE_PRINTED" parmIndex="7" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="datePrinted" propertyType="Date" formatString="none" convertWilcard="n" />
+					<FieldMapping name="dateModified" associationType="none" dataItemName="AF_DATE_MODIFIED" parmIndex="8" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="dateModified" propertyType="Date" formatString="none" convertWilcard="n" />					
+					<FieldMapping name="dateCreated" associationType="none" dataItemName="AF_DATE_CREATED" parmIndex="9" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="dateCreated" propertyType="Date" formatString="none" convertWilcard="n" />					
+					<FieldMapping name="dateIssued" associationType="none" dataItemName="AF_ISSUEDATE" parmIndex="10" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="dateIssued" propertyType="Date" formatString="none" convertWilcard="n" />
+					<FieldMapping name="dateReplaced" associationType="none" dataItemName="AF_REPLACEDATE" parmIndex="11" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="dateReplaced" propertyType="String" formatString="none" convertWilcard="n" />
+				</FieldMappings>
+			</QueryCallback>
+		</QueryCallbacks>
+	</EntityMapping>
+	
+  </EntityMappings>
+</Mapping>
+
+

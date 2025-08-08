@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ProjectModuleManager">
+    <modules>
+      <module fileurl="file://$PROJECT_DIR$/JuvenileAppsDR.iml" filepath="$PROJECT_DIR$/JuvenileAppsDR.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/ear/ear.final.jims3.iml" filepath="$PROJECT_DIR$/.idea/modules/ear/ear.final.jims3.iml" />
+      <module fileurl="file://$PROJECT_DIR$/final.iml" filepath="$PROJECT_DIR$/final.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/final.main.iml" filepath="$PROJECT_DIR$/.idea/modules/final.main.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/final.test.iml" filepath="$PROJECT_DIR$/.idea/modules/final.test.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/jar/jar.final.app.iml" filepath="$PROJECT_DIR$/.idea/modules/jar/jar.final.app.iml" />
+      <module fileurl="file://$PROJECT_DIR$/.idea/modules/war/war.final.appshell.iml" filepath="$PROJECT_DIR$/.idea/modules/war/war.final.appshell.iml" />
+    </modules>
+  </component>
+</project>

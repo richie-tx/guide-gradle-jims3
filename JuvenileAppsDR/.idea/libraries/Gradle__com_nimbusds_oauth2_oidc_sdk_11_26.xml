@@ -1,0 +1,10 @@
+<component name="libraryTable">
+  <library name="Gradle: com.nimbusds:oauth2-oidc-sdk:11.26" type="java-imported" external-system-id="GRADLE">
+    <properties groupId="com.nimbusds" artifactId="oauth2-oidc-sdk" version="11.26" baseVersion="11.26" />
+    <CLASSES>
+      <root url="jar://$USER_HOME$/.gradle/caches/modules-2/files-2.1/com.nimbusds/oauth2-oidc-sdk/11.26/cdee4d37e72711f6eba0d51ed5d820038901f0d0/oauth2-oidc-sdk-11.26.jar!/" />
+    </CLASSES>
+    <JAVADOC />
+    <SOURCES />
+  </library>
+</component>

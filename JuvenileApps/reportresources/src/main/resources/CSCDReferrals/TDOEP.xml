@@ -1,0 +1,281 @@
+<?xml version="1.0" encoding="US-ASCII"?>
+<document size="LETTER" margin-left="30" margin-right="30" margin-top="0" margin-bottom="20" height="100">
+
+	<encryption allow-fillin="false" allow-modify-contents="false" allow-degraded-printing="true" allow-screen-readers="false" allow-copy="false"	allow-printing="false"/>
+	<meta author="JIMS2, Harris County" creator="JIMS2, Harris County" title="Referral Forms"/>
+	<viewer-preferences page-mode="NoThumbs" zoom="1"/>
+	
+	<module>
+		<font-def name="times_8" family="Times" style="normal" size="9"/>
+		<font-def name="times_8b" family="Times" style="bold" size="9"/>
+		<font-def name="title" family="arial" style="bold" size="14"/>
+		<font-def name="header" family="arial" style="normal" size="10"/>
+		<font-def name="label" family="arial" style="bold" size="8"/>
+		<font-def name="text" family="arial" style="normal|underline" size="9"/>
+		<font-def name="italic" family="arial" style="italics" size="9"/>
+		
+		<custom-tag alias="shr-title" tag="phrase">
+			<attribute name="font" value="title"/>
+		</custom-tag>
+		
+		<custom-tag alias="shr-header" tag="phrase">
+			<attribute name="font" value="header"/>
+		</custom-tag>
+		
+		<custom-tag alias="shr-label" tag="phrase">
+			<attribute name="font" value="label"/>
+		</custom-tag>
+		
+		<custom-tag alias="shr-text" tag="phrase">
+			<attribute name="font" value="text"/>
+		</custom-tag>
+	</module>
+	
+	<header>
+		<font name="title">
+		<paragraph halign="center">
+			<image source="images/CSCDCounty.jpg" width="510" height="85" scale-to-fit="false"/>
+		</paragraph>
+		</font>
+	</header>	
+	
+	<footer padding-top="10">
+		<footer-part padding-top="15" halign="left" width="500">
+			
+		</footer-part>		
+	</footer>
+	
+	<table columns="1" border-style="none" keep-together="true" spacing-after="5">
+		<table-row halign="center">
+			<cell halign="center" padding-top="10" padding-bottom="5"><shr-title>TDOEP Program Referral Form</shr-title></cell>
+		</table-row>
+		<table-row>
+			<cell>
+				<shr-label>CLIENT INFORMATION</shr-label>
+			</cell>
+		</table-row>
+	</table>
+	
+	<table width="100" columns="3" widths="60,20,20"  padding="2" spacing-after="5">
+		<table-row halign="left">
+			<cell><shr-label>Name of Client:</shr-label></cell>
+			<cell><shr-label>Client Phone:</shr-label></cell>
+			<cell><shr-label>Date of Birth:</shr-label></cell>
+		</table-row>
+		<table-row padding-top="5" halign="left">
+			<cell>
+				<if cond="${superviseeName!= null && superviseeName!= ""}"><shr-text>${superviseeName}</shr-text></if>
+				<else><font name="times_8">____________________________________________</font></else>
+			</cell>
+			<cell>
+				<if cond="${superviseePhone!= null && superviseePhone!= ""}"><shr-text>${superviseePhone}</shr-text></if>
+				<else><font name="times_8">______________</font></else>
+			</cell>
+			<cell>
+				<if cond="${superviseeDOB!= null && superviseeDOB!= ""}"><shr-text>${superviseeDOB}</shr-text></if>
+				<else><font name="times_8">______________</font></else>
+			</cell>
+		</table-row>
+	</table>	
+		
+	<table width="100" columns="4" widths="1,10,15,74" halign="left" padding="2" spacing-after="10">
+		<cell></cell>
+		<cell>
+			<shr-label trim-body="true">Court:<space/></shr-label>
+			<if cond="${court!= null && court!= ""}"><shr-text>${court}</shr-text></if>
+			<else><font name="times_8">____</font></else>
+		</cell>
+		<cell>
+			<shr-label trim-body="true">SPN:<space/></shr-label>
+			<if cond="${superviseeId!= null && superviseeId!= ""}"><shr-text>${superviseeId}</shr-text></if>
+			<else><font name="times_8">____</font></else>
+		</cell>
+		<cell>
+			<shr-label trim-body="true">Current Offense:<space/></shr-label>
+			<if cond="${currentOffense!= null && currentOffense!= ""}"><shr-text>${currentOffense}</shr-text></if>
+			<else><font name="times_8">____________________________________________________________</font></else>
+		</cell>
+	</table>	
+	
+	<table width="100" columns="4" widths="39,25,11,25" spacing-after="5">
+		<table-row>
+			<cell colspan="4" border-style="top" border-width="1"><shr-label>Referring Source:</shr-label></cell>
+		</table-row>
+		<table-row halign="left">
+			<cell><shr-label></shr-label></cell>
+			<cell><shr-label>POI</shr-label></cell>
+			<cell><shr-label>Date</shr-label></cell>
+			<cell><shr-label>Region</shr-label></cell>
+		</table-row>
+		<table-row halign="left" valign="bottom">
+			<cell>
+				<shr-header trim-body="true">Officer Name:<space/></shr-header>
+				<font name="text"><if cond="${supervisionStaffName!= null && supervisionStaffName!= ""}">${supervisionStaffName}</if>
+				<else><font name="times_8">______________________________</font></else>
+				</font>
+			</cell>
+			<cell>
+				<if cond="${staffPositionName!= null && staffPositionName!= ""}"><font name="text">${staffPositionName}</font></if>
+				<else><font name="times_8">____</font></else>
+			</cell>
+			<cell>
+				<if cond="${referralDateAsStr!= null && referralDateAsStr!= ""}"><font name="text">${referralDateAsStr}</font></if>
+				<else><font name="times_8">__________</font></else>
+			</cell>
+			<cell>
+				<if cond="${superviseeProgramUnit!= ""}"><font name="text">${superviseeProgramUnit}</font></if>
+				<else><font name="times_8">________________________</font></else>
+			</cell>
+		</table-row>
+		<table-row halign="left" >
+			<cell>
+				<shr-label trim-body="true">Contact Information:\tPhone:<space/></shr-label>
+				<if cond="${supervisionStaffPhone!= null && supervisionStaffPhone!= ""}"><font name="text">${supervisionStaffPhone}</font></if>
+				<else><font name="times_8">____________________</font></else>
+			</cell>
+			<cell>
+				<shr-label trim-body="true">Fax:<space/></shr-label>
+				<if cond="${supervisionStaffFax!= null && supervisionStaffFax!= ""}"><font name="text">${supervisionStaffFax}</font></if>
+				<else><font name="times_8">____________________</font></else>
+			</cell>
+			<cell colspan="2">
+				<shr-label trim-body="true">Email Address:<space/></shr-label>
+				<if cond="${superviseeStaffEmail!= null && superviseeStaffEmail!= ""}"><font name="text">${superviseeStaffEmail}</font></if>
+				<else><font name="times_8">_________________________________________</font></else>
+			</cell>
+		</table-row>
+		<table-row>
+			<cell colspan="4" border-style="bottom" border-width="1" padding-top="10"></cell>
+		</table-row>
+	</table>
+	
+	<table columns="1" border-width=".75"  border-style="box" border-color="black" keep-together="false" line-spacing="1.0" padding="2">
+		<table-row halign="center">
+			<cell halign="left" line-spacing="1.25" padding-top=".5" padding-left="5" padding-right="5" padding-bottom="5">
+               	  <font name="italic">Important:  Any client required to complete either the 12-hour DWI Education Program or Texas Drug 
+               	  Offender Education Program has the option of attending either of these courses through CSS or through a properly 
+               	  licensed outside program, unless prohibited by the Court.  A list of statewide approved DSHS programs may be obtained 
+               	  from the official DSHS website: <u>www.dshs.state.tx.us/offendered</u> or by calling 1-877-832-9623.
+               	  </font>   
+      		</cell>
+	     </table-row> 
+	</table>
+	
+	<table width="100" columns="2" widths="55,45" padding="0" line-spacing="1.5" spacing-after="5">
+		<table-row halign="left" valign="top">
+			<cell colspan="2">
+				<shr-label trim-body="true">Service Provider:<space/></shr-label>
+				<if cond="${serviceProviderName!= null && serviceProviderName!= ""}"><font name="text">${serviceProviderName}</font></if>
+				<else><font name="times_8">___________________________________________________________________________________________________</font></else>
+			</cell>
+		</table-row>
+		<table-row halign="left" valign="top">
+			<cell>
+				<shr-label trim-body="true">Address:<space/></shr-label>
+				<if cond="${serviceProviderLocation!= null && serviceProviderLocation!= ""}"><font name="text">${serviceProviderLocation}</font></if>
+				<else><font name="times_8">______________________________________________________</font></else>
+			</cell>
+			<cell>
+				<shr-label trim-body="true">Phone:<space/></shr-label>
+				<if cond="${serviceProviderPhone!= null && serviceProviderPhone!= ""}"><font name="text">${serviceProviderPhone}</font></if>
+				<else><font name="times_8">_____________________________________________</font></else>
+			</cell>
+		</table-row>
+		<table-row halign="left" valign="top">
+			<cell valign="top"></cell>
+			<cell valign="top"><shr-label trim-body="true">Contact:<space/></shr-label>
+				<if cond="${serviceProviderContactName!= null && serviceProviderContactName!= ""}"><font name="text">${serviceProviderContactName}</font></if>
+				<else><font name="times_8">____________________________________________</font></else>
+			</cell>
+		</table-row>
+		<table-row halign="left" valign="top">
+			<cell>
+				<shr-label trim-body="true">Program Name:</shr-label><space/>
+				<if cond="${programName!= null && programName!= ''}"><font name="text">${programName}</font></if>
+				<else><font name="text">_____________________________________________________</font></else>
+			</cell>
+			<cell>
+				<shr-label trim-body="true">Referral Type:</shr-label><space/>
+				<if cond="${referralType!= null && referralType!= ''}"><font name="text">${referralType}</font></if>
+				<else><font name="text">_____________________________________________________</font></else>
+			</cell>
+		</table-row>
+		<table-row halign="left" valign="top">
+			<cell valign="bottom">
+				<shr-label trim-body="true">Program Location:</shr-label><space/>
+				<if cond="${referralProgramLocation!= null && referralProgramLocation!= ''}"><font name="text">${referralProgramLocation}</font></if>
+				<else><font name="times_8">___________________________________________________</font></else>
+			</cell>
+			<cell valign="top">
+				<shr-label trim-body="true">Program Phone:</shr-label><space/>
+				<if cond="${referralProgramPhone!= null && referralProgramPhone!= ''}"><font name="text">${referralProgramPhone}</font></if>
+				<else><font name="times_8">_______________________________</font></else>
+			</cell>
+		</table-row>
+		<table-row halign="left" valign="top">
+			<cell valign="bottom">
+			</cell>
+			<cell valign="top">
+				<shr-label trim-body="true">Program Fax:</shr-label><space/>
+				<if cond="${referralProgramFax!= null && referralProgramFax!= ''}"><font name="text">${referralProgramFax}</font></if>
+				<else><font name="times_8">_______________________________</font></else>
+			</cell>
+		</table-row>
+	</table>
+	
+	<table width="100" columns="2" widths="39,61" padding="0">
+		<table-row>
+			<cell colspan="2" valign="bottom" border-width=".75" border-color="black" border-style="bottom" padding-left="5" padding-top="5"></cell>
+		</table-row>
+		<table-row halign="left">
+			<cell valign="bottom" border-width=".75" border-color="black" border-style="left" padding-left="10">
+				<shr-label trim-body="true">TDL#:<space/></shr-label>
+				<if cond="${driverLicenseNumber!= null && driverLicenseNumber!= ""}"><shr-text>${driverLicenseNumber}</shr-text></if>
+				<else><font name="times_8">___________</font></else>
+			</cell>
+			<cell valign="bottom" border-width=".75" border-color="black" border-style="right" padding-top="5" padding-right="5">
+				<shr-label trim-body="true">TX. ID#:<space/></shr-label>
+				<if cond="${sid!= null && sid!= ""}"><shr-text>${sid}</shr-text></if>
+				<else><font name="times_8">___________</font></else>
+			</cell>
+		</table-row>
+		<table-row halign="left">
+			<cell valign="bottom" border-width=".75" border-color="black" border-style="left" padding-left="10" padding-top="5" padding-bottom="5">
+				<if cond="${oocOriginatingCauseNumber!= null && oocOriginatingCauseNumber!= ""}"><shr-label trim-body="true">Original Cause Number:</shr-label><space/><shr-text>${oocOriginatingCauseNumber}</shr-text></if>
+			</cell>
+			<cell valign="bottom" border-width=".75" border-color="black" border-style="right" padding-top="5" padding-bottom="5">
+				<if cond="${oocOriginatingCounty!= null && oocOriginatingCounty!= ""}">
+           			<shr-label trim-body="true">County:</shr-label><space/><if cond="${oocOriginatingCounty!= null && oocOriginatingCounty!= ""}"><shr-text>${oocOriginatingCounty}</shr-text></if>
+           		</if>
+           		<if cond="${oocOriginatingState!= null && oocOriginatingState!= ""}">
+           			<shr-label trim-body="true">State of:</shr-label><space/><if cond="${oocOriginatingState!= null && oocOriginatingState!= ""}"><shr-text>${oocOriginatingState}</shr-text></if>
+           		</if>
+			</cell>		
+		</table-row>
+		<table-row>
+			<cell colspan="2" valign="bottom" border-width=".75" border-color="black" border-style="bottom|left|right" padding-left="5" padding-bottom="5"></cell>
+		</table-row>
+	</table>
+	
+	<paragraph halign="left" spacing-before="5">
+        <font name="times_8">
+        	<shr-label trim-body="true">Comments:<space/></shr-label>
+        	<if cond="${referralReasonComments!= null && referralReasonComments!= ""}"><shr-text>${referralReasonComments}</shr-text></if>
+			<else><font name="times_8">__________________________________________________________________________________________________________________</font>
+				<font name="times_8">__________________________________________________________________________________________________________________</font>
+				<font name="times_8">__________________________________________________________________________________________________________________</font>
+				<font name="times_8">__________________________________________________________________________________________________________________</font>
+				<font name="times_8">__________________________________________________________________________________________________________________</font>
+				<font name="times_8">__________________________________________________________________________________________________________________</font>
+				<font name="times_8">__________________________________________________________________________________________________________________</font>
+				<font name="times_8">__________________________________________________________________________________________________________________</font>
+				<font name="times_8">__________________________________________________________________________________________________________________</font>
+				<font name="times_8">__________________________________________________________________________________________________________________</font>
+				<font name="times_8">__________________________________________________________________________________________________________________</font>
+				<font name="times_8">__________________________________________________________________________________________________________________</font>
+				<font name="times_8">___________________________________________________________________________________________________________________</font>
+			</else>
+    	</font>
+    </paragraph> 
+
+</document>

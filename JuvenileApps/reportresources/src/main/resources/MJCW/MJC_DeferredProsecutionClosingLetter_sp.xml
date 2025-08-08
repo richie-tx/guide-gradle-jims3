@@ -1,0 +1,118 @@
+<?xml version="1.0" encoding="US-ASCII"?>
+<document size="LETTER" margin-left="35" margin-right="35" margin-top="30" margin-bottom="30">
+
+	<encryption allow-fillin="false" allow-modify-contents="false" allow-degraded-printing="true" allow-screen-readers="false" allow-copy="false"	allow-printing="false"/>
+	<meta author="JIMS2, Harris County" creator="JIMS2, Harris County" title="Deferred Adjudication Closing Letter"/>
+
+	<module>
+		<font-def name="text" family="Helvetica" style="normal" size="10"/>
+		<font-def name="text-large" family="Helvetica" style="normal" size="12"/>
+		<font-def name="text-small" family="Helvetica" style="normal" size="8"/>
+		<font-def name="text-italic" family="Helvetica" style="bold|italic" size="11"/>
+		<font-def name="letterheader" family="Helvetica" style="bold" size="12"/>
+		<custom-tag alias="letterheader" tag="paragraph">
+			<attribute name="font" value="letterheader"/>
+		</custom-tag>
+	</module>
+
+    <new-page size="LETTER" margin-left="35" margin-right="35" margin-top="30" margin-bottom="30">
+    </new-page>
+	
+		<table columns="2" border-style="none" border-width="0" widths="15,85" padding="0" >
+		<table-row halign="left">
+	        <cell halign="left" valign="top" >
+	            <paragraph>
+	                <image source="MJCW/HarrisCountySeal.jpg" width="75" height="75" scale-to-fit="true"/>
+	            </paragraph>
+	        </cell>
+	        <cell halign="left" valign="top">
+	        	<table columns="2" padding="3" border-width="0" >
+	        		<table-row>
+				        <cell colspan = "2" halign="left" border-style="bottom" border-width="2" border-color="gray" padding-bottom="5">
+							<letterheader>
+								HARRIS COUNTY<br/>
+								JUVENILE PROBATION DEPARTMENT
+							</letterheader> 	
+						</cell>
+				    </table-row>	
+    	        	<table-row>
+    	        		<cell halign="left" border-style="none" font="text">
+							Deferred Prosecution Unit (3 Months)<br/>
+						  _if_( ${locationUnitName} notEmpty )
+						  	<paragraph font="text">
+						  		<b>${locationUnitName}</b>
+						  	</paragraph>
+						  _endif_
+						 _if_( ${locationAddress} isDefined)
+						   	<paragraph font="text">
+								${locationAddress.streetAddress}<br/>								
+								${locationAddress.cityStateZip}
+						  	</paragraph>
+						  _endif_
+      				</cell>				
+      				<cell halign="right">
+						<paragraph halign="right" font="text-small">
+							<b>${managerFirstName} ${managerLastName}</b> <br/>
+							Caseload Manager<br/>
+							Office ${managerPhone}
+						</paragraph>	
+				    </cell>		  	
+		 		  </table-row>
+            	</table>    
+	        </cell>
+		</table-row>        
+	</table>
+	
+	<paragraph halign="center" spacing-after="60">
+	<br/>
+	${currentDate}
+	</paragraph>
+	
+	<paragraph halign="left" spacing-after="20" font="text">
+		${guardianName.fullNameFirst}<br/>
+		${guardianAddress.streetAddress}<br/>
+		${guardianAddress.cityStateZip}  
+	</paragraph>
+	
+	<paragraph halign="left" spacing-after="20" font="text">
+		RE: ${juvenile.fullNameFirst}<br/>
+		Petition #: ${petitionNumber}
+	</paragraph>
+	
+	<paragraph halign="left" spacing-after="20" font="text">
+		Querido/Querida ${guardianName.fullNameFirst}:
+	</paragraph>
+	
+	<paragraph halign="left" spacing-after="20" font="text">
+		El juvenil mencionado arriba est&#225; programado a terminar la supervision por el Programa
+		Diferido del Departamento de Libertad Condicional Juvenil del Condada de Harris. Adjunton esta
+		un folleto titulado &quot;Estatutos Relativos a Acceso, Sellado y Destrucci&#243;n de Records Juveniles&quot;
+		con informaci&#243;n del Articulo 58 del C&#243;digo de Familia de Texas.
+	</paragraph>
+	
+	<paragraph halign="left" spacing-after="20" font="text">
+		Las leyes en relaci&#243;n con el cierre de record y acceso automatizado son muy espec&#237;ficas. Por
+		favor, revise las copias adjuntas cuidadosamente del la Secci&#243;n 58, Subcap&#237;tulos A y C del
+		C&#243;digo de Familia de Texas. Los documentos detallan la disposici&#243;n de cada estatuto y su
+		aplicabilidad.  Si tiene mas preguntas, deben dirigirse a su abogado.
+	</paragraph>
+	
+	<table columns="2" widths="50,50" keep-together="true" font="text">
+		<table-row padding-bottom="40">
+			<cell></cell>
+			<cell>Sinceramente,</cell>
+		</table-row>
+		<table-row>
+			<cell></cell>
+			<cell>${probationOfficer.completeFullNameFirst}</cell>
+		</table-row>
+		<table-row>
+			<cell></cell>
+			<cell>Oficial de Probacion Juvenil</cell>
+		</table-row>
+	</table>
+	
+	
+	
+    
+</document>

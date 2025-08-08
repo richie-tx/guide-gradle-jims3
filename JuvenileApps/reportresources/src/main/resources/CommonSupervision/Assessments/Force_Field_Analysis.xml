@@ -1,0 +1,89 @@
+<?xml version="1.0" encoding="US-ASCII"?>
+<document size="LETTER" margin-left="50" margin-right="50" margin-top="50" margin-bottom="50" height="100">
+
+	<encryption allow-fillin="false" allow-modify-contents="false" allow-degraded-printing="true" allow-screen-readers="false" allow-copy="false"	allow-printing="false"/>
+	<meta author="JIMS2, Harris County" creator="JIMS2, Harris County" title="Referral Forms"/>
+	<viewer-preferences page-mode="NoThumbs" zoom="1"/>
+
+	<module>
+		<font-def name="title" family="Times" style="bold" size="14"/>
+		<font-def name="header" family="Times" style="bold" size="12"/>
+		<font-def name="label" family="Times" style="normal" size="12"/>
+		<font-def name="text" family="Times" style="normal" size="10"/>
+		
+		<custom-tag alias="shr-title" tag="phrase">
+			<attribute name="font" value="title"/>
+		</custom-tag>
+		
+		<custom-tag alias="shr-header" tag="phrase">
+			<attribute name="font" value="header"/>
+		</custom-tag>
+		
+		<custom-tag alias="shr-label" tag="phrase">
+			<attribute name="font" value="label"/>
+		</custom-tag>
+		
+		<custom-tag alias="shr-text" tag="phrase">
+			<attribute name="font" value="text"/>
+		</custom-tag>
+	</module>
+	
+	<header>
+		<font name="title">
+		<paragraph halign="center">
+		</paragraph>
+		</font>
+	</header>	
+	
+	<footer padding-top="10">
+		<footer-part padding-top="15" halign="left" width="500">
+			<table columns="1" border-style="none">
+				<table-row>
+					<cell valign="top" padding-top="15" halign="left">
+						<font></font>
+					</cell>
+				</table-row>
+	     	</table>
+		</footer-part>
+	</footer>
+	
+	<table columns="1" border-style="none" keep-together="true" spacing-after="5">
+		<table-row halign="center">
+			<cell halign="center" padding-top="10" padding-bottom="5"><shr-title>FORCE FIELD ANALYSIS</shr-title></cell>
+		</table-row>
+	</table>
+	
+	<paragraph halign="left" line-spacing="1" spacing-before="0" spacing-after="10">
+		<font name="label"><b>Instructions:  Step 1:</b> For each topic, summarize the salient facts learned in the interview in the form of "strengths" and "weaknesses". <space/><b>Be as specific and detailed as possible.  Step 2:</b> Then rank 1 - 3 problems in the order in which they should receive CSO intervention. 
+		</font>	
+	</paragraph>
+	<table width="100" columns="4" widths="36,21,36,7"  padding="1" spacing-after="5">
+		<table-row padding-bottom="5">
+			<cell><shr-label>Assessment Date: <if cond="${assessementDate!= null && assessementDate!= ""}"><u>${assessementDate}</u></if>
+				<else>__________</else></shr-label>
+			</cell>
+			<cell><shr-label>SPN: <if cond="${spn!= null && spn!= ""}"><u>${spn}</u></if>
+				<else>__________</else></shr-label>
+			</cell>
+			<cell colspan="2"><shr-label>Name: <if cond="${defendantName!= null && defendantName!= ""}"><u>${defendantName}</u></if>
+				<else>______________________________________</else></shr-label>
+			</cell>
+		</table-row>
+		<table-row padding-bottom="5">
+			<cell padding-left="3"><shr-header>Strength/Resource</shr-header></cell>
+			<cell padding-left="3"><shr-header>Topic</shr-header></cell>
+			<cell padding-left="3"><shr-header>Problem/Weakness</shr-header></cell>
+			<cell><shr-header>Rank</shr-header></cell>
+		</table-row>
+		<font name="text" size="10" style="normal">
+			_foreach_(questionGroup ${ForceFieldsList} 'even' 'odd')
+					<table-row padding-bottom="5" border-style="box" border-width=".5" >
+						<cell valign="middle" padding-left="3"><shr-text>${questionGroup.strength}</shr-text></cell>
+						<cell valign="middle" padding-left="3"><shr-text>${questionGroup.topic}</shr-text></cell>
+						<cell valign="middle" padding-left="3"><shr-text>${questionGroup.problem}</shr-text></cell>
+						<cell halign="center" valign="middle"><shr-text>${questionGroup.rank}</shr-text></cell>
+					</table-row>				
+			_endfor_
+		</font>
+	</table>
+</document>

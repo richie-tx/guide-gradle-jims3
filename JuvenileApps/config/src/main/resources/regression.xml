@@ -1,0 +1,37 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Mojo import="DCdirect.xml">
+  <Servers>
+    <Server name="Test" contextClassName="mojo.km.context.oracletoplink.TestContextManager">
+      <EventManager>
+        <Async value="mojo.km.dispatch.CurrentContext.CurrentContextStrategy" />
+        <ClientPubSub value="mojo.km.dispatch.Multicast.MCPubSubStrategy" />
+        <Context value="mojo.km.dispatch.CurrentContext.CurrentContextStrategy" />
+        <PubSub value="mojo.km.dispatch.CurrentContext.CurrentContextStrategy" />
+        <Queue value="mojo.km.dispatch.CurrentContext.CurrentContextStrategy" />
+        <Reply value="mojo.km.dispatch.tcpmultiserver.ReplyDispatch" />
+        <Request value="mojo.km.dispatch.tcpmultiserver.RequestDispatch" />
+        <RequestReply value="mojo.km.dispatch.CurrentContext.CurrentContextStrategy" />
+      </EventManager>
+      <Session>
+        <BuildServerConfig value="true" />
+        <BuildTUXEDOConfig value="true" />
+        <ConnectionPool value="false" />
+        <DbPassword value="regsuite" />
+        <DbURL value="jdbc:oracle:thin:@dc-dbdev.dcdirect.com:1521:dcdev" />
+        <DbUserID value="regsuite" />
+        <DebugMode value="true" />
+        <LastAccessed value="0" />
+        <MaxServers value="3" />
+        <MinServers value="3" />
+        <ProjectClass value="mapping.dcdirectmap" />
+        <WorkflowEnabled value="false" />
+      </Session>
+      <ServiceReferences>
+        <ServiceRef name="RequestOnNone" />
+        <ServiceRef name="RPCOnNone" />
+        <ServiceRef name="QueueOnNone" />
+      </ServiceReferences>
+    </Server>
+  </Servers>
+</Mojo>
+

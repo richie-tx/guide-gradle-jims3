@@ -1,0 +1,197 @@
+<?xml version="1.0" encoding="US-ASCII"?>
+<document size="LETTER" margin-left="25" margin-right="15" margin-top="25" margin-bottom="15">
+
+	<encryption allow-fillin="false" allow-modify-contents="false" allow-degraded-printing="true" allow-screen-readers="false" allow-copy="false"	allow-printing="false"/>
+	<meta author="JIMS2, Harris County" creator="JIMS2, Harris County" title="Community Supervision Exit Plan"/>
+
+	<module>
+		<font-def name="arial" family="arial" style="normal" size="11"/>
+		<font-def name="small-arial" family="arial" style="normal" size="9"/>
+		<font-def name="documentheader" family="Helvetica" style="bold" size="14"/>
+		
+		<custom-tag alias="documentheader" tag="paragraph">
+			<attribute name="font" value="documentheader"/>
+		</custom-tag>
+	</module>
+		
+	<footer padding-top="5">
+		<font size="10" color="black">
+		<footer-part padding-top="15" halign="left" width="500">
+		<table columns="1" width="100" halign="center">
+			<cell halign="left">
+				3/2024
+			</cell>
+			<cell halign="center"><br/></cell>
+		</table>
+		</footer-part>
+		</font>
+	</footer>
+	
+
+    <new-page size="LETTER" margin-left="25" margin-right="25" margin-top="15" margin-bottom="15">
+    </new-page>
+	
+	<table columns="2" border-style="none" border-width="0" widths="85,15" padding="0" >
+		<table-row halign="left">
+	        <cell halign="left" valign="middle">
+	        	<documentheader>
+					Field Supervision Exit Plan<br/>
+					Harris County Juvenile Probation Department
+				</documentheader>
+			</cell>	
+			<cell halign="left" valign="middle" >
+	            <paragraph>
+	                <image source="MJCW/TexasSeal.jpg" width="60" height="60" scale-to-fit="true"/>
+	            </paragraph>
+	        </cell>
+		</table-row>        
+	</table>
+	<br/><br/><br/>
+	
+	<table columns="1" border-style="left|right|top|bottom" border-width="3" widths="100" padding="0" font="arial">
+		<cell>
+			<table columns="2" widths="50,50" border-style="none" border-width="0">
+				<table-row halign="left" padding-top="5" padding-bottom="5" padding-left="10" padding-right="5">
+					<cell valign="middle">
+						<b>Juvenile Name:</b> ${juvenile.fullNameFirst}
+					</cell>
+					<cell valign="middle" >
+						<b>Today's Date:</b> ${currentDate}
+					</cell>
+			   	</table-row>
+			   	<table-row halign="left" padding-top="5" padding-bottom="10" padding-left="10" padding-right="5">
+					<cell valign="middle">
+						<b>Probation Term:</b> From ${probationTermDate}
+					</cell>
+					<cell valign="middle">
+						<b>Termination Date:</b> ${terminationDate}
+					</cell>
+			   	</table-row>  
+			</table>
+	   	</cell>
+	</table>
+	<br/>
+	<table columns="1" border-style="left|right|top|bottom" border-width="3" widths="100" padding="0" font="arial">
+		<cell>
+			<table columns="1" widths="100" border-style="none" border-width="0">
+				<table-row halign="left" padding-top="5" padding-bottom="5" padding-left="10" padding-right="5">
+					<cell valign="middle">
+						It is recommended that the following issues continue to be addressed 
+						and considered to assist the juvenile and family:  
+						<i>(Examples of issues/concerns:  medical, education, peers, individual 
+						counseling, drugs/alcohol/family counseling, etc.)</i>
+					</cell>
+			   	</table-row>
+			   	<table-row>
+					<cell valign="middle" padding-left="10">
+						_foreach_(goalEndRecommendation ${goalEndRecommendations} 'even' 'odd')
+							${goalEndRecommendation}<br/>
+						_endfor_
+					</cell>
+				</table-row>				
+			   	<table-row>
+					<cell valign="middle" padding-left="10">
+						_foreach_(closingEvalution ${closingEvalution} 'even' 'odd')
+							${closingEvalution}<br/>
+						_endfor_
+					</cell>
+				</table-row>				
+			   	<table-row>
+					<cell valign="middle" padding-left="10">
+						_foreach_(closingComments ${closingComments} 'even' 'odd')
+							${closingComments}<br/>
+						_endfor_
+					</cell>
+				</table-row>				
+			   	<table-row halign="left" padding-top="5" padding-bottom="10" padding-left="10" padding-right="5">
+					<cell valign="middle">
+						The following resources may be considered to assist the juvenile 
+						and family in addressing the above stated issues:
+					</cell>
+			   	</table-row>  
+			   	<table-row halign="left" padding-bottom="10" padding-left="10" padding-right="5">
+					<cell valign="middle">
+						_foreach_(spDetail ${serviceProviderDetails} 'even' 'odd')
+							${spDetail}<br/>
+						_endfor_
+					</cell>
+				</table-row>
+			</table>
+	   	</cell> 
+	</table>
+	<br/>
+	
+	<table columns="1" border-style="none" border-width="0" widths="100" padding="0">
+		<table-row>
+			<cell halign="center">
+				<font name="arial" size="12"><b>ACKNOWLEDGEMENT STATEMENT</b></font>
+			</cell>
+		</table-row>
+		<table-row><cell><br/></cell></table-row>
+		<table-row font="arial">
+			<cell halign="left">
+				By signing below, I acknowledge that I have received the following documents:
+			</cell>
+		</table-row>
+		<table-row><cell><br/></cell></table-row>
+		<table-row font="arial">
+			<cell halign="left">
+				<list numbered="false" lettered="false" symbol-indent="15" line-spacing="1.5" > 
+					<list-item>					
+						Copy of brochure titled &quot;Statutes Relating to Access, Sealing and Destruction of 
+						Juvenile Records&quot; containing information from section 58 of the Texas Family Code. 
+						If you have questions about the sealing process, please refer to the probation completion letter.
+					</list-item>
+					<list-item>
+						Copy of the TJJD brochure titled &quot;Texas Juvenile Justice System Files and Records: 
+						A Juvenile&apos;s Guide to Understanding Juvenile Records &amp; Sealing&quot;.
+					</list-item>					
+				</list>
+			</cell>
+		</table-row>
+		<table-row><cell><br/></cell></table-row>
+		<table-row font="arial">
+			<cell halign="left">
+				I further acknowledge that I have had an opportunity to fully participate 
+				in the development of this exit plan and that I have been provided a copy 
+				of the plan.
+			</cell>
+		</table-row>
+	</table>
+	<br/>
+	
+	<table columns="3" border-style="none" border-width="0" widths="40,20,40" font="small-arial" keep-together="true">
+		<table-row>
+			<cell>
+			_____________________________________________
+			</cell>
+			<cell></cell>
+			<cell>
+			_____________________________________________
+			</cell>
+		</table-row>
+		<table-row>
+			<cell halign="center">
+				Juvenile Signature
+			</cell>
+			<cell></cell>
+			<cell halign="center">
+				Parent/Guardian Signature
+			</cell>
+		</table-row>
+		<table-row><cell><br/><br/><br/></cell></table-row>
+		<table-row>
+			<cell>
+			______________________________________________
+			</cell>
+		</table-row>
+		<table-row>
+			<cell halign="center">
+				JPO Signature
+			</cell>
+		</table-row>
+	</table>
+	
+	
+    
+</document>

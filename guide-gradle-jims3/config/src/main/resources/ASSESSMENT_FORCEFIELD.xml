@@ -1,0 +1,125 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Survey type="" name="FORCEFIELD" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="C:\Views\CommonSupervision\Arch\build\configuration\dev\SurveyV2.xsd">
+	<questionGroup id="FORCEFIELDGP1" name="FORCEFIELD_PRESENT_OFFENSE" displayText="Present Offense" sequence="1"   displayTextAlign="CENTER" isDisplayTextDetailHeader="true">
+		<question responseUIControlType="TEXTBOX" id="FF_OFFENSE_Q2" text="Strength/Resource" rowSequence="1" isRequired="false" responseDataType="ALPHA_NUMERIC_WTH_SYMBOLS" uiControlSize="2" textLength="200" columnWidth="1%">
+		</question>
+		<question responseUIControlType="TEXTBOX" id="FF_OFFENSE_Q3" text="Problem/Weakness" rowSequence="2" isRequired="false" responseDataType="ALPHA_NUMERIC_WTH_SYMBOLS" uiControlSize="2" textLength="200" columnWidth="1%">
+		</question>
+	</questionGroup>
+	<questionGroup id="FORCEFIELDGP2" name="FORCEFIELD_PRIOR RECORD" displayText="Prior Record"  sequence="2" displayTextAlign="CENTER" isDisplayTextDetailHeader="true">
+		<question responseUIControlType="TEXTBOX" id="FF_PRIORRECORD_Q2" text="Strength/Resource" rowSequence="3" isRequired="false" responseDataType="ALPHA_NUMERIC_WTH_SYMBOLS" uiControlSize="2" textLength="200" columnWidth="1%">
+		</question>
+		<question responseUIControlType="TEXTBOX" id="FF_PRIORRECORD_Q3" text="Problem/Weakness" rowSequence="4" isRequired="false" responseDataType="ALPHA_NUMERIC_WTH_SYMBOLS" uiControlSize="2" textLength="200" columnWidth="1%">
+		</question>
+	</questionGroup>
+	<questionGroup id="FORCEFIELDGP3" name="FORCEFIELD_ADJUSTMENT" displayText="Adjustment to Supervision/Incarceration"  sequence="3"  displayTextAlign="CENTER" isDisplayTextDetailHeader="true">
+		<question responseUIControlType="TEXTBOX" id="FF_ADJUSTMENT_Q2" text="Strength/Resource" rowSequence="5" isRequired="false" responseDataType="ALPHA_NUMERIC_WTH_SYMBOLS" uiControlSize="2" textLength="200" columnWidth="1%">
+		</question>
+		<question responseUIControlType="TEXTBOX" id="FF_ADJUSTMENT_Q3" text="Problem/Weakness" rowSequence="6" isRequired="false" responseDataType="ALPHA_NUMERIC_WTH_SYMBOLS" uiControlSize="2" textLength="200" columnWidth="1%">
+		</question>
+	</questionGroup>
+	<questionGroup id="FORCEFIELDGP4" name="FORCEFIELD_ACADEMIC" displayText="Academic/Vocational Skills"  sequence="4"  displayTextAlign="CENTER" isDisplayTextDetailHeader="true">
+		<question responseUIControlType="text" id="FF_ACADEMIC_Q1" text="Rank" rowSequence="7" isRequired="false" responseDataType="numeric" uiControlSize="2" minValue="1" maxValue="16" columnWidth="1%">
+		</question>
+		<question responseUIControlType="TEXTBOX" id="FF_ACADEMIC_Q2" text="Strength/Resource" rowSequence="8" isRequired="false" responseDataType="ALPHA_NUMERIC_WTH_SYMBOLS" uiControlSize="2" textLength="200" columnWidth="1%">
+		</question>
+		<question responseUIControlType="TEXTBOX" id="FF_ACADEMIC_Q3" text="Problem/Weakness" rowSequence="9" isRequired="false" responseDataType="ALPHA_NUMERIC_WTH_SYMBOLS" uiControlSize="2" textLength="200" columnWidth="1%">
+		</question>
+	</questionGroup>
+	<questionGroup id="FORCEFIELDGP5" name="FORCEFIELD_EMPLOYMENT" displayText="Employment Pattern"  sequence="5"  displayTextAlign="CENTER" isDisplayTextDetailHeader="true">
+		<question responseUIControlType="text" id="FF_EMPLOYMENT_Q1" text="Rank" rowSequence="10" isRequired="false" responseDataType="numeric" uiControlSize="2" minValue="1" maxValue="16" columnWidth="1%">
+		</question>
+		<question responseUIControlType="TEXTBOX" id="FF_EMPLOYMENT_Q2" text="Strength/Resource" rowSequence="11" isRequired="false" responseDataType="ALPHA_NUMERIC_WTH_SYMBOLS" uiControlSize="2" textLength="200" columnWidth="1%">
+		</question>
+		<question responseUIControlType="TEXTBOX" id="FF_EMPLOYMENT_Q3" text="Problem/Weakness" rowSequence="12" isRequired="false" responseDataType="ALPHA_NUMERIC_WTH_SYMBOLS" uiControlSize="2" textLength="200" columnWidth="1%">
+		</question>
+	</questionGroup>
+	<questionGroup id="FORCEFIELDGP6" name="FINANCIAL_MANAGEMENT" displayText="Financial Management"  sequence="6"  displayTextAlign="CENTER" isDisplayTextDetailHeader="true">
+		<question responseUIControlType="text" id="FF_FINANCIAL_Q1" text="Rank" rowSequence="13" isRequired="false" responseDataType="numeric" uiControlSize="2" minValue="1" maxValue="16" columnWidth="1%">
+		</question>
+		<question responseUIControlType="TEXTBOX" id="FF_FINANCIAL_Q2" text="Strength/Resource" rowSequence="14" isRequired="false" responseDataType="ALPHA_NUMERIC_WTH_SYMBOLS" uiControlSize="2" textLength="200" columnWidth="1%">
+		</question>
+		<question responseUIControlType="TEXTBOX" id="FF_FINANCIAL_Q3" text="Problem/Weakness" rowSequence="15" isRequired="false" responseDataType="ALPHA_NUMERIC_WTH_SYMBOLS" uiControlSize="2" textLength="200" columnWidth="1%">
+		</question>
+	</questionGroup>
+	<questionGroup id="FORCEFIELDGP7" name="FORCEFIELD_FAMILY" displayText="Family (of origin) Relationships"  sequence="7" displayTextAlign="CENTER" isDisplayTextDetailHeader="true">
+		<question responseUIControlType="text" id="FF_FAMILY_Q1" text="Rank" rowSequence="16" isRequired="false" responseDataType="numeric" uiControlSize="2" minValue="1" maxValue="16" columnWidth="1%">
+		</question>
+		<question responseUIControlType="TEXTBOX" id="FF_FAMILY_Q2" text="Strength/Resource" rowSequence="17" isRequired="false" responseDataType="ALPHA_NUMERIC_WTH_SYMBOLS" uiControlSize="2" textLength="200" columnWidth="1%">
+		</question>
+		<question responseUIControlType="TEXTBOX" id="FF_FAMILY_Q3" text="Problem/Weakness" rowSequence="18" isRequired="false" responseDataType="ALPHA_NUMERIC_WTH_SYMBOLS" uiControlSize="2" textLength="200" columnWidth="1%">
+		</question>
+	</questionGroup>
+	<questionGroup id="FORCEFIELDGP8" name="FORCEFIELD_SOCIALSKILLS" displayText="Social Skills"  sequence="8" displayTextAlign="CENTER" isDisplayTextDetailHeader="true">
+		<question responseUIControlType="text" id="FF_SOCIALSKILLS_Q1" text="Rank" rowSequence="19" isRequired="false" responseDataType="numeric" uiControlSize="2" minValue="1" maxValue="16" columnWidth="1%">
+		</question>
+		<question responseUIControlType="TEXTBOX" id="FF_SOCIALSKILLS_Q2" text="Strength/Resource" rowSequence="20" isRequired="false" responseDataType="ALPHA_NUMERIC_WTH_SYMBOLS" uiControlSize="2" textLength="200" columnWidth="1%">
+		</question>
+		<question responseUIControlType="TEXTBOX" id="FF_SOCIALSKILLS_Q3" text="Problem/Weakness" rowSequence="21" isRequired="false" responseDataType="ALPHA_NUMERIC_WTH_SYMBOLS" uiControlSize="2" textLength="200" columnWidth="1%">
+		</question>
+	</questionGroup>
+	<questionGroup id="FORCEFIELDGP9" name="FORCEFIELD_COMPANIONS" displayText="Companions"  sequence="9" displayTextAlign="CENTER" isDisplayTextDetailHeader="true">
+		<question responseUIControlType="text" id="FF_COMPANIONS_Q1" text="Rank" rowSequence="22" isRequired="false" responseDataType="numeric" uiControlSize="2" minValue="1" maxValue="16" columnWidth="1%">
+		</question>
+		<question responseUIControlType="TEXTBOX" id="FF_COMPANIONS_Q2" text="Strength/Resource" rowSequence="23" isRequired="false" responseDataType="ALPHA_NUMERIC_WTH_SYMBOLS" uiControlSize="2" textLength="200" columnWidth="1%">
+		</question>
+		<question responseUIControlType="TEXTBOX" id="FF_COMPANIONS_Q3" text="Problem/Weakness" rowSequence="24" isRequired="false" responseDataType="ALPHA_NUMERIC_WTH_SYMBOLS" uiControlSize="2" textLength="200" columnWidth="1%">
+		</question>
+	</questionGroup>
+	<questionGroup id="FORCEFIELDGP10" name="FORCEFIELD_RELATIONSHIPS" displayText="Marital or Opposite Sex Relationships"  sequence="10" displayTextAlign="CENTER" isDisplayTextDetailHeader="true">
+		<question responseUIControlType="text" id="FF_RELATIONSHIPS_Q1" text="Rank" rowSequence="25" isRequired="false" responseDataType="numeric" uiControlSize="2" minValue="1" maxValue="16" columnWidth="1%">
+		</question>
+		<question responseUIControlType="TEXTBOX" id="FF_RELATIONSHIPS_Q2" text="Strength/Resource" rowSequence="26" isRequired="false" responseDataType="ALPHA_NUMERIC_WTH_SYMBOLS" uiControlSize="2" textLength="200" columnWidth="1%">
+		</question>
+		<question responseUIControlType="TEXTBOX" id="FF_RELATIONSHIPS_Q3" text="Problem/Weakness" rowSequence="27" isRequired="false" responseDataType="ALPHA_NUMERIC_WTH_SYMBOLS" uiControlSize="2" textLength="200" columnWidth="1%">
+		</question>
+	</questionGroup>
+	<questionGroup id="FORCEFIELDGP11" name="FORCEFIELD_EMOTIONAL" displayText="Emotional Stability"  sequence="11" displayTextAlign="CENTER" isDisplayTextDetailHeader="true">
+		<question responseUIControlType="text" id="FF_EMOTIONAL_Q1" text="Rank" rowSequence="28" isRequired="false" responseDataType="numeric" uiControlSize="2" minValue="1" maxValue="16" columnWidth="1%">
+		</question>
+		<question responseUIControlType="TEXTBOX" id="FF_EMOTIONAL_Q2" text="Strength/Resource" rowSequence="29" isRequired="false" responseDataType="ALPHA_NUMERIC_WTH_SYMBOLS" uiControlSize="2" textLength="200" columnWidth="1%">
+		</question>
+		<question responseUIControlType="TEXTBOX" id="FF_EMOTIONAL_Q3" text="Problem/Weakness" rowSequence="30" isRequired="false" responseDataType="ALPHA_NUMERIC_WTH_SYMBOLS" uiControlSize="2" textLength="200" columnWidth="1%">
+		</question>
+	</questionGroup>
+	<questionGroup id="FORCEFIELDGP12" name="FORCEFIELD_ALCOHOLDRUGS" displayText="Alcohol and Other Drug Usage"  sequence="12" displayTextAlign="CENTER" isDisplayTextDetailHeader="true">
+		<question responseUIControlType="text" id="FF_ALCOHOLDRUGS_Q1" text="Rank" rowSequence="31" isRequired="false" responseDataType="numeric" uiControlSize="2" minValue="1" maxValue="16" columnWidth="1%">
+		</question>
+		<question responseUIControlType="TEXTBOX" id="FF_ALCOHOLDRUGS_Q2" text="Strength/Resource" rowSequence="32" isRequired="false" responseDataType="ALPHA_NUMERIC_WTH_SYMBOLS" uiControlSize="2" textLength="200" columnWidth="1%">
+		</question>
+		<question responseUIControlType="TEXTBOX" id="FF_ALCOHOLDRUGS_Q3" text="Problem/Weakness" rowSequence="33" isRequired="false" responseDataType="ALPHA_NUMERIC_WTH_SYMBOLS" uiControlSize="2" textLength="200" columnWidth="1%">
+		</question>
+	</questionGroup>
+	<questionGroup id="FORCEFIELDGP13" name="FORCEFIELD_MENTALABILITY" displayText="Mental Ability"  sequence="13" displayTextAlign="CENTER" isDisplayTextDetailHeader="true">
+		<question responseUIControlType="text" id="FF_MENTALABILITY_Q1" text="Rank" rowSequence="34" isRequired="false" responseDataType="numeric" uiControlSize="2" minValue="1" maxValue="16" columnWidth="1%">
+		</question>
+		<question responseUIControlType="TEXTBOX" id="FF_MENTALABILITY_Q2" text="Strength/Resource" rowSequence="35" isRequired="false" responseDataType="ALPHA_NUMERIC_WTH_SYMBOLS" uiControlSize="2" textLength="200" columnWidth="1%">
+		</question>
+		<question responseUIControlType="TEXTBOX" id="FF_MENTALABILITY_Q3" text="Problem/Weakness" rowSequence="36" isRequired="false" responseDataType="ALPHA_NUMERIC_WTH_SYMBOLS" uiControlSize="2" textLength="200" columnWidth="1%">
+		</question>
+	</questionGroup>
+	<questionGroup id="FORCEFIELDGP14" name="FORCEFIELD_HEALTH" displayText="Physical Health"  sequence="14" displayTextAlign="CENTER" isDisplayTextDetailHeader="true">
+		<question responseUIControlType="text" id="FF_HEALTH_Q1" text="Rank" rowSequence="36" isRequired="false" responseDataType="numeric" uiControlSize="2" minValue="1" maxValue="16" columnWidth="1%">
+		</question>
+		<question responseUIControlType="TEXTBOX" id="FF_HEALTH_Q2" text="Strength/Resource" rowSequence="37" isRequired="false" responseDataType="ALPHA_NUMERIC_WTH_SYMBOLS" uiControlSize="2" textLength="200" columnWidth="1%">
+		</question>
+		<question responseUIControlType="TEXTBOX" id="FF_HEALTH_Q3" text="Problem/Weakness" rowSequence="38" isRequired="false" responseDataType="ALPHA_NUMERIC_WTH_SYMBOLS" uiControlSize="2" textLength="200" columnWidth="1%">
+		</question>
+	</questionGroup>
+	<questionGroup id="FORCEFIELDGP15" name="FORCEFIELD_SEXUALBEHAVIOR" displayText="Sexual Behavior"  sequence="15" displayTextAlign="CENTER" isDisplayTextDetailHeader="true">
+		<question responseUIControlType="text" id="FF_SEXUALBEHAVIOR_Q1" text="Rank" rowSequence="39" isRequired="false" responseDataType="numeric" uiControlSize="2" minValue="1" maxValue="16" columnWidth="1%">
+		</question>
+		<question responseUIControlType="TEXTBOX" id="FF_SEXUALBEHAVIOR_Q2" text="Strength/Resource" rowSequence="40" isRequired="false" responseDataType="ALPHA_NUMERIC_WTH_SYMBOLS" uiControlSize="2" textLength="200" columnWidth="1%">
+		</question>
+		<question responseUIControlType="TEXTBOX" id="FF_SEXUALBEHAVIOR_Q3" text="Problem/Weakness" rowSequence="41" isRequired="false" responseDataType="ALPHA_NUMERIC_WTH_SYMBOLS" uiControlSize="2" textLength="200" columnWidth="1%">
+		</question>
+	</questionGroup>
+	<questionGroup id="FORCEFIELDGP16" name="FORCEFIELD_VALUES" displayText="Values and Attitudes"  sequence="16" displayTextAlign="CENTER" isDisplayTextDetailHeader="true">
+		<question responseUIControlType="text" id="FF_VALUES_Q1" text="Rank" rowSequence="43" isRequired="false" responseDataType="numeric" uiControlSize="2" minValue="1" maxValue="16" columnWidth="1%">
+		</question>
+		<question responseUIControlType="TEXTBOX" id="FF_VALUES_Q2" text="Strength/Resource" rowSequence="44" isRequired="false" responseDataType="ALPHA_NUMERIC_WTH_SYMBOLS" uiControlSize="2" textLength="200" columnWidth="1%">
+		</question>
+		<question responseUIControlType="TEXTBOX" id="FF_VALUES_Q3" text="Problem/Weakness" rowSequence="45" isRequired="false" responseDataType="ALPHA_NUMERIC_WTH_SYMBOLS" uiControlSize="2" textLength="200" columnWidth="1%">
+		</question>
+	</questionGroup>
+</Survey>

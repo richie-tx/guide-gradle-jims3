@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="US-ASCII"?>
+<document size="LETTER" margin-left="25" margin-right="25" margin-top="5" margin-bottom="25">
+
+	<encryption allow-fillin="false" allow-modify-contents="false" allow-degraded-printing="true" allow-screen-readers="false" allow-copy="false"	allow-printing="false"/>
+	<meta author="JIMS2, Harris County" creator="JIMS2, Harris County" title="MJC Placement Exit Plan"/>
+
+	<module>
+		<font-def name="arial" family="arial" style="normal" size="11"/>
+		<font-def name="small-arial" family="arial" style="normal" size="9"/>
+		
+		<color-def name="custom-purple" color-space="RGB" value="0,0,128"/>
+		<color-def name="custom-gray" color-space="RGB" value="192,192,192"/>
+		
+		<font-def name="document-header" family="Times New Roman" style="bold" size="14" color="custom-purple"/>
+		<font-def name="body-header" family="Times New Roman" style="bold" size="11" color="custom-purple"/>
+		<font-def name="column-header" family="Times New Roman" style="normal" size="11" color="black"/>
+		<font-def name="text" family="Times New Roman" style="normal" size="11" color="black"/>
+		<font-def name="text-header" family="Times New Roman" style="bold" size="12" color="black"/>
+		
+		
+	</module>
+		
+	<footer padding-top="10">
+		<font size="10" color="black">
+		<footer-part padding-top="15" halign="left" width="500">
+		<table columns="1" width="100" halign="center" padding="5">
+			<cell halign="left">
+				TJPC/Aftercare - Follow-up Plan/06-17-04
+			</cell>
+		</table>
+		</footer-part>
+		</font>
+	</footer>
+	
+
+    <new-page size="LETTER" margin-left="25" margin-right="25" margin-top="25" margin-bottom="25">
+    </new-page>
+	
+	<table columns="1" width="100" halign="center">
+		<cell>
+			<font name="document-header">
+			TEXAS JUVENILE PROBATION COMMISSION<br/>
+			PLACEMENT FUND PROGRAM<br/>
+			AFTERCARE FOLLOW-UP SERVICE PLAN<br/>
+			</font>
+		</cell>
+	</table>
+	<br/><br/><br/>
+	
+	<table columns="3" widths="40,40,20" halign="left" spacing-after="40">
+		<table-row font="body-header">
+			<cell>County # 101_______________________</cell>
+			<cell>P.I.D. #: ${juvenileNumber}</cell>
+			<cell>County: Harris</cell>
+		</table-row>
+	</table>
+	
+	<table columns="4" border-style="box" border-width="1" widths="30,30,15,15" padding="0" spacing-after="20">
+		<table-row font="body-header" border-style="none" padding-bottom="5">
+			<cell colspan="4">
+				LIST THE CHILD&apos; NEEDS, THAT HAVE BEEN IDENTIFIED BY THE JUVENILE PROBATION 
+				DEPARTMENT AND/OR THE PLACEMENT FACILITY, AND THE INTERVENTIONS PLANNED TO 
+				ADDRESS THOSE NEEDS DURING THE AFTERCARE/FOLLOW-UP PERIOD:
+			</cell>
+		</table-row>
+		<table-header font="column-header" bgcolor="custom-gray">
+			<cell halign="center" valign="top" padding-bottom="4">Goal / Need</cell>
+			<cell halign="center" valign="top" padding-bottom="4">Intervention</cell>
+			<cell halign="center" valign="top" padding-bottom="4">Person(s) Responsible</cell>
+			<cell halign="center" valign="top" padding-bottom="4">Time Frame</cell>
+		</table-header>
+		_foreach_(goal ${goalDetailsList} 'even' 'odd')
+			<table-row padding-left="5" padding-bottom="2" valign="top" halign="left">
+				<cell><font name="column-header">${goalIdx+1}.</font>${goal.goal}</cell>
+				<cell>
+					_foreach_(rule ${goal.associatedRules} 'even' 'odd')
+						- ${rule.unformattedDesc}<br/>
+					_endfor_
+				</cell>
+				<cell>
+					_foreach_(personResp ${goal.personsResponsibleDisplay} 'even' 'odd')
+						${personResp}<br/>
+					_endfor_
+				</cell>
+				<cell>${goal.timeFrameStr}</cell>
+			</table-row>
+		_endfor_	
+	</table>
+	
+
+	<table columns="5" widths="30,17,17,17,19" border-style="box" border-width="1" keep-together="true" spacing-after="20">	
+		<table-header font="text" border-style="none" padding-bottom="5">
+			<cell colspan="5">
+				<b>PARTICIPATION &amp; DISTRIBUTION:</b>  Enter the date for each person who participated in developing 
+				this Aftercare/Follow-up plan and the date they received a copy of same:
+			</cell>
+		</table-header>
+		<table-row>
+			<cell border-style="none"></cell>
+			<cell padding-bottom="3" halign="center" bgcolor="custom-gray">Child</cell>
+			<cell padding-bottom="3" halign="center" bgcolor="custom-gray">Parent/ Guardian</cell>
+			<cell padding-bottom="3" halign="center" bgcolor="custom-gray">Caregiver</cell>
+			<cell padding-bottom="3" halign="center" bgcolor="custom-gray">Other</cell>
+		</table-row>
+		<table-row>
+			<cell padding-bottom="4" padding-left="6" halign="left">Date of Participation</cell>
+			<cell></cell>
+			<cell></cell>
+			<cell></cell>
+			<cell></cell>
+		</table-row>
+		<table-row>
+			<cell padding-bottom="4" padding-left="6" halign="left">Date Copy Received/Mailed</cell>
+			<cell></cell>
+			<cell></cell>
+			<cell></cell>
+			<cell></cell>
+		</table-row>
+	</table>
+
+	
+	<table columns="1" width="100" border-style="none" keep-together="true" spacing-after="20">
+		<table-header font="text-header">
+			<cell>PLAN OF CONTACT:</cell>
+		</table-header>
+		<table-row>
+			<cell>
+				<list numbered="false" lettered="true" symbol-indent="20">
+					<list-item spacing-after="10">
+						Will the JPO  maintain contact with child and family on a weekly basis? ${answer1}<br/>
+						If no, explain why: ${answer2}
+					</list-item>
+					<list-item spacing-after="10">
+						Do the parent(s) agree to comply with the plan for parent/child contact? ${answer3}<br/>
+						If no, explain why: ${answer4}
+					</list-item>
+				</list>
+			</cell>
+		</table-row>
+	</table>
+	
+	<table columns="1" width="100" border-style="box" border-width="1" padding="2" keep-together="true" spacing-after="20">
+		<table-header padding-bottom="5" font="text-header" border-style="none" padding-left="0">
+			<cell>SIGNATURES:</cell>
+		</table-header>
+		<table-row font="text-header">
+			<cell>
+				<table columns="2" widths="50,50" border-style="box" border-width="1">
+					<table-row>
+						<cell padding-bottom="5" padding-left="5">
+							CHILD:
+						</cell>
+						<cell padding-bottom="5" padding-left="5">
+							DATE:
+						</cell>
+					</table-row>
+					<table-row>
+						<cell padding-bottom="5" padding-left="5">
+							PARENT:
+						</cell>
+						<cell padding-bottom="5" padding-left="5">
+							DATE:
+						</cell>
+					</table-row>
+					<table-row>
+						<cell padding-bottom="5" padding-left="5">
+							JPO:
+						</cell>
+						<cell padding-bottom="5" padding-left="5">
+							DATE:
+						</cell>
+					</table-row>
+				</table>
+			</cell>
+		</table-row>
+	</table>
+	
+	<paragraph font="text">
+		<b>If any party has not, or refuses to sign, explain:</b> ${juvenileFacilityStaySpecialNotes}
+	</paragraph>
+	
+	<new-page size="LETTER" margin-left="25" margin-right="25" margin-top="25" margin-bottom="25">
+    </new-page>
+	
+	<table columns="1" width="100">
+		<table-row bgcolor="custom-gray" halign="center" padding-bottom="5">
+			<cell font="body-header">INSTRUCTIONS</cell>
+		</table-row>
+		<table-row>
+			<cell font="text" halign="center" padding-bottom="5">
+				<b>AFTERCARE/FOLLOW-UP SERVICE PLAN</b>
+			</cell>
+		</table-row>
+	</table>
+	<br/><br/>
+	
+	<table columns="2" widths="30,70" border-style="box" border-width="1" border-color="custom-gray">
+		<table-row padding-bottom="2" padding-left="5">
+			<cell valign="top" halign="left">PURPOSE............</cell>
+			<cell>To document a plan of aftercare/follow-up services for a child and family 
+					after the child has been released from a placement facility</cell>
+		</table-row>
+		<table-row padding-bottom="2" padding-left="5">
+			<cell valign="top" halign="left">PROCEDURE............</cell>
+			<cell>Complete this form and submit it to TJPC within 15 calendar days from the 
+					date of the child&apos;s release from the placement facility.
+					The parent/guardian should provide input to this plan. </cell>
+		</table-row>
+		<table-row padding-bottom="2" padding-left="5">
+			<cell valign="top" halign="left">TRANSMITTAL............</cell>
+			<cell>File the original in the case record.  Give copies to the parent/guardian, 
+					the caregiver, and the child.  Mail a copy to TJPC, P.O. Box 13547, Austin, 
+					Texas 78711 or Fax a copy to 512-424-6736, Attention: Fiscal Dept./Judy Ybarbo </cell>
+		</table-row>
+		<table-row padding-bottom="2" padding-left="5">
+			<cell valign="top" halign="left">FORM DETENTION............</cell>
+			<cell>Keep the case record copy for the life of the record.</cell>
+		</table-row>
+	</table>
+	<br/>
+	
+	<paragraph halign="center" spacing-after="10" font="text">
+		<b>DETAILED INSTRUCTIONS</b>
+	</paragraph>
+	<paragraph halign="left" spacing-after="10" font="text">
+		<b>IDENTIFYING INFORMATION FOR CHILD:</b>  Self-explanatory.
+	</paragraph>
+	
+	<paragraph halign="left" spacing-after="10" font="text">
+		<b>GOALS/ NEEDS:</b>  List any need(s) (of the child and family), 
+		that have been identified by the Juvenile Probation Department and/or 
+		the placement facility.  List the interventions (or tasks) planned to 
+		meet those identified needs; as well as the person(s) responsible and the 
+		anticipated time frame (for the interventions or tasks).  
+	</paragraph>	
+	
+	<paragraph halign="left" spacing-after="10" font="text">
+		<b>PARTICIPATION AND DISTRIBUTION:</b>  Enter the date(s) that each party participated in the development of the Aftercare/Follow-up Service Plan.   Enter also the date copies were received by or mailed to the involved parties.
+	</paragraph>
+	
+	<paragraph halign="left" spacing-after="10" font="text">
+		<b>PLAN OF CONTACT:</b> (A) Check the appropriate box (Yes or No) to indicate whether the Juvenile Probation Officer will maintain contact with the child and family on a weekly basis.  If s/he does not plan to maintain weekly contact through the required period of Aftercare/Follow-up, explain why; and indicate what the frequency of contact will be by the JPO. 
+	</paragraph>
+	
+	<paragraph halign="left" spacing-after="10" font="text">
+		<b>(B)</b> Indicate whether the parent(s)/guardian(s) have agreed to comply with the plan for contact with the Juvenile Probation Officer.  If they have not, explain why. 
+	</paragraph>
+
+	<paragraph halign="left" spacing-after="10" font="text">
+		<b>SIGNATURES:</b>  Self-explanatory. 
+	</paragraph>
+	
+	
+	
+	
+</document>

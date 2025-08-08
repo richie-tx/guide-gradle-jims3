@@ -1,0 +1,634 @@
+package pd.supervision.calendar;
+
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.Iterator;
+import java.util.List;
+import java.util.Map;
+import java.util.Set;
+
+import messaging.administerlocation.GetAllJuvLocationUnitsByJuvLocIdEvent;
+import messaging.administerserviceprovider.GetServiceProviderFromServiceIdEvent;
+import messaging.calendar.GetJuvenileAttendanceEvent;
+import messaging.calendar.reply.CalendarServiceEventResponseEvent;
+import messaging.family.GetJuvenileMemberAddressEvent;
+import messaging.family.GetJuvenileMemberByIdEvent;
+import messaging.interviewinfo.reply.InterviewPersonResponseEvent;
+import mojo.pattern.IBuilder;
+import naming.PDCalendarConstants;
+import naming.PDCodeTableConstants;
+import naming.PDConstants;
+import naming.UIConstants;
+
+import org.apache.commons.collections.FastArrayList;
+import org.apache.commons.collections.FastHashMap;
+import org.apache.commons.lang.StringUtils;
+
+import pd.codetable.PDCodeHelper;
+import pd.codetable.person.JuvenileSchoolDistrictCode;
+import pd.contact.officer.OfficerProfile;
+import pd.juvenile.Juvenile;
+import pd.juvenilecase.family.AssociatedJuvMemberView;
+import pd.juvenilecase.family.FamilyMemberAddressView;
+import pd.juvenilecase.family.FamilyMemberEmployment;
+import pd.juvenilecase.interviewinfo.Interview;
+import pd.juvenilecase.interviewinfo.InterviewPerson;
+import pd.km.util.Name;
+import pd.supervision.administerserviceprovider.JuvenileServiceProvider;
+import pd.supervision.administerserviceprovider.SP_Profile;
+import pd.supervision.administerserviceprovider.administerlocation.JuvLocationUnit;
+
+
+/**
+ * @author Jim Fisher
+ * 
+ */
+public class CalendarEventBuilder implements IBuilder
+{
+	private String calDetailLevel;
+	private boolean filterInvalidContexts;
+	private Map locationMap;
+	private List results;
+	private List serviceEventContexts;
+	private Map spMap;
+	//<KISHORE>JIMS200060153 : MJCW - Schedule Calendar Event is Timing out on SP Events
+	private String requestType;
+
+	/*
+	 * 
+	 */
+	public CalendarEventBuilder()
+	{
+		this.results = new FastArrayList();
+		this.spMap = new FastHashMap();
+		this.locationMap = new FastHashMap();
+	}	
+
+	/*
+	 * (non-Javadoc)
+	 * @see mojo.pattern.IBuilder#build()
+	 */
+	public void build()
+	{
+		List preScheduledEvents = new FastArrayList();
+		List nonInterviewEvents = new FastArrayList();
+		List interviewEvents = new FastArrayList();
+
+		int len = serviceEventContexts.size();
+
+		for (int i = 0; i < len; i++)
+		{
+			ServiceEventContext e = (ServiceEventContext) serviceEventContexts.get(i);
+			
+			if( (!filterInvalidContexts) || 
+					( (PDCalendarConstants.INVALID_CONTEXT_ID.equals(e.getProbationOfficerId()) == false)
+					|| (PDCalendarConstants.INVALID_CONTEXT_ID.equals(e.getCaseFileId()) == false)
+					|| (PDCalendarConstants.INVALID_CONTEXT_ID.equals(e.getJuvenileId()) == false)) )
+			{
+				String eventCategory = e.getEventType().getGroup();
+				if (eventCategory.equals("P"))
+				{
+					preScheduledEvents.add(e);
+				}
+				else if (eventCategory.equals("N"))
+				{
+					nonInterviewEvents.add(e);
+				}
+				else if (eventCategory.equals("I"))
+				{
+					interviewEvents.add(e);
+				}
+			}
+		} // for
+
+		if (preScheduledEvents.size() > 0)
+		{
+			getPreScheduledEventsDetails(preScheduledEvents);
+		}
+
+		if (nonInterviewEvents.size() > 0)
+		{
+			getNonInterviewEventsDetails(nonInterviewEvents);
+		}
+
+		if (interviewEvents.size() > 0)
+		{
+			getInterviewEventsDetails(interviewEvents);
+		}
+	}
+
+	/*
+	 * 
+	 */
+	private void getInterviewEventsDetails(List interviewEvents)
+	{
+		int len = interviewEvents.size();
+
+		for (int i = 0; i < len; i++)
+		{
+			ServiceEventContext e = (ServiceEventContext) interviewEvents.get(i);
+			CalendarServiceEventResponseEvent resp = e.getBasicCalendarServiceResponseEvent();
+			
+			//Gather ServiceEvent for the ServiceEventAttendence
+			//resp.setJuvenileAttendanceStatus(attendStatus);
+			resp.setJuvenileAttendanceStatus(getJuvenileAttendanceStatus(e));
+			
+			resp.setJuvenileNum(e.getJuvenileId());
+			resp.setProbationOfficerId(e.getProbationOfficerId());
+			//<KISHORE>JIMS200059292 : Administer Location-Unit Location Inactivation(KK)
+			//<KISHORE>JIMS200060153 : MJCW - Schedule Calendar Event is Timing out on SP Events
+			if(PDCalendarConstants.CALENDAR_EVENTS_FOR_INACTIVATE_LOCATION.equalsIgnoreCase(this.getRequestType())){
+				if(StringUtils.isNotEmpty(e.getJuvenileId()) && 
+						!StringUtils.equals(e.getJuvenileId(), PDCalendarConstants.INVALID_JUVENILE_ID)){
+					Juvenile juv = Juvenile.findDetailJuvenile(e.getJuvenileId());
+					if(juv != null){
+						resp.setJuvenileFirstName(juv.getFirstName());
+						resp.setJuvenileLastName(juv.getLastName());
+						resp.setJuvenileMiddleName(juv.getMiddleName());
+					}
+				}
+				if(StringUtils.isNotEmpty(e.getProbationOfficerId())&& 
+						!StringUtils.equals(e.getProbationOfficerId(), PDCalendarConstants.INVALID_OFFICER_ID)){
+					OfficerProfile officerProfile = OfficerProfile.find(e.getProbationOfficerId());
+					resp.setProbationOfficerLogonId((officerProfile != null) ? officerProfile.getLogonId() : "" );
+				}
+			}
+			resp.setCasefileId(e.getCaseFileId());
+			resp.setServiceEventId(e.getServiceEventId());
+			
+			/**
+			if (!(PDConstants.CAL_DETAIL_MEDIUM.equals(calDetailLevel) || PDConstants.CAL_DETAIL_SHORT
+					.equals(calDetailLevel)))
+			{
+				setAssociatedContexts(e, resp);
+			}
+			**/
+			resp.setEventSessionLength( UIConstants.EMPTY_STRING );
+
+			if (e.getCalendarEventId() != null)
+			{
+				// find interview by calEventId
+				Iterator<Interview> interviews = Interview.findByCalEventId(e.getCalendarEventId().toString());
+
+				Interview interview = null;
+				if (interviews.hasNext())
+				{
+					interview = interviews.next();
+				}
+
+				// missing interview specific information if the interview can't be
+				// found
+				if (interview != null)
+				{
+					List personList = new ArrayList();
+					resp.setInterviewId(interview.getOID());
+					if (interview.getInterviewPersons() != null && interview.getInterviewPersons().size() > 0)
+					{
+						Iterator<InterviewPerson> iPersonIter = interview.getInterviewPersons().iterator();
+						while (iPersonIter.hasNext())
+						{
+							InterviewPerson person = iPersonIter.next();
+							InterviewPersonResponseEvent personResponse = new InterviewPersonResponseEvent();
+							personResponse.setInterviewId(null);
+							personResponse.setFirstName(person.getFirstName());
+							personResponse.setMiddleName(person.getMiddleName());
+							personResponse.setLastName(person.getLastName());
+							personList.add(personResponse);
+						}
+					}
+
+					resp.setInterviewPersons(personList);
+					if (e.getJuvLocUnitId() != 0)
+					{
+						resp.setLocationId(e.getServiceLocation().getLocationId());
+						resp.setLocationUnitId(Integer.toString(e.getJuvLocUnitId()));
+						resp.setJuvUnitCd(e.getServiceLocation().getJuvUnitCd());
+						resp.setServiceLocationName(e.getServiceLocation().getLocationUnitName());
+					}
+					else
+					{
+						pd.address.Address address = interview.getCustomAddress();
+
+						StringBuffer sb = new StringBuffer();
+						if (address != null)
+						{
+							sb.append(address.getStreetNum());
+							sb.append(" ");
+							sb.append(address.getStreetName());
+							sb.append(" ");
+							if (address.getCity() != null)
+							{
+								sb.append(address.getCity());
+								sb.append(", ");
+							}
+
+							if (address.getStateId() != null && address.getState() != null)
+							{
+								sb.append(address.getState().getDescription());
+								sb.append(" ");
+							}
+							sb.append(address.getZipCode());
+
+							if( StringUtils.isNotEmpty( address.getAdditionalZipCode() ) )
+							{
+								sb.append("-");
+								sb.append(address.getAdditionalZipCode());
+							}
+						}
+						resp.setServiceLocationName(sb.toString());
+					}
+
+					if (interview.getInterviewTypeId() != null)
+					{
+						resp.setInterviewType(interview.getInterviewType().getDescription());
+					}
+					resp.setInterviewStatusCd(interview.getInterviewStatusCd());
+					resp.setInterviewStatusDescription(interview.getInterviewStatus().getDescription());
+					resp.setCasefileId(interview.getCasefileId());
+				}
+			}
+
+			results.add(resp);
+		}
+	}
+
+	/*
+	 * @param nonInterviewEvents
+	 */
+	private void getNonInterviewEventsDetails(List nonInterviewEvents)
+	{
+		int nonLen = nonInterviewEvents.size();
+
+		for (int j = 0; j < nonLen; j++)
+		{
+			ServiceEventContext e = (ServiceEventContext) nonInterviewEvents.get(j);
+			CalendarServiceEventResponseEvent resp = e.getBasicCalendarServiceResponseEvent();
+			resp.setEventSessionLength( UIConstants.EMPTY_STRING );
+			//setAssociatedContexts(e, resp);
+
+			//Gather ServiceEvent for the ServiceEventAttendence
+			//resp.setJuvenileAttendanceStatus(attendStatus);
+			resp.setJuvenileAttendanceStatus(getJuvenileAttendanceStatus(e));
+			
+			resp.setJuvenileNum(e.getJuvenileId());
+			resp.setProbationOfficerId(e.getProbationOfficerId());
+			//<KISHORE>JIMS200059078 : Calendar: Add new event type Job Visit (PD) - KK
+			//<KISHORE>JIMS200059292 : Administer Location-Unit Location Inactivation(KK)
+			//<KISHORE>JIMS200060153 : MJCW - Schedule Calendar Event is Timing out on SP Events
+			if((PDCalendarConstants.CALENDAR_EVENTS_FOR_INACTIVATE_LOCATION.equalsIgnoreCase(this.getRequestType())) || 
+				PDConstants.JOB_VISIT.equalsIgnoreCase(e.getEventTypeId()) && (StringUtils.isEmpty(e.getMemberEmployId()))){
+				if(StringUtils.isNotEmpty(e.getJuvenileId()) && 
+						!StringUtils.equals(e.getJuvenileId(), PDCalendarConstants.INVALID_JUVENILE_ID)){
+					Juvenile juv = Juvenile.findDetailJuvenile(e.getJuvenileId());
+					if(juv != null){
+						resp.setJuvenileFirstName(juv.getFirstName());
+						resp.setJuvenileLastName(juv.getLastName());
+						resp.setJuvenileMiddleName(juv.getMiddleName());
+					}
+				}
+				if(StringUtils.isNotEmpty(e.getProbationOfficerId())&& 
+						!StringUtils.equals(e.getProbationOfficerId(), PDCalendarConstants.INVALID_OFFICER_ID)){
+					OfficerProfile officerProfile = OfficerProfile.find(e.getProbationOfficerId());
+					resp.setProbationOfficerLogonId((officerProfile != null) ? officerProfile.getLogonId() : "" );
+				}
+			}
+			resp.setCasefileId(e.getCaseFileId());
+
+			if (e.getMemberAddressId() != null)
+			{
+				GetJuvenileMemberAddressEvent fmevt = new GetJuvenileMemberAddressEvent();
+
+				fmevt.setMemberAddressId(e.getMemberAddressId());
+				fmevt.setJuvenileNumber(resp.getJuvenileNum());
+
+				// TODO Refactor to do this in one query outside of a loop
+				Iterator<FamilyMemberAddressView> memberAddressIter = FamilyMemberAddressView.findAll(fmevt);
+				if (memberAddressIter.hasNext())
+				{
+					FamilyMemberAddressView memberAddress = memberAddressIter.next();
+					StringBuffer familyLocation = new StringBuffer();
+					familyLocation.append(memberAddress.getMemberLastName());
+					familyLocation.append(", ");
+					familyLocation.append(memberAddress.getMemberFirstName());
+					familyLocation.append(" - ");
+					familyLocation.append(memberAddress.getRelationshipToJuvenile().getDescription());
+					familyLocation.append(" - ");
+					familyLocation.append(memberAddress.getStreetName());
+					familyLocation.append("; ");
+					
+					if (memberAddress.getCity() != null)
+					{
+						familyLocation.append(memberAddress.getCity());
+						familyLocation.append(", ");
+					}
+					
+					if( StringUtils.isNotEmpty( memberAddress.getStateId() ) &&
+							memberAddress.getState() != null)
+					{
+						familyLocation.append(memberAddress.getState().getDescription());
+					}
+					
+					familyLocation.append(" ");
+					if (memberAddress.getZipCode() != null)
+					{
+						familyLocation.append(memberAddress.getZipCode());
+					}
+					resp.setFamilyLocation(familyLocation.toString());
+				}
+			}  // if e.getMemberAddressId() != null
+
+			if (e.getSchoolCd() != null)
+			{
+				JuvenileSchoolDistrictCode schoolName = e.getSchoolName();
+				resp.setSchoolName(schoolName.getSchoolDescription());
+				resp.setSchoolDistrictName(schoolName.getDistrictDescription());
+			}
+
+			if (e.getFacilityCd() != null)
+			{
+				resp.setFacilityCd(PDCodeHelper.getCodeDescriptionByCode(
+						PDCodeHelper.getCodes(PDCodeTableConstants.FACILITY, false), e.getFacilityCd()));
+			}
+
+			if (e.getJuvLocUnitId() != 0)
+			{
+				String juvLocUnitIdStr = String.valueOf(e.getJuvLocUnitId());
+				JuvLocationUnit locUnit = (JuvLocationUnit) locationMap.get(juvLocUnitIdStr);
+				if (locUnit == null)
+				{
+					locUnit = e.getServiceLocation();
+					locationMap.put(juvLocUnitIdStr, locUnit);
+				}
+				resp.setLocationId(locUnit.getLocationId());
+				resp.setLocationUnitId(juvLocUnitIdStr);
+				resp.setJuvUnitCd(locUnit.getJuvUnitCd());
+				resp.setServiceLocationName(locUnit.getLocationUnitName());
+			}
+			
+			//<KISHORE>JIMS200059078 : Calendar: Add new event type Job Visit (PD) - KK
+			//For Job Visit events, memberEmployId will be stored as a location if they select family member location
+			//and actual location name if they select Juvenile location
+			if(StringUtils.isNotEmpty(e.getMemberEmployId()))
+			{
+				FamilyMemberEmployment employment = FamilyMemberEmployment.find(e.getMemberEmployId());
+				if(employment != null)
+				{
+					GetJuvenileMemberByIdEvent fmevt = new GetJuvenileMemberByIdEvent();
+					fmevt.setMemberNum(employment.getFamilyMemberId());
+					fmevt.setJuvenileId(resp.getJuvenileNum());
+					
+					Iterator<AssociatedJuvMemberView> memberAddressIter = AssociatedJuvMemberView.findAll(fmevt);
+					StringBuffer familyLocation = new StringBuffer();
+					if (memberAddressIter.hasNext())
+					{
+						AssociatedJuvMemberView memberAddress = memberAddressIter.next();
+						familyLocation.append(memberAddress.getLastName());
+						familyLocation.append(", ");
+						familyLocation.append(memberAddress.getFirstName());
+						familyLocation.append(" - ");
+						familyLocation.append(memberAddress.getRelationshipToJuvenile().getDescription());
+						familyLocation.append("; ");
+						familyLocation.append(employment.getCurrentEmployer());
+					}
+					resp.setLocation(familyLocation.toString());
+				}
+			}
+			else if(e.getLocation() != null)
+			{
+				if(PDConstants.JOB_VISIT.equalsIgnoreCase(e.getEventTypeId()))
+				{
+					StringBuffer juvLocation = new StringBuffer();
+					if(StringUtils.isNotEmpty(resp.getJuvenileLastName()))
+					{
+						Name juvName = new Name( resp.getJuvenileFirstName(), resp.getJuvenileMiddleName(), resp.getJuvenileLastName() ) ;
+						juvLocation.append(juvName.getFormattedName());
+						juvLocation.append(" - JUVENILE; ");
+						juvLocation.append(e.getLocation());
+					}
+					resp.setLocation(juvLocation.toString());
+				}
+				else
+				{
+					resp.setLocation(e.getLocation());
+				}
+			}
+
+			results.add(resp);
+		}
+	}
+
+	/*
+	 * @param preScheduledEvents
+	 */
+	private void getPreScheduledEventsDetails(List preScheduledEvents)
+	{
+		List list = new FastArrayList();
+		Set juvLocIds = new HashSet();
+		Set serviceIdSet = new HashSet();
+
+		int len = preScheduledEvents.size();
+		for (int i = 0; i < len; i++)
+		{
+			ServiceEventContext e = (ServiceEventContext) preScheduledEvents.get(i);
+			
+			serviceIdSet.add(String.valueOf(e.getServiceId()));
+			juvLocIds.add(String.valueOf(e.getJuvLocUnitId()));
+			list.add(e);
+		}
+
+		StringBuffer juvLocUnitIds = new StringBuffer();
+		Iterator juvLocs = juvLocIds.iterator();
+		while (juvLocs.hasNext())
+		{
+			String juvLocUnitId = (String) juvLocs.next();
+			juvLocUnitIds.append(juvLocUnitId);
+			if (juvLocs.hasNext())
+			{
+				juvLocUnitIds.append(",");
+			}
+		}
+
+		Map juvLocMap = new FastHashMap();
+		if (juvLocUnitIds.length() > 0)
+		{
+			GetAllJuvLocationUnitsByJuvLocIdEvent jEvent = new GetAllJuvLocationUnitsByJuvLocIdEvent();
+			jEvent.setJuvLocUnitId(juvLocUnitIds.toString());
+			Iterator<JuvLocationUnit> juvIter = JuvLocationUnit.findAll(jEvent);
+			while (juvIter.hasNext())
+			{
+				JuvLocationUnit j = juvIter.next();
+				if (!juvLocMap.containsKey(j.getOID()))
+				{
+					juvLocMap.put(j.getOID(), j);
+				}
+			}
+		}
+
+		GetServiceProviderFromServiceIdEvent getServiceProviderFromServiceIdEvent = new GetServiceProviderFromServiceIdEvent();
+		getServiceProviderFromServiceIdEvent.setServiceIdList(serviceIdSet);
+
+		Map serviceMap = new FastHashMap();
+		Iterator<JuvenileServiceProvider> iter = JuvenileServiceProvider.findAll(getServiceProviderFromServiceIdEvent);
+		while (iter.hasNext())
+		{
+			JuvenileServiceProvider jsp = iter.next();
+			serviceMap.put(String.valueOf(jsp.getServiceId()), jsp);
+		}
+
+		for (int i = 0; i < len; i++)
+		{
+			ServiceEventContext e = (ServiceEventContext) preScheduledEvents.get(i);
+			CalendarServiceEventResponseEvent resp = e.getBasicCalendarServiceResponseEvent();
+			
+			//Gather ServiceEvent for the ServiceEventAttendence
+			//resp.setJuvenileAttendanceStatus(attendStatus);
+			resp.setJuvenileAttendanceStatus(getJuvenileAttendanceStatus(e));
+			resp.setJuvenileNum(e.getJuvenileId());
+			resp.setProbationOfficerId(e.getProbationOfficerId());
+			//<KISHORE>JIMS200059292 : Administer Location-Unit Location Inactivation(KK)
+			//<KISHORE>JIMS200060153 : MJCW - Schedule Calendar Event is Timing out on SP Events
+			if(PDCalendarConstants.CALENDAR_EVENTS_FOR_INACTIVATE_LOCATION.equalsIgnoreCase(this.getRequestType())){
+				if(StringUtils.isNotEmpty(e.getJuvenileId()) && 
+						!StringUtils.equals(e.getJuvenileId(), PDCalendarConstants.INVALID_JUVENILE_ID)){
+					Juvenile juv = Juvenile.findDetailJuvenile(e.getJuvenileId());
+					if(juv != null){
+						resp.setJuvenileFirstName(juv.getFirstName());
+						resp.setJuvenileLastName(juv.getLastName());
+						resp.setJuvenileMiddleName(juv.getMiddleName());
+					}
+				}
+				if(StringUtils.isNotEmpty(e.getProbationOfficerId())&& 
+						!StringUtils.equals(e.getProbationOfficerId(), PDCalendarConstants.INVALID_OFFICER_ID)){
+					OfficerProfile officerProfile = OfficerProfile.find(e.getProbationOfficerId());
+					resp.setProbationOfficerLogonId((officerProfile != null) ? officerProfile.getLogonId() : "" );
+				}
+			}
+			resp.setCasefileId(e.getCaseFileId());
+
+			JuvLocationUnit loc = (JuvLocationUnit) juvLocMap.get(String.valueOf(e.getJuvLocUnitId()));
+			if (loc != null)
+			{
+				resp.setLocationId(loc.getLocationId());
+				resp.setJuvUnitCd(loc.getJuvUnitCd());
+				resp.setServiceLocationName(loc.getLocationUnitName());
+			}
+
+			resp.setServiceLocationId(String.valueOf(e.getJuvLocUnitId()));
+			resp.setLocationUnitId(String.valueOf(e.getJuvLocUnitId()));
+			if( !(PDConstants.CAL_DETAIL_MEDIUM.equals(calDetailLevel) || 
+					PDConstants.CAL_DETAIL_SHORT.equals(calDetailLevel)))
+			{
+				//setAssociatedContexts(e, resp);
+				String instructorIdStr = String.valueOf(e.getInstructorId());
+				SP_Profile sp = (SP_Profile) spMap.get(instructorIdStr);
+				if (sp == null)
+				{
+					sp = e.getInstructor();
+					spMap.put(instructorIdStr, sp);
+				}
+
+				resp.setInstructorId(e.getInstructorId());
+				resp.setInstructorName(sp.getLastName() + ", " + sp.getFirstName());
+			}
+			resp.setMaxAttendance(String.valueOf(e.getEventMaximum()));
+			resp.setMinAttendance(String.valueOf(e.getEventMinimum()));
+			resp.setCurrentEnrollment(String.valueOf(e.getCurrentEnrollment()));
+			
+			JuvenileServiceProvider jsp = (JuvenileServiceProvider) serviceMap.get(String.valueOf(e.getServiceId()));
+
+			if (jsp != null) 
+			{
+				if (String.valueOf(jsp.getProviderProgramId()) != null) 
+				{
+					resp.setProgramId(String.valueOf(jsp.getProviderProgramId()));
+				}
+			
+				resp.setProgramName(jsp.getProgramName());
+				resp.setServiceName(jsp.getServiceName());
+				resp.setServiceId(String.valueOf(jsp.getServiceId()));
+				resp.setServiceProviderId(Integer.parseInt(jsp.getServiceProviderId()));
+				resp.setServiceProviderName(jsp.getServiceProviderName());
+				resp.setFax(jsp.getFax());
+				resp.setAdminUserProfileId(jsp.getAdminUserProfileId());
+			}
+
+			results.add(resp);
+		}
+	}
+
+	/*
+	 * 
+	 */
+	private String getJuvenileAttendanceStatus( ServiceEventContext serviceEventContext) 
+	{	
+		String attendStatus = UIConstants.EMPTY_STRING ;
+		ServiceEventAttendance serviceEventAttendance = null;
+		
+		GetJuvenileAttendanceEvent getJuvenileAttendanceEvent = new GetJuvenileAttendanceEvent();
+		getJuvenileAttendanceEvent.setJuvenileId(serviceEventContext.getJuvenileId());
+		getJuvenileAttendanceEvent.setServiceEventId(serviceEventContext.getServiceEventId());
+		
+		Iterator<ServiceEventAttendance> attenIter = ServiceEventAttendance.findAll(getJuvenileAttendanceEvent);
+		if( attenIter.hasNext() ) 
+		{
+			 serviceEventAttendance = attenIter.next();
+		}
+		
+		if (serviceEventAttendance != null) 
+		{
+			attendStatus = serviceEventAttendance.getAttendanceStatusCd().trim();
+		}
+		
+		return attendStatus;
+	}
+
+	/*
+	 * (non-Javadoc)
+	 * 
+	 * @see mojo.pattern.IBuilder#getResult()
+	 */
+	public Object getResult()
+	{
+		return results;
+	}
+
+	/**
+	 * @param calDetailLevel
+	 *            The calDetailLevel to set.
+	 */
+	public void setCalDetailLevel(String calDetailLevel)
+	{
+		this.calDetailLevel = calDetailLevel;
+	}
+
+	/*
+	 * 
+	 */
+	public void setFilterInvalidContexts(boolean filter)
+	{
+		this.filterInvalidContexts = filter;
+	}
+
+	/**
+	 * @param serviceEventContexts
+	 *            The serviceEventContexts to set.
+	 */
+	public void setServiceEventContexts(List serviceEventContexts)
+	{
+		this.serviceEventContexts = serviceEventContexts;
+	}
+
+	/**
+	 * @return the requestType
+	 */
+	public String getRequestType() {
+		return requestType;
+	}
+
+	/**
+	 * @param requestType the requestType to set
+	 */
+	public void setRequestType(String requestType) {
+		this.requestType = requestType;
+	}
+}

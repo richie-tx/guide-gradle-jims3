@@ -1,0 +1,338 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Mapping>
+  <EntityMappings>
+    <EntityMapping name="pd.codetable.supervision.SupervisionCode" memberName="severityLevel" contextKey="SEVERITY_LEVEL">
+      <QueryCallbacks>
+        <QueryCallback name="cacheOIDQuery" mappingClassName="mojo.km.context.multidatasource.cache.Mapping" mappingMethodName="retrieveWithOID" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="CSAGENCYCODE" connectionName="JDBCMSSQL" eventName="mojo.km.persistence.OIDEvent" source="CSAGENCYCODE" whereClause="AGENCYCODE_ID = ?">
+			<ParmMappings>
+				<ParmMapping name="OID" dataItemName="AGENCYCODE_ID" parmIndex="1" format="none" position="2" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="OID" propertyType="Numeric" formatString="none" convertWilcard="n" />
+			</ParmMappings>
+		</QueryCallback>
+		<QueryCallback name="cacheGetSupervisionCodesEvent" mappingClassName="mojo.km.context.multidatasource.cache.Mapping" mappingMethodName="retrieve" storedProcedureName="none" cicsProgramName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="CSAGENCYCODE" connectionName="JDBCMSSQL" eventName="messaging.codetable.GetSupervisionCodesEvent" source="CSAGENCYCODE" whereClause="none" />
+        <QueryCallback name="AttributeQuery" mappingClassName="mojo.km.context.multidatasource.JDBCSQLMapping" mappingMethodName="retrieve" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="CSAGENCYCODE" connectionName="JDBCMSSQL" eventName="mojo.km.persistence.AttributeEvent" source="CSAGENCYCODE" whereClause="none">
+          <FieldMappings>
+            <FieldMapping name="codeTableName" associationType="none" dataItemName="CODE_TABLE_NAME" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="codeTableName" propertyType="String" formatString="none" />
+            <FieldMapping name="agencyId" associationType="none" dataItemName="AGENCY_ID" parmIndex="2" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="agencyId" propertyType="String" formatString="none" />
+            <FieldMapping name="OID" associationType="none" dataItemName="AGENCYCODE_ID" parmIndex="5" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="OID" propertyType="String" formatString="none" />
+            <FieldMapping name="code" associationType="none" dataItemName="CODE" parmIndex="4" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="code" propertyType="String" formatString="none" />
+            <FieldMapping name="description" associationType="none" dataItemName="DESCRIPTION" parmIndex="3" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="description" propertyType="String" formatString="none" />
+          </FieldMappings>
+        </QueryCallback>
+        <QueryCallback name="OIDQuery" mappingClassName="mojo.km.context.multidatasource.JDBCSQLMapping" mappingMethodName="retrieve" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="CSAGENCYCODE" connectionName="JDBCMSSQL" eventName="mojo.km.persistence.OIDEvent" source="CSAGENCYCODE" whereClause="AGENCYCODE_ID = ?">
+          <ParmMappings>
+            <ParmMapping name="OID" dataItemName="AGENCYCODE_ID" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="OID" propertyType="Numeric" formatString="none" convertWilcard="n" />
+          </ParmMappings>
+          <FieldMappings>
+            <FieldMapping name="codeTableName" associationType="none" dataItemName="CODE_TABLE_NAME" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="codeTableName" propertyType="String" formatString="none" />
+            <FieldMapping name="agencyId" associationType="none" dataItemName="AGENCY_ID" parmIndex="2" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="agencyId" propertyType="String" formatString="none" />
+            <FieldMapping name="OID" associationType="none" dataItemName="AGENCYCODE_ID" parmIndex="5" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="OID" propertyType="String" formatString="none" />
+            <FieldMapping name="code" associationType="none" dataItemName="CODE" parmIndex="4" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="code" propertyType="String" formatString="none" />
+            <FieldMapping name="description" associationType="none" dataItemName="DESCRIPTION" parmIndex="3" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="description" propertyType="String" formatString="none" />
+          </FieldMappings>
+        </QueryCallback>
+      </QueryCallbacks>
+      <SaveCallbacks>
+        <SaveCallback name="Save" mappingClassName="mojo.km.context.multidatasource.JDBCSQLMapping" mappingMethodName="save" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="CSAGENCYCODE" connectionName="JDBCMSSQL" whereClause="none" source="CSAGENCYCODE">
+          <FieldMappings>
+            <FieldMapping name="codeTableName" associationType="none" dataItemName="CODE_TABLE_NAME" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="codeTableName" propertyType="String" formatString="none" />
+            <FieldMapping name="agencyId" associationType="none" dataItemName="AGENCY_ID" parmIndex="2" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="agencyId" propertyType="String" formatString="none" />
+            <FieldMapping name="code" associationType="none" dataItemName="CODE" parmIndex="4" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="code" propertyType="String" formatString="none" />
+            <FieldMapping name="description" associationType="none" dataItemName="DESCRIPTION" parmIndex="3" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="description" propertyType="String" formatString="none" />
+          </FieldMappings>
+        </SaveCallback>
+      </SaveCallbacks>
+    </EntityMapping>
+    <EntityMapping name="pd.codetable.supervision.SupervisionCode" contextKey="pd.codetable.supervision.SupervisionCode">
+      <QueryCallbacks>
+       <QueryCallback name="cacheOIDQuery" mappingClassName="mojo.km.context.multidatasource.cache.Mapping" mappingMethodName="retrieveWithOID" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="CSAGENCYCODE" connectionName="JDBCMSSQL" eventName="mojo.km.persistence.OIDEvent" source="CSAGENCYCODE" whereClause="none">
+		  <ParmMappings>
+            <ParmMapping name="OID" dataItemName="AGENCYCODE_ID" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="OID" propertyType="Numeric" formatString="none" convertWilcard="n" />
+          </ParmMappings>
+		</QueryCallback> 
+		 <QueryCallback name="OIDQuery" mappingClassName="mojo.km.context.multidatasource.JDBCSQLMapping" mappingMethodName="retrieve" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="CSAGENCYCODE" connectionName="JDBCMSSQL" eventName="mojo.km.persistence.OIDEvent" source="CSAGENCYCODE" whereClause="AGENCYCODE_ID = ?">
+          <ParmMappings>
+            <ParmMapping name="OID" dataItemName="AGENCYCODE_ID" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="OID" propertyType="Numeric" formatString="none" convertWilcard="n" />
+          </ParmMappings>
+          <FieldMappings>
+            <FieldMapping name="codeTableName" associationType="none" dataItemName="CODE_TABLE_NAME" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="codeTableName" propertyType="String" formatString="none" />
+            <FieldMapping name="agencyId" associationType="none" dataItemName="AGENCY_ID" parmIndex="2" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="agencyId" propertyType="String" formatString="none" />
+            <FieldMapping name="OID" associationType="none" dataItemName="AGENCYCODE_ID" parmIndex="5" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="OID" propertyType="String" formatString="none" />
+            <FieldMapping name="code" associationType="none" dataItemName="CODE" parmIndex="4" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="code" propertyType="String" formatString="none" />
+            <FieldMapping name="description" associationType="none" dataItemName="DESCRIPTION" parmIndex="3" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="description" propertyType="String" formatString="none" />
+            <FieldMapping name="createUserID" associationType="none" dataItemName="CREATEUSER" parmIndex="6" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="createUserID" propertyType="String" formatString="none" />                   
+			<FieldMapping name="createTimestamp" associationType="none" dataItemName="CREATEDATE" parmIndex="7" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" length="4" text="" propertyName="createTimestamp" propertyType="Timestamp" formatString="none" />                        
+			<FieldMapping name="updateUserID" associationType="none" dataItemName="UPDATEUSER" parmIndex="8" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="updateUserID" propertyType="String" formatString="none" />                   
+			<FieldMapping name="updateTimestamp" associationType="none" dataItemName="UPDATEDATE" parmIndex="9" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" length="4" text="" propertyName="updateTimestamp" propertyType="Timestamp" formatString="none" />
+			<FieldMapping name="createJIMS2UserID" associationType="none" dataItemName="CREATEJIMS2USER" parmIndex="10" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="createJIMS2UserID" propertyType="String" formatString="none" />					                        
+			<FieldMapping name="updateJIMS2UserID" associationType="none" dataItemName="UPDATEJIMS2USER" parmIndex="11" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="updateJIMS2UserID" propertyType="String" formatString="none" />					
+          </FieldMappings>
+        </QueryCallback>
+        <QueryCallback name="cacheAttributeQuery" mappingClassName="mojo.km.context.multidatasource.cache.Mapping" mappingMethodName="retrieve" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="none" connectionName="none" eventName="mojo.km.persistence.AttributeEvent" source="none" whereClause="none" />
+        <QueryCallback name="AttributeQuery" mappingClassName="mojo.km.context.multidatasource.JDBCSQLMapping" mappingMethodName="retrieve" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="CSAGENCYCODE" connectionName="JDBCMSSQL" eventName="mojo.km.persistence.AttributeEvent" source="CSAGENCYCODE" whereClause="none">
+          <ParmMappings>
+          </ParmMappings>
+          <FieldMappings>
+            <FieldMapping name="codeTableName" associationType="none" dataItemName="CODE_TABLE_NAME" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="codeTableName" propertyType="String" formatString="none" />
+            <FieldMapping name="agencyId" associationType="none" dataItemName="AGENCY_ID" parmIndex="2" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="agencyId" propertyType="String" formatString="none" />
+            <FieldMapping name="OID" associationType="none" dataItemName="AGENCYCODE_ID" parmIndex="5" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="OID" propertyType="String" formatString="none" />
+            <FieldMapping name="code" associationType="none" dataItemName="CODE" parmIndex="4" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="code" propertyType="String" formatString="none" />
+            <FieldMapping name="description" associationType="none" dataItemName="DESCRIPTION" parmIndex="3" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="description" propertyType="String" formatString="none" />
+            <FieldMapping name="createUserID" associationType="none" dataItemName="CREATEUSER" parmIndex="6" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="createUserID" propertyType="String" formatString="none" />                   
+			<FieldMapping name="createTimestamp" associationType="none" dataItemName="CREATEDATE" parmIndex="7" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" length="4" text="" propertyName="createTimestamp" propertyType="Timestamp" formatString="none" />                        
+			<FieldMapping name="updateUserID" associationType="none" dataItemName="UPDATEUSER" parmIndex="8" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="updateUserID" propertyType="String" formatString="none" />                   
+			<FieldMapping name="updateTimestamp" associationType="none" dataItemName="UPDATEDATE" parmIndex="9" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" length="4" text="" propertyName="updateTimestamp" propertyType="Timestamp" formatString="none" />
+			<FieldMapping name="createJIMS2UserID" associationType="none" dataItemName="CREATEJIMS2USER" parmIndex="10" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="createJIMS2UserID" propertyType="String" formatString="none" />					                        
+			<FieldMapping name="updateJIMS2UserID" associationType="none" dataItemName="UPDATEJIMS2USER" parmIndex="11" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="updateJIMS2UserID" propertyType="String" formatString="none" />					
+          </FieldMappings>
+        </QueryCallback>
+        <QueryCallback name="AllQuery" mappingClassName="mojo.km.context.multidatasource.JDBCSQLMapping" mappingMethodName="retrieve" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="CSAGENCYCODE" connectionName="JDBCMSSQL" eventName="mojo.km.persistence.AllQueryEvent" source="CSAGENCYCODE" whereClause="none">
+          <FieldMappings>
+            <FieldMapping name="codeTableName" associationType="none" dataItemName="CODE_TABLE_NAME" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="codeTableName" propertyType="String" formatString="none" />
+            <FieldMapping name="agencyId" associationType="none" dataItemName="AGENCY_ID" parmIndex="2" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="agencyId" propertyType="String" formatString="none" />
+            <FieldMapping name="OID" associationType="none" dataItemName="AGENCYCODE_ID" parmIndex="5" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="OID" propertyType="String" formatString="none" />
+            <FieldMapping name="code" associationType="none" dataItemName="CODE" parmIndex="4" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="code" propertyType="String" formatString="none" />
+            <FieldMapping name="description" associationType="none" dataItemName="DESCRIPTION" parmIndex="3" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="description" propertyType="String" formatString="none" />
+            <FieldMapping name="createUserID" associationType="none" dataItemName="CREATEUSER" parmIndex="6" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="createUserID" propertyType="String" formatString="none" />                   
+			<FieldMapping name="createTimestamp" associationType="none" dataItemName="CREATEDATE" parmIndex="7" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" length="4" text="" propertyName="createTimestamp" propertyType="Timestamp" formatString="none" />                        
+			<FieldMapping name="updateUserID" associationType="none" dataItemName="UPDATEUSER" parmIndex="8" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="updateUserID" propertyType="String" formatString="none" />                   
+			<FieldMapping name="updateTimestamp" associationType="none" dataItemName="UPDATEDATE" parmIndex="9" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" length="4" text="" propertyName="updateTimestamp" propertyType="Timestamp" formatString="none" />
+			<FieldMapping name="createJIMS2UserID" associationType="none" dataItemName="CREATEJIMS2USER" parmIndex="10" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="createJIMS2UserID" propertyType="String" formatString="none" />					                        
+			<FieldMapping name="updateJIMS2UserID" associationType="none" dataItemName="UPDATEJIMS2USER" parmIndex="11" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="updateJIMS2UserID" propertyType="String" formatString="none" />					
+          </FieldMappings>
+        </QueryCallback>
+		<QueryCallback name="cacheGetSupervisionCodesEvent" mappingClassName="mojo.km.context.multidatasource.cache.Mapping" mappingMethodName="retrieve" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="CSAGENCYCODE" connectionName="JDBCMSSQL" eventName="messaging.codetable.GetSupervisionCodesEvent" source="CSAGENCYCODE" whereClause="CODE_TABLE_NAME = ? AND AGENCY_ID = ?" />
+        <QueryCallback name="GetSupervisionCodesEvent" mappingClassName="mojo.km.context.multidatasource.JDBCSQLMapping" mappingMethodName="retrieve" storedProcedureName="none" cicsProgramName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="CSAGENCYCODE" connectionName="JDBCMSSQL" eventName="messaging.codetable.GetSupervisionCodesEvent" source="CSAGENCYCODE" whereClause="CODE_TABLE_NAME = ? AND AGENCY_ID = ?">
+          <ParmMappings>
+            <ParmMapping name="codeTableName" dataItemName="CODE_TABLE_NAME" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="" propertyName="codeTableName" propertyType="String" formatString="none" convertWilcard="none" />
+            <ParmMapping name="agencyId" dataItemName="AGENCY_ID" parmIndex="2" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="" propertyName="agencyId" propertyType="String" formatString="none" convertWilcard="none" />
+          </ParmMappings>
+          <FieldMappings>
+            <FieldMapping name="codeTableName" associationType="none" dataItemName="CODE_TABLE_NAME" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="codeTableName" propertyType="String" formatString="none" />
+            <FieldMapping name="agencyId" associationType="none" dataItemName="AGENCY_ID" parmIndex="2" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="agencyId" propertyType="String" formatString="none" />
+            <FieldMapping name="OID" associationType="none" dataItemName="AGENCYCODE_ID" parmIndex="5" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="OID" propertyType="String" formatString="none" />
+            <FieldMapping name="code" associationType="none" dataItemName="CODE" parmIndex="4" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="code" propertyType="String" formatString="none" />
+            <FieldMapping name="description" associationType="none" dataItemName="DESCRIPTION" parmIndex="3" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="description" propertyType="String" formatString="none" />
+          </FieldMappings>
+        </QueryCallback>
+		<QueryCallback name="cacheGetSupervisionCodesByCodeEvent" mappingClassName="mojo.km.context.multidatasource.cache.Mapping" mappingMethodName="retrieve" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="CSAGENCYCODE" connectionName="JDBCMSSQL" eventName="messaging.codetable.GetSupervisionCodesByCodeEvent" source="CSAGENCYCODE" whereClause="CODE_TABLE_NAME = ? AND AGENCY_ID = ? AND CODE = ?" />
+         <QueryCallback name="GetSupervisionCodesByCodeEvent" mappingClassName="mojo.km.context.multidatasource.JDBCSQLMapping" mappingMethodName="retrieve" storedProcedureName="none" cicsProgramName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="CSAGENCYCODE" connectionName="JDBCMSSQL" eventName="messaging.codetable.GetSupervisionCodesByCodeEvent" source="CSAGENCYCODE" whereClause="CODE_TABLE_NAME = ? AND AGENCY_ID = ? AND CODE = ?">
+          <ParmMappings>
+            <ParmMapping name="codeTableName" dataItemName="CODE_TABLE_NAME" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="" propertyName="codeTableName" propertyType="String" formatString="none" convertWilcard="none" />
+            <ParmMapping name="agencyId" dataItemName="AGENCY_ID" parmIndex="2" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="" propertyName="agencyId" propertyType="String" formatString="none" convertWilcard="none" />
+            <ParmMapping name="codeId" associationType="none" dataItemName="CODE" parmIndex="3" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="codeId" propertyType="String" formatString="none" />
+          </ParmMappings>
+          <FieldMappings>
+            <FieldMapping name="codeTableName" associationType="none" dataItemName="CODE_TABLE_NAME" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="codeTableName" propertyType="String" formatString="none" />
+            <FieldMapping name="agencyId" associationType="none" dataItemName="AGENCY_ID" parmIndex="2" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="agencyId" propertyType="String" formatString="none" />
+            <FieldMapping name="OID" associationType="none" dataItemName="AGENCYCODE_ID" parmIndex="5" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="OID" propertyType="String" formatString="none" />
+            <FieldMapping name="code" associationType="none" dataItemName="CODE" parmIndex="4" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="code" propertyType="String" formatString="none" />
+            <FieldMapping name="description" associationType="none" dataItemName="DESCRIPTION" parmIndex="3" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="description" propertyType="String" formatString="none" />
+          </FieldMappings>
+        </QueryCallback>   
+		<QueryCallback name="cacheGetSupervisionCodesByValueEvent" mappingClassName="mojo.km.context.multidatasource.cache.Mapping" mappingMethodName="retrieve" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="CSAGENCYCODE" connectionName="JDBCMSSQL" eventName="messaging.codetable.GetSupervisionCodesByValueEvent" source="CSAGENCYCODE" whereClause="CODE_TABLE_NAME = ? AND AGENCY_ID = ? AND DESCRIPTION LIKE ?" />
+         <QueryCallback name="GetSupervisionCodesByValueEvent" mappingClassName="mojo.km.context.multidatasource.JDBCSQLMapping" mappingMethodName="retrieve" storedProcedureName="none" cicsProgramName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="CSAGENCYCODE" connectionName="JDBCMSSQL" eventName="messaging.codetable.GetSupervisionCodesByValueEvent" source="CSAGENCYCODE" whereClause="CODE_TABLE_NAME = ? AND AGENCY_ID = ? AND DESCRIPTION LIKE ?">
+          <ParmMappings>
+            <ParmMapping name="codeTableName" dataItemName="CODE_TABLE_NAME" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="" propertyName="codeTableName" propertyType="String" formatString="none" convertWilcard="none" />
+            <ParmMapping name="agencyId" dataItemName="AGENCY_ID" parmIndex="2" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="" propertyName="agencyId" propertyType="String" formatString="none" convertWilcard="none" />
+            <ParmMapping name="description" associationType="none" dataItemName="DESCRIPTION" parmIndex="3" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="description" propertyType="String" formatString="none" />
+          </ParmMappings>
+          <FieldMappings>
+            <FieldMapping name="codeTableName" associationType="none" dataItemName="CODE_TABLE_NAME" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="codeTableName" propertyType="String" formatString="none" />
+            <FieldMapping name="agencyId" associationType="none" dataItemName="AGENCY_ID" parmIndex="2" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="agencyId" propertyType="String" formatString="none" />
+            <FieldMapping name="OID" associationType="none" dataItemName="AGENCYCODE_ID" parmIndex="5" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="OID" propertyType="String" formatString="none" />
+            <FieldMapping name="code" associationType="none" dataItemName="CODE" parmIndex="4" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="code" propertyType="String" formatString="none" />
+            <FieldMapping name="description" associationType="none" dataItemName="DESCRIPTION" parmIndex="3" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="description" propertyType="String" formatString="none" />
+          </FieldMappings>
+        </QueryCallback> 
+      </QueryCallbacks>
+      <SaveCallbacks>
+        <SaveCallback name="Save" mappingClassName="mojo.km.context.multidatasource.JDBCSQLMapping" mappingMethodName="save" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="CSAGENCYCODE" connectionName="JDBCMSSQL" whereClause="AGENCYCODE_ID = ?" source="CSAGENCYCODE">
+          <ParmMappings>
+				<ParmMapping name="OID" dataItemName="AGENCYCODE_ID" parmIndex="7" format="none" position="2" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="OID" propertyType="Numeric" formatString="none" convertWilcard="n" />
+			</ParmMappings>
+          <FieldMappings>
+            <FieldMapping name="codeTableName" associationType="none" dataItemName="CODE_TABLE_NAME" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="codeTableName" propertyType="String" formatString="none" />
+            <FieldMapping name="agencyId" associationType="none" dataItemName="AGENCY_ID" parmIndex="2" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="agencyId" propertyType="String" formatString="none" />
+            <FieldMapping name="code" associationType="none" dataItemName="CODE" parmIndex="4" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="code" propertyType="String" formatString="none" />
+            <FieldMapping name="description" associationType="none" dataItemName="DESCRIPTION" parmIndex="3" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="description" propertyType="String" formatString="none" />
+            <FieldMapping name="createUserID" associationType="none" dataItemName="CREATEUSER" parmIndex="5" format="none" position="15" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="createUserID" propertyType="user" formatString="none" />                   
+			<FieldMapping name="createJIMS2UserID" associationType="none" dataItemName="CREATEJIMS2USER" parmIndex="6" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="createJIMS2UserID" propertyType="JIMS2User" formatString="none" />					
+          </FieldMappings>
+        </SaveCallback>
+      </SaveCallbacks>
+    </EntityMapping>
+    <EntityMapping name="pd.codetable.supervision.Magistrate" contextKey="pd.codetable.supervision.Magistrate">
+      <QueryCallbacks>
+        <QueryCallback name="OIDQuery" mappingClassName="mojo.km.context.multidatasource.JDBCSQLMapping" mappingMethodName="retrieve" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="CSMAGISTRATE" connectionName="JDBCMSSQL" eventName="mojo.km.persistence.OIDEvent" source="CSMAGISTRATE" whereClause="none">
+          <ParmMappings>
+            <ParmMapping name="OID" dataItemName="MAGISTRATE_ID" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="OID" propertyType="Numeric" formatString="none" convertWilcard="n" />
+          </ParmMappings>
+           <FieldMappings>
+            <FieldMapping name="OID" associationType="none" dataItemName="MAGISTRATE_ID" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="OID" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="middleName" associationType="none" dataItemName="MIDDLENAME" parmIndex="2" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="middleName" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="lastName" associationType="none" dataItemName="LASTNAME" parmIndex="3" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="lastName" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="firstName" associationType="none" dataItemName="FIRSTNAME" parmIndex="4" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="firstName" propertyType="String" formatString="none" convertWilcard="n" />
+          </FieldMappings>
+        </QueryCallback>
+        <QueryCallback name="AttributeQuery" mappingClassName="mojo.km.context.multidatasource.JDBCSQLMapping" mappingMethodName="retrieve" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="CSMAGISTRATE" connectionName="JDBCMSSQL" eventName="mojo.km.persistence.AttributeEvent" source="CSMAGISTRATE" whereClause="none">
+          <FieldMappings>
+             <FieldMapping name="OID" associationType="none" dataItemName="MAGISTRATE_ID" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="OID" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="middleName" associationType="none" dataItemName="MIDDLENAME" parmIndex="2" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="middleName" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="lastName" associationType="none" dataItemName="LASTNAME" parmIndex="3" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="lastName" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="firstName" associationType="none" dataItemName="FIRSTNAME" parmIndex="4" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="firstName" propertyType="String" formatString="none" convertWilcard="n" />
+          </FieldMappings>
+        </QueryCallback>
+        <QueryCallback name="AllQuery" mappingClassName="mojo.km.context.multidatasource.JDBCSQLMapping" mappingMethodName="retrieve" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="CSMAGISTRATE" connectionName="JDBCMSSQL" eventName="mojo.km.persistence.AllQueryEvent" source="CSMAGISTRATE" whereClause="none">
+          <FieldMappings>
+            <FieldMapping name="OID" associationType="none" dataItemName="MAGISTRATE_ID" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="OID" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="middleName" associationType="none" dataItemName="MIDDLENAME" parmIndex="2" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="middleName" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="lastName" associationType="none" dataItemName="LASTNAME" parmIndex="3" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="lastName" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="firstName" associationType="none" dataItemName="FIRSTNAME" parmIndex="4" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="firstName" propertyType="String" formatString="none" convertWilcard="n" />
+          </FieldMappings>
+        </QueryCallback>
+        <QueryCallback name="GetMagistratesQuery" mappingClassName="mojo.km.context.multidatasource.JDBCSQLMapping" mappingMethodName="retrieve" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="CSMAGISTRATE" connectionName="JDBCMSSQL" eventName="messaging.codetable.GetMagistratesEvent" source="CSMAGISTRATE" whereClause="none">
+          <FieldMappings>
+            <FieldMapping name="OID" associationType="none" dataItemName="MAGISTRATE_ID" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="OID" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="middleName" associationType="none" dataItemName="MIDDLENAME" parmIndex="2" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="middleName" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="lastName" associationType="none" dataItemName="LASTNAME" parmIndex="3" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="lastName" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="firstName" associationType="none" dataItemName="FIRSTNAME" parmIndex="4" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="firstName" propertyType="String" formatString="none" convertWilcard="n" />
+          </FieldMappings>
+        </QueryCallback>
+      </QueryCallbacks>
+      <SaveCallbacks>
+        <SaveCallback name="Save" mappingClassName="mojo.km.context.multidatasource.JDBCSQLMapping" mappingMethodName="save" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="CSMAGISTRATE" connectionName="JDBCMSSQL" whereClause="none" source="CSMAGISTRATE">
+          <ParmMappings>
+            <ParmMapping name="OID" dataItemName="MAGISTRATE_ID" parmIndex="5" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="OID" propertyType="Numeric" formatString="none" convertWilcard="n" />
+          </ParmMappings>
+          <FieldMappings>
+            <FieldMapping name="middleName" associationType="none" dataItemName="MIDDLENAME" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="middleName" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="lastName" associationType="none" dataItemName="LASTNAME" parmIndex="2" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="lastName" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="firstName" associationType="none" dataItemName="FIRSTNAME" parmIndex="3" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="firstName" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="createUserID" associationType="none" dataItemName="CREATEUSER" parmIndex="4" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="createUserID" propertyType="user" formatString="none" />
+          </FieldMappings>
+        </SaveCallback>
+      </SaveCallbacks>
+    </EntityMapping>
+	<EntityMapping name="pd.codetable.supervision.CSEventType" contextKey="pd.codetable.supervision.CSEventType">
+      <QueryCallbacks>
+		<QueryCallback name="OIDQuery" mappingClassName="mojo.km.context.multidatasource.JDBCSQLMapping" mappingMethodName="retrieve" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="CSEVENTTYPE" connectionName="JDBCMSSQL" eventName="mojo.km.persistence.OIDEvent" source="CSEVENTTYPE" whereClause="none">
+          <ParmMappings>
+            <ParmMapping name="OID" dataItemName="EVENTTYPE_ID" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="OID" propertyType="Numeric" formatString="none" convertWilcard="n" />
+          </ParmMappings>
+           <FieldMappings>
+            <FieldMapping name="OID" associationType="none" dataItemName="EVENTTYPE_ID" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="OID" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="code" associationType="none" dataItemName="CODE" parmIndex="2" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="code" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="description" associationType="none" dataItemName="DESCRIPTION" parmIndex="3" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="description" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="accessContext" associationType="none" dataItemName="ACCESSCONTEXT" parmIndex="4" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="accessContext" propertyType="String" formatString="none" convertWilcard="n" />
+			<FieldMapping name="displayContext" associationType="none" dataItemName="DISPLAYCONTEXT" parmIndex="5" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="displayContext" propertyType="String" formatString="none" convertWilcard="n" />
+			<FieldMapping name="categoryId" associationType="none" dataItemName="CATEGORY" parmIndex="6" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="categoryId" propertyType="String" formatString="none" convertWilcard="n" />
+          </FieldMappings>
+        </QueryCallback>
+		<QueryCallback name="cacheAttributeQuery" mappingClassName="mojo.km.context.multidatasource.cache.Mapping" mappingMethodName="retrieve" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="CSEVENTTYPE" connectionName="JDBCMSSQL" eventName="mojo.km.persistence.AttributeEvent" source="CSEVENTTYPE" whereClause="none" />
+        <QueryCallback name="AttributeQuery" mappingClassName="mojo.km.context.multidatasource.JDBCSQLMapping" mappingMethodName="retrieve" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="CSEVENTTYPE" connectionName="JDBCMSSQL" eventName="mojo.km.persistence.AttributeEvent" source="CSEVENTTYPE" whereClause="none">
+          <FieldMappings>
+             <FieldMapping name="OID" associationType="none" dataItemName="EVENTTYPE_ID" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="OID" propertyType="String" formatString="none" convertWilcard="n" />
+             <FieldMapping name="code" associationType="none" dataItemName="CODE" parmIndex="2" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="code" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="description" associationType="none" dataItemName="DESCRIPTION" parmIndex="3" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="description" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="accessContext" associationType="none" dataItemName="ACCESSCONTEXT" parmIndex="4" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="accessContext" propertyType="String" formatString="none" convertWilcard="n" />
+			<FieldMapping name="displayContext" associationType="none" dataItemName="DISPLAYCONTEXT" parmIndex="5" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="displayContext" propertyType="String" formatString="none" convertWilcard="n" />
+			<FieldMapping name="categoryId" associationType="none" dataItemName="CATEGORY" parmIndex="6" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="categoryId" propertyType="String" formatString="none" convertWilcard="n" />
+          </FieldMappings>
+        </QueryCallback>
+        <QueryCallback name="AllQuery" mappingClassName="mojo.km.context.multidatasource.JDBCSQLMapping" mappingMethodName="retrieve" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="CSEVENTTYPE" connectionName="JDBCMSSQL" eventName="mojo.km.persistence.AllQueryEvent" source="CSEVENTTYPE" whereClause="none">
+          <FieldMappings>
+            <FieldMapping name="OID" associationType="none" dataItemName="EVENTTYPE_ID" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="OID" propertyType="String" formatString="none" convertWilcard="n" />
+             <FieldMapping name="code" associationType="none" dataItemName="CODE" parmIndex="2" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="code" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="description" associationType="none" dataItemName="DESCRIPTION" parmIndex="3" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="description" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="accessContext" associationType="none" dataItemName="ACCESSCONTEXT" parmIndex="4" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="accessContext" propertyType="String" formatString="none" convertWilcard="n" />
+			<FieldMapping name="displayContext" associationType="none" dataItemName="DISPLAYCONTEXT" parmIndex="5" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="displayContext" propertyType="String" formatString="none" convertWilcard="n" />
+			<FieldMapping name="categoryId" associationType="none" dataItemName="CATEGORY" parmIndex="6" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="categoryId" propertyType="String" formatString="none" convertWilcard="n" />
+          </FieldMappings>
+        </QueryCallback>        
+      </QueryCallbacks>
+      <SaveCallbacks>
+		<SaveCallback name="cacheSave" mappingClassName="mojo.km.context.multidatasource.cache.Mapping" mappingMethodName="save" storedProcedureName="none" cicsProgramName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="CSEVENTTYPE" connectionName="JDBCMSSQL" whereClause="none" source="CSEVENTTYPE">
+		</SaveCallback>
+		<SaveCallback name="Save" mappingClassName="mojo.km.context.multidatasource.JDBCSQLMapping" mappingMethodName="save" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="CSEVENTTYPE" connectionName="JDBCMSSQL" whereClause="none" source="CSEVENTTYPE">
+          <ParmMappings>
+            <ParmMapping name="OID" dataItemName="EVENTTYPE_ID" parmIndex="5" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="OID" propertyType="Numeric" formatString="none" convertWilcard="n" />
+          </ParmMappings>
+          <FieldMappings>
+            <FieldMapping name="code" associationType="none" dataItemName="CODE" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="code" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="description" associationType="none" dataItemName="DESCRIPTION" parmIndex="2" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="description" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="accessContext" associationType="none" dataItemName="ACCESSCONTEXT" parmIndex="3" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="accessContext" propertyType="String" formatString="none" convertWilcard="n" />
+			<FieldMapping name="displayContext" associationType="none" dataItemName="DISPLAYCONTEXT" parmIndex="4" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="displayContext" propertyType="String" formatString="none" convertWilcard="n" />
+			<FieldMapping name="categoryId" associationType="none" dataItemName="CATEGORY" parmIndex="5" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="categoryId" propertyType="String" formatString="none" convertWilcard="n" />
+          </FieldMappings>
+        </SaveCallback>
+      </SaveCallbacks>
+    </EntityMapping>
+    
+    <!--  Start CS Discharge Reason Complex CodeTable Entity -->	
+    	<EntityMapping name="pd.codetable.supervision.CSDischargeReasonCode" contextKey="pd.codetable.supervision.CSDischargeReasonCode">
+          <QueryCallbacks>
+            <QueryCallback name="OIDQuery" mappingClassName="mojo.km.context.multidatasource.JDBCSQLMapping" mappingMethodName="retrieve" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="CSDISCHGRESCODE" connectionName="JDBCMSSQL" eventName="mojo.km.persistence.OIDEvent" source="CSDISCHGRESCODE" whereClause="DISCHGRESCODE_ID = ?">
+              <ParmMappings>
+                <ParmMapping name="OID" dataItemName="DISCHGRESCODE_ID" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="OID" propertyType="Numeric" formatString="none" convertWilcard="n" />
+              </ParmMappings>
+              <FieldMappings>
+                <FieldMapping name="OID" associationType="none" dataItemName="DISCHGRESCODE_ID" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="OID" propertyType="String" formatString="none" />
+                <FieldMapping name="conversionType" associationType="none" dataItemName="CONVERSIONTYPE" parmIndex="2" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="conversionType" propertyType="String" formatString="none" />
+                <FieldMapping name="code" associationType="none" dataItemName="CODE" parmIndex="3" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="code" propertyType="String" formatString="none" />
+                <FieldMapping name="description" associationType="none" dataItemName="DESCRIPTION" parmIndex="4" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="description" propertyType="String" formatString="none" />
+                <FieldMapping name="relativeCode" associationType="none" dataItemName="RELATIVECODE" parmIndex="5" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="relativeCode" propertyType="String" formatString="none" />
+              </FieldMappings>
+            </QueryCallback>
+            <QueryCallback name="AttributeQuery" mappingClassName="mojo.km.context.multidatasource.JDBCSQLMapping" mappingMethodName="retrieve" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="CSDISCHGRESCODE" connectionName="JDBCMSSQL" eventName="mojo.km.persistence.AttributeEvent" source="CSDISCHGRESCODE" whereClause="none">
+              <FieldMappings>
+                <FieldMapping name="OID" associationType="none" dataItemName="DISCHGRESCODE_ID" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="OID" propertyType="String" formatString="none" />
+                <FieldMapping name="conversionType" associationType="none" dataItemName="CONVERSIONTYPE" parmIndex="2" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="conversionType" propertyType="String" formatString="none" />
+                <FieldMapping name="code" associationType="none" dataItemName="CODE" parmIndex="3" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="code" propertyType="String" formatString="none" />
+                <FieldMapping name="description" associationType="none" dataItemName="DESCRIPTION" parmIndex="4" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="description" propertyType="String" formatString="none" />
+                <FieldMapping name="relativeCode" associationType="none" dataItemName="RELATIVECODE" parmIndex="5" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="relativeCode" propertyType="String" formatString="none" />
+              </FieldMappings>
+            </QueryCallback>
+             <QueryCallback name="GetRelativeCodeQuery" mappingClassName="mojo.km.context.multidatasource.JDBCSQLMapping" mappingMethodName="retrieve" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="CSDISCHGRESCODE" connectionName="JDBCMSSQL" eventName="messaging.codetable.GetRelativeCodeEvent" source="CSDISCHGRESCODE" whereClause="CONVERSIONTYPE = ? and CODE = ?">
+              <ParmMappings>
+                <ParmMapping name="conversionType" dataItemName="CONVERSIONTYPE" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="conversionType" propertyType="String" formatString="none" convertWilcard="n" />
+                <ParmMapping name="code" dataItemName="CODE" parmIndex="2" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="code" propertyType="String" formatString="none" convertWilcard="n" />
+              </ParmMappings>
+               <FieldMappings>
+                <FieldMapping name="OID" associationType="none" dataItemName="DISCHGRESCODE_ID" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="OID" propertyType="String" formatString="none" />
+                <FieldMapping name="conversionType" associationType="none" dataItemName="CONVERSIONTYPE" parmIndex="2" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="conversionType" propertyType="String" formatString="none" />
+                <FieldMapping name="code" associationType="none" dataItemName="CODE" parmIndex="3" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="code" propertyType="String" formatString="none" />
+                <FieldMapping name="description" associationType="none" dataItemName="DESCRIPTION" parmIndex="4" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="description" propertyType="String" formatString="none" />
+                <FieldMapping name="relativeCode" associationType="none" dataItemName="RELATIVECODE" parmIndex="5" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="relativeCode" propertyType="String" formatString="none" />
+              </FieldMappings>
+            </QueryCallback>
+            <QueryCallback name="AllQuery" mappingClassName="mojo.km.context.multidatasource.JDBCSQLMapping" mappingMethodName="retrieve" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="CSDISCHGRESCODE" connectionName="JDBCMSSQL" eventName="mojo.km.persistence.AllQueryEvent" source="CSDISCHGRESCODE" whereClause="none">
+              <FieldMappings>
+                <FieldMapping name="OID" associationType="none" dataItemName="DISCHGRESCODE_ID" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="OID" propertyType="String" formatString="none" />
+                <FieldMapping name="conversionType" associationType="none" dataItemName="CONVERSIONTYPE" parmIndex="2" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="conversionType" propertyType="String" formatString="none" />
+                <FieldMapping name="code" associationType="none" dataItemName="CODE" parmIndex="3" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="code" propertyType="String" formatString="none" />
+                <FieldMapping name="description" associationType="none" dataItemName="DESCRIPTION" parmIndex="4" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="description" propertyType="String" formatString="none" />
+                <FieldMapping name="relativeCode" associationType="none" dataItemName="RELATIVECODE" parmIndex="5" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="relativeCode" propertyType="String" formatString="none" />
+              </FieldMappings>
+            </QueryCallback>
+            </QueryCallbacks>
+            <SaveCallbacks>
+    	        <SaveCallback name="Save" mappingClassName="mojo.km.context.multidatasource.JDBCSQLMapping" mappingMethodName="save" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="CSDISCHGRESCODE" connectionName="JDBCMSSQL" whereClause="DISCHGRESCODE_ID = ?" source="CSDISCHGRESCODE">
+    	        <ParmMappings>
+    	            <ParmMapping name="OID" dataItemName="DISCHGRESCODE_ID" parmIndex="7" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="OID" propertyType="Numeric" formatString="none" convertWilcard="n" />
+    	        </ParmMappings>
+    	        <FieldMappings>
+    	            <FieldMapping name="conversionType" associationType="none" dataItemName="CONVERSIONTYPE" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="programGroupCode" propertyType="String" formatString="none" />
+    	            <FieldMapping name="code" associationType="none" dataItemName="CODE" parmIndex="2" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="programTypeCode" propertyType="String" formatString="none" />
+    	            <FieldMapping name="description" associationType="none" dataItemName="DESCRIPTION" parmIndex="3" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="programTypeCode" propertyType="String" formatString="none" />
+    	            <FieldMapping name="relativeCode" associationType="none" dataItemName="RELATIVECODE" parmIndex="4" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="programTypeCode" propertyType="String" formatString="none" />
+    	   	        <FieldMapping name="createUserID" associationType="none" dataItemName="CREATEUSER" parmIndex="5" format="none" position="15" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="createUserID" propertyType="user" formatString="none" />               
+    	            <FieldMapping name="createTimestamp" associationType="none" dataItemName="CREATEDATE" parmIndex="6" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" length="4" text="" propertyName="createTimestamp" propertyType="Timestamp" formatString="none" />                        
+    	        </FieldMappings>
+    	        </SaveCallback>
+          </SaveCallbacks>
+        </EntityMapping>
+	<!--  End CS Discharge Reason Complex CodeTable Entity -->
+	
+  </EntityMappings>
+</Mapping>
+

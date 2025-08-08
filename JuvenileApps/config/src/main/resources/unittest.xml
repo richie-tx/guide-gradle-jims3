@@ -1,0 +1,34 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Mojo import="DCdirect.xml">
+    <Servers>
+        <Server name="UnitTest" contextClassName="test.flavor.UnitTestFlavorContextManager">
+            <EventManager>
+                <Async value="mojo.km.dispatch.CurrentContext.CurrentContextStrategy"/>
+                <PubSub value="mojo.km.dispatch.CurrentContext.CurrentContextStrategy"/>
+                <Queue value="mojo.km.dispatch.CurrentContext.CurrentContextStrategy"/>
+                <Reply value="mojo.km.dispatch.CurrentContext.CurrentContextStrategy"/>
+                <Request value="mojo.km.dispatch.CurrentContext.CurrentContextStrategy"/>
+            </EventManager>
+            <Session>
+                <DbURL value="test.flavor.FlavorDatabase:test/flavor/DataGenerator.properties"/>
+            </Session>
+        </Server>
+        <!--
+            This context allows for faster testing - if you use this, no test
+            data will be supplied for you.
+        -->
+        <Server name="SimpleUnitTest" contextClassName="test.flavor.UnitTestFlavorContextManager">
+            <EventManager>
+                <Async value="mojo.km.dispatch.CurrentContext.CurrentContextStrategy"/>
+                <PubSub value="mojo.km.dispatch.CurrentContext.CurrentContextStrategy"/>
+                <Queue value="mojo.km.dispatch.CurrentContext.CurrentContextStrategy"/>
+                <Reply value="mojo.km.dispatch.CurrentContext.CurrentContextStrategy"/>
+                <Request value="mojo.km.dispatch.CurrentContext.CurrentContextStrategy"/>
+            </EventManager>
+            <Session>
+                <DbURL value="test.flavor.FlavorDatabase"/>
+            </Session>
+        </Server>
+    </Servers>
+</Mojo>
+

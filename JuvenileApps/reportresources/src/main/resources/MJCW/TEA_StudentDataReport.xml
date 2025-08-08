@@ -1,0 +1,244 @@
+<?xml version="1.0" encoding="US-ASCII"?>
+<document size="A4" margin-left="25" margin-right="25" margin-top="25" margin-bottom="25">
+
+	<encryption allow-fillin="false" allow-modify-contents="false" allow-degraded-printing="true" allow-screen-readers="false" allow-copy="false"	allow-printing="false"/>
+	<meta author="JIMS2, Harris County" creator="JIMS2, Harris County" title="Social History Report"/>
+
+	<module>
+		<font-def name="arial-9-bold-u" family="arial" style="bold|underline" size="9"/>
+		<font-def name="arial-10-bold-u" family="arial" style="bold|underline" size="10"/>
+		<font-def name="arial-10-bold" family="arial" style="bold" size="10"/>
+		<font-def name="arial-10" family="arial" size="10"/>
+		<font-def name="arial" family="arial" style="normal" size="10"/>
+		<font-def name="arial-11-bold" family="arial" style="bold" size="11"/>
+		<font-def name="arial-11" family="arial" size="11"/>
+		<font-def name="arial-12" family="arial" style="normal" size="12"/>
+		<font-def name="arial-12-bold" family="arial" style="bold" size="12"/>
+		<font-def name="arial-12-bold-u" family="arial" style="bold|underline" size="12"/>
+		<font-def name="arial-14" family="arial" style="normal" size="14"/>
+		
+		<font-def name="title" family="Helvetica" style="bold" size="12"/>
+		<font-def name="header" family="Helvetica" style="bold|underline" size="12"/>
+		<font-def name="label" family="Helvetica" style="bold" size="11"/>
+		<font-def name="text" family="arial" style="normal" size="11"/>
+		<font-def name="text-large" family="Helvetica" style="normal" size="12"/>
+		<font-def name="tableheader" family="Helvetica" style="bold|underline" size="10"/>
+		<font-def name="columnheader" family="Helvetica" style="bold|underline" size="10"/>
+
+		<custom-tag alias="shr-title" tag="paragraph">
+			<attribute name="font" value="title"/>
+		</custom-tag>
+		
+		<custom-tag alias="shr-header" tag="paragraph">
+			<attribute name="font" value="header"/>
+		</custom-tag>
+		
+		<custom-tag alias="shr-label" tag="phrase">
+			<attribute name="font" value="label"/>
+		</custom-tag>
+		
+		<custom-tag alias="shr-text" tag="paragraph">
+			<attribute name="font" value="text"/>
+		</custom-tag>
+		
+		<custom-tag alias="shr-tableheader" tag="phrase">
+			<attribute name="font" value="tableheader"/>
+		</custom-tag>
+		
+		<custom-tag alias="column-header" tag="paragraph">
+			<attribute name="font" value="columnheader"/>
+		</custom-tag>
+	</module>
+	
+	<font-def name="helvetica" family="Helvetica" style="normal" size="12"/>
+	<font-def name="geneva" family="georgia" style="normal" size="12"/>
+
+	<footer padding-top="10">
+		<font size="10" color="black">
+		<footer-part padding-top="15" halign="left" width="500">
+		<table columns="1" width="100" halign="center">
+			<cell halign="center">
+				Page : ${pageNumber , nointrprt} of ${pageCount , nointrprt}
+			</cell>
+			<cell halign="center"><br/></cell>
+		</table>
+		</footer-part>
+		</font>
+	</footer>
+	
+	<!-- DETAIL PAGES -->
+	<new-page size="A4" margin-left="25" margin-right="25" margin-top="25" margin-bottom="25">
+	</new-page>
+	
+    <table columns="2" border-style="none" border-width="0" widths="100" padding="0" spacing-after="10"> 
+		<cell font="arial-14" valign="bottom" halign="Center">
+			<b>TEA Student Data Report</b>
+		</cell>
+	</table>
+	
+	<table width="100" columns="6" widths="16,30,12,10,16,16" padding="1" border-style="none" border-width="0">
+		
+		<table-row halign="left">
+			<cell halign="right" font="arial-10-bold" no-wrap="true">Name:</cell>
+			<cell halign="left" colspan="3" ><shr-text> ${juvenileName}</shr-text></cell>
+			<cell halign="right" font="arial-10-bold" no-wrap="true">Juvenile #:</cell>
+			<cell halign="left"><shr-text> ${juvenileNumber}</shr-text></cell>
+		</table-row>
+		
+		<table-row halign="left">
+			<cell halign="right" font="arial-10-bold" no-wrap="true" >DOB:</cell>
+			<cell halign="left"><shr-text > ${dateOfBirth}</shr-text></cell>
+			<cell halign="right" font="arial-10-bold" no-wrap="true" >Verified?</cell>
+			<cell halign="left"><shr-text> ${verifiedDOB}</shr-text></cell>
+			<cell halign="right" font="arial-10-bold" no-wrap="true" >Current Age:</cell>
+			<cell halign="left"><shr-text> ${currentAge}</shr-text></cell>
+		</table-row>
+		
+		<table-row halign="left">
+			<cell halign="right" font="arial-10-bold" no-wrap="true">SSN/PEIMS ID:</cell>
+			<cell halign="left"><shr-text> ${ssnPEIMSId}</shr-text></cell>
+			<cell halign="right" font="arial-10-bold" no-wrap="true">Gender:</cell>
+			<cell halign="left" colspan="3"><shr-text> ${gender}</shr-text></cell>
+		</table-row>
+		<table-row halign="left">
+			<cell halign="right" font="arial-10-bold" no-wrap="true">EDUCATION ID:</cell>
+			<cell halign="left"><shr-text> ${educationId}</shr-text></cell>
+			<!-- Changes for JIMS200077276 Starts -->
+			<cell halign="right" font="arial-10-bold" no-wrap="true">STUDENT ID:</cell>
+			<cell halign="left"><shr-text> ${studentId}</shr-text></cell>
+			<!-- Changes for JIMS200077276 ends -->
+		</table-row>
+
+		<table-row halign="left">
+			<cell halign="right" font="arial-10-bold" no-wrap="true">Race:</cell>
+			<cell halign="left"><shr-text> ${race}</shr-text></cell>
+			<cell halign="right" font="arial-10-bold" no-wrap="true">Ethnicity:</cell>
+			<cell halign="left" colspan="3"><shr-text> ${ethnicityDesc}</shr-text></cell>
+		</table-row>
+
+		<table-row halign="left">
+			<cell halign="right" font="arial-10-bold" no-wrap="true">Multiracial?</cell>
+			<cell halign="left"><shr-text> ${multiracialDesc}</shr-text></cell>
+			<cell halign="right" font="arial-10-bold" no-wrap="true" >Hispanic?</cell>
+			<cell halign="left" colspan="3"><shr-text> ${hispanicDesc}</shr-text></cell>
+		</table-row>
+	</table>
+	
+	<br/>
+	<br/>
+	
+	<table width="100" columns="2"  widths="25,75" halign="left" spacing-after="10" border-style="none" border-width="0">
+		<table-row halign="left">
+			<cell halign="right" font="arial-10-bold" no-wrap="true">Detention Admit Date: </cell>
+			<cell><shr-text> ${detentionAdmitDate}</shr-text></cell>
+		</table-row>
+	</table>	
+	<br/>
+	
+	<!-- BEGIN FAMILY -->
+	<shr-header halign="center">FAMILY</shr-header>
+	<br/>
+	<table width="100" columns="4" widths="15,35,15,35" padding="1" border-style="none" border-width="0">
+		_foreach_(info ${familyInformation} 'even' 'odd')
+			<!-- Guardian/Relationship -->
+			<table-row halign="left">
+				<cell font="arial-10-bold" no-wrap="true" halign="right">Name:</cell>
+				<cell padding-left="5" halign="left"><shr-text>${info.fullName}</shr-text></cell>
+				
+				<cell font="arial-10-bold" no-wrap="true" halign="right">Relationship:</cell>
+				<cell padding-left="5" halign="left"><shr-text>${info.relationToJuvenile}</shr-text></cell>
+			</table-row>
+			<!-- Address/Phone -->
+			<table-row halign="left">
+				<cell font="arial-10-bold" no-wrap="true" valign="top" halign="right">Address:</cell>
+				<cell padding-left="5" valign="top"><shr-text>${info.formattedAddress1}</shr-text></cell>
+				<cell font="arial-10-bold" no-wrap="true" valign="top" halign="right">Phone#:</cell>
+				<cell padding-left="5" valign="top"><shr-text>${info.formattedPhoneNumber}</shr-text></cell>
+			</table-row>
+			_if_( ${info.formattedAddress2} notEmpty )
+			<table-row halign="left">
+				<cell></cell>
+				<cell padding-left="5" valign="top"><shr-text>${info.formattedAddress2}</shr-text></cell>
+				<cell></cell>
+				<cell></cell>
+			</table-row>
+			 _endif_
+			<!-- Incarcerated/Deceased/Lives With-->
+			<table-row>
+				<cell colspan="4">
+					<table width="100" columns="8" widths="15,10,15,10,15,10,15,10" padding="1" border-style="none" border-width="0">
+						<table-row halign="left">
+							<cell font="arial-10-bold" no-wrap="true" halign="right">Guardian:</cell>
+							<cell padding-left="5" valign="bottom" halign="left"><shr-text>${info.guardianYes}</shr-text></cell>
+						
+							<cell font="arial-10-bold" no-wrap="true" halign="right">Lives With:</cell>
+							<cell padding-left="5" valign="bottom" halign="left"><shr-text>${info.inHomeYes}</shr-text></cell>
+							
+							<cell font="arial-10-bold" no-wrap="true" halign="right">Incarcerated:</cell>
+							<cell padding-left="5" valign="bottom" halign="left"><shr-text>${info.incarceratedYes}</shr-text></cell>
+							
+							<cell font="arial-10-bold" no-wrap="true" halign="right">Deceased:</cell>
+							<cell padding-left="5" valign="bottom" halign="left"><shr-text>${info.deceasedYes}</shr-text></cell>
+						</table-row> 
+					</table>
+				</cell>
+			</table-row>
+			<!-- Blank Row -->
+			<table-row><cell><br/></cell></table-row>
+		_endfor_
+	</table>
+	<br/>
+	<!-- END FAMILY -->
+	<!-- BEGIN SCHOOL HISTORY -->
+	_if_ (${schoolHistory} notEmpty)
+		<shr-header halign="center">SCHOOL HISTORY</shr-header>
+		<br/>
+		<table width="100" columns="4" widths="35,8,25,25" padding="3">
+			<table-header halign="left">
+				<cell><column-header>Name</column-header></cell>
+				<cell><column-header>Grade</column-header></cell>
+				<cell><column-header>Program</column-header></cell>
+				<cell><column-header>Enrollment Status</column-header></cell>
+			</table-header>
+			_foreach_(info ${schoolHistory} 'even' 'odd')
+				<table-row>
+					<cell halign="left" valign="top"><shr-text>${info.schoolDistrict}/${info.school}</shr-text></cell>
+					<cell halign="left" valign="top"><shr-text>${info.gradeLevelDescription}</shr-text></cell>
+					<cell halign="left" valign="top"><shr-text>${info.programAttendingDescription}</shr-text></cell>
+					<cell halign="left" valign="top"><shr-text>${info.exitTypeDescription}</shr-text></cell>
+				</table-row>
+			_endfor_
+		</table>
+		<br/>
+	_endif_
+	<!-- END SCHOOL HISTORY -->	
+	<!-- BEGIN DETENTION/FACILITY HISTORY -->
+	_if_ (${detentionFacilityHistory} notEmpty)
+		<shr-header halign="center">DETENTION/FACILITY HISTORY</shr-header><br/>
+		<table width="100" columns="7" padding="3" widths="9,23,9,15,15,15,14">
+			<table-row halign="left">
+				<cell><column-header>Referral</column-header></cell>
+				<cell><column-header>Facility</column-header></cell>
+				<cell><column-header>Reason</column-header></cell>
+				<cell><column-header>Detained</column-header></cell>
+				<cell><column-header>Released</column-header></cell>
+				<cell><column-header>Released To</column-header></cell>
+				<cell><column-header>Released By</column-header></cell>
+			</table-row>
+			_foreach_(stayRecord ${detentionFacilityHistory} 'even' 'odd')					
+				<table-row>
+					<cell halign="left" valign="top"><shr-text>${stayRecord.referralNumber}</shr-text></cell>
+					<cell halign="left" valign="top"><shr-text>${stayRecord.facilityName}</shr-text></cell>
+					<cell halign="left" valign="top"><shr-text>${stayRecord.admitReason}</shr-text></cell>
+					<cell halign="left" valign="top"><shr-text>${stayRecord.admitDate}</shr-text></cell>
+					<cell halign="left" valign="top"><shr-text>${stayRecord.releaseDate}</shr-text></cell>
+					<cell halign="left" valign="top"><shr-text>${stayRecord.releaseTo}</shr-text></cell>	
+					<cell halign="left" valign="top"><shr-text>${stayRecord.releaseBy}</shr-text></cell>
+				</table-row>
+			_endfor_
+		</table>
+		<br/>
+	_endif_
+	<!-- END DETENTION/FACILITY HISTORY -->
+
+</document>

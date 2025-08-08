@@ -1,0 +1,107 @@
+/*
+ * Created on Oct 19, 2005
+ *
+ * To change the template for this generated file go to
+ * Window&gt;Preferences&gt;Java&gt;Code Generation&gt;Code and Comments
+ */
+package messaging.juvenilecase.reply;
+
+import java.util.Date;
+
+import mojo.km.messaging.ResponseEvent;
+
+/**
+ * @author kmurthy
+ *
+ * To change the template for this generated type comment go to
+ * Window&gt;Preferences&gt;Java&gt;Code Generation&gt;Code and Comments
+ */
+public class RiskAssessmentListResponseEvent extends ResponseEvent implements Comparable
+{
+	private Date assessmentDate = null;
+	private String	assessmentType = "";
+	private String recommendation;
+	private String assessmentID;
+	private String casefileId;
+
+	/**
+	 * @return
+	 */
+	public Date getAssessmentDate()
+	{
+		return assessmentDate;
+	}
+
+	/**
+	 * @return
+	 */
+	public String getAssessmentID()
+	{
+		return assessmentID;
+	}
+
+	/**
+	 * @return
+	 */
+	public String getAssessmentType()
+	{
+		return assessmentType;
+	}
+
+	/**
+	 * @param date
+	 */
+	public void setAssessmentDate(final Date date)
+	{
+		assessmentDate = date;
+	}
+
+	/**
+	 * @param string
+	 */
+	public void setAssessmentID(final String string)
+	{
+		assessmentID = string;
+	}
+
+	/**
+	 * @param string
+	 */
+	public void setAssessmentType(final String string)
+	{
+		assessmentType = string;
+	}
+
+	public int compareTo(Object riskListResponseEvent) throws ClassCastException {
+		if (!(riskListResponseEvent instanceof RiskAssessmentListResponseEvent))
+			 throw new ClassCastException("A RiskAssessmentListResponseEvent object expected.");
+	   	Date riskAssessmentDate = ((RiskAssessmentListResponseEvent) riskListResponseEvent).getAssessmentDate();  
+		if(this.assessmentDate.compareTo(riskAssessmentDate)<0)
+			return -1;
+		else if(this.assessmentDate.compareTo(riskAssessmentDate)>0)
+			return 1;
+		else
+			return 0;
+	 }
+
+	/**
+	 * @return Returns the recommendation.
+	 */
+	public String getRecommendation() {
+		return recommendation;
+	}
+	/**
+	 * @param recommendation The recommendation to set.
+	 */
+	public void setRecommendation(String recommendation) {
+		this.recommendation = recommendation;
+	}
+
+	public void setCasefileId(String casefileId) {
+		this.casefileId = casefileId;
+	}
+
+	public String getCasefileId() {
+		return casefileId;
+	}
+}

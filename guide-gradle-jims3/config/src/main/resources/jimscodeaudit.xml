@@ -1,0 +1,59 @@
+<?xml version="1.0"?>
+<!DOCTYPE module PUBLIC
+    "-//Puppy Crawl//DTD Check Configuration 1.2//EN"
+    "http://www.puppycrawl.com/dtds/configuration_1_2.dtd">
+	
+
+<module name="Checker">
+
+	<module name="com.puppycrawl.tools.checkstyle.TreeWalker">				
+
+		<module name="com.puppycrawl.tools.checkstyle.checks.sizes.MethodLengthCheck">
+		   <property name="severity" value="info"/>
+		   <property name="max" value="100"/>
+		   <property name="countEmpty" value="false"/>	   
+		</module>
+		
+		<module name="com.puppycrawl.tools.checkstyle.checks.sizes.MethodLengthCheck">
+		   <property name="severity" value="warning"/>
+		   <property name="max" value="200"/>
+		   <property name="countEmpty" value="false"/>	   
+		</module>
+		
+		<module name="com.puppycrawl.tools.checkstyle.checks.sizes.FileLengthCheck">
+		   <property name="severity" value="info"/>
+		   <property name="max" value="1000"/>	   	  
+		</module>
+		
+		<module name="com.puppycrawl.tools.checkstyle.checks.sizes.FileLengthCheck">
+		   <property name="severity" value="warning"/>
+		   <property name="max" value="2000"/>
+		</module>
+
+		<module name="com.puppycrawl.tools.checkstyle.checks.metrics.ClassDataAbstractionCouplingCheck">
+		   <property name="severity" value="warning"/>
+		   <property name="max" value="10"/>
+		</module>
+				
+		<module name="com.puppycrawl.tools.checkstyle.checks.metrics.ClassFanOutComplexityCheck">
+		   <property name="severity" value="warning"/>
+		   <property name="max" value="20"/>
+		</module>
+		
+		<module name="com.puppycrawl.tools.checkstyle.checks.coding.NestedIfDepth">
+			<property name="max" value="3"/>
+			<property name="severity" value="warning"/>
+		</module>
+		
+		<module name="com.puppycrawl.tools.checkstyle.checks.metrics.CyclomaticComplexity">
+			<property name="max" value="10"/>
+			<property name="severity" value="warning"/>
+		</module>
+		
+		<module name="ReturnCount">
+			<property name="max" value="1"/>
+			<property name="severity" value="warning"/>
+		</module>
+		
+	</module>
+</module>

@@ -1,0 +1,78 @@
+//Source file: C:\\views\\dev\\app\\src\\ui\\supervision\\SupervisionOptions\\action\\SubmitConditionAssociateToDepartmentPolicyAction.java
+
+package ui.supervision.SupervisionOptions.action;
+
+import java.util.Collection;
+import java.util.Iterator;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import messaging.supervisionoptions.SaveConditionAssociateToDepartmentPoliciesEvent;
+import mojo.km.dispatch.EventManager;
+import mojo.km.dispatch.IDispatch;
+import mojo.km.messaging.Composite.CompositeResponse;
+import mojo.km.messaging.exception.ReturnException;
+import mojo.km.utilities.MessageUtil;
+import naming.UIConstants;
+
+import org.apache.struts.action.Action;
+import org.apache.struts.action.ActionForm;
+import org.apache.struts.action.ActionForward;
+import org.apache.struts.action.ActionMapping;
+
+import ui.supervision.UICommonSupervisionHelper;
+import ui.supervision.SupervisionOptions.form.AssociateBean;
+import ui.supervision.SupervisionOptions.form.SupervisionConditionForm;
+
+public class SubmitConditionAssociateToDepartmentPolicyAction extends Action
+{
+   
+   /**
+    * @roseuid 42F7C49C03D8
+    */
+   public SubmitConditionAssociateToDepartmentPolicyAction() 
+   {
+    
+   }
+   
+   /**
+    * @param aMapping
+    * @param aForm
+    * @param aRequest
+    * @param aResponse
+    * @return ActionForward
+    * @roseuid 42F79A750263
+    */
+   public ActionForward execute(ActionMapping aMapping, ActionForm aForm, HttpServletRequest aRequest, HttpServletResponse aResponse) 
+   {
+		SupervisionConditionForm form = (SupervisionConditionForm)aForm;
+		
+		// create event to post
+		SaveConditionAssociateToDepartmentPoliciesEvent reqEvent = new SaveConditionAssociateToDepartmentPoliciesEvent();
+		reqEvent.setConditionId(form.getConditionId());
+			
+		// add courtPolicyIds into the event            
+		Collection associatedPolicies = form.getAssociatedDeptPolicies();
+			
+		if(associatedPolicies != null){
+			  Iterator it = associatedPolicies.iterator();
+			  while(it.hasNext()){
+				AssociateBean asscBean = (AssociateBean)it.next();
+				reqEvent.addPolicyId(asscBean.getObjId());
+			  }
+		}
+		// post the event
+		IDispatch dispatch = EventManager.getSharedInstance(EventManager.REQUEST);
+		dispatch.postEvent(reqEvent);
+		CompositeResponse response = (CompositeResponse) dispatch.getReply();
+		ReturnException returnException = (ReturnException) MessageUtil.filterComposite(response, ReturnException.class);
+		if (returnException != null)
+		{
+			  return aMapping.findForward(UICommonSupervisionHelper.computeCSMultiDeptForward(UIConstants.FAILURE,form.getAgencyId()));
+		}
+	   	
+		form.setPageType(UIConstants.CONFIRM);		
+		return aMapping.findForward(UICommonSupervisionHelper.computeCSMultiDeptForward(UIConstants.SUCCESS,form.getAgencyId()));
+   }
+}

@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<UILeftNavigation>
+	<navitem name="Home" url="/appshell/displayHome.do" requiredFeatures=""/>
+	<navitem name="Manage JIMS2 Accounts" url="/security.war/displayJIMS2AccountSearch.do" requiredFeatures=""/>
+	<navitem name="Update Password" url="/appshell/displayUpdatePasswordAction.do?fromPage=mainMenu" requiredFeatures=""/>
+
+	<navitem name="CSCD">
+	    <navitem name="Calendar">
+            <navitem name="Calendar" url="/CommonSupervision/displayCSCalendar.do?submitAction=Link" requiredFeatures="CSCD-CAL-VIEW"/>
+        </navitem>
+		<navitem name="Caseload">
+			<navitem name="Caseload" url="/CommonSupervision/adminCaseloadAction.do?submitAction=Setup" requiredFeatures="CSCD-CASELOAD-VIEW"/>
+		</navitem>
+		<navitem name="Location-CSCD">
+			<navitem name="Search Location" url="/CommonSupervision/displayLocationSearchForCSC.do" requiredFeatures="CSCD-LOC-VIEW"/>
+		</navitem>
+		<navitem name="Positions">
+			<navitem name="Search Positions" url="/CommonSupervision/displayPositionSearch.do?submitAction=Link" requiredFeatures="CS-POSV-POSITIONS"/>
+		</navitem>
+		<navitem name="Reports">
+			<navitem name="View Assignments" url="/CommonSupervision/caseAssignmentReportSearchAction.do?submitAction=Setup" requiredFeatures="CSCD-RPT-ASSIGNMENTS"/>
+		</navitem>
+		<navitem name="Service Provider-CSCD">
+			<navitem name="Create CSCD" url="/CommonSupervision/displayCSCServiceProviderUpdate.do?submitAction=Create" requiredFeatures="CS-ASP-CREATE-CSC"/>
+			<navitem name="Search CSCD" url="/CommonSupervision/displayCSCServiceProviderSearch.do?submitAction=Link" requiredFeatures="CS-ASP-SEARCH-CSC"/>
+		</navitem>
+		<navitem name="Supervisee Search">
+			<navitem name="Supervisee Search" url="/CommonSupervision/displaySuperviseeSearch.do?submitAction=Link" requiredFeatures="CSCD-SUPERVISEE-SEARCH"/>
+		</navitem>
+		<navitem name="Tasks">
+		 	<navitem name="View Tasklist" url="/CommonSupervision/handleTaskSearch.do?submitAction=Link" requiredFeatures="CS-TASKS-VIEW"/>
+ 		</navitem>
+		<navitem name="Workgroups">
+			<navitem name="Workgroups" url="/CommonSupervision/displayWorkgroupSearch.do?submitAction=Link" requiredFeatures="CS-WORKGRP-VIEW"/>
+		</navitem>
+	</navitem>
+	
+	<navitem name="HCJPD">
+		<navitem name="Contract">
+			<navitem name="Search Contract" url="/CommonSupervision/displayContractSearch.do" requiredFeatures="CS-CONTRACT-SEARCH"/>
+		</navitem>
+		<navitem name="Location-Juvenile">
+			<navitem name="Search Location" url="/CommonSupervision/displayLocationSearch.do" requiredFeatures="CS-LOC-VIEW"/>
+		</navitem>
+		<navitem name="Service Provider-Juvenile">
+			<navitem name="Search Referral" url="/CommonSupervision/displaySPProgramReferralSearch.do?submitAction=Link" requiredFeatures="CS-PGM-REF-SP-V"/>
+			<navitem name="Search HCJPD" url="/CommonSupervision/displayJuvServiceProviderSearch.do" requiredFeatures="CS-ASP-SEARCHJUV"/>			
+			<navitem name="Search Juvenile" url="/CommonSupervision/displayServiceProviderJuvenileSearch.do?submitAction=Link" requiredFeatures="CS-ASP-SEARCHJUVENILE"/>
+		</navitem>
+	</navitem>
+	
+	<navitem name="Common Supervision">
+	    	<navitem name="Casenotes">
+			<navitem name="Casenotes" url="/CommonSupervision/displayAdministerCasenotesSearch.do?submitAction=Link" requiredFeatures="CS-CASENOTE-VIEW"/>
+		</navitem>
+	    	<navitem name="Compliance Standards">
+			<navitem name="Create Compliance Standards" url="/CommonSupervision/displayCourtPolicyCreate.do" requiredFeatures="CS-CPOL-CREATE-PTR"/>
+			<navitem name="Search Compliance Standards" url="/CommonSupervision/displayCourtPolicySearch.do" requiredFeatures="CS-CPOL-SEARCH-PTR"/>
+		</navitem>
+		<navitem name="Consequence">
+			<navitem name="Create Consequence" url="/CommonSupervision/displayCourtPolicyCreate.do" requiredFeatures="CS-CPOL-CREATE-JUV"/>
+			<navitem name="Search Consequence" url="/CommonSupervision/displayCourtPolicySearch.do" requiredFeatures="CS-CPOL-SEARCH-JUV"/>
+		</navitem>
+		
+		<navitem name="Court Policy">
+			<navitem name="Create Court Policy" url="/CommonSupervision/displayCourtPolicyCreate.do" requiredFeatures="CS-CPOL-CREATE-CSC"/>
+			<navitem name="Search Court Policy" url="/CommonSupervision/displayCourtPolicySearch.do" requiredFeatures="CS-CPOL-SEARCH-CSC"/>
+		</navitem>
+		<navitem name="Department Policy-CSC">
+			<navitem name="Create Department Policy" url="/CommonSupervision/displayDepartmentPolicyCreate.do" requiredFeatures="CS-DPOL-CREATE-CSC"/>
+			<navitem name="Search Department Policy" url="/CommonSupervision/displayDepartmentPolicySearch.do" requiredFeatures="CS-DPOL-SEARCH-CSC"/>
+		</navitem>
+		<navitem name="Department Policy-Juvenile">
+			<navitem name="Create Department Policy" url="/CommonSupervision/displayDepartmentPolicyCreate.do" requiredFeatures="CS-DPOL-CREATE-JUV"/>
+			<navitem name="Search Department Policy" url="/CommonSupervision/displayDepartmentPolicySearch.do" requiredFeatures="CS-DPOL-SEARCH-JUV"/>
+		</navitem>
+		<navitem name="Out of County Case">
+			<navitem name="OOC Case" url="/CommonSupervision/displayOutOfCountyCaseSearch.do" requiredFeatures="CS-OOC-SEARCH"/>
+		</navitem>
+		<navitem name="Procedures">
+			<navitem name="Create Procedures" url="/CommonSupervision/displayDepartmentPolicyCreate.do" requiredFeatures="CS-DPOL-CREATE-PTR"/>
+			<navitem name="Search Procedures" url="/CommonSupervision/displayDepartmentPolicySearch.do" requiredFeatures="CS-DPOL-SEARCH-PTR"/>
+		</navitem>
+		<navitem name="Process Adult Supervision Order">
+			<navitem name="Supervision Order" url="/CommonSupervision/displaySupervisionOrderSearch.do" requiredFeatures="CS-PASO-SEARCH"/>
+		</navitem>
+		
+		<navitem name="Suggested Order">
+			<navitem name="Create Suggested Order" url="/CommonSupervision/displaySuggestedOrderCreateUpdate.do?action=create" requiredFeatures="CS-ASO-CREATE"/>
+			<navitem name="Search Suggested Order" url="/CommonSupervision/displaySuggestedOrderSearch.do" requiredFeatures="CS-ASO-SEARCH"/>
+		</navitem>
+		<navitem name="Supervision Condition">
+			<navitem name="Create Supervision Condition" url="/CommonSupervision/displaySupervisionConditionCreate.do" requiredFeatures="CS-COND-CREATE"/>
+			<navitem name="Search Supervision Condition" url="/CommonSupervision/displaySupervisionConditionSearch.do" requiredFeatures="CS-COND-SEARCH"/>
+		</navitem>
+ 	</navitem>
+	
+	<navitem name="Data Admin">
+		<navitem name="Search Code Table" url="/CommonFunctionality/displayCodetableRecordSearch.do?submitAction=Link" requiredFeatures="CF-CODE-V"/>
+		<navitem name="Search Code Table Registration" url="/CommonFunctionality/displayCodetableRegistrationSearch.do?submitAction=Link" requiredFeatures="CF-CODEREG-V"/>
+	</navitem>
+	
+	<navitem name="Data Admin-CSCD">
+		<navitem name="Case Assignment Data Control" url="/CommonSupervision/displayCaseAssignmentDataControlSearch.do?submitAction=Link" requiredFeatures="CSCD-CAS-ASSIGN-DATA-CNTL"/>
+		<navitem name="SPN Consolidation" url="/CommonSupervision/displaySpnConsolidation.do" requiredFeatures="CF-SPN-CON"/>
+		<navitem name="SPN Split" url="/CommonSupervision/displaySpnSplit.do?submitAction=Link" requiredFeatures="CF-SPN-SPLIT"/>
+	    <navitem name="Supervisee Credit Data Control" url="/CommonSupervision/displaySuperviseeCreditDataControl.do?submitAction=Link" requiredFeatures="CSCD-SUP-CREDIT-DATA-CNTL"/> 
+	</navitem>
+	
+	<navitem name="Juvenile Casework">
+		<navitem name="Process Benefits Assessment" url="/JuvenileCasework/displayBenefitsAssessmentRequestList.do" requiredFeatures="JCW-BENEFITSASSESS"/>
+		<navitem name="Program/Service Calendar" url="/JuvenileCasework/handleJuvenileServiceEvent.do?submitAction=Workshop Calendar" requiredFeatures="JCW-WKSHOPCALENDAR"/>
+		<navitem name="Search Juvenile Casefile" url="/JuvenileCasework/displayJuvenileCasefileSearch.do" requiredFeatures="JCW-SEARCHCASE"/>
+		<navitem name="Search Juvenile Profile" url="/JuvenileCasework/displayJuvenileProfileSearch.do" requiredFeatures="JCW-SEARCHPROF"/>
+		<navitem name="Search Family Member" url="/JuvenileCasework/displayFamilyMemberLeftNavSearch.do" requiredFeatures="JCW-SEARCHFAMILYMEMBER"/>
+		<navitem name="View Calendar" url="/JuvenileCasework/displayViewCalendar.do?submitAction=View Calendar" requiredFeatures="JCW-VIEW-CALENDAR"/>
+		<navitem name="Query Juvenile JIMS2 Reports">
+			<navitem name="Population Reports" url="/JuvenileCasework/displayPopulationReportSearch.do" requiredFeatures="JCW-QRY-POPREPORTS"/>
+			<navitem name="Historical Receipt List" url="/JuvenileCasework/displayHistoricalReceiptListReportSearch.do" requiredFeatures="JCW-QRY-HISTRECEIPT"/>
+		</navitem>
+	</navitem>
+	<!-- U.S #11645 -->
+	<navitem name="Process Juvenile Court Hearings">
+		<navitem name="Search Detention Hearings" url="/JuvenileCasework/displayJuvenileSearchDetentionHearings.do?submitAction=Link" requiredFeatures="JCW-SEARCHDETHRNG"/>
+		<navitem name="Court Main Menu" url="/JuvenileCasework/processJuvenileDistrictCourtHearings.do?submitAction=Link" requiredFeatures="JCW-COURTMAINMENU"/>
+	</navitem>
+	<!-- U.S #11645 -->
+	<navitem name="Process Facility Admission">
+			<navitem name="Search Juvenile Records" url="/JuvenileCasework/displayJuvenileProfileSearch.do?isFacility=true" requiredFeatures="JCW-SEARCHFACPROF"/>
+	</navitem>
+	<navitem name="Juvenile Warrants">
+		<navitem name="All Juvenile Warrants">
+			<navitem name="Inactivate" url="/JuvenileWarrants/displayGenericSearch.do?warrantTypeUI=inactivate&amp;associateUpdatable=false" requiredFeatures="JW-INACTIVATE"/>
+			<navitem name="Recall" url="/JuvenileWarrants/displayGenericSearch.do?warrantTypeUI=recall&amp;associateUpdatable=false" requiredFeatures="JW-RECALL"/>
+			<navitem name="View" url="/JuvenileWarrants/displayWarrantViewSearch.do?associateUpdatable=true" requiredFeatures="JW-VIEW"/>
+		</navitem>
+		<navitem name="Arrest Warrant">
+			<navitem name="Initiate" url="/JuvenileWarrants/displayJOTSearch.do?warrantTypeUI=arr&amp;associateUpdatable=false" requiredFeatures="JW-ARR-INIT"/>
+			<navitem name="Activate" url="/JuvenileWarrants/displayGenericSearch.do?warrantTypeUI=actARR&amp;associateUpdatable=false" requiredFeatures="JW-ARR-REQACT"/>
+		</navitem>
+		<navitem name="Directive to Apprehend Warrant">
+			<navitem name="Initiate" url="/JuvenileWarrants/displayJOTSearch.do?warrantTypeUI=dta&amp;associateUpdatable=false" requiredFeatures="JW-DTA-INIT"/>
+			<navitem name="Acknowledge" url="/JuvenileWarrants/displayGenericSearch.do?warrantTypeUI=reqAckDTA&amp;associateUpdatable=false" requiredFeatures="JW-DTA-REQACK"/>
+			<navitem name="Activate" url="/JuvenileWarrants/displayGenericSearch.do?warrantTypeUI=actDTA&amp;associateUpdatable=false" requiredFeatures="JW-DTA-REQACT"/>
+		</navitem>
+		<navitem name="Order of Immediate Custody Warrant">
+			<navitem name="Initiate" url="/JuvenileWarrants/displayJJSSearch.do?warrantTypeUI=oic&amp;associateUpdatable=false" requiredFeatures="JW-OIC-INIT"/>
+			<navitem name="Update Signature" url="/JuvenileWarrants/displayGenericSearch.do?warrantTypeUI=reqSigOIC&amp;associateUpdatable=false" requiredFeatures="JW-OIC-REQSIG"/>
+			<navitem name="Update Warrant" url="/JuvenileWarrants/displayGenericSearch.do?warrantTypeUI=updateOIC&amp;associateUpdatable=false" requiredFeatures="JW-OIC-UPDATE"/>
+		</navitem>
+		<navitem name="Probable Cause Warrant">
+			<navitem name="Initiate" url="/JuvenileWarrants/displayJOTSearch.do?warrantTypeUI=pc&amp;associateUpdatable=false" requiredFeatures="JW-PC-INIT"/>
+		</navitem>
+		<navitem name="Violation of Probation Warrant">
+			<navitem name="Initiate" url="/JuvenileWarrants/displayJJSSearch.do?warrantTypeUI=vop&amp;associateUpdatable=false" requiredFeatures="JW-VOP-INIT"/>
+			<navitem name="Activate" url="/JuvenileWarrants/displayGenericSearch.do?warrantTypeUI=actVOP&amp;associateUpdatable=false" requiredFeatures="JW-VOP-REQACT"/>
+			<navitem name="Update Warrant" url="/JuvenileWarrants/displayGenericSearch.do?warrantTypeUI=updateVOP&amp;associateUpdatable=false" requiredFeatures="JW-VOP-UPDATE"/>
+		</navitem>
+		<navitem name="Release Decision">
+			<navitem name="Enter Release Decision" url="/JuvenileWarrants/displayGenericSearch.do?warrantTypeUI=releaseDecision&amp;associateUpdatable=false" requiredFeatures="JW-REL-DECISION"/>
+			<navitem name="Enter Release to JP Information" url="/JuvenileWarrants/displayGenericSearch.do?warrantTypeUI=releaseToJP&amp;associateUpdatable=false" requiredFeatures="JW-REL-TO-JP"/>
+			<navitem name="Enter Release to Person Information" url="/JuvenileWarrants/displayGenericSearch.do?warrantTypeUI=releaseToPerson&amp;associateUpdatable=false" requiredFeatures="JW-REL-TO-PER"/>
+		</navitem>
+		<navitem name="Warrant Service">
+			<navitem name="Update Warrant Service" url="/JuvenileWarrants/displayGenericSearch.do?warrantTypeUI=warrantService&amp;associateUpdatable=false" requiredFeatures="JW-WARRANT-SRVC"/>
+			<navitem name="Process Return of Service" url="/JuvenileWarrants/displayGenericSearch.do?warrantTypeUI=processReturn&amp;associateUpdatable=false" requiredFeatures="JW-PROCESS-RTRN"/>
+			<navitem name="File Return of Service Signature" url="/JuvenileWarrants/displayGenericSearch.do?warrantTypeUI=retSigStatus&amp;associateUpdatable=false" requiredFeatures="JW-REQ-RTRN"/>
+		</navitem>
+	</navitem>
+	
+	<navitem name="Officer Profile">
+		<navitem name="Create Officer" url="/security.war/displayOfficerUserProfileSearch.do" requiredFeatures="MOP-CREATEOFF"/>
+		<navitem name="Search Officer" url="/security.war/displayOfficerProfileSearch.do" requiredFeatures="MOP-SEARCHOFF"/>
+		<navitem name="Transfer Manager Caseload" url="/security.war/displayTransferCaseloadSearch.do" requiredFeatures="MOP-TRANSFERMANAGER"/>	
+	</navitem>
+
+	<navitem name="Master Admin Tasks" requiredUserTypes="MA">
+		<navitem name="Manage Agency" url="/security.war/displayAgencySearch.do" requiredUserTypes="MA"/>
+		<navitem name="Manage Department" url="/security.war/departmentManageDepartments.do" requiredUserTypes="MA"/>
+		<navitem name="Manage SA Roles" url="/security.war/displaySARoleSearch.do" requiredUserTypes="MA"/>
+		<navitem name="Manage SA Users" url="/security.war/displaySAUserSearch.do" requiredUserTypes="MA"/>
+		<navitem name="Register Generic Account" url="/security.war/displayGenericLogonIDSearch.do" requiredUserTypes="MA"/>
+	</navitem>
+	
+	<navitem name="Security Admin" requiredUserTypes="MA,SA,ASA,LA">
+		<navitem name="Assign Roles" url="/security.war/displayAssignRolesSearch.do" requiredUserTypes="MA,SA,ASA"/>
+		<navitem name="Manage Roles" url="/security.war/displayRoleSearch.do" requiredUserTypes="MA,SA"/>
+		<navitem name="Manage User Groups" url="/security.war/displayUserGroupSearch.do" requiredUserTypes="MA,SA,ASA"/>
+		<navitem name="Manage User Profile" url="/security.war/displayUserProfileSearch.do?action=modify" requiredUserTypes="MA,SA,ASA,LA"/>
+		<navitem name="Security Inquiries" url="/security.war/displaySecurityInquiriesSearch.do" requiredUserTypes="MA,SA,ASA,LA"/>
+	</navitem>
+	
+	<navitem name="Data Admin-HCJPD">
+		<navitem name="Risk Formulas" url="/JuvenileCasework/displayRiskFormulaSearch.do" requiredFeatures="JCW-DC-RISK-FORMULAS"/>
+		<navitem name="Risk Categories" url="/JuvenileCasework/displayRiskCategorySearch.do" requiredFeatures="JCW-DC-RISK-CATEGORIES"/>
+		<navitem name="Risk Questions" url="/JuvenileCasework/displayRiskQuestionSearch.do" requiredFeatures="JCW-DC-RISK-QUESTIONS"/>
+		<navitem name="Suspicious Members" url="/JuvenileCasework/displaySuspiciousMembersSearch.do" requiredFeatures="JCW-DC-SUSPMEMBRS"/>
+		<navitem name="Production Support" url="/JuvenileCasework/displayProductionSupport.do" requiredFeatures="JCW-DC-PRODSUPPORT"/>  
+	</navitem>
+	 <navitem name="Special Processing" requiredFeatures="JCW_SEALJUVRECORD">
+        <navitem name="Juvenile Master Seal" url="/JuvenileCasework/displaySpecialProcessingMenu.do?selectedMenuItem=juvenileSeal" requiredFeatures="JCW-SP-MASTER-SEAL"/>
+        <navitem name="Referral Number Seal" url="/JuvenileCasework/displaySpecialProcessingMenu.do?selectedMenuItem=referralSeal" requiredFeatures="JCW-SP-REFERRAL-SEAL"/>
+    	<navitem name="Juvenile Master Purge" url="/JuvenileCasework/displaySpecialProcessingMenu.do?selectedMenuItem=juvenilePurge" requiredFeatures="JCW-PURGEJUVENILERECORD"/>
+     </navitem>
+	
+
+</UILeftNavigation>

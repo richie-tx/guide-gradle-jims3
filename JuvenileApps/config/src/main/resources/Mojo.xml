@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Mojo>
+	<Application>
+		<LOGGROUP value="ftp://234.63.73.98:8900"/>
+		<MultiServerServer value="ftp://127.0.0.1:9007;ftp://127.0.0.1:8008"/>
+		<loggingHost value="ftp://127.0.0.1:8090"/>
+		<MultiServerClient value="ftp://127.0.0.1:9005;ftp://127.0.0.1:8006"/>
+		<UseOIDService value="false"/>
+		<UseLogging value="false"/>
+		<enableCache value="true"/>
+		<TestEventPath value="/mainline/dcdirecttest/junit"/>
+		<SecurityURL value="ldap://larue.nwie.net"/>
+		<stubDir value="c:/temp"/>
+    	<!-- valid values are (ldap, file) -->
+		<GroupMembership value="ldap"/>
+		<!-- valid values are (mojo, file) -->
+		<RoleMapping value="mojo"/>
+		<deploymentPackages value="mojo;ui;pd;es"/>
+		<IdleAuditTimeout value="20"/>
+        <TransactionSegmentSize value="300"/>
+		<!-- If one doesn&apos;t work, try the other -->
+		<!--&lt;mail.send.server value=&quot;10.30.27.223&quot;/ -->
+		<mail.send.server value="mailhost.hctx.net"/>
+		<mail.send.username value="jims2notification"/>
+		<mail.send.password value="jimsadmin"/> 
+		<SecurityAdmin value=""/>
+		<SecurityPassword value="topsecret06"/>
+  		<repr value="2005_14_12_residentialexitplan.xml"/> 
+		<caer value="2005_14_12_commonappexitreport.xml"/>   	
+		<!--Common App ER 11046 changes starts-->
+		<casp value="2014_24_11_commonappexitreportscreeningprofile.xml"/>
+		<cafd value="2014_24_11_commonappexitreportfacilitydetails.xml"/> 
+		<casa value="2014_24_11_commonappexitreportsocialdevelopmentassessment.xml"/> 
+		<cadh value="2014_24_11_commonappexitreportdelinquencyhistory.xml"/> 
+		<casn value="2014_24_11_commonappexitreportspecialneeds.xml"/> 
+		<caah value="2014_24_11_commonappexitreportsubstanceabusehistory.xml"/>
+		<cafh value="2014_24_11_commonappexitreportfamilyhistory.xml"/>
+		<!--Common App ER 11046 changes ends--> 	 	
+		<!-- valid values are (ldap, file) -->
+		<GroupMembership value="ldap"/>
+		<!-- valid values are (mojo, file) -->
+		<RoleMapping value="mojo"/>
+		<!-- if commented out the login dialog box will appear -->
+		<!--		&lt;SecurityDefaultUserName value=&quot;&quot;/&gt;  -->
+		<!-- if commented out the login dialog box will appear -->
+		<!--		&lt;SecurityDefaultPassword value=&quot;&quot;/&gt;  -->
+		<!-- Packages to search for deployment services -->
+		<deploymentPackages value="mojo;ui;pd;es"/>
+		<WSNADDR value="//YOUR_TUX_SERVER_NAME.the401k.com:5120"/>
+		<IdleAuditTimeout value="20"/>
+                <TransactionSegmentSize value="300"/>
+		<LockDBPath value="/lockdb/"/>
+		<!-- constants for region values -->
+		<PRODURL value="jdbc:j204://10.5.20.90:2811"/>
+		<TESTURL value="jdbc:j204://10.5.22.104:2505"/>
+		<DEVURL value="jdbc:j204://10.5.22.104:2607"/>
+		<QAURL value="jdbc:j204://10.5.22.104:2812"/>
+		<UATURL value="jdbc:j204://10.5.20.96:2906"/>
+		<TRAININGURL value="jdbc:j204://10.5.20.90:2907"/>
+		<PERFURL value="jdbc:j204://10.5.20.96:2907"/>
+	</Application>
+	<Build>
+		<SourcePath value="..\..\..\app\src"/>
+		<AlternateSourcePaths value="..\..\..\framework\mojo-jims2\mojo.java\src"/>
+		<BuildPath value="c:\build\WEB-INF\classes"/>
+		<MojoBuildPath value="c:\mojo\classes"/>
+		<ContextManagerList>
+			<Item className="mojo.km.context.Default.DefaultContextManager"/>			
+			<Item className="mojo.km.context.InternalQueueContext.InternalQueueContextManager"/>
+		</ContextManagerList>
+		<RequestDispatchList>			
+			<Item className="mojo.km.dispatch.tcpmultiserver.RequestDispatch"/>
+			<Item className="mojo.km.dispatch.tcpmultiserver.AsyncRequestStrategy"/>
+			<Item className="mojo.km.dispatch.CurrentContext.RequestDispatch"/>
+		</RequestDispatchList>
+		<ReplyDispatchList>			
+			<Item className="mojo.km.dispatch.tcpmultiserver.ReplyDispatch"/>
+			<Item className="mojo.km.dispatch.CurrentContext.ReplyDispatch"/>
+		</ReplyDispatchList>		
+	</Build>
+	<OOADInABox/>
+	<QAInABox/>	
+	<Servers>	
+	<!--   Server name="ACF2Login" poolSize="20" contextClassName="mojo.km.context.multidatasource.GenericContextManager">
+<EventManager>
+<Async value="mojo.km.dispatch.CurrentContext.RequestDispatch" />
+<ClientPubSub value="mojo.km.dispatch.Multicast.MCPubSubStrategy" />
+<Context value="mojo.km.dispatch.CurrentContext.CurrentContextStrategy" />
+<PubSub value="mojo.km.dispatch.CurrentContext.CurrentContextStrategy" />
+<Queue value="mojo.km.dispatch.CurrentContext.RequestDispatch" />
+<Reply value="mojo.km.dispatch.tcpmultiserver.ReplyDispatch" />
+<Request value="mojo.km.dispatch.CurrentContext.RequestDispatch" />
+<RequestReply value="mojo.km.dispatch.CurrentContext.CurrentContextStrategy" />
+</EventManager>
+<LogManager>
+<APPEXCEPTION value="ERROR" />
+<ERROR value="WARN" />
+<ERRSTREAM value="WARN" />
+<EXCEPTION value="ERROR" />
+<LoggerAdapter value="mojo.km.logging.mojo.MojoStream" />
+<OUTSTREAM value="INFO" />
+<RUNTIMEEXCEPTION value="ERROR" />
+<STACKTRACE value="ERROR" />
+</LogManager>
+<Session>
+<ConnectionPool value="false" />
+<DbPassword value="devuser7" />
+<DbURL value="jdbc:oracle:thin:@dc-dbdev.dcdirect.com:1521:dcdev" />
+<DbUserID value="devuser7" />
+<DebugMode value="true" />
+<LastAccessed value="0" />
+<ProjectClass value="mapping.dcdirectmap" />
+<WorkflowEnabled value="false" />
+<LogManager value="mojo.km.logging.LogManager"/>
+<ClientURL value="ftp://10.5.20.94:25502"/>
+<ServerURL value="ftp://10.5.20.94:25503"/>
+</Session>
+<ServiceReferences>
+<ServiceRef name="Login" dispatch="mojo.km.dispatch.tcpmultiserver.RequestDispatch"/>
+<ServiceRef name="UpdateACF2Password" dispatch="mojo.km.dispatch.tcpmultiserver.RequestDispatch"/>
+</ServiceReferences>
+</Server-->		
+	</Servers>
+	<Services/>
+	<FileImport>		
+	</FileImport>
+	<StateMachine>		
+	</StateMachine>	
+	<Folder>	
+	</Folder>
+	<TestEventPath value="/mainline/mojosrc"/>
+	<SourcePath value="c:\mainline\dcdirectsrc"/>
+	<PropertyBundle>
+		<Property name="LeftNavigationSchema" value="UILeftNavigation.xml"/>
+	    <Property name="ReqproCDMPckg" value="Persistence Class Data Members"/>
+	    <Property name="ReqproConfigPckg" value="Persistence Configuration"/>
+	    <Property name="ReqproDB" value="\\ratserver\Data\RatProjects\jims2\Jims2ReqPro\Jims2.rqs"/>
+	    <Property name="ReqproDataReqPckg" value="data requirements"/>
+	    <Property name="ReqproPersistencePckg" value="Persistence"/>
+	    <Property name="ReqproPswd" value="eric"/>
+	    <Property name="EventSerializationDelim" value="|"/>
+	    <Property name="ReqproUserId" value="eamundson"/>
+	    <Property name="RoseDB" value="c:\\views\dev\realization\Model\JIMS2Realization.mdl"/>
+	    <Property name="OIDDelim" value="##"/>
+		<Property name="EventSerializationDelim" value="|"/>
+	    <Property name="Platform" value="WORKSTATION"/>
+	    <Property name="ACLClassName" value="pd.security.authorization.transactions.ACLImpl"/>
+	    <Property name="Notification_EmailFrom" value="jims2notification@hctx.net"/>
+	    <Property name="TeamLead_Email" value="JIMS2Notifications@hctx.net"/>
+        <Property name="SchedulerSleepTime" value="60000" />
+  	</PropertyBundle>
+	<Caching>
+		<Classes>
+			<!-- System -->
+			<Class className="mojo.km.context.Session" region="RemoteCache" level="static" oidProperty="sessionId"/>
+			<!-- <Class className="mojo.km.security.User" region="UserCache" level="mapping" oidProperty="OID"/> -->
+			<Class className="mojo.km.security.SecurityUser" region="systemCache" level="static" oidProperty="userId"/>
+			<!-- <Class className="mojo.km.security.Token" region="systemCache" level="static" oidProperty="tokenType"/> --> <!-- Not caching anymore as more than one server in prod. -->
+			<Class className="mojo.km.security.UserEntityBean" region="systemCache" level="static" oidProperty="userId"/>
+			<Class className="mojo.km.security.DepartmentEntityBean" region="JIMS2AgencyDepartmentCache" level="static" oidProperty="departmentId"/>
+			<Class className="mojo.km.security.AgencyEntityBean" region="JIMS2AgencyDepartmentCache" level="static" oidProperty="agencyId"/>
+			
+			<!-- Common Functionality -->
+			<!-- <Class className="pd.contact.agency.Agency" region="JIMS2AgencyDepartmentCache" level="mapping" oidProperty="OID"/>
+			<Class className="pd.contact.agency.Department" region="JIMS2AgencyDepartmentCache" level="mapping" oidProperty="OID"/>
+			<Class className="pd.contact.user.UserProfile" region="systemCache" level="mapping" oidProperty="OID"/> -->	<!-- 87191 -->		
+			<Class className="pd.codetable.CodeTable" region="JIMS2CodesCache" level="static" oidProperty="OID"/>
+			<Class className="pd.codetable.Code" region="JIMS2CodesCache" level="static" oidProperty="codeTableName+code"/>
+			<Class className="pd.codetable.person.ScarsMarksTattoosCode" region="JIMS2CustomCodesCache" level="static" oidProperty="codeTableName+code"/>
+			<Class className="pd.codetable.person.SocialElementCode" region="JIMS2CustomCodesCache" level="static" oidProperty="codeTableName+code"/>
+			<Class className="pd.codetable.person.ReasonNotDone" region="JIMS2CustomCodesCache" level="static" oidProperty="codeTableName+code"/>
+			<Class className="pd.codetable.criminal.OffenseCode" region="JIMS2CustomCodesCache" level="static" oidProperty="codeTableName+code"/>
+		    <Class className="pd.task.TaskDef" region="JIMS2CodesCache" level="static" oidProperty="OID"/>
+			
+			<!-- Community Supervision -->
+			<Class className="pd.supervision.Court" region="JIMS2CourtCache" level="static" oidProperty="OID"/>
+			<Class className="pd.supervision.Group" region="JIMS2GroupCache" level="static" oidProperty="OID"/>
+			<Class className="pd.codetable.supervision.SupervisionCode" region="JIMS2SupervisionCodeCache" level="static" oidProperty="OID"/>
+			<Class className="pd.supervision.supervisionoptions.VariableElementType" region="JIMS2VarElementTypeCache" level="mapping" oidProperty="OID"/>
+			<Class className="pd.supervision.supervisionoptions.VariableElementTypeAgenciesAgency" region="JIMS2VarElementAgencyCache" level="static" oidProperty="OID"/>
+			<Class className="pd.supervision.supervisionstaff.Organization" region="JIMS2CustomCodesCache" level="static" oidProperty="OID"/>
+			<Class className="pd.supervision.administercaseload.SupervisionLevelOfServiceCode" region="JIMS2SupervisionLevelOfServiceCodeCache" level="static" oidProperty="OID"/>
+			<Class className="pd.codetable.supervision.CSEventType" region="JIMS2CSEventTypeCache" level="static" oidProperty="OID"/>
+			
+			<!-- MJCW Cache -->
+ 			<Class className="pd.codetable.criminal.JuvenileMedicationTypeCode" region="JIMS2CustomCodesCache" level="static" oidProperty="medicationTypeId"/>
+		    <Class className="pd.codetable.criminal.JuvenileFeeCode" region="JIMS2CustomCodesCache" level="static" oidProperty="codeTableName+code"/>
+		    <Class className="pd.codetable.criminal.JuvenileActivityCode" region="JIMS2CustomCodesCache" level="static" oidProperty="codeTableName+code"/>
+			<Class className="pd.codetable.criminal.JuvenileActivityTypeCode" region="JIMS2CustomCodesCache" level="static" oidProperty="codeTableName+code"/>
+			<Class className="pd.juvenilecase.TraitType" region="JIMS2CustomCodesCache" level="static" oidProperty="OID" />
+			<Class className="pd.codetable.criminal.JuvenileEventTypeCode" region="JIMS2CustomCodesCache" level="static" oidProperty="OID" />
+			<Class className="pd.codetable.criminal.JuvenileOffenseCode" region="JIMS2CustomCodesCache" level="static" oidProperty="codeTableName+code"/>
+			<Class className="pd.codetable.criminal.JuvenileCourt" region="JIMS2CustomCodesCache" level="static" oidProperty="codeTableName+code"/>
+			<Class className="pd.codetable.criminal.JuvenileFacility" region="JIMS2CustomCodesCache" level="static" oidProperty="codeTableName+code"/>			
+			<Class className="pd.codetable.person.JuvenileSchoolDistrictCode" region="JIMS2CustomCodesCache" level="static" oidProperty="codeTableName+code"/>
+			<Class className="pd.codetable.person.SchoolDistrictCode" region="JIMS2CustomCodesCache" level="static" oidProperty="codeTableName+code"/>
+			<Class className="pd.codetable.person.JuvenileLevelUnitCode" region="JIMS2CustomCodesCache" level="static" oidProperty="codeTableName+code"/>
+			<!-- <Class className="pd.codetable.criminal.JuvenileDispositionCode" region="JIMS2CustomCodesCache" level="static" oidProperty="codeTableName+code"/> -->
+			<Class className="pd.codetable.criminal.JuvenileReferralDispositionCode" region="JIMS2CustomCodesCache" level="static" oidProperty="codeTableName+code"/>
+			<Class className="pd.juvenilecase.SupervisionTypeMap" region="JIMS2CustomCodesCache" level="static" oidProperty="OID" />
+			<!--  
+			<Class className="pd.juvenilecase.riskanalysis.RiskQuestions" region="JIMS2CustomCodesCache" level="static" oidProperty="OID" />
+			<Class className="pd.juvenilecase.riskanalysis.RiskRecommendation" region="JIMS2CustomCodesCache" level="static" oidProperty="OID" />
+			<Class className="pd.juvenilecase.riskanalysis.RiskWeightedResponse" region="JIMS2CustomCodesCache" level="static" oidProperty="OID" />
+			-->			
+		</Classes>
+	</Caching>
+	<Calendaring>
+		<!-- Timezone to save all Calendar Event start/end times -->
+		<!--&lt;Property name=&quot;PersistenceTimeZone&quot; value=&quot;EST&quot;/&gt;-->
+		<!-- Timezone to return for all Calendar Events for start/end times -->
+		<!-- &lt;Property name=&quot;PresentationTimeZone&quot; value=&quot;CST&quot; /&gt;-->
+		<Contexts>
+			<Context contextType="Juvenile" contextClass="pd.juvenile.Juvenile"/>
+		</Contexts>		
+	</Calendaring>	
+</Mojo>

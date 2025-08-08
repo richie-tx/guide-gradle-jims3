@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="US-ASCII"?>
+<document size="LETTER" margin-left="52" margin-right="52" margin-top="25" margin-bottom="25">
+
+	<encryption allow-fillin="false" allow-modify-contents="false" allow-degraded-printing="true" allow-screen-readers="false" allow-copy="false" allow-printing="false"/>
+	<meta author="JIMS2, Harris County" creator="JIMS2, Harris County" title="Suspicious Member Merge From Form"/>
+
+	<module>
+		<font-def name="arial-10" family="arial" size="10"/>
+		<font-def name="arial-11-bold" family="arial" style="bold" size="11"/>
+		<font-def name="arial-11" family="arial" style="normal" size="11"/>
+		<font-def name="arial-11u" family="arial" style="normal|underline" size="11"/>
+		<font-def name="arial-12" family="arial" style="normal" size="12"/>
+		<font-def name="arial-14" family="arial" style="normal" size="14"/>
+		<font-def name="arial-16" family="arial" style="normal" size="16"/>
+		<font-def name="arial-12b" family="arial" style="bold" size="12"/>
+		<font-def name="hcjpd" family="Helvetica" style="old|underline" size="15"/>
+		<font-def name="label" family="Helvetica" style="bold" size="10"/>
+		<font-def name="text" family="arial" style="normal" size="12"/>
+		<font-def name="columnheader" family="Helvetica" style="bold|underline" size="10"/>
+		
+		<custom-tag alias="shr-label" tag="phrase">
+			<attribute name="font" value="label"/>
+		</custom-tag>
+		
+		<custom-tag alias="shr-text" tag="paragraph">
+			<attribute name="font" value="text"/>
+		</custom-tag>
+		
+		<custom-tag alias="column-header" tag="paragraph">
+			<attribute name="font" value="columnheader"/>
+		</custom-tag>
+	</module>
+
+	<!--
+        DETAIL PAGES
+	-->
+
+	<table columns="1" border-style="none" border-width="0" widths="100" padding="0" spacing-after="20">
+		<table-row>
+			<cell font="hcjpd" valign="top" halign="center"><b>Family Member Details for ${memberFirstName} ${memberLastName}, ${selectedFromId}</b></cell>
+		</table-row>
+		<table-row>
+			<cell height="20"></cell>
+		</table-row>
+	</table>
+	
+	<table columns="8" border-style="none" border-width="1" widths="5.5,18.5,6.2,21.8,9,15,12,12" padding="0" spacing-after="15">	
+		<table-row>
+			<cell font="arial-11">SS#: </cell>
+			<cell font="arial-11">${memberSSN}</cell>
+			<cell font="arial-11">DOB:</cell>
+			<cell font="arial-11">${memberDOB}</cell>
+			<cell font="arial-11">Gender: </cell>
+			<cell font="arial-11">${sexLit}</cell>
+			<cell font="arial-11">US Citizen: </cell>
+			<cell font="arial-11">${usCitizenId}</cell>
+		</table-row>
+	</table>
+	
+	<table columns="4" border-style="none" border-width="1" widths="16,34,13,37" padding="0" spacing-after="15">
+		<table-row>
+			<cell font="arial-11">State ID#(SID): </cell>
+			<cell font="arial-11">${sidNum}</cell>
+			<cell font="arial-11">Alien Reg.#: </cell>
+			<cell font="arial-11">${alienRegNumber}</cell>
+		</table-row>
+	</table>
+	<table columns="4" border-style="none" border-width="1" widths="12,38,10,40" padding="0" spacing-after="15">
+		<table-row>
+			<cell font="arial-11">Nationality: </cell>
+			<cell font="arial-11">${nationalityLit}</cell>
+			<cell font="arial-11">Ethnicity: </cell>
+			<cell font="arial-11">${ethnicityLit}</cell>
+		</table-row>
+	</table>	
+				
+	<table columns="4" border-style="none" border-width="1" widths="19.5,30.5,22.5,27.5" padding="0" spacing-after="15">
+		<table-row>
+			<cell font="arial-11">Primary Language: </cell>
+			<cell font="arial-11">${primaryLanguageLit}</cell>
+			<cell font="arial-11">Secondary Language: </cell>
+			<cell font="arial-11">${secondaryLanguageLit}</cell>			
+		</table-row>
+	</table>	
+
+	<table columns="4" border-style="none" border-width="1" widths="30.5,19.5,17,33" padding="0" spacing-after="15">
+		<table-row>
+			<cell font="arial-11">Is Family Member Deceased?: </cell>
+			<cell font="arial-11">${deceasedLit}</cell>
+			<cell font="arial-11">Cause of Death: </cell>
+			<cell font="arial-11">${causeOfDeathLit}</cell>
+		</table-row>
+	</table>	
+	
+	<table columns="2" border-style="none" border-width="1" widths="31.5,68.5" padding="0" spacing-after="20">		
+		<table-row>
+			<cell font="arial-11">Is Family Member Incarcerated: </cell>
+			<cell font="arial-11">${incarcetatedLit}</cell>
+		</table-row>
+		<table-row>
+			<cell height="20" colspan="2"></cell>
+		</table-row>
+		<table-row>
+			<cell font="arial-11">Family Member Comments: </cell>
+			<cell></cell>
+		</table-row>
+		<table-row>
+			<cell font="arial-11" colspan="2">${comments}</cell>
+		</table-row>
+	</table>
+	
+	<table columns="4" border-style="none" border-width="1" widths="18.2,31.8,6.7,43.3" padding="0" spacing-after="5">
+		<table-row>
+			<cell font="arial-11">Driver's License#:</cell>
+			<cell font="arial-11">${dlNumber}</cell>
+			<cell font="arial-11">State:</cell>
+			<cell font="arial-11">${dlStateLit}</cell>
+		</table-row>
+	</table>
+	<table columns="4" border-style="none" border-width="1" widths="7.5,42.5,16.5,33.5" padding="0" spacing-after="20">
+		<table-row>
+			<cell font="arial-11">Class:</cell>
+			<cell font="arial-11">${dlClassId}</cell>
+			<cell font="arial-11">Expiration Date:</cell>
+			<cell font="arial-11">${dlExpDateStr}</cell>
+		</table-row>
+	</table>
+	
+	<table columns="4" border-style="none" border-width="1" widths="23.5,26.5,6.7,42.3" padding="0" spacing-after="20">
+		<table-row>
+			<cell font="arial-11">State Issued ID Card #:</cell>
+			<cell font="arial-11">${stateIssuedCardNumber}</cell>
+			<cell font="arial-11">State:</cell>
+			<cell font="arial-11">${stateIssuedCardStateLit}</cell>
+		</table-row>
+	</table>
+		
+	<table columns="1" border-style="none" border-width="1" widths="100" padding="0" spacing-after="10">		
+		<table-row>
+			<cell font="arial-11u" halign="center">Associated Juveniles</cell>
+		</table-row>
+	</table>	
+	<table columns="4" border-style="none" border-width="1" widths="20,40,25,15" padding="0" spacing-after="5">
+		<table-row>
+			<cell font="arial-11">Juvenile Number</cell>
+			<cell font="arial-11">Juvenile Name</cell>
+			<cell font="arial-11">Relationship</cell>
+			<cell font="arial-11">Guardian</cell>
+		</table-row>
+	</table>
+	<table columns="4" border-style="none" border-width="1" widths="20,40,25,15" padding="0" spacing-after="15">
+		_foreach_(juvList ${associatedJuvenilesList} 'even' 'odd')		
+			<table-row>
+				<cell> ${juvList.juvId}</cell>
+				<cell> ${juvList.juvName}</cell>
+				<cell> ${juvList.relationType}</cell>
+				<cell>
+					_if_( ${juvList.guardian} == true )
+						YES
+					_else_
+						NO
+					_endif_
+				 </cell>
+			</table-row>
+		_endfor_
+	</table>
+
+	<table columns="1" border-style="none" border-width="1" widths="100" padding="0" spacing-after="10">		
+		<table-row>
+			<cell font="arial-11u" halign="center">Marital Status</cell>
+		</table-row>
+	</table>	
+	<table columns="6" border-style="none" border-width="1" widths="13,17,27,16,14,13" padding="0" spacing-after="5">
+		<table-row>
+			<cell font="arial-11">Entry Date</cell>
+			<cell font="arial-11">Marital Status</cell>
+			<cell font="arial-11">Relationship With</cell>
+			<cell font="arial-11">Marriage Date</cell>
+			<cell font="arial-11">Divorce Date</cell>
+			<cell font="arial-11"># of Children</cell>
+		</table-row>
+	</table>
+	<table columns="4" border-style="none" border-width="1" widths="13,17,27,16,14,13" padding="0" spacing-after="5">
+		_foreach_(msList ${maritalStatusDetailsList} 'even' 'odd')		
+			<table-row>
+				<cell> ${msList.entryDate}</cell>
+				<cell> ${msList.maritalStatus}</cell>
+				<cell> ${msList.relatedFamMemId} - ${msList.relatedFamMemName.formattedName}</cell>
+				<cell> ${msList.marriageDate}</cell>
+				<cell> ${msList.divorceDate}</cell>
+				<cell> ${msList.numOfChildren}</cell>
+			</table-row>
+		_endfor_
+	</table>
+		
+</document>

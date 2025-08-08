@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <bytecodeTargetLevel>
+      <module name="final" target="21" />
+      <module name="final.app" target="21" />
+      <module name="final.app.main" target="21" />
+      <module name="final.app.test" target="21" />
+      <module name="final.appshell" target="21" />
+      <module name="final.appshell.main" target="21" />
+      <module name="final.appshell.test" target="21" />
+      <module name="final.jims3" target="21" />
+      <module name="final.jims3.main" target="21" />
+      <module name="final.jims3.test" target="21" />
+      <module name="final.main" target="21" />
+      <module name="final.test" target="21" />
+    </bytecodeTargetLevel>
+  </component>
+</project>

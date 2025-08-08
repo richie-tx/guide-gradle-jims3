@@ -1,0 +1,144 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<Tags>
+	<!-- 	 <Register>
+		 <Tag>
+			 <name>span</name> The name of the Tag to be registered 
+			 <class>org.ujac.print.tag.SpanTag</class> The full resolved class name of the Tag to be registered 
+		 </Tag>
+	 </Register>
+	 <UnRegister>
+		 <Tag>
+			 <name>span</name> The name of the Tag class to be Unregistered
+		 </Tag>	 
+	 </UnRegister> -->
+	 <FontRegister>
+	 	 <font>
+			 <familyname>arial</familyname>  
+			 <fontfile>Fonts/arial.ttf</fontfile> 
+			 <fontstyle>normal</fontstyle>  
+		 </font>
+		 
+		 <font>
+			 <familyname>arial</familyname>
+			 <fontfile>Fonts/arialbd.ttf</fontfile>
+			 <fontstyle>bold</fontstyle>
+		 </font>
+	 	 <font>
+			 <familyname>arial</familyname>  
+			 <fontfile>Fonts/arialbi.ttf</fontfile> 
+			 <fontstyle>bold-italic</fontstyle>  
+		 </font>
+		 
+		 <font>
+			 <familyname>arial</familyname>
+			 <fontfile>Fonts/ariali.ttf</fontfile>
+			 <fontstyle>italic</fontstyle>
+		 </font>
+
+	 	 <font>
+			 <familyname>arial black</familyname>  
+			 <fontfile>Fonts/ariblk.ttf</fontfile> 
+			 <fontstyle>normal</fontstyle>  
+		 </font>
+		 
+
+		 <font>
+			 <familyname>courier new</familyname>
+			 <fontfile>Fonts/cour.ttf</fontfile>
+			 <fontstyle>normal</fontstyle>
+		 </font>
+		 <font>
+			 <familyname>courier new</familyname>
+			 <fontfile>Fonts/courbd.ttf</fontfile>
+			 <fontstyle>bold</fontstyle>
+		 </font>		 
+	 	 <font>
+			 <familyname>courier new</familyname>  
+			 <fontfile>Fonts/courbi.ttf</fontfile> 
+			 <fontstyle>bold-italic</fontstyle>  
+		 </font>
+		 <font>
+			 <familyname>courier new</familyname>
+			 <fontfile>Fonts/couri.ttf</fontfile>
+			 <fontstyle>italic</fontstyle>
+		 </font>		 
+
+		 <font>
+			 <familyname>georgia</familyname>
+			 <fontfile>Fonts/georgia.ttf</fontfile>
+			 <fontstyle>normal</fontstyle>
+		 </font>
+		 <font>
+			 <familyname>georgia</familyname>
+			 <fontfile>Fonts/georgiab.ttf</fontfile>
+			 <fontstyle>bold</fontstyle>
+		 </font>		 
+		 <font>
+			 <familyname>georgia</familyname>
+			 <fontfile>Fonts/georgiai.ttf</fontfile>
+			 <fontstyle>italic</fontstyle>
+		 </font>	
+
+	
+
+		 <font>
+			 <familyname>verdana</familyname>
+			 <fontfile>Fonts/verdana.ttf</fontfile>
+			 <fontstyle>normal</fontstyle>
+		 </font>
+		 <font>
+			 <familyname>verdana</familyname>
+			 <fontfile>Fonts/verdanab.ttf</fontfile>
+			 <fontstyle>bold</fontstyle>
+		 </font>		 
+		 <font>
+			 <familyname>verdana</familyname>
+			 <fontfile>Fonts/verdanai.ttf</fontfile>
+			 <fontstyle>italic</fontstyle>
+		 </font>	
+	  	<font>
+			 <familyname>tahoma</familyname>
+			 <fontfile>Fonts/tahoma.ttf</fontfile>
+			 <fontstyle>normal</fontstyle>
+		 </font>
+		 <font>
+			 <familyname>lucida bright</familyname>
+			 <fontfile>Fonts/lbrite.ttf</fontfile>
+			 <fontstyle>normal</fontstyle>
+		 </font>
+		 <font>
+			 <familyname>times new roman</familyname>
+			 <fontfile>Fonts/times.ttf</fontfile>
+			 <fontstyle>normal</fontstyle>
+		 </font>
+		 <font>
+			 <familyname>trebuchet-ms</familyname>
+			 <fontfile>Fonts/trebuc.ttf</fontfile>
+			 <fontstyle>normal</fontstyle>
+		 </font>
+		 <font>
+			 <familyname>Kristen-ITC</familyname>
+			 <fontfile>Fonts/itckrist.ttf</fontfile>
+			 <fontstyle>normal</fontstyle>
+		 </font>
+		 <font>
+			 <familyname>Goudy-Old-Style</familyname>
+			 <fontfile>Fonts/GOUDOS.TTF</fontfile>
+			 <fontstyle>normal</fontstyle>
+		 </font>
+		 <font>
+			 <familyname>Arial-Rounded-MT-Bold</familyname>
+			 <fontfile>Fonts/ARLRDBD.TTF</fontfile>
+			 <fontstyle>normal</fontstyle>
+		 </font>
+		 <font>
+			 <familyname>Eras-Medium-ITC</familyname>
+			 <fontfile>Fonts/erasmd.ttf</fontfile>
+			 <fontstyle>normal</fontstyle>
+		 </font>
+	 </FontRegister> 
+	 <FontUnRegister>
+	 </FontUnRegister>   
+ </Tags>
+
+

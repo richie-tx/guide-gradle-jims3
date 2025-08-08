@@ -1,0 +1,205 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE struts-config PUBLIC
+          "-//Apache Software Foundation//DTD Struts Configuration 1.3//EN"
+          "http://struts.apache.org/dtds/struts-config_1_3.dtd">
+
+<struts-config>
+
+
+	<!-- Form Beans -->
+	<form-beans>
+	
+		<!-- System exception bean -->
+    	<form-bean      name="systemExceptionForm" 	type="org.apache.struts.validator.DynaValidatorForm">
+      		<form-property name="exception" type="java.lang.Throwable"/>
+    	</form-bean>
+
+		<form-bean name="userForm" type="ui.user.form.UserForm">
+		</form-bean>
+		<form-bean name="partyInquiryForm" type="ui.party.form.PartyInquiryForm">
+		</form-bean>
+		<form-bean name="casePartyListForm" type="ui.party.form.CasePartyListForm">
+		</form-bean>
+		<form-bean name="casePartyForm" type="ui.party.form.CasePartyForm">
+		</form-bean>
+		<form-bean name="loginForm" type="ui.loginlogout.form.LoginForm">
+		</form-bean>
+		<form-bean name="updatePasswordForm" type="ui.loginlogout.form.UpdatePasswordForm">
+		</form-bean>
+	</form-beans>
+
+<!-- ========== Exception Definitions ========================= -->
+  	<global-exceptions>
+    	<exception 
+      		key="exception.title" 
+      		type="java.lang.Exception" 
+      		handler="mojo.struts.StrutsExceptionHandler" />
+  	</global-exceptions>
+
+	<!-- Global Forwards -->
+	<global-forwards>
+		<!-- forward   name="displayUpdatePasswordFormAction"	path="/displayUpdatePasswordFormAction.do"/ -->
+		<!-- forward   name="displayLogoutFormAction"			path="/displayLogoutFormAction.do"/ -->
+	</global-forwards>
+
+	<!-- Action Mappings -->
+	<action-mappings>
+	
+<!-- ========== MANAGE USER =================================== -->
+		<!-- User Profile Search JSP -->					
+		<action name="userForm" path="/submitUserInquiry" scope="request" type="ui.user.action.SubmitUserInquiryAction" input="/jsp/refApp_userProfileSearch.jsp">
+			<forward name="failure" path="/jsp/refApp_error.jsp">
+			</forward>
+			<forward name="information" path="/jsp/refApp_userProfileSearchResults.jsp">
+			</forward>
+			<forward name="createUser" path="/jsp/refApp_userProfileCreate.jsp">
+			</forward>			
+		</action>
+		
+		<!-- User Profile Search Results JSP -->				
+		<action name="userForm" path="/submitUserList" scope="request" type="ui.user.action.SubmitUserListAction" input="/jsp/refApp_userProfileSearchResults.jsp">
+			<forward name="failure" path="/jsp/refApp_error.jsp">
+			</forward>
+			<forward name="inquiry" path="/jsp/refApp_userProfileSearch.jsp">
+			</forward>
+			<forward name="deleteUser" path="/jsp/refApp_userProfileDelete.jsp">
+			</forward>
+			<forward name="updateUser" path="/jsp/refApp_userProfileUpdate.jsp">
+			</forward>
+		</action>
+		
+		<!-- User Profile Create JSP -->				
+		<action name="userForm" path="/submitCreateUser" scope="request" type="ui.user.action.SubmitCreateUserAction" input="/jsp/refApp_userProfileCreate.jsp">
+			<forward name="inquiry" path="/jsp/refApp_userProfileSearch.jsp">
+			</forward>
+			<forward name="failure" path="/jsp/refApp_error.jsp">
+			</forward>
+			<forward name="information" path="/jsp/refApp_userProfileSearchResults.jsp">
+			</forward>
+		</action>
+		
+		<!-- User Profile Update JSP -->			
+		<action name="userForm" path="/submitUpdateUser" scope="request" type="ui.user.action.SubmitUpdateUserAction" input="/jsp/refApp_userProfileUpdate.jsp">
+			<forward name="failure" path="/jsp/refApp_error.jsp">
+			</forward>
+			<forward name="inquiry" path="/jsp/refApp_userProfileSearch.jsp">
+			</forward>
+			<forward name="information" path="/jsp/refApp_userProfileSearchResults.jsp">
+			</forward>
+		</action>
+		
+		<!-- User Profile Delete JSP -->			
+		<action name="userForm" path="/submitDeleteUser" scope="request" type="ui.user.action.SubmitDeleteUserAction" input="/jsp/refApp_userProfileDelete.jsp">
+			<forward name="failure" path="/jsp/refApp_error.jsp">
+			</forward>
+			<forward name="deleteUser" path="/jsp/refApp_userProfileDelete.jsp">
+			</forward>
+			<forward name="inquiry" path="/jsp/refApp_userProfileSearch.jsp">
+			</forward>
+		</action>
+
+<!-- ========== MANAGE PARTY (MARY&DAWN'S)===================== --> 
+		<!-- Party Inquiry JSP -->	
+		<action name="partyInquiryForm" path="/submitPartyInquiry" scope="request" 
+		    type="ui.party.action.SubmitPartyInquiryAction">
+			<forward name="failure" path="/jsp/refApp_error.jsp">
+			</forward>
+			<forward name="search" path="/jsp/refApp_partySearchResults.jsp">
+			</forward>
+		</action>
+		
+		<!-- Party Search Results JSP -->
+	    <action name="partyInquiryForm" 
+	    		path="/submitGetDemoAndRelatedCases" 
+	    		scope="request" 
+	        	type="ui.party.action.SubmitGetDemoAndRelatedCasesAction"> 
+	        <forward name="failure" path="/jsp/refApp_error.jsp"/>
+			<forward name="success" path="/jsp/refApp_partyDetail.jsp"/>
+		</action>
+		
+		<!-- Party Detail JSP -->				
+		<action name="casePartyListForm" path="/submitGetCaseAndRelatedParties" scope="request" 
+		    type="ui.party.action.SubmitGetCaseAndRelatedPartiesAction">
+		    <forward name="failure" path="/jsp/refApp_error.jsp">
+			</forward> 
+			<forward name="success" path="/jsp/refApp_partyCaseDetail.jsp">
+			</forward>
+	    </action>
+	    
+	    <!-- Party Case Detail JSP -->
+		<action name="casePartyForm" path="/submitPartyList" scope="request"
+            type="ui.party.action.SubmitPartyListAction">
+			<forward name="failure" path="/jsp/refApp_error.jsp">
+			</forward>
+			<forward name="addParty" path="/jsp/refApp_partyAdd.jsp">
+			</forward>
+			<forward name="removeParty" path="/jsp/refApp_partyRemove.jsp">
+			</forward>
+			<forward name="updateParty" path="/jsp/refApp_partyUpdate.jsp">
+			</forward>
+		</action>
+		
+		<action name="casePartyForm" path="/submitAddPartyToCase" scope="request"
+		    type="ui.party.action.SubmitAddPartyToCaseAction">
+			<forward name="addParty" path="/jsp/refApp_underConstruction.jsp">
+			</forward>
+			<forward name="failure" path="/jsp/refApp_error.jsp">
+			</forward>
+		</action>
+		
+		<action name="casePartyForm" path="/submitUpdatePartyToCase" scope="request" 
+		    type="ui.party.action.SubmitUpdatePartyToCaseAction"> 
+			<forward name="updateParty" path="/jsp/refApp_underConstruction.jsp">
+			</forward>
+			<forward name="failure" path="/jsp/refApp_error.jsp">
+			</forward>
+		</action>
+		
+		<action name="casePartyForm" path="/submitRemovePartyFromCase" scope="request" 
+		    type="ui.party.action.SubmitRemovePartyFromCaseAction">
+			<forward name="removeParty" path="/jsp/refApp_underConstruction.jsp">
+			</forward>
+			<forward name="failure" path="/jsp/refApp_error.jsp">
+			</forward>
+		</action>
+			
+<!-- ========== LOGIN SUBMIT ================================== -->
+	    <action path="/submitLoginUser" type="ui.loginlogout.action.SubmitLoginUserAction" name="loginForm" scope="request" validate="true" input="/jsp/refApp_splash.jsp">
+    	  <forward name="success" path="/jsp/refApp_menu.jsp" />
+      	  <forward name="failure" path="/jsp/refApp_splash.jsp"/>
+          <forward name="updatePassword" path="/jsp/refApp_passwordUpdate.jsp" redirect="false">
+          </forward>
+        </action>
+    
+<!-- ========== UPDATE PASSWORD SUBMIT ======================== -->    
+        <action path="/submitUpdatePassword" type="ui.loginlogout.action.SubmitUpdatePasswordAction" name="updatePasswordForm" scope="request" validate="true" input="/jsp/refApp_passwordUpdate.jsp">
+          <forward name="success" path="/jsp/refApp_menu.jsp" />
+          <forward name="failure" path="/jsp/refApp_passwordUpdate.jsp">
+          </forward>
+        </action>
+    
+<!-- ========== LOGOUT SUBMIT ================================= -->    
+        <action path="/submitLogoutUser" type="ui.loginlogout.action.SubmitLogoutUserAction">
+          <forward name="success" path="/jsp/refApp_splash.jsp" />
+          <forward name="failure" path="/jsp/refApp_menu.jsp" />
+        </action>    
+
+	</action-mappings>
+	
+<!-- controller processorClass="jims2.refapp.utility.ui.RequestProcessor" / -->
+	
+<!-- ========== Message Resources ============================= -->
+	<message-resources parameter="ui.struts.resources.ApplicationResources"/>
+
+	<!-- ========== Plug Ins Configuration ================================== -->
+	<plug-in className="org.apache.struts.validator.ValidatorPlugIn">
+    <set-property property="pathnames"
+                     value="/WEB-INF/validator-rules.xml, /WEB-INF/validation.xml"/>
+    </plug-in>
+
+	<plug-in className="org.apache.struts.tiles.TilesPlugIn">
+    <set-property property="definitions-config"
+                     value="/WEB-INF/tiles-defs.xml"/>
+    </plug-in>
+
+</struts-config>

@@ -1,0 +1,221 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Mojo import="Security.xml">
+  <Application>
+    <GroupMembership value="file"/>  
+    <UseLogging value="true"/>
+    <loggingHost value="ftp://10.30.80.118:9915"/>
+  </Application>
+  <Servers>
+    <Server name="GUIController" contextClassName="mojo.km.context.Default.DefaultContextManager">
+      <EventManager>
+        <Async value="mojo.km.dispatch.CurrentContext.RequestDispatch" />
+        <ClientPubSub value="mojo.km.dispatch.Multicast.MCPubSubStrategy" />
+        <Context value="mojo.km.dispatch.CurrentContext.CurrentContextStrategy" />
+        <PubSub value="mojo.km.dispatch.CurrentContext.CurrentContextStrategy" />
+        <Queue value="mojo.km.dispatch.CurrentContext.RequestDispatch" />
+        <Reply value="mojo.km.dispatch.CurrentContext.ReplyDispatch" />
+        <Request value="mojo.km.dispatch.tcpmultiserver.RequestDispatch" />
+        <RequestReply value="mojo.km.dispatch.CurrentContext.CurrentContextStrategy" />
+      </EventManager>
+      <LogManager>
+        <APPEXCEPTION value="ERROR" />
+        <ERROR value="WARN" />
+        <ERRSTREAM value="WARN" />
+        <EXCEPTION value="ERROR" />
+        <LoggerAdapter value="mojo.km.logging.mojo.MojoStream" />
+        <OUTSTREAM value="INFO" />
+        <RUNTIMEEXCEPTION value="ERROR" />
+        <STACKTRACE value="ERROR" />
+      </LogManager>
+      <Session>
+        <ConnectionPool value="false" />
+        <DbPassword value="devuser7" />
+        <DbURL value="jdbc:oracle:thin:@dc-dbdev.dcdirect.com:1521:dcdev" />
+        <DbUserID value="devuser7" />
+        <DebugMode value="true" />
+        <LastAccessed value="0" />
+        <ProjectClass value="mapping.dcdirectmap" />
+        <WorkflowEnabled value="false" />
+        <LogManager value="mojo.km.logging.LogManager"/>
+      </Session>
+      <ServiceReferences>
+      	<ServiceRef name="PrintRequest" dispatch="mojo.km.dispatch.CurrentContext.RequestDispatch"/>
+      </ServiceReferences>
+    </Server>
+    <Server name="None" poolSize="5" contextClassName="mojo.km.context.multidatasource.GenericContextManager">
+      <EventManager>
+        <Async value="mojo.km.dispatch.CurrentContext.RequestDispatch" />
+        <ClientPubSub value="mojo.km.dispatch.Multicast.MCPubSubStrategy" />
+        <Context value="mojo.km.dispatch.CurrentContext.CurrentContextStrategy" />
+        <PubSub value="mojo.km.dispatch.CurrentContext.CurrentContextStrategy" />
+        <Queue value="mojo.km.dispatch.CurrentContext.RequestDispatch" />
+        <Reply value="mojo.km.dispatch.tcpmultiserver.ReplyDispatch" />
+        <Request value="mojo.km.dispatch.CurrentContext.RequestDispatch" />
+        <RequestReply value="mojo.km.dispatch.CurrentContext.CurrentContextStrategy" />
+      </EventManager>
+      <LogManager>
+        <APPEXCEPTION value="ERROR" />
+        <ERROR value="WARN" />
+        <ERRSTREAM value="WARN" />
+        <EXCEPTION value="ERROR" />
+        <LoggerAdapter value="mojo.km.logging.mojo.MojoStream" />
+        <OUTSTREAM value="INFO" />
+        <RUNTIMEEXCEPTION value="ERROR" />
+        <STACKTRACE value="ERROR" />
+      </LogManager>
+      <Session>
+        <ConnectionPool value="false" />
+        <DbPassword value="devuser7" />
+        <DbURL value="jdbc:oracle:thin:@dc-dbdev.dcdirect.com:1521:dcdev" />
+        <DbUserID value="devuser7" />
+        <DebugMode value="true" />
+        <LastAccessed value="0" />
+        <ProjectClass value="mapping.dcdirectmap" />
+        <WorkflowEnabled value="false" />
+        <LogManager value="mojo.km.logging.LogManager"/>
+        <ClientURL value="ftp://10.30.80.118:8511"/>
+        <ServerURL value="ftp://10.30.80.118:8512"/>
+      </Session>
+    </Server>
+    <Server name="RemoteCache" poolSize="20" contextClassName="mojo.km.context.multidatasource.GenericContextManager">
+      <EventManager>
+        <Async value="mojo.km.dispatch.CurrentContext.RequestDispatch" />
+        <ClientPubSub value="mojo.km.dispatch.Multicast.MCPubSubStrategy" />
+        <Context value="mojo.km.dispatch.CurrentContext.CurrentContextStrategy" />
+        <PubSub value="mojo.km.dispatch.CurrentContext.CurrentContextStrategy" />
+        <Queue value="mojo.km.dispatch.CurrentContext.RequestDispatch" />
+        <Reply value="mojo.km.dispatch.tcpmultiserver.ReplyDispatch" />
+        <Request value="mojo.km.dispatch.CurrentContext.RequestDispatch" />
+        <RequestReply value="mojo.km.dispatch.CurrentContext.CurrentContextStrategy" />
+      </EventManager>
+      <LogManager>
+        <APPEXCEPTION value="ERROR" />
+        <ERROR value="WARN" />
+        <ERRSTREAM value="WARN" />
+        <EXCEPTION value="ERROR" />
+        <LoggerAdapter value="mojo.km.logging.mojo.MojoStream" />
+        <OUTSTREAM value="INFO" />
+        <RUNTIMEEXCEPTION value="ERROR" />
+        <STACKTRACE value="ERROR" />
+      </LogManager>
+      <Session>
+        <ConnectionPool value="false" />
+        <DbPassword value="devuser7" />
+        <DbURL value="jdbc:oracle:thin:@dc-dbdev.dcdirect.com:1521:dcdev" />
+        <DbUserID value="devuser7" />
+        <DebugMode value="true" />
+        <LastAccessed value="0" />
+        <ProjectClass value="mapping.dcdirectmap" />
+        <WorkflowEnabled value="false" />
+        <LogManager value="mojo.km.logging.LogManager"/>
+        <ClientURL value="ftp://10.30.80.118:8513"/>
+        <ServerURL value="ftp://10.30.80.118:8514"/>
+      </Session>
+      <ServiceReferences>
+      	<ServiceRef name="CacheGet" dispatch="mojo.km.dispatch.tcpmultiserver.RequestDispatch"/>
+      	<ServiceRef name="CachePut" dispatch="mojo.km.dispatch.tcpmultiserver.RequestDispatch"/>
+      </ServiceReferences>
+    </Server>
+    <!--
+    <Server name="ACF2Login" poolSize="20" contextClassName="mojo.km.context.multidatasource.GenericContextManager">
+      <EventManager>
+        <Async value="mojo.km.dispatch.CurrentContext.RequestDispatch" />
+        <ClientPubSub value="mojo.km.dispatch.Multicast.MCPubSubStrategy" />
+        <Context value="mojo.km.dispatch.CurrentContext.CurrentContextStrategy" />
+        <PubSub value="mojo.km.dispatch.CurrentContext.CurrentContextStrategy" />
+        <Queue value="mojo.km.dispatch.CurrentContext.RequestDispatch" />
+        <Reply value="mojo.km.dispatch.tcpmultiserver.ReplyDispatch" />
+        <Request value="mojo.km.dispatch.CurrentContext.RequestDispatch" />
+        <RequestReply value="mojo.km.dispatch.CurrentContext.CurrentContextStrategy" />
+      </EventManager>
+      <LogManager>
+        <APPEXCEPTION value="ERROR" />
+        <ERROR value="WARN" />
+        <ERRSTREAM value="WARN" />
+        <EXCEPTION value="ERROR" />
+        <LoggerAdapter value="mojo.km.logging.mojo.MojoStream" />
+        <OUTSTREAM value="INFO" />
+        <RUNTIMEEXCEPTION value="ERROR" />
+        <STACKTRACE value="ERROR" />
+      </LogManager>
+      <Session>
+        <ConnectionPool value="false" />
+        <DbPassword value="devuser7" />
+        <DbURL value="jdbc:oracle:thin:@dc-dbdev.dcdirect.com:1521:dcdev" />
+        <DbUserID value="devuser7" />
+        <DebugMode value="true" />
+        <LastAccessed value="0" />
+        <ProjectClass value="mapping.dcdirectmap" />
+        <WorkflowEnabled value="false" />
+        <LogManager value="mojo.km.logging.LogManager"/>
+        <ClientURL value="ftp://10.5.20.94:25502"/>
+        <ServerURL value="ftp://10.5.20.94:25503"/>
+      </Session>
+      <ServiceReferences>
+            <ServiceRef name="Login" dispatch="mojo.km.dispatch.tcpmultiserver.RequestDispatch"/>
+            <ServiceRef name="UpdateACF2Password" dispatch="mojo.km.dispatch.tcpmultiserver.RequestDispatch"/>
+      </ServiceReferences>
+    </Server>
+    -->
+  </Servers>
+  <Connections>
+   <!--	commented out since it's not used right now and it causes errors in the console DJN 06/08/2005
+	<Connection name="JDBC2" driver="COM.ibm.db2.jdbc.app.DB2Driver" userID="archtest" password="test" connectionAdapter="mojo.km.context.multidatasource.JDBCAdapter" URL="jdbc:db2:JIMS2T" port="none" db2SchemaName="none" region="none" pooling="Yes" />
+	<Connection name="J204" driver="com.cca.j204.J204Driver" userID="jiddl" password="jiddl" connectionAdapter="mojo.km.context.multidatasource.J204Adapter" URL="jdbc:j204://10.5.22.104:2505" port="none" db2SchemaName="none" region="none" pooling="Yes" />
+	<Connection name="VSAMCTG" driver="none" userID="none" password="none" connectionAdapter="mojo.km.context.multidatasource.VsamCTGAdapter" URL="tcp://10.30.80.11" port="2006" db2SchemaName="none" region="CICT2" pooling="No" />
+      -->
+    <Connection name="M204" driver="com.cca.j204.J204Driver" userID="jircl1" password="rcl@jims" connectionAdapter="mojo.km.context.multidatasource.M204Adapter" URL="jdbc:j204://10.5.22.104:2812" port="none" db2SchemaName="none" region="none" pooling="Yes"/>
+    <!--<Connection name="JDBC" driver="COM.ibm.db2os390.sqlj.jdbc.DB2SQLJDriver" userID="db2admin" password="db2admin" connectionAdapter="mojo.km.context.multidatasource.JDBCAdapter" URL="jdbc:db2os390sqlj:HCDB2Q1" port="3020" db2SchemaName="JIMS2" region="none" pooling="Yes"/>
+    -->
+    <Connection name="JDBC" driver="com.ibm.db2.jcc.DB2Driver" userID="db2admin" password="db2admin" connectionAdapter="mojo.km.context.multidatasource.JDBCAdapter" URL="jdbc:db2://10.5.22.104:3020/HCDB2Q1" port="none" db2SchemaName="JIMS2" region="none" pooling="Yes" />
+  </Connections>
+  
+  <!-- moved to Security.xml RDS 05/31/2005
+	<Security>
+		<Property name="EnforceSecurity" value="false"/>
+		<Property name="SecurityManagerImpl" value="mojo.km.security.SecurityAdapter"/>
+		<Property name="AuthenticatorImpl" value="mojo.km.security.DummyAuthenticator"/>
+		<Property name="LoginPageURL" value="/appshell/jsp/dlogin.jsp"/>
+		<Property name="AccessDeniedPageURL" value="/appshell/jsp/dlogin.jsp"/>
+		<Property name="UserProfileClass" value="pd.contact.user.UserProfile"/>
+		<Property name="UserProfileSessionKey" value="UserProfile"/>
+		<URLResources>
+			<Resource url="/security.war/displayAgencyCreate.do" requiredFeatures="CreateAgency">
+				<QueryParam name="action" value="create"/>
+			</Resource>
+			<Resource url="/JuvenileWarrants/displayJOTSearchForm.do" requiredFeatures="InitiateDirectiveToApprehend">
+				<QueryParam name="warrantTypeUI" value="dta"/>
+			</Resource>
+			<Resource url="/security.war/displayRoleUpdate.do" requiredFeatures="UpdateRole" requiredUserTypes="MA,SA">
+				<QueryParam name="action" value="modify"/>
+			</Resource>
+			<Resource prefix="/security.war/test/" requiredFeatures="UpdateRole" requiredUserTypes="MA,SA"/>
+		</URLResources>
+		<UnprotectedResources>
+		    <UnprotectedExtension extension=".jpg"/>
+		    <UnprotectedExtension extension=".gif"/>
+		    <UnprotectedExtension extension=".css"/>
+		    <UnprotectedExtension extension=".js"/>
+			<Unprotected url="/appshell/jsp/dlogin.jsp"/>
+			<Unprotected url="/appshell/submitLogin.do"/>
+			<Unprotected url="/appshell/submitLogin"/>
+		</UnprotectedResources>
+		<ConstraintMappings>
+			<ConstraintType type="AGENCY" className="pd.contact.agency.Agency"/>
+			<ConstraintType type="DIVISION" className="pd.contact.agency.Division"/>
+			<ConstraintType type="DEPARTMENT" className="pd.contact.agency.Department"/>
+			<ConstraintType type="ROLE" className="mojo.km.security.Role"/>
+			<ConstraintType type="USER" className="mojo.km.security.User"/>
+			<ConstraintType type="USERGROUP" className="mojo.km.security.UserGroup"/>
+			<ConstraintType type="FEATURE" className="mojo.km.security.Feature"/>
+		</ConstraintMappings>
+	</Security>
+	-->
+	
+	<Caching>
+		<Classes>
+			<Class className="mojo.km.context.Session" isRemote="true" region="RemoteCache" level="static" oidProperty="sessionId"/>
+		</Classes>
+	</Caching>
+</Mojo>
+

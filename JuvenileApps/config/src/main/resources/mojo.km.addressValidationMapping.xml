@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Mapping>
+  <EntityMappings>
+    <EntityMapping name="mojo.km.addressValidation.Address" contextKey="mojo.km.addressValidation.Address">
+      <QueryCallbacks>
+        <QueryCallback name="GetAddressValidation" mappingClassName="mojo.km.context.multidatasource.JDBCSQLMapping" mappingMethodName="retrieve" storedProcedureName="none" cicsProgramName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="GEO1" connectionName="JDBCMSSQL" eventName="messaging.addressValidation.AddressValidationEvent" source="GEO1" whereClause="ZIP_CODE = ? AND  STREET_NAM =? AND STREET_NUM = ? ">
+          <ParmMappings>
+            <ParmMapping name="zipCode" dataItemName="ZIP_CODE" parmIndex="1" format="none" position="" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="4" text="" propertyName="zipCode" propertyType="int" formatString="none" convertWilcard="none"/>
+            <ParmMapping name="streetNum" dataItemName="STREET_NUM" parmIndex="3" format="none" position="" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="4" text="" propertyName="streetNum" propertyType="int" formatString="none" convertWilcard="none"/>
+            <ParmMapping name="streetName" dataItemName="STREET_NAM" parmIndex="2" format="none" position="" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="4" text="" propertyName="streetName" propertyType="String" formatString="none" convertWilcard="none"/>
+          </ParmMappings>
+         <FieldMappings>
+            <FieldMapping name="OID" associationType="none" dataItemName="OBJECTID_1" parmIndex="1" format="none" position="" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="4" text="" propertyName="OID" propertyType="String"/>
+            <FieldMapping name="streetNum" associationType="none" dataItemName="STREET_NUM" parmIndex="2" format="none" position="" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="4" text="" propertyName="streetNum" propertyType="int"/>
+            <FieldMapping name="streetName" associationType="none" dataItemName="STREET_NAM" parmIndex="3" format="none" position="" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="4" text="" propertyName="streetName" propertyType="String"/>
+            <FieldMapping name="zipCode" associationType="none" dataItemName="ZIP_CODE" parmIndex="4" format="none" position="" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="4" text="" propertyName="zipCode" propertyType="int"/>
+            <FieldMapping name="city" associationType="none" dataItemName="POSTAL_CIT" parmIndex="5" format="none" position="" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="4" text="" propertyName="city" propertyType="String"/>
+            <FieldMapping name="keyMap" associationType="none" dataItemName="KEYMAP" parmIndex="6" format="none" position="" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="4" text="" propertyName="keyMap" propertyType="String"/>            
+            <FieldMapping name="latitude" associationType="none" dataItemName="Y" parmIndex="7" format="none" position="" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="10" text="" propertyName="latitude" propertyType="String"/>
+             <FieldMapping name="longitude" associationType="none" dataItemName="X" parmIndex="8" format="none" position="" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="10" text="" propertyName="longitude" propertyType="String"/>
+          </FieldMappings>
+        </QueryCallback>
+        <QueryCallback name="GetAddressBlockValidation" mappingClassName="mojo.km.context.multidatasource.JDBCSQLMapping" mappingMethodName="retrieve" storedProcedureName="none" cicsProgramName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="GEO1" connectionName="JDBCMSSQL" eventName="messaging.addressValidation.ValidateBlockRangeEvent" source="GEO1" whereClause="  ZIP_CODE = ?  AND STREET_NAM = ? AND STREET_NUM BETWEEN  ? AND ?">
+          <ParmMappings>
+            <ParmMapping name="endingStreetNum" dataItemName="STREET_NUM" parmIndex="4" format="none" position="" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="4" text="" propertyName="endingStreetNum" propertyType="int" formatString="none" convertWilcard="none"/>
+            <ParmMapping name="zipCode" dataItemName="ZIP_CODE" parmIndex="1" format="none" position="" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="4" text="" propertyName="zipCode" propertyType="int" formatString="none" convertWilcard="none"/>
+            <ParmMapping name="StreetName" dataItemName="STREET_NAM" parmIndex="2" format="none" position="" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="4" text="" propertyName="streetName" propertyType="String" formatString="none" convertWilcard="none"/>
+            <ParmMapping name="beginingStreetNum" dataItemName="STREET_NUM" parmIndex="3" format="none" position="" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="4" text="" propertyName="beginingStreetNum" propertyType="int" formatString="none" convertWilcard="none"/>
+          </ParmMappings>
+          <FieldMappings>
+            <FieldMapping name="zipCode" associationType="none" dataItemName="ZIP_CODE" parmIndex="4" format="none" position="" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="4" text="" propertyName="zipCode" propertyType="int"/>
+            <FieldMapping name="OID" associationType="none" dataItemName="OBJECTID_1" parmIndex="1" format="none" position="" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="4" text="" propertyName="OID" propertyType="String"/>
+            <FieldMapping name="streetNum" associationType="none" dataItemName="STREET_NUM" parmIndex="2" format="none" position="" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="4" text="" propertyName="streetNum" propertyType="int"/>
+            <FieldMapping name="streetName" associationType="none" dataItemName="STREET_NAM" parmIndex="3" format="none" position="" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="4" text="" propertyName="streetName" propertyType="String"/>
+            <FieldMapping name="city" associationType="none" dataItemName="POSTAL_CIT" parmIndex="5" format="none" position="" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="4" text="" propertyName="city" propertyType="String"/>
+            <FieldMapping name="keyMap" associationType="none" dataItemName="KEYMAP" parmIndex="6" format="none" position="" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="4" text="" propertyName="keyMap" propertyType="String"/>
+            <FieldMapping name="latitude" associationType="none" dataItemName="Y" parmIndex="7" format="none" position="" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="10" text="" propertyName="latitude" propertyType="String"/>
+             <FieldMapping name="longitude" associationType="none" dataItemName="X" parmIndex="8" format="none" position="" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="10" text="" propertyName="longitude" propertyType="String"/>
+          </FieldMappings>
+        </QueryCallback>
+        <QueryCallback name="GetStreetZipValidation" mappingClassName="mojo.km.context.multidatasource.JDBCSQLMapping" mappingMethodName="retrieve" storedProcedureName="none" cicsProgramName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="GEO1" connectionName="JDBCMSSQL" eventName="messaging.addressValidation.ValidateStreetZipEvent" source="GEO1" whereClause="ZIP_CODE = ? AND STREET_NAM = ? ">
+          <ParmMappings>
+            <ParmMapping name="zipCode" dataItemName="ZIP_CODE" parmIndex="1" format="none" position="" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="4" text="" propertyName="zipCode" propertyType="int" formatString="none" convertWilcard="none"/>
+            <ParmMapping name="StreetName" dataItemName="STREET_NAM" parmIndex="2" format="none" position="" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="4" text="" propertyName="streetName" propertyType="String" formatString="none" convertWilcard="none"/>
+          </ParmMappings>
+          <FieldMappings>
+            <FieldMapping name="zipCode" associationType="none" dataItemName="ZIP_CODE" parmIndex="4" format="none" position="" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="4" text="" propertyName="zipCode" propertyType="int"/>
+            <FieldMapping name="OID" associationType="none" dataItemName="OBJECTID_1" parmIndex="1" format="none" position="" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="4" text="" propertyName="OID" propertyType="String"/>
+            <FieldMapping name="streetNum" associationType="none" dataItemName="STREET_NUM" parmIndex="2" format="none" position="" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="4" text="" propertyName="streetNum" propertyType="int"/>
+            <FieldMapping name="streetName" associationType="none" dataItemName="STREET_NAM" parmIndex="3" format="none" position="" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="4" text="" propertyName="streetName" propertyType="String"/>
+            <FieldMapping name="city" associationType="none" dataItemName="POSTAL_CIT" parmIndex="5" format="none" position="" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="4" text="" propertyName="city" propertyType="String"/>
+            <FieldMapping name="keyMap" associationType="none" dataItemName="KEYMAP" parmIndex="6" format="none" position="" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="4" text="" propertyName="keyMap" propertyType="String"/>
+            <FieldMapping name="latitude" associationType="none" dataItemName="Y" parmIndex="7" format="none" position="" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="10" text="" propertyName="latitude" propertyType="String"/>
+             <FieldMapping name="longitude" associationType="none" dataItemName="X" parmIndex="8" format="none" position="" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="10" text="" propertyName="longitude" propertyType="String"/>
+          </FieldMappings>
+        </QueryCallback>
+       </QueryCallbacks>
+      <SaveCallbacks>
+      </SaveCallbacks>
+    </EntityMapping>
+  </EntityMappings>
+</Mapping>

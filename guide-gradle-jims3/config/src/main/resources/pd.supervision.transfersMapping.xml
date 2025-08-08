@@ -1,0 +1,55 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Mapping>
+  <EntityMappings>
+  	<EntityMapping name="pd.supervision.transfers.CSTransfer" contextKey="pd.supervision.transfers.CSTransfer">
+  	  <QueryCallbacks>
+		  <QueryCallback name="GetTransfersEventQuery" mappingClassName="mojo.km.context.multidatasource.VsamMapping" mappingMethodName="retrieve" storedProcedureName="none" cicsProgramName="J2CICS21" subclassSequence="none" subclassRecord="none" tranId="JC21" connectionName="VSAMCTG" eventName="messaging.administersupervisee.GetTransfersEvent" whereClause="none">
+		  <ParmMappings>
+		    <ParmMapping name="superviseeId" dataItemName="SPN" parmIndex="1" format="none" position="1" cardPosition="0" appendFiller="0" padChar="none" length="8" text="none" propertyName="superviseeId" propertyType="String" />
+		    <ParmMapping name="searchType" dataItemName="REQ" parmIndex="2" format="none" position="9" cardPosition="0" appendFiller="0" padChar="none" length="1" text="none" propertyName="searchType" propertyType="String" />
+		  </ParmMappings>
+		  <FieldMappings>
+ 	  		<FieldMapping name="cdi" associationType="none" dataItemName="CDI" parmIndex="0" format="none" position="9" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="3" text="none" propertyName="cdi" propertyType="String" formatString="none" convertWilcard="n" />
+		    <FieldMapping name="caseNum" associationType="none" dataItemName="CAS" parmIndex="0" format="none" position="12" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="12" text="none" propertyName="caseNum" propertyType="String" formatString="none" convertWilcard="n" />
+		    <FieldMapping name="courtNum" associationType="none" dataItemName="CCR" parmIndex="0" format="none" position="24" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="3" text="none" propertyName="courtNum" propertyType="String" formatString="none" convertWilcard="n" />
+		    <FieldMapping name="otherCountyStatePersonIdNumber" associationType="none" dataItemName="AA-OCP" parmIndex="0" format="none" position="27" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="20" text="none" propertyName="otherCountyStatePersonIdNumber" propertyType="String" formatString="none" convertWilcard="n" />
+		    <FieldMapping name="otherCountyCaseNumber" associationType="none" dataItemName="AA-OCTYC" parmIndex="0" format="none" position="47" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="20" text="none" propertyName="otherCountyCaseNumber" propertyType="String" formatString="none" convertWilcard="n" />
+		    <FieldMapping name="hcTransferInDate" associationType="none" dataItemName="HC-IN-DATE" parmIndex="0" format="none" position="67" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="8" text="none" propertyName="hcTransferInDate" propertyType="String" formatString="none" convertWilcard="n" />
+		    <FieldMapping name="hcTransferOutDate" associationType="none" dataItemName="HC-OUT-DATE" parmIndex="0" format="none" position="75" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="8" text="none" propertyName="hcTransferOutDate" propertyType="String" formatString="none" convertWilcard="n" />
+		    <FieldMapping name="transferringCountyState" associationType="none" dataItemName="JZT-ETS" parmIndex="0" format="none" position="99" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="3" text="none" propertyName="transferringCountyState" propertyType="String" formatString="none" convertWilcard="n" />
+		    <FieldMapping name="outOfCountyTransferInDate" associationType="none" dataItemName="OOC-IN-DATE" parmIndex="0" format="none" position="83" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="8" text="none" propertyName="outOfCountyTransferInDate" propertyType="String" formatString="none" convertWilcard="n" />
+		    <FieldMapping name="outOfCountyTransferOutDate" associationType="none" dataItemName="OOC-OUT-DATE" parmIndex="0" format="none" position="91" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="8" text="none" propertyName="outOfCountyTransferOutDate" propertyType="String" formatString="none" convertWilcard="n" />
+		    <FieldMapping name="receivingCountyState" associationType="none" dataItemName="JZT-ERS" parmIndex="0" format="none" position="102" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="3" text="none" propertyName="receivingCountyState" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="rejected" associationType="none" dataItemName="JZT-SPR" parmIndex="0" format="none" position="105" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="1" text="none" propertyName="rejected" propertyType="String" formatString="none" convertWilcard="n" />
+       	    <FieldMapping name="classificationSeqNumForTransferIn" associationType="none" dataItemName="IN-CLS" parmIndex="0" format="none" position="106" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="3" text="none" propertyName="classificationSeqNumForTransferIn" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="classificationSeqNumForTransferOut" associationType="none" dataItemName="OUT-CLS" parmIndex="0" format="none" position="109" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="3" text="none" propertyName="classificationSeqNumForTransferOut" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="subclassificationSeqNumForTransferIn" associationType="none" dataItemName="IN-SCS" parmIndex="0" format="none" position="112" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="2" text="none" propertyName="subclassificationSeqNumForTransferIn" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="subclassificationSeqNumForTransferOut" associationType="none" dataItemName="OUT-SCS" parmIndex="0" format="none" position="114" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="2" text="none" propertyName="subclassificationSeqNumForTransferOut" propertyType="String" formatString="none" convertWilcard="n" />
+		  </FieldMappings>
+		</QueryCallback>
+	  </QueryCallbacks>
+  	</EntityMapping>
+    <EntityMapping name="pd.supervision.transfers.TransferCase" contextKey="pd.supervision.transfers.TransferCase">
+	    <SaveCallbacks>
+	        <SaveCallback name="save" mappingClassName="mojo.km.context.multidatasource.VsamMapping" mappingMethodName="save" storedProcedureName="none" cicsProgramName="J2CICS23" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="JC23" fileName="none" connectionName="VSAMCTG" whereClause="none" source="none">
+	          <FieldMappings>
+	            <FieldMapping name="cdi" associationType="none" dataItemName="CDI" parmIndex="0" format="none" position="1" cardPosition="0" appendFiller="0" padChar="none" length="3" text="none" propertyName="cdi" propertyType="String" formatString="none" convertWilcard="n" />
+	            <FieldMapping name="criminalCaseId" associationType="none" dataItemName="CAS" parmIndex="0" format="none" position="4" cardPosition="0" appendFiller="0" padChar="none" length="12" text="none" propertyName="criminalCaseId" propertyType="String" formatString="none" convertWilcard="n" />
+	            <FieldMapping name="transactionDate" associationType="none" dataItemName="TRDT" parmIndex="0" format="none" position="16" cardPosition="0" appendFiller="0" padChar="none" length="8" text="none" propertyName="transactionDate" propertyType="String" formatString="none" convertWilcard="n" />
+	            <FieldMapping name="receivingCountyCode" associationType="none" dataItemName="ERS" parmIndex="0" format="none" position="24" cardPosition="0" appendFiller="0" padChar="none" length="3" text="none" propertyName="receivingCountyCode" propertyType="String" formatString="none" convertWilcard="n" />
+	            <FieldMapping name="transferringCountyCode" associationType="none" dataItemName="ETS" parmIndex="0" format="none" position="27" cardPosition="0" appendFiller="0" padChar="none" length="3" text="none" propertyName="transferringCountyCode" propertyType="String" formatString="none" convertWilcard="n" />
+	            <FieldMapping name="supervisingCountyPersonId" associationType="none" dataItemName="SPD" parmIndex="0" format="padTrailing" position="30" cardPosition="0" appendFiller="0" padChar="space" length="20" text="none" propertyName="supervisingCountyPersonId" propertyType="String" formatString="none" convertWilcard="n" />
+	            <FieldMapping name="originationCountyPersonId" associationType="none" dataItemName="OPD" parmIndex="0" format="padTrailing" position="50" cardPosition="0" appendFiller="0" padChar="space" length="20" text="none" propertyName="originationCountyPersonId" propertyType="String" formatString="none" convertWilcard="n" />
+	            <FieldMapping name="otherCountyCaseId" associationType="none" dataItemName="OCTYC" parmIndex="0" format="padTrailing" position="70" cardPosition="0" appendFiller="0" padChar="space" length="20" text="none" propertyName="otherCountyCaseId" propertyType="String" formatString="none" convertWilcard="n" />
+	            <FieldMapping name="transferType" associationType="none" dataItemName="TRTP" parmIndex="0" format="none" position="90" cardPosition="0" appendFiller="0" padChar="none" length="1" text="none" propertyName="transferType" propertyType="String" formatString="none" convertWilcard="n" />
+	            <FieldMapping name="rejected" associationType="none" dataItemName="SPR" parmIndex="0" format="none" position="91" cardPosition="0" appendFiller="0" padChar="none" length="1" text="none" propertyName="rejected" propertyType="String" formatString="none" convertWilcard="n" />
+	            <FieldMapping name="cicsRecordSubclassSeqNumber" associationType="none" dataItemName="SCS" parmIndex="0" format="none" position="92" cardPosition="0" appendFiller="0" padChar="none" length="2" text="none" propertyName="cicsRecordSubclassSeqNumber" propertyType="String" formatString="none" convertWilcard="n" />
+	            <FieldMapping name="actionType" associationType="none" dataItemName="ACT" parmIndex="0" format="none" position="94" cardPosition="0" appendFiller="0" padChar="none" length="1" text="none" propertyName="actionType" propertyType="String" formatString="none" convertWilcard="n" />
+				<FieldMapping name="operatorId" associationType="none" dataItemName="OPID" parmIndex="0" format="none" position="95" cardPosition="0" appendFiller="0" padChar="none" length="3" text="none" propertyName="operatorId" propertyType="String" formatString="none" convertWilcard="n" />
+	          </FieldMappings>
+	        </SaveCallback>
+	     </SaveCallbacks>      
+    </EntityMapping>        
+  </EntityMappings>
+</Mapping>
+

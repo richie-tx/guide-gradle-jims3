@@ -1,0 +1,150 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Mapping>
+<EntityMappings>
+    <EntityMapping name="pd.commonfunctionality.spnconsolidation.SpnConsolidationConfig" contextKey="pd.commonfunctionality.spnconsolidation.SpnConsolidationConfig">
+      <QueryCallbacks>
+        <QueryCallback name="OIDQuery" mappingClassName="mojo.km.context.multidatasource.JDBCSQLMapping" mappingMethodName="retrieve" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="CSSPNCONFIG" connectionName="JDBCMSSQL" eventName="mojo.km.persistence.OIDEvent" source="CSSPNCONFIG" whereClause="none">
+          <FieldMappings>
+            <FieldMapping name="handler" associationType="none" dataItemName="NAME" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="handler" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="OID" associationType="none" dataItemName="SPNCONFIG_ID" parmIndex="2" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="OID" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="sequenceNum" associationType="none" dataItemName="SEQNUM" parmIndex="3" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="sequenceNum" propertyType="int" formatString="none" convertWilcard="n" />
+          </FieldMappings>
+        </QueryCallback>
+        <QueryCallback name="AttributeQuery" mappingClassName="mojo.km.context.multidatasource.JDBCSQLMapping" mappingMethodName="retrieve" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="CSSPNCONFIG" connectionName="JDBCMSSQL" eventName="mojo.km.persistence.AttributeEvent" source="CSSPNCONFIG" whereClause="none">
+          <FieldMappings>
+            <FieldMapping name="handler" associationType="none" dataItemName="NAME" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="handler" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="OID" associationType="none" dataItemName="SPNCONFIG_ID" parmIndex="2" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="OID" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="sequenceNum" associationType="none" dataItemName="SEQNUM" parmIndex="3" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="sequenceNum" propertyType="int" formatString="none" convertWilcard="n" />
+          </FieldMappings>
+        </QueryCallback>
+        <QueryCallback name="AllQuery" mappingClassName="mojo.km.context.multidatasource.JDBCSQLMapping" mappingMethodName="retrieve" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="CSSPNCONFIG" connectionName="JDBCMSSQL" eventName="mojo.km.persistence.AllQueryEvent" source="CSSPNCONFIG" whereClause="none">
+          <FieldMappings>
+           <FieldMapping name="handler" associationType="none" dataItemName="NAME" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="handler" propertyType="String" formatString="none" convertWilcard="n" />
+           <FieldMapping name="OID" associationType="none" dataItemName="SPNCONFIG_ID" parmIndex="2" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="OID" propertyType="String" formatString="none" convertWilcard="n" />
+           <FieldMapping name="sequenceNum" associationType="none" dataItemName="SEQNUM" parmIndex="3" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="sequenceNum" propertyType="int" formatString="none" convertWilcard="n" />
+          </FieldMappings>
+        </QueryCallback>
+      </QueryCallbacks>
+      <SaveCallbacks>
+        <SaveCallback name="Save" mappingClassName="mojo.km.context.multidatasource.JDBCSQLMapping" mappingMethodName="save" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="CSSPNCONFIG" connectionName="JDBCMSSQL" whereClause="none" source="CSSPNCONFIG">
+	  <ParmMappings>
+            <ParmMapping name="OID" dataItemName="SPNCONFIG_ID" parmIndex="5" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="OID" propertyType="Numeric" formatString="none" convertWilcard="n" />
+          </ParmMappings>
+          <FieldMappings>
+            <FieldMapping name="handler" associationType="none" dataItemName="NAME" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="handler" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="sequenceNum" associationType="none" dataItemName="SEQNUM" parmIndex="2" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="sequenceNum" propertyType="int" formatString="none" convertWilcard="n" />
+			<FieldMapping name="createUserID" associationType="none" dataItemName="CREATEUSER" parmIndex="3" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="createUserID" propertyType="user" formatString="none" />
+            <FieldMapping name="createJIMS2UserID" associationType="none" dataItemName="CREATEJIMS2USER" parmIndex="4" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="createJIMS2UserID" propertyType="JIMS2User" formatString="none" />
+          </FieldMappings>
+        </SaveCallback>
+      </SaveCallbacks>
+    </EntityMapping>
+    <EntityMapping name="pd.commonfunctionality.spnconsolidation.SpnConsolidationLog" contextKey="pd.commonfunctionality.spnconsolidation.SpnConsolidationLog">
+      <QueryCallbacks>
+        <QueryCallback name="OIDQuery" mappingClassName="mojo.km.context.multidatasource.JDBCSQLMapping" mappingMethodName="retrieve" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="CSSPNCONLOG" connectionName="JDBCMSSQL" eventName="mojo.km.persistence.OIDEvent" source="CSSPNCONLOG" whereClause="none">
+          <FieldMappings>
+            <FieldMapping name="baseSpn" associationType="none" dataItemName="BASESPN" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="baseSpn" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="OID" associationType="none" dataItemName="SPNCONLOG_ID" parmIndex="2" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="OID" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="status" associationType="none" dataItemName="RUNSTATUS" parmIndex="3" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="status" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="aliasSpn" associationType="none" dataItemName="ALIASSPN" parmIndex="4" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="aliasSpn" propertyType="String" formatString="none" convertWilcard="n" />
+          </FieldMappings>
+        </QueryCallback>
+        <QueryCallback name="AttributeQuery" mappingClassName="mojo.km.context.multidatasource.JDBCSQLMapping" mappingMethodName="retrieve" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="CSSPNCONLOG" connectionName="JDBCMSSQL" eventName="mojo.km.persistence.AttributeEvent" source="CSSPNCONLOG" whereClause="none">
+          <FieldMappings>
+            <FieldMapping name="baseSpn" associationType="none" dataItemName="BASESPN" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="baseSpn" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="OID" associationType="none" dataItemName="SPNCONLOG_ID" parmIndex="2" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="OID" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="status" associationType="none" dataItemName="RUNSTATUS" parmIndex="3" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="status" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="aliasSpn" associationType="none" dataItemName="ALIASSPN" parmIndex="4" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="aliasSpn" propertyType="String" formatString="none" convertWilcard="n" />
+          </FieldMappings>
+        </QueryCallback>
+        <QueryCallback name="AllQuery" mappingClassName="mojo.km.context.multidatasource.JDBCSQLMapping" mappingMethodName="retrieve" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="CSSPNCONLOG" connectionName="JDBCMSSQL" eventName="mojo.km.persistence.AllQueryEvent" source="CSSPNCONLOG" whereClause="none">
+          <FieldMappings>
+            <FieldMapping name="baseSpn" associationType="none" dataItemName="BASESPN" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="baseSpn" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="OID" associationType="none" dataItemName="SPNCONLOG_ID" parmIndex="2" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="OID" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="status" associationType="none" dataItemName="RUNSTATUS" parmIndex="3" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="status" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="aliasSpn" associationType="none" dataItemName="ALIASSPN" parmIndex="4" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="aliasSpn" propertyType="String" formatString="none" convertWilcard="n" />
+          </FieldMappings>
+        </QueryCallback>
+      </QueryCallbacks>
+      <SaveCallbacks>
+        <SaveCallback name="Save" mappingClassName="mojo.km.context.multidatasource.JDBCSQLMapping" mappingMethodName="save" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="CSSPNCONLOG" connectionName="JDBCMSSQL" whereClause="SPNCONLOG_ID=?" source="CSSPNCONLOG">
+         <ParmMappings>
+            <ParmMapping name="OID" dataItemName="SPNCONLOG_ID" parmIndex="7" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="OID" propertyType="Numeric" formatString="none" convertWilcard="n" />
+          </ParmMappings>
+          <FieldMappings>
+            <FieldMapping name="baseSpn" associationType="none" dataItemName="BASESPN" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="baseSpn" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="status" associationType="none" dataItemName="RUNSTATUS" parmIndex="2" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="status" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="aliasSpn" associationType="none" dataItemName="ALIASSPN" parmIndex="3" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="aliasSpn" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="logDetail" associationType="none" dataItemName="LOGDETAIL" parmIndex="4" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="logDetail" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="createUserID" associationType="none" dataItemName="CREATEUSER" parmIndex="5" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="createUserID" propertyType="user" formatString="none" />
+            <FieldMapping name="createJIMS2UserID" associationType="none" dataItemName="CREATEJIMS2USER" parmIndex="6" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="createJIMS2UserID" propertyType="JIMS2User" formatString="none" />
+          </FieldMappings>
+        </SaveCallback>
+      </SaveCallbacks>
+    </EntityMapping>	 
+	 <EntityMapping name="pd.commonfunctionality.spnsplit.SpnSplitException" contextKey="pd.commonfunctionality.spnsplit.SpnSplitException">
+      <QueryCallbacks>
+        <QueryCallback name="OIDQuery" mappingClassName="mojo.km.context.multidatasource.JDBCSQLMapping" mappingMethodName="retrieve" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="CSSPNSPLITEXCP" connectionName="JDBCMSSQL" eventName="mojo.km.persistence.OIDEvent" source="CSSPNSPLITEXCP" whereClause="SPNSPLITEXCP_ID = CAST (? AS INTEGER)">
+          <ParmMappings>
+            <ParmMapping name="OID" dataItemName="SPNSPLITEXCP_ID" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="OID" propertyType="Numeric" formatString="none" convertWilcard="n" />
+          </ParmMappings>
+          <FieldMappings>
+            <FieldMapping name="validDefendantId" associationType="none" dataItemName="VALIDSPN_ID" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="validDefendantId" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="OID" associationType="none" dataItemName="SPNSPLITEXCP_ID" parmIndex="2" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="OID" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="errDefendantId" associationType="none" dataItemName="ERRSPN_ID" parmIndex="3" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="errDefendantId" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="errorCodeId" associationType="none" dataItemName="ERRORCODE_ID" parmIndex="4" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="errorCodeId" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="statusId" associationType="none" dataItemName="STATUSCD" parmIndex="5" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="statusId" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="errMessage" associationType="none" dataItemName="ERRMESSAGE" parmIndex="6" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="errMessage" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="CriminalCaseIds" associationType="none" dataItemName="CRIMINALCASEIDS" parmIndex="7" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="CriminalCaseIds" propertyType="String" formatString="none" convertWilcard="n" />
+			<FieldMapping name="createUserID" associationType="none" dataItemName="CREATEUSER" parmIndex="8" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="createUserID" propertyType="user" formatString="none" />
+            <FieldMapping name="createJIMS2UserID" associationType="none" dataItemName="CREATEJIMS2USER" parmIndex="9" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="createJIMS2UserID" propertyType="JIMS2User" formatString="none" />
+          </FieldMappings>
+        </QueryCallback>
+        <QueryCallback name="AttributeQuery" mappingClassName="mojo.km.context.multidatasource.JDBCSQLMapping" mappingMethodName="retrieve" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="CSSPNSPLITEXCP" connectionName="JDBCMSSQL" eventName="mojo.km.persistence.AttributeEvent" source="CSSPNSPLITEXCP" whereClause="none">
+          <FieldMappings>
+            <FieldMapping name="validDefendantId" associationType="none" dataItemName="VALIDSPN_ID" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="validDefendantId" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="OID" associationType="none" dataItemName="SPNSPLITEXCP_ID" parmIndex="2" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="OID" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="errDefendantId" associationType="none" dataItemName="ERRSPN_ID" parmIndex="3" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="errDefendantId" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="errorCodeId" associationType="none" dataItemName="ERRORCODE_ID" parmIndex="4" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="errorCodeId" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="statusId" associationType="none" dataItemName="STATUSCD" parmIndex="5" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="statusId" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="errMessage" associationType="none" dataItemName="ERRMESSAGE" parmIndex="6" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="errMessage" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="CriminalCaseIds" associationType="none" dataItemName="CRIMINALCASEIDS" parmIndex="7" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="CriminalCaseIds" propertyType="String" formatString="none" convertWilcard="n" />
+			<FieldMapping name="createUserID" associationType="none" dataItemName="CREATEUSER" parmIndex="8" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="createUserID" propertyType="user" formatString="none" />
+            <FieldMapping name="createJIMS2UserID" associationType="none" dataItemName="CREATEJIMS2USER" parmIndex="9" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="createJIMS2UserID" propertyType="JIMS2User" formatString="none" />
+          </FieldMappings>
+        </QueryCallback>
+        <QueryCallback name="AllQuery" mappingClassName="mojo.km.context.multidatasource.JDBCSQLMapping" mappingMethodName="retrieve" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="CSSPNSPLITEXCP" connectionName="JDBCMSSQL" eventName="mojo.km.persistence.AllQueryEvent" source="CSSPNSPLITEXCP" whereClause="none">
+          <FieldMappings>
+            <FieldMapping name="validDefendantId" associationType="none" dataItemName="VALIDSPN_ID" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="validDefendantId" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="OID" associationType="none" dataItemName="SPNSPLITEXCP_ID" parmIndex="2" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="OID" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="errDefendantId" associationType="none" dataItemName="ERRSPN_ID" parmIndex="3" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="errDefendantId" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="errorCodeId" associationType="none" dataItemName="ERRORCODE_ID" parmIndex="4" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="errorCodeId" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="statusId" associationType="none" dataItemName="STATUSCD" parmIndex="5" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="statusId" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="errMessage" associationType="none" dataItemName="ERRMESSAGE" parmIndex="6" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="errMessage" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="CriminalCaseIds" associationType="none" dataItemName="CRIMINALCASEIDS" parmIndex="7" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="CriminalCaseIds" propertyType="String" formatString="none" convertWilcard="n" />
+			<FieldMapping name="createUserID" associationType="none" dataItemName="CREATEUSER" parmIndex="8" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="createUserID" propertyType="user" formatString="none" />
+            <FieldMapping name="createJIMS2UserID" associationType="none" dataItemName="CREATEJIMS2USER" parmIndex="9" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="createJIMS2UserID" propertyType="JIMS2User" formatString="none" />
+          </FieldMappings>
+        </QueryCallback>
+      </QueryCallbacks>
+      <SaveCallbacks>
+        <SaveCallback name="Save" mappingClassName="mojo.km.context.multidatasource.JDBCSQLMapping" mappingMethodName="save" storedProcedureName="none" sequenceNumber="none" subclassSequence="none" subclassRecord="none" tranId="none" fileName="CSSPNSPLITEXCP" connectionName="JDBCMSSQL" whereClause="SPNSPLITEXCP_ID=?" source="CSSPNSPLITEXCP">
+         <ParmMappings>
+            <ParmMapping name="OID" dataItemName="SPNSPLITEXCP_ID" parmIndex="9" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="OID" propertyType="Numeric" formatString="none" convertWilcard="n" />
+          </ParmMappings>
+          <FieldMappings>
+            <FieldMapping name="validDefendantId" associationType="none" dataItemName="VALIDSPN_ID" parmIndex="1" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="validDefendantId" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="errDefendantId" associationType="none" dataItemName="ERRSPN_ID" parmIndex="2" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="errDefendantId" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="errorCodeId" associationType="none" dataItemName="ERRORCODE_ID" parmIndex="3" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="errorCodeId" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="statusId" associationType="none" dataItemName="STATUSCD" parmIndex="4" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="statusId" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="errMessage" associationType="none" dataItemName="ERRMESSAGE" parmIndex="5" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="errMessage" propertyType="String" formatString="none" convertWilcard="n" />
+            <FieldMapping name="CriminalCaseIds" associationType="none" dataItemName="CRIMINALCASEIDS" parmIndex="6" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="CriminalCaseIds" propertyType="String" formatString="none" convertWilcard="n" />
+			<FieldMapping name="createUserID" associationType="none" dataItemName="CREATEUSER" parmIndex="7" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="createUserID" propertyType="user" formatString="none" />
+            <FieldMapping name="createJIMS2UserID" associationType="none" dataItemName="CREATEJIMS2USER" parmIndex="8" format="none" position="0" cardPosition="0" appendFiller="0" codeTableName="none" padChar="none" length="0" text="none" propertyName="createJIMS2UserID" propertyType="JIMS2User" formatString="none" />
+          </FieldMappings>
+        </SaveCallback>
+      </SaveCallbacks>
+    </EntityMapping>
+  </EntityMappings>
+</Mapping>
+

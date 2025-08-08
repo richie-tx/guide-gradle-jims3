@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<Mojo import="testDataMapping.xml">
+  <Servers>
+    <Server name="GUIController" contextClassName="mojo.km.context.multidatasource.GenericContextManager">
+      <EventManager>
+        <Async value="mojo.km.dispatch.CurrentContext.RequestDispatch" />
+        <ClientPubSub value="mojo.km.dispatch.Multicast.MCPubSubStrategy" />
+        <Context value="mojo.km.dispatch.CurrentContext.CurrentContextStrategy" />
+        <PubSub value="mojo.km.dispatch.CurrentContext.CurrentContextStrategy" />
+        <Queue value="mojo.km.dispatch.CurrentContext.RequestDispatch" />
+        <Reply value="mojo.km.dispatch.CurrentContext.ReplyDispatch" />
+        <Request value="mojo.km.dispatch.CurrentContext.RequestDispatch" />
+        <RequestReply value="mojo.km.dispatch.CurrentContext.CurrentContextStrategy" />
+      </EventManager>
+      <LogManager>
+        <APPEXCEPTION value="ERROR" />
+        <ERROR value="WARN" />
+        <ERRSTREAM value="WARN" />
+        <EXCEPTION value="ERROR" />
+        <LoggerAdapter value="mojo.km.logging.log4j.MojoLogStream" />
+        <OUTSTREAM value="INFO" />
+        <RUNTIMEEXCEPTION value="ERROR" />
+        <STACKTRACE value="ERROR" />
+      </LogManager>
+      <Session>
+        <ConnectionPool value="false" />
+        <DbPassword value="devuser7" />
+        <DbURL value="jdbc:oracle:thin:@dc-dbdev.dcdirect.com:1521:dcdev" />
+        <DbUserID value="devuser7" />
+        <DebugMode value="true" />
+        <LastAccessed value="0" />
+        <ProjectClass value="mapping.dcdirectmap" />
+        <WorkflowEnabled value="false" />
+        <LogManager value="mojo.km.logging.log4j.LogManager"/>
+      </Session>
+    </Server>
+  </Servers>
+  <Connections pooling="Yes">
+   <!--	commented out since it's not used right now and it causes errors in the console DJN 06/08/2005
+	<Connection name="JDBC2" driver="COM.ibm.db2.jdbc.app.DB2Driver" userID="archtest" password="test" connectionAdapter="mojo.km.context.multidatasource.JDBCAdapter" URL="jdbc:db2:JIMS2T" port="none" db2SchemaName="none" region="none" pooling="Yes" />
+	<Connection name="J204" driver="com.cca.j204.J204Driver" userID="jiddl" password="jiddl" connectionAdapter="mojo.km.context.multidatasource.J204Adapter" URL="jdbc:j204://10.5.22.104:2505" port="none" db2SchemaName="none" region="none" pooling="Yes" />
+    <Connection name="OracleJDBC" driver="" userID="JIMS2" password="password" connectionAdapter="mojo.km.context.multidatasource.OracleJDBCAdapter" 
+     URL="jdbc:oracle:oci8:@(DESCRIPTION = (ADDRESS_LIST = (ADDRESS = (PROTOCOL = TCP)(HOST = 10.30.79.63)(PORT = 1521))) (CONNECT_DATA = (SERVICE_NAME = GIS.JIMS)))" port="1521" db2SchemaName="none" region="none" pooling="Yes" />
+    <Connection name="JDBCOLD" driver="COM.ibm.db2.jdbc.app.DB2Driver" userID="db2admin" password="db2admin" connectionAdapter="mojo.km.context.multidatasource.JDBCAdapter" URL="jdbc:db2:HCDB2T2" port="none" db2SchemaName="JIMS2" region="none" pooling="Yes" />
+    <Connection name="JDBC" driver="com.ibm.db2.jcc.DB2Driver" userID="db2admin" password="db2admin" connectionAdapter="mojo.km.context.multidatasource.JDBCAdapter" URL="jdbc:db2://10.5.22.104:3016/HCDB2T2" port="none" db2SchemaName="JIMS2" region="none" pooling="Yes" />
+     <Connection name="JDBC" driver="COM.ibm.db2.jdbc.app.DB2Driver" userID="db2admin" password="db2admin" connectionAdapter="mojo.km.context.multidatasource.JDBCAdapter" URL="jdbc:db2:HCDB2T2" port="none" db2SchemaName="JIMS2" region="none" pooling="Yes" />
+   <Connection name="VSAMCTG" driver="none" userID="none" password="none" connectionAdapter="mojo.km.context.multidatasource.VsamCTGAdapter" URL="tcp://10.5.20.94" port="2006" db2SchemaName="none" region="CICT2" pooling="Yes" />
+      -->
+       <Connection name="VSAMCTG" driver="none" userID="none" password="none" connectionAdapter="mojo.km.context.multidatasource.VsamCTGAdapter" URL="tcp://10.5.20.94" port="2006" db2SchemaName="none" region="CICT2" pooling="Yes" />
+  
+	<Connection name="M204" driver="com.cca.j204.J204Driver" userID="jircl1" password="rcl@jims" connectionAdapter="mojo.km.context.multidatasource.M204Adapter" URL="jdbc:j204://10.5.22.104:2505" port="none" db2SchemaName="none" region="none" pooling="Yes" />
+    <Connection name="JDBCOracle" driver="oracle.jdbc.driver.OracleDriver" userID="JIMS2" password="password" connectionAdapter="mojo.km.context.multidatasource.JDBCAdapter" URL="jdbc:oracle:thin:@10.30.79.63:1521:GIS"  port="none" db2SchemaName="SDE" region="none" pooling="Yes" />
+    <Connection name="JDBC" driver="com.ibm.db2.jcc.DB2Driver" userID="db2admin" password="db2admin" connectionAdapter="mojo.km.context.multidatasource.JDBCAdapter" URL="jdbc:db2://10.5.22.104:3016/HCDB2T2" port="none" db2SchemaName="JIMS2" region="none" pooling="Yes" />
+  </Connections>
+  
+  <!-- moved to Security.xml RDS 05/31/2005
+	<Security>
+		<Property name="EnforceSecurity" value="false"/>
+		<Property name="SecurityManagerImpl" value="mojo.km.security.SecurityAdapter"/>
+		<Property name="AuthenticatorImpl" value="mojo.km.security.DummyAuthenticator"/>
+		<Property name="LoginPageURL" value="/appshell/jsp/dlogin.jsp"/>
+		<Property name="AccessDeniedPageURL" value="/appshell/jsp/dlogin.jsp"/>
+		<Property name="UserProfileClass" value="pd.contact.user.UserProfile"/>
+		<Property name="UserProfileSessionKey" value="UserProfile"/>
+		<URLResources>
+			<Resource url="/security.war/displayAgencyCreate.do" requiredFeatures="CreateAgency">
+				<QueryParam name="action" value="create"/>
+			</Resource>
+			<Resource url="/JuvenileWarrants/displayJOTSearchForm.do" requiredFeatures="InitiateDirectiveToApprehend">
+				<QueryParam name="warrantTypeUI" value="dta"/>
+			</Resource>
+			<Resource url="/security.war/displayRoleUpdate.do" requiredFeatures="UpdateRole" requiredUserTypes="MA,SA">
+				<QueryParam name="action" value="modify"/>
+			</Resource>
+			<Resource prefix="/security.war/test/" requiredFeatures="UpdateRole" requiredUserTypes="MA,SA"/>
+		</URLResources>
+		<UnprotectedResources>
+		    <UnprotectedExtension extension=".jpg"/>
+		    <UnprotectedExtension extension=".gif"/>
+		    <UnprotectedExtension extension=".css"/>
+		    <UnprotectedExtension extension=".js"/>
+			<Unprotected url="/appshell/jsp/dlogin.jsp"/>
+			<Unprotected url="/appshell/submitLogin.do"/>
+			<Unprotected url="/appshell/submitLogin"/>
+		</UnprotectedResources>
+		<ConstraintMappings>
+			<ConstraintType type="AGENCY" className="pd.contact.agency.Agency"/>
+			<ConstraintType type="DIVISION" className="pd.contact.agency.Division"/>
+			<ConstraintType type="DEPARTMENT" className="pd.contact.agency.Department"/>
+			<ConstraintType type="ROLE" className="mojo.km.security.Role"/>
+			<ConstraintType type="USER" className="mojo.km.security.User"/>
+			<ConstraintType type="USERGROUP" className="mojo.km.security.UserGroup"/>
+			<ConstraintType type="FEATURE" className="mojo.km.security.Feature"/>
+		</ConstraintMappings>
+	</Security>
+	-->
+</Mojo>
+

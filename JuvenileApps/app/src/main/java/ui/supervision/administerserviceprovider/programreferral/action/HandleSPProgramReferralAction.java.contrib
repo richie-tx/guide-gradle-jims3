@@ -1,0 +1,384 @@
+// Source file:
+// C:\\views\\MJCW\\app\\src\\ui\\supervision\\administerserviceprovider\\programreferral\\action\\HandleSPProgramReferralAction.java
+
+package ui.supervision.administerserviceprovider.programreferral.action;
+
+import java.util.ArrayList;
+import java.util.Collections;
+import java.util.List;
+import java.util.Map;
+
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
+
+import messaging.calendar.CalendarContextEvent;
+import messaging.calendar.GetCalendarServiceEventsEvent;
+import messaging.calendar.GetProgramAttendanceEvent;
+import messaging.calendar.GetProgramReferralServiceEventsEvent;
+import messaging.calendar.ServiceEventAttribute;
+import messaging.calendar.reply.CalendarServiceEventResponseEvent;
+import messaging.calendar.reply.ServiceEventAttendanceResponseEvent;
+import messaging.programreferral.GetProgramReferralDetailsEvent;
+import messaging.programreferral.SaveProgramReferralEvent;
+import messaging.programreferral.reply.ProgramReferralResponseEvent;
+import mojo.km.messaging.EventFactory;
+import mojo.km.messaging.Composite.CompositeResponse;
+import mojo.km.utilities.MessageUtil;
+import naming.JuvenileProgramReferralControllerServiceNames;
+import naming.ProgramReferralConstants;
+import naming.ServiceEventControllerServiceNames;
+import naming.UIConstants;
+
+import org.apache.struts.action.ActionForm;
+import org.apache.struts.action.ActionForward;
+import org.apache.struts.action.ActionMapping;
+
+import ui.action.JIMSBaseAction;
+import ui.juvenilecase.programreferral.ProgramReferralAction;
+import ui.juvenilecase.programreferral.UIProgramReferralBean;
+import ui.juvenilecase.programreferral.form.ProgramReferralForm;
+
+public class HandleSPProgramReferralAction extends JIMSBaseAction 
+{
+	/**
+	 * @roseuid 463BA5490358
+	 */
+	public HandleSPProgramReferralAction() 
+	{
+	}
+
+	/**
+	 * @param aMapping
+	 * @param aForm
+	 * @param aRequest
+	 * @param aResponse
+	 * @return ActionForward
+	 * @roseuid 447F49960111
+	 */
+	public ActionForward acceptWithChanges( ActionMapping aMapping, ActionForm aForm,
+			HttpServletRequest aRequest,HttpServletResponse aResponse)
+	{
+		ProgramReferralForm form = (ProgramReferralForm)aForm;		
+
+		UIProgramReferralBean programReferral = form.getProgramReferral();
+		if( programReferral != null )
+		{
+			programReferral.setCurrentAction(ProgramReferralAction.ACCEPTWITHCHANGES);
+			programReferral.executeAction();
+			form.setAction(UIConstants.UPDATE);
+		}
+
+		return( aMapping.findForward(UIConstants.SUCCESS) );		
+	}
+
+	/**
+	 * @param aMapping
+	 * @param aForm
+	 * @param aRequest
+	 * @param aResponse
+	 * @return ActionForward
+	 * @roseuid 447F49960111
+	 */
+	public ActionForward reject( ActionMapping aMapping, ActionForm aForm,
+			HttpServletRequest aRequest, HttpServletResponse aResponse)
+	{
+		ProgramReferralForm form = (ProgramReferralForm)aForm;		
+
+		UIProgramReferralBean programReferral = form.getProgramReferral();
+		if( programReferral != null )
+		{
+			programReferral.setCurrentAction(ProgramReferralAction.REJECT);
+			programReferral.executeAction();
+			form.setAction(UIConstants.UPDATE);
+		}
+
+		return( aMapping.findForward(UIConstants.SUCCESS) );		
+	}
+
+	/**
+	 * @param aMapping
+	 * @param aForm
+	 * @param aRequest
+	 * @param aResponse
+	 * @return ActionForward
+	 * @roseuid 447F49960111
+	 */
+	public ActionForward addComments( ActionMapping aMapping, ActionForm aForm,
+			HttpServletRequest aRequest, HttpServletResponse aResponse)
+	{
+		ProgramReferralForm form = (ProgramReferralForm)aForm;		
+
+		UIProgramReferralBean programReferral = form.getProgramReferral();
+		if( programReferral != null )
+		{
+			programReferral.setCurrentAction(ProgramReferralAction.ADDCOMMENTS);
+			form.setAction(UIConstants.UPDATE);
+		}
+		
+		return( aMapping.findForward(UIConstants.SUCCESS) );		
+	}
+	
+	/**
+	 * @param aMapping
+	 * @param aForm
+	 * @param aRequest
+	 * @param aResponse
+	 * @return ActionForward
+	 * @roseuid 447F49960111
+	 */
+	public ActionForward accept( ActionMapping aMapping, ActionForm aForm,
+			HttpServletRequest aRequest, HttpServletResponse aResponse)
+	{
+		ProgramReferralForm form = (ProgramReferralForm)aForm;		
+
+		UIProgramReferralBean programReferral = form.getProgramReferral();
+		if( programReferral != null )
+		{
+			programReferral.setCurrentAction(ProgramReferralAction.ACCEPT);
+			programReferral.executeAction();
+			form.setAction(UIConstants.UPDATE);
+		}
+		
+		return( aMapping.findForward(UIConstants.SUCCESS) );		
+	}
+	
+	/**
+	 * @param aMapping
+	 * @param aForm
+	 * @param aRequest
+	 * @param aResponse
+	 * @return ActionForward
+	 * @roseuid 447F49960111
+	 */
+	public ActionForward submitChanges( ActionMapping aMapping, ActionForm aForm,
+			HttpServletRequest aRequest, HttpServletResponse aResponse)
+	{
+		ProgramReferralForm form = (ProgramReferralForm)aForm;
+
+		UIProgramReferralBean programReferral = form.getProgramReferral();
+		if( programReferral != null )
+		{
+			programReferral.executeAction();
+			form.setAction(UIConstants.SUMMARY);
+		}
+		
+		return( aMapping.findForward(UIConstants.SUCCESS) );			
+	}
+	
+	/**
+	 * @param aMapping
+	 * @param aForm
+	 * @param aRequest
+	 * @param aResponse
+	 * @return ActionForward
+	 * @roseuid 447F49960111
+	 */
+	public ActionForward finish( ActionMapping aMapping, ActionForm aForm,
+			HttpServletRequest aRequest, HttpServletResponse aResponse)
+	{
+		ProgramReferralForm form = (ProgramReferralForm)aForm;
+		UIProgramReferralBean programReferral = form.getProgramReferral();
+
+		//<KISHORE>JIMS200057235	MJCW Sch Cal Even and View Cal - Attend Status is incorrect
+		if( programReferral != null )
+		{
+			GetProgramReferralServiceEventsEvent gprs = (GetProgramReferralServiceEventsEvent)
+			EventFactory.getInstance(ServiceEventControllerServiceNames.GETPROGRAMREFERRALSERVICEEVENTS);
+
+			gprs.setJuvenileNum(programReferral.getJuvenileId());
+			gprs.setProgramId(programReferral.getProviderProgramId());
+			gprs.setProgramReferralId(programReferral.getReferralId());
+
+			CompositeResponse compositeResponse = (CompositeResponse)MessageUtil.postRequest(gprs);			
+			List calendarEvents = (List)
+			MessageUtil.compositeToCollection(compositeResponse,CalendarServiceEventResponseEvent.class);
+
+			if( calendarEvents != null )
+			{
+				Collections.sort( (List)calendarEvents );
+				programReferral.setJuvenileEvents(calendarEvents);
+			}
+
+			if( programReferral.getCurrentAction() != null )
+			{
+				programReferral.executeAction();
+			}
+			else
+			{
+				sendToErrorPage( aRequest, "error.generic", "Action type (Accept, Reject, Add Comments, and so on) not specified") ;
+				return( aMapping.findForward(UIConstants.SUCCESS) );			
+			}
+
+			SaveProgramReferralEvent saveRefEvent = programReferral.getSaveProgramReferralEvent();		
+			MessageUtil.postRequest(saveRefEvent);
+			if (programReferral.getReferralTaskInfo()!= null)
+			{
+				programReferral.getReferralTaskInfo().createTask();
+			}
+			
+			if (programReferral.getReferralNoticeInfo()!= null)
+			{
+				programReferral.getReferralNoticeInfo().sendNotification();
+			}
+		}
+		
+		form.setAction(UIConstants.CONFIRM);
+		return( aMapping.findForward(UIConstants.SUCCESS) );			
+	}
+
+	/**
+	 * @param aMapping
+	 * @param aForm
+	 * @param aRequest
+	 * @param aResponse
+	 * @return ActionForward
+	 * @roseuid 447F49960111
+	 */
+	public ActionForward showEventDetails( ActionMapping aMapping, ActionForm aForm,
+			HttpServletRequest aRequest, HttpServletResponse aResponse)
+	{
+		String eventId = aRequest.getParameter("eventId");
+		
+		if( notNullNotEmptyString( eventId ) )
+		{
+			ProgramReferralForm form = (ProgramReferralForm)aForm;
+			ArrayList attributes = new ArrayList();
+			ServiceEventAttribute sa = new ServiceEventAttribute();
+			sa.setServiceEventId(new Integer(eventId));
+			attributes.add(sa);
+			
+			GetCalendarServiceEventsEvent gce =(GetCalendarServiceEventsEvent) 
+					EventFactory.getInstance( ServiceEventControllerServiceNames.GETCALENDARSERVICEEVENTS);
+			
+			CalendarContextEvent context = new CalendarContextEvent();
+			context.setJuvenileId(form.getProgramReferral().getJuvenileId());
+			gce.setCalendarContextEvent(context);
+			
+			gce.setCalendarAttributes(attributes);
+			
+			CompositeResponse response = MessageUtil.postRequest(gce);
+			CalendarServiceEventResponseEvent resp = (CalendarServiceEventResponseEvent)
+					MessageUtil.filterComposite(response, CalendarServiceEventResponseEvent.class);
+			if (resp != null)
+			{
+				form.setCurrentServiceEvent(resp);
+			}			
+		}
+		
+		return( aMapping.findForward(UIConstants.DETAIL_SUCCESS) );
+	}
+	
+	/**
+	 * @param aMapping
+	 * @param aForm
+	 * @param aRequest
+	 * @param aResponse
+	 * @return ActionForward
+	 * @roseuid 447F49960111
+	 */
+	public ActionForward populateOtherReferral( ActionMapping aMapping, ActionForm aForm,
+			HttpServletRequest aRequest, HttpServletResponse aResponse)
+	{
+		String referralId = aRequest.getParameter("referralId");
+
+		UIProgramReferralBean programReferral = null;
+		if( notNullNotEmptyString( referralId ) )
+		{					
+			GetProgramReferralDetailsEvent gpdt = (GetProgramReferralDetailsEvent)
+					EventFactory.getInstance(JuvenileProgramReferralControllerServiceNames.GETPROGRAMREFERRALDETAILS);
+			gpdt.setProgramReferralId(referralId);
+
+			CompositeResponse compositeResponse = MessageUtil.postRequest(gpdt);
+			ProgramReferralResponseEvent respDetail = (ProgramReferralResponseEvent)
+					MessageUtil.filterComposite(compositeResponse,ProgramReferralResponseEvent.class);
+			if (respDetail != null)
+			{
+				programReferral = new UIProgramReferralBean(respDetail);
+				programReferral.setCurrentUserType(ProgramReferralConstants.SP_USER);				
+			}
+		}
+		
+		if (programReferral != null)
+		{
+			GetProgramReferralServiceEventsEvent gprs = (GetProgramReferralServiceEventsEvent)
+					EventFactory.getInstance(ServiceEventControllerServiceNames.GETPROGRAMREFERRALSERVICEEVENTS);
+			gprs.setJuvenileNum(programReferral.getJuvenileId());
+			gprs.setProgramId(programReferral.getProviderProgramId());
+			gprs.setProgramReferralId(programReferral.getReferralId());
+			
+			CompositeResponse compositeResponse = MessageUtil.postRequest(gprs);
+			List calendarEvents = (List)MessageUtil.compositeToCollection(
+					compositeResponse,CalendarServiceEventResponseEvent.class);
+					
+			if( calendarEvents != null )
+			{
+				if( calendarEvents.size() > 1 )
+				{
+					Collections.sort( calendarEvents );
+				}
+				programReferral.setJuvenileEvents(calendarEvents);
+			}
+
+			GetProgramAttendanceEvent gpae = (GetProgramAttendanceEvent) 
+					EventFactory.getInstance(ServiceEventControllerServiceNames.GETPROGRAMATTENDANCE);
+			
+			gpae.setProgramId(programReferral.getProviderProgramId());
+			gpae.setJuvenileNum(programReferral.getJuvenileId());
+
+			compositeResponse = MessageUtil.postRequest(gpae);
+			List attendanceEvents =(List)MessageUtil.compositeToCollection(
+					compositeResponse,ServiceEventAttendanceResponseEvent.class);
+
+			if (attendanceEvents != null)
+			{
+				if( attendanceEvents.size() > 1 )
+				{
+					Collections.sort( attendanceEvents );
+				}
+				programReferral.setExistingReferrals(attendanceEvents);
+			}
+		}// if programReferral != null
+
+		((ProgramReferralForm)aForm).setOtherProgramReferral(programReferral);		
+
+		return( aMapping.findForward(UIConstants.LIST_SUCCESS) );									
+	}	
+
+	/**
+	 * @param aMapping
+	 * @param aForm
+	 * @param aRequest
+	 * @param aResponse
+	 * @return ActionForward
+	 * @roseuid 447F49960111
+	 */
+	public ActionForward returnToReferralList( ActionMapping aMapping, ActionForm aForm,
+			HttpServletRequest aRequest, HttpServletResponse aResponse)
+	{
+		return( aMapping.findForward(UIConstants.CANCEL) );
+	}
+
+	/*
+	 * given a String, return true if it's not null and not empty 
+	 */
+	private boolean notNullNotEmptyString( String str )
+	{
+		return( str != null && (str.length() > 0) ) ;
+	}
+	
+	/* (non-Javadoc) 
+	 * @see ui.action.JIMSBaseAction#addButtonMapping(java.util.Map)
+	 */
+	protected void addButtonMapping(Map keyMap) 
+	{
+		keyMap.put("button.details", "showEventDetails");
+		keyMap.put("prompt.other", "populateOtherReferral");
+		keyMap.put("button.acceptWithChanges", "acceptWithChanges");		
+		keyMap.put("button.reject", "reject");
+		keyMap.put("button.accept", "accept");
+		keyMap.put("button.submit", "submitChanges");
+		keyMap.put("button.finish", "finish");
+		keyMap.put("button.addComments", "addComments");
+		keyMap.put("button.returnToReferralList", "returnToReferralList");
+	}
+}
