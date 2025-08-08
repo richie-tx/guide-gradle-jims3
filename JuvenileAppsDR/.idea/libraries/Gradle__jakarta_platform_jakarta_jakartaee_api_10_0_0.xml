@@ -1,9 +1,0 @@
-<component name="libraryTable">
-  <library name="Gradle: jakarta.platform:jakarta.jakartaee-api:10.0.0" external-system-id="GRADLE">
-    <CLASSES>
-      <root url="jar://$MAVEN_REPOSITORY$/jakarta/platform/jakarta.jakartaee-api/10.0.0/jakarta.jakartaee-api-10.0.0.jar!/" />
-    </CLASSES>
-    <JAVADOC />
-    <SOURCES />
-  </library>
-</component>
