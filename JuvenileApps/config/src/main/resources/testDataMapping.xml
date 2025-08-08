@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Mojo import="DevEnv.xml">
-	<TestMappingFiles>
-	    <TestMappingFile fileName="mojo.km.stubTestPersistenceMapping.xml" />
-	</TestMappingFiles>
-	<TestDataDictionaryFiles>
-	    <TestDataDictionaryFile fileName="testDataDictionary.xml" />
-	</TestDataDictionaryFiles>
-</Mojo>

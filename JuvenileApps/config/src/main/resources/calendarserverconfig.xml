@@ -1,8 +1,0 @@
-<serverconfig>
-  <process name="Scheduler1" 
-     className="mojo.km.scheduling.Scheduler" 
-     configFile="multisource.xml"
-     restart="true">
-     <debug transport="dt_socket" suspend="n" server="y" port="8002"/>
-  </process>
-</serverconfig>

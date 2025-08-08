@@ -1,9 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Survey type="" name="LSIR" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="C:\Views\CommonSupervision\Arch\build\configuration\dev\SurveyV2.xsd">
-	<questionGroup id="LSIR1" name="">
-		<question responseUIControlType="text" id="LSIR_Q1" text="LSI-R Risk Score" rowSequence="1" isRequired="true" isResponseNewLine="false" responseDataType="integer" uiControlSize="2" minValue="0" maxValue="43" isRequiredImageShown="true" columnWidth="1%">
-		</question>
-		<question responseUIControlType="text" id="LSIR_Q2" text="LSI-R Needs Score" rowSequence="2" isRequired="true" isResponseNewLine="false"  responseDataType="integer" uiControlSize="2" minValue="-8" maxValue="60" isRequiredImageShown="true" columnWidth="1%">
-		</question>
-	</questionGroup>
-</Survey>

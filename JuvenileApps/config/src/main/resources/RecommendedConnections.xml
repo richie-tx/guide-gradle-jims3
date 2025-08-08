@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Mojo import="Mapping.xml">
-  <Connections>
-    <Connection name="JDBC" driver="COM.ibm.db2.jdbc.app.DB2Driver" userID="db2admin" password="db2admin" connectionAdapter="mojo.km.context.multidatasource.JDBCAdapter" URL="jdbc:db2:HCDB2Q1" port="3020" db2SchemaName="JIMS2" region="none" pooling="Yes" />
-    <Connection name="VSAMCTG" driver="none" userID="none" password="none" connectionAdapter="mojo.km.context.multidatasource.VsamCTGAdapter" URL="tcp://10.30.80.11" port="2006" db2SchemaName="none" region="CICT2" pooling="No" />
-    <Connection name="M204" driver="com.cca.j204.J204Driver" userID="jircl1" password="rcl@jims" connectionAdapter="mojo.km.context.multidatasource.M204Adapter" URL="jdbc:j204://10.5.22.104:2812" port="none" db2SchemaName="none" region="none" pooling="Yes" />
-  </Connections>
-</Mojo>

@@ -1,8 +1,0 @@
-<?xml version="1.0" encoding="UTF-8"?>
-<Mojo import="QAEnv.xml">
-<Security>
-<Property name="EnforceSecurity" value="true"/>
-<Property name="SecurityManagerImpl" value="mojo.km.security.SecurityAdapter"/>
-</Security>
-</Mojo> 
-
