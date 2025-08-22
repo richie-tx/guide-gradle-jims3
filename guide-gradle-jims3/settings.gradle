@@ -1,0 +1,27 @@
+rootProject.name = 'guide-gradle-jims3'
+// tag::includeJar[]
+include ':jar'
+include ':app'
+include ':config'
+// end::includeJar[]
+// tag::includeWar[]
+include ':war'
+include ':appshell'
+// end::includeWar[]
+// tag::includeEar[]
+include ':ear'
+// end::includeEar[]
+
+// tag::jarDir[]
+project(':jar').projectDir = "$rootDir/jar" as File
+// end::jarDir[]
+// tag::warDir[]
+project(':war').projectDir = "$rootDir/war" as File
+// end::warDir[]
+// tag::earDir[]
+project(':ear').projectDir = "$rootDir/ear" as File
+// end::earDir[]
+
+
+
+

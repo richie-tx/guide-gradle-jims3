@@ -1,0 +1,44 @@
+// tag::allprojects[]
+allprojects  {
+    group = 'io.openliberty.jims3'
+    version = '1.0-SNAPSHOT'
+}
+// end::allprojects[]
+
+subprojects {
+    // tag::java[]
+    apply plugin: 'java'
+    // end::java[]
+
+    // tag::options[]
+    java {
+        sourceCompatibility = JavaVersion.VERSION_21
+        targetCompatibility = JavaVersion.VERSION_21
+    }
+
+    tasks.withType(JavaCompile).configureEach {
+        options.encoding = 'UTF-8'
+        options.release.set(21)
+    }
+    // end::options[]
+
+    // tag::junit[]
+    test {
+        useJUnitPlatform()
+    }
+
+    dependencies {
+        testImplementation platform('org.junit:junit-bom:5.13.0')
+        testImplementation 'org.junit.jupiter:junit-jupiter'
+        testRuntimeOnly 'org.junit.platform:junit-platform-launcher'
+    }
+    // end::junit[]
+
+    // tag::repositories[]
+    repositories {
+        mavenLocal()
+        mavenCentral()
+    }
+    // end::repositories[]
+
+}
