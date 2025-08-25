@@ -1,0 +1,84 @@
+// tag::ear[]
+apply plugin: 'ear'
+apply plugin: 'liberty'
+// end::liberty[]
+
+description = 'EAR Module'
+
+buildscript {
+    repositories {
+        mavenLocal()
+        mavenCentral()
+        maven {
+            name = 'Sonatype Nexus Snapshots'
+            url = 'https://oss.sonatype.org/content/repositories/snapshots/'
+        }
+        flatDir { dirs 'libs' }
+    }
+    dependencies {
+        classpath 'io.openliberty.tools:liberty-gradle-plugin:3.9.3'
+    }
+}
+
+
+dependencies {
+    // tag::war[]
+    //implementation fileTree(dir: 'libs', include: ['*.jar'])
+    deploy project(path:':war', configuration:'archives')
+    deploy project(path:':appshell', configuration:'archives')
+
+    earlib project(':jar')
+    earlib project(':config')
+    earlib project(':app')
+
+    // end::war[]
+}
+
+// tag::earConfig[]
+ear {
+    archiveFileName = rootProject.name + '-' + getArchiveBaseName().get() + '-' +
+                      rootProject.version + '.' + getArchiveExtension().get()
+    deploymentDescriptor {
+        // tag::webModule[]
+        webModule ('guide-gradle-jims3-war-1.0-SNAPSHOT.war', '/converter')
+        webModule ('guide-gradle-jims3-appshell-1.0-SNAPSHOT.war', '/appshell')
+        // end::webModule[]
+    }
+}
+// end::earConfig[]
+
+// tag::libertyConfig[]
+liberty {
+    server {
+        // tag::sampleLibertyServer[]
+        name = 'sampleLibertyServer'
+        // end::sampleLibertyServer[]
+        deploy {
+            apps = [ear]
+            // tag::copyLibsDirectory[]
+            copyLibsDirectory = file("${project.getLayout().getBuildDirectory().getAsFile().get()}/libs")
+            // end::copyLibsDirectory[]
+        }
+        // tag::httpPort[]
+        var.'http.port' = '9080'
+        // end::httpPort[]
+        var.'https.port' = '9443'
+        verifyAppStartTimeout = 30
+        looseApplication = true
+    }
+}
+// end::libertyConfig[]
+
+// tag::test[]
+test {
+    systemProperty 'http.port', liberty.server.var.'http.port'
+    enabled = gradle.startParameter.taskNames.contains('test')
+}
+// end::test[]
+
+// tag::deployDependsOn[]
+deploy.dependsOn 'ear'
+// end::deployDependsOn[]
+// tag::earDependsOn[]
+ear.dependsOn ':jar:jar', ':war:war',':appshell:war',':config:jar',':app:jar'
+// end::earDependsOn[]
