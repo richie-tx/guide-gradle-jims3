@@ -1,0 +1,29 @@
+plugins {
+  id 'war'
+}
+
+description = 'WAR Module'
+
+
+dependencies {
+
+  implementation project(':app')
+  implementation('javax.servlet:javax.servlet-api:4.0.1')
+  implementation("javax.servlet.jsp:jsp-api:2.2.1-b03")
+
+  implementation("org.apache.struts:struts-core:1.3.10")
+  implementation("org.apache.struts:struts-extras:1.3.10")
+  implementation("org.apache.struts:struts-taglib:1.3.10")
+  implementation("org.apache.struts:struts-tiles:1.3.10")
+
+}
+
+war {
+  archiveFileName = rootProject.name + '-' + getArchiveBaseName().get() + '-' +
+          rootProject.version + '.' + getArchiveExtension().get()
+}
+
+war.dependsOn(':app:jar')
+
+
+
