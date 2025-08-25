@@ -1,0 +1,21 @@
+apply plugin: 'war'
+
+description = 'WAR Module'
+
+dependencies {
+    // tag::projectJar[]
+    implementation project(':jar')
+    // end::projectJar[]
+    compileOnly('javax.servlet:javax.servlet-api:4.0.1')
+    compileOnly 'org.eclipse.microprofile:microprofile:7.0'
+}
+
+war {
+    archiveFileName = rootProject.name + '-' + getArchiveBaseName().get() + '-' +
+                      rootProject.version + '.' + getArchiveExtension().get()
+}
+
+// tag::dependsOn[]
+war.dependsOn ':jar:jar'
+// end::dependsOn[]
+

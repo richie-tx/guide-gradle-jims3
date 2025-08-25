@@ -1,0 +1,8 @@
+apply plugin: 'java'
+
+description = 'JAR Module'
+
+jar {
+    archiveFileName = rootProject.name + '-' + getArchiveBaseName().get() + '-' +
+                      rootProject.version + '.' + getArchiveExtension().get()
+}

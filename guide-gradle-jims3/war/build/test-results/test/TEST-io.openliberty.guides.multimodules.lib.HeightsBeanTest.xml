@@ -1,0 +1,7 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<testsuite name="io.openliberty.guides.multimodules.lib.HeightsBeanTest" tests="1" skipped="0" failures="0" errors="0" timestamp="2025-08-08T18:16:46" hostname="US4MHQDY3" time="0.022">
+  <properties/>
+  <testcase name="testGetFeet()" classname="io.openliberty.guides.multimodules.lib.HeightsBeanTest" time="0.022"/>
+  <system-out><![CDATA[]]></system-out>
+  <system-err><![CDATA[]]></system-err>
+</testsuite>
